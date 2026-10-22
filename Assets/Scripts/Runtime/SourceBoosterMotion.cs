@@ -52,9 +52,9 @@ namespace Inkomino
             Vector2 destination=new Vector2(0,1200-201-(headerLayout?headerLayout.Offset:0));yield return SourceMotion.Tween(.330f,t=>{if(particle)particle.rectTransform.anchoredPosition=Vector2.Lerp(BoosterOrigin(1),destination,t);},SourceMotion.OutCubic);
             if(epoch!=presentationEpoch||!root)yield break;Destroy(root.gameObject);frozen=10;TimerChanged();
             var layer=Skin.Fill("Source freeze edge",Effects);var group=layer.gameObject.AddComponent<CanvasGroup>();group.blocksRaycasts=false;
-            var edge=Skin.Art("shell_src_ui_freezeoverlay",layer,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,2400),false);edge.rectTransform.localScale=new Vector3(1.3f,1.8f,1);
+            var edge=MenuUI.Art("ink_bloom",layer,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,1800));edge.color=new Color(1,1,1,.08f);edge.rectTransform.localScale=new Vector3(1.3f,1.8f,1);
             var flakeRoots=new List<RectTransform>();var yBase=new List<float>();var rand=new System.Random(19);
-            for(int i=0;i<24;i++){float x=(i%2==0?1+rand.Next(13):84+rand.Next(13))*.01f*1080-540,y=1200-(4+rand.Next(91))*.01f*2400,size=(13+rand.Next(21))*D;var f=Skin.Art("shell_src_ui_freeze",layer,new Vector2(.5f,.5f),new Vector2(x,y),Vector2.one*size);f.color=new Color(1,1,1,.55f+(float)rand.NextDouble()*.4f);f.rectTransform.localRotation=Quaternion.Euler(0,0,rand.Next(360));flakeRoots.Add(f.rectTransform);yBase.Add(y);}
+            for(int i=0;i<12;i++){float x=(i%2==0?1+rand.Next(13):84+rand.Next(13))*.01f*1080-540,y=1200-(4+rand.Next(91))*.01f*2400,size=(13+rand.Next(21))*D;var f=MenuUI.Art("ink_bloom",layer,new Vector2(.5f,.5f),new Vector2(x,y),Vector2.one*size);f.color=new Color(1,1,1,.12f+(float)rand.NextDouble()*.16f);f.rectTransform.localRotation=Quaternion.Euler(0,0,rand.Next(360));flakeRoots.Add(f.rectTransform);yBase.Add(y);}
             float born=SourceClock.Now;while(epoch==presentationEpoch&&layer&&(frozen>0||SourceClock.Now-born<.220f))
             {float t=SourceClock.Now-born;group.alpha=SourceMotion.OutQuad(t/.220f);for(int i=0;i<flakeRoots.Count;i++){var f=flakeRoots[i];float period=2.6f+.6f*(i%4),phase=Mathf.Max(0,t-i*.300f)/period*Mathf.PI*2;f.anchoredPosition=new Vector2(f.anchoredPosition.x,yBase[i]+Mathf.Sin(phase)*(3+i%5)*D);}yield return null;}
             if(epoch!=presentationEpoch||!layer)yield break;yield return SourceMotion.Tween(.360f,t=>{if(group)group.alpha=1-t;},SourceMotion.OutQuad);if(layer)Destroy(layer.gameObject);TimerChanged();
@@ -91,11 +91,11 @@ namespace Inkomino
         }
         IEnumerator LensArrival(PieceData piece,Vector2 pos,int epoch,bool permanent)
         {
-            var ring=Skin.Rect("Source lens arrival ring",Effects,new Vector2(.5f,.5f),pos,Vector2.one*BoardView.CellSize*.7f);var g=ring.gameObject.AddComponent<SourceCircleRing>();g.color=new Color32(245,166,35,255);g.raycastTarget=false;
+            var ring=Skin.Rect("Source lens arrival ring",Effects,new Vector2(.5f,.5f),pos,Vector2.one*BoardView.CellSize*.7f);var g=ring.gameObject.AddComponent<SourceCircleRing>();g.color=InkTheme.Cinnabar;g.raycastTarget=false;
             StartCoroutine(SourceMotion.Tween(.460f,t=>{if(ring){ring.localScale=Vector3.one*Mathf.Lerp(.5f,1.45f,t);var c=g.color;c.a=t<.15f?t/.15f:1-(t-.15f)/.85f;g.color=c;}},SourceMotion.OutQuad));
             yield return SourceClock.Wait(.090f);if(epoch!=presentationEpoch||!ring||!BoardView)yield break;
             SoundBank.Play("hint_sparkle"); // Original showPick: each newly revealed lens badge.
-            float radius=Mathf.Clamp(BoardView.CellSize/D*.24f,9,19)*D;var badge=Skin.Rect("Source revealed "+piece.shape,Effects,new Vector2(.5f,.5f),pos,Vector2.one*radius*2);Skin.RoundBox(badge,new Vector2(.5f,.5f),Vector2.zero,badge.sizeDelta,new Color32(255,248,220,255),radius);
+            float radius=Mathf.Clamp(BoardView.CellSize/D*.24f,9,19)*D;var badge=Skin.Rect("Source revealed "+piece.shape,Effects,new Vector2(.5f,.5f),pos,Vector2.one*radius*2);Skin.RoundBox(badge,new Vector2(.5f,.5f),Vector2.zero,badge.sizeDelta,InkTheme.Paper,radius);
             var shape=Shapes.Shapes[piece.shape];int rows=shape.cells.Max(x=>x.r)-shape.cells.Min(x=>x.r)+1,cols=shape.cells.Max(x=>x.c)-shape.cells.Min(x=>x.c)+1;float cs=radius*1.38f/Mathf.Max(rows,cols),gap=cs*.12f;var glyph=Skin.Rect("Source mini shape",badge,new Vector2(.5f,.5f),Vector2.zero,new Vector2(cols*cs,rows*cs));foreach(var c in shape.cells)Skin.RoundBox(glyph,new Vector2(0,1),new Vector2((c.c-shape.cells.Min(x=>x.c)+.5f)*cs,-(c.r-shape.cells.Min(x=>x.r)+.5f)*cs),Vector2.one*(cs-gap),Skin.Ink,cs*.16f);
             var cg=badge.gameObject.AddComponent<CanvasGroup>();cg.blocksRaycasts=false;float born=SourceClock.Now;
             while(epoch==presentationEpoch&&badge&&BoardView){float t=SourceClock.Now-born;badge.localScale=Vector3.one*SourceMotion.Spring(t,0,1,90,5);if(!permanent){cg.alpha=t<.190f?1:1-Mathf.Clamp01((t-.190f)/.090f);if(t>=.280f)break;}else if(piece.cells.Any(c=>Board.At(c)!=null))break;yield return null;}

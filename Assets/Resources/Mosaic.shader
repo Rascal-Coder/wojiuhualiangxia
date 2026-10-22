@@ -1,6 +1,6 @@
-Shader "Inkomino/MosaicGlass"
+Shader "Inkomino/InkWash"
 {
-    Properties { [PerRendererData] _MainTex("Facets",2D)="white"{} }
+    Properties { [PerRendererData] _MainTex("Ink grain",2D)="white"{} }
     SubShader
     {
         Tags { "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" "PreviewType"="Plane" }
@@ -16,7 +16,11 @@ Shader "Inkomino/MosaicGlass"
             struct v2f { float4 vertex:SV_POSITION; fixed4 color:COLOR; float2 uv:TEXCOORD0; };
             sampler2D _MainTex;
             v2f vert(appdata v){v2f o;o.vertex=UnityObjectToClipPos(v.vertex);o.color=v.color;o.uv=v.uv;return o;}
-            fixed4 frag(v2f i):SV_Target { fixed4 f=tex2D(_MainTex,i.uv);return fixed4(lerp(i.color.rgb,f.rgb,f.a),i.color.a); }
+            fixed4 frag(v2f i):SV_Target {
+                fixed4 grain=tex2D(_MainTex,i.uv);
+                fixed3 pigment=i.color.rgb*lerp(0.84,1.04,grain.r);
+                return fixed4(pigment,i.color.a*lerp(0.72,0.98,grain.g));
+            }
             ENDCG
         }
     }

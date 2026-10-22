@@ -23,7 +23,7 @@ namespace Inkomino
             var prize=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-885),new Vector2(960,200),true);
             prize.name="Climb prize";
             Skin.Art("shell_src_ui_coinxlarge",prize,new Vector2(0,.5f),new Vector2(112,0),Vector2.one*138);
-            string prizeText=ClimbActivity.AtTop(state)?"登顶奖励  "+ClimbActivity.Prize(state)+" 金币":"共享奖池  1000 金币";
+            string prizeText=ClimbActivity.AtTop(state)?"登顶奖励  "+ClimbActivity.Prize(state)+" 铜钱":"共享奖池  1000 铜钱";
             MenuUI.Label(prizeText,prize,new Vector2(.5f,.5f),new Vector2(75,35),new Vector2(690,70),56,MenuUI.Ink,TextAnchor.MiddleLeft,true);
             string roster=preview?"免费参加 · 连胜七关分享奖励":"挑战进度  "+state.stage+" / 7 关";
             MenuUI.Label(roster,prize,new Vector2(.5f,.5f),new Vector2(75,-38),new Vector2(690,60),42,MenuUI.Muted);
@@ -41,19 +41,20 @@ namespace Inkomino
                 var panel=Skin.Rect("Climb invitation copy",Content,new Vector2(.5f,1),new Vector2(0,-1800),new Vector2(960,280));
                 panel.name="Climb invitation";
                 MenuUI.Label("连续通关 7 关",panel,new Vector2(.5f,.5f),new Vector2(0,83),new Vector2(860,78),60,MenuUI.Ink,TextAnchor.MiddleCenter,true);
-                MenuUI.Label("拼出七级阶梯，分享金币奖池",panel,new Vector2(.5f,.5f),new Vector2(0,1),new Vector2(860,68),48,MenuUI.Ink,TextAnchor.MiddleCenter);
+                MenuUI.Label("拼出七级阶梯，分享铜钱奖池",panel,new Vector2(.5f,.5f),new Vector2(0,1),new Vector2(860,68),48,MenuUI.Ink,TextAnchor.MiddleCenter);
                 MenuUI.Label("挑战失利后，30 分钟可再次出发",panel,new Vector2(.5f,.5f),new Vector2(0,-82),new Vector2(860,62),42,MenuUI.Muted,TextAnchor.MiddleCenter);
             }
             else
             {
-                var map=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-1470),new Vector2(960,940));
+                var map=Skin.Rect("Climb map",Content,new Vector2(.5f,1),new Vector2(0,-1470),new Vector2(960,940));
+                var mist=MenuUI.Art("menu_climb_journey",map,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1060,940));if(mist)mist.color=new Color(1,1,1,.24f);
                 map.name="Climb island route";
                 // Connect the seven original islands before adding their art and
                 // inset labels. No state label extends beyond the map card.
                 for(int i=0;i<6;i++)
                 {
                     Vector2 from=ClimbIslandPoint(i),to=ClimbIslandPoint(i+1),delta=to-from;
-                    var trail=Skin.RoundBox(map,new Vector2(.5f,.5f),(from+to)/2,new Vector2(delta.magnitude,9),i<state.stage?MenuUI.Green:new Color32(216,199,160,255),4.5f);
+                    var trail=Skin.RoundBox(map,new Vector2(.5f,.5f),(from+to)/2,new Vector2(delta.magnitude,9),i<state.stage?MenuUI.Green:new Color32(134,151,133,255),4.5f);
                     trail.rectTransform.localRotation=Quaternion.Euler(0,0,Mathf.Atan2(delta.y,delta.x)*Mathf.Rad2Deg);
                 }
                 for(int i=0;i<7;i++)
@@ -67,7 +68,7 @@ namespace Inkomino
                     }
                     var island=MenuUI.Art("menu_climb_node",map,new Vector2(.5f,.5f),position,new Vector2(340,178));
                     MenuUI.Label((i+1).ToString(),island.transform,new Vector2(.5f,.5f),new Vector2(passed||current?-100:0,12),new Vector2(85,62),50,MenuUI.Ink,TextAnchor.MiddleCenter);
-                    if(!passed&&!current)island.color=new Color(.91f,.87f,.77f,.8f);
+                    if(!passed&&!current)island.color=new Color(.9f,.95f,.9f,.8f);
                     if(i==6)
                     {
                         
@@ -87,7 +88,7 @@ namespace Inkomino
                     if(passed||current)
                     {
                         var sign=Skin.Rect("Climb stage status",island.transform,new Vector2(.5f,.5f),new Vector2(43,12),new Vector2(180,62));
-                        Skin.RoundBox(sign,new Vector2(.5f,.5f),Vector2.zero,sign.sizeDelta,new Color32(255,249,229,250),19);
+                        Skin.RoundBox(sign,new Vector2(.5f,.5f),Vector2.zero,sign.sizeDelta,new Color32(246,243,232,250),19);
                         string caption=passed?"已通过":state.isOut?"待重试":"在这里";
                         MenuUI.Label(caption,sign,new Vector2(.5f,.5f),Vector2.zero,new Vector2(174,60),42,passed?MenuUI.Green:MenuUI.Ink,TextAnchor.MiddleCenter);
                     }
@@ -102,13 +103,12 @@ namespace Inkomino
                 if(ClimbActivity.AtTop(current))
                 {
                     if(current.claimed){ShowHome();return;}
-                    int amount=ClimbActivity.Claim(Store,now);if(amount>0){SoundBank.Play("climb_win");ShowClimb();Info("登顶奖励","已领取 "+amount+" 金币！");}return;
+                    int amount=ClimbActivity.Claim(Store,now);if(amount>0){SoundBank.Play("climb_win");ShowClimb();Info("登顶奖励","已领取 "+amount+" 铜钱！");}return;
                 }
                 if(!current.joined||current.isOut){if(ClimbActivity.Join(Store,now)){SoundBank.Play("climb_join");ShowClimb();}return;}
                 PlayCurrent();
             },64);
             var actionArt=action.transform.Find("Button artwork").GetComponent<CanvasGroup>();
-            MenuUI.Label("金币仅用于游戏内，不可提现",Content,new Vector2(.5f,1),new Vector2(0,-2320),new Vector2(960,65),42,MenuUI.Muted,TextAnchor.MiddleCenter);
             Action tick=()=>
             {
                 if(screen!="climb")return;
@@ -119,7 +119,7 @@ namespace Inkomino
                 string text=!unlocked?"第 41 关开启":ClimbActivity.AtTop(current)?(current.claimed?"返回首页":"领取登顶奖励"):cooling?"等待再次出发":current.isOut?"重新挑战":current.joined?"继续闯关":"开始挑战";
                 foreach(var label in action.GetComponentsInChildren<Text>())label.text=text;
                 action.interactable=unlocked&&!cooling;action.GetComponent<CanvasGroup>().alpha=1;actionArt.alpha=action.interactable?1:.55f;
-                status.text=!unlocked?"第 41 关开启 · 当前第 "+Store.Data.level+" 关":ClimbActivity.AtTop(current)?(current.claimed?"奖励已领取，下一轮再来挑战":"成功登顶！领取你的金币奖励"):cooling?"休整中 · "+RewardCountdown(current.cooldownUntil-SaveStore.Now)+" 后可重试":current.isOut?"准备好了，再向山顶出发":"已通过 "+current.stage+" / 7 关";
+                status.text=!unlocked?"第 41 关开启 · 当前第 "+Store.Data.level+" 关":ClimbActivity.AtTop(current)?(current.claimed?"奖励已领取，下一轮再来挑战":"成功登顶！领取你的铜钱奖励"):cooling?"休整中 · "+RewardCountdown(current.cooldownUntil-SaveStore.Now)+" 后可重试":current.isOut?"准备好了，再向山顶出发":"已通过 "+current.stage+" / 7 关";
                 if(preview&&unlocked)status.text="准备好了，就划这七关";
             };
             motion.Tick=tick;tick();MenuUI.Adapt(Content,headerLayout,first,2350);FocusFirst();
@@ -128,7 +128,7 @@ namespace Inkomino
         {
             var rect=Skin.Rect(ring?"Climb current stage halo":"Climb treasure glow",parent,anchor,position,size);
             var glow=rect.gameObject.AddComponent<ClimbHaloGraphic>();glow.Ring=ring;glow.raycastTarget=false;
-            glow.color=ring?new Color32(217,162,42,120):new Color32(255,190,45,55);return rect;
+            glow.color=ring?new Color32(134,151,133,120):new Color32(100,139,120,35);return rect;
         }
         static Vector2 ClimbIslandPoint(int index){return new Vector2(index%2==0?-165:165,-345+index*120);}
         void ClimbInfo()
@@ -139,7 +139,7 @@ namespace Inkomino
             MenuUI.Label("挑战与重试",panel,new Vector2(.5f,.5f),new Vector2(0,245),new Vector2(820,75),54,MenuUI.Ink,TextAnchor.MiddleLeft,true);
             MenuUI.Label("共 100 名角色，含 99 名模拟对手。\n放弃、退出或重开会结束本轮尝试。\n30 分钟后可重试；接受续关不淘汰。",panel,new Vector2(.5f,.5f),new Vector2(0,75),new Vector2(820,235),48,MenuUI.Ink);
             MenuUI.Label("登顶奖励",panel,new Vector2(.5f,.5f),new Vector2(0,-140),new Vector2(820,75),54,MenuUI.Ink,TextAnchor.MiddleLeft,true);
-            MenuUI.Label("登顶者分享 1000 金币奖池。\n金币仅限本游戏使用，不可提现。\n每天 18:00 开启新一轮，请及时领奖。",panel,new Vector2(.5f,.5f),new Vector2(0,-315),new Vector2(820,235),48,MenuUI.Ink);
+            MenuUI.Label("登顶者分享 1000 铜钱奖池。\n每天 18:00 开启新一轮，请及时领奖。",panel,new Vector2(.5f,.5f),new Vector2(0,-315),new Vector2(820,235),48,MenuUI.Ink);
             Skin.SourceButton("知道了",panel,new Vector2(.5f,0),new Vector2(0,155),new Vector2(680,170),ClosePopup,"green",60);
         }
         string ClimbHomeLabel()

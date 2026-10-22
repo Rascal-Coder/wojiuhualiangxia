@@ -19,14 +19,14 @@ namespace Inkomino
             bool showAd=!full&&RewardEntryEnabled(RewardPlacement.Life);float adSpace=showAd?90:0;
             var panel=Popup(Zh.Lives,943.2f,82*D+areaH+(full?26:16+115+26+adSpace)*D);float width=panel.sizeDelta.x-36*D;
             var area=Skin.Rect("Source lives heart area",panel,new Vector2(.5f,1),new Vector2(0,-82*D-areaH/2),new Vector2(width,areaH));
-            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta,new Color32(220,196,151,255),16*D);
-            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta-Vector2.one*4*D,new Color32(244,229,197,255),14*D);
+            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta,new Color32(134,151,133,255),16*D);
+            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta-Vector2.one*4*D,new Color32(223,229,219,255),14*D);
             var heart=Skin.Rect("Pulsing life",area,new Vector2(.5f,1),new Vector2(0,-79*D),new Vector2(120,110)*D);
             Skin.Art("shell_src_ui_heart",heart,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*96*D);
             var count=Skin.Text(Store.Data.hearts.ToString(),heart,new Vector2(.5f,.5f),new Vector2(0,-2*D),Vector2.one*90*D,Mathf.RoundToInt(44*D),Color.white);
             var label=Skin.Text(full?Zh.LivesFullTitle:Zh.NextLife,area,new Vector2(.5f,1),new Vector2(0,-(full?158:151)*D),new Vector2(width-20*D,28*D),Mathf.RoundToInt((full?20:14)*D),full?MenuUI.Green:MenuUI.Muted);
-            var clock=Skin.Rect("Next life countdown",area,new Vector2(.5f,1),new Vector2(0,-180*D),new Vector2(180,40)*D);Skin.RoundBox(clock,new Vector2(.5f,.5f),Vector2.zero,clock.sizeDelta,new Color32(220,196,151,255),18*D);
-            var dot=Skin.Rect("Rotating clock dot",clock,new Vector2(0,.5f),new Vector2(22*D,0),Vector2.one*28*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta,new Color32(102,204,255,255),14*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta-Vector2.one*6*D,new Color32(68,170,221,255),11*D);
+            var clock=Skin.Rect("Next life countdown",area,new Vector2(.5f,1),new Vector2(0,-180*D),new Vector2(180,40)*D);Skin.RoundBox(clock,new Vector2(.5f,.5f),Vector2.zero,clock.sizeDelta,new Color32(134,151,133,255),18*D);
+            var dot=Skin.Rect("Rotating clock dot",clock,new Vector2(0,.5f),new Vector2(22*D,0),Vector2.one*28*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta,new Color32(120,145,130,255),14*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta-Vector2.one*6*D,new Color32(120,145,130,255),11*D);
             // timerDotText is an em dash (fn12514 @03b5, literal47093).
             Skin.Text("—",dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta,Mathf.RoundToInt(14*D),Color.white);
             var value=Skin.Text("",clock,new Vector2(.5f,.5f),new Vector2(16*D,0),new Vector2(130,30)*D,Mathf.RoundToInt(22*D),MenuUI.Ink);clock.gameObject.SetActive(!full);
@@ -72,7 +72,7 @@ namespace Inkomino
             if(Finished)return;Finished=true;if(!Review&&CurrentLevel>=ClimbActivity.Config.unlockLevel&&Store.Data.climb.joined&&!Store.Data.climb.isOut&&!ClimbActivity.AtTop(Store.Data.climb)){Store.Data.climbPendingFailure=CurrentLevel;Store.Save();}AnimationBusy=false;if(BoardView)BoardView.Cancel();SoundBank.Play("fail");
             var black=Skin.Fill("Source ContinueScreen",Overlays);black.gameObject.AddComponent<Image>().color=MenuUI.Ink;Skin.Art("game_assets_bg",black,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,2400),false);popups.Push(black);
             var motion=Skin.Fill("Failure popup section",black);var group=motion.gameObject.AddComponent<CanvasGroup>();
-            var coin=At(black,"Failure coin top slot",16*D,50*D,150*D,38*D);Skin.RoundBox(coin,new Vector2(.5f,.5f),Vector2.zero,coin.sizeDelta,new Color32(90,78,64,255),19*D);Skin.RoundBox(coin,new Vector2(.5f,.5f),Vector2.zero,coin.sizeDelta-Vector2.one*4*D,Skin.Paper,17*D);Skin.Art("shell_src_ui_coin",coin,new Vector2(0,.5f),new Vector2(19*D,0),Vector2.one*38*D);var coinText=Skin.Text(Store.Data.coins.ToString(),coin,new Vector2(.5f,.5f),new Vector2(10*D,-2*D),new Vector2(110,36)*D,Mathf.RoundToInt(22*D),Skin.Ink);
+            var coin=At(black,"Failure coin top slot",16*D,50*D,150*D,38*D);Skin.RoundBox(coin,new Vector2(.5f,.5f),Vector2.zero,coin.sizeDelta,new Color32(43,59,52,255),19*D);Skin.RoundBox(coin,new Vector2(.5f,.5f),Vector2.zero,coin.sizeDelta-Vector2.one*4*D,Skin.Paper,17*D);Skin.Art("shell_src_ui_coin",coin,new Vector2(0,.5f),new Vector2(19*D,0),Vector2.one*38*D);var coinText=Skin.Text(Store.Data.coins.ToString(),coin,new Vector2(.5f,.5f),new Vector2(10*D,-2*D),new Vector2(110,36)*D,Mathf.RoundToInt(22*D),Skin.Ink);
             // Source full-screen flex: content paddingTop208/bottom24, two
             // equal flexible sections separated by offer marginTop50dp.
             float contentH=2400-232*D,sectionH=(contentH-50*D)/2,centerY=208*D+sectionH/2;
@@ -112,13 +112,13 @@ namespace Inkomino
         void CoreLossSummary(Transform parent,Vector2 topCenter,float width,bool onPaper=true,bool warningFirst=false)
         {
             var heart=Skin.Rect("Loss of one life",parent,new Vector2(.5f,1),topCenter,new Vector2(104,88)*D);Skin.Art("shell_src_ui_heartbroken",heart,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*84*D);
-            var minus=Skin.Rect("Minus one",heart,new Vector2(1,0),new Vector2(8*D,-4*D),Vector2.one*34*D);Skin.RoundBox(minus,new Vector2(.5f,.5f),Vector2.zero,minus.sizeDelta,new Color32(255,68,68,255),17*D);Skin.RoundBox(minus,new Vector2(.5f,.5f),Vector2.zero,minus.sizeDelta-Vector2.one*4*D,new Color32(204,34,34,255),15*D);Skin.Text("-1",minus,new Vector2(.5f,.5f),new Vector2(0,-2*D),minus.sizeDelta,Mathf.RoundToInt(16*D),Color.white);
+            var minus=Skin.Rect("Minus one",heart,new Vector2(1,0),new Vector2(8*D,-4*D),Vector2.one*34*D);Skin.RoundBox(minus,new Vector2(.5f,.5f),Vector2.zero,minus.sizeDelta,new Color32(165,70,56,255),17*D);Skin.RoundBox(minus,new Vector2(.5f,.5f),Vector2.zero,minus.sizeDelta-Vector2.one*4*D,new Color32(165,70,56,255),15*D);Skin.Text("-1",minus,new Vector2(.5f,.5f),new Vector2(0,-2*D),minus.sizeDelta,Mathf.RoundToInt(16*D),Color.white);
             Skin.Text(Zh.ProgressLost,parent,new Vector2(.5f,1),topCenter+(warningFirst?Vector2.up*86*D:Vector2.down*LossLabelOffsetDp*D),new Vector2(width-32*D,LossLabelHeightDp*D),Mathf.RoundToInt(19*D),MenuUI.Ink);
         }
         Button CoreDialogButton(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action,string color,int fontDp,float topMarginDp)
         {
             var b=MenuUI.GameButton(text,parent,anchor,pos,size,action,Mathf.RoundToInt(fontDp*D),color!="red");
-            if(color=="red")foreach(var label in b.GetComponentsInChildren<Text>())label.color=new Color32(155,59,36,255);
+            if(color=="red")foreach(var label in b.GetComponentsInChildren<Text>())label.color=new Color32(165,70,56,255);
             return b;
         }
         static void HideCoreClose(RectTransform panel){foreach(Transform c in panel)if(c.name.StartsWith("shell_src_ui_close",StringComparison.Ordinal))c.gameObject.SetActive(false);}

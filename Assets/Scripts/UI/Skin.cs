@@ -13,16 +13,16 @@ namespace Inkomino
         public const float DP=2.625f;
         public const float BannerHeightDp=151f,BannerFold=.436f;
         static Dictionary<string,Sprite> sprites=new Dictionary<string,Sprite>();
-        public static Color Ink=new Color32(43,36,24,255),Paper=new Color32(251,245,230,255);
+        public static Color Ink=InkTheme.Ink,Paper=InkTheme.Paper;
         static Font latinFont;
-        public static Font Font{get{if(!latinFont)latinFont=Resources.Load<Font>("Fonts/LuckiestGuy-Regular");if(!latinFont)latinFont=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");return latinFont;}}
+        public static Font Font{get{if(!latinFont)latinFont=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");if(!latinFont)latinFont=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");return latinFont;}}
         static Font chineseFont;
-        public static Font ChineseFont{get{if(!chineseFont)chineseFont=Resources.Load<Font>("Fonts/ZCOOLKuaiLe-Regular");return chineseFont?chineseFont:Font;}}
+        public static Font ChineseFont{get{if(!chineseFont)chineseFont=Resources.Load<Font>("Fonts/LiangxiaBrush-Regular");return chineseFont?chineseFont:Font;}}
         public static bool HasChinese(string value){if(string.IsNullOrEmpty(value))return false;foreach(char c in value)if(c>=0x2e80&&c<=0xffef)return true;return false;}
         public static Font FontFor(string value){return HasChinese(value)?ChineseFont:Font;}
         public static RectTransform Rect(string name,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));go.transform.SetParent(parent,false);var r=(RectTransform)go.transform;r.anchorMin=r.anchorMax=anchor;r.pivot=new Vector2(.5f,.5f);r.sizeDelta=size;r.anchoredPosition=pos;return r;}
         public static RectTransform Fill(string name,Transform parent){var r=Rect(name,parent,Vector2.zero,Vector2.zero,Vector2.zero);r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;return r;}
-        public static Sprite Sprite(string key){if(!sprites.ContainsKey(key)){var tex=SourceArt.Texture(key);if(!tex)return null;sprites[key]=UnityEngine.Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(.5f,.5f),100);}return sprites[key];}
+        public static Sprite Sprite(string key){var themed=InkTheme.Sprite(key);if(themed)return themed;if(!sprites.ContainsKey(key)){var tex=SourceArt.Texture(key);if(!tex)return null;sprites[key]=UnityEngine.Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(.5f,.5f),100);}return sprites[key];}
         public static Image Art(string key,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,bool preserve=true){var r=Rect(key,parent,anchor,pos,size);var i=r.gameObject.AddComponent<Image>();i.sprite=Sprite(key);i.preserveAspect=preserve;i.raycastTarget=false;return i;}
         public static Image ColorBox(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color color){var r=Rect("Panel",parent,anchor,pos,size);var i=r.gameObject.AddComponent<Image>();i.color=color;i.raycastTarget=false;return i;}
         public static RoundedGraphic RoundBox(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color color,float radius){var r=Rect("Rounded panel",parent,anchor,pos,size);var g=r.gameObject.AddComponent<RoundedGraphic>();g.color=color;g.Radius=radius;g.raycastTarget=false;return g;}
@@ -62,26 +62,8 @@ namespace Inkomino
         static float RoundDp(float px){return Mathf.Floor(px/DP+.5f)*DP;}
         public static float ButtonFaceCenter(string variant=null){return SourceFrame(variant).Center;}
         public static Button Button(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action,string color="green",int fontSize=64){return SourceButton(text,parent,anchor,pos,size,action,color,fontSize);}
-        public static Button SourceButton(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action,string color="green",int fontSize=64,string variant=null){
-            text=text??"";
-            var r=Rect(text+" button",parent,anchor,pos,size);var artRoot=Fill("Button artwork",r);artRoot.gameObject.AddComponent<CanvasGroup>();var frame=SourceFrame(variant);
-            HSlice(artRoot,"game_assets_btnframe"+frame.frame+"cap","game_assets_btnframe"+frame.frame+"mid",size,frame.aspect);
-            float top=RoundDp(size.y*frame.top),bottom=RoundDp(size.y*frame.bottom),side=RoundDp(size.y*frame.side);
-            var inner=Rect("Face",artRoot,new Vector2(.5f,.5f),new Vector2(0,(bottom-top)/2),new Vector2(Mathf.Max(0,size.x-side*2),Mathf.Max(0,size.y-top-bottom)));
-            inner.gameObject.AddComponent<RectMask2D>();
-            string fill=color;
-            // Difficulty-specific fills are used only for their corresponding colour.
-            if((Variant(variant)=="HARD"&&color=="purple")||(Variant(variant)=="EXTRA_HARD"&&color=="red")||(Variant(variant)=="ULTRA_HARD"&&color=="black"))fill=frame.fill;
-            HSlice(inner,"game_assets_btn"+fill+"cap","game_assets_btn"+fill+"mid",inner.sizeDelta,fill==color?55f/197:frame.fillAspect);
-            // The source's face-centre correction is relative to the ordinary frame.
-            float correction=string.IsNullOrEmpty(variant)?0:Mathf.Round((frame.Center-ButtonFaceCenter())*size.y);
-            float labelY=-correction-3.5f*DP; // FONT_FIX marginTop7 in a centred flex item.
-            var label=SourceLabel(text,r,new Vector2(.5f,.5f),new Vector2(0,HasChinese(text)?0:labelY),new Vector2(Mathf.Max(0,size.x-24*DP),size.y),fontSize,Color.white);
-            label.LetterSpacing=(text.Length<=6?3:text.Length<=9?2:1)*DP;
-            label.CenterInk=HasChinese(text); // Keep Luckiest Guy's line metrics plus the source FONT_FIX.
-            Shadow(label,2*DP);
-            return Hit(r,action,1);
-        }
+        public static Button SourceButton(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action,string color="green",int fontSize=64,string variant=null)
+        {return MenuUI.GameButton(text,parent,anchor,pos,size,action,fontSize,color=="green");}
         static SourceTrackedText SourceLabel(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,int fontSize,Color color){
             var clip=Rect("Label clip",parent,anchor,pos,size);clip.gameObject.AddComponent<RectMask2D>();
             var r=Fill("Label "+text,clip);var label=r.gameObject.AddComponent<SourceTrackedText>();label.font=Font;label.text=text;label.fontSize=fontSize;label.color=color;label.alignment=TextAnchor.MiddleCenter;label.raycastTarget=false;label.horizontalOverflow=HorizontalWrapMode.Overflow;label.verticalOverflow=VerticalWrapMode.Overflow;label.supportRichText=false;label.CenterInk=true;return label;
@@ -95,27 +77,13 @@ namespace Inkomino
             return Hit(r,action,.8f);
         }
         public static Button IconButton(string key,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action){var r=Rect(key+" button",parent,anchor,pos,size);Art(key,r,new Vector2(.5f,.5f),Vector2.zero,size);return Hit(r,action);}
-        public static void PopupPanel(Transform parent,Vector2 size,string color="orange"){
-            string variant=Variant(color);if(variant=="HARD")color="purple";else if(variant=="EXTRA_HARD")color="red";else if(variant=="ULTRA_HARD")color="black";
-            string p="game_assets_popup_pnl"+color;
-            float x=Mathf.Min(33*DP,size.x/2),top=34*DP,bottom=37*DP;
-            if(top+bottom>size.y){float ratio=size.y/(top+bottom);top*=ratio;bottom*=ratio;}
-            float centerW=Mathf.Max(0,size.x-2*x),centerH=Mathf.Max(0,size.y-top-bottom),centerY=(bottom-top)/2;
-            void image(string suffix,Vector2 anchor,Vector2 pos,Vector2 s,float sx=1){var i=Art(p+suffix,parent,anchor,pos,s,false);i.rectTransform.localScale=new Vector3(sx,1,1);}
-            if(centerW>0&&centerH>0)image("c",new Vector2(.5f,.5f),new Vector2(0,centerY),new Vector2(centerW,centerH));
-            image("l",new Vector2(0,.5f),new Vector2(x/2,centerY),new Vector2(x,centerH));image("l",new Vector2(1,.5f),new Vector2(-x/2,centerY),new Vector2(x,centerH),-1);
-            image("t",new Vector2(.5f,1),new Vector2(0,-top/2),new Vector2(centerW,top));image("b",new Vector2(.5f,0),new Vector2(0,bottom/2),new Vector2(centerW,bottom));
-            image("tl",new Vector2(0,1),new Vector2(x/2,-top/2),new Vector2(x,top));image("tl",new Vector2(1,1),new Vector2(-x/2,-top/2),new Vector2(x,top),-1);
-            image("bl",new Vector2(0,0),new Vector2(x/2,bottom/2),new Vector2(x,bottom));image("bl",new Vector2(1,0),new Vector2(-x/2,bottom/2),new Vector2(x,bottom),-1);
-        }
+        public static void PopupPanel(Transform parent,Vector2 size,string color="orange")
+        {MenuUI.Paper(parent,new Vector2(.5f,.5f),Vector2.zero,size,true);}
         public static void Banner(string title,Transform parent,float width){SourceBanner(title,parent,width);}
-        public static RectTransform SourceBanner(string title,Transform parent,float width,string variant=null){
-            string tint="";switch(Variant(variant)){case "HARD":tint="purple";break;case "EXTRA_HARD":tint="red";break;case "ULTRA_HARD":tint="navy";break;}
-            float h=BannerHeightDp*DP;var r=Rect("Banner",parent,new Vector2(.5f,1),new Vector2(0,-8*DP),new Vector2(width+32*DP,h));
-            HSlice(r,"game_assets_popup_bnr"+tint+"cap","game_assets_popup_bnr"+tint+"mid",r.sizeDelta,.9765625f);
-            float labelW=Mathf.Max(0,r.sizeDelta.x-2*66*DP);
-            var label=SourceLabel(title,r,new Vector2(.5f,.5f),new Vector2(0,(.5f-BannerFold)*h-22),new Vector2(labelW,48*DP),Mathf.RoundToInt(32*DP),Color.white);
-            label.LetterSpacing=2*DP;label.MinimumScale=.55f;Shadow(label,2*DP);return r;
+        public static RectTransform SourceBanner(string title,Transform parent,float width,string variant=null)
+        {
+            var r=Rect("Banner",parent,new Vector2(.5f,1),new Vector2(0,-100),new Vector2(width,180));
+            MenuUI.Label(title,r,new Vector2(.5f,.5f),Vector2.zero,new Vector2(width-140,150),72,InkTheme.Ink,TextAnchor.MiddleCenter,true);return r;
         }
     }
     // The source's ordinary buttons use activeOpacity=1. No invented scale/hover tint.

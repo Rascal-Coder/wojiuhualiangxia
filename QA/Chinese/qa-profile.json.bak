@@ -14,8 +14,12 @@
     "haptics": true,
     "drawIntroSeen": true,
     "firstContinueUsed": true,
-    "regenAt": 1792485245,
+    "reducedMenuMotion": false,
+    "regenAt": 1792657780,
     "dailyAt": 0,
+    "lastRewardAdAt": 0,
+    "lastInterstitialAt": 0,
+    "adUsage": [],
     "completed": [
         false,
         false,
@@ -520,5 +524,29 @@
     ],
     "resumeLevel": 23,
     "resumeTime": 98.0,
-    "resumePieces": []
+    "resumePieces": [],
+    "bestStreak": 0,
+    "climbPendingFailure": 0,
+    "climb": {
+        "windowStart": 1792576800,
+        "cooldownUntil": 0,
+        "joined": false,
+        "isOut": false,
+        "claimed": false,
+        "attempt": 0,
+        "stage": 0,
+        "startLevel": 0,
+        "finalBots": 0,
+        "finalCount": 0,
+        "summits": 0,
+        "eliminated": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    }
 }

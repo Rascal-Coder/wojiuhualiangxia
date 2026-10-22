@@ -64,7 +64,7 @@ namespace Inkomino
             Check(app!=null,"application exists");if(!app)yield break;
             app.enabled=false;app.StopAllCoroutines();app.SourceTutorialEnabled=false;AudioListener.volume=0;
             var body=MenuUI.BodyFont;result.bodyFont=body?body.name:"missing";
-            var resource=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");
+            var resource=Resources.Load<Font>("Fonts/LiangxiaInkSerif-Semibold");
             Check(resource&&body==resource&&body!=Skin.ChineseFont,"dedicated readable body font loads instead of display-font fallback");
             foreach(var size in new[]{new Vector2Int(360,800),new Vector2Int(375,812),new Vector2Int(540,836)})
             {
@@ -75,7 +75,7 @@ namespace Inkomino
 
                 Profile(9,8);app.ShowHome();yield return Page("01-home",false);CheckNavigation();CheckCapsule();
                 CheckMenuText("01-home",app.Content,true);CheckButtonsAboveNavigation("01-home");
-                Check(Find("Home puzzle showcase")!=null&&Find("Home level directory")!=null,"home has a coherent puzzle showcase and level entry "+id);
+                Check(Find("Home ink scroll showcase")!=null&&Find("Home level directory")!=null,"home has a coherent puzzle showcase and level entry "+id);
                 Profile(9,8);app.ShowShop();yield return Page("02-shop");yield return CheckExchange();
                 Profile(1,0);app.ShowAchievements(false);yield return Page("03-achievements-zero");
                 Profile(251,250);app.Store.Data.bestStreak=17;app.Store.Data.climb.summits=4;
@@ -99,7 +99,7 @@ namespace Inkomino
                 {
                     rules.Invoke(app,null);yield return Settle();
                     Check(app.Overlays.GetComponentsInChildren<Text>().Any(t=>t.text.Contains("模拟")),"rules disclose simulated opponents "+id);
-                    Check(app.Overlays.GetComponentsInChildren<Text>().Any(t=>t.text.Contains("提现")),"rules explain game-only coins "+id);
+                    Check(!app.Overlays.GetComponentsInChildren<Text>().Any(t=>t.text.Contains("提现")),"rules omit redundant currency disclaimer "+id);
                     CheckMenuText("10-climb-rules",app.Overlays,false);
                     CheckPopupInStage();yield return Capture("10-climb-rules-"+id+".png");app.ClosePopup();
                 }
@@ -163,7 +163,7 @@ namespace Inkomino
             if(require)Check(body.Length>0,page+" has readable body labels "+id);
             Check(labels.All(t=>!t.resizeTextForBestFit),page+" menu text never silently best-fits "+id);
             Check(labels.All(t=>t.fontSize>=42),page+" menu typography follows 42-unit minimum "+id);
-            Check(labels.All(t=>t.font==MenuUI.BodyFont||t.font==Skin.ChineseFont),page+" menu text uses the shared font pair "+id);
+            Check(labels.All(t=>t.font==MenuUI.BodyFont||t.font==MenuUI.NumberFont||t.font==Skin.ChineseFont),page+" menu text uses the shared font pair "+id);
             float minimum=body.Length>0?body.Min(t=>t.fontSize*Mathf.Abs(t.rectTransform.lossyScale.y)):0;
             if(body.Length>0)Check(minimum>=11.8f,page+" rendered body text remains at least 12px "+id);
             result.pages.Add(new PageMetric{page=page,resolution=id,bodyLabels=body.Length,buttons=root.GetComponentsInChildren<Button>().Length,minimumBodyPixels=minimum});

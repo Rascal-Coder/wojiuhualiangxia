@@ -1,0 +1,1 @@
+vertex=60 first=RGBA(191, 177, 116, 255) texture=Ink pigment grain shader=Inkomino/InkWash

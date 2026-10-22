@@ -12,7 +12,7 @@ namespace Inkomino
         string RewardLabel(RewardPlacement placement)
         {
             int amount=AdPlacements.Slot(placement).amount;
-            return placement==RewardPlacement.ContinueLevel?"看视频 +"+amount+"秒":placement==RewardPlacement.Life?"看视频 +"+amount+"生命":placement==RewardPlacement.CoinSupply?"看视频 +"+amount+"金币":placement==RewardPlacement.DoubleCoins?(amount==2?Zh.AdDouble:"看视频 金币×"+amount):"看视频 领取"+amount+"个";
+            return placement==RewardPlacement.ContinueLevel?"看视频 +"+amount+"秒":placement==RewardPlacement.Life?"看视频 +"+amount+"生命":placement==RewardPlacement.CoinSupply?"看视频 +"+amount+"铜钱":placement==RewardPlacement.DoubleCoins?(amount==2?Zh.AdDouble:"看视频 铜钱×"+amount):"看视频 领取"+amount+"个";
         }
         void UpdateHomeTimers()
         {

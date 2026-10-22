@@ -15,7 +15,7 @@ namespace Inkomino
             ClearScreen("game_assets_shopbg");
             Wallet();
             int firstContentChild=Content.childCount;
-            MenuUI.Title("道具商店","攒点金币，给灵感加个油",Content);
+            MenuUI.Title("文房铺","一笔一墨，自有妙用",Content);
 
             string[] icons={"pen","freeze","lens"};
             string[] items={"hint","freeze","lens"};
@@ -33,19 +33,19 @@ namespace Inkomino
 
                 // Jewel-and-gold booster art shares one silhouette scale;
                 // the paper card gives every item one text baseline.
-                Skin.RoundBox(row,top,new Vector2(150,-165),Vector2.one*238,new Color32(242,228,198,255),48);
+                Skin.RoundBox(row,top,new Vector2(150,-165),Vector2.one*238,new Color32(223,229,219,255),48);
                 var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(150,-164),Vector2.one*224);
                 if(tool){MenuMotion.Float(tool.rectTransform,4,1.1f);if(i==0)MenuMotion.Sparkle(tool.rectTransform,3,true);}
                 MenuUI.Label(titles[i],row,top,new Vector2(515,-58),new Vector2(430,72),56,MenuUI.Ink,TextAnchor.MiddleLeft,true);
 
                 var pack=Skin.Rect("Three boosters per pack",row,top,new Vector2(840,-58),new Vector2(170,66));
-                Skin.RoundBox(pack,new Vector2(.5f,.5f),Vector2.zero,pack.sizeDelta,new Color32(238,223,185,255),30);
+                Skin.RoundBox(pack,new Vector2(.5f,.5f),Vector2.zero,pack.sizeDelta,new Color32(223,229,219,255),30);
                 MenuUI.Label("3 个装",pack,new Vector2(.5f,.5f),Vector2.zero,pack.sizeDelta,42,MenuUI.Muted,TextAnchor.MiddleCenter);
 
                 MenuUI.Label(descriptions[i],row,top,new Vector2(600,-134),new Vector2(600,60),48,MenuUI.Muted);
                 MenuUI.Label("已有 "+ShopOwnedCount(counts[i])+" 个",row,top,new Vector2(405,-250),new Vector2(210,65),42,MenuUI.Muted);
 
-                var buy=MenuUI.GameButton(prices[i]+" 金币",row,top,new Vector2(745,-250),new Vector2(360,130),()=>
+                var buy=MenuUI.GameButton(prices[i]+" 铜钱",row,top,new Vector2(745,-250),new Vector2(360,130),()=>
                 {
                     if(Store.Buy(items[index],prices[index]))
                     {
@@ -67,9 +67,9 @@ namespace Inkomino
             if(RewardEntryEnabled(RewardPlacement.CoinSupply))
             {
                 Skin.Art("shell_src_ui_coin",supply,top,new Vector2(87,-71),Vector2.one*78);
-                MenuUI.Label("金币补给",supply,top,new Vector2(310,-71),new Vector2(350,70),54,MenuUI.Ink,TextAnchor.MiddleLeft,true);
+                MenuUI.Label("铜钱补给",supply,top,new Vector2(310,-71),new Vector2(350,70),54,MenuUI.Ink,TextAnchor.MiddleLeft,true);
                 int amount=AdPlacements.Slot(RewardPlacement.CoinSupply).amount;
-                MenuUI.Label("完整观看可领\n+"+amount+" 金币",supply,top,new Vector2(310,-167),new Vector2(350,104),42,MenuUI.Muted);
+                MenuUI.Label("完整观看可领\n+"+amount+" 铜钱",supply,top,new Vector2(310,-167),new Vector2(350,104),42,MenuUI.Muted);
                 var video=RewardButton(RewardPlacement.CoinSupply,"看视频领取",supply,top,new Vector2(715,-130),new Vector2(430,150),RewardCoinSupply,true);
                 // Keep the shared ad button behaviour and icon, but give this
                 // compact shop action the same explicit typography as the page.
@@ -85,8 +85,8 @@ namespace Inkomino
             else
             {
                 Skin.Art("shell_src_ui_coin",supply,top,new Vector2(112,-105),Vector2.one*130);
-                MenuUI.Label("通关攒金币",supply,top,new Vector2(580,-66),new Vector2(710,72),54,MenuUI.Ink,TextAnchor.MiddleLeft,true);
-                MenuUI.Label("完成拼图可获得金币奖励",supply,top,new Vector2(580,-140),new Vector2(710,66),48,MenuUI.Muted);
+                MenuUI.Label("通关攒铜钱",supply,top,new Vector2(580,-66),new Vector2(710,72),54,MenuUI.Ink,TextAnchor.MiddleLeft,true);
+                MenuUI.Label("完成拼图可获得铜钱奖励",supply,top,new Vector2(580,-140),new Vector2(710,66),48,MenuUI.Muted);
             }
 
             MenuUI.Adapt(Content,headerLayout,firstContentChild,2080);

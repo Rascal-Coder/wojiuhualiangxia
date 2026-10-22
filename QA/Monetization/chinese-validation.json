@@ -1,0 +1,1876 @@
+{
+    "status": "PASS",
+    "startedUtc": "2026-10-22T08:17:19.1710240Z",
+    "finishedUtc": "2026-10-22T08:18:07.9464728Z",
+    "engine": "2022.3.62t16",
+    "outputDirectory": "C:/Users/aaa/Documents/Codex/2026-10-20/shi/outputs/InkominoTuanjie/QA/Monetization",
+    "actualRuntimeRender": true,
+    "isolatedQaProfile": true,
+    "defaultEngineSplashExcludedFromCanvasCapture": true,
+    "screenshots": 12,
+    "frames": [
+        {
+            "file": "01-loading-1080x2400.png",
+            "sha256": "4e80c260a1b927b6aad9e1d265fb6dbc62382ea33bed5326f70fa96771487b73",
+            "screen": "启动加载",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 3,
+            "bytes": 1059666,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "我就划两下",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "益\n趣",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "加载中...",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "Source startup loading | ",
+                "source_loading_background |  | Ink xuan paper",
+                "ink_home_hero |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "02-loading-540x836.png",
+            "sha256": "fa8065f7462385ee0f77bc315f3739d6743fb6849f0d0b70dd2ebc513dbfc9e4",
+            "screen": "启动加载小窗口",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 3,
+            "bytes": 212517,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "我就划两下",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "益\n趣",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "加载中",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "Source startup loading | ",
+                "source_loading_background |  | Ink xuan paper",
+                "ink_home_hero |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "03-home-countdown.png",
+            "sha256": "4517338fc5cd683eecb4474ef54669e19e33c7b841a75048f1dde541f311d4f8",
+            "screen": "真实首页倒计时",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 15,
+            "bytes": 1488762,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "00:14:56",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1000",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "我就划两下",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "益\n趣",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "提笔成形，一划入画",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关  ·  查看关卡",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 86,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "每日礼物",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "00:00:01",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "登顶寻宝",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "41关解锁",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "商店",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "成就",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | Ink xuan paper",
+                "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
+                "shell_src_ui_heart |  | Liangxia shared UI atlas",
+                "shell_src_ui_greenbase |  | Liangxia shared UI atlas",
+                "shell_src_ui_plus |  | Liangxia shared UI atlas",
+                "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "game_assets_btnsettings |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "menu_climb_journey |  | Liangxia shared UI atlas",
+                "ink_home_hero |  | Liangxia shared UI atlas",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "shell_src_ui_dailyrewardcardicon |  | Liangxia shared UI atlas",
+                "menu_treasure |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabrank |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "04-shop-ad.png",
+            "sha256": "47b4a7035f23c0cb0b54dcb5e065c622803dbe825ce6141766b6ffb1ff52b886",
+            "screen": "金币补给视频入口",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 26,
+            "bytes": 1635731,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "00:14:52",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1100",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "文房铺",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "一笔一墨，自有妙用",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "灵墨毛笔",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 56,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3 个装",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 3,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "自动完成一块图形",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已有 0 个",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 2,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "150 铜钱",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 2,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "凝时香",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 56,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "暂停倒计时 10 秒",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已有 1 个",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "120 铜钱",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "照形镜",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 56,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "查看两块图形的提示",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "铜钱补给",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 54,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "完整观看可领\n+50 铜钱",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频领取",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "商店",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "成就",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_shopbg |  | Ink xuan paper",
+                "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
+                "shell_src_ui_heart |  | Liangxia shared UI atlas",
+                "shell_src_ui_greenbase |  | Liangxia shared UI atlas",
+                "shell_src_ui_plus |  | Liangxia shared UI atlas",
+                "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "game_assets_btnsettings |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "menu_pen |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "menu_freeze |  | Liangxia shared UI atlas",
+                "menu_lens |  | Liangxia shared UI atlas",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabrank |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "05-ad-unavailable.png",
+            "sha256": "281063806224ad00f23694712ee3771b1de36871de9e5758ddb8486dd49c9a00",
+            "screen": "未配置广告的真实提示",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 29,
+            "bytes": 1310469,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "00:14:44",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1100",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "文房铺",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "一笔一墨，自有妙用",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "灵墨毛笔",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 56,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3 个装",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 3,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "自动完成一块图形",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已有 0 个",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 2,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "150 铜钱",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 2,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "凝时香",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 56,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "暂停倒计时 10 秒",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已有 1 个",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "120 铜钱",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "照形镜",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 56,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "查看两块图形的提示",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "铜钱补给",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 54,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "完整观看可领\n+50 铜钱",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频领取",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "商店",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "成就",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "视频奖励",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "视频暂未就绪，请稍后再试",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "确定",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 65,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_shopbg |  | Ink xuan paper",
+                "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
+                "shell_src_ui_heart |  | Liangxia shared UI atlas",
+                "shell_src_ui_greenbase |  | Liangxia shared UI atlas",
+                "shell_src_ui_plus |  | Liangxia shared UI atlas",
+                "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "game_assets_btnsettings |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "menu_pen |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "menu_freeze |  | Liangxia shared UI atlas",
+                "menu_lens |  | Liangxia shared UI atlas",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabrank |  | Liangxia shared UI atlas",
+                "视频奖励 overlay | ",
+                "shell_src_ui_close |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "06-booster-ad.png",
+            "sha256": "7d486a4fd63c96a091d68bbcbbee067cc93ec95e547d90d01b6d34099e83d53e",
+            "screen": "补道具视频与金币双选择",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 11,
+            "bytes": 1314234,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 76,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "灵墨毛笔",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "凝时香",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "照形镜",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "补充道具",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3个  150 铜钱",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 53,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频 领取1个",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | Ink xuan paper",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "game_assets_btnpause |  | Liangxia shared UI atlas",
+                "menu_pen |  | Liangxia shared UI atlas",
+                "menu_freeze |  | Liangxia shared UI atlas",
+                "menu_lens |  | Liangxia shared UI atlas",
+                "shell_src_ui_greenbase |  | Liangxia shared UI atlas",
+                "shell_src_ui_plus |  | Liangxia shared UI atlas",
+                "补充道具 overlay | ",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas",
+                "game_assets_pen |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "07-life-ad.png",
+            "sha256": "e1c46ecf3c8ee36aed6b559b3138cbf87b39083311acd8d7fe2c4987d444b0be",
+            "screen": "生命奖励与金币补满",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 23,
+            "bytes": 1097777,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "00:14:35",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 2,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1150",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "我就划两下",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "益\n趣",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "提笔成形，一划入画",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关  ·  查看关卡",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 86,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "每日礼物",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "23:59:42",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "登顶寻宝",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "41关解锁",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "商店",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "成就",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "距离恢复下一颗生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "—",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "14:34",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "补满生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "450",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频 +1生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | Ink xuan paper",
+                "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
+                "shell_src_ui_heart |  | Liangxia shared UI atlas",
+                "shell_src_ui_greenbase |  | Liangxia shared UI atlas",
+                "shell_src_ui_plus |  | Liangxia shared UI atlas",
+                "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "game_assets_btnsettings |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "menu_climb_journey |  | Liangxia shared UI atlas",
+                "ink_home_hero |  | Liangxia shared UI atlas",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "shell_src_ui_dailyrewardcardicon |  | Liangxia shared UI atlas",
+                "menu_treasure |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabrank |  | Liangxia shared UI atlas",
+                "生命 overlay | ",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "08-life-small.png",
+            "sha256": "27f6cd4030f6d2efe01c607719b9c1f62d866ceff171817a0c7d8f9ffc3624ca",
+            "screen": "生命弹窗小屏",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 23,
+            "bytes": 210210,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "00:14:33",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 2,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1150",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "我就划两下",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "益\n趣",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "提笔成形，一划入画",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关  ·  查看关卡",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 86,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "每日礼物",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "23:59:40",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "登顶寻宝",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "41关解锁",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "商店",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "成就",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "距离恢复下一颗生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "—",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "14:33",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "补满生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "450",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频 +1生命",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | Ink xuan paper",
+                "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
+                "shell_src_ui_heart |  | Liangxia shared UI atlas",
+                "shell_src_ui_greenbase |  | Liangxia shared UI atlas",
+                "shell_src_ui_plus |  | Liangxia shared UI atlas",
+                "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "game_assets_btnsettings |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "menu_climb_journey |  | Liangxia shared UI atlas",
+                "ink_home_hero |  | Liangxia shared UI atlas",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "shell_src_ui_dailyrewardcardicon |  | Liangxia shared UI atlas",
+                "menu_treasure |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
+                "game_assets_nav_tabrank |  | Liangxia shared UI atlas",
+                "生命 overlay | ",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "09-continue-ad.png",
+            "sha256": "8aa8560c3a2a73419a8171aef6f8adb98c226ca8cda5ff8e205472abd6cd140a",
+            "screen": "失败后视频加时入口",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 16,
+            "bytes": 1357242,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 76,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "灵墨毛笔",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "凝时香",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "照形镜",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 2,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "2",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "时间到了！",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "+60秒",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 76,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续挑战",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "90",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 63,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频 +60秒",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1150",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | Ink xuan paper",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "game_assets_btnpause |  | Liangxia shared UI atlas",
+                "menu_pen |  | Liangxia shared UI atlas",
+                "menu_freeze |  | Liangxia shared UI atlas",
+                "menu_lens |  | Liangxia shared UI atlas",
+                "Source ContinueScreen | ",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "game_assets_extratime |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "10-continue-small.png",
+            "sha256": "eb25747fd76afbedfee1994fcb2d93dc4891ec18bc8eab353848120a425ece36",
+            "screen": "加时入口小屏",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 16,
+            "bytes": 255889,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 76,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "灵墨毛笔",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "凝时香",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "照形镜",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 2,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "2",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "时间到了！",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "+60秒",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 76,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续挑战",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "90",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 63,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频 +60秒",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1150",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | Ink xuan paper",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "Panel | ",
+                "game_assets_btnpause |  | Liangxia shared UI atlas",
+                "menu_pen |  | Liangxia shared UI atlas",
+                "menu_freeze |  | Liangxia shared UI atlas",
+                "menu_lens |  | Liangxia shared UI atlas",
+                "Source ContinueScreen | ",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "game_assets_extratime |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "11-result-double.png",
+            "sha256": "ad864d3200a1be15d96dd09b5099c701cbaa3023bd531973746c03af7a495fbc",
+            "screen": "金币翻倍与普通继续",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 10,
+            "bytes": 1277692,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "太",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "棒",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "了",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "！",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关完成",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 54,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "通关奖励",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 54,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "+5 铜钱",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 68,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "奖励已加入铜钱余额",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "看视频 铜钱翻倍",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | Ink xuan paper",
+                "ink_stamp |  | Liangxia shared UI atlas",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "menu_treasure |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "12-result-claimed.png",
+            "sha256": "40c456b253f9c181d12be667160f791387e51b01b660bdc2f99ef6d8fb7beff7",
+            "screen": "翻倍领取完成",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 10,
+            "bytes": 1238760,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "太",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "棒",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "了",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "！",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 118,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关完成",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 54,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "通关奖励",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 54,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "+10 铜钱",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 68,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "奖励已加入铜钱余额",
+                    "font": "LiangxiaInkSerif-Semibold",
+                    "instances": 1,
+                    "fontSize": 46,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 72,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已翻倍",
+                    "font": "LiangxiaBrush-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | Ink xuan paper",
+                "ink_stamp |  | Liangxia shared UI atlas",
+                "ink_paper |  | Liangxia shared UI atlas",
+                "ink_seal |  | Liangxia shared UI atlas",
+                "menu_treasure |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
+            ]
+        }
+    ],
+    "checks": [
+        {
+            "name": "使用隔离测试存档",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "真实加载页已创建",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载流程由 QA 暂停在真实加载页",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "启动加载 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "启动加载 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载中文字后的圆点真实变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "启动加载小窗口 截图尺寸",
+            "detail": "540x836",
+            "passed": true
+        },
+        {
+            "name": "启动加载小窗口 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载页使用水墨书法标志",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "工程显示名称与游戏名一致",
+            "detail": "我就划两下",
+            "passed": true
+        },
+        {
+            "name": "标题使用真实毛笔字体并完整显示五字游戏名",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载页显示真实加载提示",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载页无伪造百分比或广告文案",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载完成并淡出进入启动目标界面",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "真实启动已加载存档及 500 关",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "首页礼物倒计时随真实秒数变化",
+            "detail": "00:00:02 -> 00:00:01",
+            "passed": true
+        },
+        {
+            "name": "未解锁活动显示41关解锁",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "真实首页倒计时 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "真实首页倒计时 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "礼物到期立即显示可领取",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "领取后进入真实24小时冷却",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "同一礼物不能重复领取",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "礼物领取时刻持久化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币补给视频入口 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "金币补给视频入口 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "未配置广告时不发金币也不扣奖励次数",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "未配置广告的真实提示 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "未配置广告的真实提示 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "完整观看且重复回调只获得一次50金币",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "广告冷却期间不重复发奖",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "补道具视频与金币双选择 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "补道具视频与金币双选择 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "中途关闭视频不发放画笔",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "画笔奖励入口真实接入库存",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "冻结和放大镜各自绑定正确奖励",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "生命奖励与金币补满 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "生命奖励与金币补满 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "生命弹窗小屏 截图尺寸",
+            "detail": "540x836",
+            "passed": true
+        },
+        {
+            "name": "生命弹窗小屏 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "生命奖励只增加一颗并保留恢复时刻",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "失败后视频加时入口 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "失败后视频加时入口 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加时入口小屏 截图尺寸",
+            "detail": "540x836",
+            "passed": true
+        },
+        {
+            "name": "加时入口小屏 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "完成视频恢复同一关并增加60秒且不扣金币",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "异步广告锁定玩法",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "离开关卡后的延迟回调不能复活旧关卡",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "首次通关结算显示视频翻倍",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币翻倍与普通继续 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "金币翻倍与普通继续 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "翻倍仅补差额并锁定按钮，重复回调不重复发奖",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "翻倍领取完成 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "翻倍领取完成 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币补给额度内可请求 0",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币补给额度内可请求 1",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币补给额度内可请求 2",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "每日三次金币补给达到上限",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "跨日恢复额度",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "广告次数和时间持久化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "插屏只在自然结束点触发且重复关闭回调只前进一次",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "插屏180秒冷却期间直接继续",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "刚看激励视频后不叠加插屏",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "新手关不触发插屏",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "交付保持广告位ID留空、插屏默认关闭",
+            "detail": "",
+            "passed": true
+        }
+    ],
+    "errors": [],
+    "method": "真实启动加载流程与 uGUI RenderTexture 截图；仅扫描当前有效且透明度可见的 Text，按文字和字体去重。此检查不声称与原作逐像素一致。引擎默认 Splash 在脚本启动之前，由 PlayerSettings 保留，不能用本运行时 Canvas 截图验证。"
+}

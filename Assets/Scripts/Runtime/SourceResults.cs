@@ -17,6 +17,7 @@ namespace Inkomino
             float width=1080,height=2400,dp=Skin.DP;
             var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(920,240));
             motion.BuildTitle(title,Zh.WellDone,118);
+            var seal=MenuUI.Art("ink_stamp",root,new Vector2(.5f,1),new Vector2(340,-550),new Vector2(170,170));MenuMotion.Celebrate(seal.rectTransform);
             MenuUI.Label(Zh.Level(CurrentLevel)+"完成",root,new Vector2(.5f,1),new Vector2(0,-750),new Vector2(900,80),54,MenuUI.Ink,TextAnchor.MiddleCenter);
 
             // Root title margins: top44, height100, bottom4; root gap8.
@@ -27,8 +28,8 @@ namespace Inkomino
             MenuUI.Label("通关奖励",rewardRoot,new Vector2(.5f,1),new Vector2(0,-75),new Vector2(700,80),54,MenuUI.Ink,TextAnchor.MiddleCenter,true);
             var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,15),Vector2.one*380);
             MenuUI.Art("menu_treasure",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*380);
-            var amount=MenuUI.Label("+"+reward+" 金币",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-240),new Vector2(700,95),68,MenuUI.Ink,TextAnchor.MiddleCenter);
-            MenuUI.Label(Review||reward==0?"已完成的关卡，不重复发放金币":"奖励已加入金币余额",root,new Vector2(.5f,1),new Vector2(0,-1600),new Vector2(940,80),46,MenuUI.Muted,TextAnchor.MiddleCenter);
+            var amount=MenuUI.Label("+"+reward+" 铜钱",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-240),new Vector2(700,95),68,MenuUI.Ink,TextAnchor.MiddleCenter);
+            MenuUI.Label(Review||reward==0?"已完成的关卡，不重复发放铜钱":"奖励已加入铜钱余额",root,new Vector2(.5f,1),new Vector2(0,-1600),new Vector2(940,80),46,MenuUI.Muted,TextAnchor.MiddleCenter);
             motion.Reward=rewardRoot;motion.RewardAlpha=rewardRoot.gameObject.AddComponent<CanvasGroup>();
 
             // Source no-ad branch: module2120 AutoWidthGreenButton, activeOpacity=.85.
@@ -42,7 +43,7 @@ namespace Inkomino
             {
                 buttonRoot.anchoredPosition+=Vector2.down*230;bool doubled=false;int baseReward=reward,epoch=presentationEpoch;Button doubleButton=null;
                 doubleButton=RewardButton(RewardPlacement.DoubleCoins,RewardLabel(RewardPlacement.DoubleCoins),buttonRoot,new Vector2(.5f,.5f),new Vector2(0,buttonH/2+130),new Vector2(790,190),()=>RequestReward(RewardPlacement.DoubleCoins,()=>{
-                    doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra)+" 金币";doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");
+                    doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra)+" 铜钱";doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");
                 },()=>!doubled&&presentationEpoch==epoch&&screen=="result"&&CurrentLevel==level),true);
             }
             motion.Button=buttonRoot;motion.ButtonAlpha=buttonRoot.gameObject.AddComponent<CanvasGroup>();motion.Width=width;
@@ -80,11 +81,8 @@ namespace Inkomino
             for(int i=0;i<text.Length;i++)
             {
                 string ch=text[i]==' '?"\u00A0":text[i].ToString();float advance=TextWidth(text[i].ToString(),fs),u=text.Length>1?(i-(text.Length-1)/2f)/((text.Length-1)/2f):0;
-                var r=Skin.Rect("Title letter "+i,row,new Vector2(.5f,.5f),new Vector2(x+advance/2,(1-u*u)*18*dp-3.5f*dp),new Vector2(advance,100*dp));r.localRotation=Quaternion.Euler(0,0,-u*18);x+=advance;
-                // Source uses text-shadow halos; concentric low-alpha outlines approximate the blur in uGUI.
-                for(int halo=2;halo>=0;halo--){var t=TitleGlyph(ch,r,fs,new Color32(72,12,0,(byte)(35+halo*10)));t.rectTransform.localScale=Vector3.one*1.1f;var o=t.gameObject.AddComponent<Outline>();o.effectColor=t.color;o.effectDistance=Vector2.one*(4+(halo+1)*1.5f)*dp;o.useGraphicAlpha=true;}
-                var stroke=TitleGlyph(ch,r,fs,new Color32(72,12,0,255));stroke.rectTransform.localScale=Vector3.one*1.1f;var outline=stroke.gameObject.AddComponent<Outline>();outline.effectColor=stroke.color;outline.effectDistance=Vector2.one*4*dp;
-                var fill=TitleGlyph(ch,r,fs,new Color32(255,198,46,255));var shadow=fill.gameObject.AddComponent<Shadow>();shadow.effectColor=new Color(72/255f,12/255f,0,.35f);shadow.effectDistance=new Vector2(0,-2*dp);
+                var r=Skin.Rect("Title letter "+i,row,new Vector2(.5f,.5f),new Vector2(x+advance/2,0),new Vector2(advance,100*dp));r.localRotation=Quaternion.identity;x+=advance;
+                TitleGlyph(ch,r,fs,InkTheme.Ink);
                 letters.Add(new Letter{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=i*stagger});
             }
             titleDone=Mathf.Max(0,text.Length-1)*stagger+SpringRest(.3f,1,140,6);
@@ -111,8 +109,8 @@ namespace Inkomino
         readonly List<Bit> bits=new List<Bit>();float begin;
         public void Begin()
         {
-            begin=SourceClock.Now;string[] colors={"#FFD700","#FF4444","#44AAFF","#33CC44","#FF66AA","#FFAA00","#AA44FF","#44FFAA"};var random=new System.Random();Func<float> rand=()=> (float)random.NextDouble();float dp=Skin.DP;
-            for(int i=0;i<40;i++){float size=(7+rand()*7)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.6f+rand()*.8f)),color,2*dp);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.180f,Rise=(350+rand()*350)*dp,RiseDuration=(400+rand()*200)/1000,FallDuration=(900+rand()*500)/1000,Spin=540+rand()*540,X=(.1f+rand()*.8f)*1080};bits.Add(bit);}Apply();
+            begin=SourceClock.Now;string[] colors={"#AD4C3E","#789B85","#BDB18A","#A6BC9D","#B77964","#879F91","#697C70","#D5DBC7"};var random=new System.Random();Func<float> rand=()=> (float)random.NextDouble();float dp=Skin.DP;
+            for(int i=0;i<24;i++){float size=(7+rand()*7)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.6f+rand()*.8f)),color,2*dp);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.180f,Rise=(350+rand()*350)*dp,RiseDuration=(400+rand()*200)/1000,FallDuration=(900+rand()*500)/1000,Spin=540+rand()*540,X=(.1f+rand()*.8f)*1080};bits.Add(bit);}Apply();
         }
         void Update(){Apply();}
         void Apply()

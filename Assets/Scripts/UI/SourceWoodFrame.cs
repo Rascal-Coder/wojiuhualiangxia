@@ -55,9 +55,9 @@ namespace Inkomino
         Texture2D sourceTexture;Rect lastBounds;Vector2 lastOrigin;float lastCell,lastDensity;object lastLevel;Matrix4x4 lastMatrix;
         static readonly float[] A={0,.055f,.15f,.215f,.66f,.74f,.855f,.95f};
         static readonly float[] B={.055f,.15f,.215f,.66f,.74f,.855f,.95f,1};
-        static readonly string[] Profile={"#2E1A0B","#E8A954","#C68A43",null,"#D09449","#5C3616","#7B4920","#281608"};
+        static readonly string[] Profile={"#58695B","#C7D0BC","#B0BDA7",null,"#B2BDA7","#7D907D","#6F806E","#35473C"};
         static readonly float[] BeamInsets={0,.07f,.22f,.34f};
-        static readonly string[] BeamColors={"#3A2310","#E6AB5B","#7B4D23",null};
+        static readonly string[] BeamColors={"#34473D","#CFD8C7","#8B9D87",null};
         public override Texture mainTexture
         {
             get
@@ -155,13 +155,12 @@ namespace Inkomino
                 var cells=new List<int>();for(int i=0;i<n*n;i++)if(state.IsActive(i))cells.Add(i);
                 foreach(var grid in SourceBoardGeometry.Trace(n,cells))
                 {
-                    if(Mode==0)Band(vh,grid,-.7f*w,.3f*w,radius,cs,origin,dp,Co("#AE7335"),false,tw,th,anchor);
-                    if(Mode==1)Band(vh,grid,-.7f*w,.3f*w,radius,cs,origin,dp,Color.white,true,tw,th,anchor);
-                    if(Mode==2)for(int k=0;k<A.Length;k++)
+                    if(Mode==0)Band(vh,grid,-.7f*w,.3f*w,radius,cs,origin,dp,Co("#E3E7DB"),false,tw,th,anchor);
+                    // Ink paper rim uses no wood texture layer.
+                    if(Mode==2)for(int k=0;k<2;k++)
                     {
-                        if(Profile[k]==null)continue;
-                        float mid=((A[k]+B[k])/2-.7f)*w,width=(B[k]-A[k])*w+.6f*dp;
-                        Band(vh,grid,mid-width/2,mid+width/2,radius,cs,origin,dp,Co(Profile[k]),false,tw,th,anchor);
+                        float mid=(k==0?-.67f:.27f)*w,width=1.15f*dp;
+                        Band(vh,grid,mid-width/2,mid+width/2,radius,cs,origin,dp,Co("#61735F"),false,tw,th,anchor);
                     }
                 }
             }

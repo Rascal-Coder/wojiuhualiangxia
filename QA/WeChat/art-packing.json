@@ -1,7 +1,7 @@
 {
     "encoding": "Original PNG/JPG bytes, no resizing or re-encoding",
-    "selected": 150,
-    "excluded": 229,
+    "selected": 139,
+    "excluded": 240,
     "entries": [
         {
             "key": "game_assets_bg",
@@ -851,69 +851,6 @@
             "height": 124
         },
         {
-            "key": "shell_src_ui_climb_island1",
-            "sha256": "e2efd812545fab9fb7c8b2182e6641eccc439ce8bc920a4fb19428840186b77e",
-            "bytes": 33084,
-            "width": 151,
-            "height": 103
-        },
-        {
-            "key": "shell_src_ui_climb_island2",
-            "sha256": "597a0a01254dc1f4086fd6978aa6715d8a454b6ddf92beeea896c2cd8a343de9",
-            "bytes": 41209,
-            "width": 163,
-            "height": 111
-        },
-        {
-            "key": "shell_src_ui_climb_island3",
-            "sha256": "8a72cba76a299ff11fd891af4c88d7bfa6ee734968c27ea13eb09ed6b47789af",
-            "bytes": 46155,
-            "width": 180,
-            "height": 121
-        },
-        {
-            "key": "shell_src_ui_climb_island4",
-            "sha256": "194b85a4d8a8cb9886234aff0f351f19011542263d69e245150dba300fb17921",
-            "bytes": 54523,
-            "width": 194,
-            "height": 135
-        },
-        {
-            "key": "shell_src_ui_climb_island5",
-            "sha256": "5c08c517d55bf34238989167922846c52a7c10828dbaabee39ed02b8fa20d414",
-            "bytes": 59939,
-            "width": 208,
-            "height": 141
-        },
-        {
-            "key": "shell_src_ui_climb_island6",
-            "sha256": "fc353d23c0774122585641858c24e50beb360845028c3fda558fbb8f1c6a82ad",
-            "bytes": 75777,
-            "width": 230,
-            "height": 163
-        },
-        {
-            "key": "shell_src_ui_climb_islandplain",
-            "sha256": "455383119e592d6e252392247c7bc4800996b79bc692fc337a7b0d9b8c32255c",
-            "bytes": 186015,
-            "width": 367,
-            "height": 275
-        },
-        {
-            "key": "shell_src_ui_climb_plaque7",
-            "sha256": "7b61e9dbe8b1bc644e3fffbf30bc1423f5a7ff4dabfdea2b9e8713a2b7b0914a",
-            "bytes": 9621,
-            "width": 89,
-            "height": 53
-        },
-        {
-            "key": "shell_src_ui_climb_treasure",
-            "sha256": "7085e2bebf65f43c5aa97dbb5a082cffd73c4145b993ff582eab25477637e4f8",
-            "bytes": 634640,
-            "width": 730,
-            "height": 596
-        },
-        {
             "key": "shell_src_ui_close",
             "sha256": "bd5552737e64a987e974838c7152c3f7df0f92a4ed7969058b7bfc88721b2618",
             "bytes": 6201,
@@ -954,13 +891,6 @@
             "bytes": 77984,
             "width": 300,
             "height": 300
-        },
-        {
-            "key": "shell_src_ui_freezeoverlay",
-            "sha256": "2baaeaef89ed92e8c10d0e54fe4d69fdb582ea0bfa879aa61d86412f9bab0535",
-            "bytes": 45220,
-            "width": 416,
-            "height": 416
         },
         {
             "key": "shell_src_ui_gameplaysplash",
@@ -1019,13 +949,6 @@
             "height": 57
         },
         {
-            "key": "shell_src_ui_restarticon",
-            "sha256": "0480fd61b78e80fab3a90991a11178964e3154795c031a6a812f9f5932d3b8cc",
-            "bytes": 5618,
-            "width": 105,
-            "height": 121
-        },
-        {
             "key": "shell_src_ui_soundicon",
             "sha256": "7acd7a50b76959b420d60d9ff1bbe6c6baac42f9919238e2242788dd16674582",
             "bytes": 5863,
@@ -1041,17 +964,17 @@
         },
         {
             "key": "source_loading_background",
-            "sha256": "02dfb42e4b9b0da4ac6151e8dc5a087024d48ea85c924905a1a0e1acc5da5fff",
-            "bytes": 2172634,
-            "width": 1024,
-            "height": 2207
+            "sha256": "e09d3b54342b0bdfc5f9a65887b4dd1f2c49c7943a9ceb3f7d50cd428dd9d758",
+            "bytes": 334534,
+            "width": 720,
+            "height": 1560
         },
         {
             "key": "zh_loading_logo",
-            "sha256": "bd7097249ba5967cfa5b25da2dd0a3af2a437f7f83ae494457d4913e85eaae05",
-            "bytes": 1440111,
-            "width": 2169,
-            "height": 725
+            "sha256": "d83ee0af419559fb4d82747fe5f0443a8df0ba262f35cf5ed551840ed32d6d16",
+            "bytes": 18735,
+            "width": 960,
+            "height": 240
         }
     ]
 }

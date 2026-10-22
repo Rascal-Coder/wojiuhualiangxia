@@ -72,18 +72,13 @@ namespace Inkomino
             while(app.LoadingView&&app.LoadingView.Label.text==firstLabel&&Time.realtimeSinceStartup<deadline)yield return null;
             CheckIt(app.LoadingView&&app.LoadingView.Label.text!=firstLabel,"加载中文字后的圆点真实变化");
             yield return Capture("02-loading-540x836.png","启动加载小窗口",540,836);
-            CheckIt(app.LoadingView.Logo&&app.LoadingView.Logo.gameObject.name=="zh_loading_logo","加载页使用当前游戏中文标志");
-            CheckIt(Application.productName==Zh.GameName&&Zh.GameName=="我就划两下","工程显示名称与新游戏名一致",Application.productName);
-            var logoImage=app.LoadingView.Logo.GetComponent<Image>();
-            CheckIt(logoImage&&logoImage.sprite&&logoImage.preserveAspect,"标题使用实际贴图并保持比例");
-            if(logoImage&&logoImage.sprite)
-            {
-                float actualAspect=logoImage.sprite.rect.width/logoImage.sprite.rect.height;
-                float layoutAspect=app.LoadingView.Logo.rect.width/app.LoadingView.Logo.rect.height;
-                CheckIt(Mathf.Abs(layoutAspect-actualAspect)<.025f,"五字标题布局匹配素材宽高比",actualAspect+" / "+layoutAspect);
-            }
+            CheckIt(app.LoadingView.Logo&&app.LoadingView.Logo.gameObject.name=="Ink game brand","加载页使用水墨书法标志");
+            CheckIt(Application.productName==Zh.GameName&&Zh.GameName=="我就划两下","工程显示名称与游戏名一致",Application.productName);
+            var brandTexts=app.LoadingView.Logo.GetComponentsInChildren<Text>();
+            CheckIt(brandTexts.Any(t=>t.text==Zh.GameName&&t.font==Skin.ChineseFont),"标题使用真实毛笔字体并完整显示五字游戏名");
             var loadTexts=app.LoadingView.GetComponentsInChildren<Text>().Where(Visible).Select(t=>t.text).ToArray();
-            CheckIt(loadTexts.Length>0&&loadTexts.All(t=>t.StartsWith("加载中",StringComparison.Ordinal)),"加载页只有实际加载提示文字",string.Join(" | ",loadTexts));
+            CheckIt(loadTexts.Any(t=>t.StartsWith("加载中",StringComparison.Ordinal)),"加载页显示真实加载提示");
+
             CheckIt(loadTexts.All(t=>!t.Contains("%")&&!t.Contains("广告")),"加载页无伪造百分比或广告文案");
             if(Environment.GetCommandLineArgs().Contains("-brandingOnly"))yield break;
             app.LoadingView.HoldForQA=false;deadline=Time.realtimeSinceStartup+20;

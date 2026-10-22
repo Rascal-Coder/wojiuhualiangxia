@@ -1,75 +1,237 @@
 {
-  "date": "2026-10-22",
-  "purpose": "Unified jewel/wood/gold menu asset family",
+  "style": "文房入画 · 水墨国风",
   "assets": [
     {
+      "key": "ink_home_hero",
+      "file": "Assets/Editor/InkArtSource/ink_home_hero.png",
+      "sha256": "307befe7bdbb3f0e575338b56b617dd6c880f242daf0e59129d63f9b38b44c24",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "menu_climb_journey",
+      "file": "Assets/Editor/InkArtSource/menu_climb_journey.png",
+      "sha256": "04c17fd27ce025e870b74591216c0e14c8ccc6707a41c06f4f3661e26b9e0d4d",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
       "key": "menu_pen",
-      "file": "Assets/Editor/MenuArtSource/menu_pen.png",
-      "size": [
-        384,
-        384
-      ],
-      "rgba": true,
-      "alpha_extrema": [
-        0,
-        255
-      ],
-      "bytes": 96535,
-      "sha256": "0678725a10209e7f06e6f9585c465ec72b760fe0e0c3e6634c8afb7d6354e657",
-      "source": "Built-in image_gen; newly generated for this project",
-      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      "file": "Assets/Editor/InkArtSource/menu_pen.png",
+      "sha256": "1b07e72b0f04eb072385d1f28e22a7c81beeca8ff41e6d1d1f71631be04cd4d9",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
     },
     {
       "key": "menu_freeze",
-      "file": "Assets/Editor/MenuArtSource/menu_freeze.png",
-      "size": [
-        384,
-        384
-      ],
-      "rgba": true,
-      "alpha_extrema": [
-        0,
-        255
-      ],
-      "bytes": 163961,
-      "sha256": "a546ff022886938d1a9a386cee8f8063b424642d2de21b35c96312b36a37918c",
-      "source": "Built-in image_gen; newly generated for this project",
-      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      "file": "Assets/Editor/InkArtSource/menu_freeze.png",
+      "sha256": "321cd25d68960f9c63a372ec7b1267d7061e8dbec3a2525ec7cb4f3719177620",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
     },
     {
       "key": "menu_lens",
-      "file": "Assets/Editor/MenuArtSource/menu_lens.png",
-      "size": [
-        384,
-        384
-      ],
-      "rgba": true,
-      "alpha_extrema": [
-        0,
-        255
-      ],
-      "bytes": 143820,
-      "sha256": "30679b7fd1b4ae430090117ec5dc9a6d3677787d31161b3ff50114f7219d59c5",
-      "source": "Built-in image_gen; newly generated for this project",
-      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      "file": "Assets/Editor/InkArtSource/menu_lens.png",
+      "sha256": "4a38a965b2404c8ebdbeb549a16c0de43cf9df98fbe9debf72803bbb7ec00b40",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "menu_treasure",
+      "file": "Assets/Editor/InkArtSource/menu_treasure.png",
+      "sha256": "85e627d5aa09b2b9c51fb44e5b616c342d368d0d3e1177ac569cb933520e5fb5",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
     },
     {
       "key": "menu_achievement_medallion",
-      "file": "Assets/Editor/MenuArtSource/menu_achievement_medallion.png",
-      "size": [
-        256,
-        256
-      ],
-      "rgba": true,
-      "alpha_extrema": [
-        0,
-        255
-      ],
-      "bytes": 97002,
-      "sha256": "0092c0834cbcf1f46f500f5a58c8e6d83f7290848cc035ba047fc29644d69697",
-      "source": "Built-in image_gen; newly generated for this project",
-      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      "file": "Assets/Editor/InkArtSource/menu_achievement_medallion.png",
+      "sha256": "56dd6059fbb7381dd4a779ed9175ff4d90168c0220274577a26653c747700807",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_stamp",
+      "file": "Assets/Editor/InkArtSource/ink_stamp.png",
+      "sha256": "1c8575cdbd8f7740d7e03475a4ee22fd6fb4d78854c57459455d261219d047b4",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_paper",
+      "file": "Assets/Editor/InkArtSource/ink_paper.png",
+      "sha256": "18e3776d3f88566bd56ac5508d693c90358a507ccb1c40e04dc2cff693a37486",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_brush",
+      "file": "Assets/Editor/InkArtSource/ink_brush.png",
+      "sha256": "43b9f1a0e95e5ea8ff8aa6ffe5ab33176dd82cae1fb4eb55826cc55986353312",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_seal",
+      "file": "Assets/Editor/InkArtSource/ink_seal.png",
+      "sha256": "54c8ef1244ce089ea49466eaeb5d36d6557efc00cc1a3c29548f4f1e528a6733",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_bloom",
+      "file": "Assets/Editor/InkArtSource/ink_bloom.png",
+      "sha256": "2310b9466085f177b4532a4b1a0cf5f934821a0b6d6d4253e447e5cc76c7f656",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_avatar0",
+      "file": "Assets/Editor/InkArtSource/ink_avatar0.png",
+      "sha256": "be5867674019322292065488326699d8775be2fca96ce86da67adeeb896bad51",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_avatar1",
+      "file": "Assets/Editor/InkArtSource/ink_avatar1.png",
+      "sha256": "d86c3f70ca17273accdbd03ae557b6f491419be8d5488e975e6d8948d8e59b2f",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_avatar2",
+      "file": "Assets/Editor/InkArtSource/ink_avatar2.png",
+      "sha256": "63f2d3175da8eba0f96d52c4a8912b82a0131d1d26787d028381afe255132a2c",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_avatar3",
+      "file": "Assets/Editor/InkArtSource/ink_avatar3.png",
+      "sha256": "307e6dc0b937074cc4307bede08c16f556589c917931f49b41ecce1fb57609bd",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_close",
+      "file": "Assets/Editor/InkArtSource/ink_close.png",
+      "sha256": "fa36541740a759b8138aacb6ed1c273b32f49bcc54ef6b8a6c7cb1d5716e2bae",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_coin",
+      "file": "Assets/Editor/InkArtSource/ink_coin.png",
+      "sha256": "208cf7597e5596222026fc6abf4250ed4838f6abf34213bd1aaf859590b03f49",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_haptics",
+      "file": "Assets/Editor/InkArtSource/ink_haptics.png",
+      "sha256": "838477ac51b0d853c7bed04ec1e609f0ce4d4b2468e5fa9a6ff67f710566189d",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_heart",
+      "file": "Assets/Editor/InkArtSource/ink_heart.png",
+      "sha256": "77328d561f4752e82557b9f5c13b50829be39584e243a856c3031c40eb5aab64",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_heartbroken",
+      "file": "Assets/Editor/InkArtSource/ink_heartbroken.png",
+      "sha256": "f103fe23f77ed6f040911687730251e2a34af7401c99711397cc679d957efc46",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_home",
+      "file": "Assets/Editor/InkArtSource/ink_home.png",
+      "sha256": "140c4a13de171956b3147eb514d1a4c8b1cc6a115f92c0eb686b1180fec18fb7",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_info",
+      "file": "Assets/Editor/InkArtSource/ink_info.png",
+      "sha256": "f74fc1629d4139b134b641f2a1b9f79a84c2a109d54ebfb69167742f91e30570",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_lock",
+      "file": "Assets/Editor/InkArtSource/ink_lock.png",
+      "sha256": "f59fe7739f08e69ed87dfe77460e20a349b00d12e3602d874f4d19eb56c3362c",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_music",
+      "file": "Assets/Editor/InkArtSource/ink_music.png",
+      "sha256": "4e8b5eda3886882ad802cfd10c5f818544970206a2ce64b655347a6a2d34aa3d",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_pause",
+      "file": "Assets/Editor/InkArtSource/ink_pause.png",
+      "sha256": "bf2f4f86c16ac759ea58ce0d69d6a5cdd84608e9eb8573e62bcb20585f020671",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_plus",
+      "file": "Assets/Editor/InkArtSource/ink_plus.png",
+      "sha256": "61a549c075782650f325d5e26cd0e9fa593c30b2341825ebf5785d59cb6db2e3",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_settings",
+      "file": "Assets/Editor/InkArtSource/ink_settings.png",
+      "sha256": "5807eb0b0782dcfe40147265ca45589c7127963d2f3c378d54079d0c2916489c",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_shop",
+      "file": "Assets/Editor/InkArtSource/ink_shop.png",
+      "sha256": "25d5589ebddb37f068680a1dc875605f68aad0890c0fd9a0e1909bed70b5efda",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_sound",
+      "file": "Assets/Editor/InkArtSource/ink_sound.png",
+      "sha256": "bec2e7eccf5dfae21d495c66bc7e06f4265623e33c2357ddef59f542b35cea42",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_time",
+      "file": "Assets/Editor/InkArtSource/ink_time.png",
+      "sha256": "490a8af1f1e5be2e16f09320caaadf2338706db97918b0af686fed91843c1d2d",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "ink_video",
+      "file": "Assets/Editor/InkArtSource/ink_video.png",
+      "sha256": "bae894e708a1ed28060a3827fee08896d9b446835c2c32f4ad0c226ed274d669",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
+    },
+    {
+      "key": "menu_climb_node",
+      "file": "Assets/Editor/InkArtSource/ink_paper.png",
+      "sha256": "18e3776d3f88566bd56ac5508d693c90358a507ccb1c40e04dc2cff693a37486",
+      "source": "built-in image_gen / editable functional pictogram; see generation prompt manifest",
+      "runtime": "shared 1024 sprite sheet"
     }
   ],
-  "packing": "Editor-only original sources, runtime sprites share menu_ui_atlas"
+  "packing": "Editor-only sources; shared runtime atlas"
 }

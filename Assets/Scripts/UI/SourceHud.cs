@@ -31,8 +31,8 @@ namespace Inkomino
             public bool Animate;
         }
         readonly List<Card> cards=new List<Card>();
-        static readonly Color Ink=new Color32(43,38,34,255),Paper=new Color32(251,245,230,255);
-        static readonly Color Orange=new Color32(226,128,58,255),Green=new Color32(62,164,99,255);
+        static readonly Color Ink=new Color32(43,59,52,255),Paper=new Color32(246,243,232,255);
+        static readonly Color Orange=new Color32(134,151,133,255),Green=new Color32(56,99,83,255);
         BoardState board; RectTransform holder,generated; float d,lastWidth=-1;
         const float WidthDp=68,HeightDp=86,GapDp=8;
 
@@ -56,19 +56,16 @@ namespace Inkomino
                 card.Root=Skin.Rect("Target "+id,generated,new Vector2(0,1),Vector2.zero,new Vector2(WidthDp,HeightDp)*d);
                 card.Root.pivot=new Vector2(0,1);card.Group=card.Root.gameObject.AddComponent<CanvasGroup>();
                 card.Group.interactable=false;card.Group.blocksRaycasts=false;
-                var outline=Skin.RoundBox(card.Root,new Vector2(.5f,.5f),Vector2.zero,card.Root.sizeDelta,new Color32(190,151,87,255),10*d);
-                var shadow=outline.gameObject.AddComponent<SourceBlurShadow>();
-                shadow.ShadowColor=new Color(90/255f,78/255f,64/255f,.28f);shadow.Offset=new Vector2(0,-2*d);shadow.BlurRadius=3*d;
-                Skin.RoundBox(card.Root,new Vector2(.5f,.5f),Vector2.zero,card.Root.sizeDelta-Vector2.one*(4*d),Paper,8*d);
+                MenuUI.Paper(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta);
                 ShapeData shape;
                 if(board.Library.Shapes.TryGetValue(id,out shape)&&shape.cells!=null&&shape.cells.Length>0)
                 {
-                    float gap=Mathf.Max(d,cell*.12f),step=cell+gap;
+                    float gap=0,step=cell;
                     int minC=shape.cells.Min(x=>x.c),minR=shape.cells.Min(x=>x.r);
                     int columns=shape.cells.Max(x=>x.c)-minC+1,rows=shape.cells.Max(x=>x.r)-minR+1;
                     float gw=columns*cell+(columns-1)*gap,gh=rows*cell+(rows-1)*gap;
                     var glyph=Skin.Rect("ShapeGlyph "+id,card.Root,new Vector2(.5f,1),new Vector2(0,-32*d),new Vector2(gw,gh));
-                    foreach(var c in shape.cells)Skin.RoundBox(glyph,new Vector2(0,1),new Vector2((c.c-minC)*step+cell/2,-(c.r-minR)*step-cell/2),Vector2.one*cell,Ink,Mathf.Max(2*d,cell*.16f));
+                    foreach(var c in shape.cells)Skin.RoundBox(glyph,new Vector2(0,1),new Vector2((c.c-minC)*step+cell/2,-(c.r-minR)*step-cell/2),Vector2.one*cell,Ink,d*.6f);
                 }
                 Skin.ColorBox(card.Root,new Vector2(.5f,1),new Vector2(0,-58.5f*d),new Vector2(46*d,d),new Color(Ink.r,Ink.g,Ink.b,.22f));
                 card.CountRoot=Skin.Rect("CountSlot",card.Root,new Vector2(.5f,1),new Vector2(0,-71*d),new Vector2(64,22)*d);

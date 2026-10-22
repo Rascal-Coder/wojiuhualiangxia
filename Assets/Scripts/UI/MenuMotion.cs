@@ -464,22 +464,22 @@ namespace Inkomino
             int start=vh.currentVertCount;
             float radius=Mathf.Max(20,Mathf.Min(rect.rect.width,rect.rect.height)*.45f)*Mathf.Lerp(.65f,1.15f,t);
             byte alpha=(byte)(Mathf.Sin(t*Mathf.PI)*32);
-            vh.AddVert(Vector3.zero,new Color32(255,209,86,alpha),Vector2.zero);
+            vh.AddVert(Vector3.zero,new Color32(102,135,116,alpha),Vector2.zero);
             for(int i=0;i<=20;i++)
             {
                 float angle=i*Mathf.PI*2/20;
-                vh.AddVert(new Vector3(Mathf.Cos(angle)*radius,Mathf.Sin(angle)*radius,0),new Color32(255,219,132,0),Vector2.zero);
+                vh.AddVert(new Vector3(Mathf.Cos(angle)*radius,Mathf.Sin(angle)*radius,0),new Color32(145,169,146,0),Vector2.zero);
             }
             for(int i=0;i<20;i++)vh.AddTriangle(start,start+i+1,start+i+2);
         }
         static void AddStar(VertexHelper vh,Vector2 center,float radius,float rotation,float alpha)
         {
             int start=vh.currentVertCount;byte a=(byte)(Mathf.Clamp01(alpha)*255);
-            vh.AddVert(center,new Color32(255,248,202,a),Vector2.zero);
+            vh.AddVert(center,new Color32(173,76,62,a),Vector2.zero);
             for(int i=0;i<8;i++)
             {
-                float angle=rotation+i*Mathf.PI/4,length=radius*(i%2==0?1:.25f);
-                vh.AddVert(center+new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*length,new Color32(255,194,55,a),Vector2.zero);
+                float angle=rotation+i*Mathf.PI/4,length=radius*(i%2==0?1:.72f);
+                vh.AddVert(center+new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*length,new Color32(101,132,112,a),Vector2.zero);
             }
             for(int i=0;i<8;i++)vh.AddTriangle(start,start+i+1,start+(i+1)%8+1);
         }

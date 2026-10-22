@@ -117,35 +117,21 @@ namespace Inkomino
         {
             // Decode only the initial screen's images. Shop, other avatars and
             // board art are loaded on demand instead of blocking the home screen.
-            return home?new[]{
-                "game_assets_homebg","game_assets_levelsignmosaic","game_assets_btnsettings",
-                "game_assets_event_frame","game_assets_event_ribboncap","game_assets_event_ribbonmid",
-                "game_assets_btnframecap","game_assets_btnframemid",
-                "game_assets_nav_barc","game_assets_nav_bart","game_assets_nav_barl","game_assets_nav_bartl",
-                "game_assets_nav_tabactive","game_assets_nav_tabhome","game_assets_nav_tabshop","game_assets_nav_tabrank",
-                "shell_src_ui_heart","shell_src_ui_coin","shell_src_ui_greenbase","shell_src_ui_plus",
-                "shell_src_ui_dailyrewardcardicon","shell_src_ui_avatars_avatar_1"
-            }:new[]{
-                "game_assets_bg","game_assets_paper","game_assets_wood","game_assets_facets","game_assets_facetsb","game_assets_facetsc",
-                "game_assets_btnpause","game_assets_pen","game_assets_freeze","game_assets_lens","shell_src_ui_tutorialhand"
-            };
+            return home?new[]{"game_assets_homebg"}:new[]{"game_assets_bg","game_assets_paper","game_assets_wood","game_assets_facets","shell_src_ui_tutorialhand"};
         }
         public static SourceLoadingView Create(RectTransform stage)
         {
             var root=Skin.Fill("Source startup loading",stage);var view=root.gameObject.AddComponent<SourceLoadingView>();view.begin=Time.unscaledTime;
-            var backdrop=root.gameObject.AddComponent<Image>();backdrop.color=new Color32(253,241,216,255);backdrop.raycastTarget=true;
+            var backdrop=root.gameObject.AddComponent<Image>();backdrop.color=InkTheme.Paper;backdrop.raycastTarget=true;
             view.Group=root.gameObject.AddComponent<CanvasGroup>();view.Group.blocksRaycasts=true;
             var clip=Skin.Fill("Original loading artwork viewport",root);clip.gameObject.AddComponent<RectMask2D>();
             float cover=Mathf.Max(1080f/1024,2400f/2207),drawWidth=1024*cover,drawHeight=2207*cover;
             Skin.Art("source_loading_background",clip,new Vector2(.5f,.5f),Vector2.zero,new Vector2(drawWidth,drawHeight),false);
             float dp=Skin.DP,windowW=1080/dp,windowH=2400/dp;
-            var logoTexture=SourceArt.Texture("zh_loading_logo");
-            float logoAspect=logoTexture?(float)logoTexture.width/logoTexture.height:3f;
-            float widthDp=Mathf.Floor(windowW*.84f+.5f),heightDp=Mathf.Floor(widthDp/logoAspect+.5f);
-            float leftDp=Mathf.Floor((windowW-widthDp)/2+.5f),topDp=Mathf.Floor(windowH*.47f-heightDp/2+.5f);
-            view.Logo=Skin.Art("zh_loading_logo",root,new Vector2(0,1),new Vector2((leftDp+widthDp/2)*dp,-(topDp+heightDp/2)*dp),new Vector2(widthDp,heightDp)*dp).rectTransform;
-            float labelTop=(topDp+heightDp+10)*dp;
-            view.Label=Skin.Text("加载中",root,new Vector2(.5f,1),new Vector2(0,-labelTop-60),new Vector2(920,120),Mathf.RoundToInt(32*Skin.DP),new Color32(107,94,74,255),4*Skin.DP);
+            view.Logo=InkTheme.Brand(root,new Vector2(.5f,1),new Vector2(0,-990),new Vector2(950,240));
+            MenuUI.Art("ink_home_hero",root,new Vector2(.5f,1),new Vector2(0,-1500),new Vector2(1080,720));
+            view.Label=MenuUI.Label("加载中",root,new Vector2(.5f,1),new Vector2(0,-1990),new Vector2(920,120),48,InkTheme.Muted,TextAnchor.MiddleCenter);
+
             // The publisher overlay is omitted at the user's request. The
             // engine's default startup splash remains in PlayerSettings.
             return view;

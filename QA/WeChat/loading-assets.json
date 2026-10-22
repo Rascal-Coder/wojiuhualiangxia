@@ -3,11 +3,11 @@
         {
             "key": "backgroundImage",
             "source": "images/background.jpg",
-            "cacheFile": "inkomino_boot_ee88b4672db843d5.jpg",
-            "sha256": "ee88b4672db843d57b164c5deeaf62e096e3bf91881bdba71a85dd980687db80",
-            "bytes": 8917,
-            "width": 563,
-            "height": 1218
+            "cacheFile": "inkomino_boot_a4ec1396507caf60.jpg",
+            "sha256": "a4ec1396507caf60100964038b8601b685b65c3d203c40e1898d06de0d76547a",
+            "bytes": 74408,
+            "width": 720,
+            "height": 1560
         },
         {
             "key": "iconImage",

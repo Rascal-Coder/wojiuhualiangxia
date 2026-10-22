@@ -1,80 +1,313 @@
 {
   "status": "PASS",
-  "tool": "built-in image_gen",
   "texture": "Assets/Resources/MenuArt/menu_ui_atlas.bytes",
   "size": [
     1024,
     1024
   ],
   "gpu_rgba_bytes": 4194304,
-  "encoded_bytes": 842308,
-  "sha256": "571fc34322face38bbc819c572b6203bb0ae39404e62a305b9ea9262862901c5",
-  "padding": "4px minimum transparent padding; no mipmaps, bilinear clamp; sprite rectangles use bottom-left coordinates",
+  "encoded_bytes": 1068354,
+  "sha256": "00721e5b20ffd713f577f17caa9107dc1c416395d512b26fd03aa183f9227419",
   "regions": [
     {
-      "key": "menu_climb_journey",
+      "key": "ink_home_hero",
       "x": 4,
-      "y": 519,
-      "width": 752,
-      "height": 501,
-      "source": "Assets/Editor/MenuArtSource/menu_climb_journey.png",
-      "generated": true
+      "y": 720,
+      "width": 504,
+      "height": 300,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_home_hero.png"
     },
     {
-      "key": "menu_treasure",
-      "x": 764,
-      "y": 764,
-      "width": 256,
-      "height": 256,
-      "source": "Assets/Editor/MenuArtSource/menu_treasure.png",
-      "generated": true
-    },
-    {
-      "key": "menu_achievement_medallion",
-      "x": 780,
-      "y": 532,
-      "width": 224,
-      "height": 224,
-      "source": "Assets/Editor/MenuArtSource/menu_achievement_medallion.png",
-      "generated": false
+      "key": "menu_climb_journey",
+      "x": 516,
+      "y": 720,
+      "width": 504,
+      "height": 300,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/menu_climb_journey.png"
     },
     {
       "key": "menu_pen",
       "x": 4,
-      "y": 188,
-      "width": 320,
-      "height": 320,
-      "source": "Assets/Editor/MenuArtSource/menu_pen.png",
-      "generated": false
+      "y": 552,
+      "width": 160,
+      "height": 160,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/menu_pen.png"
     },
     {
       "key": "menu_freeze",
-      "x": 336,
-      "y": 188,
-      "width": 320,
-      "height": 320,
-      "source": "Assets/Editor/MenuArtSource/menu_freeze.png",
-      "generated": false
+      "x": 172,
+      "y": 552,
+      "width": 160,
+      "height": 160,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/menu_freeze.png"
     },
     {
       "key": "menu_lens",
-      "x": 668,
-      "y": 188,
-      "width": 320,
-      "height": 320,
-      "source": "Assets/Editor/MenuArtSource/menu_lens.png",
-      "generated": false
+      "x": 340,
+      "y": 552,
+      "width": 160,
+      "height": 160,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/menu_lens.png"
+    },
+    {
+      "key": "menu_treasure",
+      "x": 4,
+      "y": 384,
+      "width": 160,
+      "height": 160,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/menu_treasure.png"
+    },
+    {
+      "key": "menu_achievement_medallion",
+      "x": 172,
+      "y": 384,
+      "width": 160,
+      "height": 160,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/menu_achievement_medallion.png"
+    },
+    {
+      "key": "ink_stamp",
+      "x": 340,
+      "y": 384,
+      "width": 160,
+      "height": 160,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_stamp.png"
+    },
+    {
+      "key": "ink_paper",
+      "x": 520,
+      "y": 472,
+      "width": 496,
+      "height": 240,
+      "border": 48,
+      "source": "Assets/Editor/InkArtSource/ink_paper.png"
+    },
+    {
+      "key": "ink_brush",
+      "x": 520,
+      "y": 344,
+      "width": 496,
+      "height": 120,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_brush.png"
+    },
+    {
+      "key": "ink_seal",
+      "x": 520,
+      "y": 176,
+      "width": 160,
+      "height": 160,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_seal.png"
+    },
+    {
+      "key": "ink_bloom",
+      "x": 688,
+      "y": 144,
+      "width": 192,
+      "height": 192,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_bloom.png"
+    },
+    {
+      "key": "ink_avatar0",
+      "x": 4,
+      "y": 304,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_avatar0.png"
+    },
+    {
+      "key": "ink_avatar1",
+      "x": 76,
+      "y": 304,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_avatar1.png"
+    },
+    {
+      "key": "ink_avatar2",
+      "x": 148,
+      "y": 304,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_avatar2.png"
+    },
+    {
+      "key": "ink_avatar3",
+      "x": 220,
+      "y": 304,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_avatar3.png"
+    },
+    {
+      "key": "ink_close",
+      "x": 292,
+      "y": 304,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_close.png"
+    },
+    {
+      "key": "ink_coin",
+      "x": 364,
+      "y": 304,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_coin.png"
+    },
+    {
+      "key": "ink_haptics",
+      "x": 436,
+      "y": 304,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_haptics.png"
+    },
+    {
+      "key": "ink_heart",
+      "x": 4,
+      "y": 232,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_heart.png"
+    },
+    {
+      "key": "ink_heartbroken",
+      "x": 76,
+      "y": 232,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_heartbroken.png"
+    },
+    {
+      "key": "ink_home",
+      "x": 148,
+      "y": 232,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_home.png"
+    },
+    {
+      "key": "ink_info",
+      "x": 220,
+      "y": 232,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_info.png"
+    },
+    {
+      "key": "ink_lock",
+      "x": 292,
+      "y": 232,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_lock.png"
+    },
+    {
+      "key": "ink_music",
+      "x": 364,
+      "y": 232,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_music.png"
+    },
+    {
+      "key": "ink_pause",
+      "x": 436,
+      "y": 232,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_pause.png"
+    },
+    {
+      "key": "ink_plus",
+      "x": 4,
+      "y": 160,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_plus.png"
+    },
+    {
+      "key": "ink_settings",
+      "x": 76,
+      "y": 160,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_settings.png"
+    },
+    {
+      "key": "ink_shop",
+      "x": 148,
+      "y": 160,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_shop.png"
+    },
+    {
+      "key": "ink_sound",
+      "x": 220,
+      "y": 160,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_sound.png"
+    },
+    {
+      "key": "ink_time",
+      "x": 292,
+      "y": 160,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_time.png"
+    },
+    {
+      "key": "ink_video",
+      "x": 364,
+      "y": 160,
+      "width": 64,
+      "height": 64,
+      "border": 0,
+      "source": "Assets/Editor/InkArtSource/ink_video.png"
     },
     {
       "key": "menu_climb_node",
-      "x": 4,
-      "y": 4,
-      "width": 320,
-      "height": 168,
-      "source": "Assets/Editor/MenuArtSource/menu_climb_node.png",
-      "generated": true
+      "x": 520,
+      "y": 472,
+      "width": 496,
+      "height": 240,
+      "border": 48,
+      "source": "Assets/Editor/InkArtSource/ink_paper.png"
     }
   ],
+  "padding": "4px transparent inset and 8px gutters; bilinear clamp; no mipmaps",
   "source_images_ship": false,
   "original_audio_untouched": true
 }

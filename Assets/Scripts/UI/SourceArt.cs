@@ -12,6 +12,7 @@ namespace Inkomino
         public static string SlowestDecodeKey{get;private set;}
         public static Texture2D Texture(string key)
         {
+            var themed=InkTheme.Texture(key);if(themed)return themed;
 #if WEIXINMINIGAME && !UNITY_EDITOR
             Texture2D texture;
             if(textures.TryGetValue(key,out texture))return texture;

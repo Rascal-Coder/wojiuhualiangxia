@@ -80,7 +80,7 @@ namespace Inkomino
         // The source profile has five entries. Its hammer hint is omitted here
         // because this port has no start-of-level hammer. Extra time describes
         // the implemented +60-second continuation, rather than a new booster.
-        static readonly string[] titles={"画笔","时间冻结","放大镜","额外时间"};
+        static readonly string[] titles={"灵墨毛笔","凝时香","照形镜","额外时间"};
         static readonly string[] descriptions={
             "自动为你画出一个正确形状，并将它固定。",
             "暂停倒计时10秒，安心规划下一步。",
@@ -97,7 +97,7 @@ namespace Inkomino
             view.TipIndex=tipIndex<0?Random.Range(0,titles.Length):Mathf.Clamp(tipIndex,0,titles.Length-1);
             view.TipTitle=titles[view.TipIndex];
             var blocker=root.gameObject.AddComponent<Image>();
-            blocker.color=new Color32(29,78,216,255);blocker.raycastTarget=true;
+            blocker.color=InkTheme.Paper;blocker.raycastTarget=true;
             view.Group=root.gameObject.AddComponent<CanvasGroup>();view.Group.blocksRaycasts=true;view.Group.interactable=false;
             var clip=Skin.Fill("Source gameplay artwork viewport",root);clip.gameObject.AddComponent<RectMask2D>();
             var background=Skin.Art("shell_src_ui_gameplaysplash",clip,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,2400),false);
@@ -116,46 +116,24 @@ namespace Inkomino
             var arc=Skin.Rect("Source curved splash title",view.Title,new Vector2(.5f,1),new Vector2(0,-arcHeight/2),new Vector2(1080-32*dp,arcHeight));
             BuildArcTitle(arc,view.TipTitle,fs,Mathf.Round(fs*.35f));
             view.Description=Skin.Text(descriptions[view.TipIndex],view.Title,new Vector2(.5f,1),
-                new Vector2(0,-arcHeight-margin-descriptionHeight/2),new Vector2(1080-48*dp,descriptionHeight),Mathf.RoundToInt(18*dp),Color.white,dp);
+                new Vector2(0,-arcHeight-margin-descriptionHeight/2),new Vector2(1080-48*dp,descriptionHeight),Mathf.RoundToInt(18*dp),InkTheme.Ink,dp);
             view.Description.font=Skin.ChineseFont;
-            SourceBlurShadow.Attach(view.Description,new Color(0,0,0,.55f),new Vector2(0,-2*dp),4*dp);
+
 
             view.Icon=Skin.Rect("Source splash icon spring",root,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*220*dp);
             view.iconAlpha=view.Icon.gameObject.AddComponent<CanvasGroup>();
             Skin.Art(icons[view.TipIndex],view.Icon,new Vector2(.5f,.5f),Vector2.zero,view.Icon.sizeDelta);
             var loading=Skin.Rect("Source gameplay loading label",root,new Vector2(.5f,0),new Vector2(0,288+18*dp),new Vector2(940,36*dp));
             view.labelAlpha=loading.gameObject.AddComponent<CanvasGroup>();
-            view.Label=Skin.Text("加载中……",loading,new Vector2(.5f,.5f),Vector2.zero,loading.sizeDelta,Mathf.RoundToInt(24*dp),Color.white,3*dp);
+            view.Label=Skin.Text("加载中……",loading,new Vector2(.5f,.5f),Vector2.zero,loading.sizeDelta,Mathf.RoundToInt(24*dp),InkTheme.Muted,0);
             view.Label.font=Skin.ChineseFont;
-            SourceBlurShadow.Attach(view.Label,new Color(0,0,0,.6f),new Vector2(0,-2*dp),5*dp);
+
             view.ApplyAtElapsed(0);
             return view;
         }
 
         static void BuildArcTitle(RectTransform root,string text,int fontSizeDp,float depthDp)
-        {
-            float dp=Skin.DP;int fontSize=Mathf.RoundToInt(fontSizeDp*dp);
-            float total=SourceResultMotion.TextWidth(text,fontSize),x=-total/2;
-            var row=Skin.Rect("Source splash arc glyph row",root,new Vector2(.5f,.5f),Vector2.zero,new Vector2(total,root.sizeDelta.y));
-            row.localScale=Vector3.one*Mathf.Min(1,(root.sizeDelta.x-32*dp)/Mathf.Max(1,total));
-            for(int i=0;i<text.Length;i++)
-            {
-                string ch=text[i].ToString();float advance=SourceResultMotion.TextWidth(ch,fontSize);
-                float u=text.Length>1?(i-(text.Length-1)/2f)/((text.Length-1)/2f):0;
-                var letter=Skin.Rect("Source splash title glyph "+i,row,new Vector2(.5f,.5f),new Vector2(x+advance/2,(1-u*u)*depthDp*dp),new Vector2(advance,root.sizeDelta.y));
-                letter.localRotation=Quaternion.Euler(0,0,-u*18);x+=advance;
-                for(int j=0;j<16;j++)
-                {
-                    float angle=j*Mathf.PI/8;
-                    var stroke=ArcGlyph(ch,letter,fontSize,new Color32(217,119,6,255));
-                    stroke.rectTransform.localScale=Vector3.one*1.12f;
-                    stroke.rectTransform.anchoredPosition=new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*8*dp;
-                }
-                var fill=ArcGlyph(ch,letter,fontSize,new Color32(255,248,231,255));
-                SourceBlurShadow.Attach(fill,new Color(0,0,0,.3f),new Vector2(0,-2*dp),3*dp);
-            }
-        }
-
+        {MenuUI.Label(text,root,new Vector2(.5f,.5f),Vector2.zero,root.sizeDelta,110,InkTheme.Ink,TextAnchor.MiddleCenter,true);}
         static Text ArcGlyph(string text,RectTransform parent,int size,Color color)
         {
             var t=Skin.Text(text,parent,new Vector2(.5f,.5f),Vector2.zero,new Vector2(size*2,size*1.7f),size,color);
