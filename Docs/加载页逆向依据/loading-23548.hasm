@@ -1,0 +1,8 @@
+; fn#23548 "<anonymous>" params=2 frame=2 regs=1(num=1,nonptr=0) size=19 offset=0x4c285c flags=[strict]
+0000  LoadConstUInt8 r0, 1
+0003  LoadParam r1, 1
+0006  Add r1, r1, r0
+000a  LoadConstUInt8 r0, 4
+000d  Mod r0, r1, r0
+0011  Ret r0
+

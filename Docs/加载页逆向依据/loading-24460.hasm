@@ -1,0 +1,123 @@
+; fn#24460 "?anon_0_preloadAssets" params=1 frame=24 regs=0(num=0,nonptr=0) size=432 offset=0x4e135e exc_handlers=4
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r0, r1, 3
+0007  Mov r2, r0
+000a  LoadConstUInt8 r4, 2
+000d  JStrictEqualLong L414, r0, r4
+0014  LoadParam r0, 2
+0017  LoadParam r3, 1
+001a  Mov r5, r2
+001d  LoadConstUInt8 r6, 3
+0020  JStrictEqualLong L381, r5, r6
+0027  Mov r2, r4
+002a  StoreNPToEnvironment r1, 3, r4
+002e  LoadFromEnvironment r5, r1, 2
+0032  LoadConstZero r8
+0034  JStrictEqual L140, r8, r5
+0038  LoadConstUInt8 r5, 1
+003b  JStrictEqual L131, r3, r5
+003f  JStrictEqual L112, r3, r4
+0043  LoadFromEnvironment r7, r1, 0
+0047  LoadFromEnvironment r9, r7, 0
+004b  LoadConstUInt8 r5, 8
+004e  AddN r5, r9, r5
+0052  StoreNPToEnvironment r7, 0, r5
+0056  LoadFromEnvironment r5, r1, 1
+005a  LoadFromEnvironment r7, r7, 0
+005e  LoadFromEnvironment r5, r5, 5
+0062  GetByIdShort r5, r5, 0, "length"
+0067  JLessLong L248, r7, r5
+006e  Jmp L178
+L112:
+0070  Mov r2, r6
+0073  StoreNPToEnvironment r1, 3, r6
+0077  NewObjectWithBuffer r5, 2170, 28153
+007d  PutOwnBySlotIdx r5, r0, 0
+0081  Ret r5
+L131:
+0083  Mov r2, r6
+0086  StoreNPToEnvironment r1, 3, r6
+008a  Throw r0
+L140:
+008c  GetParentEnvironment r5, 1
+008f  StoreToEnvironment r1, 1, r5
+0093  CreateTopLevelEnvironment r7, 1
+0099  StoreToEnvironment r1, 0, r7
+009d  StoreNPToEnvironment r7, 0, r8
+00a1  LoadFromEnvironment r7, r7, 0
+00a5  LoadFromEnvironment r5, r5, 5
+00a9  GetByIdShort r5, r5, 0, "length"
+00ae  JLess L248, r7, r5
+L178:
+00b2  LoadFromEnvironment r5, r1, 1
+00b6  GetGlobalObject r7
+00b8  TryGetById r10, r7, 1, "console"
+00be  GetByIdShort r9, r10, 2, "log"
+00c3  TryGetById r8, r7, 3, "Date"
+00c9  GetByIdShort r7, r8, 4, "now"
+00ce  Call1 r7, r7, r8
+00d2  LoadFromEnvironment r5, r5, 0
+00d6  Sub r8, r7, r5
+00da  LoadConstString r7, "ms"
+00de  LoadConstString r5, "[LoadingScreen] assets preloaded in"
+00e2  Call4 r5, r9, r10, r5, r8, r7
+00e9  Mov r2, r6
+00ec  StoreNPToEnvironment r1, 3, r6
+00f0  NewObjectWithBuffer r5, 2170, 46674
+00f6  Ret r5
+L248:
+00f8  LoadFromEnvironment r9, r1, 1
+00fc  LoadFromEnvironment r5, r9, 1
+0100  JmpTrue L355, r5
+0103  LoadFromEnvironment r5, r1, 0
+0107  GetGlobalObject r7
+0109  TryGetById r8, r7, 5, "Promise"
+010f  GetById r7, r8, 6, "all"
+0115  LoadFromEnvironment r11, r9, 5
+0119  GetByIdShort r10, r11, 7, "slice"
+011e  LoadFromEnvironment r9, r5, 0
+0122  LoadFromEnvironment r12, r5, 0
+0126  LoadConstUInt8 r5, 8
+0129  AddN r5, r12, r5
+012d  Call3 r10, r10, r11, r9, r5
+0133  GetByIdShort r9, r10, 8, "map"
+0138  LoadConstUndefined r5
+013a  CreateClosure r5, r5, 24928
+013f  Call2 r5, r9, r10, r5
+0144  Call2 r7, r7, r8, r5
+0149  LoadConstUInt8 r5, 1
+014c  StoreNPToEnvironment r1, 2, r5
+0150  Mov r2, r5
+0153  StoreNPToEnvironment r1, 3, r5
+0157  NewObjectWithBuffer r5, 2170, 28948
+015d  PutOwnBySlotIdx r5, r7, 0
+0161  Ret r5
+L355:
+0163  Mov r2, r6
+0166  StoreNPToEnvironment r1, 3, r6
+016a  NewObjectWithBuffer r5, 2170, 46674
+0170  Ret r5
+L370:
+0172  Catch r5
+0174  Mov r2, r6
+0177  StoreNPToEnvironment r1, 3, r6
+017b  Throw r5
+L381:
+017d  LoadConstUInt8 r5, 1
+0180  JStrictEqual L412, r3, r5
+0184  JStrictEqual L400, r3, r4
+0188  NewObjectWithBuffer r3, 2170, 46674
+018e  Ret r3
+L400:
+0190  NewObjectWithBuffer r3, 2170, 28153
+0196  PutOwnBySlotIdx r3, r0, 0
+019a  Ret r3
+L412:
+019c  Throw r0
+L414:
+019e  LoadConstUInt8 r0, 3
+01a1  Mov r2, r0
+01a4  StoreNPToEnvironment r1, 3, r0
+01a8  LoadConstString r15, "Generator functions may not be called on executing generators"
+01ac  CallBuiltin r0, 44, 2
+

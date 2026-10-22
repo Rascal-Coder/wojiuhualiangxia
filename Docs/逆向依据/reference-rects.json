@@ -1,0 +1,1500 @@
+{
+  "schema": 1,
+  "coordinate_system": {
+    "width": 1080,
+    "height": 2400,
+    "unit": "physical screenshot pixels",
+    "rect_convention": "[left,top,right,bottom); right/bottom exclusive",
+    "centers": "rect midpoint; not necessarily artwork optical center"
+  },
+  "screens": {
+    "home": {
+      "path": "outputs/inkomino-runtime/04-unlocked/screen.png",
+      "sha256": "58908f2a85e02eb29d1fd33e4c85f620421b14881077ae00940ac37e4dedc3b3",
+      "rects": {
+        "avatar_visible_border": {
+          "rect_px": [
+            26,
+            152,
+            155,
+            281
+          ],
+          "center_px": [
+            90.5,
+            216.5
+          ],
+          "size_px": [
+            129,
+            129
+          ],
+          "kind": "pixel-mask",
+          "edge_uncertainty_px": 1,
+          "note": "Dark rounded frame screenshot mask; source49dp. Source logical top may be150 due art/antialias; use caller layout for logical top.",
+          "source_dp": 49
+        },
+        "life_pill_background_logic": {
+          "rect_px": [
+            242.1,
+            169,
+            585.9,
+            263.5
+          ],
+          "center_px": [
+            414.0,
+            216.25
+          ],
+          "size_px": [
+            343.79999999999995,
+            94.5
+          ],
+          "kind": "dp+occluded-circle-inference",
+          "edge_uncertainty_px": 3,
+          "note": "150dp wrapper ends585.9; wrapper width393.75; pill starts after38−19dp icon flex advance. Left end occluded by heart; visible upper-left arc at y175 x266..271 supports this, not independently exposed full rect.",
+          "source_dp": {
+            "height": 36,
+            "wrapperWidth": 150,
+            "iconWidth": 38,
+            "iconMarginRight": -19
+          }
+        },
+        "life_wrapper_logic": {
+          "rect_px": [
+            192.15,
+            169,
+            585.9,
+            263.5
+          ],
+          "center_px": [
+            389.025,
+            216.25
+          ],
+          "size_px": [
+            393.75,
+            94.5
+          ],
+          "kind": "dp-inference",
+          "edge_uncertainty_px": 2,
+          "note": "Includes icon flow box before pill; icon translated10dp toward right."
+        },
+        "life_pill_visible_border_extent": {
+          "rect_px": [
+            266,
+            169,
+            586,
+            264
+          ],
+          "center_px": [
+            426.0,
+            216.5
+          ],
+          "size_px": [
+            320,
+            95
+          ],
+          "kind": "pixel-mask-occluded",
+          "edge_uncertainty_px": 1,
+          "note": "Leftmost visible edge belongs rounded arc; do not use as pill layout left. Same-color border screenshot RGB≈[88,78,66]."
+        },
+        "life_icon_composite": {
+          "rect_px": [
+            219,
+            164,
+            321,
+            264
+          ],
+          "center_px": [
+            270.0,
+            214.0
+          ],
+          "size_px": [
+            102,
+            100
+          ],
+          "kind": "bounded-visual+dp",
+          "edge_uncertainty_px": 4,
+          "note": "Includes heart plus green plus badge; image/optical bounds differ."
+        },
+        "coin_pill_background_logic": {
+          "rect_px": [
+            643,
+            169,
+            886,
+            263.5
+          ],
+          "center_px": [
+            764.5,
+            216.25
+          ],
+          "size_px": [
+            243,
+            94.5
+          ],
+          "kind": "occluded-circle+dp-inference",
+          "edge_uncertainty_px": 5,
+          "note": "Left rounded end hidden by coin. Right/top/bottom measured; left inferred from radius and top tangent, lower confidence."
+        },
+        "coin_pill_visible_border_extent": {
+          "rect_px": [
+            689,
+            169,
+            886,
+            264
+          ],
+          "center_px": [
+            787.5,
+            216.5
+          ],
+          "size_px": [
+            197,
+            95
+          ],
+          "kind": "pixel-mask-occluded",
+          "edge_uncertainty_px": 1,
+          "note": "Leftmost visible border is not container left."
+        },
+        "coin_icon_composite": {
+          "rect_px": [
+            637,
+            165,
+            721,
+            265
+          ],
+          "center_px": [
+            679.0,
+            215.0
+          ],
+          "size_px": [
+            84,
+            100
+          ],
+          "kind": "bounded-visual+dp",
+          "edge_uncertainty_px": 4,
+          "note": "Includes coin and green plus badge."
+        },
+        "settings_image_container": {
+          "rect_px": [
+            933,
+            156,
+            1054,
+            277
+          ],
+          "center_px": [
+            993.5,
+            216.5
+          ],
+          "size_px": [
+            121,
+            121
+          ],
+          "kind": "asset-template",
+          "edge_uncertainty_px": 1,
+          "note": "Shipped btnsettings.png256² resized121². Source alpha bbox[8,13,250,256].",
+          "source_dp": 46
+        },
+        "settings_alpha_art": {
+          "rect_px": [
+            936.8,
+            162.1,
+            1051.2,
+            277
+          ],
+          "center_px": [
+            994.0,
+            219.55
+          ],
+          "size_px": [
+            114.40000000000009,
+            114.9
+          ],
+          "kind": "source-alpha-projection",
+          "edge_uncertainty_px": 2,
+          "note": "Alpha>0 extent projected from best template; faint dark shadow included."
+        },
+        "header_separator": {
+          "rect_px": [
+            0,
+            334,
+            1080,
+            336
+          ],
+          "center_px": [
+            540.0,
+            335.0
+          ],
+          "size_px": [
+            1080,
+            2
+          ],
+          "kind": "pixel-row-scan",
+          "edge_uncertainty_px": 0,
+          "note": "Rows334 and335 contain dark border across full width; rows333/336 have only2 pixels."
+        },
+        "event_gift_image_container": {
+          "rect_px": [
+            43,
+            379,
+            268,
+            600
+          ],
+          "center_px": [
+            155.5,
+            489.5
+          ],
+          "size_px": [
+            225,
+            221
+          ],
+          "kind": "asset-ring-template",
+          "edge_uncertainty_px": 3,
+          "note": "Ring fit residual high because overlapping content/ribbons and color management; same horizontal226px sourceDP size. Use this as container estimate, not exact hitbox.",
+          "source_dp": {
+            "width": 86,
+            "aspect": 1.0178926441351888
+          }
+        },
+        "event_welcome_image_container": {
+          "rect_px": [
+            813,
+            379,
+            1038,
+            600
+          ],
+          "center_px": [
+            925.5,
+            489.5
+          ],
+          "size_px": [
+            225,
+            221
+          ],
+          "kind": "asset-ring-template",
+          "edge_uncertainty_px": 3,
+          "note": "Ring fit residual high because overlapping content/ribbons and color management; same horizontal226px sourceDP size. Use this as container estimate, not exact hitbox.",
+          "source_dp": {
+            "width": 86,
+            "aspect": 1.0178926441351888
+          }
+        },
+        "event_noads_image_container": {
+          "rect_px": [
+            813,
+            684,
+            1038,
+            905
+          ],
+          "center_px": [
+            925.5,
+            794.5
+          ],
+          "size_px": [
+            225,
+            221
+          ],
+          "kind": "asset-ring-template",
+          "edge_uncertainty_px": 3,
+          "note": "Ring fit residual high because overlapping content/ribbons and color management; same horizontal226px sourceDP size. Use this as container estimate, not exact hitbox.",
+          "source_dp": {
+            "width": 86,
+            "aspect": 1.0178926441351888
+          }
+        },
+        "event_locked_image_container": {
+          "rect_px": [
+            813,
+            988,
+            1038,
+            1209
+          ],
+          "center_px": [
+            925.5,
+            1098.5
+          ],
+          "size_px": [
+            225,
+            221
+          ],
+          "kind": "asset-ring-template",
+          "edge_uncertainty_px": 3,
+          "note": "Ring fit residual high because overlapping content/ribbons and color management; same horizontal226px sourceDP size. Use this as container estimate, not exact hitbox.",
+          "source_dp": {
+            "width": 86,
+            "aspect": 1.0178926441351888
+          }
+        },
+        "event_gift_label": {
+          "rect_px": [
+            45,
+            529,
+            266,
+            608
+          ],
+          "center_px": [
+            155.5,
+            568.5
+          ],
+          "size_px": [
+            221,
+            79
+          ],
+          "kind": "source-dp+bounded-visual",
+          "edge_uncertainty_px": 4,
+          "note": "84×30dp ribbon; colored alpha includes cap curvature. Container aligned over circle bottom.",
+          "source_dp": {
+            "width": 84,
+            "height": 30
+          }
+        },
+        "event_welcome_label": {
+          "rect_px": [
+            815,
+            529,
+            1036,
+            608
+          ],
+          "center_px": [
+            925.5,
+            568.5
+          ],
+          "size_px": [
+            221,
+            79
+          ],
+          "kind": "source-dp+bounded-visual",
+          "edge_uncertainty_px": 4,
+          "note": "84×30dp ribbon; colored alpha includes cap curvature. Container aligned over circle bottom.",
+          "source_dp": {
+            "width": 84,
+            "height": 30
+          }
+        },
+        "event_noads_label": {
+          "rect_px": [
+            815,
+            834,
+            1036,
+            913
+          ],
+          "center_px": [
+            925.5,
+            873.5
+          ],
+          "size_px": [
+            221,
+            79
+          ],
+          "kind": "source-dp+bounded-visual",
+          "edge_uncertainty_px": 4,
+          "note": "84×30dp ribbon; colored alpha includes cap curvature. Container aligned over circle bottom.",
+          "source_dp": {
+            "width": 84,
+            "height": 30
+          }
+        },
+        "event_locked_label": {
+          "rect_px": [
+            815,
+            1138,
+            1036,
+            1217
+          ],
+          "center_px": [
+            925.5,
+            1177.5
+          ],
+          "size_px": [
+            221,
+            79
+          ],
+          "kind": "source-dp+bounded-visual",
+          "edge_uncertainty_px": 4,
+          "note": "84×30dp ribbon; colored alpha includes cap curvature. Container aligned over circle bottom.",
+          "source_dp": {
+            "width": 84,
+            "height": 30
+          }
+        },
+        "level_sign_image_container": {
+          "rect_px": [
+            289,
+            866,
+            791,
+            1139
+          ],
+          "center_px": [
+            540.0,
+            1002.5
+          ],
+          "size_px": [
+            502,
+            273
+          ],
+          "kind": "asset-template-edge-mask",
+          "edge_uncertainty_px": 2,
+          "note": "Shipped level-sign900×489. Text region excluded from fit."
+        },
+        "play_frame_logic": {
+          "rect_px": [
+            251.25,
+            1668,
+            828.75,
+            1939.69
+          ],
+          "center_px": [
+            540.0,
+            1803.845
+          ],
+          "size_px": [
+            577.5,
+            271.69000000000005
+          ],
+          "kind": "dp+vertical-template",
+          "edge_uncertainty_px": 3,
+          "note": "Default220×90dp; buttonHeightScale1.15→height271.6875. Vertical frame-mid strip fit gives top1668 (optimized270px raster strip vs logical271.69; allow3px).",
+          "source_dp": {
+            "width": 220,
+            "height": 90,
+            "heightScale": 1.15
+          }
+        },
+        "play_saturated_art": {
+          "rect_px": [
+            262,
+            1674,
+            818,
+            1923
+          ],
+          "center_px": [
+            540.0,
+            1798.5
+          ],
+          "size_px": [
+            556,
+            249
+          ],
+          "kind": "pixel-saturation-mask",
+          "edge_uncertainty_px": 2,
+          "note": "Saturation>140 in tightROI; excludes shadow and dark edge. Do not equate with button container."
+        },
+        "play_green_face": {
+          "rect_px": [
+            283,
+            1694,
+            798,
+            1902
+          ],
+          "center_px": [
+            540.5,
+            1798.0
+          ],
+          "size_px": [
+            515,
+            208
+          ],
+          "kind": "pixel-mask",
+          "edge_uncertainty_px": 1,
+          "note": "Green-only mask; includes bright/pressed gradients but no outer gold rim."
+        },
+        "nav_background_container": {
+          "rect_px": [
+            0,
+            2067,
+            1080,
+            2400
+          ],
+          "center_px": [
+            540.0,
+            2233.5
+          ],
+          "size_px": [
+            1080,
+            333
+          ],
+          "kind": "asset-midstrip+viewport-clipped",
+          "edge_uncertainty_px": 2,
+          "note": "Top determined by nav_bart.png local strip fit MSE8.19. Bottom clipped by screenshot; actual source layout may extend beyond safe-area.",
+          "source_dp": {
+            "cap": 46,
+            "height": 100
+          }
+        },
+        "nav_top_cap": {
+          "rect_px": [
+            0,
+            2067,
+            1080,
+            2189
+          ],
+          "center_px": [
+            540.0,
+            2128.0
+          ],
+          "size_px": [
+            1080,
+            122
+          ],
+          "kind": "asset-midstrip",
+          "edge_uncertainty_px": 1,
+          "note": "Source120px cap→122px fitted. Alpha begins sourcey8; dominant border not untily2095."
+        },
+        "nav_visible_top_border": {
+          "rect_px": [
+            120,
+            2095,
+            960,
+            2099
+          ],
+          "center_px": [
+            540.0,
+            2097.0
+          ],
+          "size_px": [
+            840,
+            4
+          ],
+          "kind": "pixel-row-scan",
+          "edge_uncertainty_px": 1,
+          "note": "Flat center segment; rounded corners begin farther down. Use only as visible art reference."
+        },
+        "nav_active_cell": {
+          "rect_px": [
+            360,
+            2125.4,
+            720,
+            2400
+          ],
+          "center_px": [
+            540.0,
+            2262.7
+          ],
+          "size_px": [
+            360,
+            274.5999999999999
+          ],
+          "kind": "source-inset+pixel-boundaries",
+          "edge_uncertainty_px": 2,
+          "note": "Opaque active strip x360..719; top from activeCell.insetTop0.483333×cap120.75+2067. Bottom viewport clipped."
+        },
+        "nav_home_icon_container": {
+          "rect_px": [
+            453,
+            2070,
+            627,
+            2244
+          ],
+          "center_px": [
+            540.0,
+            2157.0
+          ],
+          "size_px": [
+            174,
+            174
+          ],
+          "kind": "asset-template",
+          "edge_uncertainty_px": 2,
+          "note": "174px raster fit vs66dp173.25px; source PNG alpha[2,6,237,234].",
+          "source_dp": 66
+        },
+        "nav_shop_icon_container": {
+          "rect_px": [
+            122,
+            2188,
+            238,
+            2304
+          ],
+          "center_px": [
+            180.0,
+            2246.0
+          ],
+          "size_px": [
+            116,
+            116
+          ],
+          "kind": "asset-template",
+          "edge_uncertainty_px": 2,
+          "note": "Inactive icon44dp→115.5px raster116.",
+          "source_dp": 44
+        },
+        "nav_rank_icon_container": {
+          "rect_px": [
+            842,
+            2188,
+            958,
+            2304
+          ],
+          "center_px": [
+            900.0,
+            2246.0
+          ],
+          "size_px": [
+            116,
+            116
+          ],
+          "kind": "symmetric-layout+asset-dp",
+          "edge_uncertainty_px": 3,
+          "note": "Mirrored horizontal placement of shop slot, same44dp size; trophy art tinted/dimmed."
+        },
+        "nav_home_text_ink": {
+          "rect_px": [
+            479,
+            2267,
+            600,
+            2299
+          ],
+          "center_px": [
+            539.5,
+            2283.0
+          ],
+          "size_px": [
+            121,
+            32
+          ],
+          "kind": "white-ink-mask",
+          "edge_uncertainty_px": 1,
+          "note": "Visible Home glyphs, no full line box."
+        },
+        "nav_home_label_linebox": {
+          "rect_px": [
+            419.25,
+            2251,
+            660.75,
+            2319.25
+          ],
+          "center_px": [
+            540.0,
+            2285.125
+          ],
+          "size_px": [
+            241.5,
+            68.25
+          ],
+          "kind": "source-dp+ink-anchor",
+          "edge_uncertainty_px": 3,
+          "note": "92×26dp label container inferred around text. Screenshot only Home label is shown.",
+          "source_dp": {
+            "width": 92,
+            "height": 26,
+            "font": 17
+          }
+        }
+      }
+    },
+    "pause": {
+      "path": "outputs/inkomino-runtime/05-level/screen.png",
+      "sha256": "9156b74c3df1ac1ec07d61e1da06bfbab56e6e1e870b70f7e4940f9906a5875a",
+      "rects": {
+        "panel_logic_inferred": {
+          "rect_px": [
+            67.5,
+            686,
+            1012.5,
+            1852.25
+          ],
+          "center_px": [
+            540.0,
+            1269.125
+          ],
+          "size_px": [
+            945.0,
+            1166.25
+          ],
+          "kind": "dp+alpha-inference",
+          "edge_uncertainty_px": 3,
+          "note": "Top=innerCard anchor−82dp; bottom=visible source-alpha tail1839+13.24px. Not directly fully visible behind banner; width945px inferred from content side18dp."
+        },
+        "panel_alpha_outer_inferred": {
+          "rect_px": [
+            71,
+            692.1,
+            1009,
+            1839
+          ],
+          "center_px": [
+            540.0,
+            1265.55
+          ],
+          "size_px": [
+            938,
+            1146.9
+          ],
+          "kind": "source-alpha-projection",
+          "edge_uncertainty_px": 3,
+          "note": "Source cap TL99×102 alpha[4,7,99,102], BL99×110 alpha[4,0,99,95]; rendered capx33dp,t34dp,b37dp. Top covered by banner."
+        },
+        "panel_orange_visible_lower": {
+          "rect_px": [
+            75,
+            880,
+            1005,
+            1839
+          ],
+          "center_px": [
+            540.0,
+            1359.5
+          ],
+          "size_px": [
+            930,
+            959
+          ],
+          "kind": "pixel-mask-partial",
+          "edge_uncertainty_px": 1,
+          "note": "Orange/gold visible section fromy880 down; 880 is ROI cut, not panel top."
+        },
+        "banner_image_container": {
+          "rect_px": [
+            25.5,
+            508.8,
+            1054.5,
+            905.2
+          ],
+          "center_px": [
+            540.0,
+            707.0
+          ],
+          "size_px": [
+            1029.0,
+            396.40000000000003
+          ],
+          "kind": "dp+alpha-inference",
+          "edge_uncertainty_px": 3,
+          "note": "H151dp396.375; overhang16dp42 each; top=panelTop−H/2+8dp. Source cap500×512 alpha startsy129, so visible top≈609px.",
+          "source_dp": {
+            "height": 151,
+            "overhang": 16,
+            "drop": 8
+          }
+        },
+        "banner_visible_gold_red": {
+          "rect_px": [
+            44,
+            609,
+            1037,
+            881
+          ],
+          "center_px": [
+            540.5,
+            745.0
+          ],
+          "size_px": [
+            993,
+            272
+          ],
+          "kind": "mask+alpha-projection",
+          "edge_uncertainty_px": 3,
+          "note": "Overall visible silhouette estimate; cap fold shadows may extend farther down. Close button is separate and overlaps upper-right."
+        },
+        "banner_title_ink": {
+          "rect_px": [
+            385,
+            675,
+            697,
+            735
+          ],
+          "center_px": [
+            541.0,
+            705.0
+          ],
+          "size_px": [
+            312,
+            60
+          ],
+          "kind": "white-ink-mask",
+          "edge_uncertainty_px": 1,
+          "note": "PAUSED bright white glyph ink; shadow excluded."
+        },
+        "close_button_container": {
+          "rect_px": [
+            926,
+            566,
+            1037,
+            677
+          ],
+          "center_px": [
+            981.5,
+            621.5
+          ],
+          "size_px": [
+            111,
+            111
+          ],
+          "kind": "dp+bounded-visual",
+          "edge_uncertainty_px": 3,
+          "note": "Approx44dp×2.625; circle visually overlaps banner. Earlier simple red ROI included banner tail so not claimed exact."
+        },
+        "toggle_card_outer": {
+          "rect_px": [
+            115,
+            901,
+            965,
+            1176
+          ],
+          "center_px": [
+            540.0,
+            1038.5
+          ],
+          "size_px": [
+            850,
+            275
+          ],
+          "kind": "pixel-mask+dp-rounding",
+          "edge_uncertainty_px": 1,
+          "note": "Inside border strong pixels[116,902,964,1175]. Source innerCard padding16,border2, toggle64 and marginBottom4 produce104dp height."
+        },
+        "sound_toggle": {
+          "rect_px": [
+            246,
+            949,
+            414,
+            1117
+          ],
+          "center_px": [
+            330.0,
+            1033.0
+          ],
+          "size_px": [
+            168,
+            168
+          ],
+          "kind": "blue-color-mask",
+          "edge_uncertainty_px": 1,
+          "note": "All controls168²; source64dp. Gaps42px exactly16dp.",
+          "source_dp": 64
+        },
+        "music_toggle": {
+          "rect_px": [
+            456,
+            949,
+            624,
+            1117
+          ],
+          "center_px": [
+            540.0,
+            1033.0
+          ],
+          "size_px": [
+            168,
+            168
+          ],
+          "kind": "blue-color-mask",
+          "edge_uncertainty_px": 1,
+          "note": "All controls168²; source64dp. Gaps42px exactly16dp.",
+          "source_dp": 64
+        },
+        "haptics_toggle": {
+          "rect_px": [
+            666,
+            949,
+            834,
+            1117
+          ],
+          "center_px": [
+            750.0,
+            1033.0
+          ],
+          "size_px": [
+            168,
+            168
+          ],
+          "kind": "blue-color-mask",
+          "edge_uncertainty_px": 1,
+          "note": "All controls168²; source64dp. Gaps42px exactly16dp.",
+          "source_dp": 64
+        },
+        "restart_action_top": {
+          "rect_px": [
+            309,
+            1217,
+            519,
+            1424
+          ],
+          "center_px": [
+            414.0,
+            1320.5
+          ],
+          "size_px": [
+            210,
+            207
+          ],
+          "kind": "orange-color-mask",
+          "edge_uncertainty_px": 1,
+          "note": "Upper orange surface only; nominal210px=80dp. Source shadow extends below face.",
+          "source_dp": 80
+        },
+        "home_action_top": {
+          "rect_px": [
+            561,
+            1217,
+            771,
+            1424
+          ],
+          "center_px": [
+            666.0,
+            1320.5
+          ],
+          "size_px": [
+            210,
+            207
+          ],
+          "kind": "orange-color-mask",
+          "edge_uncertainty_px": 1,
+          "note": "Upper orange surface only; nominal210px=80dp. Source shadow extends below face.",
+          "source_dp": 80
+        },
+        "restart_action_tile": {
+          "rect_px": [
+            309,
+            1217,
+            519,
+            1427
+          ],
+          "center_px": [
+            414.0,
+            1322.0
+          ],
+          "size_px": [
+            210,
+            210
+          ],
+          "kind": "dp+shadow-boundary",
+          "edge_uncertainty_px": 2,
+          "note": "Full tile including lower brown shadow, nominal80dp210px."
+        },
+        "home_action_tile": {
+          "rect_px": [
+            561,
+            1217,
+            771,
+            1427
+          ],
+          "center_px": [
+            666.0,
+            1322.0
+          ],
+          "size_px": [
+            210,
+            210
+          ],
+          "kind": "dp+shadow-boundary",
+          "edge_uncertainty_px": 2,
+          "note": "Full tile including lower brown shadow, nominal80dp210px."
+        },
+        "resume_frame_art": {
+          "rect_px": [
+            252,
+            1474,
+            827,
+            1698
+          ],
+          "center_px": [
+            539.5,
+            1586.0
+          ],
+          "size_px": [
+            575,
+            224
+          ],
+          "kind": "gold-color-mask",
+          "edge_uncertainty_px": 2,
+          "note": "Visible colored frame; source image/container extends into transparent shadow."
+        },
+        "resume_green_face": {
+          "rect_px": [
+            272,
+            1493,
+            808,
+            1678
+          ],
+          "center_px": [
+            540.0,
+            1585.5
+          ],
+          "size_px": [
+            536,
+            185
+          ],
+          "kind": "green-color-mask",
+          "edge_uncertainty_px": 1,
+          "note": "Green-only pixel bounding box."
+        },
+        "version_text_ink": {
+          "rect_px": [
+            475,
+            1750,
+            604,
+            1776
+          ],
+          "center_px": [
+            539.5,
+            1763.0
+          ],
+          "size_px": [
+            129,
+            26
+          ],
+          "kind": "dark-purple-ink-mask",
+          "edge_uncertainty_px": 1,
+          "note": "V1.0.0 (1) glyph ink only, nominal12dp font."
+        },
+        "hud_level_pill": {
+          "rect_px": [
+            33,
+            151,
+            274,
+            252
+          ],
+          "center_px": [
+            153.5,
+            201.5
+          ],
+          "size_px": [
+            241,
+            101
+          ],
+          "kind": "bounded-dimmed-pixels",
+          "edge_uncertainty_px": 3,
+          "note": "Background beneath85% dark backdrop; Level23 text visible."
+        },
+        "hud_timer_pill": {
+          "rect_px": [
+            396,
+            139,
+            684,
+            263
+          ],
+          "center_px": [
+            540.0,
+            201.0
+          ],
+          "size_px": [
+            288,
+            124
+          ],
+          "kind": "bounded-dimmed-pixels",
+          "edge_uncertainty_px": 3,
+          "note": "1:51 timer and green progress stripe visible; initial timer not inferred from image."
+        },
+        "hud_pause_icon": {
+          "rect_px": [
+            938,
+            154,
+            1044,
+            260
+          ],
+          "center_px": [
+            991.0,
+            207.0
+          ],
+          "size_px": [
+            106,
+            106
+          ],
+          "kind": "bounded-dimmed-asset",
+          "edge_uncertainty_px": 3,
+          "note": "Icon dimmed by modal; no interaction."
+        },
+        "target_card_t4i": {
+          "rect_px": [
+            33,
+            274,
+            209,
+            498
+          ],
+          "center_px": [
+            121.0,
+            386.0
+          ],
+          "size_px": [
+            176,
+            224
+          ],
+          "kind": "bounded-dimmed-pixels",
+          "edge_uncertainty_px": 3,
+          "note": "Four-cell horizontal target withX5."
+        },
+        "target_card_p5p": {
+          "rect_px": [
+            233,
+            274,
+            410,
+            498
+          ],
+          "center_px": [
+            321.5,
+            386.0
+          ],
+          "size_px": [
+            177,
+            224
+          ],
+          "kind": "bounded-dimmed-pixels",
+          "edge_uncertainty_px": 3,
+          "note": "P five-cell target withX4."
+        },
+        "pen_booster_slot": {
+          "rect_px": [
+            179,
+            2087,
+            400,
+            2308
+          ],
+          "center_px": [
+            289.5,
+            2197.5
+          ],
+          "size_px": [
+            221,
+            221
+          ],
+          "kind": "bounded-dimmed-pixels+equal-spacing",
+          "edge_uncertainty_px": 4,
+          "note": "Slot exterior dimmed; current image plus/count badges extend outside. Circle/gradient cutouts make bounding ambiguous."
+        },
+        "freeze_booster_slot": {
+          "rect_px": [
+            431,
+            2087,
+            652,
+            2308
+          ],
+          "center_px": [
+            541.5,
+            2197.5
+          ],
+          "size_px": [
+            221,
+            221
+          ],
+          "kind": "bounded-dimmed-pixels+equal-spacing",
+          "edge_uncertainty_px": 4,
+          "note": "Slot exterior dimmed; current image plus/count badges extend outside. Circle/gradient cutouts make bounding ambiguous."
+        },
+        "lens_booster_slot": {
+          "rect_px": [
+            683,
+            2087,
+            904,
+            2308
+          ],
+          "center_px": [
+            793.5,
+            2197.5
+          ],
+          "size_px": [
+            221,
+            221
+          ],
+          "kind": "bounded-dimmed-pixels+equal-spacing",
+          "edge_uncertainty_px": 4,
+          "note": "Slot exterior dimmed; current image plus/count badges extend outside. Circle/gradient cutouts make bounding ambiguous."
+        }
+      }
+    }
+  },
+  "density": {
+    "physical_pixels_per_dp": 2.625,
+    "confidence": "confirmed independently from multiple rectangular controls",
+    "checks": [
+      {
+        "control": "toggle",
+        "source_dp": [
+          64,
+          64
+        ],
+        "measured_px": [
+          168,
+          168
+        ],
+        "ratio": 2.625
+      },
+      {
+        "control": "toggle gap",
+        "source_dp": 16,
+        "measured_px": 42,
+        "ratio": 2.625
+      },
+      {
+        "control": "action tile width",
+        "source_dp": 80,
+        "measured_px": 210,
+        "ratio": 2.625
+      },
+      {
+        "control": "avatar",
+        "source_dp": 49,
+        "raster_bbox_px": 129,
+        "rounding": "49*2.625=128.625; fractional device pixels anti-alias outward"
+      }
+    ],
+    "screen_dp": [
+      411.42857142857144,
+      914.2857142857143
+    ]
+  },
+  "methods": {
+    "solid_regions": "Numpy RGB masks within bounded ROIs; anti-aliased outer pixel tolerance stated per rect. Color predicates used screenshot colors, not assumed nominal RN RGB.",
+    "asset_template": "Pillow Lanczos resampling of shipped assets, local translation/size search; per-channel affine intensity fit on opaque samples; ring/edge mask excludes overlaid icons/text. template-fits.json records residuals and parameters.",
+    "container_inference": "Source DP dimensions plus measured pixel anchors and source PNG alpha bounds. Inferred layout containers are explicitly separated from visible colored art.",
+    "font_bounds": "Bright/dark ink mask in bounded text ROIs. Font shadow/anti-alias not all included.",
+    "limits": [
+      "Only two static screenshots. No device calls, no engine or app execution.",
+      "Pause modal occludes board; target widgets and booster backgrounds are dimmed by backdrop.",
+      "These are calibration targets at one resolution and existing runtime state; screenshot alone cannot recover timings, transitions, hidden layout or optical centers.",
+      "Shipped asset/RN nominal RGB differs from stored screenshot RGB. Template fitting compensates local color scale/offset; exact renderer color-management behavior remains unknown."
+    ]
+  },
+  "source_templates": {
+    "settings": {
+      "asset": "game_assets_btnsettings.png",
+      "residual_mse": 55.91841797327511,
+      "rect": [
+        933,
+        156,
+        1054,
+        277
+      ],
+      "resized_dimensions": [
+        121,
+        121
+      ],
+      "color_scale_fit": [
+        1.0015024241524468,
+        0.9842516950178537,
+        0.7636564728930741
+      ],
+      "source_alpha_bbox": [
+        8,
+        13,
+        250,
+        256
+      ],
+      "source_size": [
+        256,
+        256
+      ]
+    },
+    "event_gift": {
+      "asset": "game_assets_event_frame.png",
+      "residual_mse": 2680.9253107013697,
+      "rect": [
+        43,
+        379,
+        268,
+        600
+      ],
+      "resized_dimensions": [
+        225,
+        221
+      ],
+      "color_scale_fit": [
+        0.7291475871913795,
+        0.7139579959647261,
+        0.37783534064370555
+      ],
+      "source_alpha_bbox": [
+        0,
+        0,
+        512,
+        503
+      ],
+      "source_size": [
+        512,
+        503
+      ]
+    },
+    "event_welcome": {
+      "asset": "game_assets_event_frame.png",
+      "residual_mse": 2770.7499721024687,
+      "rect": [
+        813,
+        379,
+        1038,
+        600
+      ],
+      "resized_dimensions": [
+        225,
+        221
+      ],
+      "color_scale_fit": [
+        0.7079290633217683,
+        0.6831407369476991,
+        0.37125280248209025
+      ],
+      "source_alpha_bbox": [
+        0,
+        0,
+        512,
+        503
+      ],
+      "source_size": [
+        512,
+        503
+      ]
+    },
+    "event_noads": {
+      "asset": "game_assets_event_frame.png",
+      "residual_mse": 2976.863542474995,
+      "rect": [
+        813,
+        684,
+        1038,
+        905
+      ],
+      "resized_dimensions": [
+        225,
+        221
+      ],
+      "color_scale_fit": [
+        0.799901121894967,
+        0.7665263282368633,
+        0.4103285638718728
+      ],
+      "source_alpha_bbox": [
+        0,
+        0,
+        512,
+        503
+      ],
+      "source_size": [
+        512,
+        503
+      ]
+    },
+    "event_locked": {
+      "asset": "game_assets_event_frame.png",
+      "residual_mse": 2958.752933957348,
+      "rect": [
+        813,
+        988,
+        1038,
+        1209
+      ],
+      "resized_dimensions": [
+        225,
+        221
+      ],
+      "color_scale_fit": [
+        0.7748024762087934,
+        0.7607609361928789,
+        0.41864315028438337
+      ],
+      "source_alpha_bbox": [
+        0,
+        0,
+        512,
+        503
+      ],
+      "source_size": [
+        512,
+        503
+      ]
+    },
+    "nav_home": {
+      "asset": "game_assets_nav_tabhome.png",
+      "residual_mse": 122.44488396892211,
+      "rect": [
+        453,
+        2070,
+        627,
+        2244
+      ],
+      "resized_dimensions": [
+        174,
+        174
+      ],
+      "color_scale_fit": [
+        0.8698654926023297,
+        0.9442489252233014,
+        0.9184799019046913
+      ],
+      "source_alpha_bbox": [
+        2,
+        6,
+        237,
+        234
+      ],
+      "source_size": [
+        240,
+        240
+      ]
+    },
+    "nav_shop": {
+      "asset": "game_assets_nav_tabshop.png",
+      "residual_mse": 347.44029431570505,
+      "rect": [
+        122,
+        2188,
+        238,
+        2304
+      ],
+      "resized_dimensions": [
+        116,
+        116
+      ],
+      "color_scale_fit": [
+        0.7205911798449421,
+        0.9867298278094844,
+        0.8585314907512088
+      ],
+      "source_alpha_bbox": [
+        11,
+        4,
+        229,
+        236
+      ],
+      "source_size": [
+        240,
+        240
+      ]
+    },
+    "levelsign": {
+      "asset": "game_assets_levelsignmosaic.png",
+      "residual_mse": 274.8357095463644,
+      "rect": [
+        289,
+        866,
+        791,
+        1139
+      ],
+      "resized_dimensions": [
+        502,
+        273
+      ],
+      "color_scale_fit": [
+        0.8072690638129445,
+        0.9769713172691168,
+        0.9125923395495624
+      ],
+      "source_alpha_bbox": [
+        0,
+        0,
+        900,
+        489
+      ],
+      "source_size": [
+        900,
+        489
+      ]
+    }
+  },
+  "strip_templates": {
+    "play_frame_mid": {
+      "asset": "game_assets_btnframemid.png",
+      "residual_mse": 1261.6195358198636,
+      "sample_strip_rect": [
+        538,
+        1668,
+        542,
+        1938
+      ]
+    },
+    "nav_top_mid": {
+      "asset": "game_assets_nav_bart.png",
+      "residual_mse": 8.188922887367545,
+      "sample_strip_rect": [
+        198,
+        2067,
+        202,
+        2189
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+; fn#21522 "<anonymous>" params=1 frame=12 regs=1(num=0,nonptr=1) size=21 offset=0x471d9c flags=[strict]
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r2, r1, 3
+0007  LoadConstUndefined r0
+0009  CreateClosure r1, r0, 23548
+000e  Call2 r1, r2, r0, r1
+0013  Ret r0
+

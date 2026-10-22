@@ -1,0 +1,903 @@
+{
+  "schema": "inkomino-board-motion-v1",
+  "source_hbc_sha256": "f90ca5409470987bbe19dc4e27e52a3df77f34f0433d32002024782360bcaa15",
+  "scope": "Static extraction of shipped 1.0.0/versionCode2; no device/engine launch and no application-code execution in this investigation.",
+  "units": "RN logical dp and milliseconds unless explicitly marked. Fixed outline 5/2/3.5/4.5 constants do not call scaleStyles.sc. Unity adaptation multiplies dp by PixelDensity; source sc() values require the separate source scale function.",
+  "source_files": {
+    "modules\\module_1053.js": "f51067889fb7154bb8c27407e5c6860c24356dc766d7396e13f536798d2189e0",
+    "modules\\module_1055.js": "660a57849e718481d7d99a095b40cc546485418202d93103804c3eb1f936f3dd",
+    "modules\\module_1056.js": "c7c5e2afd4da7ea8a9ff6fa1dc6293282cde2f666aa1cdd9a148da30beec7d9c",
+    "modules\\module_1057.js": "18435cdd82adf9c4f52bb8d8b65a851919ce0843b181355460f568441cd912cd",
+    "modules\\module_1071.js": "a7d77854547488146052519710f685c209a2b12dc69813efeff9beae8eb42432",
+    "modules\\module_1072.js": "9496cbb942e928cac7e1e8473a0bd1d1fc28d9a3b8abd79eba5862f32733f8bc",
+    "modules\\module_1073.js": "edb7ef14cd4ea86ef5601a6760f5463f5ed6aac5d246d60296c80ac993171f7b",
+    "modules\\module_1122.js": "ae5d8eecfde084b9bce103641cd205dd7b5bb592c07241a4a09f006b2ff04a68",
+    "modules\\module_1196.js": "8568ef0dd49fbcbd2245d7b5d3ef25115ed4d6666cdcf9cbd622f0dad6955a4e",
+    "modules\\module_1712.js": "39d05044cead4d0e75daa10b68da43aa453d05b3e56025806c657ab4ef6b79fc",
+    "modules\\module_1975.js": "2e1914ff44d0544831c652d52dbba4927ec93b93b2c99bbf6fb06fe1e59f9de4",
+    "modules\\module_1986.js": "a128c39782dc162e73c6aa94e31d9f17649db766dd91bc0b8875393949dfcf85",
+    "modules\\module_1987.js": "26d1874789515972678fc2eee640cbc3e60340101c41eb730a5e92c879274442",
+    "modules\\module_1988.js": "779b2a895cdf901438b5f0f62bcbc6fd0667e77aa545aa5611ce1e05e032b8e5",
+    "modules\\module_1989.js": "43b22291d0c8c1fc10ea7f4df45fab5c871095ae31255fdf376ff214b3cd45ef",
+    "modules\\module_1990.js": "7a8a96af1822259e6110a5f3cc30bd99338c300d81748044bc640e3c56fa291c",
+    "modules\\module_1996.js": "6738a5ed477431065576d6853498bb690a48f84c307e8693bc2f76130479c7c9",
+    "modules\\module_2119.js": "040dd587f008063f40fef114db249c5ce2795b88586d0b7d1a002493903940be",
+    "modules\\module_2120.js": "7abab9f6a91be185b585d0e042aba465087609b88afc3e606d64a492d25ab966",
+    "modules\\module_2121.js": "9e631fd268b37370635a1b7a2676e877acf7951104a0b80d546ff5ef8da49190",
+    "modules\\module_2144.js": "2ebccf682d0d7feb2886a2874db6a85ca03b411cd276afbbeb3877b0b9d35998",
+    "modules\\module_2145.js": "679de073b5b9e272e530a53e4a3e10847e7cc2580f004fb84a65271053e41e4c",
+    "modules\\module_2146.js": "3b91e652700d81ac1113f794455cab23e9e4289f5059dd3c554584a8fc2b0147",
+    "modules\\module_2147.js": "c57e658c474910a50613a47c82fd0f3f4e04cb87c49079b3ea6836c93c946a36",
+    "modules\\module_2148.js": "2575ba183b1013da4418f8fd8e8339bd783e3969db37c4cf5b9fc35ea0d8fc93",
+    "modules\\module_2149.js": "0490f328d5743ed69656af3570a8749b9c72f5ffe4f139ca7307548672e50216",
+    "modules\\module_2150.js": "94021ea204520c01f362728915e54bd1d303da7fd417397d2d01982b38cf45eb",
+    "modules\\module_2151.js": "5e2b1e14e92aa91a56194d2629ee39d6ced70a733dd244eb0644842ecef9351f",
+    "modules\\module_2152.js": "6e018f3f0a88a2a0f42ae5c468b841732760459ebfdae22db7eac7b1ad31244a",
+    "modules\\module_2153.js": "555384e081c1889c67bc8379b2762e308d5af20a9ef7d91e0d223a215a1f2204",
+    "modules\\module_2154.js": "b32f5767d4ad7cf04d839be47b3868aa273caeb146a994728d47b7db4da11400",
+    "modules\\module_2155.js": "bf13471d4660921fe47cbdda9fef4fe4aa2a1769dee60f03ca5305b4a4b548b8",
+    "modules\\module_2156.js": "6966286ec2f05082800c6830a10654af3e436069d462d33352d85f8d77e7fddd",
+    "modules\\module_2157.js": "b8b3ed9853d6506009617da005da9f1271e880bddaac2d2d27d6fb7695661d39",
+    "modules\\module_2158.js": "fb9dda58370e2f76972a342a1fd0bb7e473670fb8154922fc4230ce0cf1e168d",
+    "modules\\module_2159.js": "dd9044dc76d6371559ad092f768f4bee7d582a6aea6653a77704fec0420c4c94",
+    "modules\\module_2160.js": "f64609b598d17ab0f1f978ca9a4a81016f4b242ecae54e85c9ddcb24ba25802e",
+    "modules\\module_2161.js": "e941609ea922cd4164f7f6773ee52a93ad1e16134f2d210f9b6ef4ffbc309171",
+    "modules\\module_2162.js": "5f715073964a2762a8aa87a33da992765ed2e6e4c65cce8665f8ca5eb9dba25b",
+    "modules\\module_2163.js": "63a8734370364cffacb188cc90cab3d2867b93d03364d4b093f0c547849695bf",
+    "modules\\module_2177.js": "49170a84c40e0624883a98b329683d6a3fd195c1d0c81e2a03f47e467dffcf69"
+  },
+  "raw_literal_evidence": "motion-literals-verified.json (direct HBC literal bytes, object shapes, original file offsets, key/value hex; undefined/null placeholders overwritten by HASM must be resolved separately)",
+  "colors": {
+    "piece_palette": [
+      "#45A86C",
+      "#3E97CE",
+      "#9463CE",
+      "#E2803A",
+      "#3AA79E",
+      "#D75C9B",
+      "#E05B4C",
+      "#C9A33C",
+      "#5B73D6",
+      "#8FA83F"
+    ],
+    "board": {
+      "paper": "#FBF5E6",
+      "ink": "#2B2622",
+      "frameInk": "#1F1C1A",
+      "frameLight": "#FFFDF6",
+      "gold": null,
+      "gridLine": "#5E554B",
+      "dashFill": "rgba(255,255,255,0.6)",
+      "dead": "rgba(214,84,72,0.26)",
+      "trail": "rgba(70,62,54,0.30)",
+      "trailBase": "#B9B2A6",
+      "flashBad": "rgba(214,84,72,0.55)",
+      "chipBg": "#FBF5E6",
+      "chipText": "#2B2418",
+      "chipDim": "#7A6D5E",
+      "chipDone": "#2E7D4F"
+    },
+    "gold": {
+      "shadow": "#5E3F0A",
+      "hilite": "#FFF4CC",
+      "line": "#FFF7D6",
+      "stops": [
+        [
+          0,
+          "#E9BE4E"
+        ],
+        [
+          0.25,
+          "#B27D14"
+        ],
+        [
+          0.45,
+          "#FFE99A"
+        ],
+        [
+          0.6,
+          "#C9961F"
+        ],
+        [
+          0.8,
+          "#8F620C"
+        ],
+        [
+          1,
+          "#E5BA4A"
+        ]
+      ]
+    },
+    "source": {
+      "module": 1055,
+      "function_id": 1057,
+      "literal_offsets": [
+        31091,
+        40588,
+        40619
+      ]
+    }
+  },
+  "layout": {
+    "value": {
+      "active_bbox": "min/max row/col over nonblocked cells; bw=c1-c0+1, bh=r1-r0+1",
+      "fit_factor": ".18*(1-.3)=.126",
+      "available_width_dp": "max(0,floor(layout.w)-4)",
+      "available_height_dp": "max(0,floor(layout.h)-4-tutorial_reserved)",
+      "cell_size_dp": "max(0,floor(min(availW/(bb.bw+.252),availH/(bb.bh+.252))))",
+      "outside_dp": "max(2,ceil(max(5,round(cs*.18))*.7))",
+      "visible_size_dp": [
+        "bb.bw*cs+2*out",
+        "bb.bh*cs+2*out"
+      ],
+      "full_canvas_size_dp": "n*cs+2*out",
+      "full_canvas_offset_inside_visible_dp": [
+        "-bb.c0*cs",
+        "-bb.r0*cs"
+      ],
+      "tutorial_reserved_dp": "scaleStyles.sc(112), only tutorial context"
+    },
+    "module": 2144,
+    "function_ids": [
+      12335,
+      12357,
+      12346
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "wood": {
+    "value": {
+      "constants": {
+        "FRAC": 0.18,
+        "BITE": 0.3,
+        "RC": 0.25,
+        "TILE": 2.6,
+        "WALL": 0.78,
+        "FACE": "#AE7335",
+        "PROFILE": null,
+        "BEAM": null
+      },
+      "thickness_dp": "max(5,round(cs*.18))",
+      "inset_mapping": "woodOff(t)=(t-(1-BITE))*thickness=(t-.7)*thickness",
+      "outer_inset_dp": "-.7*thickness",
+      "inner_inset_dp": ".3*thickness",
+      "center_inset_dp": "-.2*thickness",
+      "base_radius_dp": ".25*thickness",
+      "texture": "game_assets_wood.jpg (256x96)",
+      "texture_pattern_size_dp": [
+        "max(12,round(thickness*2.6))",
+        "max(5,round(patternWidth*96/256))"
+      ],
+      "profile": [
+        [
+          0,
+          0.055,
+          "#2E1A0B"
+        ],
+        [
+          0.055,
+          0.15,
+          "#E8A954"
+        ],
+        [
+          0.15,
+          0.215,
+          "#C68A43"
+        ],
+        [
+          0.215,
+          0.66,
+          null
+        ],
+        [
+          0.66,
+          0.74,
+          "#D09449"
+        ],
+        [
+          0.74,
+          0.855,
+          "#5C3616"
+        ],
+        [
+          0.855,
+          0.95,
+          "#7B4920"
+        ],
+        [
+          0.95,
+          1,
+          "#281608"
+        ]
+      ],
+      "profile_stroke_width_dp": "(end-start)*thickness+.6",
+      "wall_width_dp": "max(3,round(thickness*.78))",
+      "wall_profile": [
+        [
+          0,
+          0.07,
+          "#3A2310"
+        ],
+        [
+          0.07,
+          0.22,
+          "#E6AB5B"
+        ],
+        [
+          0.22,
+          0.34,
+          "#7B4D23"
+        ],
+        [
+          0.34,
+          0.5,
+          null
+        ]
+      ]
+    },
+    "module": 1055,
+    "function_ids": [
+      1057,
+      12346,
+      12351,
+      12356
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "piece_outline": {
+    "value": {
+      "black_width_dp": 5,
+      "black_color": "#1F1C1A",
+      "highlight_width_dp": 2,
+      "highlight_color": "#FFFDF6",
+      "black_inset_dp": 0,
+      "highlight_inset_dp": 3.5,
+      "base_corner_radius_dp": 4.5,
+      "drawing_padding_dp": 3,
+      "drawing_bounds": "n*cs+6, container at(-3,-3)",
+      "geometry": "trace directed cell boundaries; prioritize right/straight/left at ambiguous vertices, discard collinear vertices; convex corners have radius=max(0,baseRadius-inset), concave corners sharp; SVG strokeLinejoin=miter",
+      "pen_draw": "separate black/highlight dash lengths L1/L2; dasharray=[L,L], dashoffset interpolates L->0"
+    },
+    "module": 2144,
+    "function_ids": [
+      2146,
+      12339,
+      12358,
+      12360,
+      12361,
+      12364
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "glass": {
+    "value": {
+      "textures": [
+        "game_assets_facets.png",
+        "game_assets_facetsb.png",
+        "game_assets_facetsc.png"
+      ],
+      "texture_dimensions": [
+        1024,
+        1024
+      ],
+      "binding_modules": [
+        2155,
+        2156,
+        2157
+      ],
+      "texture_selection": "floor(Math.random()*3) per new piece/trail, retained across rendering",
+      "offset_dp": [
+        "-round(Math.random()*(cs||40))",
+        "-round(Math.random()*(cs||40))"
+      ],
+      "per_cell_image_dp": {
+        "left": "ox-col*cs",
+        "top": "oy-row*cs",
+        "width": "n*cs+cs",
+        "height": "n*cs+cs"
+      },
+      "crop": "Each cell clips the translated image with overflow:hidden; adjacent cells belonging to one piece sample the same board-sized texture, not independent UV tiles.",
+      "compositing": "Original PNG RGBA over solid palette background; not a grayscale multiply. Converted alpha range observed 0..115/255 for all 3 files.",
+      "unity_equivalent_uv": [
+        "(boardX-ox)/(n*cs+cs)",
+        "1-(boardY-oy)/(n*cs+cs)"
+      ],
+      "native_image_options": {
+        "contentFit": "fill",
+        "cachePolicy": "memory-disk",
+        "transition": 0
+      },
+      "trail_opacity": {
+        "unrecognized_geometry": 0.86,
+        "matching_geometry": 1
+      }
+    },
+    "module": 2144,
+    "function_ids": [
+      12357,
+      18084
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "piece_pop": {
+    "value": {
+      "per_cell_delay_ms": 45,
+      "per_cell_duration_ms": 230,
+      "total_duration_ms": "230+45*max(0,cells.length-1)",
+      "global_driver_easing": "linear",
+      "jth_cell_local_t": "clamp((elapsedMs-45*j)/230,0,1)",
+      "scale_keyframes": [
+        [
+          0,
+          0.7
+        ],
+        [
+          0.55,
+          1.12
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "opacity_keyframes": [
+        [
+          0,
+          0.35
+        ],
+        [
+          0.55,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "cell_order": "original insertion/draw cell order (the source stores per-cell interpolation by cell index); preserve input order when possible",
+      "normalization": "Original code creates [0,start/T,(start+.55*230)/T,(start+230)/T,1] and collapses duplicate timestamps; do not restart on repaint.",
+      "loaded_without_enter": "driver starts at1 if animation flag false; at0 only for new animated placement"
+    },
+    "module": 2144,
+    "function_ids": [
+      2146,
+      18083
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "bad_draw": {
+    "value": {
+      "duration_ms": 320,
+      "fill": "rgba(214,84,72,0.55)",
+      "scope": "only selected currently empty cells in flash.cells; restored occupied cells follow their piece render branch"
+    },
+    "module": 2144,
+    "function_ids": [
+      2146,
+      18086
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "win": {
+    "value": {
+      "constants": {
+        "INK_MS": 300,
+        "SWEEP_DELAY": 220,
+        "SWEEP_MS": 900,
+        "SWEEP_ANGLE": "-22deg",
+        "BAND_W": 0.32
+      },
+      "board_onSolved": "called immediately once covered area and every target shape ID pass; no timer in this callback",
+      "onShellSolved_delay_ms": "if max(piece.startedAt+piece.T-now)>0, use that remaining duration+40; otherwise0",
+      "gold_alpha": "0->1 over300ms after delay; Animated.timing default easing",
+      "sweep": "starts after delay+220ms;900ms Easing.inOut(Easing.quad)",
+      "sweep_geometry": {
+        "translateX": [
+          "-boardSize",
+          "2*boardSize"
+        ],
+        "rotation": "-22deg in RN y-down coordinates",
+        "band_width": ".32*boardSize",
+        "band_height": "2.6*boardSize",
+        "vertical_center": ".5*boardSize",
+        "texture": "game_assets_shine.png (160x4, white alpha0..183/255)"
+      },
+      "gold_shadow": {
+        "dx": 0.9,
+        "dy": 1.2,
+        "width_add": 1.2,
+        "alpha": 0.85
+      },
+      "gold_hilite": {
+        "dx": -0.8,
+        "dy": -1,
+        "width_add": 0.8,
+        "alpha": 0.95
+      },
+      "gold_inner_line": {
+        "width": 1.4,
+        "alpha": 0.85
+      },
+      "gold_gradient_endpoints": [
+        "0,0",
+        ".7*canvasSize,canvasSize"
+      ],
+      "gold_bounds_padding_dp": "ceil(woodWidth*.7+shadow.w/2+shadow.dy)"
+    },
+    "module": 2144,
+    "function_ids": [
+      2146,
+      12340,
+      18087,
+      21948,
+      23693
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "pen": {
+    "value": {
+      "flight_canvas_dp": [
+        56,
+        56
+      ],
+      "nib_anchor_dp": [
+        12,
+        48
+      ],
+      "glyph_rotation_degrees": 42,
+      "container_offset_dp": [
+        -12,
+        -48
+      ],
+      "glyph": "Generated SVG PenGlyph, not the 512x512 hint-button PNG. Ink#2B2622, barrel#3E97CE/#9463CE, metal#E8B437/#FFDE7A, stroke1.4dp.",
+      "from": "shell-supplied screen coordinate; fallback=(trace[0].x,trace[0].y+80dp)",
+      "sequence": [
+        {
+          "phase": "fly",
+          "duration_ms": 380,
+          "easing": "out(cubic)",
+          "rotation_degrees": [
+            -14,
+            0
+          ],
+          "y_arch_keyframes": [
+            [
+              0,
+              0
+            ],
+            [
+              0.5,
+              -36
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        },
+        {
+          "phase": "draw",
+          "duration_ms": "round(clamp(outlineLength/900*1000,520,1200)); consumer defaults700 and minimum200",
+          "easing": "linear",
+          "rotation": "13 samples at t=j/12: alternating-4/+4deg, endpoints0"
+        },
+        {
+          "phase": "exit",
+          "duration_ms": 220,
+          "easing": "out(quad)",
+          "opacity": [
+            1,
+            0
+          ],
+          "scale": [
+            1,
+            0.86
+          ],
+          "translateY_dp": [
+            0,
+            -14
+          ]
+        }
+      ],
+      "impact": "after fly, before draw: onImpact commits piece; stroke dash progresses while pen follows outline",
+      "path_sampling": "loopSamples on the first boundary loop with four samples per rounded corner; path progression uses normalized cumulative distance"
+    },
+    "module": 2162,
+    "function_ids": [
+      2164,
+      12431,
+      12432,
+      18183,
+      21939,
+      21982,
+      23698
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "freeze": {
+    "value": {
+      "flight": {
+        "duration_ms": 330,
+        "easing": "out(cubic)",
+        "body_size_dp": [
+          56,
+          56
+        ],
+        "body_asset": "module2161 shell_src_ui_defaultparticle.png (64x64)",
+        "rotation_degrees": [
+          0,
+          320
+        ],
+        "x_mid": "max(from.x,to.x)+distance*.16",
+        "y_mid": "(from.y+to.y)/2-distance*.18",
+        "scale_keyframes": [
+          [
+            0,
+            0.55
+          ],
+          [
+            0.7,
+            1.05
+          ],
+          [
+            1,
+            0.7
+          ]
+        ],
+        "opacity_keyframes": [
+          [
+            0,
+            0
+          ],
+          [
+            0.1,
+            1
+          ],
+          [
+            0.85,
+            1
+          ],
+          [
+            1,
+            0.4
+          ]
+        ]
+      },
+      "impact_glow": {
+        "rise_ms": 60,
+        "fade_ms": 220,
+        "color": "#BFEFFF",
+        "diameter_dp": 110,
+        "opacity": [
+          0,
+          0.85
+        ],
+        "scale": [
+          0.4,
+          1.4
+        ]
+      },
+      "edge_overlay": {
+        "asset": "module1789 shell_src_ui_freezeoverlay.png (416x416)",
+        "resizeMode": "stretch",
+        "scaleX": 1.3,
+        "scaleY": 1.8,
+        "fade_in_ms": 220,
+        "fade_out_ms": 360,
+        "easing": "out(quad)",
+        "zIndex": 9990
+      },
+      "flakes": {
+        "count": 24,
+        "asset": "module1567 shell_src_ui_freeze.png (300x300)",
+        "left_pct_even": "1+random*12",
+        "left_pct_odd": "84+random*12",
+        "top_pct": "4+random*90",
+        "size_dp": "13+random*20",
+        "rotation": "round(random*360)",
+        "opacity": ".55+random*.4",
+        "bob_dp": "3+random*4",
+        "driver_durations_ms": [
+          2600,
+          3200,
+          3800,
+          4400
+        ],
+        "driver_initial_delay_ms": "driverIndex*300",
+        "driver_easing": "inOut(sin)",
+        "driver_sequence": "loop(delay,0->1,1->0)",
+        "per_flake_driver": "id%4",
+        "note": "flake.dur and flake.delay random properties exist but renderer uses four shared driver durations and index delays instead"
+      }
+    },
+    "module": 2160,
+    "function_ids": [
+      2162,
+      12416,
+      12417,
+      12421,
+      12423,
+      18178,
+      18179,
+      21979
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "lens": {
+    "value": {
+      "constants": {
+        "SPEED": 0.9,
+        "ENTER": null,
+        "SEG": null,
+        "PEEK_MS": 70,
+        "SETTLE_MS": 230,
+        "END_MS": 240,
+        "FADE_IN_MS": 90,
+        "RING_MS": 460,
+        "LEAN_MAX": 12,
+        "LEAN_K": 14,
+        "SAMPLES": 10,
+        "SIZE_PER_CELL": 1.5,
+        "SIZE_MIN": 56,
+        "SIZE_MAX": 96,
+        "PEEK_SCALE": 1.06,
+        "SETTLE_SCALE": 1.14
+      },
+      "enter_range_ms": [
+        320,
+        440
+      ],
+      "segment_range_ms": [
+        210,
+        360
+      ],
+      "scan_normalized_points": [
+        [
+          0.2,
+          0.22
+        ],
+        [
+          0.8,
+          0.45
+        ],
+        [
+          0.24,
+          0.78
+        ]
+      ],
+      "scan_mapping": "into active bb, then screen coordinates by board measureInWindow",
+      "path": "from -> scan points -> two reveal targets; first segment clamp(distance/.9,320,440), later clamp(distance/.9,210,360)",
+      "curve": "centripetal Catmull-Rom, alpha=.5, knot increments=distance^.5+.0001;10 samples/segment, first outQuad, later inOutQuad",
+      "scan_dwell": {
+        "ms": 70,
+        "scale_keyframes": [
+          [
+            0,
+            1
+          ],
+          [
+            35,
+            1.06
+          ],
+          [
+            70,
+            1
+          ]
+        ]
+      },
+      "target_dwell": {
+        "ms": 230,
+        "scale_keyframes": [
+          [
+            0,
+            1
+          ],
+          [
+            90,
+            1.14
+          ],
+          [
+            230,
+            1
+          ]
+        ]
+      },
+      "end_ms": 240,
+      "end_scale": "lensBadgeRadius(cell)/(.26*imageSize)",
+      "image_size": "clamp(round(cell*1.5),scaleStyles.sc(56),scaleStyles.sc(96))",
+      "fallback_cell": "scaleStyles.sc(44)",
+      "image_anchor_normalized": [
+        0.39,
+        0.37
+      ],
+      "lens_radius_normalized": 0.26,
+      "fade_in_ms": 90,
+      "opacity_tail": "at end-240 =>1; end-96=>.75; end=>0",
+      "lean_degrees": "clamp(centeredFiniteDifferenceXVelocity*14,-12,12)",
+      "arrival_ring": {
+        "duration_ms": 460,
+        "easing": "out(quad)",
+        "opacity_keyframes": [
+          [
+            0,
+            0
+          ],
+          [
+            0.15,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "scale": [
+          0.5,
+          1.45
+        ],
+        "color": "rgba(255,170,30,.95)",
+        "width_dp": "max(2,sc(3))",
+        "diameter_dp": "max(sc(40),cell*1.25)"
+      },
+      "shape_glyph": "arrive+90ms opacity1; nonlast target remains until arrive+190 then fades to0 byarrive+280; final persists untilend",
+      "persistent_badge": {
+        "radius_dp": "clamp(cs*.24,9,19)",
+        "stroke_dp": "max(1.5,cs*.03)",
+        "handle": "fromcenter+(.62r,.62r) tocenter+(1.28r,1.28r), widthstroke*2.6, roundcaps",
+        "pop_spring": {
+          "friction": 5,
+          "tension": 90
+        },
+        "glyph_grid_size": "min(radius*1.25/max(shapeWidth,shapeHeight),radius*.5)",
+        "glyph_gap": ".14*gridSize",
+        "glyph_corner": ".18*gridSize"
+      }
+    },
+    "module": 2163,
+    "function_ids": [
+      2165,
+      12434,
+      12435,
+      12341,
+      12367,
+      12368,
+      18186,
+      18190
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "tutorial": {
+    "value": {
+      "activation": "level1, unseen local key @mz_mech_intro_seen_draw, once-only before demonstrated tutorial handover",
+      "flow": "automatic demo of1 solution piece -> guided1 player piece -> user; no evidence for a generic first-level HOW TO PLAY modal",
+      "constants": {
+        "LEVEL": 1,
+        "DEMO_PIECES": 1,
+        "GUIDE_PIECES": 1,
+        "START_DELAY_MS": 600,
+        "APPEAR_MS": 240,
+        "PRESS_MS": 160,
+        "HOLD_MS": 140,
+        "STEP_MS": 300,
+        "LIFT_MS": 180,
+        "FADE_MS": 200,
+        "BETWEEN_MS": 650,
+        "LOOP_PAUSE_MS": 700,
+        "HINT_MS": 500,
+        "PRESS_SCALE": 0.84
+      },
+      "hand_timeline_ms": {
+        "start_delay": 600,
+        "appear": 240,
+        "press": 160,
+        "down_event": 400,
+        "initial_hold": 140,
+        "per_step": 300,
+        "final_hold": 140,
+        "up_event": "680+300*(walk.length-1)",
+        "lift": 180,
+        "fade": 200,
+        "total": "1060+300*(walk.length-1)",
+        "demo_between": 650,
+        "guide_loop_pause": 700
+      },
+      "hand_animation": "press scale.84; positional steps and press/lift inOutQuad; fade timing uses native default",
+      "hand_size_dp": [
+        "clamp(round(cs*.86),44,78)",
+        "round(width*1.1594202898550725)"
+      ],
+      "hand_anchor_normalized": [
+        0.14,
+        0.04
+      ],
+      "hand_asset_module": 1783,
+      "walk_order": "top-left start then DFS over shape adjacency; neighbors right/down/left/up; revisits parent while backtracking if shape not fully visited",
+      "dim": {
+        "color": "rgba(4,9,18,.55)",
+        "in_ms": 220,
+        "out_ms": 120
+      },
+      "panel": {
+        "background": "#FFF8DC",
+        "border": "#FFD700",
+        "radius": "sc(16)",
+        "border_width": "sc(2)",
+        "padding": [
+          "sc(18)",
+          "sc(14)"
+        ],
+        "title": "sc(24),#CC7722",
+        "text": "sc(16),lineHeight sc(23),#4A3A28",
+        "default_max_width_dp": 360,
+        "reserved_height": "sc(112)"
+      },
+      "idle_hint": {
+        "max_level": 10,
+        "ordinary_delay_ms": 10000,
+        "guide_delay_ms": 500,
+        "pulse_half_ms": 800,
+        "opacity_range": [
+          0.28,
+          0.62
+        ],
+        "solve_budget": 60000
+      }
+    },
+    "module": 2147,
+    "function_ids": [
+      2149,
+      12398,
+      12399,
+      12400,
+      12401,
+      12402,
+      12404,
+      18113
+    ],
+    "evidence": "HASM + decompiler cross-check"
+  },
+  "implementation": {
+    "files": [
+      "outputs/InkominoTuanjie/Assets/Scripts/UI/PuzzleBoardView.cs",
+      "outputs/InkominoTuanjie/Assets/Scripts/UI/SourceBoardGeometry.cs"
+    ],
+    "implemented": [
+      "Active bbox cell sizing and hit coordinates",
+      "Three original facets textures with per-piece board-level UV offsets",
+      "Directed polyomino boundary tracing, convex circular corners and fixed-dp black/highlight strokes",
+      "SourceClock-driven per-cell pop with original45/230ms interpolation; refresh retains start time",
+      "Empty bad selection red flash320ms",
+      "Pen outline prefix driven by publicDrawTrace/DrawProgress",
+      "Victory wait for active pops+40ms, gold piece outlines and clipped white sweep"
+    ],
+    "interfaces": {
+      "PixelDensity": "public float field,default2.625",
+      "Animating": "public bool field",
+      "DrawTrace": "public int[] field",
+      "DrawProgress": "public float field,0..1",
+      "SetPenTrace": "void(int[] cells,float progress)",
+      "PlayVictory": "void()",
+      "VictoryTimeRemaining": "float property seconds",
+      "CellSize": "float property canvasunits",
+      "CellCenterLocal": "Vector2(int cell)",
+      "CellCenterScreen": "Vector2(int cell)",
+      "GetOutlineTrace": "Vector2[](int[] cells),screenpoints,closed",
+      "VisibleBoundsLocal": "Rect property",
+      "BoardOriginLocal": "Vector2 property"
+    },
+    "unimplemented_or_approximated": [
+      "Original irregular wood frame/profile and wood grain not implemented by this board edit; Skin/layout owner handles frame",
+      "GridLines guide jitter/round caps/rings currently approximated with source-sized dash segments",
+      "Icon shapes and wall marks currently font glyph approximations, not exact original SVG glyph paths",
+      "Gold gradient uses tessellated vertex colors; native SVG shader interpolation and anti-aliasing are not pixel-identical",
+      "Random palette/UV distribution matches packaged mechanism but original runtime random state is unavailable",
+      "Piece boundary quarter-arcs are sampled with8segments, not nativeSVG analytic arcs"
+    ],
+    "checks": "Standalone Tuanjie Roslyn C# compilation passed against existing Unity/Assembly-CSharp references with temporary clock-signature stubs; editor engine not launched. Final integrated build and frame comparison delegated to root agent."
+  },
+  "limitations": [
+    "All timing values are packaged constants; no captured frame sequence was available to validate actual Android scheduling/jank.",
+    "Decompiler names/assignments can be corrupted. Exact constants are supported by direct literal decoding; exact control flow cited above was cross-checked in HASM where stated.",
+    "Do not equate the current implementation with complete visual identity; native anti-aliasing, SVG paths, asset binding and frame capture comparisons remain necessary."
+  ]
+}

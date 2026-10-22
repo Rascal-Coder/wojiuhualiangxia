@@ -1,0 +1,11 @@
+; fn#21531 "<anonymous>" params=1 frame=12 regs=1(num=0,nonptr=1) size=30 offset=0x471f7d flags=[strict]
+0000  GetParentEnvironment r1, 0
+0003  LoadConstTrue r0
+0005  StoreNPToEnvironment r1, 1, r0
+0009  GetGlobalObject r2
+000b  TryGetById r2, r2, 0, "clearTimeout"
+0011  LoadFromEnvironment r1, r1, 4
+0015  LoadConstUndefined r0
+0017  Call2 r1, r2, r0, r1
+001c  Ret r0
+

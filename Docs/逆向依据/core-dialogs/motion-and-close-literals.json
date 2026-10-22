@@ -1,0 +1,263 @@
+[
+  {
+    "function": 12659,
+    "instruction_offset": "003a",
+    "value": {
+      "title": null,
+      "closeButtonActive": false,
+      "contentStyle": null,
+      "children": null
+    },
+    "literal_evidence": {
+      "shape": 3311,
+      "literal_offset": 50821,
+      "file_offset": 1529681,
+      "key_hex": "54ed004a6d1e7c0b00",
+      "value_hex": "012102"
+    }
+  },
+  {
+    "function": 17913,
+    "instruction_offset": "0033",
+    "value": {
+      "toValue": -6,
+      "duration": 900,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 35317,
+      "file_offset": 1514177,
+      "key_hex": "53ef007800f600",
+      "value_hex": "72faffffff8403000011"
+    }
+  },
+  {
+    "function": 17913,
+    "instruction_offset": "0051",
+    "value": {
+      "toValue": 0,
+      "duration": 900,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 54982,
+      "file_offset": 1533842,
+      "key_hex": "53ef007800f600",
+      "value_hex": "72000000008403000011"
+    }
+  },
+  {
+    "function": 17917,
+    "instruction_offset": "002f",
+    "value": {
+      "toValue": -220,
+      "duration": 180,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 55044,
+      "file_offset": 1533904,
+      "key_hex": "53ef007800f600",
+      "value_hex": "7224ffffffb400000011"
+    }
+  },
+  {
+    "function": 17917,
+    "instruction_offset": "0051",
+    "value": {
+      "toValue": 0,
+      "duration": 180,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 55091,
+      "file_offset": 1533951,
+      "key_hex": "53ef007800f600",
+      "value_hex": "7200000000b400000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "0024",
+    "value": {
+      "toValue": 0,
+      "tension": 50,
+      "friction": 10,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3820,
+      "literal_offset": 55141,
+      "file_offset": 1534001,
+      "key_hex": "54ef002f653065f600",
+      "value_hex": "7300000000320000000a00000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "0046",
+    "value": {
+      "toValue": 1,
+      "duration": 200,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 43916,
+      "file_offset": 1522776,
+      "key_hex": "53ef007800f600",
+      "value_hex": "7201000000c800000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "00a2",
+    "value": {
+      "toValue": 0,
+      "tension": 60,
+      "friction": 11,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3820,
+      "literal_offset": 55193,
+      "file_offset": 1534053,
+      "key_hex": "54ef002f653065f600",
+      "value_hex": "73000000003c0000000b00000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "00c4",
+    "value": {
+      "toValue": 1,
+      "duration": 300,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 53712,
+      "file_offset": 1532572,
+      "key_hex": "53ef007800f600",
+      "value_hex": "72010000002c01000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "012c",
+    "value": {
+      "toValue": 1,
+      "tension": 55,
+      "friction": 7,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3820,
+      "literal_offset": 55247,
+      "file_offset": 1534107,
+      "key_hex": "54ef002f653065f600",
+      "value_hex": "7301000000370000000700000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "014e",
+    "value": {
+      "toValue": 1,
+      "duration": 250,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 53921,
+      "file_offset": 1532781,
+      "key_hex": "53ef007800f600",
+      "value_hex": "7201000000fa00000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "01b6",
+    "value": {
+      "toValue": 1,
+      "tension": 65,
+      "friction": 7,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3820,
+      "literal_offset": 55288,
+      "file_offset": 1534148,
+      "key_hex": "54ef002f653065f600",
+      "value_hex": "7301000000410000000700000011"
+    }
+  },
+  {
+    "function": 17918,
+    "instruction_offset": "01d8",
+    "value": {
+      "toValue": 1,
+      "duration": 250,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 53921,
+      "file_offset": 1532781,
+      "key_hex": "53ef007800f600",
+      "value_hex": "7201000000fa00000011"
+    }
+  },
+  {
+    "function": 18334,
+    "instruction_offset": "002d",
+    "value": {
+      "toValue": 1.1,
+      "duration": 500,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 56614,
+      "file_offset": 1535474,
+      "key_hex": "53ef007800f600",
+      "value_hex": "319a9999999999f13f71f401000011"
+    }
+  },
+  {
+    "function": 18334,
+    "instruction_offset": "004b",
+    "value": {
+      "toValue": 1,
+      "duration": 500,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 56653,
+      "file_offset": 1535513,
+      "key_hex": "53ef007800f600",
+      "value_hex": "7201000000f401000011"
+    }
+  },
+  {
+    "function": 18334,
+    "instruction_offset": "0087",
+    "value": {
+      "toValue": 1,
+      "duration": 2000,
+      "useNativeDriver": true
+    },
+    "literal_evidence": {
+      "shape": 3819,
+      "literal_offset": 56687,
+      "file_offset": 1535547,
+      "key_hex": "53ef007800f600",
+      "value_hex": "7201000000d007000011"
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "art": {
+    "file": "Assets\\Resources\\MenuArt\\menu_climb_journey.png",
+    "source": "Built-in image_gen; generated for this project",
+    "prompt": "Seven floating grassy islands winding from an orange flag to an open gold chest, warm golden stone/wood, jade green and turquoise; softly shaded casual puzzle game decoration; landscape 3:2, transparent; no text, numbers, logo or controls.",
+    "normalization": "Downsample to900x600, preserve RGBA alpha",
+    "size": [
+      900,
+      600
+    ],
+    "sha256": "ee654be7c9853df7b45afc775e2eec1146aa5873b2d2a724bb674c4bb1bebc4d"
+  },
+  "font": {
+    "file": "Assets\\Resources\\Fonts\\LiangxiaUISans-Medium.ttf",
+    "source": "https://github.com/google/fonts/tree/main/ofl/notosanssc",
+    "license": "SIL Open Font License1.1; included beside font",
+    "modifications": "instantiate500, project UI glyph subset, renamed Liangxia UI Sans",
+    "glyphs": 600,
+    "bytes": 150492
+  }
+}

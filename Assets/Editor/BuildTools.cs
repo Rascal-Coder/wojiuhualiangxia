@@ -1,0 +1,44 @@
+using System;
+using System.IO;
+using System.Linq;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEditor.Build.Reporting;
+using Inkomino;
+
+public static class BuildTools
+{
+    static string Root{get{return Path.GetFullPath(Path.Combine(Application.dataPath,".."));}}
+    [MenuItem("Inkomino/Prepare scene and settings")]
+    public static void Prepare(){
+        foreach(string guid in AssetDatabase.FindAssets("t:Texture2D",new[]{"Assets/Resources/Art","Assets/Resources/MenuArt"})){var path=AssetDatabase.GUIDToAssetPath(guid);var i=(TextureImporter)AssetImporter.GetAtPath(path);bool changed=i.textureType!=TextureImporterType.Default||i.mipmapEnabled||i.maxTextureSize<4096||i.npotScale!=TextureImporterNPOTScale.None||i.textureCompression!=TextureImporterCompression.Uncompressed||i.wrapMode!=(path.Contains("facets")?TextureWrapMode.Repeat:TextureWrapMode.Clamp);i.textureType=TextureImporterType.Default;i.mipmapEnabled=false;i.alphaIsTransparency=true;i.wrapMode=path.Contains("facets")?TextureWrapMode.Repeat:TextureWrapMode.Clamp;i.maxTextureSize=4096;i.npotScale=TextureImporterNPOTScale.None;i.textureCompression=TextureImporterCompression.Uncompressed;if(changed)i.SaveAndReimport();}
+        PlayerSettings.companyName="Local Reconstruction";PlayerSettings.productName=Zh.GameName;PlayerSettings.bundleVersion="1.0.0-reconstruction";PlayerSettings.defaultInterfaceOrientation=UIOrientation.Portrait;PlayerSettings.allowedAutorotateToPortrait=true;PlayerSettings.allowedAutorotateToLandscapeLeft=false;PlayerSettings.allowedAutorotateToLandscapeRight=false;PlayerSettings.allowedAutorotateToPortraitUpsideDown=false;
+        var gameIcon=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Branding/app-icon.png");
+        if(!gameIcon)throw new Exception("Missing game branding icon.");
+        PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Unknown,new[]{gameIcon});
+        PlayerSettings.defaultScreenWidth=540;PlayerSettings.defaultScreenHeight=1200;PlayerSettings.fullScreenMode=FullScreenMode.Windowed;PlayerSettings.resizableWindow=true;PlayerSettings.runInBackground=true;PlayerSettings.colorSpace=ColorSpace.Gamma;PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android,"com.local.inkomino.reconstruction");PlayerSettings.Android.minSdkVersion=AndroidSdkVersions.AndroidApiLevel23;PlayerSettings.Android.targetArchitectures=AndroidArchitecture.ARM64;PlayerSettings.Android.targetSdkVersion=AndroidSdkVersions.AndroidApiLevelAuto;PlayerSettings.SetScriptingBackend(BuildTargetGroup.Standalone,ScriptingImplementation.Mono2x);QualitySettings.vSyncCount=0;
+        var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);var camera=new GameObject("Camera",typeof(Camera),typeof(AudioListener));camera.GetComponent<Camera>().clearFlags=CameraClearFlags.SolidColor;camera.GetComponent<Camera>().backgroundColor=new Color(.14f,.09f,.06f);new GameObject("Inkomino",typeof(InkominoApp));EditorSceneManager.SaveScene(scene,"Assets/Scenes/Inkomino.unity");EditorBuildSettings.scenes=new[]{new EditorBuildSettingsScene("Assets/Scenes/Inkomino.unity",true)};AssetDatabase.SaveAssets();}
+    [MenuItem("Inkomino/Validate all 500 levels")]
+    public static void Validate(){
+        var data=JsonUtility.FromJson<GameData>(Resources.Load<TextAsset>("Data/levels").text);data.Normalize();var lib=new ShapeLibrary(data.shapes);var errors=new List<string>();int passed=0;
+        foreach(var l in data.levels){if(l.blocked==null||l.blocked.Length!=l.n*l.n)throw new Exception("Invalid imported board: level="+l.id+" n="+l.n+" blockedLength="+(l.blocked==null?-1:l.blocked.Length));var b=new BoardState(l,lib);foreach(var p in l.solution){string reason;if(!b.TryPlace(p.cells,out reason))errors.Add(l.id+": "+reason);}if(!b.Solved)errors.Add(l.id+": not solved");else passed++;}
+        void Check(bool ok,string reason){if(!ok)errors.Add(reason);}
+        Check(data.levels.Length==500,"Expected 500 levels");Check(InkominoApp.FormatTime(119)=="1:59"&&InkominoApp.FormatTime(60)=="1:00"&&InkominoApp.FormatTime(0)=="0:00","Timer rollover");
+        Check(InkominoApp.RewardCountdown(86400)=="24:00:00"&&InkominoApp.RewardCountdown(3600)=="01:00:00"&&InkominoApp.RewardCountdown(-1)=="00:00:00","Daily gift countdown includes the exact24h boundary");
+        var level11=new BoardState(data.levels[10],lib);string why;Check(!level11.TryPlace(new[]{8,9,12,13},out why),"Wall must reject crossing");
+        var l1=new BoardState(data.levels[0],lib);Check(!l1.TryPlace(new[]{0,1,4,5},out why),"Blocked cells rejected");Check(l1.TryPlace(data.levels[0].solution[0].cells,out why),"Valid first piece");Check(!l1.TryPlace(data.levels[0].solution[0].cells,out why),"Overlapping piece rejected");Check(l1.Solve()!=null,"Partial board continuation");
+        foreach(var l in data.levels.Where(l=>l.walls!=null&&l.walls.e.Concat(l.walls.s).Any(w=>w>1))){var b=new BoardState(l,lib);Check(b.Restore(l.solution)&&b.Solved,"Marked wall "+l.id);}
+        foreach(var l in data.levels.Where(l=>l.icons!=null)){var b=new BoardState(l,lib);Check(b.Restore(l.solution)&&b.Solved,"Symbol level "+l.id);}
+        var synthetic=new LevelData{id=999,n=2,blocked=new int[4],targets=new[]{"s2_1"},walls=new WallData{e=new[]{2,0,0,0},s=new int[4]}};
+        var same=new BoardState(synthetic,lib);Check(same.TryPlace(new[]{0,2},out why)&&same.TryPlace(new[]{1,3},out why)&&same.Solved,"Equal wall accepts same shape");synthetic.walls.e[0]=3;var different=new BoardState(synthetic,lib);Check(different.TryPlace(new[]{0,2},out why)&&!different.TryPlace(new[]{1,3},out why),"Different wall rejects same shape");
+        synthetic.walls=null;synthetic.icons=new[]{1,1,0,0};var symbols=new BoardState(synthetic,lib);Check(!symbols.TryPlace(new[]{0,1},out why),"Reject two identical symbols in one piece");synthetic.icons=new[]{1,0,0,1};Check(symbols.TryPlace(new[]{0,2},out why)&&symbols.TryPlace(new[]{1,3},out why),"One symbol per piece accepted");
+        synthetic.icons=null;synthetic.nums=new[]{3,0,0,0};var numbers=new BoardState(synthetic,lib);Check(!numbers.TryPlace(new[]{0,2},out why),"Number must equal piece area");synthetic.nums=null;synthetic.targets=new[]{"s2_1","t4o"};var targets=new BoardState(synthetic,lib);Check(targets.TryPlace(new[]{0,2},out why)&&targets.TryPlace(new[]{1,3},out why)&&!targets.Solved,"Full coverage without every target is incomplete");
+        string temp=Path.Combine(Root,"QA/editor-profile.json");Directory.CreateDirectory(Path.GetDirectoryName(temp));if(File.Exists(temp))File.Delete(temp);var store=new SaveStore(temp);store.Data.hearts=1;store.Data.regenAt=1000;store.RecoverAt(2800);Check(store.Data.hearts==4,"Life recovery catches up");store.RecoverAt(5000);Check(store.Data.hearts==5,"Life recovery caps at five");store.Data.coins=200;Check(store.Buy("freeze",120)&&store.Data.coins==80&&store.Data.freeze==6,"Booster purchase");Check(!store.Buy("hint",150)&&store.Data.coins==80,"Reject unaffordable purchase");int reward=store.Complete(data.levels[49]);int second=store.Complete(data.levels[49]);Check(reward==35&&second==0,"Difficulty reward and replay reward protection");var reloaded=new SaveStore(temp);Check(reloaded.Data.completed[49]&&reloaded.Data.coins==115,"Save round trip");
+        File.WriteAllText(Path.Combine(Root,"QA/editor-validation.json"),"{\"engine\":\""+Application.unityVersion+"\",\"levels\":"+passed+",\"total\":500,\"errors\":["+string.Join(",",errors.Select(x=>"\""+x.Replace("\"","'")+"\""))+"]}");if(errors.Count>0)throw new Exception(string.Join("\n",errors));Debug.Log("INKOMINO VALIDATION: 500/500 levels + constraint/save/economy regression checks passed");}
+    [MenuItem("Inkomino/Build Windows")]
+    public static void BuildWindows(){Prepare();Validate();string dest=Path.Combine(Root,"Builds/Windows/Inkomino.exe");Directory.CreateDirectory(Path.GetDirectoryName(dest));var result=BuildPipeline.BuildPlayer(new BuildPlayerOptions{scenes=new[]{"Assets/Scenes/Inkomino.unity"},locationPathName=dest,target=BuildTarget.StandaloneWindows64,options=BuildOptions.None});if(result.summary.result!=BuildResult.Succeeded)throw new Exception("Build failed: "+result.summary.result);Debug.Log("INKOMINO BUILD SUCCEEDED "+dest);}
+    [MenuItem("Inkomino/Build Android APK")]
+    public static void BuildAndroid(){Prepare();Validate();PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android,ScriptingImplementation.IL2CPP);string dest=Path.Combine(Root,"Builds/Android/Inkomino.apk");Directory.CreateDirectory(Path.GetDirectoryName(dest));var result=BuildPipeline.BuildPlayer(new[]{"Assets/Scenes/Inkomino.unity"},dest,BuildTarget.Android,BuildOptions.None);if(result.summary.result!=BuildResult.Succeeded)throw new Exception("Android build failed");}
+}

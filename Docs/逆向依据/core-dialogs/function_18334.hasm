@@ -1,0 +1,35 @@
+0000  GetParentEnvironment r1, 0
+0003  GetParentEnvironment r2, 1
+0006  LoadFromEnvironment r4, r2, 1
+000a  GetByIdShort r5, r4, 0, "Animated"
+000f  GetById r3, r5, 1, "loop"
+0015  GetByIdShort r7, r4, 0, "Animated"
+001a  GetByIdShort r6, r7, 2, "sequence"
+001f  GetByIdShort r9, r4, 0, "Animated"
+0024  GetByIdShort r8, r9, 3, "timing"
+0029  LoadFromEnvironment r11, r1, 8
+002d  NewObjectWithBuffer r2, 3819, 56614
+0033  Call3 r8, r8, r9, r11, r2
+0039  NewArray r2, 2
+003d  DefineOwnInDenseArray r2, r8, 0
+0041  GetByIdShort r10, r4, 0, "Animated"
+0046  GetByIdShort r9, r10, 3, "timing"
+004b  NewObjectWithBuffer r8, 3819, 56653
+0051  Call3 r8, r9, r10, r11, r8
+0057  DefineOwnInDenseArray r2, r8, 1
+005b  Call2 r2, r6, r7, r2
+0060  Call2 r3, r3, r5, r2
+0065  GetByIdShort r2, r3, 4, "start"
+006a  Call1 r2, r2, r3
+006e  GetByIdShort r3, r4, 0, "Animated"
+0073  GetById r2, r3, 1, "loop"
+0079  GetByIdShort r6, r4, 0, "Animated"
+007e  GetByIdShort r5, r6, 3, "timing"
+0083  LoadFromEnvironment r4, r1, 9
+0087  NewObjectWithBuffer r1, 3819, 56687
+008d  Call3 r1, r5, r6, r4, r1
+0093  Call2 r2, r2, r3, r1
+0098  GetByIdShort r1, r2, 4, "start"
+009d  Call1 r1, r1, r2
+00a1  LoadConstUndefined r0
+00a3  Ret r0

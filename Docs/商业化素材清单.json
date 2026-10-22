@@ -1,0 +1,23 @@
+{
+  "generation_tool": "built-in imagegen",
+  "source": "current game Chinese logo reference",
+  "file": "Assets/Resources/Art/game_assets_rewardedvideo.png",
+  "size": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "alpha_range": [
+    0,
+    254
+  ],
+  "sha256": "9d5a447c505aff333571abe13f072eea765b46e2f3c4ef6936d224b8aee26575",
+  "new_generated_art": true,
+  "runtime_qa": {
+    "status": "PASS",
+    "checks": 65,
+    "screenshots": 12,
+    "platform": "Windows real player render, isolated profile; QA fake ad providers only",
+    "actual_wechat_ads": false
+  }
+}

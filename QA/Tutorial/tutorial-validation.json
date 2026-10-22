@@ -1,0 +1,104 @@
+{
+    "status": "PASS",
+    "engine": "2022.3.62t16",
+    "method": "Actual SourceStartup with isolated empty profile, real tutorial gestures and saved-profile reloads. Windows runtime; not WeChat device execution.",
+    "checks": [
+        {
+            "name": "isolated QA storage",
+            "passed": true
+        },
+        {
+            "name": "profile absent at actual startup",
+            "passed": true
+        },
+        {
+            "name": "real loading completed",
+            "passed": true
+        },
+        {
+            "name": "empty startup directly opens level one",
+            "passed": true
+        },
+        {
+            "name": "fresh startup begins unseen demo",
+            "passed": true
+        },
+        {
+            "name": "demo blocks player input",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot 01-fresh-demo.png",
+            "passed": true
+        },
+        {
+            "name": "demo places piece before seen flag",
+            "passed": true
+        },
+        {
+            "name": "interrupted demo does not save temporary piece",
+            "passed": true
+        },
+        {
+            "name": "interrupted unseen demo starts clean on reentry",
+            "passed": true
+        },
+        {
+            "name": "legacy partial demo cannot bypass tutorial",
+            "passed": true
+        },
+        {
+            "name": "stale demo snapshot cleared without carrying timer",
+            "passed": true
+        },
+        {
+            "name": "automatic demo reaches guide",
+            "passed": true
+        },
+        {
+            "name": "seen flag persists at original demo-to-guide boundary",
+            "passed": true
+        },
+        {
+            "name": "guide enables player drawing",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot 02-follow-hand.png",
+            "passed": true
+        },
+        {
+            "name": "guide accepts only highlighted shape",
+            "passed": true
+        },
+        {
+            "name": "actual guided gesture advances to independent drawing",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot 03-draw-yourself.png",
+            "passed": true
+        },
+        {
+            "name": "player progress resumes after completed demo",
+            "passed": true
+        },
+        {
+            "name": "relaunch keeps player pieces without repeating seen demo",
+            "passed": true
+        },
+        {
+            "name": "first tutorial level can be completed",
+            "passed": true
+        },
+        {
+            "name": "completed player starts on home",
+            "passed": true
+        },
+        {
+            "name": "returning progress preserved",
+            "passed": true
+        }
+    ],
+    "errors": []
+}

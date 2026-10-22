@@ -1,0 +1,10 @@
+; fn#23549 "<anonymous>" params=1 frame=10 regs=1(num=0,nonptr=1) size=20 offset=0x40a404 flags=[strict]
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r1, r1, 0
+0007  JmpFalse L16, r1
+000a  LoadConstUndefined r0
+000c  Call1 r1, r1, r0
+L16:
+0010  LoadConstUndefined r0
+0012  Ret r0
+

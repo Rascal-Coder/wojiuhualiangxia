@@ -1,0 +1,229 @@
+0000  LoadParam r4, 1
+0003  GetByIdShort r8, r4, 0, "text"
+0008  GetByIdShort r5, r4, 1, "fontSize"
+000d  LoadConstUndefined r2
+000f  JStrictNotEqual L22, r5, r2
+0013  LoadConstUInt8 r5, 56
+L22:
+0016  CreateFunctionEnvironment r10, 21
+0019  StoreToEnvironment r10, 0, r5
+001d  GetById r5, r4, 2, "maxRotate"
+0023  JStrictNotEqual L42, r5, r2
+0027  LoadConstUInt8 r5, 22
+L42:
+002a  StoreToEnvironment r10, 1, r5
+002e  GetById r5, r4, 3, "curveDepth"
+0034  JStrictNotEqual L59, r5, r2
+0038  LoadConstUInt8 r5, 22
+L59:
+003b  StoreToEnvironment r10, 2, r5
+003f  GetById r5, r4, 4, "strokeColor"
+0045  JStrictNotEqual L77, r5, r2
+0049  LoadConstString r5, "#C9213E"
+L77:
+004d  StoreToEnvironment r10, 3, r5
+0051  GetById r5, r4, 5, "fillColor"
+0057  JStrictNotEqual L95, r5, r2
+005b  LoadConstString r5, "#FFFFFF"
+L95:
+005f  StoreToEnvironment r10, 4, r5
+0063  GetById r5, r4, 6, "fillShadowColor"
+0069  JStrictNotEqual L113, r5, r2
+006d  LoadConstString r5, "rgba(0,0,0,0.3)"
+L113:
+0071  StoreToEnvironment r10, 5, r5
+0075  GetById r5, r4, 7, "fillShadowRadius"
+007b  StoreToEnvironment r10, 6, r5
+007f  GetById r5, r4, 8, "haloLayers"
+0085  JStrictNotEqual L139, r5, r2
+0089  LoadConstZero r5
+L139:
+008b  GetById r6, r4, 9, "haloRadius"
+0091  GetById r7, r4, 10, "strokeScale"
+0097  JStrictNotEqual L165, r7, r2
+009b  LoadConstDouble r7, 1.12
+L165:
+00a5  StoreToEnvironment r10, 7, r7
+00a9  GetById r11, r4, 11, "strokeRadius"
+00af  JStrictNotEqual L182, r11, r2
+00b3  LoadConstUInt8 r11, 8
+L182:
+00b6  GetParentEnvironment r9, 0
+00b9  StoreToEnvironment r10, 8, r11
+00bd  GetByIdShort r7, r4, 12, "fontFamily"
+00c2  JStrictNotEqual L207, r7, r2
+00c6  LoadFromEnvironment r12, r9, 2
+00ca  GetByIdShort r7, r12, 13, "FONT_FAMILY"
+L207:
+00cf  StoreToEnvironment r10, 9, r7
+00d3  GetByIdShort r16, r4, 14, "height"
+00d8  JStrictNotEqual L223, r16, r2
+00dc  LoadConstUInt8 r16, 100
+L223:
+00df  GetById r7, r4, 15, "animateIn"
+00e5  JStrictNotEqual L235, r7, r2
+00e9  LoadConstFalse r7
+L235:
+00eb  StoreToEnvironment r10, 10, r7
+00ef  GetById r7, r4, 16, "staggerMs"
+00f5  JStrictNotEqual L252, r7, r2
+00f9  LoadConstUInt8 r7, 70
+L252:
+00fc  StoreToEnvironment r10, 11, r7
+0100  GetById r7, r4, 17, "onAnimateInComplete"
+0106  StoreToEnvironment r10, 12, r7
+010a  GetByIdShort r13, r4, 18, "style"
+010f  StoreNPToEnvironment r10, 13, r2
+0113  StoreNPToEnvironment r10, 14, r2
+0117  StoreNPToEnvironment r10, 15, r2
+011b  StoreNPToEnvironment r10, 16, r2
+011f  StoreNPToEnvironment r10, 17, r2
+0123  StoreNPToEnvironment r10, 18, r2
+0127  StoreNPToEnvironment r10, 19, r2
+012b  StoreNPToEnvironment r10, 20, r2
+012f  GetByIdShort r7, r8, 19, "split"
+0134  LoadConstString r4, ""
+0138  Call2 r12, r7, r8, r4
+013d  GetByIdShort r4, r12, 20, "length"
+0142  StoreToEnvironment r10, 13, r4
+0146  CreateClosure r4, r9, 17299
+014b  StoreToEnvironment r10, 14, r4
+014f  LoadConstNull r4
+0151  JEqual L344, r6, r4
+0155  Mov r11, r6
+L344:
+0158  StoreToEnvironment r10, 15, r11
+015c  GetGlobalObject r6
+015e  TryGetById r8, r6, 21, "Math"
+0164  GetById r7, r8, 22, "ceil"
+016a  LoadConstUInt8 r0, 3
+016d  Mul r0, r11, r0
+0171  Call2 r7, r7, r8, r0
+0176  StoreToEnvironment r10, 16, r7
+017a  LoadConstZero r0
+017c  Greater r1, r5, r0
+0180  LoadConstNull r4
+0182  JmpFalse L421, r1
+0185  TryGetById r8, r6, 23, "Array"
+018b  GetByIdShort r7, r8, 24, "from"
+0190  NewObjectWithBuffer r6, 2818, 24
+0196  PutOwnBySlotIdx r6, r5, 0
+019a  CreateClosure r5, r2, 17300
+019f  Call3 r4, r7, r8, r6, r5
+L421:
+01a5  StoreToEnvironment r10, 17, r4
+01a9  LoadFromEnvironment r4, r9, 0
+01ad  GetByIdShort r6, r4, 25, "useRef"
+01b2  GetByIdShort r7, r12, 26, "map"
+01b7  CreateClosure r5, r10, 17301
+01bc  Call2 r5, r7, r12, r5
+01c1  Call2 r5, r6, r2, r5
+01c6  GetByIdShort r5, r5, 27, "current"
+01cb  StoreToEnvironment r10, 18, r5
+01cf  GetByIdShort r7, r4, 28, "useEffect"
+01d4  NewArray r6, 0
+01d8  CreateClosure r5, r10, 17302
+01dd  Call3 r5, r7, r2, r5, r6
+01e3  GetByIdShort r5, r4, 29, "useState"
+01e8  Call2 r5, r5, r2, r0
+01ed  Mov r8, r5
+01f0  IteratorBegin r6, r8
+01f3  Mov r5, r8
+01f6  IteratorNext r7, r6, r5
+01fa  Mov r5, r6
+01fd  StrictEq r1, r5, r2
+0201  LoadConstUndefined r5
+0203  JmpTrue L521, r1
+0206  Mov r5, r7
+L521:
+0209  LoadConstUndefined r7
+020b  JmpTrue L551, r1
+020e  IteratorNext r8, r6, r8
+0212  Mov r11, r6
+0215  StrictEq r3, r11, r2
+0219  LoadConstUndefined r7
+021b  Mov r1, r3
+021e  JmpTrue L551, r3
+0221  Mov r7, r8
+0224  Mov r1, r3
+L551:
+0227  StoreToEnvironment r10, 19, r7
+022b  JmpTrue L561, r1
+022e  IteratorClose r6, 0
+L561:
+0231  GetByIdShort r4, r4, 29, "useState"
+0236  Call2 r4, r4, r2, r0
+023b  Mov r8, r4
+023e  IteratorBegin r6, r8
+0241  Mov r4, r8
+0244  IteratorNext r7, r6, r4
+0248  Mov r4, r6
+024b  StrictEq r1, r4, r2
+024f  LoadConstUndefined r4
+0251  JmpTrue L599, r1
+0254  Mov r4, r7
+L599:
+0257  LoadConstUndefined r7
+0259  JmpTrue L629, r1
+025c  IteratorNext r8, r6, r8
+0260  Mov r11, r6
+0263  StrictEq r3, r11, r2
+0267  LoadConstUndefined r7
+0269  Mov r1, r3
+026c  JmpTrue L629, r3
+026f  Mov r7, r8
+0272  Mov r1, r3
+L629:
+0275  StoreToEnvironment r10, 20, r7
+0279  JmpTrue L639, r1
+027c  IteratorClose r6, 0
+L639:
+027f  Greater r1, r5, r0
+0283  LoadConstUInt8 r0, 1
+0286  Mov r14, r0
+0289  JmpFalse L666, r1
+028c  Greater r1, r4, r5
+0290  Mov r14, r0
+0293  JmpFalse L666, r1
+0296  Div r14, r5, r4
+L666:
+029a  LoadFromEnvironment r8, r9, 4
+029e  GetByIdShort r6, r8, 30, "jsx"
+02a3  LoadFromEnvironment r7, r9, 1
+02a7  GetByIdShort r5, r7, 31, "View"
+02ac  NewObjectWithBuffer r4, 2819, 27714
+02b2  LoadFromEnvironment r11, r9, 6
+02b6  GetById r15, r11, 32, "wrap"
+02bc  NewArray r9, 3
+02c0  DefineOwnInDenseArray r9, r15, 0
+02c4  NewObjectWithBuffer r15, 214, 24
+02ca  PutOwnBySlotIdx r15, r16, 0
+02ce  DefineOwnInDenseArray r9, r15, 1
+02d2  DefineOwnInDenseArray r9, r13, 2
+02d6  PutOwnBySlotIdx r4, r9, 0
+02da  CreateClosure r9, r10, 17303
+02df  PutOwnBySlotIdx r4, r9, 1
+02e3  GetByIdShort r9, r8, 30, "jsx"
+02e8  GetByIdShort r8, r7, 31, "View"
+02ed  NewObjectWithBuffer r7, 2819, 27714
+02f3  GetById r13, r11, 33, "row"
+02f9  NewArray r11, 2
+02fd  DefineOwnInDenseArray r11, r13, 0
+0301  NewObjectWithBuffer r13, 173, 24
+0307  NewObjectWithBuffer r15, 174, 24
+030d  PutOwnBySlotIdx r15, r14, 0
+0311  NewArray r14, 1
+0315  DefineOwnInDenseArray r14, r15, 0
+0319  PutOwnBySlotIdx r13, r14, 0
+031d  DefineOwnInDenseArray r11, r13, 1
+0321  PutOwnBySlotIdx r7, r11, 0
+0325  CreateClosure r11, r10, 17304
+032a  PutOwnBySlotIdx r7, r11, 1
+032e  GetByIdShort r11, r12, 26, "map"
+0333  CreateClosure r10, r10, 17305
+0338  Call2 r10, r11, r12, r10
+033d  PutOwnBySlotIdx r7, r10, 2
+0341  Call3 r7, r9, r2, r8, r7
+0347  PutOwnBySlotIdx r4, r7, 2
+034b  Call3 r4, r6, r2, r5, r4
+0351  Ret r4

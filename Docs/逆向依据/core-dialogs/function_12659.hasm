@@ -1,0 +1,101 @@
+0000  GetParentEnvironment r21, 0
+0003  LoadParam r2, 1
+0006  GetById r8, r2, 0, "levelId"
+000c  GetById r18, r2, 1, "onContinue"
+0012  GetById r22, r2, 2, "onQuit"
+0018  LoadFromEnvironment r2, r21, 3
+001c  GetById r2, r2, 3, "useT"
+0022  LoadConstUndefined r1
+0024  Call1 r20, r2, r1
+0028  LoadFromEnvironment r17, r21, 5
+002c  GetByIdShort r4, r17, 4, "jsxs"
+0031  LoadFromEnvironment r2, r21, 1
+0035  GetByIdShort r3, r2, 5, "default"
+003a  NewObjectWithBuffer r2, 3311, 50821
+0040  LoadConstString r5, "continuePrompt.title"
+0044  Call2 r5, r20, r1, r5
+0049  PutOwnBySlotIdx r2, r5, 0
+004d  LoadFromEnvironment r19, r21, 6
+0051  GetById r5, r19, 6, "content"
+0057  PutOwnBySlotIdx r2, r5, 2
+005b  GetByIdShort r7, r17, 7, "jsx"
+0060  LoadFromEnvironment r16, r21, 0
+0064  GetByIdShort r6, r16, 8, "Text"
+0069  NewObjectWithBuffer r5, 2179, 27684
+006f  GetByIdShort r9, r19, 9, "message"
+0074  PutOwnBySlotIdx r5, r9, 0
+0078  NewObjectWithBuffer r9, 951, 24
+007e  PutOwnBySlotIdx r9, r8, 0
+0082  LoadConstString r8, "continuePrompt.message"
+0086  Call3 r8, r20, r1, r8, r9
+008c  PutOwnBySlotIdx r5, r8, 1
+0090  Call3 r6, r7, r1, r6, r5
+0096  NewArray r5, 2
+009a  DefineOwnInDenseArray r5, r6, 0
+009e  GetByIdShort r8, r17, 4, "jsxs"
+00a3  GetByIdShort r7, r16, 10, "View"
+00a8  NewObjectWithBuffer r6, 2179, 27684
+00ae  GetById r9, r19, 11, "buttons"
+00b4  PutOwnBySlotIdx r6, r9, 0
+00b8  GetByIdShort r11, r17, 7, "jsx"
+00bd  GetByIdShort r10, r16, 10, "View"
+00c2  NewObjectWithBuffer r9, 2179, 27684
+00c8  NewObjectWithBuffer r12, 130, 28970
+00ce  PutOwnBySlotIdx r9, r12, 0
+00d2  GetByIdShort r15, r17, 7, "jsx"
+00d7  LoadFromEnvironment r13, r21, 2
+00db  GetByIdShort r14, r13, 5, "default"
+00e0  NewObjectWithBuffer r12, 2879, 43583
+00e6  LoadFromEnvironment r21, r21, 4
+00ea  GetByIdShort r23, r21, 12, "sc"
+00ef  LoadConstUInt8 r0, 70
+00f2  Call2 r23, r23, r1, r0
+00f7  PutOwnBySlotIdx r12, r23, 2
+00fb  PutOwnBySlotIdx r12, r22, 3
+00ff  GetByIdShort r24, r17, 7, "jsx"
+0104  GetByIdShort r23, r16, 8, "Text"
+0109  NewObjectWithBuffer r22, 2809, 43855
+010f  GetById r25, r19, 13, "btnText"
+0115  PutOwnBySlotIdx r22, r25, 0
+0119  LoadConstString r25, "continuePrompt.quit"
+011d  Call2 r25, r20, r1, r25
+0122  PutOwnBySlotIdx r22, r25, 4
+0126  Call3 r22, r24, r1, r23, r22
+012c  PutOwnBySlotIdx r12, r22, 4
+0130  Call3 r12, r15, r1, r14, r12
+0136  PutOwnBySlotIdx r9, r12, 1
+013a  Call3 r10, r11, r1, r10, r9
+0140  NewArray r9, 2
+0144  DefineOwnInDenseArray r9, r10, 0
+0148  GetByIdShort r12, r17, 7, "jsx"
+014d  GetByIdShort r11, r16, 10, "View"
+0152  NewObjectWithBuffer r10, 2179, 27684
+0158  NewObjectWithBuffer r14, 130, 28970
+015e  PutOwnBySlotIdx r10, r14, 0
+0162  GetByIdShort r15, r17, 7, "jsx"
+0167  GetByIdShort r14, r13, 5, "default"
+016c  NewObjectWithBuffer r13, 2879, 43546
+0172  GetByIdShort r21, r21, 12, "sc"
+0177  Call2 r21, r21, r1, r0
+017c  PutOwnBySlotIdx r13, r21, 2
+0180  PutOwnBySlotIdx r13, r18, 3
+0184  GetByIdShort r18, r17, 7, "jsx"
+0189  GetByIdShort r17, r16, 8, "Text"
+018e  NewObjectWithBuffer r16, 2809, 43855
+0194  GetById r19, r19, 13, "btnText"
+019a  PutOwnBySlotIdx r16, r19, 0
+019e  LoadConstString r19, "continuePrompt.continue"
+01a2  Call2 r19, r20, r1, r19
+01a7  PutOwnBySlotIdx r16, r19, 4
+01ab  Call3 r16, r18, r1, r17, r16
+01b1  PutOwnBySlotIdx r13, r16, 4
+01b5  Call3 r13, r15, r1, r14, r13
+01bb  PutOwnBySlotIdx r10, r13, 1
+01bf  Call3 r10, r12, r1, r11, r10
+01c5  DefineOwnInDenseArray r9, r10, 1
+01c9  PutOwnBySlotIdx r6, r9, 1
+01cd  Call3 r6, r8, r1, r7, r6
+01d3  DefineOwnInDenseArray r5, r6, 1
+01d7  PutOwnBySlotIdx r2, r5, 3
+01db  Call3 r2, r4, r1, r3, r2
+01e1  Ret r2

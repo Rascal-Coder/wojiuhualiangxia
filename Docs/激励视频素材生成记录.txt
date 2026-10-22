@@ -1,0 +1,6 @@
+生成工具：内置 imagegen。
+资源：Assets/Resources/Art/game_assets_rewardedvideo.png。
+说明：新增视频奖励按钮图标，参考当前游戏标题的切面、黑描边、紫金配色；其余原有游戏美术和原版音频不因商业化占位重新生成。
+
+提示词：
+Use case: stylized-concept. Production 2D game UI icon for the Chinese mobile puzzle game shown in the reference. One standalone small rewarded-video badge, NO TEXT. A compact purple faceted rounded rectangular video screen, a large bright ivory white play triangle at its center, a simple thick warm golden rim and near-black cartoon outer outline with thin cream keyline. Tiny golden four-point glint in upper-right only. Match the reference's glossy angular facet fills, bright casual-game palette and clean restrained 2D beveled highlights. Front-on view, no perspective. Strong silhouette readable at 48 pixels. Centered with 10% transparent safe margin. True alpha background. No paper background, no checkerboard, no letters, no numbers, no additional icons or frames.

@@ -1,0 +1,80 @@
+0000  LoadParam r5, 2
+0003  LoadConstString r3, "coin"
+0007  JStrictEqual L53, r5, r3
+000b  LoadConstString r3, "offer"
+000f  JStrictEqual L53, r5, r3
+0013  LoadConstString r3, "first"
+0017  JStrictEqual L53, r5, r3
+001b  GetParentEnvironment r3, 1
+001e  LoadFromEnvironment r3, r3, 26
+0022  GetByIdShort r3, r3, 0, "GAME"
+0027  GetById r6, r3, 1, "FAIL_CONTINUE_ADD_TIME_REWARD"
+002d  JmpTrue L51, r6
+0030  LoadConstUInt8 r6, 30
+L51:
+0033  Jmp L80
+L53:
+0035  GetParentEnvironment r3, 1
+0038  LoadFromEnvironment r3, r3, 26
+003c  GetByIdShort r3, r3, 0, "GAME"
+0041  GetById r3, r3, 2, "FAIL_CONTINUE_ADD_TIME_COIN"
+0047  JmpTrue L77, r3
+004a  LoadConstUInt8 r3, 60
+L77:
+004d  Mov r6, r3
+L80:
+0050  GetParentEnvironment r3, 0
+0053  LoadConstString r4, "first"
+0057  JStrictNotEqual L151, r5, r4
+005b  LoadFromEnvironment r4, r3, 42
+005f  LoadConstTrue r2
+0061  LoadConstUndefined r1
+0063  Call2 r4, r4, r1, r2
+0068  GetParentEnvironment r4, 1
+006b  LoadFromEnvironment r5, r4, 30
+006f  GetByIdShort r8, r5, 3, "default"
+0074  GetById r7, r8, 4, "setItem"
+007a  LoadFromEnvironment r5, r4, 68
+007e  LoadConstString r4, "1"
+0082  Call3 r7, r7, r8, r5, r4
+0088  GetByIdShort r5, r7, 5, "catch"
+008d  CreateClosure r4, r1, 21675
+0092  Call2 r4, r5, r7, r4
+L151:
+0097  LoadFromEnvironment r4, r3, 34
+009b  GetByIdShort r5, r4, 6, "current"
+00a0  JmpFalse L182, r5
+00a3  GetByIdShort r5, r4, 6, "current"
+00a8  GetById r4, r5, 7, "addTime"
+00ae  LoadConstTrue r1
+00b0  Call3 r4, r4, r5, r6, r1
+L182:
+00b6  LoadFromEnvironment r5, r3, 37
+00ba  GetByIdShort r4, r5, 6, "current"
+00bf  Add r4, r4, r6
+00c3  PutByIdStrict r5, r4, 0, "current"
+00c9  LoadFromEnvironment r5, r3, 38
+00cd  GetByIdShort r4, r5, 6, "current"
+00d2  Add r4, r4, r6
+00d6  PutByIdStrict r5, r4, 0, "current"
+00dc  LoadFromEnvironment r5, r3, 41
+00e0  GetByIdShort r4, r5, 6, "current"
+00e5  LoadConstUInt8 r0, 1
+00e8  Add r4, r4, r0
+00ec  PutByIdStrict r5, r4, 0, "current"
+00f2  LoadFromEnvironment r4, r3, 94
+00f6  GetByIdShort r5, r4, 6, "current"
+00fb  JmpFalse L278, r5
+00fe  GetById r4, r5, 8, "onContinue"
+0104  JmpTypeOfIs L278, r4, 383
+010c  GetById r4, r5, 8, "onContinue"
+0112  Call1 r4, r4, r5
+L278:
+0116  LoadFromEnvironment r4, r3, 111
+011a  LoadConstFalse r1
+011c  PutByIdStrict r4, r1, 0, "current"
+0122  LoadFromEnvironment r4, r3, 44
+0126  LoadConstString r3, "playing"
+012a  LoadConstUndefined r1
+012c  Call2 r3, r4, r1, r3
+0131  Ret r1

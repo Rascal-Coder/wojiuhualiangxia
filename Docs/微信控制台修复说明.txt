@@ -1,0 +1,33 @@
+微信控制台警告与兼容修复（2026-10-21）
+
+依据：用户复制的微信开发者工具 2.02.2608070 / 基础库 3.17.3 日志；当前运行版本 WASM 27a385edefda2be0，数据 6daa321c16e49e5d。只读日志接口已连接成功。未重启、重载或清除用户模拟器存档。
+
+1. IndexedDB / PlayerPrefs 持久化警告
+原微信分支通过 Unity PlayerPrefs 写存档，日志显示底层浏览器 IndexedDB 初始化不可用。现在改为独立 .jslib 直接调用 wx.getStorageSync / wx.setStorageSync；读写同一 inkomino-profile-v1 键，JSON 结构不变。首次无原生记录时尝试迁移已有 PlayerPrefs。写入不经过 SDK 的异步存储队列，暂停/退出时同步完成。
+读取失败不会把默认空档覆盖已有数据；保留原档，并在加载页提示重新进入。该修复让关卡存档不依赖 IndexedDB。引擎通用 IndexedDB 初始化警告仍可能出现，不把它屏蔽，也不把微信本地存储等同于云同步。
+
+2. 缺少 WX.ReportGameStart
+日志中的 PLUGIN ERROR 明确是开发阶段提示。现在在真实加载结束、启动目标界面创建并可交互后调用官方 WX.ReportGameStart，不在引擎刚启动时虚报完成。
+本地 SDK 依据：Runtime/WXBase.cs 的 ReportGameStart，unity-sdk/util.js 的 WXReportGameStart。
+
+3. WebGL INVALID_ENUM / getParameter
+通过本次实际导出的 WASM 符号与指令定位：GfxDeviceGLES::Init 查询 GL_CONTEXT_FLAGS（33310 / 0x821E）。该枚举不属于 WebGL2 的 getParameter 查询范围。兼容桥接只为此查询返回无原生标志 0，其余参数完整转交原 Emscripten 实现；空输出指针仍记录实际 GL 错误。
+
+4. WebGL texImage3D / ArrayBufferView not big enough
+调用链定位为 GenerateDitherTextures → Texture3D::UploadTexture → GLES 上传，为引擎内置 4×4×16 抖动纹理，不是游戏图片缺失。桥接将“整个 WASM heap + 可选 srcOffset”重写为相同起点的 TypedArray 子视图，使用标准十参数重载；保留全部深度切片原字节、像素解包缓冲区偏移及 null 分配路径。不补假数据、不清除或吞掉 GL 错误。
+这是针对微信 WebGL 重载兼容的修正，已执行分支验证；修复后的微信 GPU 实际结果仍须在手动加载新包后观察，不能把桩驱动测试称为真机验证。
+规范依据：https://registry.khronos.org/webgl/specs/latest/2.0/
+
+5. 长帧与启动优化
+原日志：启动 13279ms，资源读取 7446ms，WASM 编译 7553ms；监测记录最长帧 40024ms，若干帧接近 1000ms。这些值可能受到模拟器后台/暂停影响，当前日志不足以将 40 秒归因到某个游戏函数。
+原先启动统一预热约 35 项，包含商店、其他头像和首页不使用的棋盘纹理。现在首次关卡只预热 11 项，已有进度进入首页预热 22 项，其余原图按需加载，图片像素和 UI 不变。缓存原英文字体对象，避免反复资源查询。
+增加一条 INKOMINO_STARTUP 汇总：数据就绪、预热结束、界面创建结束、可交互耗时，以及最慢图片解码和耗时，便于下一轮定位。保留最佳实践检测，未关闭或调低警告等级。
+
+6. 保留的环境提示
+HarmonyOS 提示来自基础库通用通知；未使用摄像头时 navigator.mediaDevices 不可用不影响本游戏功能。没有伪造摄像头对象、请求摄像头权限或改微信安全设置。
+
+验证范围
+QA/Platform/native-bridge-validation.json：运行真实 .jslib 源码，验证同步写入、跨运行时读回、中文、失败保护和 WebGL 参数转发等 15 项；驱动为记录桩，不是 GPU。
+QA/Tutorial/tutorial-validation.json：隔离空存档的实际 Windows 启动与三阶段教学回归。
+QA/WeChat/export-validation.json：团结与 SDK 导出、JS、Brotli、AppID、资源、桥接和兼容函数实际链接检查。
+新包不会自动覆盖用户当前打开的解压项目目录，以免文件监听触发重编译。请在方便时解压最新 ZIP，再手动编译复测；现有存档无需清空。

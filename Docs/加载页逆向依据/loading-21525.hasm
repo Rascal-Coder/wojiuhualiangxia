@@ -1,0 +1,36 @@
+; fn#21525 "finish" params=1 frame=17 regs=1(num=0,nonptr=1) size=133 offset=0x471dd4 flags=[strict]
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r0, r1, 2
+0007  JmpTrue L129, r0
+000a  LoadFromEnvironment r0, r1, 1
+000e  JmpTrue L129, r0
+0011  LoadConstTrue r0
+0013  StoreNPToEnvironment r1, 2, r0
+0017  GetGlobalObject r2
+0019  TryGetById r5, r2, 0, "console"
+001f  GetByIdShort r4, r5, 1, "log"
+0024  TryGetById r3, r2, 2, "Date"
+002a  GetByIdShort r2, r3, 3, "now"
+002f  Call1 r2, r2, r3
+0033  LoadFromEnvironment r1, r1, 0
+0037  Sub r3, r2, r1
+003b  LoadConstString r2, "ms"
+003f  LoadConstString r1, "[LoadingScreen] finished in"
+0043  Call4 r1, r4, r5, r1, r3, r2
+004a  GetParentEnvironment r1, 2
+004d  LoadFromEnvironment r1, r1, 3
+0051  GetByIdShort r5, r1, 4, "Animated"
+0056  GetByIdShort r4, r5, 5, "timing"
+005b  GetParentEnvironment r1, 1
+005e  LoadFromEnvironment r3, r1, 2
+0062  NewObjectWithBuffer r2, 3819, 56836
+0068  Call3 r3, r4, r5, r3, r2
+006e  GetByIdShort r2, r3, 6, "start"
+0073  CreateClosure r1, r1, 23549
+0078  Call2 r1, r2, r3, r1
+007d  LoadConstUndefined r0
+007f  Ret r0
+L129:
+0081  LoadConstUndefined r0
+0083  Ret r0
+

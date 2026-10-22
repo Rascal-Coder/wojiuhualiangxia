@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "engine": "Tuanjie1.10.4 /2022.3.62t16",
+  "build_method": "BuildTools.BuildWindows",
+  "editor_process_exit_code": 0,
+  "result": "Confirmation layout fix;500 levels;28 Chinese screenshots and actual warning/action clearance checks;15 runtime captures passed;40 previous motion frames retained (unchanged animation code)",
+  "assembly_sha256": "80bb05690715fc12a43c446638121973f3a922481b23d84a36913988402a816a",
+  "recorded_utc": "2026-10-20T08:21:51.621796+00:00"
+}

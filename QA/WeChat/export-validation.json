@@ -1,0 +1,2188 @@
+{
+  "status": "PASS",
+  "appid": "wx3a628e8b48216b63",
+  "engine": "Tuanjie1.10.4 /2022.3.62t16",
+  "checked_utc": "2026-10-22T06:18:01.368952+00:00",
+  "package_bytes": 26108152,
+  "main_package_bytes": 979833,
+  "file_count": 68,
+  "ignored_debug_files": [
+    "webgl.wasm.symbols.unityweb",
+    "webgl.wasm.symbols.unityweb.br"
+  ],
+  "orientation": "portrait",
+  "javascript_syntax": [
+    {
+      "file": "check-version.js",
+      "passed": true
+    },
+    {
+      "file": "data-package/game.js",
+      "passed": true
+    },
+    {
+      "file": "events.js",
+      "passed": true
+    },
+    {
+      "file": "game.js",
+      "passed": true
+    },
+    {
+      "file": "inkomino-loading-assets.js",
+      "passed": true
+    },
+    {
+      "file": "open-data/index.js",
+      "passed": true
+    },
+    {
+      "file": "plugin-config.js",
+      "passed": true
+    },
+    {
+      "file": "texture-config.js",
+      "passed": true
+    },
+    {
+      "file": "unity-namespace.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/ad.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/audio/common.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/audio/const.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/audio/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/audio/inner-audio.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/audio/store.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/audio/unity-audio.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/audio/utils.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/authorize.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/bluetooth/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/camera.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/canvas-context.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/canvas.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/chat.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/cloud.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/conf.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/file-info.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/fix.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/font/fix-cmap.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/font/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/font/read-metrics.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/font/split-sc.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/font/util.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/fs.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/game-club.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/game-recorder.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/gyroscope/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/logger.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/mobileKeyboard/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/module-helper.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/open-data.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/recorder.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/response.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/resType.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/resTypeOther.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/sdk.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/share.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/storage.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/TCPSocket/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/texture.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/touch/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/UDPSocket/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/upload-file.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/userinfo.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/util.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/utils.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/video/index.js",
+      "passed": true
+    },
+    {
+      "file": "unity-sdk/video.js",
+      "passed": true
+    },
+    {
+      "file": "wasmcode/game.js",
+      "passed": true
+    },
+    {
+      "file": "weapp-adapter.js",
+      "passed": true
+    },
+    {
+      "file": "webgl.wasm.framework.unityweb.js",
+      "passed": true
+    },
+    {
+      "file": "workers/response/index.js",
+      "passed": true
+    }
+  ],
+  "compressed_streams": [
+    {
+      "file": "data-package/08aeaf0e6e342127.webgl.data.unityweb.bin.br",
+      "bytes": 21848816,
+      "valid": true,
+      "decoded_bytes": 25975536
+    },
+    {
+      "file": "wasmcode/bb1824c9aa5a2537.webgl.wasm.code.unityweb.wasm.br",
+      "bytes": 3279503,
+      "valid": true,
+      "decoded_bytes": 14703170
+    }
+  ],
+  "source_art_integrity": [
+    {
+      "key": "game_assets_bg",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnblackcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnblackmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnblackuhardcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnblackuhardmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnbluecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnbluemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframeblackcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframeblackmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframepurplecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframepurplemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframeredcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnframeredmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btngreencap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btngreenmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnorangecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnorangemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnpause",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnpurplecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnpurplehardcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnpurplehardmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnpurplemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnredcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnredmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnredxhardcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnredxhardmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_btnsettings",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_event_frame",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_event_ribboncap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_event_ribbonmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_event_winlevel",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_extratime",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_facets",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_facetsb",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_facetsc",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_freeze",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_hammer",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_homebg",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_lens",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_levelsignmosaic",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_barc",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_barl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_bart",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_bartl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_tabactive",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_tabhome",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_tabrank",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_nav_tabshop",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_panelbadgecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_panelbadgemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_panelslotcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_panelslotcapon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_panelslotmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_panelslotmidon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_paneltraybeigecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_paneltraybeigemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_paneltraycap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_paneltraymid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_paper",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_pen",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_playribbon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrnavycap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrnavymid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrpurplecap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrpurplemid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrredcap",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_bnrredmid",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlblackb",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlblackbl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlblackc",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlblackl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlblackt",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlblacktl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlorangeb",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlorangebl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlorangec",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlorangel",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnloranget",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlorangetl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlpurpleb",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlpurplebl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlpurplec",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlpurplel",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlpurplet",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlpurpletl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlredb",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlredbl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlredc",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlredl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlredt",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_pnlredtl",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_previewticketblack",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_previewticketpurple",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_popup_previewticketred",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_previewinfinity",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_previewplate",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_rewardedvideo",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_shine",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_shopbg",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "game_assets_wood",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_1",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_10",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_11",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_12",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_13",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_14",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_15",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_16",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_2",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_3",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_4",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_6",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_7",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_8",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_avatars_avatar_9",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_chestgoldopen",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_infobtn",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_island1",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_island2",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_island3",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_island4",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_island5",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_island6",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_islandplain",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_plaque7",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_climb_treasure",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_close",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_coin",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_coinxlarge",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_dailyrewardcardicon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_defaultparticle",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_freeze",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_freezeoverlay",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_gameplaysplash",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_greenbase",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_hapticsicon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_heart",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_heartbroken",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_lock",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_musicicon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_plus",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_restarticon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_soundicon",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "shell_src_ui_tutorialhand",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "source_loading_background",
+      "source_hash_and_embedded_bytes_identical": true
+    },
+    {
+      "key": "zh_loading_logo",
+      "source_hash_and_embedded_bytes_identical": true
+    }
+  ],
+  "cdn_required": false,
+  "editor_build": {
+    "appid": "wx3a628e8b48216b63",
+    "engine": "2022.3.62t16",
+    "result": "Succeeded"
+  },
+  "runtime_validation": {
+    "developer_tools": "Latest menu layout validated in native Tuanjie desktop rendering; previous friend-fix simulator API diagnostics retained separately; new menu package not manually inspected in simulator.",
+    "real_device": "not run",
+    "upload_or_publish": false
+  },
+  "errors": [],
+  "files": [
+    {
+      "path": "check-version.js",
+      "bytes": 8130,
+      "sha256": "94fec94808b3349f3aa7f6322d368d7c74b225aabb4f9a063582e9fb5d6277ff"
+    },
+    {
+      "path": "data-package/08aeaf0e6e342127.webgl.data.unityweb.bin.br",
+      "bytes": 21848816,
+      "sha256": "171e587500118e5df988fa598f8294eb542de11c6122431c52e4b164431f03c4"
+    },
+    {
+      "path": "data-package/game.js",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "events.js",
+      "bytes": 1545,
+      "sha256": "0e8d53bd4cd51e8833018558abf50a27e28c6294faf16da100142e7b27a41681"
+    },
+    {
+      "path": "game.js",
+      "bytes": 8116,
+      "sha256": "5897f42e228e18cf30dae773311da67bb11c29ad066bdfd3c5e682183961f73d"
+    },
+    {
+      "path": "game.json",
+      "bytes": 432,
+      "sha256": "6a874323c49dd6cf15f71b865eccb5aae5f2b1ed99f9b09cb21bc7d4605d194b"
+    },
+    {
+      "path": "images/background.jpg",
+      "bytes": 8917,
+      "sha256": "ee88b4672db843d57b164c5deeaf62e096e3bf91881bdba71a85dd980687db80"
+    },
+    {
+      "path": "images/unity_logo.png",
+      "bytes": 1216,
+      "sha256": "34799ce1b7a341e39c6c6ea7fa439f170989f3ecc5d0cd3681573569b4b6d239"
+    },
+    {
+      "path": "inkomino-loading-assets.js",
+      "bytes": 1857,
+      "sha256": "f3778c65f91813c5d6298f87d2fecdfcb13a2d479610b75f09de4ad740838601"
+    },
+    {
+      "path": "open-data/index.js",
+      "bytes": 8895,
+      "sha256": "5e15598f8b866993c9c4b054f36aaf61fc8c4c76adee9b4932c5de7de043d16c"
+    },
+    {
+      "path": "plugin-config.js",
+      "bytes": 487,
+      "sha256": "00fc1c1d6765f328b5cea31de6aa093e493a78bb6c70fc1ff4f20f2f5b47d658"
+    },
+    {
+      "path": "project.config.json",
+      "bytes": 1655,
+      "sha256": "655aa2ab7e4cc7642448d08b5b3abaa29c51112b0c791d5658d1f156ec3ed2c0"
+    },
+    {
+      "path": "texture-config.js",
+      "bytes": 122,
+      "sha256": "7f7726142203ab208fd7a062af4bb04951ab8296d634b28dff7a63a65688e515"
+    },
+    {
+      "path": "unity-namespace.js",
+      "bytes": 8809,
+      "sha256": "39cffc9bc642dea13c3463f0ffced960b91fc2dbc1480646a78e16e26ab115bb"
+    },
+    {
+      "path": "unity-sdk/ad.js",
+      "bytes": 8884,
+      "sha256": "1dafdbe346ef838cd421f3ff887612bcb6c9a7d2f44c1cce26cf3e6e2f005ecd"
+    },
+    {
+      "path": "unity-sdk/audio/common.js",
+      "bytes": 2230,
+      "sha256": "daebe0c943184912dbbdfb9abd32fe58cfdfc2fc502a9df869e44b5cf617dc10"
+    },
+    {
+      "path": "unity-sdk/audio/const.js",
+      "bytes": 231,
+      "sha256": "31a941dae51b6e28bd78520284ce896dae4307f91e1c70ea2311826e4fcf79b9"
+    },
+    {
+      "path": "unity-sdk/audio/index.js",
+      "bytes": 184,
+      "sha256": "596885e8def00ca4cbc47421b94d4a9e1d9d8f666c0444733ada04a33f0b27b1"
+    },
+    {
+      "path": "unity-sdk/audio/inner-audio.js",
+      "bytes": 12247,
+      "sha256": "41657bb73852f50f7e996d663ce1184fea4b4c5819fec459680db52152588425"
+    },
+    {
+      "path": "unity-sdk/audio/store.js",
+      "bytes": 659,
+      "sha256": "d52bb7e2ed9de12b8182d48341e15fddd9c36e2f42484c878401206e90624dc7"
+    },
+    {
+      "path": "unity-sdk/audio/unity-audio.js",
+      "bytes": 47093,
+      "sha256": "a3a17656bcf86a851287e60f3cbe52119b9c413c94ece1ee11ad052540fcf648"
+    },
+    {
+      "path": "unity-sdk/audio/utils.js",
+      "bytes": 2059,
+      "sha256": "45d4cc6d39e17301bacf4b00cc8f79491cf5eb6e3a5997493324870e5a66ad98"
+    },
+    {
+      "path": "unity-sdk/authorize.js",
+      "bytes": 734,
+      "sha256": "36f6acce3576ef206fbd7ab7e41adc3613522c987bab8bd16344cef99ad25656"
+    },
+    {
+      "path": "unity-sdk/bluetooth/index.js",
+      "bytes": 1288,
+      "sha256": "1f664af1d27a75db3a306a1297508584cf4080fc9000d5fb5db67d4195dea09f"
+    },
+    {
+      "path": "unity-sdk/camera.js",
+      "bytes": 2958,
+      "sha256": "d745f848ef62da3a0a0052c518647301375437493b4e6e56422f570dd76ef09f"
+    },
+    {
+      "path": "unity-sdk/canvas-context.js",
+      "bytes": 330,
+      "sha256": "dfdc1d383529c529afd74d61eb3555ebce0303eae5dddf585c611b27fb783334"
+    },
+    {
+      "path": "unity-sdk/canvas.js",
+      "bytes": 829,
+      "sha256": "8e4a0fd95e0ab4c4935f58a6201e23468a8ec74c9e3efaeef36329397aef8af5"
+    },
+    {
+      "path": "unity-sdk/chat.js",
+      "bytes": 5058,
+      "sha256": "8cc33a6475217e9fe9fca8ca8a7078b235258defd0e1dd03bb05dbb25365f496"
+    },
+    {
+      "path": "unity-sdk/cloud.js",
+      "bytes": 8972,
+      "sha256": "7fa5ff8c105a7b45efbc97a288eb7c82470d8c8f255bff46ae956dfc313d7d52"
+    },
+    {
+      "path": "unity-sdk/conf.js",
+      "bytes": 50,
+      "sha256": "b1dd63338c3f2689ae3077902a39f3720d45e40db163e4f1979cde4f10f03d36"
+    },
+    {
+      "path": "unity-sdk/file-info.js",
+      "bytes": 1574,
+      "sha256": "f0db1cc7c28a00bf1647325d2ade29f9175c3889d97e58a9f4cf5762b2162c4d"
+    },
+    {
+      "path": "unity-sdk/fix.js",
+      "bytes": 2776,
+      "sha256": "221fbd407c603fed4592ca6df54a4b696ce05eaff97c515caf78bb38fa60aadb"
+    },
+    {
+      "path": "unity-sdk/font/fix-cmap.js",
+      "bytes": 2239,
+      "sha256": "c56997b41d07c3c09dd1fb222314533c42a3b1fe3878346adb0b1b378bf280bd"
+    },
+    {
+      "path": "unity-sdk/font/index.js",
+      "bytes": 6712,
+      "sha256": "4178754426ceca61fe8de39f4097ec88fe6737094214ae10222fbb72cb9631f0"
+    },
+    {
+      "path": "unity-sdk/font/read-metrics.js",
+      "bytes": 1352,
+      "sha256": "1d6e8c0adcda57d1dbca8c2cec56914dc166141ef669d96a8d182b0501d079b7"
+    },
+    {
+      "path": "unity-sdk/font/split-sc.js",
+      "bytes": 4615,
+      "sha256": "33f2ae12164e594d13558b28be20a37d148bc591ba05fa6a9e7943bb935be8a1"
+    },
+    {
+      "path": "unity-sdk/font/util.js",
+      "bytes": 462,
+      "sha256": "e49657878099a688efaea330fb913a1d174c4523a8a25ab67d4206ee7aba0baa"
+    },
+    {
+      "path": "unity-sdk/fs.js",
+      "bytes": 16218,
+      "sha256": "d28ff7791372fcdf6ab40c1390131d57b256625e7b7288ca5aa7e3bbc6e95d08"
+    },
+    {
+      "path": "unity-sdk/game-club.js",
+      "bytes": 2503,
+      "sha256": "67c3a4032fe27b02e515455858c9cab59d1c2a8142bd7c060d45f135cda16c90"
+    },
+    {
+      "path": "unity-sdk/game-recorder.js",
+      "bytes": 3166,
+      "sha256": "7ae459dd5ac89586b8c595b50b1d525312cba0381297132eff0ed821cc9cb8ba"
+    },
+    {
+      "path": "unity-sdk/gyroscope/index.js",
+      "bytes": 2549,
+      "sha256": "a335e1885729ecd6ee5a4aee1fac32822dc23f8c03c40aab5bb89fcbd7f92d12"
+    },
+    {
+      "path": "unity-sdk/index.js",
+      "bytes": 3017,
+      "sha256": "adf6de1e5ad2769787063c49471338dd805d96074016aad35660b9cc6edeeb0f"
+    },
+    {
+      "path": "unity-sdk/logger.js",
+      "bytes": 620,
+      "sha256": "7d765a2c857a05424d08fc4cca83ba32393558f79fbc46c653a98bf440b03013"
+    },
+    {
+      "path": "unity-sdk/mobileKeyboard/index.js",
+      "bytes": 4273,
+      "sha256": "fff32a092621032170bd2ef8f92bf95d0a2607a239634e659e6b9bee6f01be0b"
+    },
+    {
+      "path": "unity-sdk/module-helper.js",
+      "bytes": 355,
+      "sha256": "5be6623e72561c69479b279dbb423b09e70041c914a465d9ff2837d03cb8e913"
+    },
+    {
+      "path": "unity-sdk/open-data.js",
+      "bytes": 7648,
+      "sha256": "40848eeddcfaa064c65c269640a438e86ffa244411806a55d7d6311d8cf2b8a9"
+    },
+    {
+      "path": "unity-sdk/recorder.js",
+      "bytes": 4469,
+      "sha256": "eaba87090f60fb22bb59bf1e82dd16a5aae134b2e9dc08c403f79c61652b51cf"
+    },
+    {
+      "path": "unity-sdk/response.js",
+      "bytes": 1891,
+      "sha256": "9bf4b44ef758ec8917aac3a1827de70f27bacc881849bf985cafaab313216304"
+    },
+    {
+      "path": "unity-sdk/resType.js",
+      "bytes": 30137,
+      "sha256": "e2135586c03404792b961ea032e53d7000f552a4b61cb066896d149b13b6d2cf"
+    },
+    {
+      "path": "unity-sdk/resTypeOther.js",
+      "bytes": 2293,
+      "sha256": "af5e7538fad8f6640239322cdfc7a6c5181995551cd7a6772b8311b2df55b247"
+    },
+    {
+      "path": "unity-sdk/sdk.js",
+      "bytes": 17209,
+      "sha256": "8377aca08a51213a937cd6fe0b49837dccaa607e1d73dd1c955d7181324811f1"
+    },
+    {
+      "path": "unity-sdk/share.js",
+      "bytes": 808,
+      "sha256": "d97cc99e4cb4d86a2b55c0a0bcc0f4a331cd64a582c24b11c61161843dbf16c4"
+    },
+    {
+      "path": "unity-sdk/storage.js",
+      "bytes": 4297,
+      "sha256": "d1f71b1a8b1681a7a09700fcdf8ce25220e30c550c2dc855196272b12922dda6"
+    },
+    {
+      "path": "unity-sdk/TCPSocket/index.js",
+      "bytes": 5369,
+      "sha256": "03616ad9e25e19aede3e7256e894e5b12c6847aec2fc2002b93bf44c8e439852"
+    },
+    {
+      "path": "unity-sdk/texture.js",
+      "bytes": 11062,
+      "sha256": "ddd6e3b1643139ddcce819e6a8d4e6dcfd1a64bfb714d368e3bddbf917c176f7"
+    },
+    {
+      "path": "unity-sdk/touch/index.js",
+      "bytes": 2301,
+      "sha256": "a5917a61534de7bc2f5224a9c9402863a264cf6bd2106d5536eb6018299de53f"
+    },
+    {
+      "path": "unity-sdk/UDPSocket/index.js",
+      "bytes": 6255,
+      "sha256": "681a1bfdabbdc65ef8c4e8ef389b2844fd3f9a457ea1876c9c19a0b18620fae3"
+    },
+    {
+      "path": "unity-sdk/upload-file.js",
+      "bytes": 2657,
+      "sha256": "3dbfd0ea7257b5c9e7191fd27f9783d86ecfec4e7d9220ebc4c9cf8d6ec4c3d4"
+    },
+    {
+      "path": "unity-sdk/userinfo.js",
+      "bytes": 2922,
+      "sha256": "8c9373e5f77ee9b64b08e643e81bc45344d2b57e3aa78c582d2c0c53e099f06c"
+    },
+    {
+      "path": "unity-sdk/util.js",
+      "bytes": 6407,
+      "sha256": "a54a33bb6894e642d3cd36f79c506c8a827c51bbdd56f61f0e230aaf1523f24f"
+    },
+    {
+      "path": "unity-sdk/utils.js",
+      "bytes": 13273,
+      "sha256": "96bfd23dbd18b840fad664c3e1c5263cb11674c4e0cadc7511637ae166a61c32"
+    },
+    {
+      "path": "unity-sdk/video/index.js",
+      "bytes": 23528,
+      "sha256": "de109cc788e8b94020aaa9bc48a8fe38565570962a70791f622e2cc9b2381ff8"
+    },
+    {
+      "path": "unity-sdk/video.js",
+      "bytes": 2552,
+      "sha256": "b2d156cb1b437508d55bf8a32a9096f6d370ddf196f63bf5113d9c4597e2e128"
+    },
+    {
+      "path": "wasmcode/bb1824c9aa5a2537.webgl.wasm.code.unityweb.wasm.br",
+      "bytes": 3279503,
+      "sha256": "ebb30674262dde88c2da54881ad3c05bc8b099d372366bb7ea4d7e1b8fea4aa7"
+    },
+    {
+      "path": "wasmcode/game.js",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "weapp-adapter.js",
+      "bytes": 74701,
+      "sha256": "2823cce28ea12bcdc8739eb174bfc85ca85007d540c275630913b2c3a8931a45"
+    },
+    {
+      "path": "webgl.wasm.framework.unityweb.js",
+      "bytes": 561433,
+      "sha256": "d0add54017d6b5322d01fb1dedc892fc8a2b9e05e656fa3cb2c6a13248e9e86d"
+    },
+    {
+      "path": "workers/response/index.js",
+      "bytes": 2203,
+      "sha256": "095fe2b7d7252ccd9bd5da0de81143f730a50aea25b1ceb32d796eca1ef1f028"
+    }
+  ],
+  "monetization": {
+    "status": "PASS",
+    "checks": 65,
+    "screenshots": 12,
+    "rewarded_placements": [
+      "ContinueLevel",
+      "Life",
+      "Pen",
+      "Freeze",
+      "Lens",
+      "DoubleCoins",
+      "CoinSupply"
+    ],
+    "real_ad_units_configured": false,
+    "interstitial_enabled": false,
+    "home_gift_timer": "actual saved24h timestamp",
+    "wechat_runtime_tested": false
+  },
+  "social": {
+    "activity": "local simulated opponents; unlock41;7stages; reset UTC10",
+    "personal_achievements": true,
+    "friend_ranking_only": true,
+    "cloudbase_required": false,
+    "score_key": "inkomino_completed_v1",
+    "runtime_checks": 26,
+    "open_data_checks": 27,
+    "real_friend_accounts_tested": false,
+    "revision": "friends-20261022-r2",
+    "transport": "official SDK JSON string and native object events",
+    "shared_surface_pixel_probe": "PASS",
+    "wechat_runtime": {
+      "status": "DRAW_AND_REQUEST_VERIFIED_BACKEND_BLOCKED",
+      "revision": "friends-20261022-r2",
+      "runtime": "WeChat developer tools existing imported MiniGame",
+      "interaction": "clicked trophy then Friends tab through native UI",
+      "shared_canvas_content_visible": true,
+      "request_received_as_string": true,
+      "friend_api_called": true,
+      "friend_api_success": false,
+      "error": "getFriendCloudStorage:fail please go to mp to announce your privacy usage",
+      "backend_action_required": "Declare actual friend leaderboard privacy usage in the WeChat public-platform privacy guide",
+      "backend_configuration_modified": false,
+      "real_device_retested": false,
+      "source_js_config_error_mapping_tested": true,
+      "source_js_config_error_wording_after_last_live_capture": true,
+      "computer_use_end": "Browser inspection stopped because tool could not reliably identify current URL; no backend changes made"
+    }
+  },
+  "menu_design": {
+    "status": "PASS",
+    "actual_rendered_screenshots": 30,
+    "runtime_checks": 917,
+    "visible_glyph_mesh_checks": 486,
+    "open_data_visual_status": "PASS",
+    "font": "Liangxia UI Sans Medium; subset of Noto Sans SC500; OFL1.1",
+    "illustration": "generated floating-island treasure journey; transparent900x600",
+    "real_wechat_friend_data_tested": false,
+    "latest_menu_package_real_device_tested": false
+  },
+  "menu_motion": {
+    "status": "PASS",
+    "runtime_checks": 144,
+    "recorded_frames": 84,
+    "entries": [
+      {
+        "page": "shop",
+        "animatedChildren": 6,
+        "completionSeconds": 0.31102871894836426,
+        "inputReadyAtStart": true
+      },
+      {
+        "page": "achievements",
+        "animatedChildren": 10,
+        "completionSeconds": 0.31201839447021484,
+        "inputReadyAtStart": true
+      },
+      {
+        "page": "climb",
+        "animatedChildren": 10,
+        "completionSeconds": 0.2863783836364746,
+        "inputReadyAtStart": true
+      }
+    ],
+    "reduced_motion_preference": "saved boolean; no game timing change",
+    "home_live_baseline": 3,
+    "home_live_after20switches": 3,
+    "new_art": [
+      {
+        "key": "menu_pen",
+        "file": "Assets/Resources/MenuArt/menu_pen.png",
+        "size": [
+          384,
+          384
+        ],
+        "rgba": true,
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "bytes": 96535,
+        "sha256": "0678725a10209e7f06e6f9585c465ec72b760fe0e0c3e6634c8afb7d6354e657",
+        "source": "Built-in image_gen; newly generated for this project",
+        "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      },
+      {
+        "key": "menu_freeze",
+        "file": "Assets/Resources/MenuArt/menu_freeze.png",
+        "size": [
+          384,
+          384
+        ],
+        "rgba": true,
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "bytes": 163961,
+        "sha256": "a546ff022886938d1a9a386cee8f8063b424642d2de21b35c96312b36a37918c",
+        "source": "Built-in image_gen; newly generated for this project",
+        "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      },
+      {
+        "key": "menu_lens",
+        "file": "Assets/Resources/MenuArt/menu_lens.png",
+        "size": [
+          384,
+          384
+        ],
+        "rgba": true,
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "bytes": 143820,
+        "sha256": "30679b7fd1b4ae430090117ec5dc9a6d3677787d31161b3ff50114f7219d59c5",
+        "source": "Built-in image_gen; newly generated for this project",
+        "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      },
+      {
+        "key": "menu_achievement_medallion",
+        "file": "Assets/Resources/MenuArt/menu_achievement_medallion.png",
+        "size": [
+          256,
+          256
+        ],
+        "rgba": true,
+        "alpha_extrema": [
+          0,
+          255
+        ],
+        "bytes": 97002,
+        "sha256": "0092c0834cbcf1f46f500f5a58c8e6d83f7290848cc035ba047fc29644d69697",
+        "source": "Built-in image_gen; newly generated for this project",
+        "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+      }
+    ],
+    "runtime": "actual native Tuanjie rendering and uGUI pointer events; MiniGame phone not tested"
+  },
+  "original_audio_integrity": [
+    {
+      "key": "game_assets_music_calmdaylight",
+      "source_hash_identical": true
+    },
+    {
+      "key": "game_assets_music_calmdusk",
+      "source_hash_identical": true
+    },
+    {
+      "key": "game_assets_music_calmpaper",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_fall_1",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_fall_2",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_fall_me",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_join",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_jump",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_land",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_out",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_pop_1",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_pop_2",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_pop_3",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_ready",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_climb_climb_win",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_coin",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_explode",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_fail",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_hit",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_joker",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_jump",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_launch",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_music",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_absorb",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_balloon_pop",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_boing",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_booster_press",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_burst",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_card_deal_1",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_card_deal_2",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_card_flip_1",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_card_flip_2",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_card_match",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_card_pick",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_chest_open",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_claim_sparkle",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_coin_burst",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_coin_tick_1",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_coin_tick_2",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_coin_tick_3",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_compass_reveal",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_continue_offer",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_deny",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_extratime",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_fill_ramp",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_flow_start",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_flow_step_1",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_flow_step_2",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_flow_step_3",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_fourcard_fan",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_freeze_cast",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_freeze_end",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_hand_slide",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_hint_sparkle",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_invalid_drop",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_joker_cast",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_leak_drip",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_level_fail",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_level_start",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_level_win",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_life_gain",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_life_lose",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_lightning_zap",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_pipe_place",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_poop_plop",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_popup_close",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_popup_open",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_portal_warp",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_pump_hit_1",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_pump_hit_2",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_purchase",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_reservoir_fill",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_rock_break",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_shuffle_swirl",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_small_glug",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_timer_tick",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_ui_tap",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_valve_stop",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_pm_water_pour",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_swap",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_throw",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_win",
+      "source_hash_identical": true
+    },
+    {
+      "key": "shell_src_ui_sounds_zap",
+      "source_hash_identical": true
+    }
+  ],
+  "safe_top_layout": {
+    "status": "PASS",
+    "runtime_checks": 57,
+    "native_bridge_checks": 8,
+    "desktop_rendered_frames": 12,
+    "resolutions": [
+      "375x812",
+      "360x800",
+      "540x836"
+    ],
+    "capsule_gap_css_pixels": 8,
+    "layout_policy": "move top HUD and give board top space; preserve original portrait stage and bottom controls",
+    "wechat_runtime_capture": {
+      "status": "PASS",
+      "runtime": "WeChat developer tools current imported MiniGame",
+      "image": "wechat-home.png",
+      "image_size": [
+        281,
+        608
+      ],
+      "sha256": "2e08b2ea817b8eacb6117edd0299935aaa23fbc8f5f4113e684f77cd346df8e7",
+      "visual_confirmation": "home settings gear lies entirely below the native WeChat capsule",
+      "observed_home": {
+        "level": 2,
+        "coins": 205
+      },
+      "hud_log": {
+        "offset_design_units": 131.1422,
+        "reserved_top_fraction": 0.1125592,
+        "canvas_height": 2400
+      },
+      "code_md5": "1a7f66be0acc40c9",
+      "data_md5": "2638c0166e3680f9",
+      "console_error_grep": "no matches after startup",
+      "save_not_cleared": true,
+      "gameplay_pause_runtime": "desktop only; actual WeChat board not yet manually opened",
+      "real_device_tested": false
+    }
+  },
+  "game_branding": {
+    "name": "我就划两下",
+    "assets": [
+      {
+        "role": "logo",
+        "file": "Assets/Resources/Art/zh_loading_logo.png",
+        "size": [
+          2169,
+          725
+        ],
+        "mode": "RGBA",
+        "alpha_range": [
+          0,
+          255
+        ],
+        "sha256": "bd7097249ba5967cfa5b25da2dd0a3af2a437f7f83ae494457d4913e85eaae05",
+        "source": "built-in imagegen; referenced current game Chinese logo",
+        "normalized": false
+      },
+      {
+        "role": "icon",
+        "file": "Assets/Branding/app-icon.png",
+        "size": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "alpha_range": null,
+        "sha256": "4d3fbb1866567fd2502894e9dd7451c654b564e39e0f6805ef5a291774533df9",
+        "source": "built-in imagegen; referenced current game Chinese logo",
+        "normalized": false
+      }
+    ],
+    "loading_title_embedded": true,
+    "native_scale_runtime_capture": "QA/Branding",
+    "wechat_account_profile_modified": false,
+    "save_key_unchanged": "inkomino-profile-v1"
+  },
+  "waveform_test_audio_stream_continuity": [
+    {
+      "name": "game_assets_music_calmdaylight",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "game_assets_music_calmdusk",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "game_assets_music_calmpaper",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_fall_1",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_fall_2",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_fall_me",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_join",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_jump",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_land",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_out",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_pop_1",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_pop_2",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_pop_3",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_ready",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_climb_climb_win",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_coin",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_explode",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_fail",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_hit",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_joker",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_jump",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_launch",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_music",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_absorb",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_balloon_pop",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_boing",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_booster_press",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_burst",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_deal_1",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_deal_2",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_flip_1",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_flip_2",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_match",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_pick",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_chest_open",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_claim_sparkle",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_burst",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_tick_1",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_tick_2",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_tick_3",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_compass_reveal",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_continue_offer",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_deny",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_extratime",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_fill_ramp",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_flow_start",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_flow_step_1",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_flow_step_2",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_flow_step_3",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_fourcard_fan",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_freeze_cast",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_freeze_end",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_hand_slide",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_hint_sparkle",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_invalid_drop",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_joker_cast",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_leak_drip",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_level_fail",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_level_start",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_level_win",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_life_gain",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_life_lose",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_lightning_zap",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_pipe_place",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_poop_plop",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_popup_close",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_popup_open",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_portal_warp",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_pump_hit_1",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_pump_hit_2",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_purchase",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_reservoir_fill",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_rock_break",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_shuffle_swirl",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_small_glug",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_timer_tick",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_ui_tap",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_valve_stop",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_water_pour",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_swap",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_throw",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_win",
+      "matches_waveform_test_encoded_stream": true
+    },
+    {
+      "name": "shell_src_ui_sounds_zap",
+      "matches_waveform_test_encoded_stream": true
+    }
+  ],
+  "fresh_startup_tutorial": {
+    "status": "PASS",
+    "checks": 24,
+    "runtime": "Windows isolated empty profile; WeChat device not run"
+  },
+  "platform_compatibility": {
+    "bridge_test_status": "PASS",
+    "bridge_test_count": 15,
+    "native_storage": "wx.getStorageSync / wx.setStorageSync",
+    "linked_graphics_compatibility": true,
+    "startup_report": "WX.ReportGameStart",
+    "actual_patched_wechat_runtime": "not run; current user simulator left untouched"
+  },
+  "native_loading_cover": {
+    "status": "PASS",
+    "checks": 13,
+    "images": [
+      {
+        "key": "backgroundImage",
+        "source": "images/background.jpg",
+        "cacheFile": "inkomino_boot_ee88b4672db843d5.jpg",
+        "sha256": "ee88b4672db843d57b164c5deeaf62e096e3bf91881bdba71a85dd980687db80",
+        "bytes": 8917,
+        "width": 563,
+        "height": 1218
+      },
+      {
+        "key": "iconImage",
+        "source": "images/unity_logo.png",
+        "cacheFile": "inkomino_boot_34799ce1b7a341e3.png",
+        "sha256": "34799ce1b7a341e39c6c6ea7fa439f170989f3ecc5d0cd3681573569b4b6d239",
+        "bytes": 1216,
+        "width": 192,
+        "height": 72
+      }
+    ],
+    "actual_wechat_cover_rendered": false
+  },
+  "audio_validation": {
+    "editor_status": "PASS",
+    "decoded_original_assets": 83,
+    "windows_runtime_status": "PASS",
+    "effect_keys_exercised": 79,
+    "music_branches_exercised": [
+      "music:calmdaylight",
+      "music:calmdusk",
+      "music:calmpaper"
+    ],
+    "runtime_checks": 337,
+    "audible_listening": "not performed; exhaustive QA sweep muted at the listener"
+  }
+}

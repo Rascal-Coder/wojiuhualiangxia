@@ -1,0 +1,694 @@
+; fn#11424 "LoadingScreen" params=2 frame=56 regs=7(num=4,nonptr=3) size=3096 offset=0x32ac57
+0000  CreateFunctionEnvironment r7, 7
+0003  LoadParam r8, 1
+0006  GetById r9, r8, 0, "onDone"
+000c  StoreToEnvironment r7, 0, r9
+0010  GetById r8, r8, 1, "extraTasks"
+0016  LoadConstUndefined r4
+0018  JStrictNotEqual L32, r8, r4
+001c  NewArray r8, 0
+L32:
+0020  GetParentEnvironment r18, 0
+0023  StoreToEnvironment r7, 1, r8
+0027  StoreNPToEnvironment r7, 2, r4
+002b  StoreNPToEnvironment r7, 3, r4
+002f  StoreNPToEnvironment r7, 4, r4
+0033  StoreNPToEnvironment r7, 5, r4
+0037  StoreNPToEnvironment r7, 6, r4
+003b  LoadFromEnvironment r8, r18, 2
+003f  GetByIdShort r10, r8, 2, "useRef"
+0044  LoadFromEnvironment r21, r18, 3
+0048  GetByIdShort r9, r21, 3, "Animated"
+004d  GetByIdShort r9, r9, 4, "Value"
+0052  CreateThisForNew r11, r9, 5
+0056  LoadConstUInt8 r1, 1
+0059  Mov r48, r11
+005c  Mov r47, r1
+005f  Construct r9, r9, 2
+0063  SelectObject r9, r11, r9
+0067  Call2 r9, r10, r4, r9
+006c  GetByIdShort r17, r9, 6, "current"
+0071  StoreToEnvironment r7, 2, r17
+0075  GetByIdShort r9, r8, 7, "useState"
+007a  LoadConstZero r3
+007c  Call2 r10, r9, r4, r3
+0081  Mov r11, r10
+0084  IteratorBegin r9, r11
+0087  Mov r10, r11
+008a  IteratorNext r10, r9, r10
+008e  Mov r12, r9
+0091  StrictEq r5, r12, r4
+0095  LoadConstUndefined r34
+0097  JmpTrue L157, r5
+009a  Mov r34, r10
+L157:
+009d  LoadConstUndefined r10
+009f  JmpTrue L187, r5
+00a2  IteratorNext r11, r9, r11
+00a6  Mov r12, r9
+00a9  StrictEq r6, r12, r4
+00ad  LoadConstUndefined r10
+00af  Mov r5, r6
+00b2  JmpTrue L187, r6
+00b5  Mov r10, r11
+00b8  Mov r5, r6
+L187:
+00bb  StoreToEnvironment r7, 3, r10
+00bf  JmpTrue L197, r5
+00c2  IteratorClose r9, 0
+L197:
+00c5  GetByIdShort r11, r8, 8, "useEffect"
+00ca  NewArray r10, 0
+00ce  CreateClosure r9, r7, 17446
+00d3  Call3 r9, r11, r4, r9, r10
+00d9  GetById r9, r21, 9, "useWindowDimensions"
+00df  Call1 r9, r9, r4
+00e3  GetByIdShort r16, r9, 10, "width"
+00e8  GetByIdShort r14, r9, 11, "height"
+00ed  LoadFromEnvironment r9, r18, 12
+00f1  LoadConstNull r23
+00f3  LoadConstNull r26
+00f5  JmpFalseLong L401, r9
+00fb  GetGlobalObject r10
+00fd  TryGetById r12, r10, 12, "Math"
+0103  GetByIdShort r11, r12, 13, "round"
+0108  TryGetById r19, r10, 12, "Math"
+010e  GetByIdShort r15, r19, 14, "min"
+0113  LoadFromEnvironment r5, r18, 20
+0117  Mul r0, r16, r5
+011b  LoadFromEnvironment r13, r18, 8
+011f  GetByIdShort r13, r13, 15, "sc"
+0124  TryGetById r20, r10, 12, "Math"
+012a  GetByIdShort r10, r20, 13, "round"
+012f  LoadConstDouble r2, 327.59999999999997
+0139  Call2 r10, r10, r20, r2
+013e  Call2 r13, r13, r4, r10
+0143  GetById r10, r9, 16, "splashMaxUpscale"
+0149  Greater r5, r10, r3
+014d  LoadConstDouble r2, Infinity
+0157  Mov r10, r2
+015a  JmpFalse L389, r5
+015d  LoadFromEnvironment r22, r18, 21
+0161  Mov r10, r2
+0164  JNotGreater L389, r22, r3
+0168  GetById r20, r9, 16, "splashMaxUpscale"
+016e  Mul r22, r22, r20
+0172  GetById r24, r21, 17, "PixelRatio"
+0178  GetByIdShort r20, r24, 18, "get"
+017d  Call1 r20, r20, r24
+0181  Div r10, r22, r20
+L389:
+0185  Call4 r10, r15, r19, r0, r13, r10
+018c  Call2 r26, r11, r12, r10
+L401:
+0191  JmpTrue L427, r9
+0194  NewObjectWithBufferLong r40, 2578, 68892
+019e  PutOwnBySlotIdx r40, r16, 2
+01a2  PutOwnBySlotIdx r40, r14, 3
+01a6  JmpLong L612
+L427:
+01ab  LoadFromEnvironment r10, r18, 14
+01af  LoadConstString r9, "contain"
+01b3  JStrictEqual L468, r10, r9
+01b7  GetGlobalObject r9
+01b9  TryGetById r11, r9, 12, "Math"
+01bf  GetByIdShort r10, r11, 19, "max"
+01c4  LoadFromEnvironment r15, r18, 16
+01c8  Mul r9, r14, r15
+01cc  Call3 r9, r10, r11, r16, r9
+01d2  Jmp L498
+L468:
+01d4  GetGlobalObject r10
+01d6  TryGetById r13, r10, 12, "Math"
+01dc  GetByIdShort r12, r13, 14, "min"
+01e1  LoadFromEnvironment r11, r18, 16
+01e5  Mul r10, r14, r11
+01e9  Call3 r9, r12, r13, r16, r10
+01ef  Mov r15, r11
+L498:
+01f2  GetGlobalObject r12
+01f4  TryGetById r11, r12, 12, "Math"
+01fa  GetByIdShort r10, r11, 13, "round"
+01ff  Call2 r11, r10, r11, r9
+0204  TryGetById r13, r12, 12, "Math"
+020a  GetByIdShort r10, r13, 13, "round"
+020f  Div r9, r9, r15
+0213  Call2 r10, r10, r13, r9
+0218  NewObjectWithBuffer r9, 2578, 27502
+021e  TryGetById r15, r12, 12, "Math"
+0224  GetByIdShort r13, r15, 13, "round"
+0229  Sub r16, r16, r11
+022d  LoadConstUInt8 r0, 2
+0230  Div r2, r16, r0
+0234  Call2 r13, r13, r15, r2
+0239  PutOwnBySlotIdx r9, r13, 0
+023d  TryGetById r13, r12, 12, "Math"
+0243  GetByIdShort r12, r13, 13, "round"
+0248  Sub r14, r14, r10
+024c  Div r0, r14, r0
+0250  Call2 r12, r12, r13, r0
+0255  PutOwnBySlotIdx r9, r12, 1
+0259  PutOwnBySlotIdx r9, r11, 2
+025d  PutOwnBySlotIdx r9, r10, 3
+0261  Mov r40, r9
+L612:
+0264  LoadFromEnvironment r32, r18, 22
+0268  LoadConstNull r31
+026a  JmpFalseLong L803, r32
+0270  LoadFromEnvironment r16, r18, 24
+0274  Neq r5, r16, r23
+0278  LoadConstNull r31
+027a  JmpFalseLong L803, r5
+0280  GetGlobalObject r12
+0282  TryGetById r10, r12, 12, "Math"
+0288  GetByIdShort r9, r10, 13, "round"
+028d  GetByIdShort r11, r40, 10, "width"
+0292  LoadFromEnvironment r5, r18, 20
+0296  Mul r0, r11, r5
+029a  Call2 r11, r9, r10, r0
+029f  TryGetById r13, r12, 12, "Math"
+02a5  GetByIdShort r10, r13, 13, "round"
+02aa  LoadFromEnvironment r9, r18, 23
+02ae  Div r9, r11, r9
+02b2  Call2 r10, r10, r13, r9
+02b7  NewObjectWithBuffer r9, 2555, 63005
+02bd  GetByIdShort r14, r40, 20, "left"
+02c2  TryGetById r15, r12, 12, "Math"
+02c8  GetByIdShort r13, r15, 13, "round"
+02cd  GetByIdShort r19, r40, 10, "width"
+02d2  Sub r19, r19, r11
+02d6  LoadConstUInt8 r0, 2
+02d9  Div r2, r19, r0
+02dd  Call2 r13, r13, r15, r2
+02e2  Add r13, r14, r13
+02e6  PutOwnBySlotIdx r9, r13, 1
+02ea  GetByIdShort r13, r40, 21, "top"
+02ef  TryGetById r14, r12, 12, "Math"
+02f5  GetByIdShort r12, r14, 13, "round"
+02fa  GetByIdShort r15, r40, 11, "height"
+02ff  Mul r15, r15, r16
+0303  Div r0, r10, r0
+0307  Sub r0, r15, r0
+030b  Call2 r12, r12, r14, r0
+0310  Add r12, r13, r12
+0314  PutOwnBySlotIdx r9, r12, 2
+0318  PutOwnBySlotIdx r9, r11, 3
+031c  PutOwnBySlotIdx r9, r10, 4
+0320  Mov r31, r9
+L803:
+0323  LoadConstNull r30
+0325  JmpFalse L847, r31
+0328  NewObjectWithBufferLong r9, 2876, 68414
+0332  GetByIdShort r11, r31, 21, "top"
+0337  GetByIdShort r10, r31, 11, "height"
+033c  Add r11, r11, r10
+0340  LoadFromEnvironment r10, r18, 25
+0344  Add r10, r11, r10
+0348  PutOwnBySlotIdx r9, r10, 3
+034c  Mov r30, r9
+L847:
+034f  GetByIdShort r10, r8, 2, "useRef"
+0354  GetByIdShort r9, r21, 3, "Animated"
+0359  GetByIdShort r9, r9, 4, "Value"
+035e  LoadFromEnvironment r22, r18, 17
+0362  LoadConstZero r0
+0364  JmpFalse L874, r22
+0367  Mov r0, r1
+L874:
+036a  CreateThisForNew r11, r9, 5
+036e  Mov r48, r11
+0371  Mov r47, r0
+0374  Construct r9, r9, 2
+0378  SelectObject r9, r11, r9
+037c  Call2 r9, r10, r4, r9
+0381  GetByIdShort r20, r9, 6, "current"
+0386  StoreToEnvironment r7, 4, r20
+038a  GetByIdShort r10, r8, 2, "useRef"
+038f  GetByIdShort r9, r21, 3, "Animated"
+0394  GetByIdShort r9, r9, 4, "Value"
+0399  LoadFromEnvironment r5, r18, 27
+039d  Mov r0, r1
+03a0  JmpFalse L941, r5
+03a3  LoadConstDouble r0, 0.5
+L941:
+03ad  CreateThisForNew r11, r9, 5
+03b1  Mov r48, r11
+03b4  Mov r47, r0
+03b7  Construct r9, r9, 2
+03bb  SelectObject r9, r11, r9
+03bf  Call2 r9, r10, r4, r9
+03c4  GetByIdShort r24, r9, 6, "current"
+03c9  StoreToEnvironment r7, 5, r24
+03cd  GetByIdShort r10, r8, 2, "useRef"
+03d2  GetByIdShort r9, r21, 3, "Animated"
+03d7  GetByIdShort r9, r9, 4, "Value"
+03dc  LoadConstZero r0
+03de  JmpFalse L996, r5
+03e1  Mov r0, r1
+L996:
+03e4  CreateThisForNew r11, r9, 5
+03e8  Mov r48, r11
+03eb  Mov r47, r0
+03ee  Construct r9, r9, 2
+03f2  SelectObject r9, r11, r9
+03f6  Call2 r9, r10, r4, r9
+03fb  GetByIdShort r25, r9, 6, "current"
+0400  StoreToEnvironment r7, 6, r25
+0404  GetByIdShort r11, r8, 8, "useEffect"
+0409  NewArray r10, 0
+040d  CreateClosure r9, r7, 17447
+0412  Call3 r9, r11, r4, r9, r10
+0418  GetByIdShort r9, r8, 8, "useEffect"
+041d  NewArray r8, 0
+0421  CreateClosure r7, r7, 17448
+0426  Call3 r7, r9, r4, r7, r8
+042c  LoadFromEnvironment r19, r18, 10
+0430  GetByIdShort r9, r19, 22, "jsxs"
+0435  GetByIdShort r8, r21, 23, "View"
+043a  NewObjectWithBuffer r7, 2179, 27684
+0440  LoadFromEnvironment r15, r18, 36
+0444  GetById r10, r15, 24, "container"
+044a  PutOwnBySlotIdx r7, r10, 0
+044e  GetByIdShort r12, r19, 25, "jsx"
+0453  GetById r11, r21, 26, "StatusBar"
+0459  NewObjectWithBufferLong r10, 2877, 84336
+0463  LoadFromEnvironment r27, r18, 18
+0467  PutOwnBySlotIdx r10, r27, 2
+046b  Call3 r11, r12, r4, r11, r10
+0471  NewArray r10, 4
+0475  DefineOwnInDenseArray r10, r11, 0
+0479  GetByIdShort r13, r19, 22, "jsxs"
+047e  GetByIdShort r12, r21, 23, "View"
+0483  NewObjectWithBuffer r11, 2153, 62307
+0489  NewObjectWithBufferLong r14, 2878, 68889
+0493  LoadFromEnvironment r39, r18, 8
+0497  GetByIdShort r16, r39, 15, "sc"
+049c  Call2 r16, r16, r4, r1
+04a1  PutOwnBySlotIdx r14, r16, 3
+04a5  GetByIdShort r16, r39, 15, "sc"
+04aa  Call2 r16, r16, r4, r1
+04af  PutOwnBySlotIdx r14, r16, 4
+04b3  PutOwnBySlotIdx r11, r14, 0
+04b7  GetByIdShort r28, r19, 25, "jsx"
+04bc  LoadFromEnvironment r36, r18, 6
+04c0  GetByIdShort r16, r36, 27, "default"
+04c5  NewObjectWithBufferLong r14, 2879, 84341
+04cf  GetByIdShort r29, r39, 15, "sc"
+04d4  LoadConstUInt8 r1, 60
+04d7  Call2 r29, r29, r4, r1
+04dc  PutOwnBySlotIdx r14, r29, 1
+04e0  GetByIdShort r29, r39, 15, "sc"
+04e5  Call2 r29, r29, r4, r1
+04ea  PutOwnBySlotIdx r14, r29, 2
+04ee  CreateClosure r29, r4, 17449
+04f3  PutOwnBySlotIdx r14, r29, 3
+04f7  GetByIdShort r35, r19, 25, "jsx"
+04fc  GetByIdShort r33, r21, 23, "View"
+0501  NewObject r29
+0503  Call3 r29, r35, r4, r33, r29
+0509  PutOwnBySlotIdx r14, r29, 4
+050d  Call3 r16, r28, r4, r16, r14
+0513  NewArray r14, 7
+0517  DefineOwnInDenseArray r14, r16, 0
+051b  GetByIdShort r29, r19, 25, "jsx"
+0520  GetByIdShort r28, r36, 27, "default"
+0525  NewObjectWithBufferLong r16, 2879, 84345
+052f  GetByIdShort r33, r39, 15, "sc"
+0534  Call2 r33, r33, r4, r1
+0539  PutOwnBySlotIdx r16, r33, 1
+053d  GetByIdShort r33, r39, 15, "sc"
+0542  Call2 r33, r33, r4, r1
+0547  PutOwnBySlotIdx r16, r33, 2
+054b  CreateClosure r33, r4, 17450
+0550  PutOwnBySlotIdx r16, r33, 3
+0554  GetByIdShort r37, r19, 25, "jsx"
+0559  GetByIdShort r35, r21, 23, "View"
+055e  NewObject r33
+0560  Call3 r33, r37, r4, r35, r33
+0566  PutOwnBySlotIdx r16, r33, 4
+056a  Call3 r16, r29, r4, r28, r16
+0570  DefineOwnInDenseArray r14, r16, 1
+0574  GetByIdShort r29, r19, 25, "jsx"
+0579  GetByIdShort r28, r36, 27, "default"
+057e  NewObjectWithBuffer r16, 2879, 31386
+0584  GetByIdShort r33, r39, 15, "sc"
+0589  Call2 r33, r33, r4, r1
+058e  PutOwnBySlotIdx r16, r33, 1
+0592  GetByIdShort r33, r39, 15, "sc"
+0597  Call2 r33, r33, r4, r1
+059c  PutOwnBySlotIdx r16, r33, 2
+05a0  CreateClosure r33, r4, 17451
+05a5  PutOwnBySlotIdx r16, r33, 3
+05a9  GetByIdShort r37, r19, 25, "jsx"
+05ae  GetByIdShort r35, r21, 23, "View"
+05b3  NewObject r33
+05b5  Call3 r33, r37, r4, r35, r33
+05bb  PutOwnBySlotIdx r16, r33, 4
+05bf  Call3 r16, r29, r4, r28, r16
+05c5  DefineOwnInDenseArray r14, r16, 2
+05c9  GetByIdShort r29, r19, 25, "jsx"
+05ce  GetByIdShort r28, r36, 27, "default"
+05d3  NewObjectWithBufferLong r16, 2879, 84349
+05dd  GetByIdShort r33, r39, 15, "sc"
+05e2  Call2 r33, r33, r4, r1
+05e7  PutOwnBySlotIdx r16, r33, 1
+05eb  GetByIdShort r33, r39, 15, "sc"
+05f0  Call2 r33, r33, r4, r1
+05f5  PutOwnBySlotIdx r16, r33, 2
+05f9  CreateClosure r33, r4, 17452
+05fe  PutOwnBySlotIdx r16, r33, 3
+0602  GetByIdShort r37, r19, 25, "jsx"
+0607  GetByIdShort r35, r21, 23, "View"
+060c  NewObject r33
+060e  Call3 r33, r37, r4, r35, r33
+0614  PutOwnBySlotIdx r16, r33, 4
+0618  Call3 r16, r29, r4, r28, r16
+061e  DefineOwnInDenseArray r14, r16, 3
+0622  GetByIdShort r29, r19, 25, "jsx"
+0627  GetByIdShort r28, r36, 27, "default"
+062c  NewObjectWithBufferLong r16, 2879, 84353
+0636  GetByIdShort r33, r39, 15, "sc"
+063b  Call2 r33, r33, r4, r1
+0640  PutOwnBySlotIdx r16, r33, 1
+0644  GetByIdShort r33, r39, 15, "sc"
+0649  Call2 r33, r33, r4, r1
+064e  PutOwnBySlotIdx r16, r33, 2
+0652  CreateClosure r33, r4, 17453
+0657  PutOwnBySlotIdx r16, r33, 3
+065b  GetByIdShort r37, r19, 25, "jsx"
+0660  GetByIdShort r35, r21, 23, "View"
+0665  NewObject r33
+0667  Call3 r33, r37, r4, r35, r33
+066d  PutOwnBySlotIdx r16, r33, 4
+0671  Call3 r16, r29, r4, r28, r16
+0677  DefineOwnInDenseArray r14, r16, 4
+067b  GetByIdShort r29, r19, 25, "jsx"
+0680  GetByIdShort r28, r36, 27, "default"
+0685  NewObjectWithBuffer r16, 2879, 39640
+068b  GetByIdShort r33, r39, 15, "sc"
+0690  Call2 r33, r33, r4, r1
+0695  PutOwnBySlotIdx r16, r33, 1
+0699  GetByIdShort r33, r39, 15, "sc"
+069e  Call2 r33, r33, r4, r1
+06a3  PutOwnBySlotIdx r16, r33, 2
+06a7  CreateClosure r33, r4, 17454
+06ac  PutOwnBySlotIdx r16, r33, 3
+06b0  GetByIdShort r37, r19, 25, "jsx"
+06b5  GetByIdShort r35, r21, 23, "View"
+06ba  NewObject r33
+06bc  Call3 r33, r37, r4, r35, r33
+06c2  PutOwnBySlotIdx r16, r33, 4
+06c6  Call3 r16, r29, r4, r28, r16
+06cc  DefineOwnInDenseArray r14, r16, 5
+06d0  LoadFromEnvironment r16, r18, 7
+06d4  GetByIdShort r16, r16, 27, "default"
+06d9  GetById r28, r16, 28, "buttonBackgrounds"
+06df  LoadConstNull r16
+06e1  JmpFalseLong L2065, r28
+06e7  GetByIdShort r33, r19, 22, "jsxs"
+06ec  GetById r29, r19, 29, "Fragment"
+06f2  NewObjectWithBuffer r28, 2276, 24
+06f8  GetByIdShort r38, r19, 25, "jsx"
+06fd  GetByIdShort r37, r36, 27, "default"
+0702  NewObjectWithBufferLong r35, 2880, 84357
+070c  GetByIdShort r41, r39, 15, "sc"
+0711  Call2 r41, r41, r4, r1
+0716  PutOwnBySlotIdx r35, r41, 2
+071a  GetByIdShort r41, r39, 15, "sc"
+071f  Call2 r41, r41, r4, r1
+0724  PutOwnBySlotIdx r35, r41, 3
+0728  CreateClosure r41, r4, 17455
+072d  PutOwnBySlotIdx r35, r41, 4
+0731  GetByIdShort r43, r19, 25, "jsx"
+0736  GetByIdShort r42, r21, 23, "View"
+073b  NewObject r41
+073d  Call3 r41, r43, r4, r42, r41
+0743  PutOwnBySlotIdx r35, r41, 5
+0747  Call3 r37, r38, r4, r37, r35
+074d  NewArray r35, 3
+0751  DefineOwnInDenseArray r35, r37, 0
+0755  GetByIdShort r41, r19, 25, "jsx"
+075a  GetByIdShort r38, r36, 27, "default"
+075f  NewObjectWithBufferLong r37, 2880, 84363
+0769  GetByIdShort r42, r39, 15, "sc"
+076e  Call2 r42, r42, r4, r1
+0773  PutOwnBySlotIdx r37, r42, 2
+0777  GetByIdShort r42, r39, 15, "sc"
+077c  Call2 r42, r42, r4, r1
+0781  PutOwnBySlotIdx r37, r42, 3
+0785  CreateClosure r42, r4, 17456
+078a  PutOwnBySlotIdx r37, r42, 4
+078e  GetByIdShort r44, r19, 25, "jsx"
+0793  GetByIdShort r43, r21, 23, "View"
+0798  NewObject r42
+079a  Call3 r42, r44, r4, r43, r42
+07a0  PutOwnBySlotIdx r37, r42, 5
+07a4  Call3 r37, r41, r4, r38, r37
+07aa  DefineOwnInDenseArray r35, r37, 1
+07ae  GetByIdShort r38, r19, 25, "jsx"
+07b3  GetByIdShort r37, r36, 27, "default"
+07b8  NewObjectWithBufferLong r36, 2880, 84369
+07c2  GetByIdShort r41, r39, 15, "sc"
+07c7  Call2 r41, r41, r4, r1
+07cc  PutOwnBySlotIdx r36, r41, 2
+07d0  GetByIdShort r39, r39, 15, "sc"
+07d5  Call2 r39, r39, r4, r1
+07da  PutOwnBySlotIdx r36, r39, 3
+07de  CreateClosure r39, r4, 17457
+07e3  PutOwnBySlotIdx r36, r39, 4
+07e7  GetByIdShort r42, r19, 25, "jsx"
+07ec  GetByIdShort r41, r21, 23, "View"
+07f1  NewObject r39
+07f3  Call3 r39, r42, r4, r41, r39
+07f9  PutOwnBySlotIdx r36, r39, 5
+07fd  Call3 r36, r38, r4, r37, r36
+0803  DefineOwnInDenseArray r35, r36, 2
+0807  PutOwnBySlotIdx r28, r35, 0
+080b  Call3 r16, r33, r4, r29, r28
+L2065:
+0811  DefineOwnInDenseArray r14, r16, 6
+0815  PutOwnBySlotIdx r11, r14, 2
+0819  Call3 r11, r13, r4, r12, r11
+081f  DefineOwnInDenseArray r10, r11, 1
+0823  GetByIdShort r13, r19, 22, "jsxs"
+0828  GetByIdShort r11, r21, 3, "Animated"
+082d  GetByIdShort r12, r11, 23, "View"
+0832  NewObjectWithBuffer r11, 2153, 62307
+0838  GetByIdShort r14, r21, 30, "StyleSheet"
+083d  GetByIdShort r16, r14, 31, "absoluteFill"
+0842  NewArray r14, 2
+0846  DefineOwnInDenseArray r14, r16, 0
+084a  NewObjectWithBuffer r16, 2881, 63254
+0850  PutOwnBySlotIdx r16, r17, 0
+0854  DefineOwnInDenseArray r14, r16, 1
+0858  PutOwnBySlotIdx r11, r14, 0
+085c  LoadFromEnvironment r29, r18, 13
+0860  JmpTrueLong L2286, r29
+0866  GetByIdShort r17, r19, 22, "jsxs"
+086b  GetByIdShort r16, r21, 23, "View"
+0870  NewObjectWithBuffer r14, 2179, 27684
+0876  GetByIdShort r28, r21, 30, "StyleSheet"
+087b  GetByIdShort r33, r28, 31, "absoluteFill"
+0880  NewArray r28, 2
+0884  DefineOwnInDenseArray r28, r33, 0
+0888  GetById r33, r15, 32, "logoFallback"
+088e  DefineOwnInDenseArray r28, r33, 1
+0892  PutOwnBySlotIdx r14, r28, 0
+0896  GetByIdShort r35, r19, 25, "jsx"
+089b  GetByIdShort r33, r21, 33, "Text"
+08a0  NewObjectWithBuffer r28, 2179, 38656
+08a6  GetById r36, r15, 34, "logoFallbackText"
+08ac  PutOwnBySlotIdx r28, r36, 0
+08b0  Call3 r33, r35, r4, r33, r28
+08b6  NewArray r28, 2
+08ba  DefineOwnInDenseArray r28, r33, 0
+08be  GetByIdShort r36, r19, 25, "jsx"
+08c3  GetByIdShort r35, r21, 33, "Text"
+08c8  NewObjectWithBuffer r33, 2179, 41531
+08ce  GetById r37, r15, 35, "logoFallbackSubtext"
+08d4  PutOwnBySlotIdx r33, r37, 0
+08d8  Call3 r33, r36, r4, r35, r33
+08de  DefineOwnInDenseArray r28, r33, 1
+08e2  PutOwnBySlotIdx r14, r28, 1
+08e6  Call3 r16, r17, r4, r16, r14
+08ec  Jmp L2334
+L2286:
+08ee  GetByIdShort r28, r19, 25, "jsx"
+08f3  LoadFromEnvironment r14, r18, 5
+08f7  GetByIdShort r17, r14, 36, "Image"
+08fc  NewObjectWithBuffer r14, 2882, 40774
+0902  PutOwnBySlotIdx r14, r29, 0
+0906  GetById r29, r15, 37, "loadingArt"
+090c  PutOwnBySlotIdx r14, r29, 1
+0910  LoadFromEnvironment r29, r18, 14
+0914  PutOwnBySlotIdx r14, r29, 2
+0918  Call3 r16, r28, r4, r17, r14
+L2334:
+091e  NewArray r14, 4
+0922  DefineOwnInDenseArray r14, r16, 0
+0926  LoadFromEnvironment r39, r18, 15
+092a  Greater r5, r39, r3
+092e  LoadConstNull r16
+0930  JmpFalseLong L2615, r5
+0936  GetByIdShort r17, r40, 20, "left"
+093b  Greater r5, r17, r3
+093f  LoadConstNull r16
+0941  JmpFalseLong L2615, r5
+0947  GetByIdShort r29, r19, 22, "jsxs"
+094c  GetById r28, r19, 29, "Fragment"
+0952  NewObjectWithBuffer r17, 2276, 24
+0958  GetByIdShort r37, r19, 25, "jsx"
+095d  LoadFromEnvironment r35, r18, 9
+0961  GetById r36, r35, 38, "LinearGradient"
+0967  NewObjectWithBuffer r33, 2883, 41592
+096d  NewArray r38, 2
+0971  DefineOwnInDenseArray r38, r27, 0
+0975  LoadConstString r41, "transparent"
+0979  DefineOwnInDenseArray r38, r41, 1
+097d  PutOwnBySlotIdx r33, r38, 1
+0981  NewObjectWithBuffer r38, 61, 30199
+0987  PutOwnBySlotIdx r33, r38, 2
+098b  NewObjectWithBufferLong r38, 61, 71220
+0995  PutOwnBySlotIdx r33, r38, 3
+0999  NewObjectWithBufferLong r38, 2884, 68889
+09a3  GetByIdShort r41, r40, 20, "left"
+09a8  PutOwnBySlotIdx r38, r41, 3
+09ac  PutOwnBySlotIdx r38, r39, 4
+09b0  PutOwnBySlotIdx r33, r38, 4
+09b4  Call3 r36, r37, r4, r36, r33
+09ba  NewArray r33, 2
+09be  DefineOwnInDenseArray r33, r36, 0
+09c2  GetByIdShort r37, r19, 25, "jsx"
+09c7  GetById r36, r35, 38, "LinearGradient"
+09cd  NewObjectWithBuffer r35, 2883, 41592
+09d3  NewArrayWithBuffer r38, 2, 1, 39685
+09db  DefineOwnInDenseArray r38, r27, 1
+09df  PutOwnBySlotIdx r35, r38, 1
+09e3  NewObjectWithBuffer r38, 61, 30199
+09e9  PutOwnBySlotIdx r35, r38, 2
+09ed  NewObjectWithBufferLong r38, 61, 71220
+09f7  PutOwnBySlotIdx r35, r38, 3
+09fb  NewObjectWithBufferLong r38, 2884, 68889
+0a05  GetByIdShort r41, r40, 20, "left"
+0a0a  GetByIdShort r40, r40, 10, "width"
+0a0f  Add r40, r41, r40
+0a13  Sub r40, r40, r39
+0a17  PutOwnBySlotIdx r38, r40, 3
+0a1b  PutOwnBySlotIdx r38, r39, 4
+0a1f  PutOwnBySlotIdx r35, r38, 4
+0a23  Call3 r35, r37, r4, r36, r35
+0a29  DefineOwnInDenseArray r33, r35, 1
+0a2d  PutOwnBySlotIdx r17, r33, 0
+0a31  Call3 r16, r29, r4, r28, r17
+L2615:
+0a37  DefineOwnInDenseArray r14, r16, 1
+0a3b  LoadConstNull r16
+0a3d  JmpFalse L2663, r32
+0a40  LoadConstNull r16
+0a42  JmpFalse L2663, r31
+0a45  GetByIdShort r29, r19, 25, "jsx"
+0a4a  LoadFromEnvironment r17, r18, 5
+0a4e  GetByIdShort r28, r17, 36, "Image"
+0a53  NewObjectWithBuffer r17, 2882, 52440
+0a59  PutOwnBySlotIdx r17, r32, 0
+0a5d  PutOwnBySlotIdx r17, r31, 1
+0a61  Call3 r16, r29, r4, r28, r17
+L2663:
+0a67  DefineOwnInDenseArray r14, r16, 2
+0a6b  GetByIdShort r28, r19, 25, "jsx"
+0a70  GetByIdShort r17, r21, 23, "View"
+0a75  NewObjectWithBuffer r16, 2179, 27684
+0a7b  GetById r31, r15, 39, "bottomArea"
+0a81  NewArray r29, 2
+0a85  DefineOwnInDenseArray r29, r31, 0
+0a89  DefineOwnInDenseArray r29, r30, 1
+0a8d  PutOwnBySlotIdx r16, r29, 0
+0a91  GetByIdShort r31, r19, 22, "jsxs"
+0a96  GetByIdShort r30, r21, 33, "Text"
+0a9b  GetById r29, r15, 40, "loadingLabel"
+0aa1  NewArray r32, 2
+0aa5  DefineOwnInDenseArray r32, r29, 0
+0aa9  LoadFromEnvironment r35, r18, 26
+0aad  LoadConstNull r33
+0aaf  JmpFalse L2751, r35
+0ab2  NewObjectWithBuffer r29, 143, 24
+0ab8  PutOwnBySlotIdx r29, r35, 0
+0abc  Mov r33, r29
+L2751:
+0abf  NewObjectWithBuffer r29, 2179, 27684
+0ac5  DefineOwnInDenseArray r32, r33, 1
+0ac9  PutOwnBySlotIdx r29, r32, 0
+0acd  LoadConstString r33, "."
+0ad1  GetById r32, r33, 41, "repeat"
+0ad7  Call2 r33, r32, r33, r34
+0adc  NewArrayWithBufferLong r32, 2, 1, 73124
+0ae6  DefineOwnInDenseArray r32, r33, 1
+0aea  PutOwnBySlotIdx r29, r32, 1
+0aee  Call3 r29, r31, r4, r30, r29
+0af4  PutOwnBySlotIdx r16, r29, 1
+0af8  Call3 r16, r28, r4, r17, r16
+0afe  DefineOwnInDenseArray r14, r16, 3
+0b02  PutOwnBySlotIdx r11, r14, 2
+0b06  Call3 r11, r13, r4, r12, r11
+0b0c  DefineOwnInDenseArray r10, r11, 2
+0b10  LoadConstNull r11
+0b12  JmpFalseLong L3080, r22
+0b18  GetByIdShort r14, r19, 25, "jsx"
+0b1d  GetByIdShort r12, r21, 3, "Animated"
+0b22  GetByIdShort r13, r12, 23, "View"
+0b27  NewObjectWithBuffer r12, 2153, 62307
+0b2d  GetByIdShort r16, r21, 30, "StyleSheet"
+0b32  GetByIdShort r17, r16, 31, "absoluteFill"
+0b37  NewArray r16, 3
+0b3b  DefineOwnInDenseArray r16, r17, 0
+0b3f  GetById r17, r15, 42, "splashOverlay"
+0b45  DefineOwnInDenseArray r16, r17, 1
+0b49  NewObjectWithBuffer r17, 2885, 27684
+0b4f  PutOwnBySlotIdx r17, r27, 0
+0b53  PutOwnBySlotIdx r17, r20, 1
+0b57  DefineOwnInDenseArray r16, r17, 2
+0b5b  PutOwnBySlotIdx r12, r16, 0
+0b5f  GetByIdShort r17, r19, 25, "jsx"
+0b64  GetByIdShort r16, r21, 3, "Animated"
+0b69  GetByIdShort r16, r16, 23, "View"
+0b6e  GetById r15, r15, 43, "splashLogoWrap"
+0b74  NewArray r20, 3
+0b78  DefineOwnInDenseArray r20, r15, 0
+0b7c  LoadConstNull r23
+0b7e  JmpFalse L2958, r26
+0b81  NewObjectWithBuffer r15, 1108, 24
+0b87  PutOwnBySlotIdx r15, r26, 0
+0b8b  Mov r23, r15
+L2958:
+0b8e  NewObjectWithBuffer r15, 2179, 27684
+0b94  DefineOwnInDenseArray r20, r23, 1
+0b98  NewObjectWithBuffer r23, 2886, 27714
+0b9e  LoadFromEnvironment r26, r18, 19
+0ba2  PutOwnBySlotIdx r23, r26, 0
+0ba6  PutOwnBySlotIdx r23, r25, 1
+0baa  NewObjectWithBuffer r25, 174, 24
+0bb0  PutOwnBySlotIdx r25, r24, 0
+0bb4  NewArray r24, 1
+0bb8  DefineOwnInDenseArray r24, r25, 0
+0bbc  PutOwnBySlotIdx r23, r24, 2
+0bc0  DefineOwnInDenseArray r20, r23, 2
+0bc4  PutOwnBySlotIdx r15, r20, 0
+0bc8  GetByIdShort r20, r19, 25, "jsx"
+0bcd  LoadFromEnvironment r18, r18, 5
+0bd1  GetByIdShort r19, r18, 36, "Image"
+0bd6  NewObjectWithBuffer r18, 2882, 52440
+0bdc  PutOwnBySlotIdx r18, r22, 0
+0be0  GetByIdShort r21, r21, 30, "StyleSheet"
+0be5  GetByIdShort r21, r21, 31, "absoluteFill"
+0bea  PutOwnBySlotIdx r18, r21, 1
+0bee  Call3 r18, r20, r4, r19, r18
+0bf4  PutOwnBySlotIdx r15, r18, 1
+0bf8  Call3 r15, r17, r4, r16, r15
+0bfe  PutOwnBySlotIdx r12, r15, 2
+0c02  Call3 r11, r14, r4, r13, r12
+L3080:
+0c08  DefineOwnInDenseArray r10, r11, 3
+0c0c  PutOwnBySlotIdx r7, r10, 1
+0c10  Call3 r7, r9, r4, r8, r7
+0c16  Ret r7
+

@@ -1,0 +1,107 @@
+0000  GetParentEnvironment r8, 0
+0003  GetParentEnvironment r2, 1
+0006  LoadFromEnvironment r9, r2, 1
+000a  GetByIdShort r4, r9, 0, "Animated"
+000f  GetById r3, r4, 1, "parallel"
+0015  GetByIdShort r7, r9, 0, "Animated"
+001a  GetById r6, r7, 2, "spring"
+0020  LoadFromEnvironment r5, r8, 8
+0024  NewObjectWithBuffer r2, 3820, 55141
+002a  Call3 r5, r6, r7, r5, r2
+0030  NewArray r2, 2
+0034  DefineOwnInDenseArray r2, r5, 0
+0038  GetByIdShort r10, r9, 0, "Animated"
+003d  GetByIdShort r7, r10, 3, "timing"
+0042  LoadFromEnvironment r6, r8, 9
+0046  NewObjectWithBuffer r5, 3819, 43916
+004c  Call3 r5, r7, r10, r6, r5
+0052  DefineOwnInDenseArray r2, r5, 1
+0056  Call2 r3, r3, r4, r2
+005b  GetByIdShort r2, r3, 4, "start"
+0060  Call1 r2, r2, r3
+0064  GetByIdShort r4, r9, 0, "Animated"
+0069  GetByIdShort r3, r4, 5, "sequence"
+006e  GetByIdShort r5, r9, 0, "Animated"
+0073  GetByIdShort r2, r5, 6, "delay"
+0078  LoadConstUInt8 r0, 250
+007b  Call2 r5, r2, r5, r0
+0080  NewArray r2, 2
+0084  DefineOwnInDenseArray r2, r5, 0
+0088  GetByIdShort r7, r9, 0, "Animated"
+008d  GetById r6, r7, 1, "parallel"
+0093  GetByIdShort r12, r9, 0, "Animated"
+0098  GetById r11, r12, 2, "spring"
+009e  LoadFromEnvironment r10, r8, 10
+00a2  NewObjectWithBuffer r5, 3820, 55193
+00a8  Call3 r10, r11, r12, r10, r5
+00ae  NewArray r5, 2
+00b2  DefineOwnInDenseArray r5, r10, 0
+00b6  GetByIdShort r13, r9, 0, "Animated"
+00bb  GetByIdShort r12, r13, 3, "timing"
+00c0  LoadFromEnvironment r11, r8, 11
+00c4  NewObjectWithBuffer r10, 3819, 53712
+00ca  Call3 r10, r12, r13, r11, r10
+00d0  DefineOwnInDenseArray r5, r10, 1
+00d4  Call2 r5, r6, r7, r5
+00d9  DefineOwnInDenseArray r2, r5, 1
+00dd  Call2 r3, r3, r4, r2
+00e2  GetByIdShort r2, r3, 4, "start"
+00e7  Call1 r2, r2, r3
+00eb  GetByIdShort r4, r9, 0, "Animated"
+00f0  GetByIdShort r3, r4, 5, "sequence"
+00f5  GetByIdShort r5, r9, 0, "Animated"
+00fa  GetByIdShort r2, r5, 6, "delay"
+00ff  LoadConstInt r0, 450
+0105  Call2 r5, r2, r5, r0
+010a  NewArray r2, 2
+010e  DefineOwnInDenseArray r2, r5, 0
+0112  GetByIdShort r7, r9, 0, "Animated"
+0117  GetById r6, r7, 1, "parallel"
+011d  GetByIdShort r12, r9, 0, "Animated"
+0122  GetById r11, r12, 2, "spring"
+0128  LoadFromEnvironment r10, r8, 12
+012c  NewObjectWithBuffer r5, 3820, 55247
+0132  Call3 r10, r11, r12, r10, r5
+0138  NewArray r5, 2
+013c  DefineOwnInDenseArray r5, r10, 0
+0140  GetByIdShort r13, r9, 0, "Animated"
+0145  GetByIdShort r12, r13, 3, "timing"
+014a  LoadFromEnvironment r11, r8, 13
+014e  NewObjectWithBuffer r10, 3819, 53921
+0154  Call3 r10, r12, r13, r11, r10
+015a  DefineOwnInDenseArray r5, r10, 1
+015e  Call2 r5, r6, r7, r5
+0163  DefineOwnInDenseArray r2, r5, 1
+0167  Call2 r3, r3, r4, r2
+016c  GetByIdShort r2, r3, 4, "start"
+0171  Call1 r2, r2, r3
+0175  GetByIdShort r4, r9, 0, "Animated"
+017a  GetByIdShort r3, r4, 5, "sequence"
+017f  GetByIdShort r5, r9, 0, "Animated"
+0184  GetByIdShort r2, r5, 6, "delay"
+0189  LoadConstInt r0, 550
+018f  Call2 r5, r2, r5, r0
+0194  NewArray r2, 2
+0198  DefineOwnInDenseArray r2, r5, 0
+019c  GetByIdShort r7, r9, 0, "Animated"
+01a1  GetById r6, r7, 1, "parallel"
+01a7  GetByIdShort r12, r9, 0, "Animated"
+01ac  GetById r11, r12, 2, "spring"
+01b2  LoadFromEnvironment r10, r8, 18
+01b6  NewObjectWithBuffer r5, 3820, 55288
+01bc  Call3 r10, r11, r12, r10, r5
+01c2  NewArray r5, 2
+01c6  DefineOwnInDenseArray r5, r10, 0
+01ca  GetByIdShort r11, r9, 0, "Animated"
+01cf  GetByIdShort r10, r11, 3, "timing"
+01d4  LoadFromEnvironment r9, r8, 17
+01d8  NewObjectWithBuffer r8, 3819, 53921
+01de  Call3 r8, r10, r11, r9, r8
+01e4  DefineOwnInDenseArray r5, r8, 1
+01e8  Call2 r5, r6, r7, r5
+01ed  DefineOwnInDenseArray r2, r5, 1
+01f1  Call2 r3, r3, r4, r2
+01f6  GetByIdShort r2, r3, 4, "start"
+01fb  Call1 r2, r2, r3
+01ff  LoadConstUndefined r1
+0201  Ret r1

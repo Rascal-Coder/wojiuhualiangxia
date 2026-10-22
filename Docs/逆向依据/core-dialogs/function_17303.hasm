@@ -1,0 +1,9 @@
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r2, r1, 19
+0007  LoadParam r1, 1
+000a  GetByIdShort r1, r1, 0, "nativeEvent"
+000f  GetById r1, r1, 1, "layout"
+0015  GetByIdShort r1, r1, 2, "width"
+001a  LoadConstUndefined r0
+001c  Call2 r1, r2, r0, r1
+0021  Ret r1

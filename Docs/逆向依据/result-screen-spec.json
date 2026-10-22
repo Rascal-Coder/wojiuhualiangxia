@@ -1,0 +1,60 @@
+{
+  "evidence": {
+    "module_2119": "LevelCompleteScreen; wrapper fn2121, screen fn12236; HASM captured under fidelity/hasm",
+    "module_1557": "ArcTitle fn10797; per-letter geometry fn17305",
+    "module_1053": "game metadata: resultTheme=module1055.RESULT_THEME, resultRewardPanel=module1073.ResultRewardPanel, buttonHeightScale=1.15",
+    "module_1072": "sc(value) equals value on phones; scales only when shortest dp dimension >=600",
+    "scope": "Static decompilation and raw HASM/literals; no target code execution or new device interaction."
+  },
+  "screen": {
+    "type": "Independent SafeAreaView flex:1 screen, not Modal or gameplay overlay",
+    "status_bar": "hidden",
+    "background": "#F3DFB0",
+    "root": {"padding_horizontal_sc":16,"gap_sc":8,"justify_content":"flex-start"},
+    "core_reward": "getLevelCoinReward(levelId); recreation keeps root's actual reward including Review=0",
+    "title_text": "Well Done!; only Level Completed! when LEVEL_LOOP_LAST_N===0 and levelId>=totalLevels. Shipped default LEVEL_LOOP_LAST_N=10."
+  },
+  "title": {
+    "margin_top_sc":44,"margin_bottom_sc":4,"height_sc":100,"font_size_sc":56,
+    "curve_depth_dp":18,"max_rotation_degrees":18,"u":"(index-(count-1)/2)/((count-1)/2)",
+    "translate_y_screen_dp":"-(1-u*u)*18","rotation_screen_degrees":"u*18",
+    "font":"Luckiest Guy; FONT_FIX marginTop=sc(7), includeFontPadding:false",
+    "fill":"#FFC62E","stroke":"#480C00","stroke_scale":1.1,"stroke_radius_dp":4,
+    "shadow":"rgba(72,12,0,.35)","shadow_radius":2.5,"halo_layers":3,"halo_radius":4,
+    "letter_animation":{"stagger_ms":75,"initial_opacity":0,"initial_scale":0.3,"fade_ms":180,"fade_easing":"RN default Animated.timing","spring":{"to":1,"tension":140,"friction":6}},
+    "completion":"Animated.stagger.start.finished invokes onAnimateInComplete; changes celebration state, which mounts Confetti and starts reward/buttons animation."
+  },
+  "reward": {
+    "wrap":{"height_sc":200,"margin_vertical_sc":4,"align":"center","justify":"center"},
+    "tray":{"binding":"module1073.ResultRewardPanel -> obj23 -> modules1106/1107","cap":"game_assets_paneltraycap","mid":"game_assets_paneltraymid","aspect":0.19298245614035087,"width_sc":"round(min(windowWidth-32sc,max(configWidth(300sc),singleRewardWidth(206sc)+40sc))))","top":0,"bottom":0,"glow":false},
+    "coin":{"binding":"module1697 coin-xlarge 249x246","resource":"shell_src_ui_coinxlarge","display_sc":[200,200],"fit":"contain"},
+    "amount":{"text":"+reward","font_size_sc":42,"bottom_sc":18,"right_sc":-6,"color":"#FFFFFF","letter_spacing_sc":0.5,"shadow":"rgba(0,0,0,.95)","shadow_offset_sc":[0,3],"shadow_radius":6},
+    "animation":{"start":"title completion","initial_scale":0.3,"initial_opacity":0,"spring":{"to":1,"tension":55,"friction":5},"fade_ms":250}
+  },
+  "buttons": {
+    "entry":{"delay_after_title_complete_ms":250,"initial_x":"window width","spring":{"to":0,"tension":55,"friction":10},"initial_opacity":0,"fade_ms":250},
+    "no_ads":{"binding":"module2120 AutoWidthGreenButton -> game buttonBackgrounds.green -> SlicePanel.GreenButton","text":"Continue","active_opacity":0.85,"min_width_raw_dp":140,"min_height_sc":90,"height_scale":1.15,"actual_min_height_phone_dp":104,"content_padding_vertical_sc":18,"content_padding_horizontal_sc":40,"margin_top_sc":8,"margin_bottom_sc":40,"font_size_phone_dp":"round(30*clamp(windowWidthDp/TABLET_K/380,.75,1.25))","letter_spacing_sc":0.5,"line_height_ratio":1,"font_padding":false},
+    "advertising_branch_omitted":{"left":"blue Continue","right":"green rewarded 2x reward","height_sc":90,"corner_sc":20,"gap_sc":15},
+    "series_bar":"Entire bottom panel conditional GAME.MAGNIFICENT_ENABLED!==false. Shipped game metadata overrides MAGNIFICENT_ENABLED:false; no core progress bar should be drawn."
+  },
+  "confetti": {
+    "source":"fn12233 direct object literal shape2818 offset787: length40; fn17892 randomized parameters; fn17891 sequence",
+    "count":40,"colors":["#FFD700","#FF4444","#44AAFF","#33CC44","#FF66AA","#FFAA00","#AA44FF","#44FFAA"],
+    "delay_ms":[0,180],"start_x_percent":[10,90],"rise_height_raw_dp":[350,700],"rise_duration_ms":[400,600],"fall_duration_ms":[900,1400],"size_raw_dp":[7,14],"height_ratio":[0.6,1.4],"border_radius_sc":2,"rotation_degrees":[540,1080],
+    "sequence":"delay; parallel(opacity1 80ms, y=-riseHeight outQuad riseDuration, rotation1 defaultTiming riseDuration+fallDuration); then parallel(y=800 inQuad fallDuration, delay(fallDuration-500)+opacity0 500ms). Parallel first phase waits for rotation, therefore y stays at apex for fallDuration before descending."
+  },
+  "implementation": {
+    "file":"outputs/InkominoTuanjie/Assets/Scripts/Runtime/SourceResults.cs",
+    "entry":"InkominoApp.ShowSourceResult() called after existing BoardView.VictoryTimeRemaining wait",
+    "time":"All animation drivers use SourceClock.Now; source springs use SourceMotion.Spring with source tension/friction; estimated native rest callback uses default .001 speed/.001 displacement thresholds.",
+    "remaining_approximations":["uGUI Outline layers approximate native text-shadow blur/halo; blur kernel is not identical.","Unity font advance/line metrics may differ slightly from React Native despite same font asset.","Native spring completion is sampled at 240Hz to approximate its stop callback; screenshot timing needs runtime comparison.","Phone static dimensions implemented; full tablet-specific result widths are not yet reproduced."]
+  },
+  "board_followup": {
+    "pop_outline":"Module2144 PieceOutlines fn12339 draws only piece.locked && !piece.tutLock. Normal add-piece fn18084 leaves locked absent, so ordinary cell-pop has no black/white contour. Pen locked contour is a fixed whole-piece SVG path; dash draw is independent of individual cell-pop. Victory fn12340 draws gold over all pieces.",
+    "pen_order":"SetPenTrace(cells,0) can precede TryPlace; new matching PieceStyle waits for SetPenTrace progress>=1 before 45ms/230ms cell pop. SetPenTrace(null,1) finishes and clears trace.",
+    "rounded_fill":"CellPolygon rounds only corners with both adjacent neighbours absent; every cell remains a convex polygon. Pop scales those vertices around each cell centre and inverse-scales UV. Win shine uses ClipConvex against the same polygons.",
+    "symbols":"Star, heart cubic, diamond, ring (hole), flower and wall =/x are geometric SVG-ratio graphics; concave icon fill uses ear clipping, avoiding whole-piece concave triangle fans.",
+    "tutorial_hooks":["public Func<int[],bool> StrokeAllowed","PieceStyle.TutorialLocked","public int NextColorIndex getter","public bool CommitTutorialStroke()"]
+  },
+  "freeze_duration":{"shipped_default_seconds":10,"descriptor":"GAME.FREEZE_BOOSTER_SECONDS || 10","configuration":"Default GAME literal explicitly FREEZE_BOOSTER_SECONDS:10; server configuration could override, no server execution claimed."}
+}

@@ -1,0 +1,298 @@
+; fn#1055 "<anonymous>" params=8 frame=28 regs=2(num=1,nonptr=1) size=1410 offset=0x201a41
+0000  CreateFunctionEnvironment r3, 4
+0003  LoadParam r6, 2
+0006  StoreToEnvironment r3, 0, r6
+000a  LoadParam r9, 6
+000d  LoadParam r5, 7
+0010  StoreToEnvironment r3, 1, r5
+0014  GetGlobalObject r2
+0016  TryGetById r10, r2, 0, "Object"
+001c  GetByIdShort r8, r10, 1, "defineProperty"
+0021  LoadConstString r7, "__esModule"
+0025  NewObjectWithBuffer r4, 26, 27551
+002b  Call4 r4, r8, r10, r9, r7, r4
+0032  TryGetById r8, r2, 0, "Object"
+0038  GetByIdShort r7, r8, 1, "defineProperty"
+003d  NewObjectWithBuffer r4, 27, 28117
+0043  CreateClosure r2, r3, 8159
+0048  PutOwnBySlotIdx r4, r2, 1
+004c  LoadConstString r2, "default"
+0050  Call4 r2, r7, r8, r9, r2, r4
+0057  GetByIndex r2, r5, 0
+005b  LoadConstUndefined r1
+005d  Call2 r4, r6, r1, r2
+0062  JmpFalse L112, r4
+0065  GetByIdShort r2, r4, 2, "__esModule"
+006a  Mov r15, r4
+006d  JmpTrue L125, r2
+L112:
+0070  NewObjectWithBuffer r2, 25, 24
+0076  PutOwnBySlotIdx r2, r4, 0
+007a  Mov r15, r2
+L125:
+007d  GetByIndex r2, r5, 1
+0081  Call2 r4, r6, r1, r2
+0086  GetByIndex r2, r5, 2
+008a  Call2 r14, r6, r1, r2
+008f  GetByIndex r2, r5, 3
+0093  Call2 r13, r6, r1, r2
+0098  GetByIndex r2, r5, 4
+009c  Call2 r12, r6, r1, r2
+00a1  GetByIndex r2, r5, 5
+00a5  Call2 r11, r6, r1, r2
+00aa  GetByIndex r2, r5, 6
+00ae  Call2 r7, r6, r1, r2
+00b3  GetByIndex r2, r5, 7
+00b7  Call2 r9, r6, r1, r2
+00bc  GetByIndex r2, r5, 8
+00c0  Call2 r8, r6, r1, r2
+00c5  GetByIndex r2, r5, 9
+00c9  Call2 r10, r6, r1, r2
+00ce  StoreToEnvironment r3, 2, r10
+00d2  NewObjectWithBuffer r2, 641, 1856
+00d8  GetByIdShort r15, r15, 3, "default"
+00dd  PutOwnBySlotIdx r2, r15, 1
+00e1  NewObjectWithBuffer r15, 639, 27684
+00e7  GetByIndex r16, r5, 10
+00eb  Call2 r16, r6, r1, r16
+00f0  PutOwnBySlotIdx r15, r16, 0
+00f4  GetByIndex r16, r5, 11
+00f8  Call2 r16, r6, r1, r16
+00fd  PutOwnBySlotIdx r15, r16, 1
+0101  PutOwnBySlotIdx r2, r15, 2
+0105  GetByIndex r15, r5, 12
+0109  Call2 r15, r6, r1, r15
+010e  PutOwnBySlotIdx r2, r15, 3
+0112  GetById r10, r10, 4, "BUNDLE_BOOSTER_ICONS"
+0118  PutOwnBySlotIdx r2, r10, 6
+011c  NewObjectWithBuffer r10, 642, 18372
+0122  GetById r14, r14, 5, "PlayRibbon"
+0128  PutOwnBySlotIdx r10, r14, 0
+012c  PutOwnBySlotIdx r2, r10, 12
+0130  NewObjectWithBuffer r10, 643, 39872
+0136  GetById r13, r13, 6, "LevelSign"
+013c  PutOwnBySlotIdx r10, r13, 0
+0140  PutOwnBySlotIdx r2, r10, 13
+0144  NewObjectWithBuffer r10, 644, 39903
+014a  PutOwnBySlotIdx r2, r10, 15
+014e  NewObjectWithBuffer r10, 645, 39912
+0154  PutOwnBySlotIdx r2, r10, 17
+0158  NewObjectWithBuffer r10, 646, 28899
+015e  NewArrayWithBuffer r13, 5, 5, 39998
+0166  PutOwnBySlotIdx r10, r13, 0
+016a  NewArrayWithBuffer r13, 4, 4, 40009
+0172  PutOwnBySlotIdx r10, r13, 1
+0176  NewArrayWithBuffer r13, 6, 6, 40019
+017e  PutOwnBySlotIdx r10, r13, 2
+0182  NewArrayWithBuffer r13, 2, 2, 40032
+018a  PutOwnBySlotIdx r10, r13, 3
+018e  NewObjectWithBuffer r13, 647, 40041
+0194  PutOwnBySlotIdx r10, r13, 4
+0198  NewArrayWithBuffer r13, 3, 3, 27446
+01a0  PutOwnBySlotIdx r10, r13, 5
+01a4  NewObjectWithBuffer r13, 648, 40054
+01aa  NewArrayWithBuffer r14, 2, 2, 40062
+01b2  PutOwnBySlotIdx r13, r14, 1
+01b6  PutOwnBySlotIdx r10, r13, 6
+01ba  NewObjectWithBuffer r13, 649, 40067
+01c0  PutOwnBySlotIdx r10, r13, 7
+01c4  PutOwnBySlotIdx r2, r10, 18
+01c8  NewObjectWithBuffer r10, 650, 40072
+01ce  PutOwnBySlotIdx r2, r10, 19
+01d2  NewObjectWithBuffer r10, 651, 31520
+01d8  GetByIndex r13, r5, 13
+01dc  Call2 r13, r6, r1, r13
+01e1  PutOwnBySlotIdx r10, r13, 0
+01e5  GetByIndex r13, r5, 14
+01e9  Call2 r13, r6, r1, r13
+01ee  PutOwnBySlotIdx r10, r13, 1
+01f2  GetByIndex r13, r5, 15
+01f6  Call2 r13, r6, r1, r13
+01fb  PutOwnBySlotIdx r10, r13, 5
+01ff  NewObjectWithBuffer r13, 652, 13256
+0205  PutOwnBySlotIdx r10, r13, 8
+0209  PutOwnBySlotIdx r2, r10, 20
+020d  GetByIndex r10, r5, 16
+0211  Call2 r13, r6, r1, r10
+0216  NewArray r10, 3
+021a  DefineOwnInDenseArray r10, r13, 0
+021e  GetByIndex r13, r5, 17
+0222  Call2 r13, r6, r1, r13
+0227  DefineOwnInDenseArray r10, r13, 1
+022b  GetByIndex r13, r5, 18
+022f  Call2 r13, r6, r1, r13
+0234  DefineOwnInDenseArray r10, r13, 2
+0238  PutOwnBySlotIdx r2, r10, 21
+023c  GetById r10, r7, 7, "BoosterSlotPanel"
+0242  PutOwnBySlotIdx r2, r10, 24
+0246  GetById r10, r7, 8, "BoosterSlotDim"
+024c  PutOwnBySlotIdx r2, r10, 25
+0250  GetById r10, r7, 9, "BoosterBadgePanel"
+0256  PutOwnBySlotIdx r2, r10, 26
+025a  GetById r10, r7, 10, "PreviewBoosterTrayPanel"
+0260  PutOwnBySlotIdx r2, r10, 28
+0264  GetById r10, r7, 11, "PreviewBoosterSlotPanel"
+026a  PutOwnBySlotIdx r2, r10, 32
+026e  NewObjectWithBuffer r10, 653, 24
+0274  GetById r13, r12, 12, "PreviewBoosterPlate"
+027a  PutOwnBySlotIdx r10, r13, 0
+027e  PutOwnBySlotIdx r2, r10, 33
+0282  NewObjectWithBuffer r10, 653, 24
+0288  GetById r12, r12, 12, "PreviewBoosterPlate"
+028e  PutOwnBySlotIdx r10, r12, 0
+0292  PutOwnBySlotIdx r2, r10, 34
+0296  NewObjectWithBuffer r10, 653, 24
+029c  GetById r11, r11, 13, "PreviewBoosterInfinity"
+02a2  PutOwnBySlotIdx r10, r11, 0
+02a6  PutOwnBySlotIdx r2, r10, 35
+02aa  GetByIndex r10, r5, 19
+02ae  Call2 r10, r6, r1, r10
+02b3  PutOwnBySlotIdx r2, r10, 36
+02b7  GetByIndex r10, r5, 20
+02bb  Call2 r10, r6, r1, r10
+02c0  PutOwnBySlotIdx r2, r10, 41
+02c4  GetByIndex r10, r5, 21
+02c8  Call2 r10, r6, r1, r10
+02cd  PutOwnBySlotIdx r2, r10, 43
+02d1  GetById r10, r8, 14, "NAV_BAR"
+02d7  GetById r10, r10, 15, "icons"
+02dd  GetById r10, r10, 16, "home"
+02e3  PutOwnBySlotIdx r2, r10, 45
+02e7  GetByIndex r10, r5, 22
+02eb  Call2 r10, r6, r1, r10
+02f0  PutOwnBySlotIdx r2, r10, 48
+02f4  NewObjectWithBuffer r10, 654, 40079
+02fa  PutOwnBySlotIdx r2, r10, 50
+02fe  GetByIndex r10, r5, 22
+0302  Call2 r10, r6, r1, r10
+0307  PutOwnBySlotIdx r2, r10, 51
+030b  NewObjectWithBuffer r10, 655, 40094
+0311  PutOwnBySlotIdx r2, r10, 53
+0315  NewObjectWithBuffer r10, 656, 40113
+031b  PutOwnBySlotIdx r2, r10, 54
+031f  NewObjectWithBuffer r10, 657, 29386
+0325  PutOwnBySlotIdx r2, r10, 57
+0329  NewObjectWithBuffer r10, 658, 28922
+032f  GetById r11, r7, 17, "GreenButton"
+0335  PutOwnBySlotIdx r10, r11, 0
+0339  GetById r11, r7, 18, "BlueButton"
+033f  PutOwnBySlotIdx r10, r11, 1
+0343  GetById r11, r7, 19, "RedButton"
+0349  PutOwnBySlotIdx r10, r11, 2
+034d  GetById r11, r7, 20, "PurpleButton"
+0353  PutOwnBySlotIdx r10, r11, 3
+0357  GetById r11, r7, 21, "OrangeButton"
+035d  PutOwnBySlotIdx r10, r11, 4
+0361  GetById r11, r7, 22, "BlackButton"
+0367  PutOwnBySlotIdx r10, r11, 5
+036b  PutOwnBySlotIdx r2, r10, 58
+036f  GetById r10, r7, 23, "buttonFaceCenter"
+0375  PutOwnBySlotIdx r2, r10, 59
+0379  GetById r8, r8, 14, "NAV_BAR"
+037f  PutOwnBySlotIdx r2, r8, 60
+0383  GetById r8, r7, 24, "PreviewTrayPanel"
+0389  PutOwnBySlotIdx r2, r8, 61
+038d  GetById r8, r9, 25, "PopupPanelBackground"
+0393  PutOwnBySlotIdx r2, r8, 62
+0397  GetById r8, r9, 26, "PopupTitleBanner"
+039d  PutOwnBySlotIdx r2, r8, 63
+03a1  NewObjectWithBuffer r8, 659, 27502
+03a7  GetById r10, r9, 27, "POPUP_CAP"
+03ad  PutOwnBySlotIdx r8, r10, 0
+03b1  GetById r10, r9, 28, "POPUP_FILL"
+03b7  PutOwnBySlotIdx r8, r10, 1
+03bb  GetById r9, r9, 29, "POPUP_INK"
+03c1  PutOwnBySlotIdx r8, r9, 2
+03c5  NewObjectWithBuffer r9, 660, 40126
+03cb  PutOwnBySlotIdx r8, r9, 3
+03cf  NewObjectWithBuffer r9, 661, 40135
+03d5  PutOwnBySlotIdx r8, r9, 14
+03d9  NewObjectWithBuffer r9, 662, 40144
+03df  PutOwnBySlotIdx r8, r9, 15
+03e3  PutOwnBySlotIdx r2, r8, 64
+03e7  NewObjectWithBuffer r8, 663, 40246
+03ed  NewObjectWithBuffer r9, 664, 40270
+03f3  PutOwnBySlotIdx r8, r9, 0
+03f7  NewObjectWithBuffer r9, 665, 10811
+03fd  PutOwnBySlotIdx r8, r9, 1
+0401  NewObjectWithBuffer r9, 666, 28155
+0407  PutOwnBySlotIdx r8, r9, 4
+040b  NewObjectWithBuffer r9, 667, 28528
+0411  NewObjectWithBuffer r10, 668, 40283
+0417  PutOwnBySlotIdx r9, r10, 5
+041b  PutOwnBySlotIdx r8, r9, 5
+041f  PutOwnBySlotIdx r2, r8, 65
+0423  NewObjectWithBuffer r8, 669, 2485
+0429  GetByIndex r9, r5, 23
+042d  Call2 r9, r6, r1, r9
+0432  PutOwnBySlotIdx r8, r9, 0
+0436  NewObjectWithBuffer r9, 670, 40316
+043c  PutOwnBySlotIdx r8, r9, 8
+0440  GetById r9, r7, 30, "EventLabelPanel"
+0446  PutOwnBySlotIdx r8, r9, 9
+044a  PutOwnBySlotIdx r2, r8, 66
+044e  GetById r4, r4, 31, "RESULT_THEME"
+0454  PutOwnBySlotIdx r2, r4, 67
+0458  NewObjectWithBuffer r4, 671, 27431
+045e  GetById r7, r7, 32, "ResultRewardPanel"
+0464  PutOwnBySlotIdx r4, r7, 0
+0468  PutOwnBySlotIdx r2, r4, 68
+046c  GetByIndex r4, r5, 15
+0470  Call2 r4, r6, r1, r4
+0475  PutOwnBySlotIdx r2, r4, 69
+0479  NewArrayWithBuffer r4, 2, 2, 29801
+0481  PutOwnBySlotIdx r2, r4, 72
+0485  NewObjectWithBuffer r4, 672, 24
+048b  CreateClosure r7, r3, 8160
+0490  PutOwnBySlotIdx r4, r7, 0
+0494  PutOwnBySlotIdx r2, r4, 75
+0498  NewObjectWithBuffer r4, 673, 216
+049e  NewArrayWithBuffer r7, 2, 2, 40328
+04a6  PutOwnBySlotIdx r4, r7, 0
+04aa  NewArray r7, 5
+04ae  NewObjectWithBuffer r8, 674, 40333
+04b4  DefineOwnInDenseArray r7, r8, 0
+04b8  NewObjectWithBuffer r8, 674, 32432
+04be  DefineOwnInDenseArray r7, r8, 1
+04c2  NewObjectWithBuffer r8, 674, 40340
+04c8  DefineOwnInDenseArray r7, r8, 2
+04cc  NewObjectWithBuffer r8, 674, 40347
+04d2  DefineOwnInDenseArray r7, r8, 3
+04d6  NewObjectWithBuffer r8, 674, 40354
+04dc  DefineOwnInDenseArray r7, r8, 4
+04e0  PutOwnBySlotIdx r4, r7, 2
+04e4  NewArrayWithBuffer r7, 11, 1, 28970
+04ec  NewObjectWithBuffer r8, 675, 38671
+04f2  DefineOwnInDenseArray r7, r8, 1
+04f6  NewObjectWithBuffer r8, 675, 29674
+04fc  DefineOwnInDenseArray r7, r8, 2
+0500  NewObjectWithBuffer r8, 675, 469
+0506  DefineOwnInDenseArray r7, r8, 3
+050a  NewObjectWithBuffer r8, 675, 40361
+0510  DefineOwnInDenseArray r7, r8, 4
+0514  NewObjectWithBuffer r8, 675, 40381
+051a  DefineOwnInDenseArray r7, r8, 5
+051e  NewObjectWithBuffer r8, 675, 40389
+0524  DefineOwnInDenseArray r7, r8, 6
+0528  NewObjectWithBuffer r8, 675, 590
+052e  DefineOwnInDenseArray r7, r8, 7
+0532  NewObjectWithBuffer r8, 675, 40400
+0538  DefineOwnInDenseArray r7, r8, 8
+053c  LoadConstUInt8 r0, 50
+053f  DefineOwnInDenseArray r7, r0, 9
+0543  LoadConstUInt8 r0, 100
+0546  DefineOwnInDenseArray r7, r0, 10
+054a  PutOwnBySlotIdx r4, r7, 3
+054e  NewObjectWithBuffer r7, 676, 31816
+0554  PutOwnBySlotIdx r4, r7, 5
+0558  PutOwnBySlotIdx r2, r4, 76
+055c  CreateClosure r4, r3, 8161
+0561  PutOwnBySlotIdx r2, r4, 77
+0565  NewObjectWithBuffer r4, 677, 27455
+056b  GetByIndex r5, r5, 25
+056f  Call2 r5, r6, r1, r5
+0574  PutOwnBySlotIdx r4, r5, 0
+0578  PutOwnBySlotIdx r2, r4, 79
+057c  StoreToEnvironment r3, 3, r2
+0580  Ret r1
+

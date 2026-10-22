@@ -1,0 +1,22 @@
+{
+    "images": [
+        {
+            "key": "backgroundImage",
+            "source": "images/background.jpg",
+            "cacheFile": "inkomino_boot_ee88b4672db843d5.jpg",
+            "sha256": "ee88b4672db843d57b164c5deeaf62e096e3bf91881bdba71a85dd980687db80",
+            "bytes": 8917,
+            "width": 563,
+            "height": 1218
+        },
+        {
+            "key": "iconImage",
+            "source": "images/unity_logo.png",
+            "cacheFile": "inkomino_boot_34799ce1b7a341e3.png",
+            "sha256": "34799ce1b7a341e39c6c6ea7fa439f170989f3ecc5d0cd3681573569b4b6d239",
+            "bytes": 1216,
+            "width": 192,
+            "height": 72
+        }
+    ]
+}

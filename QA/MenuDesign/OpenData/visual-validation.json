@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "renderer": "Exact production open-data JavaScript on native Canvas2D",
+  "width": 320,
+  "height": 264,
+  "real_wechat_friend_data": false,
+  "checks": [
+    "sample draws visible state text",
+    "sample text stays within320px shared canvas",
+    "sample-sync draws visible state text",
+    "sample-sync text stays within320px shared canvas",
+    "empty draws visible state text",
+    "empty text stays within320px shared canvas",
+    "permission draws visible state text",
+    "permission text stays within320px shared canvas",
+    "configuration draws visible state text",
+    "configuration text stays within320px shared canvas",
+    "network draws visible state text",
+    "network text stays within320px shared canvas",
+    "loading draws visible state text",
+    "loading text stays within320px shared canvas"
+  ],
+  "samples": [
+    {
+      "file": "QA\\MenuDesign\\OpenData\\sample.png",
+      "state": "sample",
+      "note": "Synthetic test data only, not a real friend list"
+    },
+    {
+      "file": "QA\\MenuDesign\\OpenData\\sample-sync.png",
+      "state": "sample-sync",
+      "note": "Synthetic test data only, not a real friend list"
+    },
+    {
+      "file": "QA\\MenuDesign\\OpenData\\empty.png",
+      "state": "empty",
+      "note": "Production renderer with controlled API state"
+    },
+    {
+      "file": "QA\\MenuDesign\\OpenData\\permission.png",
+      "state": "permission",
+      "note": "Production renderer with controlled API state"
+    },
+    {
+      "file": "QA\\MenuDesign\\OpenData\\configuration.png",
+      "state": "configuration",
+      "note": "Production renderer with controlled API state"
+    },
+    {
+      "file": "QA\\MenuDesign\\OpenData\\network.png",
+      "state": "network",
+      "note": "Production renderer with controlled API state"
+    },
+    {
+      "file": "QA\\MenuDesign\\OpenData\\loading.png",
+      "state": "loading",
+      "note": "Production renderer with controlled API state"
+    }
+  ],
+  "errors": []
+}

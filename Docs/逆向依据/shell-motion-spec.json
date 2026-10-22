@@ -1,0 +1,1757 @@
+{
+  "scope": "Read-only static reconstruction evidence for shell UI/motion. No phone/engine execution and no project edits.",
+  "carrier": {
+    "path": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\outputs\\inkomino-code\\index.android.hbc",
+    "sha256": "f90ca5409470987bbe19dc4e27e52a3df77f34f0433d32002024782360bcaa15",
+    "decompiler_warning": "Third-party pseudocode, not original source; variable binding/control-flow may be incorrect. Numeric configs and key layout formulas cross-checked against HASM where noted."
+  },
+  "units": {
+    "source": {
+      "module": 1072,
+      "module_factory_function": 1074,
+      "function": 8254,
+      "bundle_line": 128889,
+      "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1072.js"
+    },
+    "hasm": [
+      "function_1074.hasm",
+      "function_8254.hasm"
+    ],
+    "layout_unit": "React Native density-independent layout units (dp); asset intrinsic pixels are separate.",
+    "tablet_k": "if min(windowWidthDp,windowHeightDp)<600: K=1; else K=min(2,max(1,Math.round((max(windowWidthDp,windowHeightDp)-220)/640*100)/100))",
+    "sc": "K===1 ? value : Math.round(value*K)",
+    "pixel_ratio_round": "roundToNearestPixel(dp)=round(dp*density)/density",
+    "physical_pixel_conversion": "For this measured reference canvas, physical/reference pixels=sc(value)*2.625. On other devices use the actual density and safe-area geometry; do not substitute width/380.",
+    "unity_y": "RN uses top-left y-down; a bottom-left Unity transform must invert y about the actual content/safe-area height.",
+    "parent_measured_reference_density": 2.625,
+    "reference_canvas_width_pixels": 1080,
+    "reference_window_width_dp": 411.42857142857144,
+    "measurement_source": "Root agent measured source avatar49/toggle64/action80 against reference screenshots. This subtask did not operate the phone."
+  },
+  "button": {
+    "sources": [
+      {
+        "module": 1073,
+        "module_factory_function": 1075,
+        "function": 8255,
+        "bundle_line": 129263,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1073.js"
+      },
+      {
+        "module": 1073,
+        "module_factory_function": 1075,
+        "function": 8261,
+        "bundle_line": 129263,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1073.js"
+      },
+      {
+        "module": 1975,
+        "module_factory_function": 1977,
+        "function": 11959,
+        "bundle_line": 319877,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1975.js"
+      },
+      {
+        "module": 1712,
+        "module_factory_function": 1714,
+        "function": 11680,
+        "bundle_line": 311125,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1712.js"
+      }
+    ],
+    "hasm": [
+      "function_8255.hasm",
+      "function_8261.hasm",
+      "function_11680.hasm"
+    ],
+    "method": "Layer outer horizontal 3-slice frame and inner horizontal 3-slice fill. Do not stretch a single complete button bitmap.",
+    "slice": {
+      "capWidth": "max(1,min(PixelRatio.roundToNearestPixel(H*aspect),floor(W/2)))",
+      "middleWidth": "max(0,W-2*capWidth)",
+      "rightCap": "Use explicit capR when supplied; otherwise reuse left cap with scaleX=-1",
+      "image_mode": "fill",
+      "image_transition_ms": 0,
+      "allowDownscaling": false
+    },
+    "normal_frame": {
+      "capAspect": 0.2950191570881226,
+      "insetTop": 0.09578544061302682,
+      "insetBottom": 0.13026819923371646,
+      "insetSide": 0.11494252873563218,
+      "visibleLeft": 0.034482758620689655,
+      "visibleTop": 0.019157088122605363,
+      "fillAspect": 0.27918781725888325,
+      "faceCenterY": 0.48275862068965514
+    },
+    "hard_frames": {
+      "HARD": {
+        "capAspect": 0.3010752688172043,
+        "insetTop": 0.11559139784946236,
+        "insetBottom": 0.11559139784946236,
+        "insetSide": 0.11559139784946236,
+        "visibleLeft": 0.016129032258064516,
+        "visibleTop": 0.01881720430107527,
+        "fillAspect": 0.27972027972027974
+      },
+      "EXTRA_HARD": {
+        "capAspect": 0.3010752688172043,
+        "insetTop": 0.11559139784946236,
+        "insetBottom": 0.11559139784946236,
+        "insetSide": 0.11559139784946236,
+        "visibleLeft": 0.016129032258064516,
+        "visibleTop": 0.016129032258064516,
+        "fillAspect": 0.27972027972027974
+      },
+      "ULTRA_HARD": {
+        "capAspect": 0.30913978494623656,
+        "insetTop": 0.11559139784946236,
+        "insetBottom": 0.11559139784946236,
+        "insetSide": 0.11559139784946236,
+        "visibleLeft": 0.021505376344086023,
+        "visibleTop": 0.024193548387096774,
+        "fillAspect": 0.27972027972027974
+      }
+    },
+    "inner_fill_bounds": "side/top/bottom insets are Math.round(actualButtonHeight*eachRatio), not percentages of width.",
+    "height": "actualHeight=Math.round(nominalHeight*1.15), Mozaik game meta buttonHeightScale=1.15. Default PlayButton nominal220x90 => actualHeight104dp; resume nominal80 => actual92dp.",
+    "content_alignment": "content translateY=(buttonFaceCenter(frameVariant)-buttonFaceCenter(null))*actualHeight, rounded to nearest device pixel; only when a frameVariant is supplied.",
+    "interaction": {
+      "NineSliceButton_activeOpacity": 1,
+      "disabled_opacity": 0.5,
+      "spring_or_press_scale": "No spring/timing/onPressIn/onPressOut found in PlayButton/NineSliceButton. Do not add invented press shrink.",
+      "Button3D_activeOpacity": 0.8,
+      "ToggleIcon_activeOpacity": 0.7
+    },
+    "label": {
+      "fontSizeByTextLength": {
+        "<=6": 44,
+        "7..9": 38,
+        "10..12": 32,
+        ">12": 28
+      },
+      "letterSpacingByLength": {
+        "<=6": 3,
+        "7..9": 2,
+        ">9": 1
+      },
+      "color": "#FFFFFF",
+      "shadow": "rgba(0,0,0,.4), offsetY=sc(2), radius3",
+      "horizontal_padding": 12,
+      "single_line": true,
+      "minimumFontScale": 0.5,
+      "subLabel_minimumFontScale": 0.6
+    },
+    "Button3D": {
+      "source": {
+        "module": 1988,
+        "module_factory_function": 1990,
+        "function": null,
+        "bundle_line": 324438,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1988.js"
+      },
+      "surface_bottom": 7,
+      "outer_shadow_radius": 16,
+      "surface_radius": 14,
+      "shine_height": "50%",
+      "shine_default": true
+    }
+  },
+  "popup": {
+    "sources": [
+      {
+        "module": 1122,
+        "module_factory_function": 1124,
+        "function": 8290,
+        "bundle_line": 135106,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1122.js"
+      },
+      {
+        "module": 1122,
+        "module_factory_function": 1124,
+        "function": 8291,
+        "bundle_line": 135106,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1122.js"
+      },
+      {
+        "module": 1987,
+        "module_factory_function": 1989,
+        "function": 11994,
+        "bundle_line": 323784,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1987.js"
+      },
+      {
+        "module": 1053,
+        "module_factory_function": 1055,
+        "function": null,
+        "bundle_line": 140067,
+        "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1053.js"
+      }
+    ],
+    "method": "9-slice card + 3-slice banner. Right-side/top-right/bottom-right mirror left pieces.",
+    "cap_dp": {
+      "x": 33,
+      "top": 34,
+      "bottom": 37
+    },
+    "colors": {
+      "panelFill": "#FADCC0",
+      "panelInk": "#8E2801",
+      "titleBase": "#5A2A06",
+      "overlay": "rgba(0,0,0,.85)"
+    },
+    "variants": {
+      "normal": "orange",
+      "HARD": "purple",
+      "EXTRA_HARD": "red",
+      "ULTRA_HARD": "black"
+    },
+    "banner": {
+      "capAspect": 0.9765625,
+      "fold": 0.436,
+      "height": 151,
+      "top": "-151/2+8 = -67.5",
+      "overhang_each_side": 16,
+      "default_width_if_no_overhang": "82%",
+      "titleInset": 82,
+      "titleSide": 66,
+      "titleSize": 32,
+      "titleColor": "#FFFFFF",
+      "titleMinScale": 0.55
+    },
+    "content_inset": {
+      "side": 18,
+      "bottom": 26,
+      "untitled_top": 34,
+      "titled_top": 82
+    },
+    "close": {
+      "size": 42,
+      "top": -46,
+      "right": -10
+    },
+    "wrap": {
+      "base_maxWidth": "min(sc(440),Math.round(windowWidth*.96))",
+      "skin_overhang_padding_each_side": "max(sc(24),sc(16)+sc(8)) => sc24",
+      "skin_width": "99%",
+      "skin_maxWidth": "min(sc(440)+2*overhangPadding,round(windowWidth*.99))",
+      "skin_top_padding": "max(sc72,Math.round(sc151/2)-sc8+sc10,sc46+sc10); phone K1 =>78dp",
+      "centered": true,
+      "lift": "cardWrap transform.translateY=-lift",
+      "zIndex": 999
+    },
+    "flush": {
+      "side": 10.333333333333334,
+      "top": 11,
+      "bottom": 13.333333333333334,
+      "radius": 20,
+      "timerTop": 44
+    },
+    "mount_animation": {
+      "initial_scale": 0.7,
+      "initial_opacity": 0,
+      "parallel": [
+        {
+          "property": "scale",
+          "to": 1,
+          "spring": {
+            "tension": 60,
+            "friction": 8,
+            "stiffness": 302.6,
+            "damping": 25,
+            "mass": 1
+          },
+          "useNativeDriver": true
+        },
+        {
+          "property": "card_opacity",
+          "to": 1,
+          "duration_ms": 200,
+          "easing": "RN Animated.timing default Easing.inOut(Easing.ease)",
+          "useNativeDriver": true
+        }
+      ],
+      "backdrop": "Backdrop is separate/static, not driven by card opacity.",
+      "exit_animation": "No mirrored exit timing was established in the inspected Popup function; unmount/onClose behavior is caller-owned."
+    }
+  },
+  "pause": {
+    "source": {
+      "module": 1986,
+      "module_factory_function": 1988,
+      "function": 11990,
+      "bundle_line": 337562,
+      "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1986.js"
+    },
+    "popup": "Uses shared Popup mount animation above.",
+    "toggle_card": {
+      "width": "100%",
+      "padding": 16,
+      "marginBottom": 16,
+      "background": "#1A1040",
+      "borderRadius": 16,
+      "borderWidth": 2,
+      "borderColor": "#2A2060"
+    },
+    "toggles": {
+      "size": 64,
+      "icon": 32,
+      "gap": 16,
+      "radius": 14,
+      "off_icon_opacity": 0.4,
+      "off_slash": {
+        "width": 40,
+        "height": 3,
+        "color": "#FF4444",
+        "rotation_deg": -45
+      }
+    },
+    "actions": {
+      "size": 80,
+      "gap": 16,
+      "marginBottom": 16,
+      "homeIcon": 48,
+      "style": "Button3D orange bg#FF8800/shadow#AA5500, shine=false"
+    },
+    "resume": {
+      "width": "70%",
+      "nominal_height": 80,
+      "actual_height": 92,
+      "font_size": 30,
+      "color": "green"
+    },
+    "confirm_routes": [
+      "restart -> module1989",
+      "home -> module1990"
+    ]
+  },
+  "home": {
+    "source": {
+      "module": 2177,
+      "module_factory_function": 2179,
+      "function": 12500,
+      "bundle_line": 383612,
+      "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_2177.js"
+    },
+    "meta_source": {
+      "module": 1053,
+      "module_factory_function": 1055,
+      "function": null,
+      "bundle_line": 140067,
+      "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1053.js"
+    },
+    "homeLevelMap": false,
+    "homeLevelSign_maxWidth": 200,
+    "background": {
+      "fallback_color": "#F3DFB0",
+      "header": "transparent",
+      "source_mode": "Image uses original intrinsic aspect; exact crop requires parent actual layout path."
+    },
+    "topBar": {
+      "safe_inset_additions": {
+        "top": 10,
+        "left": 10,
+        "right": 10
+      },
+      "profile": 49,
+      "settings_image": 46,
+      "paddingBottom": 20,
+      "zIndex": 100,
+      "elevation": 100
+    },
+    "no_map_play_row": {
+      "marginTop": "auto",
+      "marginBottom": 60,
+      "default_PlayButton": [
+        220,
+        90
+      ],
+      "actual_default_height": 104
+    },
+    "levelSignSlot": {
+      "flex": 1,
+      "alignItems": "center",
+      "justifyContent": "center",
+      "paddingTop": "100 + measured top/event height if >0, otherwise sc100; pseudocode measured-variable binding needs HASM/geometry cross-check"
+    },
+    "eventColumn": {
+      "x_left_or_right": 16,
+      "default_top": 116,
+      "gap": 32,
+      "frame": {
+        "width": 86,
+        "aspect": 1.0178926441351888,
+        "holeX": 0.498,
+        "holeY": 0.45,
+        "holeD": 0.8301,
+        "iconRatio": 1,
+        "labelW": 84,
+        "labelH": 30,
+        "labelBottom": 4,
+        "labelBandY": 0.5723,
+        "labelFontSize": 14
+      }
+    },
+    "responsiveVerticalValue": "sc(clamp(39,98,Math.round(59+(heightDp/TABLET_K-852)*.36)))",
+    "animation_inventory": [
+      {
+        "name": "completed tick entry",
+        "condition": "tick phase; map path, may be inactive for homeLevelMap=false",
+        "delay_ms": 300,
+        "parallel": [
+          {
+            "to": 1,
+            "spring": {
+              "tension": 80,
+              "friction": 6,
+              "stiffness": 375.0,
+              "damping": 19,
+              "mass": 1
+            }
+          },
+          {
+            "to": 1,
+            "duration_ms": 200
+          }
+        ],
+        "binding_warning": "Decompiler reuses current register names; exact two channels are distinct in bytecode."
+      },
+      {
+        "name": "tick/column transition",
+        "parallel_durations_ms": [
+          400,
+          700,
+          800
+        ],
+        "third_easing": "Easing.inOut(Easing.ease)",
+        "binding_warning": "Map path conditional; do not add to no-map static level sign without caller evidence."
+      },
+      {
+        "name": "persistent scalar pulse",
+        "initial": 0.8,
+        "loop_values": [
+          1.1,
+          0.8
+        ],
+        "durations_ms": [
+          1000,
+          1000
+        ],
+        "binding_warning": "Value is known; UI recipient requires binding trace, do not assume PlayButton scale."
+      },
+      {
+        "name": "reward/badge bump",
+        "sequence": [
+          {
+            "to": 1.12,
+            "spring": {
+              "tension": 200,
+              "friction": 7,
+              "stiffness": 809.4,
+              "damping": 22,
+              "mass": 1
+            }
+          },
+          {
+            "to": 1,
+            "spring": {
+              "tension": 160,
+              "friction": 6,
+              "stiffness": 664.6,
+              "damping": 19,
+              "mass": 1
+            }
+          }
+        ]
+      },
+      {
+        "name": "additional loop scalar",
+        "values": [
+          1,
+          0
+        ],
+        "durations_ms": [
+          600,
+          600
+        ],
+        "recipient": "Unresolved from reused pseudocode variables."
+      }
+    ]
+  },
+  "nav": {
+    "source": {
+      "module": 1196,
+      "module_factory_function": 1198,
+      "function": 8577,
+      "bundle_line": 135634,
+      "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_1196.js"
+    },
+    "method": "6 drawn pieces using center/top/left/top-left; right pieces mirror left; cap46dp",
+    "height": 100,
+    "persistent": true,
+    "barSkin": {
+      "cap": 46,
+      "insetTop": 0.23333333333333334,
+      "insetSide": 0.21666666666666667
+    },
+    "activeCell": {
+      "insetTop": 0.48333333333333334,
+      "insetSide": 0.475,
+      "radius": 0.38166666666666665
+    },
+    "activeSize": 72,
+    "activeLift": 13,
+    "labelW": 92,
+    "labelH": 26,
+    "labelGap": 2,
+    "labelSize": 17,
+    "activeLabelColor": "#FFFFFF",
+    "labelColor": "#EADCFF",
+    "iconSize": 44,
+    "activeIconSize": 66,
+    "iconDrop": 14,
+    "divider": {
+      "color": "#250656",
+      "width": 2,
+      "top": 26
+    },
+    "itemPadH": 8,
+    "animation": "No timing/spring in module1196; container tab animations, if any, require separate shared Navbar trace."
+  },
+  "result": {
+    "source": {
+      "module": 2119,
+      "module_factory_function": 2121,
+      "function": 12236,
+      "bundle_line": 338068,
+      "pseudo_file": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\modules\\module_2119.js"
+    },
+    "condition_warning": "Mozaik meta MAGNIFICENT_ENABLED=false. Reservoir/chest/step transition code remains bundled but should not be unconditionally reproduced.",
+    "layout": {
+      "root_horizontal_padding": 16,
+      "root_gap": 8,
+      "title_marginTop": 44,
+      "title_marginBottom": 4,
+      "reward_zone_height": 200,
+      "centerZone_flex": 1,
+      "reward_glow": [
+        280,
+        280
+      ],
+      "reward_glow_opacity": 0.55,
+      "button_row_gap": 15,
+      "button_row_marginTop": 8,
+      "button_row_marginBottom": 40,
+      "reward_panel_width": 300
+    },
+    "entry": {
+      "parallel": [
+        {
+          "channel": "entry scale",
+          "to": 1,
+          "spring": {
+            "tension": 55,
+            "friction": 5,
+            "stiffness": 284.5,
+            "damping": 16,
+            "mass": 1
+          }
+        },
+        {
+          "channel": "entry opacity",
+          "to": 1,
+          "duration_ms": 250
+        },
+        {
+          "delay_ms": 250,
+          "spring": {
+            "tension": 55,
+            "friction": 10,
+            "stiffness": 284.5,
+            "damping": 31,
+            "mass": 1
+          },
+          "to": 0,
+          "opacity_duration_ms": 250
+        },
+        {
+          "delay_ms": 400,
+          "spring": {
+            "tension": 60,
+            "friction": 10,
+            "stiffness": 302.6,
+            "damping": 31,
+            "mass": 1
+          },
+          "to": 0,
+          "opacity_duration_ms": 250
+        }
+      ],
+      "warning": "Entry channel layout targets require raw closure binding trace for exact identity."
+    },
+    "loop": {
+      "values": [
+        1.15,
+        1
+      ],
+      "durations_ms": [
+        900,
+        900
+      ],
+      "recipient": "Reward glow/scale channel; inspect result JSX before binding."
+    },
+    "confetti": {
+      "function": 12232,
+      "random_delay_ms": [
+        0,
+        180
+      ],
+      "startX_percent": [
+        10,
+        90
+      ],
+      "riseHeight_dp": [
+        350,
+        700
+      ],
+      "rise_ms": [
+        400,
+        600
+      ],
+      "fall_ms": [
+        900,
+        1400
+      ],
+      "size_dp": [
+        7,
+        14
+      ],
+      "alpha_in_ms": 80,
+      "alpha_out_ms": 500,
+      "rise_easing": "out(quad)",
+      "fall_easing": "in(quad)",
+      "fall_target_y": 800,
+      "warning": "Random distribution means per-frame screenshot equality is not deterministic without captured seed."
+    },
+    "coin_counter": {
+      "duration_ms": 1200,
+      "spring": {
+        "tension": 50,
+        "friction": 6,
+        "stiffness": 266.4,
+        "damping": 19,
+        "mass": 1
+      }
+    },
+    "staggered_item": {
+      "delay": "baseDelay+index*120",
+      "translation_spring": {
+        "tension": 80,
+        "friction": 10,
+        "stiffness": 375.0,
+        "damping": 31,
+        "mass": 1
+      },
+      "opacity_ms": 300
+    },
+    "winLogo_meta": {
+      "reveal": true,
+      "delay_ms": 650,
+      "pop_sequence": [
+        1.12,
+        0.96
+      ],
+      "final_settle_timing": "Not established in this subtask; app screen component may own it."
+    }
+  },
+  "animation_engine": {
+    "source_modules": [
+      328,
+      329
+    ],
+    "spring_conversion": "stiffness=(OrigamiTension-30)*3.62+194; damping=(OrigamiFriction-8)*3+25; mass default1. Do not feed raw tension/friction into Unity physical spring.",
+    "conversion_warning": "The decompiler displays the first parameter twice in module328; actual friction is the second parameter, cross-checked by parent in source bytecode.",
+    "timing_default": "module329 TimingAnimation: easing defaults to Easing.inOut(Easing.ease); duration defaults500ms, delay0. Use the specified per-call duration when present.",
+    "not_equal": "RN spring settles by displacement/speed thresholds, not an arbitrary fixed duration. Native Android animation frame scheduling and font rasterization remain runtime-dependent."
+  },
+  "assets": {
+    "1073": {
+      "AssetRegistry": {
+        "module": 1074,
+        "asset": "panel-slot-cap.png",
+        "source_size": [
+          106,
+          251
+        ]
+      },
+      "AssetRegistry2": {
+        "module": 1075,
+        "asset": "panel-slot-mid.png",
+        "source_size": [
+          4,
+          251
+        ]
+      },
+      "AssetRegistry3": {
+        "module": 1076,
+        "asset": "panel-slot-cap-on.png",
+        "source_size": [
+          106,
+          251
+        ]
+      },
+      "AssetRegistry4": {
+        "module": 1077,
+        "asset": "panel-slot-mid-on.png",
+        "source_size": [
+          4,
+          251
+        ]
+      },
+      "AssetRegistry5": {
+        "module": 1078,
+        "asset": "panel-badge-cap.png",
+        "source_size": [
+          59,
+          119
+        ]
+      },
+      "AssetRegistry6": {
+        "module": 1079,
+        "asset": "panel-badge-mid.png",
+        "source_size": [
+          4,
+          119
+        ]
+      },
+      "AssetRegistry7": {
+        "module": 1080,
+        "asset": "btn-frame-cap.png",
+        "source_size": [
+          77,
+          261
+        ]
+      },
+      "AssetRegistry8": {
+        "module": 1081,
+        "asset": "btn-frame-mid.png",
+        "source_size": [
+          4,
+          261
+        ]
+      },
+      "AssetRegistry9": {
+        "module": 1082,
+        "asset": "btn-green-cap.png",
+        "source_size": [
+          55,
+          197
+        ]
+      },
+      "AssetRegistry10": {
+        "module": 1083,
+        "asset": "btn-green-mid.png",
+        "source_size": [
+          4,
+          197
+        ]
+      },
+      "AssetRegistry11": {
+        "module": 1084,
+        "asset": "btn-blue-cap.png",
+        "source_size": [
+          55,
+          197
+        ]
+      },
+      "AssetRegistry12": {
+        "module": 1085,
+        "asset": "btn-blue-mid.png",
+        "source_size": [
+          4,
+          197
+        ]
+      },
+      "AssetRegistry13": {
+        "module": 1086,
+        "asset": "btn-red-cap.png",
+        "source_size": [
+          55,
+          197
+        ]
+      },
+      "AssetRegistry14": {
+        "module": 1087,
+        "asset": "btn-red-mid.png",
+        "source_size": [
+          4,
+          197
+        ]
+      },
+      "AssetRegistry15": {
+        "module": 1088,
+        "asset": "btn-purple-cap.png",
+        "source_size": [
+          55,
+          197
+        ]
+      },
+      "AssetRegistry16": {
+        "module": 1089,
+        "asset": "btn-purple-mid.png",
+        "source_size": [
+          4,
+          197
+        ]
+      },
+      "AssetRegistry17": {
+        "module": 1090,
+        "asset": "btn-orange-cap.png",
+        "source_size": [
+          55,
+          197
+        ]
+      },
+      "AssetRegistry18": {
+        "module": 1091,
+        "asset": "btn-orange-mid.png",
+        "source_size": [
+          4,
+          197
+        ]
+      },
+      "AssetRegistry19": {
+        "module": 1092,
+        "asset": "btn-black-cap.png",
+        "source_size": [
+          55,
+          197
+        ]
+      },
+      "AssetRegistry20": {
+        "module": 1093,
+        "asset": "btn-black-mid.png",
+        "source_size": [
+          4,
+          197
+        ]
+      },
+      "AssetRegistry21": {
+        "module": 1094,
+        "asset": "btn-frame-purple-cap.png",
+        "source_size": [
+          112,
+          372
+        ]
+      },
+      "AssetRegistry22": {
+        "module": 1095,
+        "asset": "btn-frame-purple-mid.png",
+        "source_size": [
+          4,
+          372
+        ]
+      },
+      "AssetRegistry23": {
+        "module": 1096,
+        "asset": "btn-purple-hard-cap.png",
+        "source_size": [
+          80,
+          286
+        ]
+      },
+      "AssetRegistry24": {
+        "module": 1097,
+        "asset": "btn-purple-hard-mid.png",
+        "source_size": [
+          4,
+          286
+        ]
+      },
+      "AssetRegistry25": {
+        "module": 1098,
+        "asset": "btn-frame-red-cap.png",
+        "source_size": [
+          112,
+          372
+        ]
+      },
+      "AssetRegistry26": {
+        "module": 1099,
+        "asset": "btn-frame-red-mid.png",
+        "source_size": [
+          4,
+          372
+        ]
+      },
+      "AssetRegistry27": {
+        "module": 1100,
+        "asset": "btn-red-xhard-cap.png",
+        "source_size": [
+          80,
+          286
+        ]
+      },
+      "AssetRegistry28": {
+        "module": 1101,
+        "asset": "btn-red-xhard-mid.png",
+        "source_size": [
+          4,
+          286
+        ]
+      },
+      "AssetRegistry29": {
+        "module": 1102,
+        "asset": "btn-frame-black-cap.png",
+        "source_size": [
+          115,
+          372
+        ]
+      },
+      "AssetRegistry30": {
+        "module": 1103,
+        "asset": "btn-frame-black-mid.png",
+        "source_size": [
+          4,
+          372
+        ]
+      },
+      "AssetRegistry31": {
+        "module": 1104,
+        "asset": "btn-black-uhard-cap.png",
+        "source_size": [
+          80,
+          286
+        ]
+      },
+      "AssetRegistry32": {
+        "module": 1105,
+        "asset": "btn-black-uhard-mid.png",
+        "source_size": [
+          4,
+          286
+        ]
+      },
+      "AssetRegistry33": {
+        "module": 1106,
+        "asset": "panel-tray-cap.png",
+        "source_size": [
+          44,
+          228
+        ]
+      },
+      "AssetRegistry34": {
+        "module": 1107,
+        "asset": "panel-tray-mid.png",
+        "source_size": [
+          4,
+          228
+        ]
+      },
+      "AssetRegistry35": {
+        "module": 1108,
+        "asset": "panel-tray-beige-cap.png",
+        "source_size": [
+          84,
+          648
+        ]
+      },
+      "AssetRegistry36": {
+        "module": 1109,
+        "asset": "panel-tray-beige-mid.png",
+        "source_size": [
+          4,
+          648
+        ]
+      },
+      "AssetRegistry37": {
+        "module": 1110,
+        "asset": "ribbon-cap.png",
+        "source_size": [
+          307,
+          256
+        ]
+      },
+      "AssetRegistry38": {
+        "module": 1111,
+        "asset": "ribbon-mid.png",
+        "source_size": [
+          4,
+          256
+        ]
+      }
+    },
+    "1122": {
+      "AssetRegistry": {
+        "module": 1123,
+        "asset": "pnl-purple-tl.png",
+        "source_size": [
+          99,
+          102
+        ]
+      },
+      "AssetRegistry2": {
+        "module": 1124,
+        "asset": "pnl-purple-t.png",
+        "source_size": [
+          4,
+          102
+        ]
+      },
+      "AssetRegistry3": {
+        "module": 1125,
+        "asset": "pnl-purple-l.png",
+        "source_size": [
+          99,
+          4
+        ]
+      },
+      "AssetRegistry4": {
+        "module": 1126,
+        "asset": "pnl-purple-c.png",
+        "source_size": [
+          4,
+          4
+        ]
+      },
+      "AssetRegistry5": {
+        "module": 1127,
+        "asset": "pnl-purple-bl.png",
+        "source_size": [
+          99,
+          110
+        ]
+      },
+      "AssetRegistry6": {
+        "module": 1128,
+        "asset": "pnl-purple-b.png",
+        "source_size": [
+          4,
+          110
+        ]
+      },
+      "AssetRegistry7": {
+        "module": 1129,
+        "asset": "pnl-red-tl.png",
+        "source_size": [
+          99,
+          102
+        ]
+      },
+      "AssetRegistry8": {
+        "module": 1130,
+        "asset": "pnl-red-t.png",
+        "source_size": [
+          4,
+          102
+        ]
+      },
+      "AssetRegistry9": {
+        "module": 1131,
+        "asset": "pnl-red-l.png",
+        "source_size": [
+          99,
+          4
+        ]
+      },
+      "AssetRegistry10": {
+        "module": 1132,
+        "asset": "pnl-red-c.png",
+        "source_size": [
+          4,
+          4
+        ]
+      },
+      "AssetRegistry11": {
+        "module": 1133,
+        "asset": "pnl-red-bl.png",
+        "source_size": [
+          99,
+          110
+        ]
+      },
+      "AssetRegistry12": {
+        "module": 1134,
+        "asset": "pnl-red-b.png",
+        "source_size": [
+          4,
+          110
+        ]
+      },
+      "AssetRegistry13": {
+        "module": 1135,
+        "asset": "pnl-black-tl.png",
+        "source_size": [
+          99,
+          102
+        ]
+      },
+      "AssetRegistry14": {
+        "module": 1136,
+        "asset": "pnl-black-t.png",
+        "source_size": [
+          4,
+          102
+        ]
+      },
+      "AssetRegistry15": {
+        "module": 1137,
+        "asset": "pnl-black-l.png",
+        "source_size": [
+          99,
+          4
+        ]
+      },
+      "AssetRegistry16": {
+        "module": 1138,
+        "asset": "pnl-black-c.png",
+        "source_size": [
+          4,
+          4
+        ]
+      },
+      "AssetRegistry17": {
+        "module": 1139,
+        "asset": "pnl-black-bl.png",
+        "source_size": [
+          99,
+          110
+        ]
+      },
+      "AssetRegistry18": {
+        "module": 1140,
+        "asset": "pnl-black-b.png",
+        "source_size": [
+          4,
+          110
+        ]
+      },
+      "AssetRegistry19": {
+        "module": 1141,
+        "asset": "pnl-orange-tl.png",
+        "source_size": [
+          99,
+          102
+        ]
+      },
+      "AssetRegistry20": {
+        "module": 1142,
+        "asset": "pnl-orange-t.png",
+        "source_size": [
+          4,
+          102
+        ]
+      },
+      "AssetRegistry21": {
+        "module": 1143,
+        "asset": "pnl-orange-l.png",
+        "source_size": [
+          99,
+          4
+        ]
+      },
+      "AssetRegistry22": {
+        "module": 1144,
+        "asset": "pnl-orange-c.png",
+        "source_size": [
+          4,
+          4
+        ]
+      },
+      "AssetRegistry23": {
+        "module": 1145,
+        "asset": "pnl-orange-bl.png",
+        "source_size": [
+          99,
+          110
+        ]
+      },
+      "AssetRegistry24": {
+        "module": 1146,
+        "asset": "pnl-orange-b.png",
+        "source_size": [
+          4,
+          110
+        ]
+      },
+      "AssetRegistry25": {
+        "module": 1147,
+        "asset": "bnr-cap.png",
+        "source_size": [
+          500,
+          512
+        ]
+      },
+      "AssetRegistry26": {
+        "module": 1148,
+        "asset": "bnr-mid.png",
+        "source_size": [
+          4,
+          512
+        ]
+      },
+      "AssetRegistry27": {
+        "module": 1149,
+        "asset": "bnr-purple-cap.png",
+        "source_size": [
+          500,
+          512
+        ]
+      },
+      "AssetRegistry28": {
+        "module": 1150,
+        "asset": "bnr-purple-mid.png",
+        "source_size": [
+          4,
+          512
+        ]
+      },
+      "AssetRegistry29": {
+        "module": 1151,
+        "asset": "bnr-red-cap.png",
+        "source_size": [
+          500,
+          512
+        ]
+      },
+      "AssetRegistry30": {
+        "module": 1152,
+        "asset": "bnr-red-mid.png",
+        "source_size": [
+          4,
+          512
+        ]
+      },
+      "AssetRegistry31": {
+        "module": 1153,
+        "asset": "bnr-navy-cap.png",
+        "source_size": [
+          500,
+          512
+        ]
+      },
+      "AssetRegistry32": {
+        "module": 1154,
+        "asset": "bnr-navy-mid.png",
+        "source_size": [
+          4,
+          512
+        ]
+      },
+      "AssetRegistry33": {
+        "module": 1155,
+        "asset": "preview-ticket-purple.png",
+        "source_size": [
+          303,
+          523
+        ]
+      },
+      "AssetRegistry34": {
+        "module": 1156,
+        "asset": "preview-ticket-red.png",
+        "source_size": [
+          303,
+          523
+        ]
+      },
+      "AssetRegistry35": {
+        "module": 1157,
+        "asset": "preview-ticket-black.png",
+        "source_size": [
+          303,
+          523
+        ]
+      }
+    },
+    "1196": {
+      "AssetRegistry2": {
+        "module": 1198,
+        "asset": "bar-tl.png",
+        "source_size": [
+          120,
+          120
+        ]
+      },
+      "AssetRegistry3": {
+        "module": 1199,
+        "asset": "bar-t.png",
+        "source_size": [
+          4,
+          120
+        ]
+      },
+      "AssetRegistry4": {
+        "module": 1200,
+        "asset": "bar-l.png",
+        "source_size": [
+          120,
+          4
+        ]
+      },
+      "AssetRegistry5": {
+        "module": 1201,
+        "asset": "bar-c.png",
+        "source_size": [
+          4,
+          4
+        ]
+      },
+      "AssetRegistry6": {
+        "module": 1202,
+        "asset": "tab-shop.png",
+        "source_size": [
+          240,
+          240
+        ]
+      },
+      "AssetRegistry7": {
+        "module": 1203,
+        "asset": "tab-home.png",
+        "source_size": [
+          240,
+          240
+        ]
+      },
+      "AssetRegistry8": {
+        "module": 1204,
+        "asset": "tab-rank.png",
+        "source_size": [
+          240,
+          240
+        ]
+      },
+      "AssetRegistry": {
+        "module": 1197,
+        "asset": "tab-active.png",
+        "source_size": [
+          4,
+          512
+        ]
+      }
+    }
+  },
+  "raw_motion_indexes": {
+    "1975": [],
+    "1986": [],
+    "1987": [
+      {
+        "local_line": 244,
+        "bundle_line": 324027,
+        "text": "const items = [Animated2.spring(current, { toValue: 1, tension: 60, friction: 8, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 246,
+        "bundle_line": 324029,
+        "text": "items[1] = Animated3.timing(current2, { toValue: 1, duration: 200, useNativeDriver: true });"
+      },
+      {
+        "local_line": 418,
+        "bundle_line": 324201,
+        "text": "const Dimensions = react_native.Dimensions;"
+      },
+      {
+        "local_line": 420,
+        "bundle_line": 324203,
+        "text": "const minResult = min(scResult, Math.round(Dimensions.get(\"window\").width * 0.96));"
+      },
+      {
+        "local_line": 424,
+        "bundle_line": 324207,
+        "text": "const Dimensions2 = react_native.Dimensions;"
+      },
+      {
+        "local_line": 427,
+        "bundle_line": 324210,
+        "text": "let width = Dimensions2.get(\"window\").width;"
+      },
+      {
+        "local_line": 433,
+        "bundle_line": 324216,
+        "text": "obj5 = { Panel: tmp10.default.popupPanelBackground, Banner: tmp10.default.popupTitleBanner || null, cap: obj6, side: sc4(num8), bottom: sc5(num10), titleInset: sc6(num11), bannerH: sc7(num12), bannerW: popupSkin.bannerW || \"82%\", overhang: num13, drop: sc8(num14), titleColor: popupSkin.titleColor || \"#5A2A06\", titleSize: sc9(num15), titleSide: sc10(num7), titleMinScale: popupSkin.titleMinScale || 0.55, close: rect };"
+      },
+      {
+        "local_line": 463,
+        "bundle_line": 324246,
+        "text": "const inset = popupSkin.inset;"
+      },
+      {
+        "local_line": 467,
+        "bundle_line": 324250,
+        "text": "if (inset) {"
+      },
+      {
+        "local_line": 469,
+        "bundle_line": 324252,
+        "text": "if (inset.side != null) {"
+      },
+      {
+        "local_line": 470,
+        "bundle_line": 324253,
+        "text": "num8 = inset.side;"
+      },
+      {
+        "local_line": 473,
+        "bundle_line": 324256,
+        "text": "const inset2 = popupSkin.inset;"
+      },
+      {
+        "local_line": 476,
+        "bundle_line": 324259,
+        "text": "if (inset2) {"
+      },
+      {
+        "local_line": 478,
+        "bundle_line": 324261,
+        "text": "if (inset2.bottom != null) {"
+      },
+      {
+        "local_line": 479,
+        "bundle_line": 324262,
+        "text": "num10 = inset2.bottom;"
+      }
+    ],
+    "1988": [],
+    "2119": [
+      {
+        "local_line": 126,
+        "bundle_line": 338193,
+        "text": "({ delay: react, riseHeight: react, riseDuration: react_native, fallDuration: module_1025, size } = arg0);"
+      },
+      {
+        "local_line": 153,
+        "bundle_line": 338220,
+        "text": "const items1 = [Animated4.timing(current2, { toValue: 1, duration: 80, useNativeDriver: true }), , ];"
+      },
+      {
+        "local_line": 155,
+        "bundle_line": 338222,
+        "text": "const obj = { toValue: -closure_1_1, duration: react_native, easing: Easing.out(react_native.Easing.quad), useNativeDriver: true };"
+      },
+      {
+        "local_line": 158,
+        "bundle_line": 338225,
+        "text": "items1[1] = timing(current, obj);"
+      },
+      {
+        "local_line": 160,
+        "bundle_line": 338227,
+        "text": "const obj2 = { toValue: 1, duration: react_native + module_1025, useNativeDriver: true };"
+      },
+      {
+        "local_line": 161,
+        "bundle_line": 338228,
+        "text": "items1[2] = Animated6.timing(current3, obj2);"
+      },
+      {
+        "local_line": 164,
+        "bundle_line": 338231,
+        "text": "const obj3 = { toValue: 800, duration: module_1025, easing: Easing2.in(react_native.Easing.quad), useNativeDriver: true };"
+      },
+      {
+        "local_line": 173,
+        "bundle_line": 338240,
+        "text": "items3[1] = Animated11.timing(current2, { toValue: 0, duration: 500, useNativeDriver: true });"
+      },
+      {
+        "local_line": 194,
+        "bundle_line": 338261,
+        "text": "const obj = { id, color: length[id % length.length], delay: Math.random() * 180, startX: 10 + Math.random() * 80, riseHeight: 350 + Math.random() * 350, riseDuration: 400 + Math.random() * 200, fallDuration: 900 + Math.random() * 500, size: 7 + Math.random() * 7 };"
+      },
+      {
+        "local_line": 240,
+        "bundle_line": 338307,
+        "text": "const obj = { toValue, duration: 1200, useNativeDriver: false };"
+      },
+      {
+        "local_line": 241,
+        "bundle_line": 338308,
+        "text": "items1[0] = Animated4.timing(current, obj);"
+      },
+      {
+        "local_line": 243,
+        "bundle_line": 338310,
+        "text": "items1[1] = Animated5.spring(current, { toValue: 1, tension: 50, friction: 6, useNativeDriver: true });"
+      },
+      {
+        "local_line": 286,
+        "bundle_line": 338353,
+        "text": "const items1 = [Animated4.spring(current, { toValue: 0, tension: 80, friction: 10, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 288,
+        "bundle_line": 338355,
+        "text": "items1[1] = Animated5.timing(current2, { toValue: 1, duration: 300, useNativeDriver: true });"
+      },
+      {
+        "local_line": 656,
+        "bundle_line": 338723,
+        "text": "const width = onHome.useWindowDimensions().width;"
+      },
+      {
+        "local_line": 658,
+        "bundle_line": 338725,
+        "text": "let bound = Math.min(1.25, Math.max(0.75, width / scaleStyles.TABLET_K / 380));"
+      },
+      {
+        "local_line": 788,
+        "bundle_line": 338855,
+        "text": "const items = [Animated3.timing(current9, { toValue: 1.15, duration: 900, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 790,
+        "bundle_line": 338857,
+        "text": "items[1] = Animated4.timing(current9, { toValue: 1, duration: 900, useNativeDriver: true });"
+      },
+      {
+        "local_line": 810,
+        "bundle_line": 338877,
+        "text": "const items = [Animated2.spring(current3, { toValue: 1, tension: 55, friction: 5, useNativeDriver: true }), , , ];"
+      },
+      {
+        "local_line": 812,
+        "bundle_line": 338879,
+        "text": "items[1] = Animated3.timing(current4, { toValue: 1, duration: 250, useNativeDriver: true });"
+      },
+      {
+        "local_line": 818,
+        "bundle_line": 338885,
+        "text": "const items2 = [Animated7.spring(current6, { toValue: 0, tension: 55, friction: 10, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 820,
+        "bundle_line": 338887,
+        "text": "items2[1] = Animated8.timing(current5, { toValue: 1, duration: 250, useNativeDriver: true });"
+      },
+      {
+        "local_line": 828,
+        "bundle_line": 338895,
+        "text": "const items4 = [Animated12.spring(current7, { toValue: 0, tension: 60, friction: 10, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 830,
+        "bundle_line": 338897,
+        "text": "items4[1] = Animated13.timing(current8, { toValue: 1, duration: 250, useNativeDriver: true });"
+      },
+      {
+        "local_line": 874,
+        "bundle_line": 338941,
+        "text": "const obj = { toValue: num, duration, easing: Easing.out(react_native.Easing.cubic), useNativeDriver: false };"
+      },
+      {
+        "local_line": 877,
+        "bundle_line": 338944,
+        "text": "const timingResult = timing(current2, obj);"
+      },
+      {
+        "local_line": 890,
+        "bundle_line": 338957,
+        "text": "const obj = { toValue: 0, duration: duration2, useNativeDriver: false };"
+      },
+      {
+        "local_line": 891,
+        "bundle_line": 338958,
+        "text": "items[0] = Animated2.timing(current, obj);"
+      },
+      {
+        "local_line": 893,
+        "bundle_line": 338960,
+        "text": "const obj2 = { toValue: 0, duration: duration2, useNativeDriver: false };"
+      },
+      {
+        "local_line": 894,
+        "bundle_line": 338961,
+        "text": "items[1] = Animated3.timing(current, obj2);"
+      },
+      {
+        "local_line": 917,
+        "bundle_line": 338984,
+        "text": "const items = [Animated2.timing(current, { toValue: 1, duration: 300, useNativeDriver: false }), , ];"
+      },
+      {
+        "local_line": 919,
+        "bundle_line": 338986,
+        "text": "items[1] = Animated3.spring(closure_1_15, { toValue: 1, tension: 90, friction: 6, useNativeDriver: false });"
+      },
+      {
+        "local_line": 921,
+        "bundle_line": 338988,
+        "text": "items[2] = Animated4.timing(closure_1_14, { toValue: 1, duration: 220, useNativeDriver: false });"
+      },
+      {
+        "local_line": 997,
+        "bundle_line": 339064,
+        "text": "let arr5 = items4.push(items3.slice(num20, sum));"
+      },
+      {
+        "local_line": 1668,
+        "bundle_line": 339735,
+        "text": "const items = [Animated3.timing(current2, { toValue: 1, duration: 200, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 1670,
+        "bundle_line": 339737,
+        "text": "items[1] = Animated4.spring(current3, { toValue: 1, tension: 100, friction: 6, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1674,
+        "bundle_line": 339741,
+        "text": "const items2 = [Animated6.timing(current, { toValue: 10, duration: 40, useNativeDriver: true }), , , , , ];"
+      },
+      {
+        "local_line": 1676,
+        "bundle_line": 339743,
+        "text": "items2[1] = Animated7.timing(current, { toValue: -10, duration: 40, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1678,
+        "bundle_line": 339745,
+        "text": "items2[2] = Animated8.timing(current, { toValue: 8, duration: 35, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1680,
+        "bundle_line": 339747,
+        "text": "items2[3] = Animated9.timing(current, { toValue: -6, duration: 35, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1682,
+        "bundle_line": 339749,
+        "text": "items2[4] = Animated10.timing(current, { toValue: 4, duration: 30, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1684,
+        "bundle_line": 339751,
+        "text": "items2[5] = Animated11.timing(current, { toValue: 0, duration: 30, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1691,
+        "bundle_line": 339758,
+        "text": "const items3 = [Animated14.timing(current4, { toValue: 0.7, duration: 100, useNativeDriver: true }), , ];"
+      },
+      {
+        "local_line": 1693,
+        "bundle_line": 339760,
+        "text": "items3[1] = Animated15.timing(current4, { toValue: 1, duration: 100, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1712,
+        "bundle_line": 339779,
+        "text": "items[1] = Animated3.timing(current, { toValue: 0.15, duration: 400, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1743,
+        "bundle_line": 339810,
+        "text": "obj10 = { index: 1, delay: 300, children: jsxs3(View3, obj11) };"
+      },
+      {
+        "local_line": 1751,
+        "bundle_line": 339818,
+        "text": "const obj15 = { index: 2, delay: 400, children: jsxs4(View4, obj16) };"
+      },
+      {
+        "local_line": 1759,
+        "bundle_line": 339826,
+        "text": "const obj18 = { index: 3, delay: 600, children: jsxs5(View5, obj19) };"
+      }
+    ],
+    "2177": [
+      {
+        "local_line": 535,
+        "bundle_line": 384146,
+        "text": "let size = avatar.useWindowDimensions();"
+      },
+      {
+        "local_line": 560,
+        "bundle_line": 384171,
+        "text": "module_2128 = scaleStyles.sc(Math.max(c101, Math.min(c102, Math.round(c100 + (height / scaleStyles.TABLET_K - 852) * 0.36))));"
+      },
+      {
+        "local_line": 635,
+        "bundle_line": 384246,
+        "text": "const items1 = [Animated4.spring(current, { toValue: 1, tension: 80, friction: 6, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 637,
+        "bundle_line": 384248,
+        "text": "items1[1] = Animated5.timing(current, { toValue: 1, duration: 200, useNativeDriver: true });"
+      },
+      {
+        "local_line": 684,
+        "bundle_line": 384295,
+        "text": "const items = [Animated2.timing(current, { toValue: 0, duration: 400, useNativeDriver: true }), , ];"
+      },
+      {
+        "local_line": 686,
+        "bundle_line": 384297,
+        "text": "items[1] = Animated3.timing(current2, { toValue: 0, duration: 700, useNativeDriver: true });"
+      },
+      {
+        "local_line": 688,
+        "bundle_line": 384299,
+        "text": "const obj = { toValue: 0, duration: 800, easing: Easing.inOut(react_native.Easing.ease), useNativeDriver: true };"
+      },
+      {
+        "local_line": 691,
+        "bundle_line": 384302,
+        "text": "items[2] = timing(current2, obj);"
+      },
+      {
+        "local_line": 715,
+        "bundle_line": 384326,
+        "text": "const items = [Animated3.timing(current2, { toValue: 1.1, duration: 1000, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 717,
+        "bundle_line": 384328,
+        "text": "items[1] = Animated4.timing(current2, { toValue: 0.8, duration: 1000, useNativeDriver: true });"
+      },
+      {
+        "local_line": 922,
+        "bundle_line": 384533,
+        "text": "const items = [Animated2.spring(current2, { toValue: 1.12, tension: 200, friction: 7, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 924,
+        "bundle_line": 384535,
+        "text": "items[1] = Animated3.spring(current2, { toValue: 1, tension: 160, friction: 6, useNativeDriver: true });"
+      },
+      {
+        "local_line": 1042,
+        "bundle_line": 384653,
+        "text": "const items = [Animated3.timing(current, { toValue: 1, duration: 600, useNativeDriver: true }), ];"
+      },
+      {
+        "local_line": 1044,
+        "bundle_line": 384655,
+        "text": "items[1] = Animated4.timing(current, { toValue: 0, duration: 600, useNativeDriver: true });"
+      }
+    ],
+    "1196": [
+      {
+        "local_line": 197,
+        "bundle_line": 135830,
+        "text": "let obj7 = { background: NavBarPanel, height: 100, persistent: true, barSkin: { cap: 46, insetTop: obj6.top, insetSide: obj6.side }, activeCell: { background: NavActiveCell, insetTop: 0.48333333333333334, insetSide: 0.475, radius: 0.38166666666666665 }, activeSize: 72, activeLift: 13, labelW: 92, labelH: 26, labelGap: 2, labelSize: 17, activeLabelColor: \"#FFFFFF\", labelColor: \"#EADCFF\", icons: obj8, iconSize: 44, activeIconSize: 66, iconDrop: 14, dividerColor: \"#250656\", dividerWidth: 2, dividerTop: 26, itemPadH: 8 };"
+      }
+    ]
+  },
+  "remaining_unknowns": [
+    "The root-provided reference dp scale is2.625; exact safe-area insets and cross-engine font baseline still require the existing screenshot geometry/visual QA.",
+    "Some animation scalar recipients cannot be named reliably from decompiler register aliases; raw closure/JSX tracing is required.",
+    "No device, engine, screenshot or animation playback was started in this subtask.",
+    "All style geometry here is code evidence, not a claim of pixel-matched output."
+  ],
+  "implementation": {
+    "path": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\outputs\\InkominoTuanjie\\Assets\\Scripts\\UI\\Skin.cs",
+    "only_changed_project_file": "Assets/Scripts/UI/Skin.cs",
+    "compile_check": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\work\\inkomino\\fidelity\\Skin.compile-check.json",
+    "engine_started": false,
+    "api_notes": [
+      "DP const2.625. Button and SourceButton sizes are final reference pixels, never automatically multiply by1.15.",
+      "SourceButton(text,parent,anchor,pos,size,action,color=\"green\",fontSize=64,variant=null)",
+      "ActionTile(iconKey,parent,anchor,pos,size,action,iconSize=null,face=null,shadow=null)",
+      "SourceBanner(title,parent,panelWidthPx,variant=null) returns RectTransform; Banner legacy wrapper remains void.",
+      "SourceOpacityButton applies state opacity through a child CanvasGroup; ordinary buttons active1, action tiles.8, disabled.5.",
+      "SourceTrackedText gives single-line letter spacing, bounded downscale and RectMask2D clipping; banner ink bounds centre on fold.436.",
+      "Button FONT_FIX follows marginTop7 centred-flex inference as3.5dp downward offset; exact cross-engine font baseline still needs visual QA.",
+      "Popup springs deliberately remain root SourceMotion responsibility."
+    ]
+  }
+}

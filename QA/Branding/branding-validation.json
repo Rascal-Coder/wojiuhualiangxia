@@ -1,0 +1,135 @@
+{
+    "status": "PASS",
+    "startedUtc": "2026-10-21T05:20:09.0349884Z",
+    "finishedUtc": "2026-10-21T05:20:11.6764560Z",
+    "engine": "2022.3.62t16",
+    "outputDirectory": "C:/Users/aaa/Documents/Codex/2026-10-20/shi/work/inkomino/rebrand/runtime",
+    "actualRuntimeRender": true,
+    "isolatedQaProfile": true,
+    "defaultEngineSplashExcludedFromCanvasCapture": true,
+    "screenshots": 2,
+    "frames": [
+        {
+            "file": "01-loading-1080x2400.png",
+            "sha256": "b512fd673b5b22224f7a7aa9269ecfc756c6246f6898e638488ceae377b3fb6b",
+            "screen": "启动加载",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 1,
+            "bytes": 2918658,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "加载中.",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "Source startup loading | ",
+                "source_loading_background |  | source_loading_background",
+                "zh_loading_logo |  | zh_loading_logo"
+            ]
+        },
+        {
+            "file": "02-loading-540x836.png",
+            "sha256": "6429cff5bb4388b5de0dd73cf8624f64926da7e39761f961f0e526607460a346",
+            "screen": "启动加载小窗口",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 1,
+            "bytes": 469499,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "加载中...",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "Source startup loading | ",
+                "source_loading_background |  | source_loading_background",
+                "zh_loading_logo |  | zh_loading_logo"
+            ]
+        }
+    ],
+    "checks": [
+        {
+            "name": "使用隔离测试存档",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "真实加载页已创建",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载流程由 QA 暂停在真实加载页",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "启动加载 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "启动加载 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载中文字后的圆点真实变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "启动加载小窗口 截图尺寸",
+            "detail": "540x836",
+            "passed": true
+        },
+        {
+            "name": "启动加载小窗口 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载页使用当前游戏中文标志",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "工程显示名称与新游戏名一致",
+            "detail": "我就划两下",
+            "passed": true
+        },
+        {
+            "name": "标题使用实际贴图并保持比例",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "五字标题布局匹配素材宽高比",
+            "detail": "2.991724 / 2.982759",
+            "passed": true
+        },
+        {
+            "name": "加载页只有实际加载提示文字",
+            "detail": "加载中...",
+            "passed": true
+        },
+        {
+            "name": "加载页无伪造百分比或广告文案",
+            "detail": "",
+            "passed": true
+        }
+    ],
+    "errors": [],
+    "method": "真实启动加载流程与 uGUI RenderTexture 截图；仅扫描当前有效且透明度可见的 Text，按文字和字体去重。此检查不声称与原作逐像素一致。引擎默认 Splash 在脚本启动之前，由 PlayerSettings 保留，不能用本运行时 Canvas 截图验证。"
+}

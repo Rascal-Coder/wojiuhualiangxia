@@ -1,0 +1,44 @@
+; fn#17448 "<anonymous>" params=1 frame=24 regs=2(num=0,nonptr=2) size=177 offset=0x3fcb88 flags=[strict]
+0000  CreateFunctionEnvironment r2, 8
+0003  GetGlobalObject r4
+0005  TryGetById r11, r4, 0, "console"
+000b  GetByIdShort r10, r11, 1, "log"
+0010  GetParentEnvironment r3, 1
+0013  LoadFromEnvironment r5, r3, 32
+0017  GetByIdShort r14, r5, 2, "length"
+001c  GetParentEnvironment r6, 0
+001f  LoadFromEnvironment r6, r6, 1
+0023  GetByIdShort r12, r6, 2, "length"
+0028  LoadConstString r13, "extraTasks:"
+002c  LoadConstString r15, "[LoadingScreen] mount, assets:"
+0030  Mov r16, r11
+0033  Call r6, r10, 5
+0037  TryGetById r7, r4, 3, "Date"
+003d  GetByIdShort r6, r7, 4, "now"
+0042  Call1 r6, r6, r7
+0046  StoreToEnvironment r2, 0, r6
+004a  LoadConstFalse r0
+004c  StoreNPToEnvironment r2, 1, r0
+0050  StoreNPToEnvironment r2, 2, r0
+0054  CreateClosure r6, r2, 21525
+0059  StoreToEnvironment r2, 3, r6
+005d  TryGetById r6, r4, 5, "setTimeout"
+0063  LoadFromEnvironment r1, r3, 34
+0067  LoadConstUndefined r0
+0069  CreateClosure r4, r2, 21526
+006e  Call3 r4, r6, r0, r4, r1
+0074  StoreToEnvironment r2, 4, r4
+0078  GetByIdShort r4, r5, 6, "map"
+007d  CreateClosure r3, r3, 21527
+0082  Call2 r3, r4, r5, r3
+0087  StoreToEnvironment r2, 5, r3
+008b  CreateClosure r3, r2, 21528
+0090  StoreToEnvironment r2, 6, r3
+0094  CreateClosure r3, r2, 21529
+0099  Call1 r3, r3, r0
+009d  StoreToEnvironment r2, 7, r3
+00a1  CreateClosure r3, r2, 21530
+00a6  Call1 r3, r3, r0
+00aa  CreateClosure r2, r2, 21531
+00af  Ret r2
+

@@ -1,0 +1,278 @@
+; fn#12497 "GameplaySplash" params=2 frame=39 regs=3(num=2,nonptr=1) size=1289 offset=0x35ff14
+0000  CreateFunctionEnvironment r3, 10
+0003  LoadParam r4, 1
+0006  GetById r5, r4, 0, "onDone"
+000c  StoreToEnvironment r3, 0, r5
+0010  GetByIdShort r5, r4, 1, "duration"
+0015  LoadConstUndefined r2
+0017  JStrictNotEqual L33, r5, r2
+001b  LoadConstInt r5, 2600
+L33:
+0021  GetParentEnvironment r17, 0
+0024  StoreToEnvironment r3, 1, r5
+0028  GetById r4, r4, 2, "splashes"
+002e  StoreToEnvironment r3, 2, r4
+0032  StoreNPToEnvironment r3, 3, r2
+0036  StoreNPToEnvironment r3, 4, r2
+003a  StoreNPToEnvironment r3, 5, r2
+003e  StoreNPToEnvironment r3, 6, r2
+0042  StoreNPToEnvironment r3, 7, r2
+0046  StoreNPToEnvironment r3, 8, r2
+004a  StoreNPToEnvironment r3, 9, r2
+004e  LoadFromEnvironment r4, r17, 3
+0052  GetById r4, r4, 3, "useT"
+0058  Call1 r14, r4, r2
+005c  LoadFromEnvironment r4, r17, 0
+0060  GetById r7, r4, 4, "useMemo"
+0066  NewArray r6, 0
+006a  CreateClosure r5, r3, 18232
+006f  Call3 r20, r7, r2, r5, r6
+0075  GetByIdShort r8, r20, 5, "key"
+007a  GetGlobalObject r5
+007c  TryGetById r6, r5, 6, "HermesInternal"
+0082  GetByIdShort r7, r6, 7, "concat"
+0087  LoadConstString r6, ".title"
+008b  LoadConstString r9, "gameplaySplash."
+008f  Call3 r6, r7, r9, r8, r6
+0095  Call2 r27, r14, r2, r6
+009a  GetByIdShort r8, r20, 5, "key"
+009f  TryGetById r6, r5, 6, "HermesInternal"
+00a5  GetByIdShort r7, r6, 7, "concat"
+00aa  LoadConstString r6, ".description"
+00ae  Call3 r6, r7, r9, r8, r6
+00b4  Call2 r24, r14, r2, r6
+00b9  TryGetById r8, r5, 8, "Math"
+00bf  GetByIdShort r7, r8, 9, "min"
+00c4  TryGetById r10, r5, 8, "Math"
+00ca  GetByIdShort r9, r10, 10, "max"
+00cf  TryGetById r11, r5, 8, "Math"
+00d5  GetByIdShort r6, r11, 11, "floor"
+00da  GetByIdShort r12, r27, 12, "length"
+00df  LoadConstInt r0, 640
+00e5  Div r0, r0, r12
+00e9  Call2 r6, r6, r11, r0
+00ee  LoadConstUInt8 r0, 44
+00f1  Call3 r6, r9, r10, r0, r6
+00f7  LoadConstUInt8 r0, 80
+00fa  Call3 r26, r7, r8, r0, r6
+0100  TryGetById r7, r5, 8, "Math"
+0106  GetByIdShort r6, r7, 13, "round"
+010b  LoadConstDouble r0, 0.35
+0115  Mul r0, r26, r0
+0119  Call2 r25, r6, r7, r0
+011e  TryGetById r6, r5, 8, "Math"
+0124  GetByIdShort r5, r6, 13, "round"
+0129  LoadConstDouble r0, 1.625
+0133  Mul r0, r26, r0
+0137  Call2 r23, r5, r6, r0
+013c  GetByIdShort r6, r4, 14, "useRef"
+0141  LoadFromEnvironment r10, r17, 1
+0145  GetByIdShort r5, r10, 15, "Animated"
+014a  GetByIdShort r5, r5, 16, "Value"
+014f  CreateThisForNew r7, r5, 17
+0153  Mov r31, r7
+0156  LoadConstZero r30
+0158  Construct r5, r5, 2
+015c  SelectObject r5, r7, r5
+0160  Call2 r5, r6, r2, r5
+0165  GetByIdShort r8, r5, 18, "current"
+016a  StoreToEnvironment r3, 3, r8
+016e  GetByIdShort r6, r4, 14, "useRef"
+0173  GetByIdShort r5, r10, 15, "Animated"
+0178  GetByIdShort r5, r5, 16, "Value"
+017d  CreateThisForNew r7, r5, 17
+0181  LoadConstDouble r30, 0.5
+018b  Mov r31, r7
+018e  Construct r5, r5, 2
+0192  SelectObject r5, r7, r5
+0196  Call2 r5, r6, r2, r5
+019b  GetByIdShort r16, r5, 18, "current"
+01a0  StoreToEnvironment r3, 4, r16
+01a4  GetByIdShort r6, r4, 14, "useRef"
+01a9  GetByIdShort r5, r10, 15, "Animated"
+01ae  GetByIdShort r5, r5, 16, "Value"
+01b3  CreateThisForNew r7, r5, 17
+01b7  Mov r31, r7
+01ba  LoadConstZero r30
+01bc  Construct r5, r5, 2
+01c0  SelectObject r5, r7, r5
+01c4  Call2 r5, r6, r2, r5
+01c9  GetByIdShort r21, r5, 18, "current"
+01ce  StoreToEnvironment r3, 5, r21
+01d2  GetByIdShort r6, r4, 14, "useRef"
+01d7  GetByIdShort r5, r10, 15, "Animated"
+01dc  GetByIdShort r5, r5, 16, "Value"
+01e1  CreateThisForNew r7, r5, 17
+01e5  Mov r31, r7
+01e8  LoadConstZero r30
+01ea  Construct r5, r5, 2
+01ee  SelectObject r5, r7, r5
+01f2  Call2 r5, r6, r2, r5
+01f7  GetByIdShort r22, r5, 18, "current"
+01fc  StoreToEnvironment r3, 6, r22
+0200  GetByIdShort r6, r4, 14, "useRef"
+0205  GetByIdShort r5, r10, 15, "Animated"
+020a  GetByIdShort r5, r5, 16, "Value"
+020f  CreateThisForNew r7, r5, 17
+0213  Mov r31, r7
+0216  LoadConstZero r30
+0218  Construct r5, r5, 2
+021c  SelectObject r5, r7, r5
+0220  Call2 r5, r6, r2, r5
+0225  GetByIdShort r28, r5, 18, "current"
+022a  StoreToEnvironment r3, 7, r28
+022e  GetByIdShort r6, r4, 14, "useRef"
+0233  GetByIdShort r5, r10, 15, "Animated"
+0238  GetByIdShort r5, r5, 16, "Value"
+023d  CreateThisForNew r7, r5, 17
+0241  Mov r31, r7
+0244  LoadConstZero r30
+0246  Construct r5, r5, 2
+024a  SelectObject r5, r7, r5
+024e  Call2 r5, r6, r2, r5
+0253  GetByIdShort r19, r5, 18, "current"
+0258  StoreToEnvironment r3, 8, r19
+025c  GetByIdShort r6, r4, 14, "useRef"
+0261  GetByIdShort r5, r10, 15, "Animated"
+0266  GetByIdShort r5, r5, 16, "Value"
+026b  CreateThisForNew r7, r5, 17
+026f  LoadConstUInt8 r30, 1
+0272  Mov r31, r7
+0275  Construct r5, r5, 2
+0279  SelectObject r5, r7, r5
+027d  Call2 r5, r6, r2, r5
+0282  GetByIdShort r18, r5, 18, "current"
+0287  StoreToEnvironment r3, 9, r18
+028b  GetByIdShort r5, r4, 19, "useEffect"
+0290  NewArray r4, 0
+0294  CreateClosure r3, r3, 18233
+0299  Call3 r3, r5, r2, r3, r4
+029f  LoadFromEnvironment r11, r17, 10
+02a3  GetByIdShort r5, r11, 20, "jsxs"
+02a8  GetByIdShort r3, r10, 15, "Animated"
+02ad  GetByIdShort r4, r3, 21, "View"
+02b2  NewObjectWithBuffer r3, 2179, 27684
+02b8  LoadFromEnvironment r13, r17, 20
+02bc  GetById r7, r13, 22, "container"
+02c2  NewArray r6, 2
+02c6  DefineOwnInDenseArray r6, r7, 0
+02ca  NewObjectWithBuffer r7, 499, 24
+02d0  PutOwnBySlotIdx r7, r8, 0
+02d4  DefineOwnInDenseArray r6, r7, 1
+02d8  PutOwnBySlotIdx r3, r6, 0
+02dc  GetByIdShort r8, r11, 23, "jsx"
+02e1  GetById r7, r10, 24, "StatusBar"
+02e7  NewObjectWithBufferLong r6, 2877, 86724
+02f1  Call3 r7, r8, r2, r7, r6
+02f7  NewArray r6, 5
+02fb  DefineOwnInDenseArray r6, r7, 0
+02ff  GetByIdShort r9, r11, 23, "jsx"
+0304  LoadFromEnvironment r7, r17, 2
+0308  GetByIdShort r8, r7, 25, "Image"
+030d  NewObjectWithBufferLong r7, 2556, 68578
+0317  LoadFromEnvironment r12, r17, 11
+031b  PutOwnBySlotIdx r7, r12, 0
+031f  GetById r12, r13, 26, "image"
+0325  PutOwnBySlotIdx r7, r12, 1
+0329  Call3 r7, r9, r2, r8, r7
+032f  DefineOwnInDenseArray r6, r7, 1
+0333  GetByIdShort r9, r11, 20, "jsxs"
+0338  GetByIdShort r7, r10, 15, "Animated"
+033d  GetByIdShort r8, r7, 21, "View"
+0342  NewObjectWithBuffer r7, 2153, 62307
+0348  GetById r15, r13, 27, "titleWrap"
+034e  NewArray r12, 2
+0352  DefineOwnInDenseArray r12, r15, 0
+0356  NewObjectWithBuffer r15, 500, 27684
+035c  PutOwnBySlotIdx r15, r28, 0
+0360  NewObjectWithBuffer r28, 174, 24
+0366  PutOwnBySlotIdx r28, r22, 0
+036a  NewArray r22, 1
+036e  DefineOwnInDenseArray r22, r28, 0
+0372  PutOwnBySlotIdx r15, r22, 1
+0376  DefineOwnInDenseArray r12, r15, 1
+037a  PutOwnBySlotIdx r7, r12, 0
+037e  GetByIdShort r22, r11, 23, "jsx"
+0383  LoadFromEnvironment r12, r17, 8
+0387  GetByIdShort r15, r12, 28, "default"
+038c  NewObjectWithBuffer r12, 3254, 62701
+0392  PutOwnBySlotIdx r12, r27, 0
+0396  PutOwnBySlotIdx r12, r26, 1
+039a  PutOwnBySlotIdx r12, r25, 3
+039e  PutOwnBySlotIdx r12, r23, 6
+03a2  Call3 r15, r22, r2, r15, r12
+03a8  NewArray r12, 2
+03ac  DefineOwnInDenseArray r12, r15, 0
+03b0  GetByIdShort r23, r11, 23, "jsx"
+03b5  GetByIdShort r22, r10, 29, "Text"
+03ba  NewObjectWithBuffer r15, 2179, 27684
+03c0  GetById r25, r13, 30, "description"
+03c6  PutOwnBySlotIdx r15, r25, 0
+03ca  PutOwnBySlotIdx r15, r24, 1
+03ce  Call3 r15, r23, r2, r22, r15
+03d4  DefineOwnInDenseArray r12, r15, 1
+03d8  PutOwnBySlotIdx r7, r12, 2
+03dc  Call3 r7, r9, r2, r8, r7
+03e2  DefineOwnInDenseArray r6, r7, 2
+03e6  GetByIdShort r9, r11, 23, "jsx"
+03eb  GetByIdShort r7, r10, 15, "Animated"
+03f0  GetByIdShort r8, r7, 21, "View"
+03f5  NewObjectWithBuffer r7, 2153, 62307
+03fb  GetById r15, r13, 31, "iconWrap"
+0401  NewArray r12, 2
+0405  DefineOwnInDenseArray r12, r15, 0
+0409  NewObjectWithBuffer r15, 500, 27684
+040f  PutOwnBySlotIdx r15, r21, 0
+0413  NewObjectWithBuffer r21, 174, 24
+0419  PutOwnBySlotIdx r21, r16, 0
+041d  NewArray r16, 1
+0421  DefineOwnInDenseArray r16, r21, 0
+0425  PutOwnBySlotIdx r15, r16, 1
+0429  DefineOwnInDenseArray r12, r15, 1
+042d  PutOwnBySlotIdx r7, r12, 0
+0431  GetByIdShort r16, r11, 23, "jsx"
+0436  LoadFromEnvironment r15, r17, 18
+043a  NewObjectWithBuffer r12, 3255, 27714
+0440  GetByIdShort r21, r20, 32, "type"
+0445  PutOwnBySlotIdx r12, r21, 0
+0449  GetById r20, r20, 33, "icon"
+044f  PutOwnBySlotIdx r12, r20, 1
+0453  LoadFromEnvironment r17, r17, 9
+0457  GetByIdShort r17, r17, 34, "sc"
+045c  LoadConstUInt8 r0, 220
+045f  Call2 r17, r17, r2, r0
+0464  PutOwnBySlotIdx r12, r17, 2
+0468  Call3 r12, r16, r2, r15, r12
+046e  PutOwnBySlotIdx r7, r12, 2
+0472  Call3 r7, r9, r2, r8, r7
+0478  DefineOwnInDenseArray r6, r7, 3
+047c  GetByIdShort r9, r11, 23, "jsx"
+0481  GetByIdShort r7, r10, 15, "Animated"
+0486  GetByIdShort r8, r7, 21, "View"
+048b  NewObjectWithBuffer r7, 2153, 62307
+0491  GetById r15, r13, 35, "loadingWrap"
+0497  NewArray r12, 2
+049b  DefineOwnInDenseArray r12, r15, 0
+049f  NewObjectWithBuffer r15, 499, 24
+04a5  GetByIdShort r17, r10, 15, "Animated"
+04aa  GetById r16, r17, 36, "multiply"
+04b0  Call3 r16, r16, r17, r19, r18
+04b6  PutOwnBySlotIdx r15, r16, 0
+04ba  DefineOwnInDenseArray r12, r15, 1
+04be  PutOwnBySlotIdx r7, r12, 0
+04c2  GetByIdShort r12, r11, 23, "jsx"
+04c7  GetByIdShort r11, r10, 29, "Text"
+04cc  NewObjectWithBuffer r10, 2179, 27684
+04d2  GetById r13, r13, 37, "loadingText"
+04d8  PutOwnBySlotIdx r10, r13, 0
+04dc  LoadConstString r13, "gameplaySplash.loading"
+04e0  Call2 r13, r14, r2, r13
+04e5  PutOwnBySlotIdx r10, r13, 1
+04e9  Call3 r10, r12, r2, r11, r10
+04ef  PutOwnBySlotIdx r7, r10, 2
+04f3  Call3 r7, r9, r2, r8, r7
+04f9  DefineOwnInDenseArray r6, r7, 4
+04fd  PutOwnBySlotIdx r3, r6, 1
+0501  Call3 r3, r5, r2, r4, r3
+0507  Ret r3
+

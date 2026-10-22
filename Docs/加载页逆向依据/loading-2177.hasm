@@ -1,0 +1,231 @@
+; fn#2177 "<anonymous>" params=8 frame=26 regs=4(num=3,nonptr=1) size=1003 offset=0x24ef04
+0000  CreateFunctionEnvironment r5, 21
+0003  LoadParam r6, 2
+0006  LoadParam r11, 6
+0009  LoadParam r4, 7
+000c  CreateClosure r7, r5, 12496
+0011  StoreToEnvironment r5, 18, r7
+0015  CreateClosure r7, r5, 12497
+001a  StoreToEnvironment r5, 19, r7
+001e  GetGlobalObject r7
+0020  TryGetById r12, r7, 0, "Object"
+0026  GetByIdShort r10, r12, 1, "defineProperty"
+002b  LoadConstString r9, "__esModule"
+002f  NewObjectWithBuffer r8, 26, 27551
+0035  Call4 r8, r10, r12, r11, r9, r8
+003c  TryGetById r10, r7, 0, "Object"
+0042  GetByIdShort r9, r10, 1, "defineProperty"
+0047  NewObjectWithBuffer r8, 27, 28117
+004d  CreateClosure r7, r5, 12498
+0052  PutOwnBySlotIdx r8, r7, 1
+0056  LoadConstString r7, "default"
+005a  Call4 r7, r9, r10, r11, r7, r8
+0061  GetByIndex r7, r4, 0
+0065  LoadConstUndefined r3
+0067  Call2 r7, r6, r3, r7
+006c  StoreToEnvironment r5, 0, r7
+0070  GetByIndex r7, r4, 1
+0074  Call2 r11, r6, r3, r7
+0079  StoreToEnvironment r5, 1, r11
+007d  GetByIndex r7, r4, 2
+0081  Call2 r7, r6, r3, r7
+0086  StoreToEnvironment r5, 2, r7
+008a  GetByIndex r7, r4, 3
+008e  Call2 r12, r6, r3, r7
+0093  GetByIndex r7, r4, 4
+0097  Call2 r7, r6, r3, r7
+009c  StoreToEnvironment r5, 3, r7
+00a0  GetByIndex r7, r4, 5
+00a4  Call2 r9, r6, r3, r7
+00a9  JmpFalse L183, r9
+00ac  GetByIdShort r8, r9, 2, "__esModule"
+00b1  Mov r7, r9
+00b4  JmpTrue L196, r8
+L183:
+00b7  NewObjectWithBuffer r8, 25, 24
+00bd  PutOwnBySlotIdx r8, r9, 0
+00c1  Mov r7, r8
+L196:
+00c4  StoreToEnvironment r5, 4, r7
+00c8  GetByIndex r7, r4, 6
+00cc  Call2 r9, r6, r3, r7
+00d1  JmpFalse L223, r9
+00d4  GetByIdShort r8, r9, 2, "__esModule"
+00d9  Mov r7, r9
+00dc  JmpTrue L236, r8
+L223:
+00df  NewObjectWithBuffer r8, 25, 24
+00e5  PutOwnBySlotIdx r8, r9, 0
+00e9  Mov r7, r8
+L236:
+00ec  StoreToEnvironment r5, 5, r7
+00f0  GetByIndex r7, r4, 7
+00f4  Call2 r9, r6, r3, r7
+00f9  JmpFalse L263, r9
+00fc  GetByIdShort r8, r9, 2, "__esModule"
+0101  Mov r7, r9
+0104  JmpTrue L276, r8
+L263:
+0107  NewObjectWithBuffer r8, 25, 24
+010d  PutOwnBySlotIdx r8, r9, 0
+0111  Mov r7, r8
+L276:
+0114  StoreToEnvironment r5, 6, r7
+0118  GetByIndex r7, r4, 8
+011c  Call2 r9, r6, r3, r7
+0121  JmpFalse L303, r9
+0124  GetByIdShort r8, r9, 2, "__esModule"
+0129  Mov r7, r9
+012c  JmpTrue L316, r8
+L303:
+012f  NewObjectWithBuffer r8, 25, 24
+0135  PutOwnBySlotIdx r8, r9, 0
+0139  Mov r7, r8
+L316:
+013c  StoreToEnvironment r5, 7, r7
+0140  GetByIndex r7, r4, 9
+0144  Call2 r9, r6, r3, r7
+0149  JmpFalse L343, r9
+014c  GetByIdShort r8, r9, 2, "__esModule"
+0151  Mov r7, r9
+0154  JmpTrue L356, r8
+L343:
+0157  NewObjectWithBuffer r8, 25, 24
+015d  PutOwnBySlotIdx r8, r9, 0
+0161  Mov r7, r8
+L356:
+0164  StoreToEnvironment r5, 8, r7
+0168  GetByIndex r7, r4, 10
+016c  Call2 r10, r6, r3, r7
+0171  StoreToEnvironment r5, 9, r10
+0175  GetByIndex r7, r4, 11
+0179  Call2 r7, r6, r3, r7
+017e  StoreToEnvironment r5, 10, r7
+0182  GetByIndex r7, r4, 12
+0186  Call2 r7, r6, r3, r7
+018b  StoreToEnvironment r5, 11, r7
+018f  GetByIndex r7, r4, 13
+0193  Call2 r7, r6, r3, r7
+0198  StoreToEnvironment r5, 12, r7
+019c  GetByIndex r7, r4, 14
+01a0  Call2 r7, r6, r3, r7
+01a5  StoreToEnvironment r5, 13, r7
+01a9  GetByIndex r7, r4, 15
+01ad  Call2 r7, r6, r3, r7
+01b2  StoreToEnvironment r5, 14, r7
+01b6  GetByIndex r7, r4, 16
+01ba  Call2 r7, r6, r3, r7
+01bf  StoreToEnvironment r5, 15, r7
+01c3  GetByIndex r4, r4, 17
+01c7  Call2 r4, r6, r3, r4
+01cc  StoreToEnvironment r5, 16, r4
+01d0  NewArray r4, 6
+01d4  NewObjectWithBufferLong r6, 1738, 70755
+01de  DefineOwnInDenseArray r4, r6, 0
+01e2  NewObjectWithBufferLong r6, 1738, 70717
+01ec  DefineOwnInDenseArray r4, r6, 1
+01f0  NewObjectWithBufferLong r6, 1738, 70760
+01fa  DefineOwnInDenseArray r4, r6, 2
+01fe  NewObjectWithBufferLong r6, 1738, 70765
+0208  DefineOwnInDenseArray r4, r6, 3
+020c  NewObjectWithBuffer r6, 1738, 62464
+0212  DefineOwnInDenseArray r4, r6, 4
+0216  NewObjectWithBuffer r6, 1738, 41276
+021c  DefineOwnInDenseArray r4, r6, 5
+0220  StoreToEnvironment r5, 17, r4
+0224  GetByIdShort r7, r11, 3, "StyleSheet"
+0229  GetByIdShort r6, r7, 4, "create"
+022e  NewObjectWithBuffer r4, 1739, 28045
+0234  NewObject r8
+0236  GetByIdShort r9, r11, 3, "StyleSheet"
+023b  GetByIdShort r16, r9, 5, "absoluteFill"
+0240  Mov r17, r8
+0243  CallBuiltin r9, 46, 3
+0247  LoadConstString r9, "#1d4ed8"
+024b  DefineOwnById r8, r9, 0, "backgroundColor"
+0251  LoadConstString r9, "center"
+0255  DefineOwnById r8, r9, 1, "alignItems"
+025b  DefineOwnById r8, r9, 2, "justifyContent"
+0261  LoadConstInt r0, 10000
+0267  DefineOwnById r8, r0, 3, "zIndex"
+026d  PutOwnBySlotIdx r4, r8, 0
+0271  NewObject r8
+0273  GetByIdShort r11, r11, 3, "StyleSheet"
+0278  GetByIdShort r16, r11, 5, "absoluteFill"
+027d  Mov r17, r8
+0280  CallBuiltin r11, 46, 3
+0284  LoadConstString r11, "100%"
+0288  DefineOwnById r8, r11, 4, "width"
+028e  DefineOwnById r8, r11, 5, "height"
+0294  PutOwnBySlotIdx r4, r8, 1
+0298  NewObjectWithBuffer r8, 135, 30701
+029e  PutOwnBySlotIdx r4, r8, 2
+02a2  NewObjectWithBufferLong r8, 1740, 70770
+02ac  PutOwnBySlotIdx r4, r8, 3
+02b0  NewObject r8
+02b2  GetByIdShort r16, r12, 6, "FONT_FIX"
+02b7  Mov r17, r8
+02ba  CallBuiltin r11, 46, 3
+02be  GetByIdShort r11, r12, 7, "FONT_FAMILY"
+02c3  DefineOwnById r8, r11, 6, "fontFamily"
+02c9  GetByIdShort r11, r10, 8, "sc"
+02ce  LoadConstUInt8 r0, 18
+02d1  Call2 r11, r11, r3, r0
+02d6  DefineOwnById r8, r11, 7, "fontSize"
+02dc  LoadConstString r11, "#FFFFFF"
+02e0  DefineOwnById r8, r11, 8, "color"
+02e6  GetByIdShort r13, r10, 8, "sc"
+02eb  LoadConstUInt8 r0, 1
+02ee  Call2 r13, r13, r3, r0
+02f3  DefineOwnById r8, r13, 9, "letterSpacing"
+02f9  DefineOwnById r8, r9, 10, "textAlign"
+02ff  GetByIdShort r13, r10, 8, "sc"
+0304  LoadConstUInt8 r0, 32
+0307  Call2 r13, r13, r3, r0
+030c  DefineOwnById r8, r13, 11, "marginTop"
+0312  GetByIdShort r13, r10, 8, "sc"
+0317  LoadConstUInt8 r1, 24
+031a  Call2 r13, r13, r3, r1
+031f  DefineOwnById r8, r13, 12, "paddingHorizontal"
+0325  LoadConstString r13, "rgba(0,0,0,0.55)"
+0329  DefineOwnById r8, r13, 13, "textShadowColor"
+032f  NewObjectWithBuffer r13, 55, 30093
+0335  GetByIdShort r14, r10, 8, "sc"
+033a  LoadConstUInt8 r0, 2
+033d  Call2 r14, r14, r3, r0
+0342  PutOwnBySlotIdx r13, r14, 1
+0346  DefineOwnById r8, r13, 14, "textShadowOffset"
+034c  LoadConstUInt8 r2, 4
+034f  DefineOwnById r8, r2, 15, "textShadowRadius"
+0355  PutOwnBySlotIdx r4, r8, 4
+0359  NewObjectWithBufferLong r8, 1741, 70781
+0363  PutOwnBySlotIdx r4, r8, 5
+0367  NewObject r8
+0369  GetByIdShort r16, r12, 6, "FONT_FIX"
+036e  Mov r17, r8
+0371  CallBuiltin r13, 46, 3
+0375  GetByIdShort r12, r12, 7, "FONT_FAMILY"
+037a  DefineOwnById r8, r12, 6, "fontFamily"
+0380  GetByIdShort r12, r10, 8, "sc"
+0385  Call2 r12, r12, r3, r1
+038a  DefineOwnById r8, r12, 7, "fontSize"
+0390  DefineOwnById r8, r11, 8, "color"
+0396  GetByIdShort r11, r10, 8, "sc"
+039b  LoadConstUInt8 r1, 3
+039e  Call2 r11, r11, r3, r1
+03a3  DefineOwnById r8, r11, 9, "letterSpacing"
+03a9  DefineOwnById r8, r9, 10, "textAlign"
+03af  LoadConstString r9, "rgba(0,0,0,0.6)"
+03b3  DefineOwnById r8, r9, 13, "textShadowColor"
+03b9  NewObjectWithBuffer r9, 55, 30093
+03bf  GetByIdShort r10, r10, 8, "sc"
+03c4  Call2 r10, r10, r3, r0
+03c9  PutOwnBySlotIdx r9, r10, 1
+03cd  DefineOwnById r8, r9, 14, "textShadowOffset"
+03d3  LoadConstUInt8 r0, 5
+03d6  DefineOwnById r8, r0, 15, "textShadowRadius"
+03dc  PutOwnBySlotIdx r4, r8, 6
+03e0  Call2 r4, r6, r7, r4
+03e5  StoreToEnvironment r5, 20, r4
+03e9  Ret r3
+

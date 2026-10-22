@@ -1,0 +1,13 @@
+{
+  "selected_asset": "Assets/Resources/Art/zh_loading_logo.png",
+  "source_reference": "Original assets_logo.png (1505x658)",
+  "method": "Built-in image_gen text-localization edit",
+  "prompt": "Use case: text-localization. Edit target: the attached transparent original mobile puzzle game title logo. Replace ONLY all text with simplified Chinese while retaining its exact art direction: glossy multicolored mosaic gem facets, strong irregular black outline, slim cream inner highlights, tilted bouncy playful glyphs, paintbrush accent at the upper right, cream curved ribbon with folded ends underneath. Main large multicolor text must read exactly「墨彩拼图」(four Chinese characters, left-to-right), replacing INKOMINO. Lower ribbon must read exactly「马赛克拼图」(five Chinese characters), replacing MOSAIC PUZZLE, in heavy cream/yellow rounded characters with black outline. Keep the wide horizontal two-tier composition and approximate 1505:658 aspect ratio. Genuine transparent background, no checkerboard baked in. No Latin letters, no English, no other words, no extra badges. This is one production game logo sprite, not a presentation mockup. Preserve brush, mosaic facets, ribbon finish and original palette as closely as possible.",
+  "visible_text": [
+    "墨彩拼图",
+    "马赛克拼图"
+  ],
+  "transparency": true,
+  "publisher_logo": "User requested the default engine splash; no generated publisher logo is referenced or shipped.",
+  "welcome_icon": "User requested IAA without purchases; the welcome promotion is removed, so its generated translation draft is not shipped."
+}

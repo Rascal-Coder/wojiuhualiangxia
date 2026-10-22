@@ -1,0 +1,32 @@
+// Materialize package images as native wxfile paths before creating the cover.
+// CoverView runs outside the game JS module and must not resolve host-relative URLs.
+export const loadingImageFiles = $LOADING_IMAGE_FILES;
+
+export function prepareLoadingAssets(wxApi = wx) {
+    const result = {};
+    let fileSystem;
+    let root;
+    try {
+        fileSystem = wxApi.getFileSystemManager();
+        root = wxApi.env.USER_DATA_PATH.replace(/\/+$/, '');
+        if (!root) throw new Error('USER_DATA_PATH is empty');
+    } catch (error) {
+        console.warn('[Inkomino] 启动图缓存不可用，将使用包内图片：', String(error));
+    }
+    for (const image of loadingImageFiles) {
+        result[image.key] = image.source;
+        if (!fileSystem || !root) continue;
+        try {
+            const data = fileSystem.readFileSync(image.source);
+            if (!data || data.byteLength !== image.bytes) throw new Error('Invalid loading image: ' + image.source);
+            const nativePath = root + '/' + image.cacheFile;
+            fileSystem.writeFileSync(nativePath, data);
+            result[image.key] = nativePath;
+        } catch (error) {
+            // Keep the real error visible; package-path fallback still permits
+            // startup on runtimes without writable image caching.
+            console.warn('[Inkomino] 启动图准备失败：' + image.source, String(error));
+        }
+    }
+    return result;
+}

@@ -1,0 +1,34 @@
+[
+  {
+    "module": 1989,
+    "functions": [
+      "RestartConfirmPopup"
+    ],
+    "bundle_line": 337450,
+    "lines": 103
+  },
+  {
+    "module": 2122,
+    "functions": [
+      "ContinueScreen"
+    ],
+    "bundle_line": 342000,
+    "lines": 981
+  },
+  {
+    "module": 2180,
+    "functions": [
+      "LivesPopup"
+    ],
+    "bundle_line": 370575,
+    "lines": 380
+  },
+  {
+    "module": 2218,
+    "functions": [
+      "ContinuePromptPopup"
+    ],
+    "bundle_line": 387996,
+    "lines": 86
+  }
+]

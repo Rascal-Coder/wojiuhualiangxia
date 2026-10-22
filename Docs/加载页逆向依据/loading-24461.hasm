@@ -1,0 +1,140 @@
+; fn#24461 "?anon_0_" params=1 frame=35 regs=0(num=0,nonptr=0) size=464 offset=0x4e150e exc_handlers=3
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r0, r1, 5
+0007  Mov r2, r0
+000a  LoadConstUInt8 r4, 2
+000d  JStrictEqualLong L446, r0, r4
+0014  LoadParam r0, 2
+0017  LoadParam r3, 1
+001a  Mov r17, r2
+001d  LoadConstUInt8 r7, 3
+0020  LoadConstUInt8 r5, 1
+0023  LoadConstZero r16
+0025  GetGlobalObject r15
+0027  LoadConstString r14, "[LoadingScreen] extraTasks done"
+002b  GetParentEnvironment r13, 1
+002e  GetEnvironment r12, r13, 1
+0032  LoadConstString r11, "failed:"
+0036  LoadConstString r10, "[LoadingScreen] task"
+003a  LoadConstNull r9
+003c  JStrictEqualLong L416, r17, r7
+L67:
+0043  Mov r2, r4
+0046  StoreNPToEnvironment r1, 5, r4
+004a  LoadFromEnvironment r17, r1, 4
+004e  JStrictEqualLong L260, r16, r17
+0055  JStrictEqual L135, r5, r17
+0059  JStrictEqual L126, r3, r5
+005d  JStrictEqual L103, r3, r4
+0061  StoreNPToEnvironment r1, 3, r16
+0065  Jmp L217
+L103:
+0067  StoreNPToEnvironment r1, 3, r16
+006b  Mov r2, r7
+006e  StoreNPToEnvironment r1, 5, r7
+0072  NewObjectWithBuffer r17, 2170, 28153
+0078  PutOwnBySlotIdx r17, r0, 0
+007c  Ret r17
+L126:
+007e  Mov r2, r7
+0081  StoreNPToEnvironment r1, 5, r7
+0085  Throw r0
+L135:
+0087  LoadFromEnvironment r17, r1, 0
+008b  LoadFromEnvironment r18, r1, 2
+008f  Mov r6, r18
+0092  StoreNPToEnvironment r1, 3, r16
+0096  StoreToEnvironment r17, 1, r18
+009a  TryGetById r20, r15, 0, "console"
+00a0  GetByIdShort r19, r20, 1, "warn"
+00a5  LoadFromEnvironment r18, r17, 0
+00a9  LoadFromEnvironment r21, r17, 1
+00ad  Eq r22, r21, r9
+00b1  LoadConstUndefined r17
+00b3  JmpTrue L187, r22
+00b6  GetByIdShort r17, r21, 2, "message"
+L187:
+00bb  JmpTrue L198, r17
+00be  LoadFromEnvironment r21, r1, 0
+00c2  LoadFromEnvironment r17, r21, 1
+L198:
+00c6  Mov r27, r20
+00c9  Mov r26, r10
+00cc  Mov r25, r18
+00cf  Mov r24, r11
+00d2  Mov r23, r17
+00d5  Call r17, r19, 5
+L217:
+00d9  LoadFromEnvironment r18, r1, 0
+00dd  LoadFromEnvironment r17, r18, 0
+00e1  AddN r17, r17, r5
+00e5  StoreNPToEnvironment r18, 0, r17
+00e9  LoadFromEnvironment r17, r1, 1
+00ed  LoadFromEnvironment r18, r18, 0
+00f1  GetEnvironment r17, r17, 1
+00f5  LoadFromEnvironment r17, r17, 1
+00f9  GetByIdShort r17, r17, 3, "length"
+00fe  JLess L326, r18, r17
+0102  Jmp L295
+L260:
+0104  StoreToEnvironment r1, 1, r13
+0108  CreateTopLevelEnvironment r17, 2
+010e  StoreToEnvironment r1, 0, r17
+0112  StoreNPToEnvironment r17, 0, r16
+0116  LoadFromEnvironment r18, r17, 0
+011a  LoadFromEnvironment r17, r12, 1
+011e  GetByIdShort r17, r17, 3, "length"
+0123  JLess L326, r18, r17
+L295:
+0127  TryGetById r18, r15, 0, "console"
+012d  GetByIdShort r17, r18, 4, "log"
+0132  Call2 r17, r17, r18, r14
+0137  Mov r2, r7
+013a  StoreNPToEnvironment r1, 5, r7
+013e  NewObjectWithBuffer r17, 2170, 46674
+0144  Ret r17
+L326:
+0146  LoadFromEnvironment r17, r1, 0
+014a  LoadFromEnvironment r18, r1, 1
+014e  StoreNPToEnvironment r1, 3, r5
+0152  GetEnvironment r18, r18, 1
+0156  LoadFromEnvironment r18, r18, 1
+015a  LoadFromEnvironment r17, r17, 0
+015e  GetByVal r17, r18, r17
+0162  Call1 r18, r17, r18
+0166  StoreNPToEnvironment r1, 4, r4
+016a  Mov r2, r5
+016d  StoreNPToEnvironment r1, 5, r5
+0171  NewObjectWithBuffer r17, 2170, 28948
+0177  PutOwnBySlotIdx r17, r18, 0
+017b  Ret r17
+L381:
+017d  Catch r17
+017f  Mov r6, r17
+0182  StoreToEnvironment r1, 2, r17
+0186  LoadFromEnvironment r17, r1, 3
+018a  JStrictEqual L407, r16, r17
+018e  StoreNPToEnvironment r1, 4, r5
+0192  JmpLong L67
+L407:
+0197  Mov r2, r7
+019a  StoreNPToEnvironment r1, 5, r7
+019e  Throw r6
+L416:
+01a0  JStrictEqual L444, r3, r5
+01a4  JStrictEqual L432, r3, r4
+01a8  NewObjectWithBuffer r3, 2170, 46674
+01ae  Ret r3
+L432:
+01b0  NewObjectWithBuffer r3, 2170, 28153
+01b6  PutOwnBySlotIdx r3, r0, 0
+01ba  Ret r3
+L444:
+01bc  Throw r0
+L446:
+01be  LoadConstUInt8 r0, 3
+01c1  Mov r2, r0
+01c4  StoreNPToEnvironment r1, 5, r0
+01c8  LoadConstString r26, "Generator functions may not be called on executing generators"
+01cc  CallBuiltin r0, 44, 2
+

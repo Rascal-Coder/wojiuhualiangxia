@@ -1,0 +1,123 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace Inkomino
+{
+    public partial class InkominoApp
+    {
+        // Module 2119 is an independent screen. The caller waits for BoardView's win sweep first.
+        public void ShowSourceResult()
+        {
+            Playing=false;Finished=true;screen="result";ClearScreen("game_assets_bg");
+            
+            var root=Skin.Fill("Source LevelCompleteScreen",Content);
+            var motion=root.gameObject.AddComponent<SourceResultMotion>();
+            float width=1080,height=2400,dp=Skin.DP;
+            var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(920,240));
+            motion.BuildTitle(title,Zh.WellDone,118);
+            MenuUI.Label(Zh.Level(CurrentLevel)+"完成",root,new Vector2(.5f,1),new Vector2(0,-750),new Vector2(900,80),54,MenuUI.Ink,TextAnchor.MiddleCenter);
+
+            // Root title margins: top44, height100, bottom4; root gap8.
+            // The remaining flex centerZone centres reward(200 + vertical margins8), gap8,
+            // and the auto-width button(104 + top8 + bottom40).
+            float buttonH=200;
+            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-1150),new Vector2(820,660),true);rewardRoot.name="Source reward";
+            MenuUI.Label("通关奖励",rewardRoot,new Vector2(.5f,1),new Vector2(0,-75),new Vector2(700,80),54,MenuUI.Ink,TextAnchor.MiddleCenter,true);
+            var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,15),Vector2.one*380);
+            MenuUI.Art("menu_treasure",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*380);
+            var amount=MenuUI.Label("+"+reward+" 金币",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-240),new Vector2(700,95),68,MenuUI.Ink,TextAnchor.MiddleCenter);
+            MenuUI.Label(Review||reward==0?"已完成的关卡，不重复发放金币":"奖励已加入金币余额",root,new Vector2(.5f,1),new Vector2(0,-1600),new Vector2(940,80),46,MenuUI.Muted,TextAnchor.MiddleCenter);
+            motion.Reward=rewardRoot;motion.RewardAlpha=rewardRoot.gameObject.AddComponent<CanvasGroup>();
+
+            // Source no-ad branch: module2120 AutoWidthGreenButton, activeOpacity=.85.
+            int buttonFont=72;
+            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1810),new Vector2(800,buttonH));
+            int level=CurrentLevel;bool review=Review;
+            var button=MenuUI.GameButton(Zh.Continue,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();}),buttonFont);
+            foreach(var label in button.GetComponentsInChildren<SourceTrackedText>()){label.LetterSpacing=.5f*dp;var clip=label.transform.parent as RectTransform;if(clip)clip.anchoredPosition=Vector2.zero;}
+            var opacity=button as SourceOpacityButton;if(opacity)opacity.ActiveOpacity=.85f;
+            if(!review&&reward>0&&RewardEntryEnabled(RewardPlacement.DoubleCoins))
+            {
+                buttonRoot.anchoredPosition+=Vector2.down*230;bool doubled=false;int baseReward=reward,epoch=presentationEpoch;Button doubleButton=null;
+                doubleButton=RewardButton(RewardPlacement.DoubleCoins,RewardLabel(RewardPlacement.DoubleCoins),buttonRoot,new Vector2(.5f,.5f),new Vector2(0,buttonH/2+130),new Vector2(790,190),()=>RequestReward(RewardPlacement.DoubleCoins,()=>{
+                    doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra)+" 金币";doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");
+                },()=>!doubled&&presentationEpoch==epoch&&screen=="result"&&CurrentLevel==level),true);
+            }
+            motion.Button=buttonRoot;motion.ButtonAlpha=buttonRoot.gameObject.AddComponent<CanvasGroup>();motion.Width=width;
+            motion.ConfettiParent=Skin.Fill("Source result confetti",root);motion.ConfettiParent.SetAsFirstSibling();
+            if(!review&&CurrentLevel>=41&&Store.Data.climb.joined&&!Store.Data.climb.isOut)
+            {
+                var climb=Store.Data.climb;
+                MenuUI.SecondaryButton(ClimbActivity.AtTop(climb)?"登顶成功 · 领取奖励":"登顶寻宝 "+climb.stage+" / 7",root,new Vector2(.5f,0),new Vector2(0,90),new Vector2(800,130),ShowClimb,49);
+            }
+            foreach(var control in root.GetComponentsInChildren<Button>())MenuMotion.Press(control);
+            motion.Begin();
+        }
+    }
+
+    public sealed class SourceResultMotion:MonoBehaviour
+    {
+        sealed class Letter{public RectTransform Rect;public CanvasGroup Alpha;public float Delay;}
+        readonly List<Letter> letters=new List<Letter>();
+        public RectTransform Reward,Button,ConfettiParent;public CanvasGroup RewardAlpha,ButtonAlpha;public float Width;
+        float begin,titleDone;Vector2 buttonPosition;bool confettiStarted;
+        public float Elapsed{get{return SourceClock.Now-begin;}}
+        public float RewardStart{get{return titleDone;}}
+        public static float TextWidth(string text,int fontSize)
+        {
+            var font=Skin.FontFor(text);font.RequestCharactersInTexture(text,fontSize,FontStyle.Normal);float width=0;
+            foreach(char c in text){CharacterInfo info;if(font.GetCharacterInfo(c,out info,fontSize,FontStyle.Normal))width+=info.advance;else width+=fontSize*.45f;}return width;
+        }
+        public void BuildTitle(RectTransform title,string text,float fontSize)
+        {
+            float dp=Skin.DP;int fs=Mathf.RoundToInt(fontSize);float total=TextWidth(text,fs),x=-total/2;
+            // Chinese uses fewer glyphs; preserve the original ten-character
+            // title entrance span so the reward and button keep their timing.
+            float stagger=text==Zh.WellDone&&text.Length>1?.675f/(text.Length-1):.075f;
+            var row=Skin.Rect("Arc title row",title,new Vector2(.5f,.5f),Vector2.zero,new Vector2(total,100*dp));row.localScale=Vector3.one*Mathf.Min(1,title.sizeDelta.x/Mathf.Max(1,total));
+            for(int i=0;i<text.Length;i++)
+            {
+                string ch=text[i]==' '?"\u00A0":text[i].ToString();float advance=TextWidth(text[i].ToString(),fs),u=text.Length>1?(i-(text.Length-1)/2f)/((text.Length-1)/2f):0;
+                var r=Skin.Rect("Title letter "+i,row,new Vector2(.5f,.5f),new Vector2(x+advance/2,(1-u*u)*18*dp-3.5f*dp),new Vector2(advance,100*dp));r.localRotation=Quaternion.Euler(0,0,-u*18);x+=advance;
+                // Source uses text-shadow halos; concentric low-alpha outlines approximate the blur in uGUI.
+                for(int halo=2;halo>=0;halo--){var t=TitleGlyph(ch,r,fs,new Color32(72,12,0,(byte)(35+halo*10)));t.rectTransform.localScale=Vector3.one*1.1f;var o=t.gameObject.AddComponent<Outline>();o.effectColor=t.color;o.effectDistance=Vector2.one*(4+(halo+1)*1.5f)*dp;o.useGraphicAlpha=true;}
+                var stroke=TitleGlyph(ch,r,fs,new Color32(72,12,0,255));stroke.rectTransform.localScale=Vector3.one*1.1f;var outline=stroke.gameObject.AddComponent<Outline>();outline.effectColor=stroke.color;outline.effectDistance=Vector2.one*4*dp;
+                var fill=TitleGlyph(ch,r,fs,new Color32(255,198,46,255));var shadow=fill.gameObject.AddComponent<Shadow>();shadow.effectColor=new Color(72/255f,12/255f,0,.35f);shadow.effectDistance=new Vector2(0,-2*dp);
+                letters.Add(new Letter{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=i*stagger});
+            }
+            titleDone=Mathf.Max(0,text.Length-1)*stagger+SpringRest(.3f,1,140,6);
+        }
+        static Text TitleGlyph(string ch,RectTransform parent,int size,Color color)
+        {var t=Skin.Text(ch,parent,new Vector2(.5f,.5f),Vector2.zero,new Vector2(size*2,size*1.7f),size,color);t.horizontalOverflow=HorizontalWrapMode.Overflow;t.verticalOverflow=VerticalWrapMode.Overflow;return t;}
+        // Native SpringAnimation defaults: restSpeedThreshold=.001, restDisplacementThreshold=.001.
+        static float SpringRest(float from,float to,float tension,float friction)
+        {for(int i=1;i<1800;i++){float t=i/240f,v=SourceMotion.Spring(t,from,to,tension,friction),previous=SourceMotion.Spring(t-1/240f,from,to,tension,friction);if(Mathf.Abs(v-to)<=.001f&&Mathf.Abs(v-previous)*240<=.001f)return t;}return 7.5f;}
+        public void Begin(){begin=SourceClock.Now;buttonPosition=Button.anchoredPosition;Apply(0);}
+        void Update(){Apply(Elapsed);}
+        void Apply(float t)
+        {
+            foreach(var letter in letters){float age=t-letter.Delay;letter.Alpha.alpha=age<=0?0:SourceMotion.DefaultTiming(age/.180f);letter.Rect.localScale=Vector3.one*(age<0?.3f:age>2?1:SourceMotion.Spring(age,.3f,1,140,6));}
+            float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.DefaultTiming(rewardAge/.250f);Reward.localScale=Vector3.one*(rewardAge<0?.3f:rewardAge>3?1:SourceMotion.Spring(rewardAge,.3f,1,55,5));
+            float buttonAge=rewardAge-.250f;ButtonAlpha.alpha=SourceMotion.DefaultTiming(buttonAge/.250f);Button.anchoredPosition=buttonPosition+Vector2.right*(buttonAge<0?Width:buttonAge>3?0:SourceMotion.Spring(buttonAge,Width,0,55,10));
+            if(!confettiStarted&&rewardAge>=0){confettiStarted=true;var confetti=ConfettiParent.gameObject.AddComponent<SourceResultConfetti>();confetti.Begin();}
+        }
+    }
+
+    public sealed class SourceResultConfetti:MonoBehaviour
+    {
+        sealed class Bit{public RectTransform Rect;public CanvasGroup Alpha;public float Delay,Rise,RiseDuration,FallDuration,Spin,X;}
+        readonly List<Bit> bits=new List<Bit>();float begin;
+        public void Begin()
+        {
+            begin=SourceClock.Now;string[] colors={"#FFD700","#FF4444","#44AAFF","#33CC44","#FF66AA","#FFAA00","#AA44FF","#44FFAA"};var random=new System.Random();Func<float> rand=()=> (float)random.NextDouble();float dp=Skin.DP;
+            for(int i=0;i<40;i++){float size=(7+rand()*7)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.6f+rand()*.8f)),color,2*dp);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.180f,Rise=(350+rand()*350)*dp,RiseDuration=(400+rand()*200)/1000,FallDuration=(900+rand()*500)/1000,Spin=540+rand()*540,X=(.1f+rand()*.8f)*1080};bits.Add(bit);}Apply();
+        }
+        void Update(){Apply();}
+        void Apply()
+        {
+            float dp=Skin.DP;foreach(var bit in bits){float t=SourceClock.Now-begin-bit.Delay,phase=bit.RiseDuration+bit.FallDuration,y=t<=phase?bit.Rise*SourceMotion.OutQuad(t/bit.RiseDuration):Mathf.Lerp(bit.Rise,-800*dp,Mathf.Pow(Mathf.Clamp01((t-phase)/bit.FallDuration),2));bit.Rect.anchoredPosition=new Vector2(bit.X,y);bit.Rect.localRotation=Quaternion.Euler(0,0,-bit.Spin*SourceMotion.DefaultTiming(t/phase));bit.Alpha.alpha=t<0?0:t<phase?SourceMotion.DefaultTiming(t/.080f):1-SourceMotion.DefaultTiming((t-phase-bit.FallDuration+.500f)/.500f);}
+        }
+    }
+}

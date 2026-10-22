@@ -1,0 +1,8 @@
+; fn#23553 "?anon_0_" params=1 frame=2 regs=1(num=1,nonptr=0) size=20 offset=0x4c28bb flags=[strict]
+0000  CreateFunctionEnvironment r1, 4
+0003  LoadConstZero r0
+0005  StoreNPToEnvironment r1, 2, r0
+0009  StoreNPToEnvironment r1, 3, r0
+000d  CreateGenerator r1, r1, 24462
+0012  Ret r1
+

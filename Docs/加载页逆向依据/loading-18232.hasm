@@ -1,0 +1,26 @@
+; fn#18232 "<anonymous>" params=1 frame=15 regs=1(num=1,nonptr=0) size=93 offset=0x41561f flags=[strict]
+0000  GetGlobalObject r1
+0002  TryGetById r4, r1, 0, "Array"
+0008  GetByIdShort r3, r4, 1, "isArray"
+000d  GetParentEnvironment r2, 0
+0010  LoadFromEnvironment r2, r2, 2
+0014  Call2 r3, r3, r4, r2
+0019  JmpFalse L39, r3
+001c  GetByIdShort r3, r2, 2, "length"
+0021  LoadConstZero r0
+0023  JGreater L46, r3, r0
+L39:
+0027  GetParentEnvironment r3, 1
+002a  LoadFromEnvironment r2, r3, 17
+L46:
+002e  TryGetById r4, r1, 3, "Math"
+0034  GetByIdShort r3, r4, 4, "floor"
+0039  TryGetById r5, r1, 3, "Math"
+003f  GetById r1, r5, 5, "random"
+0045  Call1 r5, r1, r5
+0049  GetByIdShort r1, r2, 2, "length"
+004e  Mul r1, r5, r1
+0052  Call2 r1, r3, r4, r1
+0057  GetByVal r1, r2, r1
+005b  Ret r1
+

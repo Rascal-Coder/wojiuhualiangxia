@@ -1,0 +1,125 @@
+0000  LoadParam r3, 1
+0003  GetById r25, r3, 0, "onConfirm"
+0009  GetById r26, r3, 1, "onCancel"
+000f  GetById r13, r3, 2, "magnificentSeries"
+0015  LoadConstUndefined r2
+0017  JStrictNotEqual L29, r13, r2
+001b  LoadConstZero r13
+L29:
+001d  GetById r12, r3, 3, "balloonsCollected"
+0023  JStrictNotEqual L41, r12, r2
+0027  LoadConstZero r12
+L41:
+0029  GetParentEnvironment r22, 0
+002c  LoadFromEnvironment r3, r22, 7
+0030  GetById r3, r3, 4, "useT"
+0036  Call1 r24, r3, r2
+003a  LoadFromEnvironment r21, r22, 10
+003e  GetByIdShort r5, r21, 5, "jsx"
+0043  LoadFromEnvironment r3, r22, 1
+0047  GetByIdShort r4, r3, 6, "default"
+004c  LoadConstString r3, "exitConfirm.title"
+0050  Call2 r6, r24, r2, r3
+0055  JmpTrue L92, r6
+0058  LoadConstString r6, "Quit Game?"
+L92:
+005c  NewObjectWithBuffer r3, 3019, 27714
+0062  PutOwnBySlotIdx r3, r6, 0
+0066  PutOwnBySlotIdx r3, r26, 1
+006a  GetByIdShort r8, r21, 7, "jsxs"
+006f  LoadFromEnvironment r20, r22, 0
+0073  GetByIdShort r7, r20, 8, "View"
+0078  NewObjectWithBuffer r6, 2179, 27684
+007e  LoadFromEnvironment r23, r22, 18
+0082  GetById r9, r23, 9, "content"
+0088  PutOwnBySlotIdx r6, r9, 0
+008c  GetByIdShort r11, r21, 5, "jsx"
+0091  LoadFromEnvironment r10, r22, 16
+0095  NewObjectWithBuffer r9, 3032, 27684
+009b  PutOwnBySlotIdx r9, r13, 0
+009f  PutOwnBySlotIdx r9, r12, 1
+00a3  Call3 r10, r11, r2, r10, r9
+00a9  NewArray r9, 2
+00ad  DefineOwnInDenseArray r9, r10, 0
+00b1  GetByIdShort r12, r21, 7, "jsxs"
+00b6  GetByIdShort r11, r20, 8, "View"
+00bb  NewObjectWithBuffer r10, 2179, 27684
+00c1  GetById r13, r23, 10, "buttonsRow"
+00c7  PutOwnBySlotIdx r10, r13, 0
+00cb  GetByIdShort r15, r21, 5, "jsx"
+00d0  GetByIdShort r14, r20, 8, "View"
+00d5  NewObjectWithBuffer r13, 2179, 27684
+00db  NewObjectWithBuffer r16, 130, 28970
+00e1  PutOwnBySlotIdx r13, r16, 0
+00e5  GetByIdShort r19, r21, 5, "jsx"
+00ea  LoadFromEnvironment r17, r22, 2
+00ee  GetByIdShort r18, r17, 6, "default"
+00f3  NewObjectWithBuffer r16, 3035, 43545
+00f9  PutOwnBySlotIdx r16, r26, 0
+00fd  LoadFromEnvironment r22, r22, 9
+0101  GetByIdShort r26, r22, 11, "sc"
+0106  LoadConstUInt8 r0, 60
+0109  Call2 r26, r26, r2, r0
+010e  PutOwnBySlotIdx r16, r26, 3
+0112  GetByIdShort r26, r22, 11, "sc"
+0117  LoadConstUInt8 r1, 20
+011a  Call2 r26, r26, r2, r1
+011f  PutOwnBySlotIdx r16, r26, 4
+0123  GetByIdShort r28, r21, 5, "jsx"
+0128  GetByIdShort r27, r20, 12, "Text"
+012d  NewObjectWithBuffer r26, 2809, 41308
+0133  GetById r29, r23, 13, "btnText"
+0139  PutOwnBySlotIdx r26, r29, 0
+013d  LoadConstString r29, "common.cancel"
+0141  Call2 r29, r24, r2, r29
+0146  JmpTrue L333, r29
+0149  LoadConstString r29, "Cancel"
+L333:
+014d  PutOwnBySlotIdx r26, r29, 4
+0151  Call3 r26, r28, r2, r27, r26
+0157  PutOwnBySlotIdx r16, r26, 5
+015b  Call3 r16, r19, r2, r18, r16
+0161  PutOwnBySlotIdx r13, r16, 1
+0165  Call3 r14, r15, r2, r14, r13
+016b  NewArray r13, 2
+016f  DefineOwnInDenseArray r13, r14, 0
+0173  GetByIdShort r16, r21, 5, "jsx"
+0178  GetByIdShort r15, r20, 8, "View"
+017d  NewObjectWithBuffer r14, 2179, 27684
+0183  NewObjectWithBuffer r18, 130, 28970
+0189  PutOwnBySlotIdx r14, r18, 0
+018d  GetByIdShort r19, r21, 5, "jsx"
+0192  GetByIdShort r18, r17, 6, "default"
+0197  NewObjectWithBuffer r17, 3035, 43582
+019d  PutOwnBySlotIdx r17, r25, 0
+01a1  GetByIdShort r25, r22, 11, "sc"
+01a6  Call2 r25, r25, r2, r0
+01ab  PutOwnBySlotIdx r17, r25, 3
+01af  GetByIdShort r22, r22, 11, "sc"
+01b4  Call2 r22, r22, r2, r1
+01b9  PutOwnBySlotIdx r17, r22, 4
+01bd  GetByIdShort r22, r21, 5, "jsx"
+01c2  GetByIdShort r21, r20, 12, "Text"
+01c7  NewObjectWithBuffer r20, 2809, 41308
+01cd  GetById r23, r23, 13, "btnText"
+01d3  PutOwnBySlotIdx r20, r23, 0
+01d7  LoadConstString r23, "common.confirm"
+01db  Call2 r23, r24, r2, r23
+01e0  JmpTrue L487, r23
+01e3  LoadConstString r23, "Exit"
+L487:
+01e7  PutOwnBySlotIdx r20, r23, 4
+01eb  Call3 r20, r22, r2, r21, r20
+01f1  PutOwnBySlotIdx r17, r20, 5
+01f5  Call3 r17, r19, r2, r18, r17
+01fb  PutOwnBySlotIdx r14, r17, 1
+01ff  Call3 r14, r16, r2, r15, r14
+0205  DefineOwnInDenseArray r13, r14, 1
+0209  PutOwnBySlotIdx r10, r13, 1
+020d  Call3 r10, r12, r2, r11, r10
+0213  DefineOwnInDenseArray r9, r10, 1
+0217  PutOwnBySlotIdx r6, r9, 1
+021b  Call3 r6, r8, r2, r7, r6
+0221  PutOwnBySlotIdx r3, r6, 2
+0225  Call3 r3, r5, r2, r4, r3
+022b  Ret r3

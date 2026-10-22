@@ -1,0 +1,3729 @@
+{
+    "status": "PASS",
+    "startedUtc": "2026-10-20T08:19:28.1166261Z",
+    "finishedUtc": "2026-10-20T08:20:42.0834195Z",
+    "engine": "2022.3.62t16",
+    "outputDirectory": "C:/Users/aaa/Documents/Codex/2026-10-20/shi/outputs/InkominoTuanjie/QA/Chinese",
+    "actualRuntimeRender": true,
+    "isolatedQaProfile": true,
+    "defaultEngineSplashExcludedFromCanvasCapture": true,
+    "screenshots": 28,
+    "frames": [
+        {
+            "file": "01-loading-1080x2400.png",
+            "sha256": "4e6fa3cdbc101ad6f2e00bcdc59276c5c69f966672e0a4e4f3434c3182ac37bb",
+            "screen": "启动加载",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 1,
+            "bytes": 2997038,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "加载中...",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "Source startup loading | ",
+                "source_loading_background |  | source_loading_background",
+                "zh_loading_logo |  | zh_loading_logo"
+            ]
+        },
+        {
+            "file": "02-loading-540x836.png",
+            "sha256": "97e90c4dd076bddd5a455c9f77160d8f326707cf5cbcd34bb6fc90d87119f9a2",
+            "screen": "启动加载小窗口",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 1,
+            "bytes": 481777,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "加载中",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "Source startup loading | ",
+                "source_loading_background |  | source_loading_background",
+                "zh_loading_logo |  | zh_loading_logo"
+            ]
+        },
+        {
+            "file": "03-home.png",
+            "sha256": "af667a7525e8434e6fa12143ba20b23b09287d82b5ad795a67bad5824273c4b4",
+            "screen": "主页",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 8,
+            "bytes": 3184507,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "06:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 116,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | game_assets_homebg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_levelsignmosaic |  | game_assets_levelsignmosaic",
+                "game_assets_event_frame |  | game_assets_event_frame",
+                "shell_src_ui_dailyrewardcardicon |  | shell_src_ui_dailyrewardcardicon",
+                "game_assets_event_ribboncap |  | game_assets_event_ribboncap",
+                "game_assets_event_ribbonmid |  | game_assets_event_ribbonmid",
+                "shell_src_ui_climb_treasure |  | shell_src_ui_climb_treasure",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank"
+            ]
+        },
+        {
+            "file": "04-settings.png",
+            "sha256": "f21aef39e2717010902a72b87d4183570b505399c88c84b897f71ffa843ebb83",
+            "screen": "设置",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 11,
+            "bytes": 1217325,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "06:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 116,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "设置",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "完成",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "版本 1.0.0（1）",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 32,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | game_assets_homebg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_levelsignmosaic |  | game_assets_levelsignmosaic",
+                "game_assets_event_frame |  | game_assets_event_frame",
+                "shell_src_ui_dailyrewardcardicon |  | shell_src_ui_dailyrewardcardicon",
+                "game_assets_event_ribboncap |  | game_assets_event_ribboncap",
+                "game_assets_event_ribbonmid |  | game_assets_event_ribbonmid",
+                "shell_src_ui_climb_treasure |  | shell_src_ui_climb_treasure",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "设置 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_soundicon |  | shell_src_ui_soundicon",
+                "shell_src_ui_musicicon |  | shell_src_ui_musicicon",
+                "shell_src_ui_hapticsicon |  | shell_src_ui_hapticsicon"
+            ]
+        },
+        {
+            "file": "05-lives-full.png",
+            "sha256": "32cf1a79ea9fb52913c3daa9be731f26458341de9866aac2a489454d87612c8c",
+            "screen": "生命已满",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 11,
+            "bytes": 1429195,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 2,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "06:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 116,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "生命",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "生命已满！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | game_assets_homebg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_levelsignmosaic |  | game_assets_levelsignmosaic",
+                "game_assets_event_frame |  | game_assets_event_frame",
+                "shell_src_ui_dailyrewardcardicon |  | shell_src_ui_dailyrewardcardicon",
+                "game_assets_event_ribboncap |  | game_assets_event_ribboncap",
+                "game_assets_event_ribbonmid |  | game_assets_event_ribbonmid",
+                "shell_src_ui_climb_treasure |  | shell_src_ui_climb_treasure",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "生命 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close"
+            ]
+        },
+        {
+            "file": "06-lives-empty.png",
+            "sha256": "d20486fed58b709a57892cbfedaa188d0149256e8fff037fe7f66b2547d54331",
+            "screen": "恢复生命",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 15,
+            "bytes": 1245108,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "00:14:27",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "0",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 2,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "06:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 116,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "生命",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "距离恢复下一颗生命",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "—",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "14:25",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "补满生命",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "450",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | game_assets_homebg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_levelsignmosaic |  | game_assets_levelsignmosaic",
+                "game_assets_event_frame |  | game_assets_event_frame",
+                "shell_src_ui_dailyrewardcardicon |  | shell_src_ui_dailyrewardcardicon",
+                "game_assets_event_ribboncap |  | game_assets_event_ribboncap",
+                "game_assets_event_ribbonmid |  | game_assets_event_ribbonmid",
+                "shell_src_ui_climb_treasure |  | shell_src_ui_climb_treasure",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "生命 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close"
+            ]
+        },
+        {
+            "file": "07-shop.png",
+            "sha256": "6b6ec3ea92399f8edb8ac8bd3e5db81ced6e1424d895774e0d190bd6183011af",
+            "screen": "金币兑换道具",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 12,
+            "bytes": 1794447,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "道具商店",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 105,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "魔法画笔\n3个",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "150 金币",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 41,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "时间冻结\n3个",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "120 金币",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 41,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "放大镜\n3个",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "完成拼图，收集金币",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 36,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_shopbg |  | game_assets_shopbg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_paneltraybeigecap |  | game_assets_paneltraybeigecap",
+                "game_assets_paneltraybeigemid |  | game_assets_paneltraybeigemid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank"
+            ]
+        },
+        {
+            "file": "08-collection.png",
+            "sha256": "4dd80e17e8f32f73e626eca33c3b3599d27990ad4cd12567e3a198bedb032354",
+            "screen": "成就",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 7,
+            "bytes": 2381361,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "我的成就",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已完成 0 / 500 幅拼图\n\n最高进度：第 23 关\n连续通关：0 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 51,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "关卡目录",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 60,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "排行",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_shopbg |  | game_assets_shopbg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btnpurplecap |  | game_assets_btnpurplecap",
+                "game_assets_btnpurplemid |  | game_assets_btnpurplemid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive"
+            ]
+        },
+        {
+            "file": "09-library-first.png",
+            "sha256": "defe32b2a55aec1e0a9d71bab85aa2a09e79f2aec7fef30035d8e9e907347774",
+            "screen": "关卡目录第一页",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 37,
+            "bytes": 920565,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 2,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "我的成就",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已完成 0 / 500 幅拼图\n\n最高进度：第 23 关\n连续通关：0 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 51,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "关卡目录",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 60,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "排行",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "自由挑战全部 500 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 35,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "2",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "6",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "7",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "8",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "9",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "10",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "11",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "12",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "13",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "14",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "15",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "16",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "17",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "18",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "19",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "21",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "22",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "23",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "24",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "25",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "<",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 55,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1 / 20",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": ">",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 55,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_shopbg |  | game_assets_shopbg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btnpurplecap |  | game_assets_btnpurplecap",
+                "game_assets_btnpurplemid |  | game_assets_btnpurplemid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "关卡目录 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_btnbluecap |  | game_assets_btnbluecap",
+                "game_assets_btnbluemid |  | game_assets_btnbluemid"
+            ]
+        },
+        {
+            "file": "10-library-last.png",
+            "sha256": "267b3d8dc444b23033396993d844e30d0e0bf32f43fb4bf52104689a56f5af3b",
+            "screen": "关卡目录末页",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 37,
+            "bytes": 952179,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "我的成就",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已完成 0 / 500 幅拼图\n\n最高进度：第 23 关\n连续通关：0 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 51,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "关卡目录",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 60,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "排行",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "自由挑战全部 500 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 35,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "476",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "477",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "478",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "479",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "480",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "481",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "482",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "483",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "484",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "485",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "486",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "487",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "488",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "489",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "490",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "491",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "492",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "493",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "494",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "495",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "496",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "497",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "498",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "499",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "500",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "<",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 55,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20 / 20",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": ">",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 55,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_shopbg |  | game_assets_shopbg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btnpurplecap |  | game_assets_btnpurplecap",
+                "game_assets_btnpurplemid |  | game_assets_btnpurplemid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "关卡目录 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_btnbluecap |  | game_assets_btnbluecap",
+                "game_assets_btnbluemid |  | game_assets_btnbluemid"
+            ]
+        },
+        {
+            "file": "11-profile.png",
+            "sha256": "40b6a09443c28b1d2e327b25355ecaa081a2d0a7baa373045b5c849c0c491b9e",
+            "screen": "个人资料",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 11,
+            "bytes": 1396959,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "06:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 116,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "个人资料",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "拼图艺术家\n第 23 关\n已完成 0 幅拼图",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 49,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "更换头像",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | game_assets_homebg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_levelsignmosaic |  | game_assets_levelsignmosaic",
+                "game_assets_event_frame |  | game_assets_event_frame",
+                "shell_src_ui_dailyrewardcardicon |  | shell_src_ui_dailyrewardcardicon",
+                "game_assets_event_ribboncap |  | game_assets_event_ribboncap",
+                "game_assets_event_ribbonmid |  | game_assets_event_ribbonmid",
+                "shell_src_ui_climb_treasure |  | shell_src_ui_climb_treasure",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "个人资料 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "game_assets_btnbluecap |  | game_assets_btnbluecap",
+                "game_assets_btnbluemid |  | game_assets_btnbluemid"
+            ]
+        },
+        {
+            "file": "12-daily-gift.png",
+            "sha256": "0f8615ce562cf3e920a8af904b5dde8f7eb7929a08e137661e035d353e68d58c",
+            "screen": "免费每日礼物",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 11,
+            "bytes": 1442348,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "06:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 116,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "每日礼物",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "100 金币 + 1 个时间冻结",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 47,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "领取",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 70,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | game_assets_homebg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_levelsignmosaic |  | game_assets_levelsignmosaic",
+                "game_assets_event_frame |  | game_assets_event_frame",
+                "shell_src_ui_dailyrewardcardicon |  | shell_src_ui_dailyrewardcardicon",
+                "game_assets_event_ribboncap |  | game_assets_event_ribboncap",
+                "game_assets_event_ribbonmid |  | game_assets_event_ribbonmid",
+                "shell_src_ui_climb_treasure |  | shell_src_ui_climb_treasure",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "每日礼物 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_chestgoldopen |  | shell_src_ui_chestgoldopen"
+            ]
+        },
+        {
+            "file": "13-level23.png",
+            "sha256": "3f69d3dd8135f130fb6cfd3d5c4ed4545dc6c5ad8f873ec6422dda14c443509e",
+            "screen": "第23关",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 7,
+            "bytes": 2921600,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid"
+            ]
+        },
+        {
+            "file": "14-pause.png",
+            "sha256": "56cf87a9f106a2a4d33ddf4b8ba0e98e09bb180816f7d56754adcb741caf6636",
+            "screen": "关卡暂停",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 10,
+            "bytes": 1303513,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已暂停",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "版本 1.0.0（1）",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 32,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "已暂停 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_soundicon |  | shell_src_ui_soundicon",
+                "shell_src_ui_musicicon |  | shell_src_ui_musicicon",
+                "shell_src_ui_hapticsicon |  | shell_src_ui_hapticsicon",
+                "shell_src_ui_restarticon |  | shell_src_ui_restarticon",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid"
+            ]
+        },
+        {
+            "file": "15-booster-shop.png",
+            "sha256": "2e1cfd83ca625706c09a70500aa744e5938db2351ef9accbc7a80b5bc5d6b01d",
+            "screen": "补充道具",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 9,
+            "bytes": 1424031,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "补充道具",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3个  150 金币",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 53,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "补充道具 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid"
+            ]
+        },
+        {
+            "file": "16-restart.png",
+            "sha256": "d6c16c22515e0ce7e5e6a4567ccb08ecef2ac40c85fe189cc7df09d1ed9a3cc1",
+            "screen": "重新开始确认",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 15,
+            "bytes": 842143,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已暂停",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "版本 1.0.0（1）",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 32,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "重新开始",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "-1",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "当前关卡进度将会丢失！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "已暂停 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_soundicon |  | shell_src_ui_soundicon",
+                "shell_src_ui_musicicon |  | shell_src_ui_musicicon",
+                "shell_src_ui_hapticsicon |  | shell_src_ui_hapticsicon",
+                "shell_src_ui_restarticon |  | shell_src_ui_restarticon",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "重新开始 overlay | ",
+                "shell_src_ui_heartbroken |  | shell_src_ui_heartbroken",
+                "game_assets_btnredcap |  | game_assets_btnredcap",
+                "game_assets_btnredmid |  | game_assets_btnredmid"
+            ]
+        },
+        {
+            "file": "25-restart-small.png",
+            "sha256": "2398705d14dd02fd8bdd8596fdf6861687add9220a00f7e9be49655972098c3c",
+            "screen": "重开确认小窗口",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 15,
+            "bytes": 169127,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已暂停",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "版本 1.0.0（1）",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 32,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "重新开始",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "-1",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "当前关卡进度将会丢失！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "已暂停 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_soundicon |  | shell_src_ui_soundicon",
+                "shell_src_ui_musicicon |  | shell_src_ui_musicicon",
+                "shell_src_ui_hapticsicon |  | shell_src_ui_hapticsicon",
+                "shell_src_ui_restarticon |  | shell_src_ui_restarticon",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "重新开始 overlay | ",
+                "shell_src_ui_heartbroken |  | shell_src_ui_heartbroken",
+                "game_assets_btnredcap |  | game_assets_btnredcap",
+                "game_assets_btnredmid |  | game_assets_btnredmid"
+            ]
+        },
+        {
+            "file": "26-restart-narrow.png",
+            "sha256": "da88c08e082a168fdc571cff4852693fcc739aaa898c3cfafc7279852d0d096f",
+            "screen": "重开确认窄屏",
+            "width": 360,
+            "height": 800,
+            "visibleTextInstances": 15,
+            "bytes": 143987,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已暂停",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "版本 1.0.0（1）",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 32,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "重新开始",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 2,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "-1",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "当前关卡进度将会丢失！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "已暂停 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_soundicon |  | shell_src_ui_soundicon",
+                "shell_src_ui_musicicon |  | shell_src_ui_musicicon",
+                "shell_src_ui_hapticsicon |  | shell_src_ui_hapticsicon",
+                "shell_src_ui_restarticon |  | shell_src_ui_restarticon",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "重新开始 overlay | ",
+                "shell_src_ui_heartbroken |  | shell_src_ui_heartbroken",
+                "game_assets_btnredcap |  | game_assets_btnredcap",
+                "game_assets_btnredmid |  | game_assets_btnredmid"
+            ]
+        },
+        {
+            "file": "27-exit.png",
+            "sha256": "ae83bbcac34cddb21bb30ea526952136c7bdde04a7c7bd4039d6e3b22fc7ccdc",
+            "screen": "退出确认",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 15,
+            "bytes": 816149,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已暂停",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "版本 1.0.0（1）",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 32,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "退出关卡？",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "-1",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "当前关卡进度将会丢失！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "取消",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "退出",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "已暂停 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_soundicon |  | shell_src_ui_soundicon",
+                "shell_src_ui_musicicon |  | shell_src_ui_musicicon",
+                "shell_src_ui_hapticsicon |  | shell_src_ui_hapticsicon",
+                "shell_src_ui_restarticon |  | shell_src_ui_restarticon",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "退出关卡？ overlay | ",
+                "shell_src_ui_heartbroken |  | shell_src_ui_heartbroken",
+                "game_assets_btnredcap |  | game_assets_btnredcap",
+                "game_assets_btnredmid |  | game_assets_btnredmid"
+            ]
+        },
+        {
+            "file": "28-exit-small.png",
+            "sha256": "3ade53070ac2511147d7c39c88283dc23defe7213fae2c67264e9fc813566b8c",
+            "screen": "退出确认小窗口",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 15,
+            "bytes": 164949,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "已暂停",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "版本 1.0.0（1）",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 32,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "退出关卡？",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "-1",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "当前关卡进度将会丢失！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 50,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "取消",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "退出",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "已暂停 overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "shell_src_ui_close |  | shell_src_ui_close",
+                "shell_src_ui_soundicon |  | shell_src_ui_soundicon",
+                "shell_src_ui_musicicon |  | shell_src_ui_musicicon",
+                "shell_src_ui_hapticsicon |  | shell_src_ui_hapticsicon",
+                "shell_src_ui_restarticon |  | shell_src_ui_restarticon",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "退出关卡？ overlay | ",
+                "shell_src_ui_heartbroken |  | shell_src_ui_heartbroken",
+                "game_assets_btnredcap |  | game_assets_btnredcap",
+                "game_assets_btnredmid |  | game_assets_btnredmid"
+            ]
+        },
+        {
+            "file": "17-failure-free.png",
+            "sha256": "793131f8727b59817a998a54360740d51fcd8d5c133c700cb2e4fb3e189c150f",
+            "screen": "首次免费继续",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 95,
+            "bytes": 309490,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "时",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "间",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "到",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "了",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "+60秒",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 76,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "免费继续",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "Source ContinueScreen | ",
+                "game_assets_extratime |  | game_assets_extratime",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btnbluecap |  | game_assets_btnbluecap",
+                "game_assets_btnbluemid |  | game_assets_btnbluemid",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "shell_src_ui_close |  | shell_src_ui_close"
+            ]
+        },
+        {
+            "file": "18-failure-coins.png",
+            "sha256": "cbee4f8f710cbeeac78c98dbe422937720362373561368da3162bfa821544e5a",
+            "screen": "金币继续挑战",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 96,
+            "bytes": 307717,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "1:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "时",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "间",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "到",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "了",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "+60秒",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 76,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续挑战",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "120",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 63,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1200",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "Source ContinueScreen | ",
+                "game_assets_extratime |  | game_assets_extratime",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "shell_src_ui_close |  | shell_src_ui_close"
+            ]
+        },
+        {
+            "file": "19-continue.png",
+            "sha256": "ccd72652abb1e33344d1a42e1a5f42c158302847004af1c91fd7c84dd5ae135c",
+            "screen": "继续上次进度",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 12,
+            "bytes": 1445139,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "已满",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "1080",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 52,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 79,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "20:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "06:35",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "开始游戏",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 116,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "首页",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 45,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "欢迎回来！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "你有尚未完成的关卡。\n要继续上次的进度吗？",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "放弃",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 58,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_homebg |  | game_assets_homebg",
+                "shell_src_ui_avatars_avatar_2 |  | shell_src_ui_avatars_avatar_2",
+                "shell_src_ui_heart |  | shell_src_ui_heart",
+                "shell_src_ui_greenbase |  | shell_src_ui_greenbase",
+                "shell_src_ui_plus |  | shell_src_ui_plus",
+                "shell_src_ui_coin |  | shell_src_ui_coin",
+                "game_assets_btnsettings |  | game_assets_btnsettings",
+                "Panel | ",
+                "game_assets_levelsignmosaic |  | game_assets_levelsignmosaic",
+                "game_assets_event_frame |  | game_assets_event_frame",
+                "shell_src_ui_dailyrewardcardicon |  | shell_src_ui_dailyrewardcardicon",
+                "game_assets_event_ribboncap |  | game_assets_event_ribboncap",
+                "game_assets_event_ribbonmid |  | game_assets_event_ribbonmid",
+                "shell_src_ui_climb_treasure |  | shell_src_ui_climb_treasure",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid",
+                "game_assets_nav_barc |  | game_assets_nav_barc",
+                "game_assets_nav_bart |  | game_assets_nav_bart",
+                "game_assets_nav_barl |  | game_assets_nav_barl",
+                "game_assets_nav_bartl |  | game_assets_nav_bartl",
+                "game_assets_nav_tabshop |  | game_assets_nav_tabshop",
+                "game_assets_nav_tabactive |  | game_assets_nav_tabactive",
+                "game_assets_nav_tabhome |  | game_assets_nav_tabhome",
+                "game_assets_nav_tabrank |  | game_assets_nav_tabrank",
+                "欢迎回来！ overlay | ",
+                "game_assets_popup_pnlorangec |  | game_assets_popup_pnlorangec",
+                "game_assets_popup_pnlorangel |  | game_assets_popup_pnlorangel",
+                "game_assets_popup_pnloranget |  | game_assets_popup_pnloranget",
+                "game_assets_popup_pnlorangeb |  | game_assets_popup_pnlorangeb",
+                "game_assets_popup_pnlorangetl |  | game_assets_popup_pnlorangetl",
+                "game_assets_popup_pnlorangebl |  | game_assets_popup_pnlorangebl",
+                "game_assets_popup_bnrcap |  | game_assets_popup_bnrcap",
+                "game_assets_popup_bnrmid |  | game_assets_popup_bnrmid",
+                "game_assets_btnredcap |  | game_assets_btnredcap",
+                "game_assets_btnredmid |  | game_assets_btnredmid"
+            ]
+        },
+        {
+            "file": "20-result.png",
+            "sha256": "c8556bbcc2956d8f860d13f200a24f0475f54f5a4fa413d03b7384ee0aed23cf",
+            "screen": "通关奖励与弧形中文标题",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 22,
+            "bytes": 367928,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "太",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 5,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "棒",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 5,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "了",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 5,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 5,
+                    "fontSize": 147,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "+0",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 110,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 84,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Source result paper | ",
+                "game_assets_paneltraycap |  | game_assets_paneltraycap",
+                "game_assets_paneltraymid |  | game_assets_paneltraymid",
+                "shell_src_ui_coinxlarge |  | shell_src_ui_coinxlarge",
+                "game_assets_btnframecap |  | game_assets_btnframecap",
+                "game_assets_btnframemid |  | game_assets_btnframemid",
+                "game_assets_btngreencap |  | game_assets_btngreencap",
+                "game_assets_btngreenmid |  | game_assets_btngreenmid"
+            ]
+        },
+        {
+            "file": "21-tutorial-demo.png",
+            "sha256": "b19fefba1b5b59a0d7e93c02370b8e53149393a97ec880ce269e3f248252f65c",
+            "screen": "新手教学演示",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 8,
+            "bytes": 2533732,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 1 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "画出目标图形",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 63,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "手指划过相邻的空格，画出上方的目标图形。",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "7关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "10关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "mzTutHand |  | shell_src_ui_tutorialhand"
+            ]
+        },
+        {
+            "file": "22-tutorial-guide.png",
+            "sha256": "0773b5b88243613c2d066c170e66bf03bdefb7f6c906ab03e06852ca9bb5c0b2",
+            "screen": "新手教学轮到你",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 8,
+            "bytes": 2472274,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 1 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×2",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "轮到你了！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 63,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "跟着手指提示，画出图形。",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "7关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "10关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "shell_src_ui_lock |  | shell_src_ui_lock",
+                "mzTutHand |  | shell_src_ui_tutorialhand"
+            ]
+        },
+        {
+            "file": "23-tutorial-user.png",
+            "sha256": "e4bdd333ed0349e40cd25276c703633d9fe6000af27a900edbef5f972c4595a8",
+            "screen": "新手教学独立尝试",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 8,
+            "bytes": 2414584,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 1 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×1",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "自己试试吧！",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 63,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "现在请独立画出最后一个图形。",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "7关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "10关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 26,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "shell_src_ui_lock |  | shell_src_ui_lock"
+            ]
+        },
+        {
+            "file": "24-gameplay-loading.png",
+            "sha256": "978b2b4923903ac4e94da42ea66b66d112a275934a714954f755cdf1cab9927a",
+            "screen": "关卡加载过渡",
+            "width": 1080,
+            "height": 2400,
+            "visibleTextInstances": 60,
+            "bytes": 2213632,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "2:00",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 81,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "第 23 关",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×5",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "×4",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 1,
+                    "fontSize": 39,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "3",
+                    "font": "LuckiestGuy-Regular",
+                    "instances": 3,
+                    "fontSize": 37,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "放",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 210,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "大",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 210,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "镜",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 17,
+                    "fontSize": 210,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "显示一个正确形状的位置，帮助你继续拼图。",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 47,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "加载中……",
+                    "font": "ZCOOLKuaiLe-Regular",
+                    "instances": 1,
+                    "fontSize": 63,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "game_assets_bg |  | game_assets_bg",
+                "Panel | ",
+                "game_assets_btnpause |  | game_assets_btnpause",
+                "game_assets_panelslotcap |  | game_assets_panelslotcap",
+                "game_assets_panelslotmid |  | game_assets_panelslotmid",
+                "game_assets_pen |  | game_assets_pen",
+                "game_assets_freeze |  | game_assets_freeze",
+                "game_assets_lens |  | game_assets_lens",
+                "game_assets_panelbadgecap |  | game_assets_panelbadgecap",
+                "game_assets_panelbadgemid |  | game_assets_panelbadgemid",
+                "Source gameplay loading | ",
+                "shell_src_ui_gameplaysplash |  | shell_src_ui_gameplaysplash"
+            ]
+        }
+    ],
+    "checks": [
+        {
+            "name": "使用隔离测试存档",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "真实加载页已创建",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载流程由 QA 暂停在真实加载页",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "启动加载 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "启动加载 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载中文字后的圆点真实变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "启动加载小窗口 截图尺寸",
+            "detail": "540x836",
+            "passed": true
+        },
+        {
+            "name": "启动加载小窗口 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载页使用墨彩拼图中文标志",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载页只有实际加载提示文字",
+            "detail": "加载中",
+            "passed": true
+        },
+        {
+            "name": "加载页无伪造百分比或广告文案",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "加载完成并淡出进入主页",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "真实启动已加载存档及 500 关",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "主页 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "主页 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "设置 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "设置 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "生命已满 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "生命已满 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "恢复生命 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "恢复生命 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币兑换道具 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "金币兑换道具 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "成就 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "成就 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "关卡目录第一页 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "关卡目录第一页 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "关卡目录末页 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "关卡目录末页 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "个人资料 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "个人资料 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "免费每日礼物 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "免费每日礼物 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "第23关 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "第23关 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "关卡暂停 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "关卡暂停 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "补充道具 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "补充道具 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "重新开始确认 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "重新开始确认 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "确认弹窗保留两个操作按钮",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "提示文字与按钮完整分离",
+            "detail": "重新开始 button gapDp=24.00",
+            "passed": true
+        },
+        {
+            "name": "提示文字与按钮完整分离",
+            "detail": "继续游戏 button gapDp=24.00",
+            "passed": true
+        },
+        {
+            "name": "重开确认小窗口 截图尺寸",
+            "detail": "540x836",
+            "passed": true
+        },
+        {
+            "name": "重开确认小窗口 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "重开确认窄屏 截图尺寸",
+            "detail": "360x800",
+            "passed": true
+        },
+        {
+            "name": "重开确认窄屏 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "确认弹窗保留两个操作按钮",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "提示文字与按钮完整分离",
+            "detail": "取消 button gapDp=24.00",
+            "passed": true
+        },
+        {
+            "name": "提示文字与按钮完整分离",
+            "detail": "退出 button gapDp=24.00",
+            "passed": true
+        },
+        {
+            "name": "退出确认 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "退出确认 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "退出确认小窗口 截图尺寸",
+            "detail": "540x836",
+            "passed": true
+        },
+        {
+            "name": "退出确认小窗口 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "首次免费继续 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "首次免费继续 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "免费继续按钮存在",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "免费继续确实增加60秒",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币继续挑战 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "金币继续挑战 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "金币继续按钮存在",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "再次继续仅消耗120游戏金币",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "继续上次进度 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "继续上次进度 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "完整导出解可还原胜利棋盘",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "通关奖励与弧形中文标题 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "通关奖励与弧形中文标题 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "新手教学演示 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "新手教学演示 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "新手教学进入手势引导",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "新手教学轮到你 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "新手教学轮到你 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "新手教学独立尝试 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "新手教学独立尝试 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "进入关卡的过渡画面阻止玩法输入",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "关卡加载过渡 截图尺寸",
+            "detail": "1080x2400",
+            "passed": true
+        },
+        {
+            "name": "关卡加载过渡 真实截图具有可见色彩变化",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "关卡加载过渡结束并进入第24关",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "广告无提供方时不发奖",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "跳过广告不发奖",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "完成且重复回调只发一次奖",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "提供方异常不发奖并解除忙碌",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "广告接口并发测试前玩法可输入",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "预留广告播放时冻结玩法",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "忙碌时拒绝并发且不发奖",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "广告关闭恢复玩法",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "预期28张真实截图",
+            "detail": "28",
+            "passed": true
+        }
+    ],
+    "errors": [],
+    "method": "真实启动加载流程与 uGUI RenderTexture 截图；仅扫描当前有效且透明度可见的 Text，按文字和字体去重。此检查不声称与原作逐像素一致。引擎默认 Splash 在脚本启动之前，由 PlayerSettings 保留，不能用本运行时 Canvas 截图验证。"
+}

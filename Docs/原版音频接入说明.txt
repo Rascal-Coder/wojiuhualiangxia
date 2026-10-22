@@ -1,0 +1,20 @@
+﻿原版音频接入说明
+
+本次导入 APK 提取的全部 83 个 MP3，共 2,858,261 字节；原始文件内容未修改。QA/Audio/original-audio-inventory.json 保存来源和 SHA-256；Resources/Data/original-audio.json 是运行时精确音频表。
+
+背景音乐：三首 calm-paper、calm-dusk、calm-daylight。按照原版 module1996，在会话首次加载时等概率选一首，音量0.3、单曲循环；音乐开关与后台暂停使用暂停/恢复，保持当前曲目和播放位置，不在每关结束时强制换曲。共享壳 fallback 的 music.mp3 也完整保留，Inkomino 配置有三首专属音乐时不使用该兜底曲目。
+
+已确认的原作主线触发：
+• 无效绘制回滚：invalid_drop，0.7。
+• 成功提交拼块：pipe_place，0.9。
+• 删除拼块/原作取消伸展：card_pick，0.8。
+• 画笔成功锁定拼块并开始绘制：hint_sparkle，0.7。
+• 透镜每个新揭示标记出现：hint_sparkle，0.7。
+• 原版通关、失败：通用 shell:win / shell:fail，默认音量1。
+• 原版敲墙使用 shell:hit；此资源已接入精确表，当前复刻未实现开局锤子，不因此新增功能。
+
+全部资源均可按精确音频键调用，PM系列56项音量和climb系列音量来自原版注册表。pump_hit、flow_step、coin_tick、card_deal、card_flip、climb_pop、climb_fall 按原版从_1开始顺序循环。
+共享壳包含水流、卡牌及活动资源，这些内容不在当前拼图主线中，保留资源与调用能力，不把无关声音插入主线。未在原作调用中证实的 UI 点击、冻结等音效不自动播放；移除了上一版本相应的推测触发。原版证据和不确定范围见 QA/Audio/original-behavior-evidence.json。
+
+验证覆盖：编辑器验证所有83项AudioClip导入、时长、声道与原始MP3哈希；Windows运行验证79项效果键/音量、三首BGM随机分支、循环和暂停恢复、变体轮换、真实拼块/删除/无效操作/画笔/透镜/胜负事件。运行测试静音扬声器输出，只核对引擎状态和事件，不把它当作听感验收。
+微信导出另外验证编译、分包、JS语法、Brotli数据往返、图片及音频原文件完整性。微信开发者工具/真机尚未运行，本次未上传发布。实际结果以对应QA JSON的PASS/FAIL为准。

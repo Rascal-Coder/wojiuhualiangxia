@@ -1,0 +1,12 @@
+; fn#21530 "<anonymous>" params=1 frame=16 regs=2(num=0,nonptr=2) size=32 offset=0x471f5d flags=[strict]
+0000  LoadConstUndefined r0
+0002  LoadConstUndefined r2
+0004  ReifyArgumentsStrict r2
+0006  Mov r4, r2
+0009  GetBuiltinClosure r3, 57
+000c  GetParentEnvironment r2, 0
+000f  CreateClosure r2, r2, 23553
+0014  LoadParam r1, 0
+0017  Call4 r2, r3, r0, r2, r1, r4
+001e  Ret r2
+

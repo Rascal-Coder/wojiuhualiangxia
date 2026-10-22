@@ -1,0 +1,120 @@
+{
+  "evidence_id": "ev_9c5575095192ab2b2d8ec7e80bf811e2871001b190aacdaf8b51c29a673fcc25",
+  "parent_evidence_id": "ev_f89d2aa82c3a1bc955a03498f2809bbfaabb9f309020ca3c89f4b7a06ae6b294",
+  "artifact_sha256": "33deb46b166714c32f963f943c5b3e03dec54c4feec11c293e766cc32209ca4a",
+  "statistics": {
+    "relevant_files": 9,
+    "nested_asar_containers": 0,
+    "text_bytes_read": 200219,
+    "invalid_utf8_files": 0,
+    "parsed_javascript_files": 5,
+    "visited_ast_nodes": 0,
+    "findings": 0,
+    "modules": 0,
+    "parse_failures": 5
+  },
+  "coverage": {
+    "application": {
+      "status": "partial",
+      "truncated": false,
+      "omitted_count": null,
+      "limits": []
+    },
+    "semantic": {
+      "status": "unknown",
+      "truncated": false,
+      "omitted_nodes": 0,
+      "omitted_relations": 0,
+      "limits": [],
+      "families": [
+        {
+          "family": "boundary",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "call-flow",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "child-process",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "closure",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "configuration",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "data-flow",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "event",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "object-flow",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "promise-ownership",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "request",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "resource-lifecycle",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        },
+        {
+          "family": "timer",
+          "status": "partial",
+          "retained_relations": 0,
+          "omitted_relations": 0,
+          "unknown_count": 0
+        }
+      ]
+    },
+    "application_unknowns": 5,
+    "semantic_unknowns": 0
+  },
+  "limitation": "Decompiled Hermes pseudocode is not valid reconstructed JavaScript: all5 focused JS files failed AST parsing. No semantic conclusions are inferred from this REA graph. Loading layout and animation constants were instead checked against shipped Hermes instructions and literal buffers in the adjacent evidence files."
+}

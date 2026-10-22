@@ -1,0 +1,11 @@
+我就划两下 · IAA占位接口
+
+已落地7个激励视频入口和通关后插屏机会接口，详见 商业化广告点位设计.txt。
+配置：Assets/Resources/Data/monetization.json；奖励数量、次数、冷却和展示门槛可调。
+真实广告位ID全部留空，没有模拟观看成功，没有真实广告收入。
+RewardedAds.Register(IRewardedAdProvider) 接激励视频提供方；AdPlacements.RegisterInterstitial(IInterstitialAdProvider) 接插屏提供方，默认插屏关闭。
+完整观看回调Completed才发奖；跳过、无广告、加载失败、并发不发奖；重复回调不重复发奖。
+广告完成次数持久化到原存档，按北京时间00:00重置。迟到的续关/翻倍回调必须仍在原界面。
+AdPlacements.Signal 提供点位请求和结果事件供未来统计使用，当前没有外部上传。
+填入广告ID后仍需实现实际微信SDK适配器；本轮未自动启用SDK广告。
+桌面实测和截图见QA/Monetization；不把QA伪提供方当作真实微信广告展示验证。

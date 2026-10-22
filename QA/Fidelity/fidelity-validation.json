@@ -1,0 +1,2808 @@
+{
+    "status": "PASS",
+    "startedUtc": "2026-10-20T08:06:00.6868186Z",
+    "finishedUtc": "2026-10-20T08:07:03.0327182Z",
+    "unityVersion": "2022.3.62t16",
+    "platform": "WindowsPlayer",
+    "outputDirectory": "C:/Users/aaa/Documents/Codex/2026-10-20/shi/outputs/InkominoTuanjie/QA/Fidelity",
+    "captureWidth": 1080,
+    "captureHeight": 2400,
+    "sourceFps": 60,
+    "screenshots": 40,
+    "actualRuntimeRender": true,
+    "manualAnimationClock": true,
+    "applicationRealtimeClockFrozen": true,
+    "engineExecuted": true,
+    "referenceSeed": {
+        "level": 23,
+        "coins": 220,
+        "avatar": 2,
+        "hearts": 0,
+        "hint": 0,
+        "freeze": 3,
+        "lens": 0,
+        "remainingLifeSeconds": 867
+    },
+    "sequences": [
+        {
+            "id": "pause-open",
+            "trigger": "Settings(true)",
+            "interpretation": "SourcePopupMotion alpha/default timing and scale/spring, original motion specification port.",
+            "requestedMs": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                350,
+                700
+            ],
+            "sourceFps": 60,
+            "sourceEpoch": 0.699999988079071
+        },
+        {
+            "id": "piece-pop",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "interpretation": "Ordinary piece appearance, before any victory or pen-animation lock.",
+            "requestedMs": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                350,
+                700
+            ],
+            "sourceFps": 60,
+            "sourceEpoch": 1.8999989032745362
+        },
+        {
+            "id": "victory",
+            "trigger": "app.Win() after settled full board",
+            "interpretation": "Gold outline300ms; sweep delay220ms and sweep900ms use SourceClock. Last-piece pop deliberately excluded.",
+            "requestedMs": [
+                0,
+                50,
+                100,
+                150,
+                200,
+                350,
+                700
+            ],
+            "sourceFps": 60,
+            "sourceEpoch": 3.299997568130493
+        },
+        {
+            "id": "booster-pen",
+            "trigger": "UseBooster(0)",
+            "interpretation": "Flight, beginning ink, mid-ink, end/fade settled. Actual ink duration depends on exported target perimeter.",
+            "requestedMs": [
+                200,
+                400,
+                800,
+                1900
+            ],
+            "sourceFps": 60,
+            "sourceEpoch": 9.300029754638672
+        },
+        {
+            "id": "booster-freeze",
+            "trigger": "UseBooster(1)",
+            "interpretation": "Flight, overlay activation, overlay ramp, activated overlay. Expiry deliberately not advanced while App.Update is frozen.",
+            "requestedMs": [
+                150,
+                350,
+                450,
+                600
+            ],
+            "sourceFps": 60,
+            "sourceEpoch": 11.200000762939454
+        },
+        {
+            "id": "booster-lens",
+            "trigger": "UseBooster(2)",
+            "interpretation": "Flight, board scan, target approach/arrival, final reveal. Actual route segment durations depend on board geometry.",
+            "requestedMs": [
+                200,
+                900,
+                1700,
+                3000
+            ],
+            "sourceFps": 60,
+            "sourceEpoch": 11.799991607666016
+        }
+    ],
+    "frames": [
+        {
+            "sequence": "static",
+            "file": "01-home.png",
+            "sha256": "66d10f0368ca49f26a2e3feb8e54ee3186d4a27c5365ce51422468f6c60b3b16",
+            "trigger": "ShowHome reference profile",
+            "requestedMs": 0,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 0,
+            "globalSourceSteps": 42,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 2201,
+            "bytes": 3184652,
+            "elapsedManualMs": 0.0,
+            "sourceClockSeconds": 0.699999988079071,
+            "remainingSeconds": 0.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 0.0,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 0.0,
+            "effects": []
+        },
+        {
+            "sequence": "static",
+            "file": "02-level23-empty.png",
+            "sha256": "424b0e7dc1995793e883faeec08bc3f48f8ce3a1825b86e93adfa2519537f410",
+            "trigger": "StartLevel(23,review:true,resume:true), remaining111",
+            "requestedMs": 0,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 0,
+            "globalSourceSteps": 42,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1471,
+            "bytes": 2927703,
+            "elapsedManualMs": 0.0,
+            "sourceClockSeconds": 0.699999988079071,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "pause-open",
+            "file": "frames/pause-open/frame-0000ms.png",
+            "sha256": "b1788affcc0dcb4697f1138cfbc6653f2df0ce65d966b75b76824b17bebb9848",
+            "trigger": "Settings(true)",
+            "requestedMs": 0,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 0,
+            "globalSourceSteps": 42,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 266,
+            "bytes": 1720318,
+            "elapsedManualMs": 0.0,
+            "sourceClockSeconds": 0.699999988079071,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                0.699999988079071,
+                0.699999988079071,
+                0.699999988079071
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 0.0,
+            "popupProgress": 0.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "pause-open",
+            "file": "frames/pause-open/frame-0050ms.png",
+            "sha256": "42ce38728e4ccff44f89ee72cb5d48da1ccab6b58732a91bcec4a7320d6a6cfe",
+            "trigger": "Settings(true)",
+            "requestedMs": 50,
+            "sequenceFrameIndex": 1,
+            "sourceStepsSinceEpoch": 3,
+            "globalSourceSteps": 45,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 681,
+            "bytes": 1747982,
+            "elapsedManualMs": 49.99995422363281,
+            "sourceClockSeconds": 0.7499999403953552,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                0.7735599279403687,
+                0.7735599279403687,
+                0.7735599279403687
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 0.15767870843410493,
+            "popupProgress": 0.2499997615814209,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "pause-open",
+            "file": "frames/pause-open/frame-0100ms.png",
+            "sha256": "df0911513d84b19fc5959decab1f5376f7792d8c1228b0a0bc280f5e318a1040",
+            "trigger": "Settings(true)",
+            "requestedMs": 100,
+            "sequenceFrameIndex": 2,
+            "sourceStepsSinceEpoch": 6,
+            "globalSourceSteps": 48,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 789,
+            "bytes": 1663196,
+            "elapsedManualMs": 99.99990844726563,
+            "sourceClockSeconds": 0.7999998927116394,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                0.886552095413208,
+                0.886552095413208,
+                0.886552095413208
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 0.49999919533729555,
+            "popupProgress": 0.4999995231628418,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "pause-open",
+            "file": "frames/pause-open/frame-0150ms.png",
+            "sha256": "fcd844f6e19c8620af3c820bba71783e25e6a9b658aef83cfb15cb3499e48b94",
+            "trigger": "Settings(true)",
+            "requestedMs": 150,
+            "sequenceFrameIndex": 3,
+            "sourceStepsSinceEpoch": 9,
+            "globalSourceSteps": 51,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 785,
+            "bytes": 1468609,
+            "elapsedManualMs": 149.99986267089845,
+            "sourceClockSeconds": 0.8499998450279236,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                0.964975893497467,
+                0.964975893497467,
+                0.964975893497467
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 0.8423202633857727,
+            "popupProgress": 0.7499992847442627,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "pause-open",
+            "file": "frames/pause-open/frame-0200ms.png",
+            "sha256": "ca69c179db9f192016b4eda8b11cf27889afe7bfed1d1c75576704bc1efdbef6",
+            "trigger": "Settings(true)",
+            "requestedMs": 200,
+            "sequenceFrameIndex": 4,
+            "sourceStepsSinceEpoch": 12,
+            "globalSourceSteps": 54,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 691,
+            "bytes": 1306735,
+            "elapsedManualMs": 199.99981689453126,
+            "sourceClockSeconds": 0.8999997973442078,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                1.001661777496338,
+                1.001661777496338,
+                1.001661777496338
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 1.0,
+            "popupProgress": 0.9999990463256836,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "pause-open",
+            "file": "frames/pause-open/frame-0350ms.png",
+            "sha256": "90e6f5deb5f887b1e08d3f055822588d2dd3400e67b5babce589007011570129",
+            "trigger": "Settings(true)",
+            "requestedMs": 350,
+            "sequenceFrameIndex": 5,
+            "sourceStepsSinceEpoch": 21,
+            "globalSourceSteps": 63,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 692,
+            "bytes": 1303306,
+            "elapsedManualMs": 349.9997253417969,
+            "sourceClockSeconds": 1.049999713897705,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                1.005202293395996,
+                1.005202293395996,
+                1.005202293395996
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 1.0,
+            "popupProgress": 1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "pause-open",
+            "file": "frames/pause-open/frame-0700ms.png",
+            "sha256": "b273499e5b47f1a203272e12551e593f180b2fd974277d78805d9069877188f0",
+            "trigger": "Settings(true)",
+            "requestedMs": 700,
+            "sequenceFrameIndex": 6,
+            "sourceStepsSinceEpoch": 42,
+            "globalSourceSteps": 84,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 686,
+            "bytes": 1306514,
+            "elapsedManualMs": 699.9993896484375,
+            "sourceClockSeconds": 1.3999993801116944,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                0.9999872446060181,
+                0.9999872446060181,
+                0.9999872446060181
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 1.0,
+            "popupProgress": 1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "static",
+            "file": "03-pause.png",
+            "sha256": "916883f79b07af50ed046d04d612634c60d079c373f3ca4272a4d7482b1e927f",
+            "trigger": "Paused settled frame matching original static evidence state",
+            "requestedMs": 1200,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 72,
+            "globalSourceSteps": 114,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 685,
+            "bytes": 1306852,
+            "elapsedManualMs": 1199.9989013671875,
+            "sourceClockSeconds": 1.8999989032745362,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": 1.0,
+            "popupProgress": 1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "piece-pop",
+            "file": "frames/piece-pop/frame-0000ms.png",
+            "sha256": "2b47fe82ece749a96d1b1199bcd8fff36e878f832d744825c836bf5942093e9d",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "requestedMs": 0,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 0,
+            "globalSourceSteps": 114,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1600,
+            "bytes": 2986905,
+            "elapsedManualMs": 0.0,
+            "sourceClockSeconds": 1.8999989032745362,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "piece-pop",
+            "file": "frames/piece-pop/frame-0050ms.png",
+            "sha256": "695a54f96365e32b5d9c9104509d3fcb6628642ac40d0563287250cbe0cc4ce5",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "requestedMs": 50,
+            "sequenceFrameIndex": 1,
+            "sourceStepsSinceEpoch": 3,
+            "globalSourceSteps": 117,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1648,
+            "bytes": 2988594,
+            "elapsedManualMs": 49.99995422363281,
+            "sourceClockSeconds": 1.9499988555908204,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "piece-pop",
+            "file": "frames/piece-pop/frame-0100ms.png",
+            "sha256": "ede919796d19bea6404c0abc32ae2518ba5567b3a1865f8c23106902cd464e0a",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "requestedMs": 100,
+            "sequenceFrameIndex": 2,
+            "sourceStepsSinceEpoch": 6,
+            "globalSourceSteps": 120,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1683,
+            "bytes": 2989466,
+            "elapsedManualMs": 99.99990844726563,
+            "sourceClockSeconds": 1.9999988079071046,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "piece-pop",
+            "file": "frames/piece-pop/frame-0150ms.png",
+            "sha256": "d0fff4e653c2d80a9c5840a5d2c39c9bd3fd12cdce0f31dae678dcebdf5cfe1a",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "requestedMs": 150,
+            "sequenceFrameIndex": 3,
+            "sourceStepsSinceEpoch": 9,
+            "globalSourceSteps": 123,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1712,
+            "bytes": 2959959,
+            "elapsedManualMs": 149.99986267089845,
+            "sourceClockSeconds": 2.0499987602233888,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "piece-pop",
+            "file": "frames/piece-pop/frame-0200ms.png",
+            "sha256": "7ad8e0a9722a83e7694f2a8eaa1a8951bae71376707c67685a21f9cc274787c6",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "requestedMs": 200,
+            "sequenceFrameIndex": 4,
+            "sourceStepsSinceEpoch": 12,
+            "globalSourceSteps": 126,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1704,
+            "bytes": 2930465,
+            "elapsedManualMs": 199.99981689453126,
+            "sourceClockSeconds": 2.099998712539673,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "piece-pop",
+            "file": "frames/piece-pop/frame-0350ms.png",
+            "sha256": "060ce8640f77b186fe8b18357851796becbfdc1953d231e8efc366290ffcd0be",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "requestedMs": 350,
+            "sequenceFrameIndex": 5,
+            "sourceStepsSinceEpoch": 21,
+            "globalSourceSteps": 135,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1604,
+            "bytes": 2901433,
+            "elapsedManualMs": 349.9996643066406,
+            "sourceClockSeconds": 2.2499985694885256,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "piece-pop",
+            "file": "frames/piece-pop/frame-0700ms.png",
+            "sha256": "6097c759c63251fca8c3de67b07b1f0ebeb31b7e415f61458a0f9ae6e3570403",
+            "trigger": "BeginCell→MoveCell→EndStroke",
+            "requestedMs": 700,
+            "sequenceFrameIndex": 6,
+            "sourceStepsSinceEpoch": 42,
+            "globalSourceSteps": 156,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1604,
+            "bytes": 2901134,
+            "elapsedManualMs": 699.9993286132813,
+            "sourceClockSeconds": 2.5999982357025148,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "victory",
+            "file": "frames/victory/frame-0000ms.png",
+            "sha256": "adef34e553754db8f57a6df0cffb0d1905cde95fc9a478a6704a174016fb1d52",
+            "trigger": "app.Win() after settled full board",
+            "requestedMs": 0,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 0,
+            "globalSourceSteps": 198,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1782,
+            "bytes": 2812093,
+            "elapsedManualMs": 0.0,
+            "sourceClockSeconds": 3.299997568130493,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "victory",
+            "file": "frames/victory/frame-0050ms.png",
+            "sha256": "0e619e5777f661a5eecb86713f0f00cb7b0210540ba5d2f1a7816e32cfef62ef",
+            "trigger": "app.Win() after settled full board",
+            "requestedMs": 50,
+            "sequenceFrameIndex": 1,
+            "sourceStepsSinceEpoch": 3,
+            "globalSourceSteps": 201,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1867,
+            "bytes": 2826094,
+            "elapsedManualMs": 49.99995422363281,
+            "sourceClockSeconds": 3.3499975204467775,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "victory",
+            "file": "frames/victory/frame-0100ms.png",
+            "sha256": "d91c6d73e2cb35eecb3c40739c50af523451a0cb19fdb3945d86ca27f2eb75d5",
+            "trigger": "app.Win() after settled full board",
+            "requestedMs": 100,
+            "sequenceFrameIndex": 2,
+            "sourceStepsSinceEpoch": 6,
+            "globalSourceSteps": 204,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1876,
+            "bytes": 2818314,
+            "elapsedManualMs": 99.99990844726563,
+            "sourceClockSeconds": 3.3999974727630617,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "victory",
+            "file": "frames/victory/frame-0150ms.png",
+            "sha256": "e0f15a8804e64d8d4b051a147d1b20addf4bed8ce3eeadd8bb6fd1a5307e6f2a",
+            "trigger": "app.Win() after settled full board",
+            "requestedMs": 150,
+            "sequenceFrameIndex": 3,
+            "sourceStepsSinceEpoch": 9,
+            "globalSourceSteps": 207,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1876,
+            "bytes": 2801544,
+            "elapsedManualMs": 149.99986267089845,
+            "sourceClockSeconds": 3.4499974250793459,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "victory",
+            "file": "frames/victory/frame-0200ms.png",
+            "sha256": "4f1bc90d5e0fc4eb7bba8e0027f835ff608450ddc277e87af3adfb710a724c44",
+            "trigger": "app.Win() after settled full board",
+            "requestedMs": 200,
+            "sequenceFrameIndex": 4,
+            "sourceStepsSinceEpoch": 12,
+            "globalSourceSteps": 210,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1869,
+            "bytes": 2784313,
+            "elapsedManualMs": 199.99981689453126,
+            "sourceClockSeconds": 3.49999737739563,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "victory",
+            "file": "frames/victory/frame-0350ms.png",
+            "sha256": "50a3360f769eb25e8d90e38b563dfd55d6f169bd61c3e9fa8db6248beb192775",
+            "trigger": "app.Win() after settled full board",
+            "requestedMs": 350,
+            "sequenceFrameIndex": 5,
+            "sourceStepsSinceEpoch": 21,
+            "globalSourceSteps": 219,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1857,
+            "bytes": 2757398,
+            "elapsedManualMs": 349.9996643066406,
+            "sourceClockSeconds": 3.6499972343444826,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "victory",
+            "file": "frames/victory/frame-0700ms.png",
+            "sha256": "748b5475b1383bacbe76b53765b43fd548b328a5ce5292e49e6f021d8f18f24d",
+            "trigger": "app.Win() after settled full board",
+            "requestedMs": 700,
+            "sequenceFrameIndex": 6,
+            "sourceStepsSinceEpoch": 42,
+            "globalSourceSteps": 240,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1975,
+            "bytes": 2800323,
+            "elapsedManualMs": 699.9993286132813,
+            "sourceClockSeconds": 3.9999969005584719,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "static",
+            "file": "04-victory-result.png",
+            "sha256": "4a3b26ffa169b0c1fe1c48ae2c959ebc8514d36c9c2ee21c12f976bda05bdcad",
+            "trigger": "Independent LevelCompleteScreen after source title/reward/Continue settling",
+            "requestedMs": 6000,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 360,
+            "globalSourceSteps": 558,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 424,
+            "bytes": 367928,
+            "elapsedManualMs": 6000.0322265625,
+            "sourceClockSeconds": 9.300029754638672,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 0.0,
+            "visiblePixelRange": true,
+            "solved": true,
+            "finished": true,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 3,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 0.0,
+            "effects": []
+        },
+        {
+            "sequence": "booster-pen",
+            "file": "frames/booster-pen/frame-0200ms.png",
+            "sha256": "190a17b50df8d31df042e1f4f509b59676aacf4b6e42a3c3d10cec96e11f4ddf",
+            "trigger": "UseBooster(0)",
+            "requestedMs": 200,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 12,
+            "globalSourceSteps": 570,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1488,
+            "bytes": 2932035,
+            "elapsedManualMs": 199.9969482421875,
+            "sourceClockSeconds": 9.50002670288086,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": true,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source pen tip",
+                    "anchoredPosition": [
+                        -141.57901000976563,
+                        361.0794677734375
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 318.0,
+                    "alpha": 1.0,
+                    "children": 1
+                }
+            ]
+        },
+        {
+            "sequence": "booster-pen",
+            "file": "frames/booster-pen/frame-0400ms.png",
+            "sha256": "c0505163375a3d1ea20e80bbad7f7903b42bcaf026dc881bd8e25b045f4202f6",
+            "trigger": "UseBooster(0)",
+            "requestedMs": 400,
+            "sequenceFrameIndex": 1,
+            "sourceStepsSinceEpoch": 24,
+            "globalSourceSteps": 582,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1544,
+            "bytes": 2917640,
+            "elapsedManualMs": 399.993896484375,
+            "sourceClockSeconds": 9.700023651123047,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": true,
+            "level": 23,
+            "pieceCount": 1,
+            "drawTraceCells": 5,
+            "revealCells": 0,
+            "drawProgress": 0.031210511922836305,
+            "effects": [
+                {
+                    "name": "Source pen tip",
+                    "anchoredPosition": [
+                        -95.9891128540039,
+                        499.8125915527344
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 320.83685302734377,
+                    "alpha": 1.0,
+                    "children": 1
+                }
+            ]
+        },
+        {
+            "sequence": "booster-pen",
+            "file": "frames/booster-pen/frame-0800ms.png",
+            "sha256": "78067cec1d106e7c2e6b0ed02574e23f2ab48c5aff8685327f81f884b5133edf",
+            "trigger": "UseBooster(0)",
+            "requestedMs": 800,
+            "sequenceFrameIndex": 2,
+            "sourceStepsSinceEpoch": 48,
+            "globalSourceSteps": 606,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1534,
+            "bytes": 2905919,
+            "elapsedManualMs": 799.98779296875,
+            "sourceClockSeconds": 10.100017547607422,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": true,
+            "level": 23,
+            "pieceCount": 1,
+            "drawTraceCells": 5,
+            "revealCells": 0,
+            "drawProgress": 0.7802627682685852,
+            "effects": [
+                {
+                    "name": "Source pen tip",
+                    "anchoredPosition": [
+                        -257.2500305175781,
+                        334.4912414550781
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 321.03094482421877,
+                    "alpha": 1.0,
+                    "children": 1
+                }
+            ]
+        },
+        {
+            "sequence": "booster-pen",
+            "file": "frames/booster-pen/frame-1900ms.png",
+            "sha256": "cf2312dda8c049134885e3ae8654722f28de584d51f63ea1194c8fe8a87017bd",
+            "trigger": "UseBooster(0)",
+            "requestedMs": 1900,
+            "sequenceFrameIndex": 3,
+            "sourceStepsSinceEpoch": 114,
+            "globalSourceSteps": 672,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1526,
+            "bytes": 2890591,
+            "elapsedManualMs": 1899.970947265625,
+            "sourceClockSeconds": 11.200000762939454,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "booster-freeze",
+            "file": "frames/booster-freeze/frame-0150ms.png",
+            "sha256": "bc6d0ad8a4b998b2228236785a9e3d68d4de1a958eedb83ea7b061d6b34f4bcf",
+            "trigger": "UseBooster(1)",
+            "requestedMs": 150,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 9,
+            "globalSourceSteps": 681,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1500,
+            "bytes": 2922637,
+            "elapsedManualMs": 149.99771118164063,
+            "sourceClockSeconds": 11.349998474121094,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source freeze flight",
+                    "anchoredPosition": [
+                        0.0,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 0.0,
+                    "alpha": -1.0,
+                    "children": 1
+                }
+            ]
+        },
+        {
+            "sequence": "booster-freeze",
+            "file": "frames/booster-freeze/frame-0350ms.png",
+            "sha256": "d4aa23f45e0245b25c141b4a02b5c054fc2d06e4f9afbee5cac86e602d473263",
+            "trigger": "UseBooster(1)",
+            "requestedMs": 350,
+            "sequenceFrameIndex": 1,
+            "sourceStepsSinceEpoch": 21,
+            "globalSourceSteps": 693,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 2057,
+            "bytes": 3007767,
+            "elapsedManualMs": 349.9946594238281,
+            "sourceClockSeconds": 11.549995422363282,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source freeze edge",
+                    "anchoredPosition": [
+                        0.0,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 0.0,
+                    "alpha": 0.14577381312847138,
+                    "children": 25
+                }
+            ]
+        },
+        {
+            "sequence": "booster-freeze",
+            "file": "frames/booster-freeze/frame-0450ms.png",
+            "sha256": "22501b3f4f65f8c76b666f6bbf36b1a89944d491d297bb195d2e4c771bd8e58b",
+            "trigger": "UseBooster(1)",
+            "requestedMs": 450,
+            "sequenceFrameIndex": 2,
+            "sourceStepsSinceEpoch": 27,
+            "globalSourceSteps": 699,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 2414,
+            "bytes": 3002534,
+            "elapsedManualMs": 449.9931335449219,
+            "sourceClockSeconds": 11.649993896484375,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source freeze edge",
+                    "anchoredPosition": [
+                        0.0,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 0.0,
+                    "alpha": 0.7793771624565125,
+                    "children": 25
+                }
+            ]
+        },
+        {
+            "sequence": "booster-freeze",
+            "file": "frames/booster-freeze/frame-0600ms.png",
+            "sha256": "ffd898300ac0aafd9b89b31ab8967c255ed9c645e10d298eb7ce461eea74c4d3",
+            "trigger": "UseBooster(1)",
+            "requestedMs": 600,
+            "sequenceFrameIndex": 3,
+            "sourceStepsSinceEpoch": 36,
+            "globalSourceSteps": 708,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 2449,
+            "bytes": 2986953,
+            "elapsedManualMs": 599.9908447265625,
+            "sourceClockSeconds": 11.799991607666016,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source freeze edge",
+                    "anchoredPosition": [
+                        0.0,
+                        0.0
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 0.0,
+                    "alpha": 1.0,
+                    "children": 25
+                }
+            ]
+        },
+        {
+            "sequence": "booster-lens",
+            "file": "frames/booster-lens/frame-0200ms.png",
+            "sha256": "054fc2d36656ee358c7d135320a28d868defea7f15694f34093148c7de551759",
+            "trigger": "UseBooster(2)",
+            "requestedMs": 200,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 12,
+            "globalSourceSteps": 720,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1506,
+            "bytes": 2952698,
+            "elapsedManualMs": 199.9969482421875,
+            "sourceClockSeconds": 11.999988555908204,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": true,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source lens center",
+                    "anchoredPosition": [
+                        -202.08306884765626,
+                        -131.77378845214845
+                    ],
+                    "scale": [
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "angleZ": 8.704466819763184,
+                    "alpha": 1.0,
+                    "children": 1
+                }
+            ]
+        },
+        {
+            "sequence": "booster-lens",
+            "file": "frames/booster-lens/frame-0900ms.png",
+            "sha256": "483c3f468c90a59012a3ec47726a451fab215e029b4c3cb8b119205446a938a2",
+            "trigger": "UseBooster(2)",
+            "requestedMs": 900,
+            "sequenceFrameIndex": 1,
+            "sourceStepsSinceEpoch": 54,
+            "globalSourceSteps": 762,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1505,
+            "bytes": 2952884,
+            "elapsedManualMs": 899.9862670898438,
+            "sourceClockSeconds": 12.69997787475586,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": true,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source lens center",
+                    "anchoredPosition": [
+                        319.7249450683594,
+                        -19.281272888183595
+                    ],
+                    "scale": [
+                        1.0089452266693116,
+                        1.0089452266693116,
+                        1.0089452266693116
+                    ],
+                    "angleZ": 359.6934814453125,
+                    "alpha": 1.0,
+                    "children": 1
+                }
+            ]
+        },
+        {
+            "sequence": "booster-lens",
+            "file": "frames/booster-lens/frame-1700ms.png",
+            "sha256": "334da3180794ad065e453e1c2ff8d5cd5584775cb400994dd24bcd08623ad409",
+            "trigger": "UseBooster(2)",
+            "requestedMs": 1700,
+            "sequenceFrameIndex": 2,
+            "sourceStepsSinceEpoch": 102,
+            "globalSourceSteps": 810,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1509,
+            "bytes": 2952495,
+            "elapsedManualMs": 1699.97412109375,
+            "sourceClockSeconds": 13.49996566772461,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": true,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source lens center",
+                    "anchoredPosition": [
+                        -64.3125,
+                        435.4999694824219
+                    ],
+                    "scale": [
+                        1.0259255170822144,
+                        1.0259255170822144,
+                        1.0259255170822144
+                    ],
+                    "angleZ": 359.7255859375,
+                    "alpha": 1.0,
+                    "children": 1
+                },
+                {
+                    "name": "Source lens arrival ring",
+                    "anchoredPosition": [
+                        -64.3125,
+                        435.4999694824219
+                    ],
+                    "scale": [
+                        0.567592442035675,
+                        0.567592442035675,
+                        0.567592442035675
+                    ],
+                    "angleZ": 0.0,
+                    "alpha": -1.0,
+                    "children": 0
+                }
+            ]
+        },
+        {
+            "sequence": "booster-lens",
+            "file": "frames/booster-lens/frame-3000ms.png",
+            "sha256": "2fd0c42330ee840552a839fbda4cac225964e09e3274561b3f3e6e1cb4dadcfa",
+            "trigger": "UseBooster(2)",
+            "requestedMs": 3000,
+            "sequenceFrameIndex": 3,
+            "sourceStepsSinceEpoch": 180,
+            "globalSourceSteps": 888,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1479,
+            "bytes": 2920039,
+            "elapsedManualMs": 2999.9541015625,
+            "sourceClockSeconds": 14.799945831298829,
+            "remainingSeconds": 111.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -532.875,
+                -597.1875,
+                1065.75,
+                1194.375
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 128.625,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 23,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 5,
+            "drawProgress": 1.0,
+            "effects": [
+                {
+                    "name": "Source lens arrival ring",
+                    "anchoredPosition": [
+                        64.31246948242188,
+                        435.5
+                    ],
+                    "scale": [
+                        1.4500000476837159,
+                        1.4500000476837159,
+                        1.4500000476837159
+                    ],
+                    "angleZ": 0.0,
+                    "alpha": -1.0,
+                    "children": 0
+                },
+                {
+                    "name": "Source revealed p5p",
+                    "anchoredPosition": [
+                        64.31246948242188,
+                        435.5
+                    ],
+                    "scale": [
+                        0.999398946762085,
+                        0.999398946762085,
+                        0.999398946762085
+                    ],
+                    "angleZ": 0.0,
+                    "alpha": 1.0,
+                    "children": 2
+                }
+            ]
+        },
+        {
+            "sequence": "tutorial",
+            "file": "05-tutorial-demo.png",
+            "sha256": "2cb7378d652dfae8c69347ddc43f8bdd2161b14e677246ce8f74c9e850a8d488",
+            "trigger": "Actual source tutorial demonstration",
+            "requestedMs": 1000,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 60,
+            "globalSourceSteps": 948,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1259,
+            "bytes": 2533781,
+            "elapsedManualMs": 999.9847412109375,
+            "sourceClockSeconds": 15.799930572509766,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": true,
+            "level": 1,
+            "pieceCount": 0,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "tutorial",
+            "file": "06-tutorial-guide.png",
+            "sha256": "d2fc36b6e782fffe6014ec3af853602b58ed17002ffb6cef3d0a4736a4e587a2",
+            "trigger": "Source guide with one protected demonstration piece",
+            "requestedMs": 3917,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 235,
+            "globalSourceSteps": 1123,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1457,
+            "bytes": 2486708,
+            "elapsedManualMs": 3916.60693359375,
+            "sourceClockSeconds": 18.716552734375,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 1,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        },
+        {
+            "sequence": "tutorial",
+            "file": "07-tutorial-user.png",
+            "sha256": "9123313a9eb655634d3cf094d57854626bd38393fd9b703e7e56ec2ece03f419",
+            "trigger": "Real accepted tutorial gesture",
+            "requestedMs": 4750,
+            "sequenceFrameIndex": 0,
+            "sourceStepsSinceEpoch": 285,
+            "globalSourceSteps": 1173,
+            "pngWidth": 1080,
+            "pngHeight": 2400,
+            "desktopWidth": 1080,
+            "desktopHeight": 1080,
+            "sampledColors": 1484,
+            "bytes": 2423565,
+            "elapsedManualMs": 4749.927734375,
+            "sourceClockSeconds": 19.54987335205078,
+            "remainingSeconds": 120.0,
+            "stageSize": [
+                1080.0,
+                2400.0
+            ],
+            "popupScale": [],
+            "boardVisibleBounds": [
+                -530.25,
+                -383.25,
+                1060.5,
+                1060.5
+            ],
+            "popupAlpha": -1.0,
+            "popupProgress": -1.0,
+            "boardCellSize": 249.375,
+            "visiblePixelRange": true,
+            "solved": false,
+            "finished": false,
+            "animationBusy": false,
+            "level": 1,
+            "pieceCount": 2,
+            "drawTraceCells": 0,
+            "revealCells": 0,
+            "drawProgress": 1.0,
+            "effects": []
+        }
+    ],
+    "checks": [
+        {
+            "name": "Legacy RuntimeQA not attached",
+            "detail": "Only the fidelity runner may own this scenario.",
+            "passed": true
+        },
+        {
+            "name": "QA save isolation",
+            "detail": "C:/Users/aaa/Documents/Codex/2026-10-20/shi/outputs/InkominoTuanjie/QA/Fidelity\\qa-profile.json",
+            "passed": true
+        },
+        {
+            "name": "Reference Home seed",
+            "detail": "Level23,220coins,avatar2,0hearts; life recovery staged14:27.",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 01-home.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render 01-home.png",
+            "detail": "Sampled colors=2201, luma range=255",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp 01-home.png",
+            "detail": "actual=0.0000ms requested=0",
+            "passed": true
+        },
+        {
+            "name": "Level23 staged",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Reference remaining111s",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 02-level23-empty.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render 02-level23-empty.png",
+            "detail": "Sampled colors=1471, luma range=245",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp 02-level23-empty.png",
+            "detail": "actual=0.0000ms requested=0",
+            "passed": true
+        },
+        {
+            "name": "Pause blocks input",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/pause-open/frame-0000ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/pause-open/frame-0000ms.png",
+            "detail": "Sampled colors=266, luma range=37",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/pause-open/frame-0000ms.png",
+            "detail": "actual=0.0000ms requested=0",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/pause-open/frame-0050ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/pause-open/frame-0050ms.png",
+            "detail": "Sampled colors=681, luma range=105",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/pause-open/frame-0050ms.png",
+            "detail": "actual=50.0000ms requested=50",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/pause-open/frame-0100ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/pause-open/frame-0100ms.png",
+            "detail": "Sampled colors=789, luma range=185",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/pause-open/frame-0100ms.png",
+            "detail": "actual=99.9999ms requested=100",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/pause-open/frame-0150ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/pause-open/frame-0150ms.png",
+            "detail": "Sampled colors=785, luma range=233",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/pause-open/frame-0150ms.png",
+            "detail": "actual=149.9999ms requested=150",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/pause-open/frame-0200ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/pause-open/frame-0200ms.png",
+            "detail": "Sampled colors=691, luma range=254",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/pause-open/frame-0200ms.png",
+            "detail": "actual=199.9998ms requested=200",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/pause-open/frame-0350ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/pause-open/frame-0350ms.png",
+            "detail": "Sampled colors=692, luma range=255",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/pause-open/frame-0350ms.png",
+            "detail": "actual=349.9997ms requested=350",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/pause-open/frame-0700ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/pause-open/frame-0700ms.png",
+            "detail": "Sampled colors=686, luma range=255",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/pause-open/frame-0700ms.png",
+            "detail": "actual=699.9994ms requested=700",
+            "passed": true
+        },
+        {
+            "name": "Paused timer remains111s",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 03-pause.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render 03-pause.png",
+            "detail": "Sampled colors=685, luma range=255",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp 03-pause.png",
+            "detail": "actual=1199.9990ms requested=1200",
+            "passed": true
+        },
+        {
+            "name": "Popup final alpha1",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Popup final scale1",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Public draw API placed one normal piece",
+            "detail": "No model bypass for the pop sequence.",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/piece-pop/frame-0000ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/piece-pop/frame-0000ms.png",
+            "detail": "Sampled colors=1600, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/piece-pop/frame-0000ms.png",
+            "detail": "actual=0.0000ms requested=0",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/piece-pop/frame-0050ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/piece-pop/frame-0050ms.png",
+            "detail": "Sampled colors=1648, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/piece-pop/frame-0050ms.png",
+            "detail": "actual=50.0000ms requested=50",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/piece-pop/frame-0100ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/piece-pop/frame-0100ms.png",
+            "detail": "Sampled colors=1683, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/piece-pop/frame-0100ms.png",
+            "detail": "actual=99.9999ms requested=100",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/piece-pop/frame-0150ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/piece-pop/frame-0150ms.png",
+            "detail": "Sampled colors=1712, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/piece-pop/frame-0150ms.png",
+            "detail": "actual=149.9999ms requested=150",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/piece-pop/frame-0200ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/piece-pop/frame-0200ms.png",
+            "detail": "Sampled colors=1704, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/piece-pop/frame-0200ms.png",
+            "detail": "actual=199.9998ms requested=200",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/piece-pop/frame-0350ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/piece-pop/frame-0350ms.png",
+            "detail": "Sampled colors=1604, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/piece-pop/frame-0350ms.png",
+            "detail": "actual=349.9997ms requested=350",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/piece-pop/frame-0700ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/piece-pop/frame-0700ms.png",
+            "detail": "Sampled colors=1604, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/piece-pop/frame-0700ms.png",
+            "detail": "actual=699.9993ms requested=700",
+            "passed": true
+        },
+        {
+            "name": "Piece-pop probe is not a win",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Staged full authored solution",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Win entry completes level state",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/victory/frame-0000ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/victory/frame-0000ms.png",
+            "detail": "Sampled colors=1782, luma range=224",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/victory/frame-0000ms.png",
+            "detail": "actual=0.0000ms requested=0",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/victory/frame-0050ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/victory/frame-0050ms.png",
+            "detail": "Sampled colors=1867, luma range=224",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/victory/frame-0050ms.png",
+            "detail": "actual=50.0000ms requested=50",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/victory/frame-0100ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/victory/frame-0100ms.png",
+            "detail": "Sampled colors=1876, luma range=224",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/victory/frame-0100ms.png",
+            "detail": "actual=99.9999ms requested=100",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/victory/frame-0150ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/victory/frame-0150ms.png",
+            "detail": "Sampled colors=1876, luma range=224",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/victory/frame-0150ms.png",
+            "detail": "actual=149.9999ms requested=150",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/victory/frame-0200ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/victory/frame-0200ms.png",
+            "detail": "Sampled colors=1869, luma range=224",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/victory/frame-0200ms.png",
+            "detail": "actual=199.9998ms requested=200",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/victory/frame-0350ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/victory/frame-0350ms.png",
+            "detail": "Sampled colors=1857, luma range=224",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/victory/frame-0350ms.png",
+            "detail": "actual=349.9997ms requested=350",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/victory/frame-0700ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/victory/frame-0700ms.png",
+            "detail": "Sampled colors=1975, luma range=224",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/victory/frame-0700ms.png",
+            "detail": "actual=699.9993ms requested=700",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 04-victory-result.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render 04-victory-result.png",
+            "detail": "Sampled colors=424, luma range=227",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp 04-victory-result.png",
+            "detail": "actual=6000.0320ms requested=6000",
+            "passed": true
+        },
+        {
+            "name": "Final victory state remains solved",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Booster pen entry input enabled",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Booster pen inventory consumed exactly one",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-pen/frame-0200ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-pen/frame-0200ms.png",
+            "detail": "Sampled colors=1488, luma range=243",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-pen/frame-0200ms.png",
+            "detail": "actual=199.9969ms requested=200",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-pen/frame-0400ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-pen/frame-0400ms.png",
+            "detail": "Sampled colors=1544, luma range=243",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-pen/frame-0400ms.png",
+            "detail": "actual=399.9939ms requested=400",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-pen/frame-0800ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-pen/frame-0800ms.png",
+            "detail": "Sampled colors=1534, luma range=244",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-pen/frame-0800ms.png",
+            "detail": "actual=799.9878ms requested=800",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-pen/frame-1900ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-pen/frame-1900ms.png",
+            "detail": "Sampled colors=1526, luma range=243",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-pen/frame-1900ms.png",
+            "detail": "actual=1899.9710ms requested=1900",
+            "passed": true
+        },
+        {
+            "name": "Pen completed one actual placement",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Booster freeze entry input enabled",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Booster freeze inventory consumed exactly one",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-freeze/frame-0150ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-freeze/frame-0150ms.png",
+            "detail": "Sampled colors=1500, luma range=243",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-freeze/frame-0150ms.png",
+            "detail": "actual=149.9977ms requested=150",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-freeze/frame-0350ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-freeze/frame-0350ms.png",
+            "detail": "Sampled colors=2057, luma range=243",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-freeze/frame-0350ms.png",
+            "detail": "actual=349.9947ms requested=350",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-freeze/frame-0450ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-freeze/frame-0450ms.png",
+            "detail": "Sampled colors=2414, luma range=243",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-freeze/frame-0450ms.png",
+            "detail": "actual=449.9931ms requested=450",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-freeze/frame-0600ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-freeze/frame-0600ms.png",
+            "detail": "Sampled colors=2449, luma range=243",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-freeze/frame-0600ms.png",
+            "detail": "actual=599.9908ms requested=600",
+            "passed": true
+        },
+        {
+            "name": "Freeze activated real overlay",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Booster lens entry input enabled",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Booster lens inventory consumed exactly one",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-lens/frame-0200ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-lens/frame-0200ms.png",
+            "detail": "Sampled colors=1506, luma range=252",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-lens/frame-0200ms.png",
+            "detail": "actual=199.9969ms requested=200",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-lens/frame-0900ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-lens/frame-0900ms.png",
+            "detail": "Sampled colors=1505, luma range=252",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-lens/frame-0900ms.png",
+            "detail": "actual=899.9863ms requested=900",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-lens/frame-1700ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-lens/frame-1700ms.png",
+            "detail": "Sampled colors=1509, luma range=252",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-lens/frame-1700ms.png",
+            "detail": "actual=1699.9740ms requested=1700",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 frames/booster-lens/frame-3000ms.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render frames/booster-lens/frame-3000ms.png",
+            "detail": "Sampled colors=1479, luma range=245",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp frames/booster-lens/frame-3000ms.png",
+            "detail": "actual=2999.9540ms requested=3000",
+            "passed": true
+        },
+        {
+            "name": "Lens completed actual final reveal",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 05-tutorial-demo.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render 05-tutorial-demo.png",
+            "detail": "Sampled colors=1259, luma range=234",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp 05-tutorial-demo.png",
+            "detail": "actual=999.9847ms requested=1000",
+            "passed": true
+        },
+        {
+            "name": "Tutorial demonstration transitions to guide",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 06-tutorial-guide.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render 06-tutorial-guide.png",
+            "detail": "Sampled colors=1457, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp 06-tutorial-guide.png",
+            "detail": "actual=3916.6070ms requested=3917",
+            "passed": true
+        },
+        {
+            "name": "Tutorial accepts guided shape",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Exact1080x2400 07-tutorial-user.png",
+            "detail": "",
+            "passed": true
+        },
+        {
+            "name": "Nonblank real render 07-tutorial-user.png",
+            "detail": "Sampled colors=1484, luma range=228",
+            "passed": true
+        },
+        {
+            "name": "Manual timestamp 07-tutorial-user.png",
+            "detail": "actual=4749.9280ms requested=4750",
+            "passed": true
+        },
+        {
+            "name": "Expected capture count",
+            "detail": "4static +21popup/pop/victory +12booster +3tutorial frames =40.",
+            "passed": true
+        }
+    ],
+    "errors": [],
+    "limitations": [
+        "PASS means runtime capture and stated probes passed; it does not certify visual or animation identity with the original application.",
+        "The original evidence contains only static Home/Pause frames. No original animation recording is available for a frame-by-frame timing comparison.",
+        "App.Update and its initially running coroutines are frozen for this QA instance so realtime desktop timing does not alter the reference HUD. SourceClock animation time still advances by1/60second per yielded Unity frame.",
+        "Player data is the isolated QA profile under QAOutput(), not a user save. Level23 uses review/resume solely to stage111seconds without consuming a life.",
+        "Piece placement uses public board drawing methods; it is not an operating-system touch injection test. System.Random facet/color choices are not forcibly replaced by a new deterministic implementation.",
+        "The full board is staged and settled before the real app.Win() entry for an isolated victory-effect timeline. This separates gold/sweep timing from last-piece pop and is not the natural end-to-end completion timeline.",
+        "Booster sequences use real UseBooster entry points on separately reset level23 QA boards. Freeze is captured after activation without waiting for expiry because the QA intentionally freezes the app realtime countdown.",
+        "PNG dimensions are the exact RenderTexture output, which may differ from the operating-system constrained desktop window dimensions."
+    ]
+}

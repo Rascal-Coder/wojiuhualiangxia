@@ -1,0 +1,2333 @@
+{
+  "app": "com.inkomino.puzzle.mosaic 1.0.0",
+  "engine": "Tuanjie 1.10.4 / 2022.3.62t16",
+  "level_count": 500,
+  "reference_solution_override": [
+    11
+  ],
+  "assets": [
+    {
+      "resource": "Resources/Fonts/Boldonse-Regular.ttf",
+      "source": "assets/fonts/Boldonse-Regular.ttf",
+      "sha256": "cc2e540604565c0f90a7d8d46194a2f42fc9c45512cd2e39bf03b50eb68c35a4"
+    },
+    {
+      "resource": "Resources/Fonts/LuckiestGuy-Regular.ttf",
+      "source": "assets/fonts/LuckiestGuy-Regular.ttf",
+      "sha256": "fbe683091b0db0faa8f38e5227ad3bc17dc67f119f27ff10a63d72f5f9bb9da3"
+    },
+    {
+      "resource": "Resources/Art/game_assets_bg.jpg",
+      "source": "res/drawable-mdpi-v4/game_assets_bg.jpg",
+      "sha256": "6b4963b974052c7189d46bfed37ed936656fe571fb6613e83745b26483f214df"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnblackcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnblackcap.png",
+      "sha256": "ac14eecf180f2dfae9c5519f86902f723b13dc0f21a447fa0413e7bb8aac3fbd"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnblackmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnblackmid.png",
+      "sha256": "8b08b2df8abab0c86f16f6f4abcd58e5294e401c8a27e6f3cdf64c80b5a93f24"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnblackuhardcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnblackuhardcap.png",
+      "sha256": "de86f1138d3e485de31d137f40afc43b447026c1206d47cc7413f6539f03f5bc"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnblackuhardmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnblackuhardmid.png",
+      "sha256": "23728cc9f0d0add359ae1148f101111320efc8c408415694cc1d7d531360dfbd"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnbluecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnbluecap.png",
+      "sha256": "20fd517912315ea388fe246f51eb319d531229fca34f3afb29b812b2ab07b927"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnbluemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnbluemid.png",
+      "sha256": "d3fd36b0ab14cff88b965ab77f9898bdd67a32d645f015932233eaf54d9d3e57"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframeblackcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframeblackcap.png",
+      "sha256": "43f45cd32c5062fe0bb3c26cfb939cea58235a7ec3f7b5caa229b89408258695"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframeblackmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframeblackmid.png",
+      "sha256": "22da22ad578d5d44162206002d53503232dab279a23fba1453c372c5bcb1dd5f"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframecap.png",
+      "sha256": "692fae89739ad74b2e92ce37868a1673411e163f3e5ead91500a931405a6161f"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframemid.png",
+      "sha256": "97fdd4550774467b0dd288981c9e0e138aaa0f2a6fd9387be69557165db34fdf"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframepurplecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframepurplecap.png",
+      "sha256": "6b37ee5f9f0e5e1833182ea951741f74c1010bd32a9fb91af8f6d54042ecc109"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframepurplemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframepurplemid.png",
+      "sha256": "bfbc044c280c7f11afc1438d13be0eb3e948062146bd75ce4a5737515a5e2bdd"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframeredcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframeredcap.png",
+      "sha256": "9083d3f4919d09662226b0465edc3f7d93e0034c7b724dfd51cb93776beedeac"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnframeredmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnframeredmid.png",
+      "sha256": "2f47e285614fd3867828a5879bec567c09b2f364cf7a5c24e321aedd70cd34a0"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btngreencap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btngreencap.png",
+      "sha256": "d880abcd1780865fd44e7f8b1e6d754a0b9adbfd69e9c830d5098ef498376fb0"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btngreenmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btngreenmid.png",
+      "sha256": "da898164803c4ac83ee454023acd713efac8b199a9c60d9661839e26b178b296"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnorangecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnorangecap.png",
+      "sha256": "0ebd25a6a9fc9421808c57fef6d5c0a93cf0a957f4433ae79a7492412afdde07"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnorangemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnorangemid.png",
+      "sha256": "9fba7bc70942d26b7756a0fc91691cab4b4395c1d88b0a01692bc2d239ac195b"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnpause.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnpause.png",
+      "sha256": "bc388fb8c42980ef8c8aeef7e588b1aa386cfd517fe935fd7c4a78aeb7e1a81f"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnpurplecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnpurplecap.png",
+      "sha256": "9b0e5fa72e31d5286c37678ff606172f23a213127ad732953bb547bc15928685"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnpurplehardcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnpurplehardcap.png",
+      "sha256": "862c1d62dac6685ca12543c847cade3cabeb86e6ae2d74a8ae44545796239a0a"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnpurplehardmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnpurplehardmid.png",
+      "sha256": "c568c736b47a535ec659019e66ba4756dd13b2b09b2739b1b5862de0dbd66b2e"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnpurplemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnpurplemid.png",
+      "sha256": "18f8148372bbf765eb5ac89ff345ace37c0f1a36c23b6d63eb8ea6fa1537c5e5"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnredcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnredcap.png",
+      "sha256": "71ba79f834908b0301a162102a4131eea1c268ef8ae24db351c3f81374cf1391"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnredmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnredmid.png",
+      "sha256": "d0b16f17e80a1e03efc80c4f9e806310fe48b54f86f8d2a344408c219fba55b5"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnredxhardcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnredxhardcap.png",
+      "sha256": "2ecab9e0fccd6ecbbe36718b47d27204f91b9a9575c89b1f983bc479e694cf06"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnredxhardmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnredxhardmid.png",
+      "sha256": "c242c67b875dc819f8db0ab6b63cba4087f2d8cf53fea13db10ebfc2b52f8c23"
+    },
+    {
+      "resource": "Resources/Art/game_assets_btnsettings.png",
+      "source": "res/drawable-mdpi-v4/game_assets_btnsettings.png",
+      "sha256": "282be158ebc38b6a939231a2d94d70ffbcf20ec03024d9e51014613f71d5ffb4"
+    },
+    {
+      "resource": "Resources/Art/game_assets_event_frame.png",
+      "source": "res/drawable-mdpi-v4/game_assets_event_frame.png",
+      "sha256": "3f97c6e60790bed14b8c902b618e68152003b54b881a738be8635ccf0e10b40f"
+    },
+    {
+      "resource": "Resources/Art/game_assets_event_ribboncap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_event_ribboncap.png",
+      "sha256": "16a01e6439809d23a5a98fe78bd93a376697b3bcee8feba21b7d0045c54aa616"
+    },
+    {
+      "resource": "Resources/Art/game_assets_event_ribbonmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_event_ribbonmid.png",
+      "sha256": "6bfa1af203cfeb705f69398bdca3b46baadf1a018ded090352861f309c7e4b4c"
+    },
+    {
+      "resource": "Resources/Art/game_assets_event_winlevel.png",
+      "source": "res/drawable-mdpi-v4/game_assets_event_winlevel.png",
+      "sha256": "a2661cc3af5a6a489b9e3d7e7dea72d286bf6066fc2b1d7117ddf08f168269df"
+    },
+    {
+      "resource": "Resources/Art/game_assets_extratime.png",
+      "source": "res/drawable-mdpi-v4/game_assets_extratime.png",
+      "sha256": "2a2bb5a722228e5e7182212ea68660e4b5d31d738b1683558d026c1cdaea4ce5"
+    },
+    {
+      "resource": "Resources/Art/game_assets_facets.png",
+      "source": "res/drawable-mdpi-v4/game_assets_facets.png",
+      "sha256": "266d659018da95acb3ef7b1bd516f9822ec7ce868969732a3d6e7534aa002028"
+    },
+    {
+      "resource": "Resources/Art/game_assets_facetsb.png",
+      "source": "res/drawable-mdpi-v4/game_assets_facetsb.png",
+      "sha256": "e04755162f5449621d1ec6c5282afa05e5e09246f6bfd135c7b1ffe243d905bf"
+    },
+    {
+      "resource": "Resources/Art/game_assets_facetsc.png",
+      "source": "res/drawable-mdpi-v4/game_assets_facetsc.png",
+      "sha256": "fd006f3668f1842fbf860a2ce5ee155fb1879793dad00cd13ca915ec8de39349"
+    },
+    {
+      "resource": "Resources/Art/game_assets_freeze.png",
+      "source": "res/drawable-mdpi-v4/game_assets_freeze.png",
+      "sha256": "9d4e6f7c03e8fcabd4a545f67c0c93e8a7cb153249c89c0d4eb8c73468976fc4"
+    },
+    {
+      "resource": "Resources/Art/game_assets_hammer.png",
+      "source": "res/drawable-mdpi-v4/game_assets_hammer.png",
+      "sha256": "e888cf1f4d51218ce9a62885a2f198f0fb3fbd87065bc9a195c4a221d96543e1"
+    },
+    {
+      "resource": "Resources/Art/game_assets_homebg.jpg",
+      "source": "res/drawable-mdpi-v4/game_assets_homebg.jpg",
+      "sha256": "355949f274703d8fd66f5e994100c76f0981cb541b98e754e19aa7347e4385d4"
+    },
+    {
+      "resource": "Resources/Art/game_assets_lens.png",
+      "source": "res/drawable-mdpi-v4/game_assets_lens.png",
+      "sha256": "2fe1814492d1bc95b004052c997b25fcc3d1f7e1c21eba23db83337a3b6eb6dd"
+    },
+    {
+      "resource": "Resources/Art/game_assets_levelsignmosaic.png",
+      "source": "res/drawable-mdpi-v4/game_assets_levelsignmosaic.png",
+      "sha256": "70573d9019af444f9a4fd08823d879bc1d4ee03e2dc50f6327173855a14284f7"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_barc.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_barc.png",
+      "sha256": "21092dbd84de2889f37756ba05bcf8bb64549835456093a31e317dbd1d79372a"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_barl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_barl.png",
+      "sha256": "0d7e732af6c66aa4581a3c4d8a0858882a6c540ce20a200a3690692d4625eefd"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_bart.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_bart.png",
+      "sha256": "699141dd260d1284d0eb3e9999b8edabb450331b1149af62728df15623807257"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_bartl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_bartl.png",
+      "sha256": "869e59f305273f66f41d3f708aa67da78f8f6403ce81fa0934a8b9df17d8ea28"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_tabactive.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_tabactive.png",
+      "sha256": "79f5c335121e7fb16ea9517179115792fe7242cef759e80767a7627cffd66cb6"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_tabhome.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_tabhome.png",
+      "sha256": "e5727fa97760b6566a217c725b6799395aad749071b0476e16bfd663d865cdce"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_tabrank.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_tabrank.png",
+      "sha256": "dd7c7c889c4523ee0ab6bd3ff6a8c85017c95b8f7125dc882f4905278c015d64"
+    },
+    {
+      "resource": "Resources/Art/game_assets_nav_tabshop.png",
+      "source": "res/drawable-mdpi-v4/game_assets_nav_tabshop.png",
+      "sha256": "9aee1eb5f7499d064ca147453f91977fd0d101900fb1627225cdc1a9a07209eb"
+    },
+    {
+      "resource": "Resources/Art/game_assets_panelbadgecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_panelbadgecap.png",
+      "sha256": "e96de17691aa67c023802df190be4185a6524a05070e72f8626828f7675130e5"
+    },
+    {
+      "resource": "Resources/Art/game_assets_panelbadgemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_panelbadgemid.png",
+      "sha256": "d078965b866aa036957f3c6c54c67e8f8ad322d05c5a31d9360ce884201c3a1c"
+    },
+    {
+      "resource": "Resources/Art/game_assets_panelslotcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_panelslotcap.png",
+      "sha256": "97fe25f2d480cb51485574c6861668fdee5498885b405b9c20e546a4df1dc057"
+    },
+    {
+      "resource": "Resources/Art/game_assets_panelslotcapon.png",
+      "source": "res/drawable-mdpi-v4/game_assets_panelslotcapon.png",
+      "sha256": "c6bd9c855d4dc85e27ab39ddbeb139b40ee25a88cd19bac5538a0fd17b139a10"
+    },
+    {
+      "resource": "Resources/Art/game_assets_panelslotmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_panelslotmid.png",
+      "sha256": "afaed0c3d8609fb551d9591d9cf46148ca46c26efc97fd05f14427ca8fdcb934"
+    },
+    {
+      "resource": "Resources/Art/game_assets_panelslotmidon.png",
+      "source": "res/drawable-mdpi-v4/game_assets_panelslotmidon.png",
+      "sha256": "39bdcac30f72530bb590f085e8f7c9896536ef989994d40f4f58c7f62123915d"
+    },
+    {
+      "resource": "Resources/Art/game_assets_paneltraybeigecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_paneltraybeigecap.png",
+      "sha256": "4727645ac6e56b2ab808cf6d8a78c473f3887678832e2deaca1e83dab22a2c27"
+    },
+    {
+      "resource": "Resources/Art/game_assets_paneltraybeigemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_paneltraybeigemid.png",
+      "sha256": "529e13912f76af549dfda11cb87a4931865d2c1786ceaf75cdf3d9032b456c0c"
+    },
+    {
+      "resource": "Resources/Art/game_assets_paneltraycap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_paneltraycap.png",
+      "sha256": "83595455376aae0649d5f24b4135a5af28b50bc441a16d7840d1961ebfba827b"
+    },
+    {
+      "resource": "Resources/Art/game_assets_paneltraymid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_paneltraymid.png",
+      "sha256": "ea564383e1b3e008568ad0e16a2b56d619f7b31bce95e2aca16b84ce04918c81"
+    },
+    {
+      "resource": "Resources/Art/game_assets_paper.jpg",
+      "source": "res/drawable-mdpi-v4/game_assets_paper.jpg",
+      "sha256": "908c2b2a1f1e5cbe63f94ae53379fd4ae614ce7608e35f34e9c6d851cd0c8a7a"
+    },
+    {
+      "resource": "Resources/Art/game_assets_pen.png",
+      "source": "res/drawable-mdpi-v4/game_assets_pen.png",
+      "sha256": "e28e33429afb729ad2fa43b6f3ece2dbe5288c05089b03b125f0e778c5eee5ac"
+    },
+    {
+      "resource": "Resources/Art/game_assets_playribbon.png",
+      "source": "res/drawable-mdpi-v4/game_assets_playribbon.png",
+      "sha256": "2c3ec2c424ff973f1b847dca6997aa207013c8a668243537f6f484454c894d45"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrcap.png",
+      "sha256": "7fdec87a797aaf49041ef2961b7a88421d086b5ae0308ea317cd426fa01da3ab"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrmid.png",
+      "sha256": "49b6f722857c3a34586b0135542b3d48c607d0743c4130efb538a9bf08b7f3e8"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrnavycap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrnavycap.png",
+      "sha256": "50a0a32956f9bb449abf5f884d0d3cac7ad00e138cb7b8d0dd0d57bc9d7346fb"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrnavymid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrnavymid.png",
+      "sha256": "7a833a1611003efb213b0d1b7ab6519855fd1d2a161782547645728973fb636b"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrpurplecap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrpurplecap.png",
+      "sha256": "86f76e8f9a7e6a6addf127a40f11156f87f603debcc9f1eb24beb3402b2c46f6"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrpurplemid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrpurplemid.png",
+      "sha256": "138a6a7efaaa8c7fbb80d10f59f76dc41880a8354e74bd74974318ab2683355e"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrredcap.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrredcap.png",
+      "sha256": "d3d134c8eab8baf76d8b320857c0f980837c688330061d2b44a8c969d4873894"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_bnrredmid.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_bnrredmid.png",
+      "sha256": "fd6e3ba7a306a59eef13727e3f17454892602a7484f815f54df1ff7d549393bd"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlblackb.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlblackb.png",
+      "sha256": "02157582c67b0757a75763f39d4b564153c15b3c062f0eea311b78babf8a7717"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlblackbl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlblackbl.png",
+      "sha256": "cfdf5029f547e0f611babe759330b033d3bb20b7967b0b10a3d79fd56ca57567"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlblackc.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlblackc.png",
+      "sha256": "1d6b317d77b041493c727fed2620cc734340ca3a8d88473bebfc20fe73b5d63d"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlblackl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlblackl.png",
+      "sha256": "339b12c0de44361e103a299f8b09284cc56c316406d94884a15643a1bdfe73d4"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlblackt.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlblackt.png",
+      "sha256": "da450fd480490691e51e7cf85d4d49bc178027783e007d619979678601d9ef7e"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlblacktl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlblacktl.png",
+      "sha256": "d0632cb2d21c15ca37b55ca456bfad283116e4a0d187f6b39c804981b3f47025"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlorangeb.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlorangeb.png",
+      "sha256": "a79ea383b3bc955bd5631ee23cdb765f612e3b099050f074642cb5a549d7a0a5"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlorangebl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlorangebl.png",
+      "sha256": "1f767d7909d99714aebccc0847f0c92d84f18325f3672d4438459b800e0cf551"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlorangec.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlorangec.png",
+      "sha256": "34fc939942c5148d785fe8e7f480d0aa4253493e791b4bb1f9fbb92af55bf716"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlorangel.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlorangel.png",
+      "sha256": "49337f898a29c70b814c47a3d976275b49ac46033040745cea0f87be59461dbb"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnloranget.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnloranget.png",
+      "sha256": "f94a10f29b3764663e95004d5922ec7bafd8cae09cbac7bc42584669fc17cab8"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlorangetl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlorangetl.png",
+      "sha256": "e77ed37036693a1bc60f0226c19210e212f9fa865eac0bd1524b91e70b6f561a"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlpurpleb.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlpurpleb.png",
+      "sha256": "17908716a68880d5f3b494823b38cfccc59501f2a980356f440551243a9051dc"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlpurplebl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlpurplebl.png",
+      "sha256": "386eee5fd09523039564b241804e7aadce1d843367a47dc6f8e9ccdf71b977bf"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlpurplec.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlpurplec.png",
+      "sha256": "b0eda2d744c2a1c535c71ec4f173417255b5366de8cc33b4b8435c11e7a390a9"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlpurplel.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlpurplel.png",
+      "sha256": "136c2bac734f84101211d0cd49ba8f7e1687aa1a421ec2c150d9eb9e060676a6"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlpurplet.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlpurplet.png",
+      "sha256": "4c18910928b7d8fa9a3d4f66bdc88b917a0cac9f0923325c02f87d9884b2aa97"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlpurpletl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlpurpletl.png",
+      "sha256": "32af2e5bdf31722990bd4469dd50b7e6c47f75e18918be97d07f967a52df4d88"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlredb.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlredb.png",
+      "sha256": "21ca7f4de51dd2afb9d7f5eaaff29a3d864abc172f53e3ec7ea5c3d33a4fab21"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlredbl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlredbl.png",
+      "sha256": "e4ca670f144183cf474f12e78995b954a167c34890c5dc019ef4f5ffd05b4d8d"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlredc.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlredc.png",
+      "sha256": "8438d892f55a705d3e31411b6ab3e04ed872bfd2f1f8b998f910a10625ce23d3"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlredl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlredl.png",
+      "sha256": "1a1f02f09c8d494d8803c22ce3327633d9d3432f6a93b7972ed107f43c501373"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlredt.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlredt.png",
+      "sha256": "8b0a8ffe6ff13637cbcb358ea48f08e68369d18cf41d3c401f5a6c5ffd98248c"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_pnlredtl.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_pnlredtl.png",
+      "sha256": "d2b624cc66cc21c2b3d122fbfeebd3e4b2978c90be2b3c0fc9885c9db7e8b04a"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_previewticketblack.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_previewticketblack.png",
+      "sha256": "f0b683b655300f54f6536d0e78f349d30dff3c826f8df6a0ebc1cbf4460410c0"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_previewticketpurple.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_previewticketpurple.png",
+      "sha256": "caf28281374155c92d135cbf15d45794319aee970b9e6801a48b90d8e342b04a"
+    },
+    {
+      "resource": "Resources/Art/game_assets_popup_previewticketred.png",
+      "source": "res/drawable-mdpi-v4/game_assets_popup_previewticketred.png",
+      "sha256": "463922460d641ce88fa425c20c25649c2bdf78f214a7b010678053370ad047fe"
+    },
+    {
+      "resource": "Resources/Art/game_assets_previewinfinity.png",
+      "source": "res/drawable-mdpi-v4/game_assets_previewinfinity.png",
+      "sha256": "c5e91235eb82b958b30e16b5bfb9705af4261c3bf01b08a27a1e4cff001b3c5a"
+    },
+    {
+      "resource": "Resources/Art/game_assets_previewplate.png",
+      "source": "res/drawable-mdpi-v4/game_assets_previewplate.png",
+      "sha256": "0a496e218c4b6ac74144d18b4359aa3cc570037314b30778d4f33c63c49dab5e"
+    },
+    {
+      "resource": "Resources/Art/game_assets_shine.png",
+      "source": "res/drawable-mdpi-v4/game_assets_shine.png",
+      "sha256": "c1f551cca08e565ec8766e92818988abd356568033e0aae7634abc4c83e9d569"
+    },
+    {
+      "resource": "Resources/Art/game_assets_shopbg.jpg",
+      "source": "res/drawable-mdpi-v4/game_assets_shopbg.jpg",
+      "sha256": "c4a22900c6bb9b4c6b4223167a53622be14479d2c999c8690bf4847527078e99"
+    },
+    {
+      "resource": "Resources/Art/game_assets_wood.jpg",
+      "source": "res/drawable-mdpi-v4/game_assets_wood.jpg",
+      "sha256": "19e573c67a088b5d42dacaa0e30ae0b88bed7e28dcadfc30c8c8ffa0eee62afb"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_activatebtn.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_activatebtn.png",
+      "sha256": "1ffd11295abdcf69cd2d6edd6fc3863b82a7fbc5b75c468820bccadfc09f0833"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_arrow.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_arrow.png",
+      "sha256": "814b07696ad9979c473625b9544b752b8af936a4e876e30d0e70a80fcf7ea4f8"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_arrowyellow.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_arrowyellow.png",
+      "sha256": "f4aa6402471452d56cb85f4fb37f2e7490e106120cdb9a1907b5e112102880cf"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_1.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_1.png",
+      "sha256": "588b447193544a59c8b505c761206623cee77d73bf3e36c943cdde59ba730f9f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_10.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_10.png",
+      "sha256": "f7c0f1088e355cf579b69248a3c15628d189b627667eea72cfedd8523f369a8a"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_11.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_11.png",
+      "sha256": "319af4cd7629e29c3c62711c73008e26445efd276fce31dc6918c0ef8a8048cb"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_12.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_12.png",
+      "sha256": "19597914663b64cfc30d37cea74da0aa05b4004a7e4066cfb65b5c5473da57f7"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_13.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_13.png",
+      "sha256": "ebc4135b61b357b9173d348a4903d43d037a7a703df0738742f32b1187a1c533"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_14.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_14.png",
+      "sha256": "a9c3d782bb77fe41b848fe371101ab3c47c431c2d9a85ea49a24b3471152d37f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_15.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_15.png",
+      "sha256": "6da3656b9dc5be793e9ddca8bfafff744d9270e850b71c942859a80c5b705f08"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_16.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_16.png",
+      "sha256": "a92613f456f3945e3111c5d8fc1468717659f20e56389f010ae4c8ba7163566c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_2.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_2.png",
+      "sha256": "6aad54e3d3ddb5c9b845cceb5ccdcd056e463248841d93546063dd49a9dadaed"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_3.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_3.png",
+      "sha256": "9298840ef953ac94fd023fa75ff8676ff7a1556d5514f497d17d51369dee4bee"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_4.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_4.png",
+      "sha256": "03fb8f29b248850aad8675afc03e346f395b5101b843f3f04110ed8c62fbf6ed"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_6.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_6.png",
+      "sha256": "2ccfea5e86452a6a434bee6e9ba88b393c602ce3a636f6821396e2a3fdbfff22"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_7.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_7.png",
+      "sha256": "71c7bece3045dcd18a4fa832d2132c8e6dc8e80463d1a3c7568fa1bf2041c73c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_8.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_8.png",
+      "sha256": "987d99c17de00445ae7132288f05bdd264143084164023c8024afc3b28e4a7cc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_avatars_avatar_9.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_avatars_avatar_9.png",
+      "sha256": "7c398a7a7da8fe9c0c91b2ca84193643c7c9cc90a30786776018c3044abd04ad"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_balloon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_balloon.png",
+      "sha256": "8ef1486a8c5e351a3a44099014265db00ca5ee10942420739a42135720cbf1d2"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_beginner_pack.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_beginner_pack.png",
+      "sha256": "127d7712c1d8945752bd1f5a405f07f3394918f1573f3a56295d2b0b1df9ad72"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_bottom.png",
+      "sha256": "48de69defe49a7636c0b4c19e70a5a58669cff7d9760f3e9c22f7dd64844b140"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_bottom_left.png",
+      "sha256": "f396c82e1cc2a6bfa5f96cbcb2f58be8a4abea9ec70fb2896f09055338c17244"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_bottom_right.png",
+      "sha256": "9a38d961fd75f74efe224fcc90e0afe3c317b830416ff5c5c784f91daeb4eb27"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_center.png",
+      "sha256": "d7c03ca3744d1aed932c5476fc5a04d75ea89b5b589489281c926046cc0563bd"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_left.png",
+      "sha256": "190fd2b7c9dac9370a8f8e20d71d9f8577e10e922c4b224ed046f8b28418a088"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_right.png",
+      "sha256": "943e47caca67549b774a6b800857490d551fc0d62517e643e9d9efa60aa12813"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_top.png",
+      "sha256": "16ac6d051d00e08a7e1ba240f768dc055c0adc121e4a4fad044deee188264dfc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_top_left.png",
+      "sha256": "4d440bbab3437ab9fb929bdcedb3cc4f60a5549c1aa13e9847cf18b3cf660fef"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_boardframe_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_boardframe_top_right.png",
+      "sha256": "181e855613bf223d89c2784f78320554b7a5b8bafe449f2153615eca7def18c1"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_bonuschest.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_bonuschest.png",
+      "sha256": "775fac2c0bde319cc1bc1817f18fc8045405e64b591c2ece8384dad59ffae4f9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_brokenstar.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_brokenstar.png",
+      "sha256": "8d2bdb803bf1f326b80939219382f3def665f2a0842313c2029f16550e38a0b2"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_bottom.png",
+      "sha256": "d3e8d65559ab4529aed7fefd33841b2d6d6afc76dac5922855aca651f481a60c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_bottom_left.png",
+      "sha256": "c314396a17ea5a65c001b7de3d1f2083671ad04bfcae0fe34e31a0a83a6cc856"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_bottom_right.png",
+      "sha256": "87875ebbbd5fd15a65628afd981e1b47220e1a21412d9c0259ae85293775715a"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_center.png",
+      "sha256": "8498223f52cc968dd67e8c5d76b861b9446065b2ac40a68caa162de27ae985f9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_left.png",
+      "sha256": "fbf257ac1f8621e242bd3989f70abad744886c0d7f2ddbb766c1e4b28d86a36c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_right.png",
+      "sha256": "4670ec702fb3164e51af73e9a2da3f1e164f4eb829d64e409c8d9ed391eeefb3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_top.png",
+      "sha256": "43cd28ebacedbd5cb3e15a9c5fa691b705e2881ff95365a3aae97c3b24638a30"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_top_left.png",
+      "sha256": "8fd47b24119b34c3b0c8f948e0c08b1ac5da68adf06e43c08c0d5edb676e26dc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_black_button_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_black_button_top_right.png",
+      "sha256": "c136f3cfd4c1aba1f364d99b01c58ae1fefa70afa84c4586ea8976653fc64771"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_bottom.png",
+      "sha256": "2c698cc87a7f28396dbbe2b591d04127d23af05dc255f43bdf6b6d8e00ffed3b"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_bottom_left.png",
+      "sha256": "baedefe5356edfcf65c1455f7d8441dfffebb0f482b2cecaa74806ee2f9533bc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_bottom_right.png",
+      "sha256": "7e5f99f531bc129f3fe40d5e07e8e18bd4380285fc130c2b5bfae4882d7ae6ac"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_center.png",
+      "sha256": "14bd72ca2b1cc300b493ed0412c7d4825db9682a2fa9e436620c443c30d67f29"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_left.png",
+      "sha256": "7c41aa5b6c9db88e519404c20cd50f5213b59182434d69a84536d891d2804cc3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_right.png",
+      "sha256": "741e547a61c7220dbb88e55eed4fbd5f0f29c52643231a4b22d00ba6fe7b2d47"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_top.png",
+      "sha256": "5598b554cdbfa0e7600ace403eff22a1b1b0d176cc5063d172f09ddf3c6fd49a"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_top_left.png",
+      "sha256": "5ffd241d6bd4711376cfeb802d1e99f4993420dbfddade85dd44a6d8e542b46c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_blue_button_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_blue_button_top_right.png",
+      "sha256": "613954ea9ec2ef46964774428a97bb5e623b5562f625a582eab05a2eb767222c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_bottom.png",
+      "sha256": "844de67874af751ec4a583c65f59f597e9685a849c4ce0835e30806f7af0434d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_bottom_left.png",
+      "sha256": "811bda372cfa787691ce5be71173e730b49872f1dabfe3adbbf40ca0e5ec37bf"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_bottom_right.png",
+      "sha256": "1d5d7b334f7b22e80474b8d2c8623040abde1c2c61369c9dba063e03a0d43247"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_center.png",
+      "sha256": "4881a2a4dc6dc3ec25e807c51d5dc282dde9e980b9cb810a7538e90d9a47b8dc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_left.png",
+      "sha256": "ca42cde1745481a837d7b68b6704253b62950b46bcbdc5f9febe727106a3a0e0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_right.png",
+      "sha256": "f8f5e4679af27fa8854e2c2b3548a60cc55609c4a3aabc96a5a0d3d81a444ab0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_top.png",
+      "sha256": "7468461005408dca6cd85399ae6f472bbacc478ffd5c1b1cf420b7abde124c12"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_top_left.png",
+      "sha256": "ef67ae26db89b82b4a33c395ad880f6d3d41a05bb187b5496e0af9c5223d9014"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_green_button_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_green_button_top_right.png",
+      "sha256": "b89f4d298c18d9947f667959b2e3c067a2c324eeb74d4305c53b499852f2ec7e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_bottom.png",
+      "sha256": "8b941cde6d4f872d08e25c5bfdcedafb20846ff3cdb76fd513b55bd52fadc379"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_bottom_left.png",
+      "sha256": "7dbed758e411168c3057cab42fa949e748adeb6a98e0b38c22b15612158b12e6"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_bottom_right.png",
+      "sha256": "a8cb84b0388544dbcc025994682d88cce6415ea9cccc9b4062f44fea24af5f30"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_center.png",
+      "sha256": "d849be940eb189cd53daa079436029140bcfc55eeb1c54a3f020284df24c619c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_left.png",
+      "sha256": "351f617889d1fd47955291b9aaf7b039d99cf1a0fe0ac6918baf298ecf832388"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_right.png",
+      "sha256": "87416b59055e1596dafc0e2d279cb21a2b9d6781d2995cd815b90fe5f4dbb2fc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_top.png",
+      "sha256": "895877d8f02e5a35f76ad55ccc560e179c279a776e3c59a407538d0f89f630bd"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_top_left.png",
+      "sha256": "e209743d43340e94160da1b4a546b92083795b56c6e9f42637c23782750ca345"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_orange_button_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_orange_button_top_right.png",
+      "sha256": "991aac8f968adf19a51d895b47431b0898fe29e72fb6fa2bafbd3e0b28a35968"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_bottom.png",
+      "sha256": "9f872d1735dd3adb4dfb4b16ff773eeae6bece5c6b3ca99f9bfbcbe4c8252ad7"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_bottom_left.png",
+      "sha256": "5b76f2533aabf7e326c84457b70c5c627c5ebe25e559155ddc803132284ff83d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_bottom_right.png",
+      "sha256": "40d7166f3d540d05d21242aeb24baf76a2f685fd4391484192c370f35673c30c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_center.png",
+      "sha256": "adea465bac61a5b44b4fb0becfcc2f5442aa2abc284b38b07a9f6909643009aa"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_left.png",
+      "sha256": "725578f92308be2ce5214e675585606c47c6c7957a2c1ea4f5f8f5c93c3e9aea"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_right.png",
+      "sha256": "ffe693d4c5e31273ce9b3a6a1e86bba58c42c150d7f256f191eddd7faa727f75"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_top.png",
+      "sha256": "5c1acb5b779e3ee29c578c4b9c4b7a3920a3391f2256c345ee990499d31c3395"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_top_left.png",
+      "sha256": "bf6dec5b7f342c00e622ad9e394a10b71e364fc69ae522848bd8a3d1b9051a61"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_purple_button_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_purple_button_top_right.png",
+      "sha256": "ae905bcfda9f38492c11d48b59d636e25ea49d863d430f720d77905db14f510f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_bottom.png",
+      "sha256": "1445bc80810c0d0944cf6e9f532607ba22786598328a456bc5c8f87693857feb"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_bottom_left.png",
+      "sha256": "11125770b9fce72d20f98bf51810cb4f609a869f7470e4fb9e6e80161eba1217"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_bottom_right.png",
+      "sha256": "73ebb61534fb55e6a8bf441ed80919e592199c175fbbe7bd38dadc287dc87494"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_center.png",
+      "sha256": "e650a25193a7283e1aa44845696b6cf6d18d4745c0d0d70274294a688ba1a0ad"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_left.png",
+      "sha256": "b77867b36eccdfd9c11564805b1a1f98036930928d56dc61cbfd521eb1f252d3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_right.png",
+      "sha256": "d211211bca520d273e07ff6b04d3cda17a1f10d4c51863b85be9c72c5a1af9c5"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_top.png",
+      "sha256": "631f5460df50f07d2da15db002da4ee4150f5a2fd6896c7b399072ede331c1ba"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_top_left.png",
+      "sha256": "31ddab1ec30bf032713492151d52dbfb088af8936f9345a4a4fa84eb92fc21c9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_buttons_red_button_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_buttons_red_button_top_right.png",
+      "sha256": "9309288b73b6291a0edccf64eb5d1f2be00ffccca738a66f49353a52745c59a7"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chainstrip.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chainstrip.png",
+      "sha256": "d3db8c42e6583da0fc294b32da1eafaf257d01d340fadc28700cad1473705379"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestbronze.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestbronze.png",
+      "sha256": "6e29be144eb1283c56dda17c42a4cdda66e8181c0ce657b348a6c0f183ac1f20"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestbronzeopen.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestbronzeopen.png",
+      "sha256": "3e74366ea82cd343a5b03764b9d9081b7359b1e3a8c44f8698980e49f28f9107"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestdiamond.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestdiamond.png",
+      "sha256": "7d2a2a0734a7567166141d4c400b4ec0dd56212a2a215cc1c14a6c0fccd33d23"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestdiamondopen.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestdiamondopen.png",
+      "sha256": "a4bc23d5c7a21705662921347fdf0b5e2526d1a11e82bdbbc9baceeb277d679d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestgold.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestgold.png",
+      "sha256": "e75329648747845efcd1974519dfb03b06d198ad4e1dbf8b58b36f61a410cfae"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestgoldopen.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestgoldopen.png",
+      "sha256": "28f955339674a722df7e8a245ff5112e0cd71a32bb182d2908a584ba95b32986"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestsilver.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestsilver.png",
+      "sha256": "364937a617b40a8d116028a3b94f848bcf26c48d4c6a8c51dfdea1ae49bde438"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_chestsilveropen.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_chestsilveropen.png",
+      "sha256": "3559f855b8a4e0d52ac2643e72c7f3fc68f640e20fbd6d682ae613cb941d334b"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_climbicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_climbicon.png",
+      "sha256": "6f22b920eea9a4d4a086d9250e9524cade291d56f39c1e8fb8c8aee4a8998813"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_climblogo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_climblogo.png",
+      "sha256": "0695399d461e118159facd74504ba71e7178fba8a0f4fd64787301d2be02436c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_cloud1.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_cloud1.png",
+      "sha256": "255e6d700c2259dca56d23bedf6948abece4b5a604f7c2268f0ba4c508981ccb"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_cloud2.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_cloud2.png",
+      "sha256": "330062784fe150dd66372a225e012d7f6fc364557bea4dcd078efb3d71b9c0af"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_cloud3.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_cloud3.png",
+      "sha256": "f701f46ec2a0b68a126f73393b7945991bbff53cbd177e661dc2bd993fb22113"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_cloud4.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_cloud4.png",
+      "sha256": "f2b2e9cffd8e7736029fd6aca8076ce3b0a8126422e3877ce4009cc350410ced"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_infobtn.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_infobtn.png",
+      "sha256": "1af69e768f4283f4be112de3135017789ddf4b02afdea1f3cb5eba0852cd78df"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_island1.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_island1.png",
+      "sha256": "e2efd812545fab9fb7c8b2182e6641eccc439ce8bc920a4fb19428840186b77e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_island2.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_island2.png",
+      "sha256": "597a0a01254dc1f4086fd6978aa6715d8a454b6ddf92beeea896c2cd8a343de9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_island3.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_island3.png",
+      "sha256": "8a72cba76a299ff11fd891af4c88d7bfa6ee734968c27ea13eb09ed6b47789af"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_island4.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_island4.png",
+      "sha256": "194b85a4d8a8cb9886234aff0f351f19011542263d69e245150dba300fb17921"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_island5.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_island5.png",
+      "sha256": "5c08c517d55bf34238989167922846c52a7c10828dbaabee39ed02b8fa20d414"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_island6.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_island6.png",
+      "sha256": "fc353d23c0774122585641858c24e50beb360845028c3fda558fbb8f1c6a82ad"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_islandplain.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_islandplain.png",
+      "sha256": "455383119e592d6e252392247c7bc4800996b79bc692fc337a7b0d9b8c32255c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_joinartwork.jpg",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_joinartwork.jpg",
+      "sha256": "4e9c659d9034c6fd570d48155b2ac078164cb0c24ea6b3ab44c2b0d4a511210f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_mountainpeak.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_mountainpeak.png",
+      "sha256": "71c56caa77676d72936e6950ed96fdc49d884c5a25b12d0ce60b4fa99b9bfcc5"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_mountainwide.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_mountainwide.png",
+      "sha256": "2d5c6ddcb9c929a4fcf636ce3ccfb1104cf75ed7c37dccba5a8ebca2d9ba21e3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_plaque7.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_plaque7.png",
+      "sha256": "7b61e9dbe8b1bc644e3fffbf30bc1423f5a7ff4dabfdea2b9e8713a2b7b0914a"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_stepfall.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_stepfall.png",
+      "sha256": "6e07780370f89db69c7b2f76c6f512bca2903421feca2dc5446783f5c999caa5"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_stepup.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_stepup.png",
+      "sha256": "e6febd729aaae263d9a73c0daf1781de731d518a4755e9f3c16e33cf9fc6c0b2"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_climb_treasure.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_climb_treasure.png",
+      "sha256": "7085e2bebf65f43c5aa97dbb5a082cffd73c4145b993ff582eab25477637e4f8"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_clock.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_clock.png",
+      "sha256": "0f7c2ca21c3e36e054ec663f919516e82d11ecee1dbbb7258c8b811ba8c939c0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_close.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_close.png",
+      "sha256": "bd5552737e64a987e974838c7152c3f7df0f92a4ed7969058b7bfc88721b2618"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_coin.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_coin.png",
+      "sha256": "37c5cee470bf9bf66c8a9203ffb24fd9d32f1f3aa69aab258bae11855fcbcada"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_coinbig.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_coinbig.png",
+      "sha256": "420b7e5980b973c9e942ba4009c43e7db22ae982c8fd4bd27c13b1cedeaf18d5"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_coinlarge.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_coinlarge.png",
+      "sha256": "014a89d2e5d187dd4ef93a8862ea01352b73c7fe37f47ed15e9e307184170f93"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_coinmedium.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_coinmedium.png",
+      "sha256": "6d0fde633db2923a67841934030624007ef0479eba3c0f4073c7dd87241cd099"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_coinsmall.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_coinsmall.png",
+      "sha256": "7ed9c18f0648039bc2a5b95f7e6307c49c50be482e36908918fd77afaf6d8d33"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_coinspritesheet.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_coinspritesheet.png",
+      "sha256": "505365e602d5c250939dcc26e04dcec32b3b445135715e600118be468729f2f1"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_coinxlarge.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_coinxlarge.png",
+      "sha256": "06ec4b5b74fbe941093039be90712ee440ff2c57abebe310e111b19c5d81f983"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_compass.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_compass.png",
+      "sha256": "e15564731bed1eef300d7a262b1aff9c29b77f689259e9dffabc63792e10ceba"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_compasstop.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_compasstop.png",
+      "sha256": "bd492647408846b8bd68bd2ab7fff229e3d86087b2ed048c8bb02e98447ddce8"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_cubeblastlogo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_cubeblastlogo.png",
+      "sha256": "3d3a4ab0837cda0a84da125d7516fb6a9bb181b8a3717f4d83ef5aaa9cd19ab2"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_dailyrewardcardicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_dailyrewardcardicon.png",
+      "sha256": "b657b89a1b11c1bd2487217b9ead13db0b4fe113a12086ce8eafc2f98a7c4141"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_dailyrewardslogo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_dailyrewardslogo.png",
+      "sha256": "b28889aedf69412832e2445f7e041f807b3369ce65fdf64b32a2c902c2c63844"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_defaultparticle.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_defaultparticle.png",
+      "sha256": "0f054671eddc612370d9840593ea48e4ef3046bc8ad8582a9c14ba6d571bdace"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_eventframe.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_eventframe.png",
+      "sha256": "c74320384fb0f836c3f7c0cbb39c78aec78188e81d10e09b83033c4a8cd72b6d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_eventlabelleft.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_eventlabelleft.png",
+      "sha256": "840ab2a962fb0911be060fc52a105a8c6c3eeb2c4ca56ca300a732545e102020"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_eventlabelmid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_eventlabelmid.png",
+      "sha256": "c13ed502a50380cdd378c869c7a152161741e5338e1bf2e67fa1db6a18858156"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_eventlabelright.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_eventlabelright.png",
+      "sha256": "b9e8b8f574ca75d412411da161cea5d82ba385a1b11054578a4922c444c05321"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_extrahardsticker.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_extrahardsticker.png",
+      "sha256": "7b88bc315b1be1de78716e322fd33847872a65934404935f8bcb8feef4002a70"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_farqgameslogo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_farqgameslogo.png",
+      "sha256": "2dfeb560da9c006b9333ce10f61a574858b8560bfe9c870673940b7fd81bf8c4"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_fourhand.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_fourhand.png",
+      "sha256": "44fe4c76ad6ed482a04e59944bbcbb71169d917d0904e722c43cd0979961975f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_freepass.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_freepass.png",
+      "sha256": "7a160bcd0fda3a44f8866f87b145b1b661bea6c86ca7618975918a4db48e7362"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_freeze.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_freeze.png",
+      "sha256": "4ad89c3aec39c72d56fa8edf0819577a595b2865533b7563ab8d57211d8f7a0e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_freezeoverlay.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_freezeoverlay.png",
+      "sha256": "2baaeaef89ed92e8c10d0e54fe4d69fdb582ea0bfa879aa61d86412f9bab0535"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_frozen.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_frozen.png",
+      "sha256": "4dbd4a2fb7abb30799c63ba65206f09712221ee42e94daa82cd7257a7bb35fb6"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_gameplaysplash.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_gameplaysplash.png",
+      "sha256": "ce8fe867663e1d80312c46e09446335e79126deedd460d1a5030b14f7e5f8ca8"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_giant_pack.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_giant_pack.png",
+      "sha256": "e0a34df5e034870d17707077af90a330490a92545b8a2a006eda5eebcaa4984c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_glow.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_glow.png",
+      "sha256": "bd67608c3f81f7525405d3e7eb4f69c23bb7a47e309d28eb69bce801b7608725"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_glowgold.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_glowgold.png",
+      "sha256": "f8130de4296c124449621de4879c8d160c5a3b5f6e261970d20911414346df62"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_goldbase.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_goldbase.png",
+      "sha256": "e8095b031df0200f84c736335cddbc752011842606dc1a2ac9a5e46fd7506092"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_goldenframe.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_goldenframe.png",
+      "sha256": "7a9905fcc1d354cc9c98fc6cb6e42fd2f58bf46dbb7a209a4ab2f298d68417eb"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_goldenlinebottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_goldenlinebottom.png",
+      "sha256": "e26084ed249ffdd5dbf9b3b61d690fd1ffc1d7a86767d06e9a863060602f86d7"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_goldenlinetop.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_goldenlinetop.png",
+      "sha256": "6cd6bd39004986544dc81652ccd4eed718004100786337950cea538f2dab6f66"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_goldennotch.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_goldennotch.png",
+      "sha256": "095d74735027eefa86d72db2b24bfaeea2646f861fbdd74ae39a476e7e104f92"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_goldenpass.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_goldenpass.png",
+      "sha256": "01ffb66666cd352507b051b3ae9860fad5e2006d1c7264a200c98559beb7c16e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_goldenprogress.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_goldenprogress.png",
+      "sha256": "ddfcf6d18811aaa6efd9e86e0c255cf6d12f26ce04c2151dda772c044c6a01d2"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_greenbase.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_greenbase.png",
+      "sha256": "533ce8818e699a8e376f95da66f8b18aae15b9fdea73bfd83ce489e261b9204b"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_hapticsicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_hapticsicon.png",
+      "sha256": "bb7f07118ca5002d9f477d39e7a32f50f77abb9460c14213ccb9e6df07aae204"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_hardsticker.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_hardsticker.png",
+      "sha256": "481917b229536a374c8d3ef3a2f78dce87ec3864920e636a0a9db947445b4c4e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_heart.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_heart.png",
+      "sha256": "c79c15cc5ff9944652b43419ea4842616f887130a1ce18bf0044295e394551a6"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_heartbroken.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_heartbroken.png",
+      "sha256": "cc03fbd2bbcf1a5781782a645650584b217d27bd9443332e387aef6ae90dd570"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_hint.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_hint.png",
+      "sha256": "9b72a811994963dc5198b73836e56d08f70ffbfff7135e869737421f77122096"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_homebg.jpg",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_homebg.jpg",
+      "sha256": "4519a7243e8f91647cbd218d15007bf5b1c00b72af0678de3256db1683569502"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_hud_levelplateleft.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_hud_levelplateleft.png",
+      "sha256": "ba8f7b9102f5158251cf9cdd87c846d7798d7a007c1b7dd8fbef4826637ba059"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_hud_levelplatemid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_hud_levelplatemid.png",
+      "sha256": "7865e73edb294b37a6a0f944d1fbcbab595de7861b2b2ea1cbb9194910702a3e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_hud_levelplateright.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_hud_levelplateright.png",
+      "sha256": "48c147fe4bbf3cf432bde3a5fb041511d487f173ebef8ecb718940ce764570b5"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_hud_timecapsule.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_hud_timecapsule.png",
+      "sha256": "c4ce37a6a4e009ab652d0971563fd0db73a11bc5907c6c1649d9ee15dedd0e72"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_jokerparticle.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_jokerparticle.png",
+      "sha256": "a80990fef2556b9fa4b0fecd6b01faf1b4f3072d0f9d958031e477ea57d9ad0d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_legendary_pack.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_legendary_pack.png",
+      "sha256": "5d637c61f6b36d75a8f4faaad96e7af3b1820c945166a780f3da273d8a0e5fef"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_lightning.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_lightning.png",
+      "sha256": "d3cffaa8bd2e62cabbc016d70c1266512f0c4e594d6bb461f1b7848d1d9a3b73"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_loadingbarfull.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_loadingbarfull.png",
+      "sha256": "485ac4e16e376aa59a62065861a0022133b864154a68adbc1bf3e4fa276ce4d9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_lock.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_lock.png",
+      "sha256": "d752325a645fa3efbda7d42f09da1232d69d1ed2bd9b5819d44d78297bb3d20d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_lockicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_lockicon.png",
+      "sha256": "d752325a645fa3efbda7d42f09da1232d69d1ed2bd9b5819d44d78297bb3d20d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseries1.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseries1.png",
+      "sha256": "c6b251f2fd7ccd5602ac119f9fec35fdc4787f81ab07b4717a572847daecf495"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseries2.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseries2.png",
+      "sha256": "155b87f1d20e0dde4adb6aea67e5f9a6278df9c422ab4878528cbf8fd5ce9e4b"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseries3.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseries3.png",
+      "sha256": "5350c104ba237b3d732c0123a5d9d3bddd2bc23757707c00b38db183efe74cb3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseries4.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseries4.png",
+      "sha256": "8ba6082fd584500e0f526882d239449ffbaceedbe62c1a9ca0ab230e2d4da690"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseries5.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseries5.png",
+      "sha256": "0b53dad8a76a9cff1464a433586fe8568c5dde1ff1ed00a9366024b2dd562466"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseriesclose1.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseriesclose1.png",
+      "sha256": "6721fa7bbf49eb0672903c77842cba7db43247c014c30b70ae3c24c1802732d4"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseriesclose2.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseriesclose2.png",
+      "sha256": "b72b9c4bf156ac4f3c503624e09dbc096edcb495c0b2172f132098d0309a78d6"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseriesclose3.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseriesclose3.png",
+      "sha256": "7dcf91652b10959f08c7a4e6c8fbc5e338e5b9196ebe3df4afc66b84a1df209a"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseriesclose4.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseriesclose4.png",
+      "sha256": "90ff399f5f65825df404746cb6dbcc365e073cdb653b3c576a289deed2f386b6"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentseriesclose5.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentseriesclose5.png",
+      "sha256": "924b2b8c22bd3521f647dbbeaea066d21ffca59cfc189109d76befabab6c0833"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_magnificentserieslock.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_magnificentserieslock.png",
+      "sha256": "debf416cbcf0aa75405b5017b62340ff3f704b0da663fb22ccb7459b9ad4ac1f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_mega_pack.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_mega_pack.png",
+      "sha256": "e9ce4392d5dc68adcfb96d6013f2a456f567865fd572cc7b4d1d239e468acbf7"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_mini_pack.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_mini_pack.png",
+      "sha256": "be6690b673a1109909925ba6d0c86c61d9cbef4a50808d40cc40941037ae3c42"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_musicicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_musicicon.png",
+      "sha256": "3b9a4d7d072eb2e3ef5f7a541492a311bf517246aa223688d5dd17a12eaa2ac2"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_needle.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_needle.png",
+      "sha256": "fae2c35ad817bb607ce9e097afc085fca95fb84b808383b43476aab453c29a63"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_noadsicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_noadsicon.png",
+      "sha256": "c250b4c2192113c666b7acbd8f49bcbaed809d410a87fcc427ce1c421164ad03"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_bottom.png",
+      "sha256": "94822ad0f54c857945affc1a2fd1ac11fcf8fded38bdce423f502a551126c04b"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_bottom_left.png",
+      "sha256": "6babf1f833fb0156d615c2357b994ee787f0476eb340477cbc9dbc95b85249ff"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_bottom_right.png",
+      "sha256": "ddd3dcf43ca5e9c9ba4b9c68c196f716079adb0b0a44b3a7b825a360fa6c491b"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_center.png",
+      "sha256": "d1ce75c4ba87cf7e7f8c80c18311a524382bde593d20727f40001959bff25b9c"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_left.png",
+      "sha256": "5ecbb632f6c1fdc23256a9f72cf75e10a0b452a45a77bfc51a7d2bd265c71eb7"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_right.png",
+      "sha256": "f19c7e690087af936d5b888388831375249038788b3a58a8367c6c02ad87f22d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_top.png",
+      "sha256": "7afb68a2e6d9a337b3f496c697a268480a714ff05b24365c4040e8f1759c198f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_top_left.png",
+      "sha256": "7c4e65eea49f33cc64bb1fe7f1cbb091decd2839bf64a5792b11a0bc84b2f5bf"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_panelinset_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_panelinset_top_right.png",
+      "sha256": "fd94c9f1eb88bff94eec4c1755a07caa72692996d31237f243526a4f0ebd3fd5"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_particle.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_particle.png",
+      "sha256": "a80990fef2556b9fa4b0fecd6b01faf1b4f3072d0f9d958031e477ea57d9ad0d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_passkey.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_passkey.png",
+      "sha256": "bfbaea5eeea22bc29726b9e0ae627741ecf4f216cd2909e2392cb34c5e2617c1"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_passlogo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_passlogo.png",
+      "sha256": "7a3eb97bddb717a179f20f65b2d9b836ab6ee80326f3795f1a5abc30878b7be4"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_passvaulticon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_passvaulticon.png",
+      "sha256": "9e428e5d4e803739680cc9b721c1d1c862a940b88e2b78139179697af36b408b"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_passvaultopen.jpg",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_passvaultopen.jpg",
+      "sha256": "3dc7b3803b8f988233ad2de68420c9c3cae8881cb4e268b34a78509c7399634f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_pause.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_pause.png",
+      "sha256": "a7cba78621d3472c8954e445aa34b2133ea353e69340ec4314880ed6aad04e28"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_pin.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_pin.png",
+      "sha256": "577ac26096a93307206e2d9d8921a913eb8edb4bb091ea3584e9c6707b51552f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_pipedreamartwork.jpg",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_pipedreamartwork.jpg",
+      "sha256": "82b2a70b3bb99cf036939ea7453125fb37ab1a1e65a4340f4d23574619f9e568"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_pipejoint.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_pipejoint.png",
+      "sha256": "bb38724c22eafdaa622bcc66ad75f16ec6cbc355564385dac0619a78ad4bdd90"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaqueextrahardleft.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaqueextrahardleft.png",
+      "sha256": "a2febcc38b5972d02fa6315660bac39125c53691027442f1c090201dc024e6d0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaqueextrahardmid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaqueextrahardmid.png",
+      "sha256": "2c45227a233dd13210c1717bc8afac1d6f83bccdb52859fb2b13056eae4c045f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaqueextrahardright.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaqueextrahardright.png",
+      "sha256": "7d8a0966ae6f0640ada6d9e3c87ab2e9087e2958555d018c1911a524c1c767bf"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaquehardleft.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaquehardleft.png",
+      "sha256": "90cc4b62bca82958c9875eecfecee2a79be6bed349388f036782b9c25c26ee05"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaquehardmid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaquehardmid.png",
+      "sha256": "84e3f90ed11c582a1aab6d9060b5b8d9f6cb2f581469882f6451c5d75369dd1d"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaquehardright.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaquehardright.png",
+      "sha256": "df940fd5118d4419f5d5c4144c1937c25adbef24ad38e2ea6ca913be617a5393"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaqueultrahardleft.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaqueultrahardleft.png",
+      "sha256": "6fbb18ebf99b15437854f607789c2a56f42fbd1b1dfde3ad9d526b0e96c18594"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaqueultrahardmid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaqueultrahardmid.png",
+      "sha256": "18804653bad9765532b44764c0d1d4ce7531bbd6d495d08a35d808eaf6d4e666"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plaqueultrahardright.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plaqueultrahardright.png",
+      "sha256": "eed7336fd7305fea75c6b6d64d3f83256be96cdea32978d1c124d9a22a622e07"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_plus.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_plus.png",
+      "sha256": "1d089c9d79ab9d1d75ae91e5d3acd08f13ff5dbf8b60e4ab4a509ea41f3806c0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_bottom.png",
+      "sha256": "2d6945f82dc735332a50851dffa293b78ec444aac286b1ac6bde91e12afa6583"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_bottom_left.png",
+      "sha256": "ce2cfd04a1d34b1f2a49f619b352b62af756c321fc3657cfd9a4bc38c299e0c0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_bottom_right.png",
+      "sha256": "7ee988dccd16a8443c789234685aee5223de6438b8d3bc06434f2a7f7aa8f4a0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_center.png",
+      "sha256": "d7c03ca3744d1aed932c5476fc5a04d75ea89b5b589489281c926046cc0563bd"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_left.png",
+      "sha256": "d39519b638384d64823387d52a6aa2b954658453e87e7ba3c37820473bdef280"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_right.png",
+      "sha256": "d55a45b0e56f839ec20d6ded9260fbf10b2cac61425adcce832c9fbe3fe9a8af"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_top.png",
+      "sha256": "f29ee122e7dfae30ce762f43f8d7797cdc701283fc3a92d3823bcd8e41c42e18"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_top_left.png",
+      "sha256": "f435bb0d10c13f2796061954b6a3a4111783a18249c2d282af1b885f7e2989a6"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popupframe_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popupframe_top_right.png",
+      "sha256": "d24edd3dacfa6dd092e642d463dcaee8f195838a9548fd81138c5a66c1ec6896"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popuphood_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popuphood_left.png",
+      "sha256": "5096646cacc79b2310a7f384599773d21327d6855a803983f2a8dfdcbeacd42f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popuphood_mid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popuphood_mid.png",
+      "sha256": "c0fb3d5ef95be5e8c27927e10b858ceed9f59b0f9ca35620c6ed1ee301ce5053"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_popuphood_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_popuphood_right.png",
+      "sha256": "3d912a99eed96acc5a028b84afcb1eab358edb4d2166dd9af9e0832b22885599"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_reservoirdrop.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_reservoirdrop.png",
+      "sha256": "9e688ef12fc35e97ada2d211fbe31022adf8551874af0d63b0d30bf43d4e55d3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_reservoirtank.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_reservoirtank.png",
+      "sha256": "54754b9f6fdd6cab994ec6dac8538f6f338df00aed1de3d6bff281b45ffa4efa"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_restarticon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_restarticon.png",
+      "sha256": "0480fd61b78e80fab3a90991a11178964e3154795c031a6a812f9f5932d3b8cc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_rewardedvideo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_rewardedvideo.png",
+      "sha256": "2b59d867e4c20c46263dcda081fbb4d3e43b7bcb9d6ce3ec850fe34023a14a5f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_rocket.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_rocket.png",
+      "sha256": "d1291475dc95bb311555f27efbcc26df4f4b9e8d6e160df16f1bb50bfad7e3df"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_rocketbooster.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_rocketbooster.png",
+      "sha256": "b09efdf9c8dfe46b7a51cf819c1d00fc191d80b18955c9f8bbe28818bb48c579"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_shuffle.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_shuffle.png",
+      "sha256": "f80272b77cac947da14688fed1c248ec85f4b1af9c4788c2e8478ae52253e9e4"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_silverframe.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_silverframe.png",
+      "sha256": "9c12c5f526f644c0e63d96151f9916be084bfe65c89f5c5c23c6178e85fba653"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_silvernotch.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_silvernotch.png",
+      "sha256": "095d74735027eefa86d72db2b24bfaeea2646f861fbdd74ae39a476e7e104f92"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_soundicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_soundicon.png",
+      "sha256": "7acd7a50b76959b420d60d9ff1bbe6c6baac42f9919238e2242788dd16674582"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_star.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_star.png",
+      "sha256": "749eb68d24d2049685c50f5bca4818fb9549bf2cc475082719cd029f9cf4400e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_bar_fill_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_bar_fill_left.png",
+      "sha256": "d60f88a8194141f656cbdcabbc5b0c99d9ddf96f59f46ab8c6fe9341595b87b3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_bar_fill_mid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_bar_fill_mid.png",
+      "sha256": "e2920e2c6df35d5746ee54af28daf62314a050e731d466f1a3e840e3d0660421"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_bar_fill_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_bar_fill_right.png",
+      "sha256": "ce5bd431d2714c04ddfaa1a21315d6d1067b759ba2da21feb7f702bcab72cbde"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_bar_track_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_bar_track_left.png",
+      "sha256": "7fa7aea007f855d2b750fa081d8eade2a62f7bcdc1021a4134505249ccd45fd0"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_bar_track_mid.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_bar_track_mid.png",
+      "sha256": "83573bc981526207493b164bd7e24505ceac10c7e9046a58d358d369e327d9bb"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_bar_track_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_bar_track_right.png",
+      "sha256": "c5332a2fc96a077886460213d38c8fe89be9dc0fca1d7fd232bd0a1bdf4bbb9e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_bottom.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_bottom.png",
+      "sha256": "5b9d27fbfb4f7e87e7127a83e6dd998520142fcd6938b445d94b4eefe736ed71"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_bottom_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_bottom_left.png",
+      "sha256": "ebaa58727f70af8418910ce2a31c0d579a7e9c1b9932feb82fa8ebf754ed8800"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_bottom_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_bottom_right.png",
+      "sha256": "bbcbaf63d98d24ddfe266b1ce72450c29decfad26598fcd1df9df057c244fe23"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_center.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_center.png",
+      "sha256": "7473e22bf2a190004341806b69321dfc1d060a57e9d28cff003afd9ce4e9bf7f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_left.png",
+      "sha256": "0a2d901a40b570e8529c3f3e5da3a0fec2767935ff4925923e44002f5e24fdbc"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_right.png",
+      "sha256": "4d44505227a92b20ecc16fc63161e3b67e2c2607f161dcfe50d29f1ee26ee988"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_top.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_top.png",
+      "sha256": "b6440fb5cccd6557f5c3b6dd5c6a1bc5231fe204b5bf5977c7b866a5210f8bce"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_top_left.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_top_left.png",
+      "sha256": "6b4ce125abc368009ad0024fed0971b05273016a26c66115615804a32b1c2f24"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starline_panel_top_right.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starline_panel_top_right.png",
+      "sha256": "d519787608858b98c56736b1e26e21ccff9f326f17cc0d1494d888e30865713f"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starlineartwork.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starlineartwork.png",
+      "sha256": "28d611e2e2108964d3dd3af851a4aac2ca3b40f97fbe9b1daa615bf19a5f4119"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starlinelogo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starlinelogo.png",
+      "sha256": "f7e555fb4f61f7fd6b3ce52acd3874a1c3321d3c5bade205202c5babc9b985ff"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starlinepopupbg.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starlinepopupbg.png",
+      "sha256": "2bf6b608264d02bcb3c5ffa978cd2522f8da5392e804140c4773434391a47185"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_starlinetextlogo.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_starlinetextlogo.png",
+      "sha256": "e77ccf296aa789487ceea0491ea119874cc7a218e2a5d1bbcf0884657a8131a9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_stepgreen.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_stepgreen.png",
+      "sha256": "7889d04ae946cf4844c682bc838abaf8259a00f53e64d749354014d4fa1290dd"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_super_pack.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_super_pack.png",
+      "sha256": "29e9a819dd71638e0a6fcd581f56dd32eb19c47a69e617ed81497ff63a1e35d6"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_swap.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_swap.png",
+      "sha256": "5012ed92e0a74bb0792ddfcfb149bb5c49d8172a3a8fcc8f0471dea6084024fd"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_tickicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_tickicon.png",
+      "sha256": "803de1d0bc0b2f36fe527ffcac6e041bae8e63be460360be438c71e3531135e9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_tileblue.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_tileblue.png",
+      "sha256": "886245afae3ed44f793ce4e7decc9fa96bff30eb853b9dc2d6d9915b8fc7da2a"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_tileextrahard.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_tileextrahard.png",
+      "sha256": "0b2097be9e971e53c64360bf007e30a6372ae8c586f7623f7849ea84e020199e"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_tilehard.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_tilehard.png",
+      "sha256": "b7243c75f2ab2df3441976e1a39159c1c6e83f24123d5d551deb6e5f55f79576"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_tileultrahard.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_tileultrahard.png",
+      "sha256": "631ddc66275eee8c36c18097799e91aabd14f49c476b1da69b3f793a8f427cef"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_timebooster.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_timebooster.png",
+      "sha256": "1a8124ce0446ed830a578b6be5b26fb5dba43d758e54644f409f44fb748aaf30"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_timerfrozen.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_timerfrozen.png",
+      "sha256": "9702753ea522c73fac834f12028694ee9bf03f287d519528318ddf43a1064149"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_titlebanner.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_titlebanner.png",
+      "sha256": "428b515d324cecbd77cbdd41407364fc0d483f98ece843515bd7e703fcf160c1"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_tunnel.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_tunnel.png",
+      "sha256": "25f048d12054be1cbda5306b57a8bf24e6f0746ff5ed14f5ae82c41a644347f9"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_tutorialhand.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_tutorialhand.png",
+      "sha256": "6d4a1e34e97f447c01baca2aad40eb376d2065d5b3c9080345f87a10f9e3d4e3"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_ultrahardsticker.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_ultrahardsticker.png",
+      "sha256": "7691816cd4c3b8e192c6ec6296ed2a7d4bf63f068b778aac524fe61d51d3c817"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_welcome_pack.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_welcome_pack.png",
+      "sha256": "646afd0b5981bfc7c12d4e7a89182638b5053775b50d54665abd83a5b12c7afd"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_welcomepackicon.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_welcomepackicon.png",
+      "sha256": "08c6f0c3f03c292f408032775b2616feb2de5b0bfedfc1b3537b9730bb017689"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_winlevel.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_winlevel.png",
+      "sha256": "1e1dc79f7ff4add1d53ce24a51a70ff9215d459c4d88a305963bbbfa038e601a"
+    },
+    {
+      "resource": "Resources/Art/shell_src_ui_wrench.png",
+      "source": "res/drawable-mdpi-v4/shell_src_ui_wrench.png",
+      "sha256": "df9a74ff7371f2993f4e6c1dcd21911f796dd5385e2a063c59cf476b9779b926"
+    },
+    {
+      "resource": "Resources/Audio/game_assets_music_calmdaylight.mp3",
+      "source": "res/raw/game_assets_music_calmdaylight.mp3",
+      "sha256": "d638986ee0dcc1656ac5eaa40c330a48bdd471e641c42c9a49d94d6a332abdc3"
+    },
+    {
+      "resource": "Resources/Audio/game_assets_music_calmdusk.mp3",
+      "source": "res/raw/game_assets_music_calmdusk.mp3",
+      "sha256": "74b72bf593f66ada487823dcf6f8836d1b2c6862d5acdae66f18f8e218c84103"
+    },
+    {
+      "resource": "Resources/Audio/game_assets_music_calmpaper.mp3",
+      "source": "res/raw/game_assets_music_calmpaper.mp3",
+      "sha256": "1e0edf6d506113a5e036f950dceb8b876ca056c114d2df6ffa750976dd79debc"
+    },
+    {
+      "resource": "Resources/Fonts/shell_assets_fonts_boldonseregular.ttf",
+      "source": "res/raw/shell_assets_fonts_boldonseregular.ttf",
+      "sha256": "cc2e540604565c0f90a7d8d46194a2f42fc9c45512cd2e39bf03b50eb68c35a4"
+    },
+    {
+      "resource": "Resources/Fonts/shell_assets_fonts_luckiestguyregular.ttf",
+      "source": "res/raw/shell_assets_fonts_luckiestguyregular.ttf",
+      "sha256": "fbe683091b0db0faa8f38e5227ad3bc17dc67f119f27ff10a63d72f5f9bb9da3"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_pop_1.mp3",
+      "source": "res/raw/shell_src_ui_sounds_climb_climb_pop_1.mp3",
+      "sha256": "90ccceea4504bc22d4deb8a6e800cec7f4b9605ef62db4121302a0536a552a9c"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_pop_2.mp3",
+      "source": "res/raw/shell_src_ui_sounds_climb_climb_pop_2.mp3",
+      "sha256": "7073c244bc95e0922e284235c8d59053e276a9573c284ecbe4622156e1374123"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_pop_3.mp3",
+      "source": "res/raw/shell_src_ui_sounds_climb_climb_pop_3.mp3",
+      "sha256": "bda3195f451e5a646c4e6cda0f0bba2ce1eea596bfa6e955dd8e60e8c69876a7"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_win.mp3",
+      "source": "res/raw/shell_src_ui_sounds_climb_climb_win.mp3",
+      "sha256": "3d443696f580077e7271d81a3d942a79e24d72c8beed4f6fcf3d14bb618bc84a"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_coin.mp3",
+      "source": "res/raw/shell_src_ui_sounds_coin.mp3",
+      "sha256": "d8ee5e1cb110db2a185fff2bb6b2a0d1b0b1eb684992e147ee7ee76fbd3ef721"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_fail.mp3",
+      "source": "res/raw/shell_src_ui_sounds_fail.mp3",
+      "sha256": "1a5a099791fa49dc9f01e2184c52ee42f5aaefce49e60bca53b70c2bd69ec62f"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_balloon_pop.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_balloon_pop.mp3",
+      "sha256": "3306c99a733798cbcb41b2e4e1511dc9e6f09d867143033317b0d91cb100e2d4"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_coin_burst.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_coin_burst.mp3",
+      "sha256": "729d1d649feeb713ac2ec7766975607dfc9b5aef5a291bc17b2d4cbe5adceed8"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_coin_tick_1.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_coin_tick_1.mp3",
+      "sha256": "d8ee5e1cb110db2a185fff2bb6b2a0d1b0b1eb684992e147ee7ee76fbd3ef721"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_coin_tick_2.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_coin_tick_2.mp3",
+      "sha256": "db821128620130fdd01f9a4a0748a2061e5e2f6d8f95d2cd2b1ef8fd4b12c071"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_coin_tick_3.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_coin_tick_3.mp3",
+      "sha256": "ba68aa6a13de378cd1df4e71ba9c05d0fb7d49a625a8ec2c453647c25ea3112e"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_flow_start.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_flow_start.mp3",
+      "sha256": "bbf77cf7ffa89249d1c829549629133ee95e89aa0a515fed66d54c0a0097661d"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_freeze_cast.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_freeze_cast.mp3",
+      "sha256": "65dc3d26e18df388387ad94edda520c7df5cfcb632b130b86469fe6059b24c09"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_freeze_end.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_freeze_end.mp3",
+      "sha256": "12c8fc19e075b34d760cfdcda926e4bfea2b64a7ae778aaa2a3c735cf9638845"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_hint_sparkle.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_hint_sparkle.mp3",
+      "sha256": "79faa331200298c31f05dca27347b4c9219e2c9912c585a759ff6f6b83f27ad7"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_invalid_drop.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_invalid_drop.mp3",
+      "sha256": "19f9b7a4da69c3e6c00df485cb92d986f87585342b8b337edd23c852b64b32a5"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_level_fail.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_level_fail.mp3",
+      "sha256": "1a5a099791fa49dc9f01e2184c52ee42f5aaefce49e60bca53b70c2bd69ec62f"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_level_start.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_level_start.mp3",
+      "sha256": "d8e8385830247f4028374a5b5565ad368485bc54f46f2a74f25529a3e54cb08a"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_level_win.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_level_win.mp3",
+      "sha256": "b93666dcb8aee2fec4122d56dc378158a88741ff11b18df26d3450c87a21b95c"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_life_lose.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_life_lose.mp3",
+      "sha256": "0933493f281538d24a2b00613d82d7ad9c4046e4b2b04606c4e430ce69aeb4a9"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_pipe_place.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_pipe_place.mp3",
+      "sha256": "ff13f872c723b4447d4ad241e4906b5d00f22d45c5336f62ef14d8f4739666e8"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_popup_close.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_popup_close.mp3",
+      "sha256": "de849e523b80bb87640e3d9c5d51b9a475c4ccc682f2f54a7d8ca839ef7a2ddc"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_popup_open.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_popup_open.mp3",
+      "sha256": "c8d8cc0ca45f85dae6d2991194a7f8a7b02633d0aa22fc04098faf900047c6dd"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_ui_tap.mp3",
+      "source": "res/raw/shell_src_ui_sounds_pm_ui_tap.mp3",
+      "sha256": "6eacb945eef5934d3ab9b82e8881fa1e460f7622fd0f82465ce5cb30bb4531a2"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_win.mp3",
+      "source": "res/raw/shell_src_ui_sounds_win.mp3",
+      "sha256": "b93666dcb8aee2fec4122d56dc378158a88741ff11b18df26d3450c87a21b95c"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_fall_1.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_fall_1.mp3",
+      "sha256": "25ccd1b03f980d531720b4485353ea160cf295c5fcd6578f68e43082046384fe"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_fall_2.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_fall_2.mp3",
+      "sha256": "23b87d19c3ff823b8edce724a45c609f43c7ad83475b7ae1e574ec254993a238"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_fall_me.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_fall_me.mp3",
+      "sha256": "acbab03b387df829604a9e6bbcddbc715ada6dcf1b2dfafe04882b1b4134b38b"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_join.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_join.mp3",
+      "sha256": "dfb1d8b24459c90486bcfdfeabf381b581fd9602b45a541af6ee34409f9c7500"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_jump.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_jump.mp3",
+      "sha256": "803e13193cbe490fa41b631992a417de9da7c6bc5d0ef544949cc6f11c8bb59e"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_land.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_land.mp3",
+      "sha256": "ec64b268c85df96fb08d250e8c9947b1e7ac9e2c263c63a45dee3591488098cf"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_out.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_out.mp3",
+      "sha256": "bf9ede1260b22d27edffc17f38d989722d69d4dcfcd45bdc95ac7c8d33105a46"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_climb_climb_ready.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_climb_climb_ready.mp3",
+      "sha256": "f1c83d4d3024553bd49f1bd366734be11c483c245ece18aab9d0b7150cea6502"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_explode.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_explode.mp3",
+      "sha256": "077d77139ab33e0ab5e9251d644a9f7d5b5b54c249b671201af742985cb9ef44"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_hit.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_hit.mp3",
+      "sha256": "17811829f464e9767eadc6f89ca4aff851226a22f743a97a58d60100e06385c7"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_joker.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_joker.mp3",
+      "sha256": "b255fa9ea51668aef639fc4b98d9ef0580333a3b428e789c2ee406595ab2b7d0"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_jump.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_jump.mp3",
+      "sha256": "5cceb94171d8c07769153965ecf60b0c7125f470cbf2648e83db87b27d756ba4"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_launch.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_launch.mp3",
+      "sha256": "9a98b59ce1aa87b4e126a473f7fb145b4ddc6c27770c88e0fa7eedcc39a34758"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_music.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_music.mp3",
+      "sha256": "0601d8dae8609905876cd134e55da659364198bcecccc4be1521ab3a35cfc097"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_absorb.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_absorb.mp3",
+      "sha256": "e659688125fd77223ca1b3758b2c7d3b1d8271845c6c935c0581fe329f1ba31f"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_boing.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_boing.mp3",
+      "sha256": "5cceb94171d8c07769153965ecf60b0c7125f470cbf2648e83db87b27d756ba4"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_booster_press.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_booster_press.mp3",
+      "sha256": "643c5853c159408fd09926655b6c156ca8ca12d434343a67858c3f43e622959b"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_burst.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_burst.mp3",
+      "sha256": "077d77139ab33e0ab5e9251d644a9f7d5b5b54c249b671201af742985cb9ef44"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_card_deal_1.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_card_deal_1.mp3",
+      "sha256": "3065523d45b5ca2f8f835228e1db55b30ec87a539d389593e8dc93d30b05e1fd"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_card_deal_2.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_card_deal_2.mp3",
+      "sha256": "dee598ab510f7f3cbd097a1f12c99620a7c15cbce66e528ddb70cf0d70c5bb5e"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_card_flip_1.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_card_flip_1.mp3",
+      "sha256": "fd71bc3ba424952eb20999ee93f14e3586230fefce2c76a1ae79ae02199e8012"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_card_flip_2.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_card_flip_2.mp3",
+      "sha256": "f83b23092d9f34af10e8fd29796d159800cbb1eef0aba48fab43f6e3debe272e"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_card_match.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_card_match.mp3",
+      "sha256": "4b03027c738daa1cb47afab3c6084317e25d6df47e53e810cd778df9867b75cf"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_card_pick.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_card_pick.mp3",
+      "sha256": "0284b76078a478652508221bdd156af30beb6853739179571030b33d1d318e0b"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_chest_open.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_chest_open.mp3",
+      "sha256": "c418505335014c33c40562082fb80af553f8cc4ad76ba0fbf0afbe76f5317699"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_claim_sparkle.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_claim_sparkle.mp3",
+      "sha256": "73b5deb21c555f58d5383fb3775cfdd098b403ae3405987892cd26bf1cdc9ee2"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_compass_reveal.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_compass_reveal.mp3",
+      "sha256": "b262153b2422cf3d45e321b3330786333f5c84de4354fb4de12dd102f2427d23"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_continue_offer.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_continue_offer.mp3",
+      "sha256": "ed6ac21bba96ffef1d7d7923cc24ff6092363a24b9a00ec2c25135d6d105e6fd"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_deny.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_deny.mp3",
+      "sha256": "0c4a8f8ee276636c964859159eb5da43d9e83725ddf9b1a3c41135d65b1fbc01"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_extratime.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_extratime.mp3",
+      "sha256": "079ff8638ce7ec9ba8f9a4a7f93690f04d4fdd154bcacc6db88c7d2bc8410fc1"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_fill_ramp.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_fill_ramp.mp3",
+      "sha256": "f00cee702402d0632cb29d1a9fb21765b43d7b03b699a028a78b0ee990fa5024"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_flow_step_1.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_flow_step_1.mp3",
+      "sha256": "3142800e51ef2a637bda7df0b50a0b2a165544c34a5750a95e119f03a23356b2"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_flow_step_2.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_flow_step_2.mp3",
+      "sha256": "444b205a06f9f3f3b0dbb7009e9c8cefa109d128613b03b58be52503ce625a5e"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_flow_step_3.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_flow_step_3.mp3",
+      "sha256": "fcad6bbc6df6cf1194421918c434c3b4d93deac10477faa5923690d2909ac74e"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_fourcard_fan.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_fourcard_fan.mp3",
+      "sha256": "129f2bfb5b70ab55f61b38ad811dab41a24326b6575c65f02eebeea6e35b8485"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_hand_slide.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_hand_slide.mp3",
+      "sha256": "c681c96a85041406edd1fc29b937b418e48243fb98f48b79d0b158348b46b036"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_joker_cast.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_joker_cast.mp3",
+      "sha256": "b255fa9ea51668aef639fc4b98d9ef0580333a3b428e789c2ee406595ab2b7d0"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_leak_drip.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_leak_drip.mp3",
+      "sha256": "0c141dd7bc58d4eb92afc5f9eae9ad6d7b61a61e9cb9af291409b88b93d33e95"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_life_gain.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_life_gain.mp3",
+      "sha256": "b67008506253bfbc00a7b74ee29f125b0e9f9965f0c27d32cf80be2aa8c744fc"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_lightning_zap.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_lightning_zap.mp3",
+      "sha256": "8efeb40eaa90c31a7c4b320a7788c4855ec3ad4f3f60b1140f8340000e4313ed"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_poop_plop.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_poop_plop.mp3",
+      "sha256": "31157f7d5e19af0a76ac8923761a431e111ff77763c7652329e533ea680e5ffa"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_portal_warp.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_portal_warp.mp3",
+      "sha256": "9a98b59ce1aa87b4e126a473f7fb145b4ddc6c27770c88e0fa7eedcc39a34758"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_pump_hit_1.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_pump_hit_1.mp3",
+      "sha256": "17811829f464e9767eadc6f89ca4aff851226a22f743a97a58d60100e06385c7"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_pump_hit_2.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_pump_hit_2.mp3",
+      "sha256": "10fc7b5090a23142a27d23b1611c4ec0cea1c3ed8eb23bce35fe68362413ca45"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_purchase.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_purchase.mp3",
+      "sha256": "9cdc2c6f984bb9f3346866d76037dfb57dd8eee0b8fe31fb5b4ae41d15e8848d"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_reservoir_fill.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_reservoir_fill.mp3",
+      "sha256": "70016939ac45d5913754cc1798206ee1b6202395a42579dffadaac2ac6299f51"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_rock_break.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_rock_break.mp3",
+      "sha256": "9a64a0c52b5a48037654e1c6334f706aa5e0b012d2c68d54da73bf415abeb564"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_shuffle_swirl.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_shuffle_swirl.mp3",
+      "sha256": "3afd7e94cbfdc00e210cd5ed5a7e7f1b7a295270af96b4b55a584bac67a18b95"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_small_glug.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_small_glug.mp3",
+      "sha256": "2d807eec32d6519418c52e5469914b017ae87a31aa7bc7ca1b098fc193651b93"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_timer_tick.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_timer_tick.mp3",
+      "sha256": "a8be9ee747e2dc31bd3136a585c8228441d67835e0cd406f76e1c9d4fd5e7a71"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_valve_stop.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_valve_stop.mp3",
+      "sha256": "968e361c8e49afd251200b213162563d528611a65a83129524d786efded0aba6"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_pm_water_pour.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_pm_water_pour.mp3",
+      "sha256": "43bf8eb668223f6e1e7523dd4021d48fd62d005cff4c21d80a484c3470de8157"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_swap.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_swap.mp3",
+      "sha256": "c681c96a85041406edd1fc29b937b418e48243fb98f48b79d0b158348b46b036"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_throw.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_throw.mp3",
+      "sha256": "3065523d45b5ca2f8f835228e1db55b30ec87a539d389593e8dc93d30b05e1fd"
+    },
+    {
+      "resource": "Resources/Audio/shell_src_ui_sounds_zap.mp3",
+      "source": "assets/shared_shell/base/res/raw/shell_src_ui_sounds_zap.mp3",
+      "sha256": "8efeb40eaa90c31a7c4b320a7788c4855ec3ad4f3f60b1140f8340000e4313ed"
+    }
+  ],
+  "original_audio": {
+    "count": 83,
+    "original_bytes": 2858261,
+    "catalog": "Assets/Resources/Data/original-audio.json",
+    "evidence": "QA/Audio/original-behavior-evidence.json",
+    "runtime_checks": 337,
+    "music": "session-first uniform random choice of three, looping at 0.3; pause/resume preserves track"
+  }
+}

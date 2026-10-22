@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "empty native store is distinguished from a read failure",
+      "passed": true
+    },
+    {
+      "name": "synchronous write is committed before returning",
+      "passed": true
+    },
+    {
+      "name": "new runtime instance retains Unicode and all profile fields",
+      "passed": true
+    },
+    {
+      "name": "an existing profile key is preserved without renaming",
+      "passed": true
+    },
+    {
+      "name": "read failures return an explicit failure instead of empty profile",
+      "passed": true
+    },
+    {
+      "name": "write failure is reported and leaves existing profile intact",
+      "passed": true
+    },
+    {
+      "name": "GLES context flags query returns no native flags without invoking invalid WebGL enum",
+      "passed": true
+    },
+    {
+      "name": "invalid context-flags output pointer records the real GL error",
+      "passed": true
+    },
+    {
+      "name": "all other GL integer queries retain the original implementation",
+      "passed": true
+    },
+    {
+      "name": "3D texture upload uses the standard ten-argument source-view overload",
+      "passed": true
+    },
+    {
+      "name": "all 16 dither depth slices reference the exact original WASM pixels",
+      "passed": true
+    },
+    {
+      "name": "float texture upload converts byte pointers into the correct typed-array offset",
+      "passed": true
+    },
+    {
+      "name": "null-data allocation remains null",
+      "passed": true
+    },
+    {
+      "name": "pixel-unpack buffer preserves numeric offsets, including zero",
+      "passed": true
+    },
+    {
+      "name": "out-of-range input is forwarded for real GL validation, never padded or masked",
+      "passed": true
+    }
+  ],
+  "storageBackend": "wx.getStorageSync / wx.setStorageSync",
+  "method": "Execute the actual .jslib source in isolated JavaScript runtimes. Shared storage simulates reload. WebGL driver calls are recorded, not real GPU validation.",
+  "realWechatReload": false
+}

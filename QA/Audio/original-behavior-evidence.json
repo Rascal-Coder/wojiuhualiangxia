@@ -1,0 +1,229 @@
+{
+  "sources": [
+    "bundle.decompiled.js",
+    "all-functions.hasm"
+  ],
+  "music": {
+    "assets": [
+      "calm-paper",
+      "calm-dusk",
+      "calm-daylight"
+    ],
+    "selection": "Uniform random from three only when first loading; chosen player loops indefinitely. No per-level song rotation.",
+    "volume": 0.3,
+    "decompiled_lines": {
+      "config": [
+        140132,
+        140133,
+        140200,
+        140203,
+        140204,
+        140205
+      ],
+      "assets": [
+        135967,
+        135974,
+        135981
+      ],
+      "selection": [
+        327014,
+        327027
+      ],
+      "first_load_guard": [
+        327693,
+        327715
+      ],
+      "loop": [
+        327573,
+        327601
+      ]
+    },
+    "hermes_functions": {
+      "pickMusicAsset": 12055,
+      "loadMusicWrapper": 12062,
+      "loadMusicBody": 21762,
+      "playMusicWrapper": 12063,
+      "playMusicBody": 21763
+    }
+  },
+  "effects": [
+    {
+      "event": "invalid drawing rollback",
+      "key": "invalid_drop",
+      "lines": [
+        357438,
+        357455
+      ]
+    },
+    {
+      "event": "valid piece placement",
+      "key": "pipe_place",
+      "lines": [
+        357523,
+        357526
+      ]
+    },
+    {
+      "event": "erase piece",
+      "key": "card_pick",
+      "lines": [
+        357846,
+        357849
+      ]
+    },
+    {
+      "event": "unchanged grow cancellation",
+      "key": "card_pick",
+      "lines": [
+        358100,
+        358111
+      ]
+    },
+    {
+      "event": "hammer wall",
+      "key": "hit",
+      "lines": [
+        358296,
+        358305
+      ]
+    },
+    {
+      "event": "lens reveal",
+      "key": "hint_sparkle",
+      "lines": [
+        358327,
+        358370
+      ]
+    },
+    {
+      "event": "commit hint",
+      "key": "hint_sparkle",
+      "lines": [
+        358813,
+        358826
+      ]
+    },
+    {
+      "event": "pen lock",
+      "key": "hint_sparkle",
+      "lines": [
+        359198,
+        359202
+      ]
+    },
+    {
+      "event": "fail / time up",
+      "key": "fail",
+      "lines": [
+        350052,
+        350076,
+        328611,
+        328612
+      ]
+    },
+    {
+      "event": "level solved",
+      "key": "win",
+      "lines": [
+        350130,
+        350140,
+        328608,
+        328609
+      ]
+    }
+  ],
+  "generic_default_volume": {
+    "value": 1,
+    "lines": [
+      327215,
+      327218
+    ]
+  },
+  "variant_groups": {
+    "pump_hit": 2,
+    "flow_step": 3,
+    "coin_tick": 3,
+    "card_deal": 2,
+    "card_flip": 2,
+    "climb_pop": 3,
+    "climb_fall": 2
+  },
+  "variant_selection": "Per-group deterministic round robin, initially 1; (previous % count) + 1. fn#12068, hasm443153–443187, decompiled328035–328049/329052.",
+  "climb_volumes": {
+    "climb_join": 0.85,
+    "climb_pop_1": 0.38,
+    "climb_pop_2": 0.38,
+    "climb_pop_3": 0.38,
+    "climb_ready": 0.7,
+    "climb_jump": 0.75,
+    "climb_land": 0.8,
+    "climb_fall_1": 0.5,
+    "climb_fall_2": 0.5,
+    "climb_fall_me": 0.8,
+    "climb_out": 0.5,
+    "climb_win": 0.95
+  },
+  "limitations": [
+    "Decompiler generator locals are imperfect; crucial random/loop/reuse and variant claims also checked against Hermes assembly.",
+    "Audio assets include shared shell and other gameplay families. Asset presence and registration do not prove Inkomino main-line usage.",
+    "No original actual call found outside audio registration for ui_tap, popup_open/close, timer_tick, freeze_cast/end, life_lose/gain, continue_offer. Binding these is reconstruction behavior, not confirmed original timing.",
+    "Main-line win/fail use generic win/fail, not PM level_win/level_fail."
+  ],
+  "hermes_asset_or_event_loads": [
+    {
+      "line": 138445,
+      "function": "; fn#1998 \"<anonymous>\" params=8 frame=54 regs=0(num=0,nonptr=0) size=5191 offset=0x23d14d exc_handlers=83",
+      "instruction": "04fd  LoadConstString r3, \"hit\""
+    },
+    {
+      "line": 443321,
+      "function": "; fn#12090 \"playHit\" params=1 frame=12 regs=1(num=0,nonptr=1) size=20 offset=0x342e2c flags=[strict]",
+      "instruction": "0007  LoadConstString r1, \"hit\""
+    },
+    {
+      "line": 443401,
+      "function": "; fn#12100 \"stopHit\" params=1 frame=12 regs=1(num=0,nonptr=1) size=20 offset=0x342ef4 flags=[strict]",
+      "instruction": "0007  LoadConstString r1, \"hit\""
+    },
+    {
+      "line": 679685,
+      "function": "; fn#18088 \"<anonymous>\" params=2 frame=25 regs=3(num=1,nonptr=2) size=181 offset=0x40fe7b flags=[strict]",
+      "instruction": "00a2  LoadConstString r4, \"invalid_drop\""
+    },
+    {
+      "line": 679807,
+      "function": "; fn#18089 \"<anonymous>\" params=4 frame=37 regs=12(num=6,nonptr=6) size=461 offset=0x40ff30 flags=[strict]",
+      "instruction": "01a9  LoadConstString r14, \"pipe_place\""
+    },
+    {
+      "line": 680072,
+      "function": "; fn#18092 \"<anonymous>\" params=3 frame=45 regs=19(num=12,nonptr=7) size=1066 offset=0x41047d flags=[strict]",
+      "instruction": "0036  LoadConstString r21, \"card_pick\""
+    },
+    {
+      "line": 680838,
+      "function": "; fn#18099 \"<anonymous>\" params=1 frame=15 regs=2(num=1,nonptr=1) size=288 offset=0x410f65 flags=[strict]",
+      "instruction": "00fb  LoadConstString r3, \"card_pick\""
+    },
+    {
+      "line": 681176,
+      "function": "; fn#18105 \"<anonymous>\" params=2 frame=20 regs=2(num=1,nonptr=1) size=389 offset=0x4113b8 flags=[strict]",
+      "instruction": "0172  LoadConstString r3, \"hit\""
+    },
+    {
+      "line": 681317,
+      "function": "; fn#18108 \"<anonymous>\" params=3 frame=22 regs=3(num=1,nonptr=2) size=492 offset=0x411596 flags=[strict]",
+      "instruction": "01bb  LoadConstString r4, \"hint_sparkle\""
+    },
+    {
+      "line": 813306,
+      "function": "; fn#21938 \"commitHint\" params=2 frame=20 regs=2(num=0,nonptr=2) size=225 offset=0x47caef flags=[strict]",
+      "instruction": "00a5  LoadConstString r3, \"hint_sparkle\""
+    },
+    {
+      "line": 813694,
+      "function": "; fn#21940 \"commitPen\" params=2 frame=25 regs=3(num=0,nonptr=3) size=520 offset=0x47d025 flags=[strict]",
+      "instruction": "0177  LoadConstString r5, \"hint_sparkle\""
+    }
+  ]
+}

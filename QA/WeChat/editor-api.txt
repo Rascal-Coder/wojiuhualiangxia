@@ -1,0 +1,110 @@
+SUBTARGETS=WeChat,MiniHost,TapTap,DouYin,XiaoMi,KuaiShou,Html,MetaApp233,Extension,Unknown
+UnityEditor.Build.Profile.BuildProfile
+UnityEditor.BuildTarget get_buildTarget()
+Void set_buildTarget(UnityEditor.BuildTarget)
+Int32 get_subtarget()
+System.String get_moduleName()
+Void set_moduleName(System.String)
+System.String get_buildPath()
+Void set_buildPath(System.String)
+UnityEditor.Build.Profile.BuildProfilePlatformSettingsBase get_platformSettings()
+Void set_platformSettings(UnityEditor.Build.Profile.BuildProfilePlatformSettingsBase)
+UnityEditor.Build.Profile.MiniGameSettings get_miniGameSettings()
+Void set_miniGameSettings(UnityEditor.Build.Profile.MiniGameSettings)
+UnityEditor.PlayerSettings get_playerSettings()
+Void set_playerSettings(UnityEditor.PlayerSettings)
+Boolean HasOverrridePlayersettings()
+Boolean CanBuildLocally()
+Void OnEnable()
+Void OnDisable()
+System.String GetHostName()
+System.String GetHostDisplayName()
+System.String GetSubtargetName()
+Void SetSubtarget[T](T)
+System.Type GetSubtargetType()
+T GetSubtarget[T]()
+T ParseSubtarget[T](System.Type)
+Void ContextMenuReset(UnityEditor.MenuCommand)
+Void ContextMenuReserialize(UnityEditor.MenuCommand)
+Void ReserializeBuildProfile(UnityEditor.Build.Profile.BuildProfile)
+UnityEditor.BuildOptions GetBuildOptions()
+UnityEditor.BuildMiniGameError BuildMiniGamePlayerFromScript(UnityEditor.EditorBuildSettingsBuildProfile)
+Void BuildMiniGamePlayerFromEditor(UnityEditor.BuildOptions)
+Boolean CheckBuildMiniGamePlayerInput(UnityEditor.EditorBuildSettingsBuildProfile[], UnityEditor.EditorBuildSettingsBuildProfile[] ByRef, Boolean)
+UnityEditor.BuildMiniGameError BuildPlayerInternal(UnityEditor.Build.Profile.BuildProfile)
+Void BuildLoop(UnityEditor.EditorBuildSettingsBuildProfile[], UnityEditor.BuildOptions)
+Void SynchronizeGloballyUniquePlayerSettings(UnityEditor.Build.Profile.BuildProfile)
+Void SetBuildProfileIsPacking(Boolean)
+Void CoverEditorUserBuildingSettings(UnityEditor.Build.Profile.BuildProfile)
+Void RecoverPlayerSettingReimportandRecompileConfiguration(PlayerSettingsCache, UnityEditor.BuildTarget)
+PlayerSettingsCache SavePlayerSettingReimportandRecompileConfiguration(UnityEditor.BuildTarget)
+Boolean CheckActivatedBuildProfilePlatform(UnityEditor.Build.Profile.BuildProfile)
+Boolean CheckActivatedBuildProfilePath(UnityEditor.EditorBuildSettingsBuildProfile[], Boolean, Boolean)
+Void add_onBuildProfileEnable(System.Action`1[UnityEditor.Build.Profile.BuildProfile])
+Void remove_onBuildProfileEnable(System.Action`1[UnityEditor.Build.Profile.BuildProfile])
+Void AddOnBuildProfileEnable(System.Action`1[UnityEditor.Build.Profile.BuildProfile])
+Void RemoveOnBuildProfileEnable(System.Action`1[UnityEditor.Build.Profile.BuildProfile])
+UnityEditor.Build.Profile.BuildProfile CreateInstance(UnityEditor.BuildTarget, UnityEditor.MiniGameBuildSubtarget)
+UnityEditor.Build.Profile.BuildProfile CreateInstance[T](UnityEditor.BuildTarget, T, UnityEditor.Build.Profile.MiniGameSettings)
+Void TryCreatePlatformSettings()
+Void LoadPlayerSettings()
+Void CreatePlayerSettingsFromGlobal()
+Void RemovePlayerSettings(Boolean)
+Void CleanUpPlayerSettingsForDeletedBuildProfiles(System.Collections.Generic.IList`1[UnityEditor.Build.Profile.BuildProfile])
+Void SerializePlayerSettings()
+Void DeserializePlayerSettings()
+Boolean HasSerializedPlayerSettings()
+Void TrySetProjectSettingsAssetAsGlobalManagerPlayerSettings()
+Boolean IsDataEqualToProjectSettings(UnityEditor.PlayerSettings)
+Void TryLoadProjectSettingsAssetPlayerSettings()
+UnityEditor.PlayerSettings GetGlobalPlayerSettings()
+UnityEditor.PlayerSettings GetActivePlayerSettings()
+Void SetDirty()
+Int32 GetInstanceID()
+Int32 GetHashCode()
+Boolean Equals(System.Object)
+System.String get_name()
+Void set_name(System.String)
+UnityEngine.HideFlags get_hideFlags()
+Void set_hideFlags(UnityEngine.HideFlags)
+System.String ToString()
+Void MarkDirty()
+Void Finalize()
+System.Type GetType()
+System.Object MemberwiseClone()
+UnityEditor.BuildTarget buildTarget
+Int32 subtarget
+System.String moduleName
+System.String buildPath
+UnityEditor.Build.Profile.BuildProfilePlatformSettingsBase platformSettings
+UnityEditor.Build.Profile.MiniGameSettings miniGameSettings
+UnityEditor.PlayerSettings playerSettings
+System.String name
+UnityEngine.HideFlags hideFlags
+UnityEditor.BuildTarget m_BuildTarget
+System.Int32 m_Subtarget
+System.String m_ModuleName
+System.String m_BuildPath
+UnityEditor.Build.Profile.BuildProfilePlatformSettingsBase m_PlatformSettings
+UnityEditor.Build.Profile.MiniGameSettings m_MiniGameSettings
+UnityEditor.Build.Profile.BuildProfile+PlayerSettingsYaml m_PlayerSettingsYaml
+UnityEditor.PlayerSettings m_PlayerSettings
+System.Action`1[UnityEditor.Build.Profile.BuildProfile] onBuildProfileEnable
+System.String k_ProjectSettingsAssetPath
+UnityEditor.PlayerSettings s_GlobalPlayerSettings
+System.Collections.Generic.List`1[UnityEditor.PlayerSettings] s_LoadedPlayerSettings
+UnityEditor.Build.Profile.MiniGameSettings
+System.String get_hostName()
+Void set_hostName(System.String)
+UnityEditor.Build.Profile.MiniGameSettingsEditor get_editor()
+UnityEngine.UIElements.VisualElement DrawMiniGameSettingsGUI(UnityEditor.SerializedObject, UnityEditor.SerializedProperty)
+Boolean Equals(System.Object)
+Void Finalize()
+Int32 GetHashCode()
+System.Type GetType()
+System.Object MemberwiseClone()
+System.String ToString()
+System.String hostName
+UnityEditor.Build.Profile.MiniGameSettingsEditor editor
+System.String m_HostName
+UnityEditor.Build.Profile.MiniGameSettingsEditor m_Editor

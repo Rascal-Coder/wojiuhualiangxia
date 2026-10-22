@@ -1,0 +1,37 @@
+{
+  "reference_canvas": [
+    1080,
+    2400
+  ],
+  "dp_to_reference_pixels": 2.625,
+  "source_inputs": [
+    "index.android.hbc SHA256f90ca5409470987bbe19dc4e27e52a3df77f34f0433d32002024782360bcaa15",
+    "REA recovered modules and HASM",
+    "original Home/Pause screenshots"
+  ],
+  "source_mechanisms": [
+    "React Native Origami spring conversion, not direct use of tension as stiffness",
+    "normal pieces have no pen outline; locked pen pieces retain outline",
+    "pen cell pop starts after outline completion",
+    "first/coin continuation add60sec; reward-ad30sec branch omitted",
+    "texture alpha overlay on base color, not multiply"
+  ],
+  "measured_adjustments": {
+    "popup_banner_text_baseline_down_px": 22,
+    "game_hud_baseline": "Unity text line metrics compensated against the measured static Pause screenshot",
+    "board_area_reference_px": [
+      0,
+      520,
+      1080,
+      1518
+    ],
+    "home_play_disabled": "No forced disabled style from heart count. The apparent tint was Display P3 encoded screenshot data; the source image was converted through its embedded ICC profile to sRGB before comparison."
+  },
+  "known_unverified": [
+    "Original animation screen recording unavailable",
+    "Native text blur and SVG antialias differ from uGUI",
+    "Life/leave/resume/fail pages have code evidence but no captured original screenshots",
+    "Android build/device runtime has not been validated"
+  ],
+  "color_management": "Original screenshots embed Display P3 Gamut with sRGB Transfer ICC; compare normalized sRGB references against Unity sRGB PNG. Original carriers are preserved."
+}

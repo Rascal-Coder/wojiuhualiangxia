@@ -1,0 +1,225 @@
+{
+  "scope": "Read-only analysis of original shipped Hermes decompilation and assembly; no project modifications.",
+  "startup": {
+    "confirmed": "Fresh progress (maxLevel===0), no pending forfeit and no saved game automatically selects level1 and opens game after boot data is loaded. Home PLAY is not required.",
+    "decompiled": "bundle.decompiled.js:405472-405548; exact fresh branch405536-405538",
+    "hermes": {
+      "function": 15274,
+      "lines": [
+        560315,
+        560456
+      ],
+      "fresh_branch": [
+        560336,
+        560353
+      ]
+    },
+    "routing_priority": [
+      "pending forfeit: process loss then home",
+      "savedGameState: its level, game, continuePrompt",
+      "maxLevel0: level1 game",
+      "maxLevel>0: maxLevel+1 home"
+    ],
+    "source_progress": "AppContent inventory.maxLevel at404141-404143; maxLevel is completed progress rather than merely whether a profile JSON exists."
+  },
+  "draw_tutorial": {
+    "key": "@mz_mech_intro_seen_draw",
+    "trigger": "TUTORIAL.LEVEL>0 and Number(levelId??level.id)===TUTORIAL.LEVEL, one check per mounted board, getItem(key)!=\"1\" and board unsolved.",
+    "trigger_decompiled": [
+      "356972-356981",
+      "358722-358740"
+    ],
+    "trigger_hermes": {
+      "reader_function": 18114,
+      "reader_lines": [
+        681615,
+        681640
+      ],
+      "continuation_function": 21933,
+      "continuation_lines": [
+        813147,
+        813162
+      ],
+      "key_binding": [
+        152106,
+        152107
+      ]
+    },
+    "config": {
+      "LEVEL": 1,
+      "DEMO_PIECES": 1,
+      "GUIDE_PIECES": 1,
+      "START_DELAY_MS": 600,
+      "APPEAR_MS": 240,
+      "PRESS_MS": 160,
+      "HOLD_MS": 140,
+      "STEP_MS": 300,
+      "LIFT_MS": 180,
+      "FADE_MS": 200,
+      "BETWEEN_MS": 650,
+      "LOOP_PAUSE_MS": 700,
+      "HINT_MS": 500,
+      "PRESS_SCALE": 0.84,
+      "source": "bundle.decompiled.js:352770"
+    },
+    "start": {
+      "claim": "Sets tut phase demo with k0/g0, sets tutShown=true, holds timer and calls tutorial-active(true).",
+      "decompiled": [
+        358527,
+        358541
+      ],
+      "hermes_function": 18113,
+      "hermes_lines": [
+        681565,
+        681613
+      ]
+    },
+    "persist_seen": {
+      "claim": "At end of demo sequence, before guide/user phase, asynchronously setItem(draw-key,\"1\"). It is not delayed until first successful user gesture or entire level win. Rejections are swallowed.",
+      "decompiled": [
+        358668,
+        358708
+      ],
+      "hermes_function": 21931,
+      "hermes_lines": [
+        813037,
+        813066
+      ]
+    },
+    "phases": [
+      {
+        "phase": "demo",
+        "behavior": "Synthetic hand down/move/up uses normal drawing callbacks; demonstration piece is locked and tutLock=true. Next demo occurs after handTimeline.total+BETWEEN_MS. Paused/not-laid-out conditions retry after150ms; each attempt index has at most3 retries.",
+        "decompiled": [
+          358546,
+          358665
+        ],
+        "hermes_function": 21931
+      },
+      {
+        "phase": "guide",
+        "behavior": "After demo, chooses one remaining target piece, uses idle hint delay500ms; timer tut hold is released on first user touch. Only matching guided target is accepted.",
+        "decompiled": [
+          "358679-358706",
+          "357103-357160",
+          "357982-357995",
+          "357587-357622"
+        ]
+      },
+      {
+        "phase": "user",
+        "behavior": "After GUIDE_PIECES successful guided commits (1), sets phase user and clears cells/shape. No new seen-key write.",
+        "decompiled": [
+          357925,
+          357958
+        ],
+        "hermes_function": 18095,
+        "hermes_lines": [
+          680423,
+          680501
+        ]
+      }
+    ],
+    "shape_selection": {
+      "claim": "demoPieces takes level.solution, filters shapes that are current targets and all cells empty, sorts by lowest row-major cell coordinate, takes requested count, returns copied cells. Guide uses next available demoPieces(...,1), falling back to hintPiece(solve budget60000).",
+      "decompiled": [
+        354553,
+        354611
+      ],
+      "hermes_function": 12399,
+      "hermes_lines": [
+        468181,
+        468221
+      ],
+      "helpers": [
+        18157,
+        18159,
+        18160
+      ],
+      "helper_lines": [
+        683557,
+        683615
+      ]
+    },
+    "interruption": {
+      "confirmed": "Unmount cleanup clears outstanding tutorial timers and dim callback. No serialized tutorial-phase restoration found. If interrupted before the end-of-demo setItem, key remains absent unless async persistence behavior changes externally; reopening level1 may re-run demo. Once write completed, reopening skips entire demo/guide regardless of whether guide was completed.",
+      "decompiled": [
+        358742,
+        358751
+      ],
+      "hermes_function": 21935,
+      "hermes_lines": [
+        813168,
+        813190
+      ],
+      "qualification": "Persistent storage operations are asynchronous and failures are swallowed; exact crash-time survival depends on whether write completed."
+    }
+  },
+  "board_snapshot_persistence": {
+    "confirmed_shared_shell": "Restoring and sending onStateChange are gated by saveBoardId; callback(null) removes snapshot while nonnull stores it with timeLeft etc.",
+    "decompiled": [
+      "349094-349115",
+      "349402-349451",
+      "350982-351001"
+    ],
+    "mozaik_evidence": "MozaikGameScreen copies incoming props then defines15 properties; no saveBoardId assignment. App GameScreen props also do not supply saveBoardId. Mozaik board entry consumes level/paused/onSolved/startBoosters/onTargetsChange/levelId/timer/tutorial callbacks, with no savedState/onStateChange consumption found.",
+    "mozaik_decompiled": [
+      "362036-362044",
+      "406206-406443",
+      "356797-356800"
+    ],
+    "mozaik_hermes": {
+      "function": 11982,
+      "lines": [
+        434339,
+        434382
+      ]
+    },
+    "bounded_conclusion": "No positive evidence found that original Mozaik saves its demo pieces or restores a partially played tutorial board. Generic shell snapshot support is not proof Mozaik uses it. No explicit phase-specific suppress-save branch located.",
+    "implementation_implication": "Current reconstruction should not allow its own demo-generated resumePieces to prevent the required fresh draw tutorial after interruption; this is a resilience recommendation, not a recovered original phase-specific save suppression instruction."
+  },
+  "other_tutorials": {
+    "mechanic_popup_keys": {
+      "prefix": "@mz_mech_intro_seen_",
+      "types_and_levels": {
+        "walls": 11,
+        "marks": 21,
+        "icons": 30,
+        "nums": 0
+      },
+      "read": "bundle358414-358490 and fn21926 hasm812868",
+      "write": "popup onDone bundle358493-358519 and fn18111 hasm681510-681513",
+      "behavior": "Only mechanics present in current board and level>=configured positive threshold; unseen popups queued; mark seen on completion."
+    },
+    "disabled_mozaik_shell_first_move": {
+      "config": "firstMove={level:-1,move:null,seenKey:\"@mz_first_move_seen\"}",
+      "decompiled": "362079",
+      "shared_shell_gate": "349658-349681 / currentLevel===firstMove.level",
+      "conclusion": "This shared tutorial exists but is disabled for Mozaik; it is not another active level1 onboarding."
+    },
+    "generic_shared_first_move": "Default shared shell firstMove config at351840 uses level1 and @first_move_tutorial_seen, but Mozaik overrides it with level-1.",
+    "other_shared_flags": [
+      "@booster_unlock_seen_<type>",
+      "@streak_tutorial_done",
+      "@weekly_unlock_tutorial_seen",
+      "@weekly_event_first_seen_v1"
+    ],
+    "other_shared_flag_lines": [
+      345440,
+      345629,
+      345651,
+      346774,
+      349725,
+      350566,
+      366344,
+      384588,
+      384638
+    ],
+    "conclusion": "No second active unsaved-progress tutorial found for Mozaik beyond fresh-start auto-entry and the existing level1 demo→guide→user flow."
+  },
+  "limitations": [
+    "Decompiler has invalid generator/local variable reconstruction; major state/persistence claims cross-checked with Hermes assembly.",
+    "No fresh-install phone runtime observation in this subtask.",
+    "Did not modify or retest current reconstruction; main agent owns implementation and runtime QA."
+  ]
+}

@@ -1,0 +1,291 @@
+{
+  "status": "PASS",
+  "source": "actual native Tuanjie RenderTexture captures",
+  "timing": "sampled unscaled elapsed time; added1000ms final hold; play once",
+  "phone_frame_rate_measurement": false,
+  "previews": [
+    {
+      "sequence": "01-shop-entry",
+      "file": "QA/MenuMotion/01-shop-entry.webp",
+      "source_frames": 27,
+      "distinct_sample_times": 27,
+      "encoded_frames": 27,
+      "sampled_elapsed_ms": [
+        0,
+        52,
+        71,
+        99,
+        119,
+        136,
+        153,
+        172,
+        188,
+        208,
+        224,
+        241,
+        258,
+        274,
+        291,
+        308,
+        335,
+        351,
+        368,
+        385,
+        402,
+        419,
+        436,
+        454,
+        470,
+        487,
+        504
+      ],
+      "duration_ms": [
+        52,
+        19,
+        28,
+        20,
+        17,
+        17,
+        19,
+        16,
+        20,
+        16,
+        17,
+        17,
+        16,
+        17,
+        17,
+        27,
+        16,
+        17,
+        17,
+        17,
+        17,
+        17,
+        18,
+        16,
+        17,
+        17,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 484418
+    },
+    {
+      "sequence": "04-button-press",
+      "file": "QA/MenuMotion/04-button-press.webp",
+      "source_frames": 4,
+      "distinct_sample_times": 3,
+      "encoded_frames": 3,
+      "sampled_elapsed_ms": [
+        0,
+        233,
+        467
+      ],
+      "duration_ms": [
+        233,
+        234,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 75864
+    },
+    {
+      "sequence": "08-purchase-celebration",
+      "file": "QA/MenuMotion/08-purchase-celebration.webp",
+      "source_frames": 4,
+      "distinct_sample_times": 4,
+      "encoded_frames": 4,
+      "sampled_elapsed_ms": [
+        122,
+        308,
+        451,
+        554
+      ],
+      "duration_ms": [
+        186,
+        143,
+        103,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 66002
+    },
+    {
+      "sequence": "02-achievements-entry",
+      "file": "QA/MenuMotion/02-achievements-entry.webp",
+      "source_frames": 18,
+      "distinct_sample_times": 18,
+      "encoded_frames": 18,
+      "sampled_elapsed_ms": [
+        0,
+        61,
+        88,
+        113,
+        139,
+        166,
+        192,
+        223,
+        249,
+        276,
+        304,
+        338,
+        370,
+        396,
+        419,
+        443,
+        473,
+        503
+      ],
+      "duration_ms": [
+        61,
+        27,
+        25,
+        26,
+        27,
+        26,
+        31,
+        26,
+        27,
+        28,
+        34,
+        32,
+        26,
+        23,
+        24,
+        30,
+        30,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 291510
+    },
+    {
+      "sequence": "03-climb-entry",
+      "file": "QA/MenuMotion/03-climb-entry.webp",
+      "source_frames": 23,
+      "distinct_sample_times": 23,
+      "encoded_frames": 23,
+      "sampled_elapsed_ms": [
+        0,
+        41,
+        62,
+        82,
+        105,
+        126,
+        149,
+        171,
+        196,
+        216,
+        240,
+        262,
+        282,
+        305,
+        323,
+        344,
+        366,
+        386,
+        410,
+        432,
+        451,
+        476,
+        502
+      ],
+      "duration_ms": [
+        41,
+        21,
+        20,
+        23,
+        21,
+        23,
+        22,
+        25,
+        20,
+        24,
+        22,
+        20,
+        23,
+        18,
+        21,
+        22,
+        20,
+        24,
+        22,
+        19,
+        25,
+        26,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 426292
+    },
+    {
+      "sequence": "09-live-motion-preference",
+      "file": "QA/MenuMotion/09-live-motion-preference.webp",
+      "source_frames": 2,
+      "distinct_sample_times": 2,
+      "encoded_frames": 2,
+      "sampled_elapsed_ms": [
+        0,
+        3911
+      ],
+      "duration_ms": [
+        3911,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 59136
+    },
+    {
+      "sequence": "05-reduced-shop",
+      "file": "QA/MenuMotion/05-reduced-shop.webp",
+      "source_frames": 2,
+      "distinct_sample_times": 2,
+      "encoded_frames": 1,
+      "sampled_elapsed_ms": [
+        0,
+        505
+      ],
+      "duration_ms": [
+        505,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 53996
+    },
+    {
+      "sequence": "06-reduced-achievements",
+      "file": "QA/MenuMotion/06-reduced-achievements.webp",
+      "source_frames": 2,
+      "distinct_sample_times": 2,
+      "encoded_frames": 1,
+      "sampled_elapsed_ms": [
+        0,
+        498
+      ],
+      "duration_ms": [
+        498,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 50478
+    },
+    {
+      "sequence": "07-reduced-climb",
+      "file": "QA/MenuMotion/07-reduced-climb.webp",
+      "source_frames": 2,
+      "distinct_sample_times": 2,
+      "encoded_frames": 1,
+      "sampled_elapsed_ms": [
+        0,
+        498
+      ],
+      "duration_ms": [
+        498,
+        1000
+      ],
+      "end_hold_ms": 1000,
+      "bytes": 56314
+    }
+  ]
+}

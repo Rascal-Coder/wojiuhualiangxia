@@ -1,0 +1,14 @@
+生成方式：内置 imagegen，使用已有中文游戏Logo作参考；不使用CLI。
+
+透明标题提示词：
+Use case: text-localization / precise-object-edit.
+Edit the provided transparent mobile game title logo. Replace ALL text "墨彩拼图" with exactly "我就划两下". FIVE Chinese characters, in this exact order: 我 就 划 两 下. No other text.
+Keep the same existing game's playful glossy faceted mosaic lettering, thick near-black hand drawn outlines, thin creamy white keyline, bright 2D casual-puzzle cartoon finish. Main title on ONE horizontal line, each of the five characters large and immediately readable, similar visual weight, subtle jaunty angles but no overlaps obscuring strokes. Color progression cyan blue, leaf green, violet, coral orange, golden yellow. Preserve a small orange-tipped wooden paintbrush on the right edge and two small paint droplets. Letterfaces should have large angular jewel facets like the reference, bright small highlights, moderate 2D bevels. Do not add a subtitle or ribbon.
+Composition: tightly framed approximately 3:1 horizontal title asset with a small consistent transparent safety margin; complete unclipped outlines and paintbrush. True transparent alpha background. No backdrop, no checkerboard pixels, no wooden frame, no realistic rendering, no English, no extra symbols or text. This is the replacement production logo for the same game; match the reference illustration style as closely as possible. Accuracy of the five Chinese characters is the highest priority.
+
+方形图标初始提示词：
+Use case: logo-brand.
+Create one square app icon for the Chinese casual puzzle game "我就划两下", matching the provided horizontal title logo's bright faceted mosaic cartoon art exactly.
+Single centered emblem: a chunky 2x2 square puzzle tile arrangement with cyan, lime green, violet and coral orange glossy angular faceted pieces, thick near-black outlines, small cream keylines. One small golden-orange-tipped wooden paintbrush crosses diagonally at lower right, drawing a simple dark dotted dividing line between the colored tiles. Instantly readable simple silhouette at small size. Warm cream parchment background with very subtle squared paper grid, matching the actual game's loading screen. Bright playful clean 2D mobile-game illustration, moderate bevel shading, no realistic wood texture. Full bleed square background, main art inside 12% safe area. No frame, no words, no Chinese characters, no English, no numbers, no watermark. This icon accompanies the title in the reference, not a separate art direction.
+
+图标后续修正：保持颜色、纸张背景、粗黑描边和画笔，将传统拼图片的圆形凸头凹槽改为方格多连块的直角阶梯边缘，并让虚线沿方格边界转弯；不含文字。

@@ -1,0 +1,42 @@
+; fn#22020 "<anonymous>" params=1 frame=20 regs=1(num=0,nonptr=1) size=186 offset=0x480294 flags=[strict]
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r2, r1, 0
+0007  GetById r1, r2, 0, "stop"
+000d  Call1 r1, r1, r2
+0011  GetParentEnvironment r1, 2
+0014  LoadFromEnvironment r5, r1, 1
+0018  GetByIdShort r4, r5, 1, "Animated"
+001d  GetById r3, r4, 2, "parallel"
+0023  GetByIdShort r8, r5, 1, "Animated"
+0028  GetByIdShort r7, r8, 3, "timing"
+002d  GetParentEnvironment r1, 1
+0030  LoadFromEnvironment r6, r1, 3
+0034  NewObjectWithBuffer r2, 3819, 56870
+003a  Call3 r6, r7, r8, r6, r2
+0040  NewArray r2, 4
+0044  DefineOwnInDenseArray r2, r6, 0
+0048  GetByIdShort r9, r5, 1, "Animated"
+004d  GetByIdShort r8, r9, 3, "timing"
+0052  LoadFromEnvironment r7, r1, 4
+0056  NewObjectWithBuffer r6, 3819, 57562
+005c  Call3 r6, r8, r9, r7, r6
+0062  DefineOwnInDenseArray r2, r6, 1
+0066  GetByIdShort r9, r5, 1, "Animated"
+006b  GetByIdShort r8, r9, 3, "timing"
+0070  LoadFromEnvironment r7, r1, 7
+0074  NewObjectWithBuffer r6, 3819, 56904
+007a  Call3 r6, r8, r9, r7, r6
+0080  DefineOwnInDenseArray r2, r6, 2
+0084  GetByIdShort r8, r5, 1, "Animated"
+0089  GetByIdShort r7, r8, 3, "timing"
+008e  LoadFromEnvironment r6, r1, 8
+0092  NewObjectWithBuffer r5, 3819, 56904
+0098  Call3 r5, r7, r8, r6, r5
+009e  DefineOwnInDenseArray r2, r5, 3
+00a2  Call2 r3, r3, r4, r2
+00a7  GetByIdShort r2, r3, 4, "start"
+00ac  CreateClosure r1, r1, 23712
+00b1  Call2 r1, r2, r3, r1
+00b6  LoadConstUndefined r0
+00b8  Ret r0
+

@@ -1,0 +1,82 @@
+; fn#2166 "<anonymous>" params=8 frame=24 regs=2(num=1,nonptr=1) size=405 offset=0x24e2b7
+0000  CreateFunctionEnvironment r3, 1
+0003  LoadParam r5, 2
+0006  LoadParam r9, 6
+0009  LoadParam r2, 7
+000c  GetGlobalObject r4
+000e  TryGetById r10, r4, 0, "Object"
+0014  GetByIdShort r8, r10, 1, "defineProperty"
+0019  LoadConstString r7, "__esModule"
+001d  NewObjectWithBuffer r6, 26, 27551
+0023  Call4 r6, r8, r10, r9, r7, r6
+002a  TryGetById r8, r4, 0, "Object"
+0030  GetByIdShort r7, r8, 1, "defineProperty"
+0035  NewObjectWithBuffer r6, 27, 28117
+003b  CreateClosure r4, r3, 12441
+0040  PutOwnBySlotIdx r6, r4, 1
+0044  LoadConstString r4, "default"
+0048  Call4 r4, r7, r8, r9, r4, r6
+004f  GetByIndex r4, r2, 0
+0053  LoadConstUndefined r1
+0055  Call2 r4, r5, r1, r4
+005a  GetByIndex r4, r2, 1
+005e  Call2 r4, r5, r1, r4
+0063  GetByIndex r6, r2, 2
+0067  Call2 r10, r5, r1, r6
+006c  GetByIndex r6, r2, 3
+0070  Call2 r6, r5, r1, r6
+0075  GetByIndex r2, r2, 4
+0079  Call2 r7, r5, r1, r2
+007e  NewObjectWithBufferLong r2, 1728, 70689
+0088  NewObjectWithBuffer r5, 1729, 27684
+008e  GetByIdShort r11, r7, 2, "jsx"
+0093  GetById r9, r6, 3, "BoosterImg"
+0099  NewObjectWithBuffer r8, 1730, 51130
+009f  GetById r12, r6, 4, "hammerPng"
+00a5  PutOwnBySlotIdx r8, r12, 0
+00a9  GetByIdShort r12, r10, 5, "sc"
+00ae  LoadConstUInt8 r0, 48
+00b1  Call2 r12, r12, r1, r0
+00b6  PutOwnBySlotIdx r8, r12, 1
+00ba  Call3 r8, r11, r1, r9, r8
+00c0  PutOwnBySlotIdx r5, r8, 0
+00c4  GetByIdShort r9, r7, 2, "jsx"
+00c9  GetById r8, r6, 3, "BoosterImg"
+00cf  NewObjectWithBuffer r7, 1730, 52155
+00d5  GetById r11, r6, 6, "extraTimePng"
+00db  PutOwnBySlotIdx r7, r11, 0
+00df  GetByIdShort r10, r10, 5, "sc"
+00e4  Call2 r10, r10, r1, r0
+00e9  PutOwnBySlotIdx r7, r10, 1
+00ed  Call3 r7, r9, r1, r8, r7
+00f3  PutOwnBySlotIdx r5, r7, 1
+00f7  PutOwnBySlotIdx r2, r5, 1
+00fb  GetById r4, r4, 7, "getLevelById"
+0101  PutOwnBySlotIdx r2, r4, 2
+0105  GetById r4, r6, 8, "BUNDLE_BOOSTER_ICONS"
+010b  PutOwnBySlotIdx r2, r4, 3
+010f  NewObjectWithBufferLong r5, 1731, 70693
+0119  GetById r4, r6, 9, "penPng"
+011f  PutOwnBySlotIdx r5, r4, 2
+0123  NewArray r4, 5
+0127  DefineOwnInDenseArray r4, r5, 0
+012b  NewObjectWithBufferLong r5, 1731, 70699
+0135  GetById r7, r6, 10, "freezePng"
+013b  PutOwnBySlotIdx r5, r7, 2
+013f  DefineOwnInDenseArray r4, r5, 1
+0143  NewObjectWithBufferLong r5, 1731, 70705
+014d  GetById r7, r6, 11, "lensPng"
+0153  PutOwnBySlotIdx r5, r7, 2
+0157  DefineOwnInDenseArray r4, r5, 2
+015b  NewObjectWithBufferLong r5, 1731, 70711
+0165  GetById r7, r6, 4, "hammerPng"
+016b  PutOwnBySlotIdx r5, r7, 2
+016f  DefineOwnInDenseArray r4, r5, 3
+0173  NewObjectWithBufferLong r5, 1731, 70717
+017d  GetById r6, r6, 6, "extraTimePng"
+0183  PutOwnBySlotIdx r5, r6, 2
+0187  DefineOwnInDenseArray r4, r5, 4
+018b  PutOwnBySlotIdx r2, r4, 4
+018f  StoreToEnvironment r3, 0, r2
+0193  Ret r1
+

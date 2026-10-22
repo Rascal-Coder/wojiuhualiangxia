@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-22",
+  "purpose": "Unified jewel/wood/gold menu asset family",
+  "assets": [
+    {
+      "key": "menu_pen",
+      "file": "Assets/Editor/MenuArtSource/menu_pen.png",
+      "size": [
+        384,
+        384
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bytes": 96535,
+      "sha256": "0678725a10209e7f06e6f9585c465ec72b760fe0e0c3e6634c8afb7d6354e657",
+      "source": "Built-in image_gen; newly generated for this project",
+      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+    },
+    {
+      "key": "menu_freeze",
+      "file": "Assets/Editor/MenuArtSource/menu_freeze.png",
+      "size": [
+        384,
+        384
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bytes": 163961,
+      "sha256": "a546ff022886938d1a9a386cee8f8063b424642d2de21b35c96312b36a37918c",
+      "source": "Built-in image_gen; newly generated for this project",
+      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+    },
+    {
+      "key": "menu_lens",
+      "file": "Assets/Editor/MenuArtSource/menu_lens.png",
+      "size": [
+        384,
+        384
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bytes": 143820,
+      "sha256": "30679b7fd1b4ae430090117ec5dc9a6d3677787d31161b3ff50114f7219d59c5",
+      "source": "Built-in image_gen; newly generated for this project",
+      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+    },
+    {
+      "key": "menu_achievement_medallion",
+      "file": "Assets/Editor/MenuArtSource/menu_achievement_medallion.png",
+      "size": [
+        256,
+        256
+      ],
+      "rgba": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "bytes": 97002,
+      "sha256": "0092c0834cbcf1f46f500f5a58c8e6d83f7290848cc035ba047fc29644d69697",
+      "source": "Built-in image_gen; newly generated for this project",
+      "normalization": "Alpha bounds crop, proportional Lanczos downsample, centered transparent square,5% safe margin"
+    }
+  ],
+  "packing": "Editor-only original sources, runtime sprites share menu_ui_atlas"
+}

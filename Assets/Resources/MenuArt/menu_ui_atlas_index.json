@@ -1,0 +1,69 @@
+{
+  "width": 1024,
+  "height": 1024,
+  "regions": [
+    {
+      "key": "menu_climb_journey",
+      "x": 4,
+      "y": 519,
+      "width": 752,
+      "height": 501,
+      "source": "Assets/Editor/MenuArtSource/menu_climb_journey.png",
+      "generated": true
+    },
+    {
+      "key": "menu_treasure",
+      "x": 764,
+      "y": 764,
+      "width": 256,
+      "height": 256,
+      "source": "Assets/Editor/MenuArtSource/menu_treasure.png",
+      "generated": true
+    },
+    {
+      "key": "menu_achievement_medallion",
+      "x": 780,
+      "y": 532,
+      "width": 224,
+      "height": 224,
+      "source": "Assets/Editor/MenuArtSource/menu_achievement_medallion.png",
+      "generated": false
+    },
+    {
+      "key": "menu_pen",
+      "x": 4,
+      "y": 188,
+      "width": 320,
+      "height": 320,
+      "source": "Assets/Editor/MenuArtSource/menu_pen.png",
+      "generated": false
+    },
+    {
+      "key": "menu_freeze",
+      "x": 336,
+      "y": 188,
+      "width": 320,
+      "height": 320,
+      "source": "Assets/Editor/MenuArtSource/menu_freeze.png",
+      "generated": false
+    },
+    {
+      "key": "menu_lens",
+      "x": 668,
+      "y": 188,
+      "width": 320,
+      "height": 320,
+      "source": "Assets/Editor/MenuArtSource/menu_lens.png",
+      "generated": false
+    },
+    {
+      "key": "menu_climb_node",
+      "x": 4,
+      "y": 4,
+      "width": 320,
+      "height": 168,
+      "source": "Assets/Editor/MenuArtSource/menu_climb_node.png",
+      "generated": true
+    }
+  ]
+}

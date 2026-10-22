@@ -1,0 +1,502 @@
+{
+  "entries": [
+    {
+      "key": "music:calmdaylight",
+      "resource": "Audio/game_assets_music_calmdaylight",
+      "volume": 1.0,
+      "music": true
+    },
+    {
+      "key": "music:calmdusk",
+      "resource": "Audio/game_assets_music_calmdusk",
+      "volume": 1.0,
+      "music": true
+    },
+    {
+      "key": "music:calmpaper",
+      "resource": "Audio/game_assets_music_calmpaper",
+      "volume": 1.0,
+      "music": true
+    },
+    {
+      "key": "shell:climb_fall_1",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_fall_1",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "shell:climb_fall_2",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_fall_2",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "shell:climb_fall_me",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_fall_me",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "shell:climb_join",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_join",
+      "volume": 0.85,
+      "music": false
+    },
+    {
+      "key": "shell:climb_jump",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_jump",
+      "volume": 0.75,
+      "music": false
+    },
+    {
+      "key": "shell:climb_land",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_land",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "shell:climb_out",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_out",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "shell:climb_pop_1",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_pop_1",
+      "volume": 0.38,
+      "music": false
+    },
+    {
+      "key": "shell:climb_pop_2",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_pop_2",
+      "volume": 0.38,
+      "music": false
+    },
+    {
+      "key": "shell:climb_pop_3",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_pop_3",
+      "volume": 0.38,
+      "music": false
+    },
+    {
+      "key": "shell:climb_ready",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_ready",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "shell:climb_win",
+      "resource": "Audio/shell_src_ui_sounds_climb_climb_win",
+      "volume": 0.95,
+      "music": false
+    },
+    {
+      "key": "shell:coin",
+      "resource": "Audio/shell_src_ui_sounds_coin",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:explode",
+      "resource": "Audio/shell_src_ui_sounds_explode",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:fail",
+      "resource": "Audio/shell_src_ui_sounds_fail",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:hit",
+      "resource": "Audio/shell_src_ui_sounds_hit",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:joker",
+      "resource": "Audio/shell_src_ui_sounds_joker",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:jump",
+      "resource": "Audio/shell_src_ui_sounds_jump",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:launch",
+      "resource": "Audio/shell_src_ui_sounds_launch",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:music",
+      "resource": "Audio/shell_src_ui_sounds_music",
+      "volume": 1.0,
+      "music": true
+    },
+    {
+      "key": "absorb",
+      "resource": "Audio/shell_src_ui_sounds_pm_absorb",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "balloon_pop",
+      "resource": "Audio/shell_src_ui_sounds_pm_balloon_pop",
+      "volume": 0.75,
+      "music": false
+    },
+    {
+      "key": "boing",
+      "resource": "Audio/shell_src_ui_sounds_pm_boing",
+      "volume": 0.75,
+      "music": false
+    },
+    {
+      "key": "booster_press",
+      "resource": "Audio/shell_src_ui_sounds_pm_booster_press",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "burst",
+      "resource": "Audio/shell_src_ui_sounds_pm_burst",
+      "volume": 0.9,
+      "music": false
+    },
+    {
+      "key": "card_deal_1",
+      "resource": "Audio/shell_src_ui_sounds_pm_card_deal_1",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "card_deal_2",
+      "resource": "Audio/shell_src_ui_sounds_pm_card_deal_2",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "card_flip_1",
+      "resource": "Audio/shell_src_ui_sounds_pm_card_flip_1",
+      "volume": 0.65,
+      "music": false
+    },
+    {
+      "key": "card_flip_2",
+      "resource": "Audio/shell_src_ui_sounds_pm_card_flip_2",
+      "volume": 0.65,
+      "music": false
+    },
+    {
+      "key": "card_match",
+      "resource": "Audio/shell_src_ui_sounds_pm_card_match",
+      "volume": 0.85,
+      "music": false
+    },
+    {
+      "key": "card_pick",
+      "resource": "Audio/shell_src_ui_sounds_pm_card_pick",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "chest_open",
+      "resource": "Audio/shell_src_ui_sounds_pm_chest_open",
+      "volume": 0.9,
+      "music": false
+    },
+    {
+      "key": "claim_sparkle",
+      "resource": "Audio/shell_src_ui_sounds_pm_claim_sparkle",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "coin_burst",
+      "resource": "Audio/shell_src_ui_sounds_pm_coin_burst",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "coin_tick_1",
+      "resource": "Audio/shell_src_ui_sounds_pm_coin_tick_1",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "coin_tick_2",
+      "resource": "Audio/shell_src_ui_sounds_pm_coin_tick_2",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "coin_tick_3",
+      "resource": "Audio/shell_src_ui_sounds_pm_coin_tick_3",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "compass_reveal",
+      "resource": "Audio/shell_src_ui_sounds_pm_compass_reveal",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "continue_offer",
+      "resource": "Audio/shell_src_ui_sounds_pm_continue_offer",
+      "volume": 0.65,
+      "music": false
+    },
+    {
+      "key": "deny",
+      "resource": "Audio/shell_src_ui_sounds_pm_deny",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "extratime",
+      "resource": "Audio/shell_src_ui_sounds_pm_extratime",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "fill_ramp",
+      "resource": "Audio/shell_src_ui_sounds_pm_fill_ramp",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "flow_start",
+      "resource": "Audio/shell_src_ui_sounds_pm_flow_start",
+      "volume": 0.9,
+      "music": false
+    },
+    {
+      "key": "flow_step_1",
+      "resource": "Audio/shell_src_ui_sounds_pm_flow_step_1",
+      "volume": 0.35,
+      "music": false
+    },
+    {
+      "key": "flow_step_2",
+      "resource": "Audio/shell_src_ui_sounds_pm_flow_step_2",
+      "volume": 0.35,
+      "music": false
+    },
+    {
+      "key": "flow_step_3",
+      "resource": "Audio/shell_src_ui_sounds_pm_flow_step_3",
+      "volume": 0.35,
+      "music": false
+    },
+    {
+      "key": "fourcard_fan",
+      "resource": "Audio/shell_src_ui_sounds_pm_fourcard_fan",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "freeze_cast",
+      "resource": "Audio/shell_src_ui_sounds_pm_freeze_cast",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "freeze_end",
+      "resource": "Audio/shell_src_ui_sounds_pm_freeze_end",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "hand_slide",
+      "resource": "Audio/shell_src_ui_sounds_pm_hand_slide",
+      "volume": 0.45,
+      "music": false
+    },
+    {
+      "key": "hint_sparkle",
+      "resource": "Audio/shell_src_ui_sounds_pm_hint_sparkle",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "invalid_drop",
+      "resource": "Audio/shell_src_ui_sounds_pm_invalid_drop",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "joker_cast",
+      "resource": "Audio/shell_src_ui_sounds_pm_joker_cast",
+      "volume": 0.85,
+      "music": false
+    },
+    {
+      "key": "leak_drip",
+      "resource": "Audio/shell_src_ui_sounds_pm_leak_drip",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "level_fail",
+      "resource": "Audio/shell_src_ui_sounds_pm_level_fail",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "level_start",
+      "resource": "Audio/shell_src_ui_sounds_pm_level_start",
+      "volume": 0.75,
+      "music": false
+    },
+    {
+      "key": "level_win",
+      "resource": "Audio/shell_src_ui_sounds_pm_level_win",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "life_gain",
+      "resource": "Audio/shell_src_ui_sounds_pm_life_gain",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "life_lose",
+      "resource": "Audio/shell_src_ui_sounds_pm_life_lose",
+      "volume": 0.75,
+      "music": false
+    },
+    {
+      "key": "lightning_zap",
+      "resource": "Audio/shell_src_ui_sounds_pm_lightning_zap",
+      "volume": 0.9,
+      "music": false
+    },
+    {
+      "key": "pipe_place",
+      "resource": "Audio/shell_src_ui_sounds_pm_pipe_place",
+      "volume": 0.9,
+      "music": false
+    },
+    {
+      "key": "poop_plop",
+      "resource": "Audio/shell_src_ui_sounds_pm_poop_plop",
+      "volume": 0.8,
+      "music": false
+    },
+    {
+      "key": "popup_close",
+      "resource": "Audio/shell_src_ui_sounds_pm_popup_close",
+      "volume": 0.55,
+      "music": false
+    },
+    {
+      "key": "popup_open",
+      "resource": "Audio/shell_src_ui_sounds_pm_popup_open",
+      "volume": 0.55,
+      "music": false
+    },
+    {
+      "key": "portal_warp",
+      "resource": "Audio/shell_src_ui_sounds_pm_portal_warp",
+      "volume": 0.75,
+      "music": false
+    },
+    {
+      "key": "pump_hit_1",
+      "resource": "Audio/shell_src_ui_sounds_pm_pump_hit_1",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "pump_hit_2",
+      "resource": "Audio/shell_src_ui_sounds_pm_pump_hit_2",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "purchase",
+      "resource": "Audio/shell_src_ui_sounds_pm_purchase",
+      "volume": 0.85,
+      "music": false
+    },
+    {
+      "key": "reservoir_fill",
+      "resource": "Audio/shell_src_ui_sounds_pm_reservoir_fill",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "rock_break",
+      "resource": "Audio/shell_src_ui_sounds_pm_rock_break",
+      "volume": 0.85,
+      "music": false
+    },
+    {
+      "key": "shuffle_swirl",
+      "resource": "Audio/shell_src_ui_sounds_pm_shuffle_swirl",
+      "volume": 0.7,
+      "music": false
+    },
+    {
+      "key": "small_glug",
+      "resource": "Audio/shell_src_ui_sounds_pm_small_glug",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "timer_tick",
+      "resource": "Audio/shell_src_ui_sounds_pm_timer_tick",
+      "volume": 0.55,
+      "music": false
+    },
+    {
+      "key": "ui_tap",
+      "resource": "Audio/shell_src_ui_sounds_pm_ui_tap",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "valve_stop",
+      "resource": "Audio/shell_src_ui_sounds_pm_valve_stop",
+      "volume": 0.6,
+      "music": false
+    },
+    {
+      "key": "water_pour",
+      "resource": "Audio/shell_src_ui_sounds_pm_water_pour",
+      "volume": 0.5,
+      "music": false
+    },
+    {
+      "key": "shell:swap",
+      "resource": "Audio/shell_src_ui_sounds_swap",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:throw",
+      "resource": "Audio/shell_src_ui_sounds_throw",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:win",
+      "resource": "Audio/shell_src_ui_sounds_win",
+      "volume": 1.0,
+      "music": false
+    },
+    {
+      "key": "shell:zap",
+      "resource": "Audio/shell_src_ui_sounds_zap",
+      "volume": 1.0,
+      "music": false
+    }
+  ]
+}

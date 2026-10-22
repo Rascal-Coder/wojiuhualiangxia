@@ -1,0 +1,41 @@
+{
+  "asset_size": [
+    1080,
+    2335
+  ],
+  "screenshot_size": [
+    1080,
+    2400
+  ],
+  "samples": 20525,
+  "candidates": [
+    {
+      "viewport_height_candidate": 2335,
+      "asset_scale": 1.0,
+      "tx": 0.0,
+      "ty": 0.0,
+      "mean_absolute_rgb_error": 11.13252131546894,
+      "median_absolute_rgb_error": 6.0,
+      "p25_absolute_rgb_error": 4.0
+    },
+    {
+      "viewport_height_candidate": 2341,
+      "asset_scale": 1.0025695931477516,
+      "tx": -1.3875802997858955,
+      "ty": 0.0,
+      "mean_absolute_rgb_error": 10.9103484149212,
+      "median_absolute_rgb_error": 5.828621987327533,
+      "p25_absolute_rgb_error": 3.9567755132751095
+    },
+    {
+      "viewport_height_candidate": 2400,
+      "asset_scale": 1.0278372591006424,
+      "tx": -15.032119914346936,
+      "ty": 0.0,
+      "mean_absolute_rgb_error": 8.429075000986831,
+      "median_absolute_rgb_error": 3.7163628472225887,
+      "p25_absolute_rgb_error": 3.2248625578704093
+    }
+  ],
+  "interpretation": "Pixel comparison on background-only screenshot regions; inference about asset placement, not native window instrumentation."
+}

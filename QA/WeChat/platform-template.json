@@ -1,0 +1,19 @@
+{
+    "m_Development": false,
+    "m_ConnectProfiler": false,
+    "m_BuildWithDeepProfilingSupport": false,
+    "m_AllowDebugging": false,
+    "m_WaitForManagedDebugger": false,
+    "m_ManagedDebuggerFixedPort": 0,
+    "m_ExplicitNullChecks": false,
+    "m_ExplicitDivideByZeroChecks": false,
+    "m_ExplicitArrayBoundsChecks": false,
+    "m_CompressionType": -1,
+    "m_InstallInBuildFolder": false,
+    "m_MiniGameTextureSubtarget": 0,
+    "m_MiniGameFrameDebuggerBuild": false,
+    "m_MiniGameShowVConsole": false,
+    "m_CodeOptimization": 4,
+    "m_MiniGameGenerateWasmAnalysisReport": false,
+    "m_MiniGameWasmInlineParam": 200
+}

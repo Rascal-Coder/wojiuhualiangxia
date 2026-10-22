@@ -1,0 +1,33 @@
+{
+    "status": "PASS",
+    "checks": [
+        "level40 cannot join",
+        "level41 free entry",
+        "first summit distribution has3to5 simulated survivors",
+        "cannot replace active attempt",
+        "below41 cannot advance event",
+        "main completion advances one island",
+        "unrelated low-level failure does not eliminate",
+        "seven clears reach seeded final survivors",
+        "dropouts conserve simulated population",
+        "rounded summit reward granted once",
+        "claim and summit re-entry cannot duplicate reward",
+        "claim and coins survive reload together",
+        "daily18h reset preserves lifetime summits",
+        "daily reset boundary is exact",
+        "eligible abandon eliminates attempt",
+        "30minute cooldown blocks until exact expiry",
+        "unfinished failure screen forfeits once after relaunch",
+        "relaunch cannot deduct twice",
+        "timeout offers continue without immediate elimination",
+        "free continue available",
+        "continue clears pending forfeiture",
+        "bottom trophy opens achievement page",
+        "friend tab has dedicated canvas",
+        "shared surface is drawn after paper background",
+        "shared texture pixels remain visible above paper in actual rendered frame",
+        "activity motion removed on navigation"
+    ],
+    "errors": [],
+    "screenshots": 7
+}

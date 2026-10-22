@@ -1,0 +1,119 @@
+0000  LoadParam r2, 1
+0003  GetById r25, r2, 0, "onConfirm"
+0009  GetById r21, r2, 1, "onCancel"
+000f  GetById r12, r2, 2, "magnificentSeries"
+0015  LoadConstUndefined r1
+0017  JStrictNotEqual L29, r12, r1
+001b  LoadConstZero r12
+L29:
+001d  GetById r11, r2, 3, "balloonsCollected"
+0023  JStrictNotEqual L41, r11, r1
+0027  LoadConstZero r11
+L41:
+0029  GetParentEnvironment r24, 0
+002c  LoadFromEnvironment r2, r24, 4
+0030  GetById r2, r2, 4, "useT"
+0036  Call1 r23, r2, r1
+003a  LoadFromEnvironment r20, r24, 6
+003e  GetByIdShort r4, r20, 5, "jsx"
+0043  LoadFromEnvironment r2, r24, 1
+0047  GetByIdShort r3, r2, 6, "default"
+004c  LoadConstString r2, "restartConfirm.title"
+0050  Call2 r5, r23, r1, r2
+0055  JmpTrue L92, r5
+0058  LoadConstString r5, "Restart"
+L92:
+005c  NewObjectWithBuffer r2, 3019, 27714
+0062  PutOwnBySlotIdx r2, r5, 0
+0066  PutOwnBySlotIdx r2, r21, 1
+006a  GetByIdShort r7, r20, 7, "jsxs"
+006f  LoadFromEnvironment r19, r24, 0
+0073  GetByIdShort r6, r19, 8, "View"
+0078  NewObjectWithBuffer r5, 2179, 27684
+007e  LoadFromEnvironment r22, r24, 8
+0082  GetById r8, r22, 9, "content"
+0088  PutOwnBySlotIdx r5, r8, 0
+008c  GetByIdShort r10, r20, 5, "jsx"
+0091  LoadFromEnvironment r8, r24, 3
+0095  GetById r9, r8, 10, "LossSummary"
+009b  NewObjectWithBuffer r8, 3032, 27684
+00a1  PutOwnBySlotIdx r8, r12, 0
+00a5  PutOwnBySlotIdx r8, r11, 1
+00a9  Call3 r9, r10, r1, r9, r8
+00af  NewArray r8, 2
+00b3  DefineOwnInDenseArray r8, r9, 0
+00b7  GetByIdShort r11, r20, 7, "jsxs"
+00bc  GetByIdShort r10, r19, 8, "View"
+00c1  NewObjectWithBuffer r9, 2179, 27684
+00c7  GetById r12, r22, 11, "buttonsRow"
+00cd  PutOwnBySlotIdx r9, r12, 0
+00d1  GetByIdShort r14, r20, 5, "jsx"
+00d6  GetByIdShort r13, r19, 8, "View"
+00db  NewObjectWithBuffer r12, 2179, 27684
+00e1  NewObjectWithBuffer r15, 130, 28970
+00e7  PutOwnBySlotIdx r12, r15, 0
+00eb  GetByIdShort r18, r20, 5, "jsx"
+00f0  LoadFromEnvironment r16, r24, 2
+00f4  GetByIdShort r17, r16, 6, "default"
+00f9  NewObjectWithBuffer r15, 2879, 43583
+00ff  LoadFromEnvironment r24, r24, 5
+0103  GetByIdShort r26, r24, 12, "sc"
+0108  LoadConstUInt8 r0, 70
+010b  Call2 r26, r26, r1, r0
+0110  PutOwnBySlotIdx r15, r26, 2
+0114  PutOwnBySlotIdx r15, r25, 3
+0118  GetByIdShort r27, r20, 5, "jsx"
+011d  GetByIdShort r26, r19, 13, "Text"
+0122  NewObjectWithBuffer r25, 2179, 27684
+0128  GetById r28, r22, 14, "btnText"
+012e  PutOwnBySlotIdx r25, r28, 0
+0132  LoadConstString r28, "restartConfirm.retry"
+0136  Call2 r28, r23, r1, r28
+013b  JmpTrue L322, r28
+013e  LoadConstString r28, "RETRY"
+L322:
+0142  PutOwnBySlotIdx r25, r28, 1
+0146  Call3 r25, r27, r1, r26, r25
+014c  PutOwnBySlotIdx r15, r25, 4
+0150  Call3 r15, r18, r1, r17, r15
+0156  PutOwnBySlotIdx r12, r15, 1
+015a  Call3 r13, r14, r1, r13, r12
+0160  NewArray r12, 2
+0164  DefineOwnInDenseArray r12, r13, 0
+0168  GetByIdShort r15, r20, 5, "jsx"
+016d  GetByIdShort r14, r19, 8, "View"
+0172  NewObjectWithBuffer r13, 2179, 27684
+0178  NewObjectWithBuffer r17, 130, 28970
+017e  PutOwnBySlotIdx r13, r17, 0
+0182  GetByIdShort r18, r20, 5, "jsx"
+0187  GetByIdShort r17, r16, 6, "default"
+018c  NewObjectWithBuffer r16, 2879, 43546
+0192  GetByIdShort r24, r24, 12, "sc"
+0197  Call2 r24, r24, r1, r0
+019c  PutOwnBySlotIdx r16, r24, 2
+01a0  PutOwnBySlotIdx r16, r21, 3
+01a4  GetByIdShort r21, r20, 5, "jsx"
+01a9  GetByIdShort r20, r19, 13, "Text"
+01ae  NewObjectWithBuffer r19, 2179, 27684
+01b4  GetById r22, r22, 14, "btnText"
+01ba  PutOwnBySlotIdx r19, r22, 0
+01be  LoadConstString r22, "pause.resume"
+01c2  Call2 r22, r23, r1, r22
+01c7  JmpTrue L462, r22
+01ca  LoadConstString r22, "RESUME"
+L462:
+01ce  PutOwnBySlotIdx r19, r22, 1
+01d2  Call3 r19, r21, r1, r20, r19
+01d8  PutOwnBySlotIdx r16, r19, 4
+01dc  Call3 r16, r18, r1, r17, r16
+01e2  PutOwnBySlotIdx r13, r16, 1
+01e6  Call3 r13, r15, r1, r14, r13
+01ec  DefineOwnInDenseArray r12, r13, 1
+01f0  PutOwnBySlotIdx r9, r12, 1
+01f4  Call3 r9, r11, r1, r10, r9
+01fa  DefineOwnInDenseArray r8, r9, 1
+01fe  PutOwnBySlotIdx r5, r8, 1
+0202  Call3 r5, r7, r1, r6, r5
+0208  PutOwnBySlotIdx r2, r5, 2
+020c  Call3 r2, r4, r1, r3, r2
+0212  Ret r2

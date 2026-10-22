@@ -1,0 +1,163 @@
+0000  GetParentEnvironment r21, 0
+0003  LoadParam r11, 2
+0006  LoadFromEnvironment r8, r21, 13
+000a  LoadConstUInt8 r1, 1
+000d  LessEq r6, r8, r1
+0011  LoadConstZero r2
+0013  JmpTrue L49, r6
+0016  Sub r0, r8, r1
+001a  LoadConstUInt8 r3, 2
+001d  DivN r0, r0, r3
+0021  Sub r4, r11, r0
+0025  Sub r0, r8, r1
+0029  DivN r0, r0, r3
+002d  DivN r2, r4, r0
+L49:
+0031  CreateFunctionEnvironment r12, 2
+0034  LoadParam r8, 1
+0037  GetGlobalObject r24
+0039  TryGetById r10, r24, 0, "Math"
+003f  GetById r9, r10, 1, "pow"
+0045  LoadConstUInt8 r0, 2
+0048  Call3 r9, r9, r10, r2, r0
+004e  Sub r1, r1, r9
+0052  LoadFromEnvironment r9, r21, 2
+0056  Negate r1, r1
+0059  Mul r1, r1, r9
+005d  LoadFromEnvironment r9, r21, 1
+0061  Mul r2, r2, r9
+0065  NewObjectWithBuffer r18, 3824, 30092
+006b  LoadFromEnvironment r9, r21, 9
+006f  PutOwnBySlotIdx r18, r9, 0
+0073  LoadFromEnvironment r9, r21, 0
+0077  PutOwnBySlotIdx r18, r9, 1
+007b  GetParentEnvironment r22, 1
+007e  LoadFromEnvironment r9, r22, 2
+0082  GetByIdShort r28, r9, 2, "FONT_FIX"
+0087  Mov r29, r18
+008a  CallBuiltin r9, 46, 3
+008e  StoreToEnvironment r12, 0, r18
+0092  LoadConstString r16, "\u00A0"
+0096  LoadConstString r9, " "
+009a  JStrictEqual L161, r8, r9
+009e  Mov r16, r8
+L161:
+00a1  StoreToEnvironment r12, 1, r16
+00a5  LoadFromEnvironment r14, r22, 4
+00a9  GetByIdShort r10, r14, 3, "jsxs"
+00ae  LoadFromEnvironment r13, r22, 1
+00b2  GetByIdShort r8, r13, 4, "Animated"
+00b7  GetByIdShort r9, r8, 5, "View"
+00bc  NewObjectWithBuffer r8, 2179, 27684
+00c2  NewObjectWithBuffer r15, 500, 27684
+00c8  LoadFromEnvironment r23, r21, 18
+00cc  GetByVal r17, r23, r11
+00d0  GetByIdShort r17, r17, 6, "opacity"
+00d5  PutOwnBySlotIdx r15, r17, 0
+00d9  NewObjectWithBuffer r20, 492, 24
+00df  PutOwnBySlotIdx r20, r1, 0
+00e3  NewArray r17, 3
+00e7  DefineOwnInDenseArray r17, r20, 0
+00eb  NewObjectWithBuffer r20, 1117, 24
+00f1  TryGetById r24, r24, 7, "HermesInternal"
+00f7  GetByIdShort r26, r24, 8, "concat"
+00fc  LoadConstString r25, "deg"
+0100  LoadConstString r24, ""
+0104  Call3 r24, r26, r24, r2, r25
+010a  PutOwnBySlotIdx r20, r24, 0
+010e  DefineOwnInDenseArray r17, r20, 1
+0112  NewObjectWithBuffer r20, 174, 24
+0118  GetByVal r23, r23, r11
+011c  GetByIdShort r23, r23, 9, "scale"
+0121  PutOwnBySlotIdx r20, r23, 0
+0125  DefineOwnInDenseArray r17, r20, 2
+0129  PutOwnBySlotIdx r15, r17, 1
+012d  PutOwnBySlotIdx r8, r15, 0
+0131  LoadFromEnvironment r20, r21, 17
+0135  LoadConstNull r5
+0137  LoadConstNull r15
+0139  JmpFalse L331, r20
+013c  GetByIdShort r17, r20, 10, "map"
+0141  CreateClosure r12, r12, 21493
+0146  Call2 r15, r17, r20, r12
+L331:
+014b  NewArray r12, 3
+014f  DefineOwnInDenseArray r12, r15, 0
+0153  GetByIdShort r20, r14, 11, "jsx"
+0158  GetByIdShort r17, r13, 12, "Text"
+015d  NewObjectWithBuffer r15, 2179, 27684
+0163  NewArray r23, 2
+0167  DefineOwnInDenseArray r23, r18, 0
+016b  NewObjectWithBuffer r24, 1514, 27895
+0171  LoadFromEnvironment r25, r21, 3
+0175  PutOwnBySlotIdx r24, r25, 0
+0179  PutOwnBySlotIdx r24, r25, 1
+017d  NewObjectWithBuffer r25, 55, 30136
+0183  PutOwnBySlotIdx r24, r25, 2
+0187  LoadFromEnvironment r25, r21, 8
+018b  PutOwnBySlotIdx r24, r25, 3
+018f  NewObjectWithBuffer r26, 174, 24
+0195  LoadFromEnvironment r25, r21, 7
+0199  PutOwnBySlotIdx r26, r25, 0
+019d  NewArray r25, 1
+01a1  DefineOwnInDenseArray r25, r26, 0
+01a5  PutOwnBySlotIdx r24, r25, 4
+01a9  DefineOwnInDenseArray r23, r24, 1
+01ad  PutOwnBySlotIdx r15, r23, 0
+01b1  PutOwnBySlotIdx r15, r16, 1
+01b5  LoadConstUndefined r6
+01b7  Call3 r15, r20, r6, r17, r15
+01bd  DefineOwnInDenseArray r12, r15, 1
+01c1  GetByIdShort r15, r14, 11, "jsx"
+01c6  GetByIdShort r14, r13, 12, "Text"
+01cb  NewArray r17, 2
+01cf  DefineOwnInDenseArray r17, r18, 0
+01d3  LoadFromEnvironment r20, r21, 6
+01d7  Neq r7, r20, r5
+01db  LoadConstZero r23
+01dd  JmpFalse L487, r7
+01e0  LoadFromEnvironment r18, r21, 16
+01e4  Negate r23, r18
+L487:
+01e7  NewObjectWithBuffer r18, 3825, 64199
+01ed  PutOwnBySlotIdx r18, r23, 2
+01f1  Neq r7, r20, r5
+01f5  LoadConstZero r19
+01f7  JmpFalse L513, r7
+01fa  LoadFromEnvironment r23, r21, 16
+01fe  Negate r19, r23
+L513:
+0201  PutOwnBySlotIdx r18, r19, 3
+0205  LoadFromEnvironment r19, r21, 4
+0209  PutOwnBySlotIdx r18, r19, 5
+020d  LoadFromEnvironment r19, r21, 5
+0211  PutOwnBySlotIdx r18, r19, 6
+0215  NewObjectWithBuffer r19, 55, 30093
+021b  LoadFromEnvironment r22, r22, 3
+021f  GetByIdShort r22, r22, 13, "sc"
+0224  Call2 r22, r22, r6, r0
+0229  PutOwnBySlotIdx r19, r22, 1
+022d  PutOwnBySlotIdx r18, r19, 7
+0231  Neq r5, r20, r5
+0235  LoadConstUInt8 r19, 3
+0238  JmpFalse L610, r5
+023b  LoadFromEnvironment r21, r21, 14
+023f  JmpTypeOfIs L591, r21, 128
+0247  LoadConstString r29, "Trying to call a non-function"
+024b  CallBuiltin r21, 44, 2
+L591:
+024f  GetById r21, r13, 14, "PixelRatio"
+0255  GetByIdShort r13, r21, 15, "get"
+025a  Call1 r13, r13, r21
+025e  Mul r19, r20, r13
+L610:
+0262  NewObjectWithBuffer r13, 2179, 27684
+0268  PutOwnBySlotIdx r18, r19, 8
+026c  DefineOwnInDenseArray r17, r18, 1
+0270  PutOwnBySlotIdx r13, r17, 0
+0274  PutOwnBySlotIdx r13, r16, 1
+0278  Call3 r13, r15, r6, r14, r13
+027e  DefineOwnInDenseArray r12, r13, 2
+0282  PutOwnBySlotIdx r8, r12, 1
+0286  Call4 r8, r10, r6, r9, r8, r11
+028d  Ret r8

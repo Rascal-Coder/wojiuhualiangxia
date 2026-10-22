@@ -1,0 +1,20 @@
+[
+  {
+    "original": "original-home.png",
+    "original_profile": "Display P3 Gamut with sRGB Transfer",
+    "original_sha256": "58908f2a85e02eb29d1fd33e4c85f620421b14881077ae00940ac37e4dedc3b3",
+    "converted": "srgb-home.png",
+    "converted_profile": "sRGB",
+    "converted_sha256": "511b771a8095a6175c806a4055d91f549b50f9e7b28b3c919be1a1b05eaba6bd",
+    "method": "Pillow ImageCms/LCMS embedded ICC profile to sRGB, original carrier retained unchanged"
+  },
+  {
+    "original": "original-pause.png",
+    "original_profile": "Display P3 Gamut with sRGB Transfer",
+    "original_sha256": "9156b74c3df1ac1ec07d61e1da06bfbab56e6e1e870b70f7e4940f9906a5875a",
+    "converted": "srgb-pause.png",
+    "converted_profile": "sRGB",
+    "converted_sha256": "6129e26395e0bbf26f8d635ea1ef2ca17d949b4bc42230af55713865a1ea126a",
+    "method": "Pillow ImageCms/LCMS embedded ICC profile to sRGB, original carrier retained unchanged"
+  }
+]

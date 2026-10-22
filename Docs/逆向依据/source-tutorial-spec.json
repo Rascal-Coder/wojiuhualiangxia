@@ -1,0 +1,162 @@
+{
+  "source_modules": [
+    2144,
+    2147,
+    2149,
+    2150,
+    2151,
+    2152
+  ],
+  "verified_hasm": [
+    "function_12398.hasm",
+    "function_18156.hasm",
+    "function_12402.hasm"
+  ],
+  "config": {
+    "LEVEL": 1,
+    "DEMO_PIECES": 1,
+    "GUIDE_PIECES": 1,
+    "START_DELAY_MS": 600,
+    "APPEAR_MS": 240,
+    "PRESS_MS": 160,
+    "HOLD_MS": 140,
+    "STEP_MS": 300,
+    "LIFT_MS": 180,
+    "FADE_MS": 200,
+    "BETWEEN_MS": 650,
+    "LOOP_PAUSE_MS": 700,
+    "HINT_MS": 500,
+    "PRESS_SCALE": 0.84
+  },
+  "timeline_ms": {
+    "down": 400,
+    "initial_hold_end": 540,
+    "move_event_j": "540+j*300 (j>=1)",
+    "lift": "680+(walk.length-1)*300",
+    "total": "1060+(walk.length-1)*300"
+  },
+  "hand": {
+    "width_dp": "clamp(round(cellSizeDp*.86),44,78)",
+    "height_dp": "round(widthDp*1.1594202898550725)",
+    "left_offset": "-width*.14",
+    "top_offset": "-height*.04",
+    "scale_origin": "center of hand rectangle (RN default)",
+    "easing_position_press_lift": "inOutQuad",
+    "easing_alpha": "default Animated timing inOut(Easing.ease)"
+  },
+  "level_one": {
+    "id": 1,
+    "n": 4,
+    "mask": [
+      ".XX.",
+      ".XX.",
+      "XXXX",
+      "XXXX"
+    ],
+    "blocked": [
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "walls": null,
+    "icons": null,
+    "nums": null,
+    "targets": [
+      "t4o"
+    ],
+    "solution": [
+      {
+        "shape": "t4o",
+        "cells": [
+          1,
+          2,
+          5,
+          6
+        ]
+      },
+      {
+        "shape": "t4o",
+        "cells": [
+          8,
+          9,
+          12,
+          13
+        ]
+      },
+      {
+        "shape": "t4o",
+        "cells": [
+          10,
+          11,
+          14,
+          15
+        ]
+      }
+    ],
+    "time": 120,
+    "difficulty": null,
+    "design": "A",
+    "seed": 1,
+    "name": "Köşeli",
+    "authored": true
+  },
+  "flow": "demo first solution piece, sorted by minimum cell index; persist drawIntroSeen on handover; guide next solution piece with exact-cell-set constraint; guide auto-commits when trail matches; then user stage until solved",
+  "demo_locked": true,
+  "demo_lock_style": "TutorialLocked, no pen locked outline",
+  "guide_hint": {
+    "delay_ms": 500,
+    "loop_pause_ms": 700,
+    "fill": "current nextColor",
+    "opacity_range": [
+      0.28,
+      0.62
+    ],
+    "pulse_each_direction_ms": 800
+  },
+  "panel": {
+    "reserve_dp": 112,
+    "reserve_activation": "level==1, independent of seen; root informed",
+    "left_right_dp": 10,
+    "bottom_dp": 4,
+    "max_width_dp": 360,
+    "fill": "#FFF8DC",
+    "border": "#FFD700",
+    "border_dp": 2,
+    "radius_dp": 16,
+    "padding_horizontal_dp": 18,
+    "padding_vertical_dp": 14,
+    "title_font_dp": 24,
+    "title_color": "#CC7722",
+    "letterSpacing_dp": 1,
+    "title_marginBottom_dp": 8,
+    "body_font_dp": 16,
+    "body_lineHeight_dp": 23,
+    "body_color": "#4A3A28",
+    "height": "automatic wrapped-content height; Unity shipped-font line metrics approximate RN line metrics"
+  },
+  "outside_dim": {
+    "color": "rgba(4,9,18,.55)",
+    "show_duration_ms": 220,
+    "hole": "entire BoardView wrap rect; includes instruction paper"
+  },
+  "implemented_file": "outputs/InkominoTuanjie/Assets/Scripts/Runtime/SourceTutorial.cs",
+  "constraints": [
+    "No phone or engine started by this subagent.",
+    "Exact platform font line boxes, antialiasing, and shadow rasterization require screenshot comparison.",
+    "One-millisecond position reset in source loop is visually instantaneous here.",
+    "Source demo retries on unavailable layout; reconstruction already has synchronous local layout and does not reproduce the retry timer."
+  ]
+}

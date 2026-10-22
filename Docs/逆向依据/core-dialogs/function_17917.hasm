@@ -1,0 +1,30 @@
+0000  GetParentEnvironment r1, 0
+0003  LoadFromEnvironment r3, r1, 19
+0007  LoadFromEnvironment r2, r1, 21
+000b  JStrictEqual L121, r3, r2
+000f  GetParentEnvironment r2, 1
+0012  LoadFromEnvironment r5, r2, 1
+0016  GetByIdShort r4, r5, 0, "Animated"
+001b  GetById r3, r4, 1, "parallel"
+0021  GetByIdShort r8, r5, 0, "Animated"
+0026  GetByIdShort r7, r8, 2, "timing"
+002b  LoadFromEnvironment r6, r1, 14
+002f  NewObjectWithBuffer r2, 3819, 55044
+0035  Call3 r6, r7, r8, r6, r2
+003b  NewArray r2, 2
+003f  DefineOwnInDenseArray r2, r6, 0
+0043  GetByIdShort r8, r5, 0, "Animated"
+0048  GetByIdShort r7, r8, 2, "timing"
+004d  LoadFromEnvironment r6, r1, 15
+0051  NewObjectWithBuffer r5, 3819, 55091
+0057  Call3 r5, r7, r8, r6, r5
+005d  DefineOwnInDenseArray r2, r5, 1
+0061  Call2 r3, r3, r4, r2
+0066  GetByIdShort r2, r3, 3, "start"
+006b  CreateClosure r1, r1, 21817
+0070  Call2 r1, r2, r3, r1
+0075  LoadConstUndefined r0
+0077  Ret r0
+L121:
+0079  LoadConstUndefined r0
+007b  Ret r0

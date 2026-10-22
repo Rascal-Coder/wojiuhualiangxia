@@ -1,0 +1,50 @@
+{
+  "game_name": "我就划两下",
+  "engine": "Tuanjie 1.10.4 / 2022.3.62t16",
+  "style": "彩色切面、粗黑描边、奶油色外描边与画笔；配原纸张加载背景",
+  "assets": [
+    {
+      "role": "logo",
+      "file": "Assets/Resources/Art/zh_loading_logo.png",
+      "size": [
+        2169,
+        725
+      ],
+      "mode": "RGBA",
+      "alpha_range": [
+        0,
+        255
+      ],
+      "sha256": "bd7097249ba5967cfa5b25da2dd0a3af2a437f7f83ae494457d4913e85eaae05",
+      "source": "built-in imagegen; referenced current game Chinese logo",
+      "normalized": false
+    },
+    {
+      "role": "icon",
+      "file": "Assets/Branding/app-icon.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "alpha_range": null,
+      "sha256": "4d3fbb1866567fd2502894e9dd7451c654b564e39e0f6805ef5a291774533df9",
+      "source": "built-in imagegen; referenced current game Chinese logo",
+      "normalized": false
+    }
+  ],
+  "loading_resource_key": "zh_loading_logo",
+  "wx_save_key_unchanged": "inkomino-profile-v1",
+  "default_engine_splash_preserved": true,
+  "platform_profile_not_changed": "微信公众平台展示名称和头像未代为提交；本次修改本地工程与导出素材",
+  "validation": {
+    "status": "PASS",
+    "runtime": "Actual Windows player render, isolated QA profile; not WeChat simulator execution",
+    "checks": 14,
+    "screenshots": [
+      "01-loading-1080x2400.png",
+      "02-loading-540x836.png"
+    ],
+    "visual_review": "Five-character name, original art style, no clipping/stretching at 1080x2400 and 540x836; inspected with view_image"
+  }
+}

@@ -1,0 +1,261 @@
+0000  LoadParam r8, 1
+0003  GetById r29, r8, 0, "magnificentSeries"
+0009  LoadConstUndefined r3
+000b  JStrictNotEqual L17, r29, r3
+000f  LoadConstZero r29
+L17:
+0011  GetById r23, r8, 1, "balloonsCollected"
+0017  JStrictNotEqual L29, r23, r3
+001b  LoadConstZero r23
+L29:
+001d  GetById r13, r8, 2, "warningFirst"
+0023  JStrictNotEqual L41, r13, r3
+0027  LoadConstFalse r13
+L41:
+0029  GetById r8, r8, 3, "inPopup"
+002f  JStrictNotEqual L53, r8, r3
+0033  LoadConstFalse r8
+L53:
+0035  GetParentEnvironment r17, 0
+0038  LoadFromEnvironment r9, r17, 7
+003c  GetById r9, r9, 4, "useT"
+0042  Call1 r20, r9, r3
+0046  LoadFromEnvironment r11, r17, 8
+004a  GetByIdShort r9, r11, 5, "GAME"
+004f  GetById r9, r9, 6, "MAGNIFICENT_ENABLED"
+0055  LoadConstFalse r6
+0057  StrictNeq r4, r9, r6
+005b  JmpFalse L100, r4
+005e  LoadConstZero r2
+0060  Greater r4, r29, r2
+L100:
+0064  GetByIdShort r9, r11, 5, "GAME"
+0069  GetById r26, r9, 7, "MAX_STREAK"
+006f  JmpTrue L117, r26
+0072  LoadConstUInt8 r26, 3
+L117:
+0075  LoadConstZero r0
+0077  Greater r7, r23, r0
+007b  LoadFromEnvironment r9, r17, 6
+007f  GetById r9, r9, 8, "useClimbStatus"
+0085  Call1 r10, r9, r3
+0089  GetByIdShort r9, r11, 5, "GAME"
+008e  GetById r14, r9, 9, "EVENT_ICONS"
+0094  LoadConstNull r12
+0096  Eq r5, r14, r12
+009a  LoadConstUndefined r9
+009c  JmpTrue L165, r5
+009f  GetById r9, r14, 10, "climb"
+L165:
+00a5  Not r5, r9
+00a8  Not r9, r5
+00ab  JmpFalse L180, r9
+00ae  GetById r9, r10, 11, "enabled"
+L180:
+00b4  JmpFalse L189, r9
+00b7  GetById r9, r10, 12, "isActive"
+L189:
+00bd  JmpFalse L198, r9
+00c0  GetById r9, r10, 13, "joined"
+L198:
+00c6  JmpFalse L210, r9
+00c9  GetById r14, r10, 14, "out"
+00cf  Not r9, r14
+L210:
+00d2  JmpFalse L222, r9
+00d5  GetById r14, r10, 15, "atTop"
+00db  Not r9, r14
+L222:
+00de  JmpFalse L235, r9
+00e1  GetById r10, r10, 16, "stage"
+00e7  Greater r9, r10, r0
+L235:
+00eb  NewObjectWithBufferLong r15, 3033, 85165
+00f5  LoadFromEnvironment r14, r17, 10
+00f9  GetByIdShort r22, r14, 17, "jsx"
+00fe  LoadFromEnvironment r16, r17, 11
+0102  NewObject r10
+0104  LoadFromEnvironment r21, r17, 13
+0108  Mov r31, r10
+010b  Mov r30, r21
+010e  CallBuiltin r18, 46, 3
+0112  LoadFromEnvironment r18, r17, 14
+0116  DefineOwnById r10, r18, 0, "source"
+011c  LoadFromEnvironment r19, r17, 18
+0120  GetById r18, r19, 18, "itemHeart"
+0126  DefineOwnById r10, r18, 1, "style"
+012c  LoadConstString r18, "contain"
+0130  DefineOwnById r10, r18, 2, "contentFit"
+0136  LoadConstString r24, "exit-confirm-heart-broken"
+013a  DefineOwnById r10, r24, 3, "recyclingKey"
+0140  Call3 r10, r22, r3, r16, r10
+0146  PutOwnBySlotIdx r15, r10, 2
+014a  NewArray r10, 1
+014e  DefineOwnInDenseArray r10, r15, 0
+0152  JmpFalseLong L554, r4
+0158  GetByIdShort r15, r10, 19, "push"
+015d  GetByIdShort r11, r11, 5, "GAME"
+0162  GetById r22, r11, 20, "MAGNIFICENT_STEP_STYLE"
+0168  LoadConstString r11, "reservoir"
+016c  JStrictEqual L461, r22, r11
+0170  GetByIdShort r22, r14, 17, "jsx"
+0175  NewObject r11
+0177  Mov r31, r11
+017a  Mov r30, r21
+017d  CallBuiltin r24, 46, 3
+0181  LoadFromEnvironment r24, r17, 5
+0185  GetById r24, r24, 21, "getMagnificentStepImage"
+018b  Call3 r24, r24, r3, r29, r6
+0191  DefineOwnById r11, r24, 0, "source"
+0197  GetById r24, r19, 22, "itemChest"
+019d  DefineOwnById r11, r24, 1, "style"
+01a3  DefineOwnById r11, r18, 2, "contentFit"
+01a9  GetGlobalObject r24
+01ab  TryGetById r24, r24, 23, "HermesInternal"
+01b1  GetByIdShort r25, r24, 24, "concat"
+01b6  LoadConstString r24, "exit-confirm-chest-"
+01ba  Call2 r24, r25, r24, r29
+01bf  DefineOwnById r11, r24, 3, "recyclingKey"
+01c5  Call3 r22, r22, r3, r16, r11
+01cb  Jmp L535
+L461:
+01cd  GetByIdShort r25, r14, 17, "jsx"
+01d2  LoadFromEnvironment r11, r17, 3
+01d6  GetByIdShort r24, r11, 25, "default"
+01db  NewObjectWithBuffer r11, 3034, 27714
+01e1  GetGlobalObject r27
+01e3  TryGetById r28, r27, 26, "Math"
+01e9  GetByIdShort r27, r28, 27, "min"
+01ee  Call3 r27, r27, r28, r29, r26
+01f4  PutOwnBySlotIdx r11, r27, 0
+01f8  PutOwnBySlotIdx r11, r26, 1
+01fc  LoadFromEnvironment r26, r17, 9
+0200  GetByIdShort r26, r26, 28, "sc"
+0205  LoadConstUInt8 r2, 84
+0208  Call2 r26, r26, r3, r2
+020d  PutOwnBySlotIdx r11, r26, 2
+0211  Call3 r22, r25, r3, r24, r11
+L535:
+0217  NewObjectWithBufferLong r11, 3033, 85171
+0221  PutOwnBySlotIdx r11, r22, 2
+0225  Call2 r11, r15, r10, r11
+L554:
+022a  JmpFalse L642, r9
+022d  GetByIdShort r11, r10, 19, "push"
+0232  NewObjectWithBufferLong r9, 3033, 85180
+023c  GetByIdShort r22, r14, 17, "jsx"
+0241  NewObject r15
+0243  Mov r31, r15
+0246  Mov r30, r21
+0249  CallBuiltin r24, 46, 3
+024d  LoadFromEnvironment r24, r17, 15
+0251  DefineOwnById r15, r24, 0, "source"
+0257  GetById r24, r19, 29, "itemClimb"
+025d  DefineOwnById r15, r24, 1, "style"
+0263  DefineOwnById r15, r18, 2, "contentFit"
+0269  LoadConstString r24, "exit-confirm-climb-fall"
+026d  DefineOwnById r15, r24, 3, "recyclingKey"
+0273  Call3 r15, r22, r3, r16, r15
+0279  PutOwnBySlotIdx r9, r15, 2
+027d  Call2 r9, r11, r10, r9
+L642:
+0282  JmpFalse L758, r7
+0285  GetByIdShort r11, r10, 19, "push"
+028a  NewObjectWithBuffer r9, 3033, 53989
+0290  GetGlobalObject r15
+0292  TryGetById r15, r15, 23, "HermesInternal"
+0298  GetByIdShort r22, r15, 24, "concat"
+029d  LoadConstString r15, "-"
+02a1  Call2 r15, r22, r15, r23
+02a6  PutOwnBySlotIdx r9, r15, 1
+02aa  GetByIdShort r15, r14, 17, "jsx"
+02af  NewObject r14
+02b1  Mov r31, r14
+02b4  Mov r30, r21
+02b7  CallBuiltin r21, 46, 3
+02bb  LoadFromEnvironment r21, r17, 4
+02bf  GetById r21, r21, 30, "COLLECTIBLE_PNG"
+02c5  DefineOwnById r14, r21, 0, "source"
+02cb  GetById r19, r19, 31, "itemStar"
+02d1  DefineOwnById r14, r19, 1, "style"
+02d7  DefineOwnById r14, r18, 2, "contentFit"
+02dd  LoadConstString r18, "exit-confirm-collectible"
+02e1  DefineOwnById r14, r18, 3, "recyclingKey"
+02e7  Call3 r14, r15, r3, r16, r14
+02ed  PutOwnBySlotIdx r9, r14, 2
+02f1  Call2 r9, r11, r10, r9
+L758:
+02f6  NewArray r19, 0
+02fa  GetByIdShort r9, r10, 32, "length"
+02ff  Less r7, r0, r9
+0303  LoadConstUInt8 r2, 2
+0306  LoadConstZero r0
+0308  JmpFalse L816, r7
+L779:
+030b  GetByIdShort r11, r19, 19, "push"
+0310  GetByIdShort r9, r10, 33, "slice"
+0315  AddN r1, r0, r2
+0319  Call3 r9, r9, r10, r0, r1
+031f  Call2 r9, r11, r19, r9
+0324  GetByIdShort r9, r10, 32, "length"
+0329  Mov r0, r1
+032c  JLess L779, r0, r9
+L816:
+0330  LoadFromEnvironment r15, r17, 10
+0334  GetByIdShort r10, r15, 17, "jsx"
+0339  LoadFromEnvironment r14, r17, 0
+033d  GetByIdShort r9, r14, 34, "Text"
+0342  LoadFromEnvironment r18, r17, 18
+0346  GetById r16, r18, 35, "warning"
+034c  NewArray r11, 3
+0350  DefineOwnInDenseArray r11, r16, 0
+0354  Mov r16, r13
+0357  JmpFalse L864, r16
+035a  GetById r16, r18, 36, "warningTop"
+L864:
+0360  DefineOwnInDenseArray r11, r16, 1
+0364  LoadConstNull r16
+0366  JmpFalse L895, r8
+0369  LoadFromEnvironment r21, r17, 12
+036d  LoadConstNull r16
+036f  JmpFalse L895, r21
+0372  NewObjectWithBuffer r8, 143, 24
+0378  PutOwnBySlotIdx r8, r21, 0
+037c  Mov r16, r8
+L895:
+037f  NewObjectWithBufferLong r8, 2558, 85205
+0389  DefineOwnInDenseArray r11, r16, 2
+038d  PutOwnBySlotIdx r8, r11, 0
+0391  LoadConstString r16, "You will lose your progress!"
+0395  LoadConstString r11, "exitConfirm.loseProgress"
+0399  Call3 r11, r20, r3, r11, r16
+039f  PutOwnBySlotIdx r8, r11, 2
+03a3  Call3 r8, r10, r3, r9, r8
+03a9  GetByIdShort r10, r15, 37, "jsxs"
+03ae  GetById r9, r15, 38, "Fragment"
+03b4  LoadConstNull r16
+03b6  JmpFalse L956, r13
+03b9  Mov r16, r8
+L956:
+03bc  NewArray r11, 3
+03c0  DefineOwnInDenseArray r11, r16, 0
+03c4  GetByIdShort r16, r15, 17, "jsx"
+03c9  GetByIdShort r15, r14, 39, "View"
+03ce  NewObjectWithBuffer r14, 2179, 27684
+03d4  GetById r18, r18, 40, "itemsGrid"
+03da  PutOwnBySlotIdx r14, r18, 0
+03de  GetByIdShort r18, r19, 41, "map"
+03e3  CreateClosure r17, r17, 17751
+03e8  Call2 r17, r18, r19, r17
+03ed  PutOwnBySlotIdx r14, r17, 1
+03f1  Call3 r14, r16, r3, r15, r14
+03f7  DefineOwnInDenseArray r11, r14, 1
+03fb  LoadConstNull r12
+03fd  JmpTrue L1027, r13
+0400  Mov r12, r8
+L1027:
+0403  NewObjectWithBuffer r8, 2276, 24
+0409  DefineOwnInDenseArray r11, r12, 2
+040d  PutOwnBySlotIdx r8, r11, 0
+0411  Call3 r8, r10, r3, r9, r8
+0417  Ret r8

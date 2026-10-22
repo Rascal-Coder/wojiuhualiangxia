@@ -1,0 +1,35 @@
+; fn#19453 "<anonymous>" params=2 frame=18 regs=2(num=1,nonptr=1) size=134 offset=0x433588 flags=[strict]
+0000  CreateFunctionEnvironment r2, 3
+0003  LoadParam r4, 1
+0006  StoreToEnvironment r2, 0, r4
+000a  GetParentEnvironment r3, 0
+000d  LoadFromEnvironment r3, r3, 3
+0011  GetByIdShort r7, r3, 0, "current"
+0016  GetGlobalObject r3
+0018  TryGetById r6, r3, 1, "console"
+001e  GetByIdShort r5, r6, 2, "log"
+0023  JmpTrue L55, r7
+0026  LoadConstString r7, "[LoadingScreen] RC already loaded"
+002a  Call2 r7, r5, r6, r7
+002f  LoadConstUndefined r1
+0031  Call1 r4, r4, r1
+0035  Ret r4
+L55:
+0037  LoadConstString r4, "[LoadingScreen] waiting for RC init..."
+003b  Call2 r4, r5, r6, r4
+0040  TryGetById r5, r3, 3, "Date"
+0046  GetByIdShort r4, r5, 4, "now"
+004b  Call1 r4, r4, r5
+004f  StoreToEnvironment r2, 1, r4
+0053  TryGetById r5, r3, 5, "setInterval"
+0059  LoadConstUInt8 r0, 100
+005c  LoadConstUndefined r1
+005e  CreateClosure r4, r2, 22577
+0063  Call3 r4, r5, r1, r4, r0
+0069  StoreToEnvironment r2, 2, r4
+006d  TryGetById r3, r3, 6, "setTimeout"
+0073  LoadConstInt r0, 8000
+0079  CreateClosure r2, r2, 22578
+007e  Call3 r2, r3, r1, r2, r0
+0084  Ret r1
+

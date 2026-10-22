@@ -1,0 +1,137 @@
+{
+  "status": "PASS",
+  "scope": "local references, JS syntax and actual image/frame decoding; browser render not performed",
+  "external_dependencies": false,
+  "local_references": 18,
+  "selector_images": 30,
+  "images": [
+    {
+      "file": "QA/MenuMotion/01-shop-entry.webp",
+      "size": [
+        360,
+        800
+      ],
+      "frames": 27
+    },
+    {
+      "file": "QA/MenuMotion/02-achievements-entry.webp",
+      "size": [
+        360,
+        800
+      ],
+      "frames": 18
+    },
+    {
+      "file": "QA/MenuMotion/03-climb-entry.webp",
+      "size": [
+        360,
+        800
+      ],
+      "frames": 23
+    },
+    {
+      "file": "QA/MenuMotion/04-button-press.webp",
+      "size": [
+        360,
+        800
+      ],
+      "frames": 3
+    },
+    {
+      "file": "QA/MenuMotion/08-purchase-celebration.webp",
+      "size": [
+        360,
+        800
+      ],
+      "frames": 4
+    },
+    {
+      "file": "QA/MenuMotion/07-reduced-climb.webp",
+      "size": [
+        360,
+        800
+      ],
+      "frames": 1
+    },
+    {
+      "file": "Assets/Resources/MenuArt/menu_pen.png",
+      "size": [
+        384,
+        384
+      ],
+      "frames": 1
+    },
+    {
+      "file": "Assets/Resources/MenuArt/menu_freeze.png",
+      "size": [
+        384,
+        384
+      ],
+      "frames": 1
+    },
+    {
+      "file": "Assets/Resources/MenuArt/menu_lens.png",
+      "size": [
+        384,
+        384
+      ],
+      "frames": 1
+    },
+    {
+      "file": "Assets/Resources/MenuArt/menu_achievement_medallion.png",
+      "size": [
+        256,
+        256
+      ],
+      "frames": 1
+    },
+    {
+      "file": "QA/MenuDesign/OpenData/sample.png",
+      "size": [
+        320,
+        264
+      ],
+      "frames": 1
+    },
+    {
+      "file": "QA/MenuDesign/OpenData/empty.png",
+      "size": [
+        320,
+        264
+      ],
+      "frames": 1
+    },
+    {
+      "file": "QA/MenuDesign/OpenData/permission.png",
+      "size": [
+        320,
+        264
+      ],
+      "frames": 1
+    },
+    {
+      "file": "QA/MenuDesign/OpenData/configuration.png",
+      "size": [
+        320,
+        264
+      ],
+      "frames": 1
+    },
+    {
+      "file": "QA/MenuDesign/OpenData/network.png",
+      "size": [
+        320,
+        264
+      ],
+      "frames": 1
+    },
+    {
+      "file": "QA/MenuDesign/OpenData/loading.png",
+      "size": [
+        320,
+        264
+      ],
+      "frames": 1
+    }
+  ]
+}

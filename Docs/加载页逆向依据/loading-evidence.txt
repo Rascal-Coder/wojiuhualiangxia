@@ -1,0 +1,11 @@
+加载页聚焦证据（静态；本次未运行原应用）
+
+1. 实际 Mozaik 配置：module 1053 / wrapper fn1055 @01d2，shape651/valueOffset31520。背景#FDF1D8；nativeLogo=false；gameLogoCenterY=.47；loadingLabelColor#6B5E4A。image/module1214=1024x2207 loading；splashLogo/module1215=367x184 splash-icon；gameLogo/module1216=1505x658 logo。平板fit contain、edgeFade90、maxUpscale2.7。
+2. Startup LoadingScreen：module1711 / wrapper fn1713；render fn11424。先加载 splash-icon居中于纸色背景，宽84%窗口、aspect367/184，opacity0→1共300ms（nativeLogo=false，所以scale恒1）。遮罩在1500ms后400ms淡出，露出背景loading图、游戏logo与加载文字。注意伪代码丢失Image child，HASM@0bcd..0bf4才是完整事实。
+3. 游戏logo宽 round(rect.width*.84)，高round(width/(1505/658))，centerY=.47*rect.height；居中round((rect.width-width)/2)。手机rect为窗口，背景图cover。平板rect按contain实际显示图像矩形计算。所有round在RN布局点执行。
+4. 文字sc32、letterSpacing sc4、minWidth sc260、居中；色#6B5E4A；区域top=logo.bottom+sc10。原文LOADING，0..3个句点400ms循环。翻译为“加载中”并保留点动画即可。
+5. 进度条和百分比均未渲染。fn1713定义了progressTrack/Fill/Shine/Text样式，但fn11424 JSX只有底部文字。不能把通用unused样式添加为可见布局。
+6. fn1713 env33=4000、env34=10000。fn24462等预加载和extraTasks全部结束后再补足至少4000ms；最大10000ms强制finish。fn21525@0062直读literal得到toValue0,duration300,useNativeDrivertrue，之后fn23549调用onDone。
+7. GameplaySplash是另一个组件module2175/fn12497；路由bundle406183–406198是临时splash后进入game。默认2600ms再250ms退出。Mozaik的profile module2164/fn2166指定画笔、冻结、放大镜、锤子、额外时间五项随机；通用fallback其它游戏的火箭/罗盘/洗牌不能当实际列表。布局标题top10%，图标居中sc220，说明sc18，loading bottom12%。background module1798 gameplay-splash 854x1842。进入每关是否必现的触发策略未完整回溯，不做该结论。
+
+已保存完整函数HASM、聚焦伪代码（带原行号）、直接literal解码记录loading-literals.json与结构化loading-spec.json。所有结论属于字节码静态事实与对应布局推导；运行时像素和耗时没有新手机采样。

@@ -1,0 +1,52 @@
+; fn#17447 "<anonymous>" params=1 frame=22 regs=3(num=1,nonptr=2) size=188 offset=0x3fcacc flags=[strict]
+0000  GetParentEnvironment r9, 1
+0003  LoadFromEnvironment r3, r9, 17
+0007  JmpTrue L14, r3
+000a  LoadConstUndefined r2
+000c  Ret r2
+L14:
+000e  GetParentEnvironment r4, 0
+0011  LoadFromEnvironment r2, r9, 27
+0015  LoadFromEnvironment r7, r9, 3
+0019  GetByIdShort r11, r7, 0, "Animated"
+001e  GetByIdShort r10, r11, 1, "timing"
+0023  JmpTrue L67, r2
+0026  LoadFromEnvironment r5, r4, 6
+002a  NewObjectWithBuffer r3, 3819, 44050
+0030  LoadFromEnvironment r1, r9, 29
+0034  PutOwnBySlotIdx r3, r1, 1
+0038  Call3 r6, r10, r11, r5, r3
+003e  Mov r5, r7
+0041  Jmp L94
+L67:
+0043  LoadFromEnvironment r8, r4, 5
+0047  NewObjectWithBuffer r3, 3819, 44050
+004d  LoadFromEnvironment r1, r9, 28
+0051  PutOwnBySlotIdx r3, r1, 1
+0055  Call3 r6, r10, r11, r8, r3
+005b  Mov r5, r7
+L94:
+005e  CreateTopLevelEnvironment r3, 2
+0064  StoreToEnvironment r3, 0, r6
+0068  GetByIdShort r8, r5, 0, "Animated"
+006d  GetByIdShort r7, r8, 1, "timing"
+0072  LoadFromEnvironment r5, r4, 4
+0076  NewObjectWithBuffer r4, 3834, 3217
+007c  LoadFromEnvironment r1, r9, 31
+0080  PutOwnBySlotIdx r4, r1, 1
+0084  LoadConstZero r1
+0086  JmpTrue L141, r2
+0089  LoadFromEnvironment r1, r9, 29
+L141:
+008d  LoadFromEnvironment r2, r9, 30
+0091  Add r0, r1, r2
+0095  PutOwnBySlotIdx r4, r0, 2
+0099  Call3 r5, r7, r8, r5, r4
+009f  StoreToEnvironment r3, 1, r5
+00a3  GetByIdShort r4, r6, 2, "start"
+00a8  Call1 r4, r4, r6
+00ac  GetByIdShort r4, r5, 2, "start"
+00b1  Call1 r4, r4, r5
+00b5  CreateClosure r3, r3, 21524
+00ba  Ret r3
+

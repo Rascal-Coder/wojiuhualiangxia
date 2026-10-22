@@ -1,0 +1,101 @@
+{
+  "source": "outputs/inkomino-code/bundle.pseudocode.js module2165 at line361677; original index.android.hbc functions12444,12445,12446,12447,12448 and18199",
+  "density_reference": 2.625,
+  "parent_contract": "inner row top-left, caller owns source row paddingHorizontal12dp and marginTop2dp; expected reference(32,274)",
+  "row": {
+    "gap_dp": 8,
+    "wrap": true,
+    "align": "top-left",
+    "source_marginBottom_dp": 4
+  },
+  "card": {
+    "width_dp": 68,
+    "computed_height_dp": 86,
+    "borderRadius_dp": 10,
+    "borderWidth_dp": 2,
+    "paper": "#FBF5E6",
+    "ink": "#2B2622",
+    "paddingTop_dp": 4,
+    "paddingBottom_dp": 2,
+    "shadow": {
+      "color": "#5A4E40",
+      "opacity": 0.28,
+      "radius_dp": 3,
+      "offset_dp": [
+        0,
+        2
+      ],
+      "android_elevation": 2
+    }
+  },
+  "glyph": {
+    "areaHeight_dp": 52,
+    "shared_cell_dp": "min(19,61/(maxColumns+(maxColumns-1)*0.12),47/(maxRows+(maxRows-1)*0.12))",
+    "cellGap_dp": "max(1,cell*0.12)",
+    "cellCornerRadius_dp": "max(2,cell*0.16)",
+    "shape": "individual rounded squares, not a merged polyomino silhouette",
+    "fill": "#2B2622"
+  },
+  "divider": {
+    "width_dp": 46,
+    "height_dp": 1,
+    "opacity": 0.22,
+    "marginBottom_dp": 1
+  },
+  "counter": {
+    "slotHeight_dp": 22,
+    "fontSize_dp": 15,
+    "source_lineHeight_dp": 17,
+    "color": "#E2803A",
+    "capsTextFix_down_dp": 2.22,
+    "prefix": "x",
+    "need": "max(1,count of this shape in level.solution)",
+    "count": "current placed pieces of this shape, on solved at least need",
+    "remaining": "max(0,need-count)",
+    "hard_limit": false,
+    "tickCircle_diameter_dp": 19,
+    "tickCircle_color": "#3EA463",
+    "tick_path": "M5.4 10.4 L8.6 13.5 L14.8 6.8",
+    "tick_viewBox": [
+      0,
+      0,
+      20,
+      20
+    ],
+    "tickStroke": 2.8,
+    "tickStroke_color": "#FFFFFF",
+    "tickCapJoin": "round"
+  },
+  "motion": {
+    "completion_card_opacity": 0.45,
+    "opacity_duration_ms": 240,
+    "opacity_easing": "outQuad",
+    "count_nonzero_change": [
+      {
+        "from": 1,
+        "to": 1.4,
+        "duration_ms": 110,
+        "easing": "outQuad"
+      },
+      {
+        "from": 1.4,
+        "to": 1,
+        "spring_tension": 140,
+        "spring_friction": 6
+      }
+    ],
+    "count_zero_change": {
+      "from": 0,
+      "to": 1,
+      "spring_tension": 120,
+      "spring_friction": 5
+    },
+    "spring_conversion": "stiffness=(tension-30)*3.62+194; damping=(friction-8)*3+25; mass1"
+  },
+  "implementation": "outputs/InkominoTuanjie/Assets/Scripts/UI/SourceHud.cs",
+  "limitations": [
+    "7x7 weighted Gaussian mesh shadow is a portable blur approximation; not claimed identical to Android elevation rasterization.",
+    "No runtime screenshot comparison performed by this subagent."
+  ],
+  "compiler": "SourceHud.compile-check.json exitCode0, all current project C# sources, engine not started"
+}

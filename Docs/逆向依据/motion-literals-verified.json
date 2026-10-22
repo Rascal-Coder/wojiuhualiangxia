@@ -1,0 +1,2306 @@
+{
+  "source_hbc_sha256": "f90ca5409470987bbe19dc4e27e52a3df77f34f0433d32002024782360bcaa15",
+  "note": "Direct serialized literal and HASM inspection; no target code execution. Undefined placeholders can be overwritten by later PutOwnBySlotIdx instructions.",
+  "records": [
+    {
+      "function_id": 1057,
+      "instruction_offset": "0017",
+      "kind": "object",
+      "value": {
+        "value": true
+      },
+      "shape": 26,
+      "literal_offset": 27551,
+      "file_offset": 1506411,
+      "key_hex": "51f900",
+      "value_hex": "11"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "002f",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0054",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0079",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "009e",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "00c3",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "00e8",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0102",
+      "kind": "object",
+      "value": {
+        "bg": "#F3DFB0",
+        "boardBg": "#FBF5E6",
+        "grid": "#5A4E40",
+        "cell": "#F4ECD9",
+        "text": "#2B2418",
+        "danger": "#C0392B",
+        "boosterCircleBg": "#F4ECD9",
+        "boosterCircleBorder": "#5A4E40",
+        "boosterCircleBorderWidth": 3
+      },
+      "shape": 682,
+      "literal_offset": 40469,
+      "file_offset": 1519329,
+      "key_hex": "597549b26d657e5a4766000c4c41670a640b64",
+      "value_hex": "5825022d0f1e0d1b0f2f0c750e1b0f1e0d7103000000"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "010c",
+      "kind": "object",
+      "value": {
+        "bg": "#F3DFB0",
+        "titleFill": "#FFC62E",
+        "titleStroke": "#480C00",
+        "titleShadow": "rgba(72,12,0,0.35)",
+        "titleHaloLayers": 3,
+        "titleHaloRadius": 4,
+        "titleShadowRadius": 2.5,
+        "panel": "#FBF5E6",
+        "panelTop": "#C08A1C",
+        "barPanel": "#F4ECD9",
+        "barPanelBorder": "#5A4E40",
+        "barTrack": "#E6D6AE",
+        "barTrackBorder": "#5A4E40",
+        "progressWrap": "#F4ECD9",
+        "progressWrapBorder": "#5A4E40",
+        "progressSeg": "#E6D6AE",
+        "barText": "#2B2418",
+        "progressText": "#2B2418",
+        "stepLabel": "#8A6A2A",
+        "stepLabelLocked": "#A79A85",
+        "stepLabelCurrent": "#C08A1C",
+        "lockedText": "#8A6A2A"
+      },
+      "shape": 683,
+      "literal_offset": 40491,
+      "file_offset": 1519351,
+      "key_hex": "d01675490467e85ee96f30680165ea6f404e016fc06fc16fc36fc46ffc81fd81ed81937afa81c2669678c366257a",
+      "value_hex": "542502870fce09e9247203000000040000003100000000000004405f2d0f7b0e1b0f1e0d67021e0d1b0f1e0d67022f0c2f0c3b05300e7b0e3b05"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0116",
+      "kind": "object",
+      "value": {
+        "HARD": "#E7D3F5",
+        "EXTRA_HARD": "#F6CFC9",
+        "ULTRA_HARD": "#D9D4CB"
+      },
+      "shape": 664,
+      "literal_offset": 40581,
+      "file_offset": 1519441,
+      "key_hex": "53b54c9c5ad175",
+      "value_hex": "53e60e1e0fd00e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0120",
+      "kind": "array",
+      "length": 10,
+      "initial_value_count": 10,
+      "literal_offset": 31091,
+      "file_offset": 1509951,
+      "value": [
+        "#45A86C",
+        "#3E97CE",
+        "#9463CE",
+        "#E2803A",
+        "#3AA79E",
+        "#D75C9B",
+        "#E05B4C",
+        "#C9A33C",
+        "#5B73D6",
+        "#8FA83F"
+      ],
+      "value_hex": "5a6107c90c000edb0e74038e08d60e8f0e270da103"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "012c",
+      "kind": "object",
+      "value": {
+        "paper": "#FBF5E6",
+        "ink": "#2B2622",
+        "frameInk": "#1F1C1A",
+        "frameLight": "#FFFDF6",
+        "gold": null,
+        "gridLine": "#5E554B",
+        "dashFill": "rgba(255,255,255,0.6)",
+        "dead": "rgba(214,84,72,0.26)",
+        "trail": "rgba(70,62,54,0.30)",
+        "trailBase": "#B9B2A6",
+        "flashBad": "rgba(214,84,72,0.55)",
+        "chipBg": "#FBF5E6",
+        "chipText": "#2B2418",
+        "chipDim": "#7A6D5E",
+        "chipDone": "#2E7D4F"
+      },
+      "shape": 684,
+      "literal_offset": 40588,
+      "file_offset": 1519448,
+      "key_hex": "5f9b514147af5dab66d74a687e2163254a035ed774c0574967246d957b977b",
+      "value_hex": "542d0f330c5308cf0f015a350d13342f32f12e6e0e73312d0f2f0c1a093f0c"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0132",
+      "kind": "object",
+      "value": {
+        "shadow": "#5E3F0A",
+        "hilite": "#FFF4CC",
+        "line": "#FFF7D6",
+        "stops": null
+      },
+      "shape": 685,
+      "literal_offset": 40619,
+      "file_offset": 1519479,
+      "key_hex": "54bd48d57e384acf5f",
+      "value_hex": "535c05c50fc90f01"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "013c",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 38393,
+      "file_offset": 1517253,
+      "value": [
+        0,
+        "#E9BE4E"
+      ],
+      "value_hex": "710000000051f90e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0148",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 917,
+      "file_offset": 1479777,
+      "value": [
+        0.25,
+        "#B27D14"
+      ],
+      "value_hex": "31000000000000d03f51630e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0154",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 34942,
+      "file_offset": 1513802,
+      "value": [
+        0.45,
+        "#FFE99A"
+      ],
+      "value_hex": "31cdccccccccccdc3f51bb0f"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0160",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 36917,
+      "file_offset": 1515777,
+      "value": [
+        0.6,
+        "#C9961F"
+      ],
+      "value_hex": "31333333333333e33f518d0e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "016c",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 40316,
+      "file_offset": 1519176,
+      "value": [
+        0.8,
+        "#8F620C"
+      ],
+      "value_hex": "319a9999999999e93f51f20d"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0178",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 35165,
+      "file_offset": 1514025,
+      "value": [
+        1,
+        "#E5BA4A"
+      ],
+      "value_hex": "710100000051de0e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0190",
+      "kind": "object",
+      "value": {
+        "FRAC": 0.18,
+        "BITE": 0.3,
+        "RC": 0.25,
+        "TILE": 2.6,
+        "WALL": 0.78,
+        "FACE": "#AE7335",
+        "PROFILE": null,
+        "BEAM": null
+      },
+      "shape": 686,
+      "literal_offset": 32669,
+      "file_offset": 1511529,
+      "key_hex": "584a560f47a349b35bb953c652075c5b56",
+      "value_hex": "350ad7a3703d0ac73f333333333333d33f000000000000d03fcdcccccccccc0440f6285c8fc2f5e83f51560e02"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "019a",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 40649,
+      "file_offset": 1519509,
+      "value": [
+        0,
+        0.055,
+        "#2E1A0B"
+      ],
+      "value_hex": "710000000031295c8fc2f528ac3f513b0c"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "01a6",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 27896,
+      "file_offset": 1506756,
+      "value": [
+        0.055,
+        0.15,
+        "#E8A954"
+      ],
+      "value_hex": "32295c8fc2f528ac3f333333333333c33f51eb0e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "01b2",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 29945,
+      "file_offset": 1508805,
+      "value": [
+        0.15,
+        0.215,
+        "#C68A43"
+      ],
+      "value_hex": "32333333333333c33f85eb51b81e85cb3f517f0e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "01be",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 35872,
+      "file_offset": 1514732,
+      "value": [
+        0.215,
+        0.66,
+        null
+      ],
+      "value_hex": "3285eb51b81e85cb3f1f85eb51b81ee53f01"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "01ca",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 36632,
+      "file_offset": 1515492,
+      "value": [
+        0.66,
+        0.74,
+        "#D09449"
+      ],
+      "value_hex": "321f85eb51b81ee53fae47e17a14aee73f51c30e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "01d6",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 36654,
+      "file_offset": 1515514,
+      "value": [
+        0.74,
+        0.855,
+        "#5C3616"
+      ],
+      "value_hex": "32ae47e17a14aee73f5c8fc2f5285ceb3f51310d"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "01e2",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 38517,
+      "file_offset": 1517377,
+      "value": [
+        0.855,
+        0.95,
+        "#7B4920"
+      ],
+      "value_hex": "325c8fc2f5285ceb3f666666666666ee3f51840d"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "01ee",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 40666,
+      "file_offset": 1519526,
+      "value": [
+        0.95,
+        1,
+        "#281608"
+      ],
+      "value_hex": "31666666666666ee3f710100000051000c"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0202",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 40692,
+      "file_offset": 1519552,
+      "value": [
+        0,
+        0.07,
+        "#3A2310"
+      ],
+      "value_hex": "710000000031ec51b81e85ebb13f511a0a"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "020e",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 40717,
+      "file_offset": 1519577,
+      "value": [
+        0.07,
+        0.22,
+        "#E6AB5B"
+      ],
+      "value_hex": "32ec51b81e85ebb13f295c8fc2f528cc3f51e30e"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "021a",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 40743,
+      "file_offset": 1519603,
+      "value": [
+        0.22,
+        0.34,
+        "#7B4D23"
+      ],
+      "value_hex": "32295c8fc2f528cc3fc3f5285c8fc2d53f51890d"
+    },
+    {
+      "function_id": 1057,
+      "instruction_offset": "0226",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 28993,
+      "file_offset": 1507853,
+      "value": [
+        0.34,
+        0.5,
+        null
+      ],
+      "value_hex": "32c3f5285c8fc2d53f000000000000e03f01"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0077",
+      "kind": "object",
+      "value": {
+        "value": true
+      },
+      "shape": 26,
+      "literal_offset": 27551,
+      "file_offset": 1506411,
+      "key_hex": "51f900",
+      "value_hex": "11"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "008f",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "00c6",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0108",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0171",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "01a6",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "01e8",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0210",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "02b4",
+      "kind": "object",
+      "value": {
+        "INK_MS": 300,
+        "SWEEP_DELAY": 220,
+        "SWEEP_MS": 900,
+        "SWEEP_ANGLE": "-22deg",
+        "BAND_W": 0.32
+      },
+      "shape": 1694,
+      "literal_offset": 30802,
+      "file_offset": 1509662,
+      "key_hex": "553a4a4e48bf74b25bda64",
+      "value_hex": "732c010000dc00000084030000510115317b14ae47e17ad43f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "030b",
+      "kind": "object",
+      "value": {
+        "shadow": null,
+        "hilite": null,
+        "line": null,
+        "GRAD_X": 0.7
+      },
+      "shape": 1695,
+      "literal_offset": 52083,
+      "file_offset": 1530943,
+      "key_hex": "54bd48d57e384a594d",
+      "value_hex": "0331666666666666e63f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0311",
+      "kind": "object",
+      "value": {
+        "dx": 0.9,
+        "dy": 1.2,
+        "w": 1.2,
+        "a": 0.85
+      },
+      "shape": 1696,
+      "literal_offset": 38779,
+      "file_offset": 1517639,
+      "key_hex": "545c5d3247e1460800",
+      "value_hex": "34cdccccccccccec3f333333333333f33f333333333333f33f333333333333eb3f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "031b",
+      "kind": "object",
+      "value": {
+        "dx": -0.8,
+        "dy": -1,
+        "w": 0.8,
+        "a": 0.95
+      },
+      "shape": 1696,
+      "literal_offset": 69766,
+      "file_offset": 1548626,
+      "key_hex": "545c5d3247e1460800",
+      "value_hex": "319a9999999999e9bf71ffffffff329a9999999999e93f666666666666ee3f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0329",
+      "kind": "object",
+      "value": {
+        "w": 1.4,
+        "a": 0.85
+      },
+      "shape": 1697,
+      "literal_offset": 63769,
+      "file_offset": 1542629,
+      "key_hex": "52e1460800",
+      "value_hex": "32666666666666f63f333333333333eb3f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0365",
+      "kind": "object",
+      "value": {
+        "SPEED": 900,
+        "DRAW_MIN_MS": 520,
+        "DRAW_MAX_MS": 1200,
+        "BUDGET_ALL": 60000,
+        "BUDGET_ONE": 40000,
+        "MAX_CAND": 8
+      },
+      "shape": 1698,
+      "literal_offset": 69797,
+      "file_offset": 1548657,
+      "key_hex": "568c733b633f5bb762b65be75a",
+      "value_hex": "768403000008020000b004000060ea0000409c000008000000"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "03db",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 68067,
+      "file_offset": 1546927,
+      "value": [
+        0.2,
+        0.22
+      ],
+      "value_hex": "329a9999999999c93f295c8fc2f528cc3f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "03e9",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 69842,
+      "file_offset": 1548702,
+      "value": [
+        0.8,
+        0.45
+      ],
+      "value_hex": "329a9999999999e93fcdccccccccccdc3f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "03f7",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 53745,
+      "file_offset": 1532605,
+      "value": [
+        0.24,
+        0.78
+      ],
+      "value_hex": "32b81e85eb51b8ce3ff6285c8fc2f5e83f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "04e7",
+      "kind": "object",
+      "value": {
+        "HEAD": null,
+        "GRIP": null,
+        "FACE_DEG": 31,
+        "UP": -29,
+        "OVER": 4,
+        "BOUNCE": -14,
+        "APPEAR_MS": 120,
+        "DROP_MS": 140,
+        "BOUNCE_MS": 150,
+        "MOVE_MS": 180,
+        "FADE_MS": 180,
+        "PUFF_MS": 340
+      },
+      "shape": 1699,
+      "literal_offset": 50195,
+      "file_offset": 1529055,
+      "key_hex": "5c4553444f0d5d176b79460d63f16277730e638063ad73506f",
+      "value_hex": "027a1f000000e3ffffff04000000f2ffffff780000008c00000096000000b4000000b400000054010000"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "04ed",
+      "kind": "object",
+      "value": {
+        "x": 0.941,
+        "y": 0.566
+      },
+      "shape": 61,
+      "literal_offset": 58392,
+      "file_offset": 1537252,
+      "key_hex": "5225000900",
+      "value_hex": "32e9263108ac1cee3fe9263108ac1ce23f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "04f7",
+      "kind": "object",
+      "value": {
+        "x": 0.107,
+        "y": 0.926
+      },
+      "shape": 61,
+      "literal_offset": 69859,
+      "file_offset": 1548719,
+      "key_hex": "5225000900",
+      "value_hex": "323108ac1c5a64bb3f6f1283c0caa1ed3f"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0527",
+      "kind": "object",
+      "value": {
+        "wrap": null,
+        "tutPanelWrap": null
+      },
+      "shape": 1700,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "52a4489470",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "052d",
+      "kind": "object",
+      "value": {
+        "flex": 1,
+        "alignSelf": "stretch",
+        "alignItems": "center",
+        "justifyContent": "center"
+      },
+      "shape": 1701,
+      "literal_offset": 53906,
+      "file_offset": 1532766,
+      "key_hex": "54870059614300a600",
+      "value_hex": "7101000000539c0252475247"
+    },
+    {
+      "function_id": 2146,
+      "instruction_offset": "0537",
+      "kind": "object",
+      "value": {
+        "position": "absolute",
+        "left": null,
+        "right": null,
+        "bottom": null,
+        "alignItems": "center"
+      },
+      "shape": 1702,
+      "literal_offset": 69876,
+      "file_offset": 1548736,
+      "key_hex": "55c4005400550053004300",
+      "value_hex": "51db0103515247"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0017",
+      "kind": "object",
+      "value": {
+        "value": true
+      },
+      "shape": 26,
+      "literal_offset": 27551,
+      "file_offset": 1506411,
+      "key_hex": "51f900",
+      "value_hex": "11"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "002f",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0054",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0079",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "009e",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "00c3",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "00e8",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0102",
+      "kind": "object",
+      "value": {
+        "MAX_LEVEL": 10,
+        "IDLE_MS": 10000,
+        "PULSE_MS": 800,
+        "SOLVE_BUDGET": 60000
+      },
+      "shape": 1703,
+      "literal_offset": 69922,
+      "file_offset": 1548782,
+      "key_hex": "54a5500b6ae36db662",
+      "value_hex": "740a000000102700002003000060ea0000"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0110",
+      "kind": "object",
+      "value": {
+        "COUNT": 2
+      },
+      "shape": 1704,
+      "literal_offset": 28984,
+      "file_offset": 1507844,
+      "key_hex": "51564d",
+      "value_hex": "7102000000"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "011a",
+      "kind": "object",
+      "value": {
+        "COUNT": 3,
+        "DELAY_MS": 700
+      },
+      "shape": 1705,
+      "literal_offset": 69939,
+      "file_offset": 1548799,
+      "key_hex": "52564dc860",
+      "value_hex": "7203000000bc020000"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0128",
+      "kind": "object",
+      "value": {
+        "walls": 11,
+        "marks": 21,
+        "icons": 30,
+        "nums": 0
+      },
+      "shape": 1706,
+      "literal_offset": 69948,
+      "file_offset": 1548808,
+      "key_hex": "54625f32802a68e456",
+      "value_hex": "740b000000150000001e00000000000000"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0136",
+      "kind": "object",
+      "value": {
+        "LEVEL": 1,
+        "DEMO_PIECES": 1,
+        "GUIDE_PIECES": 1,
+        "START_DELAY_MS": 600,
+        "APPEAR_MS": 240,
+        "PRESS_MS": 160,
+        "HOLD_MS": 140,
+        "STEP_MS": 300,
+        "LIFT_MS": 180,
+        "FADE_MS": 200,
+        "BETWEEN_MS": 650,
+        "LOOP_PAUSE_MS": 700,
+        "HINT_MS": 500,
+        "PRESS_SCALE": 0.84
+      },
+      "shape": 1707,
+      "literal_offset": 69965,
+      "file_offset": 1548825,
+      "key_hex": "5e665e3063f173f462f16265500574bb6e4974ad73ff62b562cc52865b",
+      "value_hex": "7d01000000010000000100000058020000f0000000a00000008c0000002c010000b4000000c80000008a020000bc020000f401000031e17a14ae47e1ea3f"
+    },
+    {
+      "function_id": 2149,
+      "instruction_offset": "0144",
+      "kind": "object",
+      "value": {
+        "IDLE_HINT": null,
+        "LENS": null,
+        "HAMMER": null,
+        "MECH_INTRO": null,
+        "TUTORIAL": null
+      },
+      "shape": 1708,
+      "literal_offset": 27895,
+      "file_offset": 1506755,
+      "key_hex": "55cb52085b185c745d454f",
+      "value_hex": "05"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "0065",
+      "kind": "object",
+      "value": {
+        "value": true
+      },
+      "shape": 26,
+      "literal_offset": 27551,
+      "file_offset": 1506411,
+      "key_hex": "51f900",
+      "value_hex": "11"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "007d",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "00a2",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "00c7",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "00ec",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "0111",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "0136",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "015b",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "01a8",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2162,
+      "instruction_offset": "027b",
+      "kind": "array",
+      "length": 4,
+      "initial_value_count": 4,
+      "literal_offset": 70629,
+      "file_offset": 1549489,
+      "value": [
+        2600,
+        3200,
+        3800,
+        4400
+      ],
+      "value_hex": "74280a0000800c0000d80e000030110000"
+    },
+    {
+      "function_id": 2164,
+      "instruction_offset": "002f",
+      "kind": "object",
+      "value": {
+        "value": true
+      },
+      "shape": 26,
+      "literal_offset": 27551,
+      "file_offset": 1506411,
+      "key_hex": "51f900",
+      "value_hex": "11"
+    },
+    {
+      "function_id": 2164,
+      "instruction_offset": "0047",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2164,
+      "instruction_offset": "0098",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "002f",
+      "kind": "object",
+      "value": {
+        "value": true
+      },
+      "shape": 26,
+      "literal_offset": 27551,
+      "file_offset": 1506411,
+      "key_hex": "51f900",
+      "value_hex": "11"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "0047",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "006c",
+      "kind": "object",
+      "value": {
+        "enumerable": true,
+        "get": null
+      },
+      "shape": 27,
+      "literal_offset": 28117,
+      "file_offset": 1506977,
+      "key_hex": "527e009100",
+      "value_hex": "1101"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "00d0",
+      "kind": "object",
+      "value": {
+        "default": null
+      },
+      "shape": 25,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "514b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "0122",
+      "kind": "object",
+      "value": {
+        "x": 0.39,
+        "y": 0.37,
+        "r": 0.26
+      },
+      "shape": 1726,
+      "literal_offset": 32913,
+      "file_offset": 1511773,
+      "key_hex": "53250009001300",
+      "value_hex": "33f6285c8fc2f5d83fae47e17a14aed73fa4703d0ad7a3d03f"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "0134",
+      "kind": "object",
+      "value": {
+        "SPEED": 0.9,
+        "ENTER": null,
+        "SEG": null,
+        "PEEK_MS": 70,
+        "SETTLE_MS": 230,
+        "END_MS": 240,
+        "FADE_IN_MS": 90,
+        "RING_MS": 460,
+        "LEAN_MAX": 12,
+        "LEAN_K": 14,
+        "SAMPLES": 10,
+        "SIZE_PER_CELL": 1.5,
+        "SIZE_MIN": 56,
+        "SIZE_MAX": 96,
+        "PEEK_SCALE": 1.06,
+        "SETTLE_SCALE": 1.14
+      },
+      "shape": 1727,
+      "literal_offset": 45461,
+      "file_offset": 1524321,
+      "key_hex": "d0108c73cf4c6d735c56e274416353636565854a145b2d5f60584b61275d72551551",
+      "value_hex": "31cdccccccccccec3f027846000000e6000000f00000005a000000cc0100000c0000000e0000000a00000031000000000000f83f72380000006000000032f6285c8fc2f5f03f3d0ad7a3703df23f"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "013a",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 70671,
+      "file_offset": 1549531,
+      "value": [
+        320,
+        440
+      ],
+      "value_hex": "7240010000b8010000"
+    },
+    {
+      "function_id": 2165,
+      "instruction_offset": "0148",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 70680,
+      "file_offset": 1549540,
+      "value": [
+        210,
+        360
+      ],
+      "value_hex": "72d200000068010000"
+    },
+    {
+      "function_id": 18083,
+      "instruction_offset": "009b",
+      "kind": "array",
+      "length": 5,
+      "initial_value_count": 1,
+      "literal_offset": 28956,
+      "file_offset": 1507816,
+      "value": [
+        0
+      ],
+      "value_hex": "7100000000"
+    },
+    {
+      "function_id": 18083,
+      "instruction_offset": "019b",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 18083,
+      "instruction_offset": "0283",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 18083,
+      "instruction_offset": "0296",
+      "kind": "object",
+      "value": {
+        "scale": null,
+        "opacity": null
+      },
+      "shape": 3927,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "52d5008400",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 18083,
+      "instruction_offset": "02c4",
+      "kind": "object",
+      "value": {
+        "v": null,
+        "per": null,
+        "T": null,
+        "startedAt": null
+      },
+      "shape": 3926,
+      "literal_offset": 27502,
+      "file_offset": 1506362,
+      "key_hex": "5499009d474346cc5f",
+      "value_hex": "04"
+    },
+    {
+      "function_id": 18083,
+      "instruction_offset": "0306",
+      "kind": "object",
+      "value": {
+        "toValue": 1,
+        "duration": null,
+        "easing": null,
+        "useNativeDriver": true
+      },
+      "shape": 2196,
+      "literal_offset": 28481,
+      "file_offset": 1507341,
+      "key_hex": "54ef0078007a00f600",
+      "value_hex": "71010000000211"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "006f",
+      "kind": "object",
+      "value": {
+        "t": 0,
+        "x": null,
+        "y": null
+      },
+      "shape": 3241,
+      "literal_offset": 28386,
+      "file_offset": 1507246,
+      "key_hex": "53020025000900",
+      "value_hex": "710000000002"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "01ea",
+      "kind": "object",
+      "value": {
+        "x": null,
+        "y": null
+      },
+      "shape": 61,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "5225000900",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "0221",
+      "kind": "object",
+      "value": {
+        "x": null,
+        "y": null
+      },
+      "shape": 61,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "5225000900",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "029a",
+      "kind": "object",
+      "value": {
+        "x": null,
+        "y": null
+      },
+      "shape": 61,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "5225000900",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "02d1",
+      "kind": "object",
+      "value": {
+        "x": null,
+        "y": null
+      },
+      "shape": 61,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "5225000900",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "04d3",
+      "kind": "object",
+      "value": {
+        "x": null,
+        "y": null
+      },
+      "shape": 61,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "5225000900",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "0569",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "x": null,
+        "y": null
+      },
+      "shape": 3241,
+      "literal_offset": 27714,
+      "file_offset": 1506574,
+      "key_hex": "53020025000900",
+      "value_hex": "03"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "05f7",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "x": null,
+        "y": null
+      },
+      "shape": 3241,
+      "literal_offset": 27714,
+      "file_offset": 1506574,
+      "key_hex": "53020025000900",
+      "value_hex": "03"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "0657",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "x": null,
+        "y": null
+      },
+      "shape": 3241,
+      "literal_offset": 27714,
+      "file_offset": 1506574,
+      "key_hex": "53020025000900",
+      "value_hex": "03"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "06a7",
+      "kind": "object",
+      "value": {
+        "t": 0,
+        "v": null
+      },
+      "shape": 3242,
+      "literal_offset": 30093,
+      "file_offset": 1508953,
+      "key_hex": "5202009900",
+      "value_hex": "710000000001"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "06b9",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "v": 1
+      },
+      "shape": 3242,
+      "literal_offset": 37688,
+      "file_offset": 1516548,
+      "key_hex": "5202009900",
+      "value_hex": "017101000000"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "06ee",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "v": null
+      },
+      "shape": 3242,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "5202009900",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "0705",
+      "kind": "object",
+      "value": {
+        "t": 0,
+        "v": 0
+      },
+      "shape": 3242,
+      "literal_offset": 30136,
+      "file_offset": 1508996,
+      "key_hex": "5202009900",
+      "value_hex": "720000000000000000"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "070f",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "v": 1
+      },
+      "shape": 3242,
+      "literal_offset": 37688,
+      "file_offset": 1516548,
+      "key_hex": "5202009900",
+      "value_hex": "017101000000"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "0723",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "v": 1
+      },
+      "shape": 3242,
+      "literal_offset": 37688,
+      "file_offset": 1516548,
+      "key_hex": "5202009900",
+      "value_hex": "017101000000"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "073b",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "v": 0.75
+      },
+      "shape": 3242,
+      "literal_offset": 43153,
+      "file_offset": 1522013,
+      "key_hex": "5202009900",
+      "value_hex": "0131000000000000e83f"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "0761",
+      "kind": "object",
+      "value": {
+        "t": null,
+        "v": 0
+      },
+      "shape": 3242,
+      "literal_offset": 28385,
+      "file_offset": 1507245,
+      "key_hex": "5202009900",
+      "value_hex": "017100000000"
+    },
+    {
+      "function_id": 12434,
+      "instruction_offset": "077e",
+      "kind": "object",
+      "value": {
+        "end": null,
+        "arrive": null,
+        "pos": null,
+        "rot": null,
+        "scale": null,
+        "opacity": null,
+        "glyph": null
+      },
+      "shape": 3243,
+      "literal_offset": 28045,
+      "file_offset": 1506905,
+      "key_hex": "577000367abe48da48d5008400a470",
+      "value_hex": "07"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0137",
+      "kind": "object",
+      "value": {
+        "onImpact": null,
+        "onDone": null
+      },
+      "shape": 3240,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "52406d9256",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "014e",
+      "kind": "object",
+      "value": {
+        "onImpact": null,
+        "onDone": null
+      },
+      "shape": 3240,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "52406d9256",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "01c6",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "01ea",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "026e",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0291",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0297",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 34933,
+      "file_offset": 1513793,
+      "value": [
+        0,
+        1
+      ],
+      "value_hex": "720000000001000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "02c7",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "02cd",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 34933,
+      "file_offset": 1513793,
+      "value": [
+        0,
+        1
+      ],
+      "value_hex": "720000000001000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "02fd",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0303",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 34933,
+      "file_offset": 1513793,
+      "value": [
+        0,
+        1
+      ],
+      "value_hex": "720000000001000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "030f",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 86625,
+      "file_offset": 1565485,
+      "value": [
+        "-14deg",
+        "0deg"
+      ],
+      "value_hex": "52400d3e03"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0327",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "032d",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 69190,
+      "file_offset": 1548050,
+      "value": [
+        0,
+        0.5,
+        1
+      ],
+      "value_hex": "710000000031000000000000e03f7101000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "033b",
+      "kind": "array",
+      "length": 3,
+      "initial_value_count": 3,
+      "literal_offset": 86630,
+      "file_offset": 1565490,
+      "value": [
+        0,
+        -36,
+        0
+      ],
+      "value_hex": "7300000000dcffffff00000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0353",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0359",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 34933,
+      "file_offset": 1513793,
+      "value": [
+        0,
+        1
+      ],
+      "value_hex": "720000000001000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0365",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 86643,
+      "file_offset": 1565503,
+      "value": [
+        0,
+        -14
+      ],
+      "value_hex": "7200000000f2ffffff"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "037d",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0383",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 34933,
+      "file_offset": 1513793,
+      "value": [
+        0,
+        1
+      ],
+      "value_hex": "720000000001000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "038f",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 30965,
+      "file_offset": 1509825,
+      "value": [
+        1,
+        0
+      ],
+      "value_hex": "720100000000000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "03a5",
+      "kind": "object",
+      "value": {
+        "inputRange": null,
+        "outputRange": null
+      },
+      "shape": 2810,
+      "literal_offset": 27684,
+      "file_offset": 1506544,
+      "key_hex": "529e009f00",
+      "value_hex": "02"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "03ab",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 34933,
+      "file_offset": 1513793,
+      "value": [
+        0,
+        1
+      ],
+      "value_hex": "720000000001000000"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "03b7",
+      "kind": "array",
+      "length": 2,
+      "initial_value_count": 2,
+      "literal_offset": 86652,
+      "file_offset": 1565512,
+      "value": [
+        1,
+        0.86
+      ],
+      "value_hex": "71010000003185eb51b81e85eb3f"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "03e1",
+      "kind": "object",
+      "value": {
+        "pointerEvents": "none",
+        "style": null,
+        "children": null
+      },
+      "shape": 2525,
+      "literal_offset": 65692,
+      "file_offset": 1544552,
+      "key_hex": "53c300e6000b00",
+      "value_hex": "518c4802"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "03fd",
+      "kind": "object",
+      "value": {
+        "opacity": null
+      },
+      "shape": 499,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "518400",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "041e",
+      "kind": "object",
+      "value": {
+        "pointerEvents": "none",
+        "style": null,
+        "children": null
+      },
+      "shape": 2525,
+      "literal_offset": 65692,
+      "file_offset": 1544552,
+      "key_hex": "53c300e6000b00",
+      "value_hex": "518c4802"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0428",
+      "kind": "object",
+      "value": {
+        "position": "absolute",
+        "left": -12,
+        "top": -48,
+        "width": null,
+        "height": null,
+        "transform": null
+      },
+      "shape": 2821,
+      "literal_offset": 86666,
+      "file_offset": 1565526,
+      "key_hex": "56c40054004e004d008f00e400",
+      "value_hex": "51db0172f4ffffffd0ffffff03"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0442",
+      "kind": "object",
+      "value": {
+        "translateX": null
+      },
+      "shape": 491,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "516d00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0454",
+      "kind": "object",
+      "value": {
+        "translateY": null
+      },
+      "shape": 492,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "51f100",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0462",
+      "kind": "object",
+      "value": {
+        "translateY": null
+      },
+      "shape": 492,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "51f100",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "0470",
+      "kind": "object",
+      "value": {
+        "translateY": null
+      },
+      "shape": 492,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "51f100",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "047e",
+      "kind": "object",
+      "value": {
+        "scale": null
+      },
+      "shape": 174,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "51d500",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12432,
+      "instruction_offset": "048c",
+      "kind": "object",
+      "value": {
+        "rotate": null
+      },
+      "shape": 1117,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "518e00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12340,
+      "instruction_offset": "02b1",
+      "kind": "object",
+      "value": {
+        "position": "absolute",
+        "left": null,
+        "top": null,
+        "width": null,
+        "height": null
+      },
+      "shape": 2555,
+      "literal_offset": 63005,
+      "file_offset": 1541865,
+      "key_hex": "55c40054004e004d008f00",
+      "value_hex": "51db0104"
+    },
+    {
+      "function_id": 12340,
+      "instruction_offset": "02e9",
+      "kind": "object",
+      "value": {
+        "pointerEvents": "none",
+        "style": null,
+        "children": null
+      },
+      "shape": 2525,
+      "literal_offset": 65692,
+      "file_offset": 1544552,
+      "key_hex": "53c300e6000b00",
+      "value_hex": "518c4802"
+    },
+    {
+      "function_id": 12340,
+      "instruction_offset": "02fb",
+      "kind": "object",
+      "value": {
+        "opacity": null
+      },
+      "shape": 499,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "518400",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12340,
+      "instruction_offset": "031b",
+      "kind": "object",
+      "value": {
+        "pointerEvents": "none",
+        "width": null,
+        "height": null,
+        "style": null,
+        "children": null
+      },
+      "shape": 3169,
+      "literal_offset": 41592,
+      "file_offset": 1520452,
+      "key_hex": "55c3004d008f00e6000b00",
+      "value_hex": "518c4804"
+    },
+    {
+      "function_id": 12340,
+      "instruction_offset": "0346",
+      "kind": "object",
+      "value": {
+        "children": null
+      },
+      "shape": 2276,
+      "literal_offset": 24,
+      "file_offset": 1478884,
+      "key_hex": "510b00",
+      "value_hex": "01"
+    },
+    {
+      "function_id": 12340,
+      "instruction_offset": "0357",
+      "kind": "object",
+      "value": {
+        "id": "mzGold",
+        "gradientUnits": "userSpaceOnUse",
+        "x1": 0,
+        "y1": 0,
+        "x2": null,
+        "y2": null,
+        "children": null
+      },
+      "shape": 3172,
+      "literal_offset": 68089,
+      "file_offset": 1546949,
+      "key_hex": "579a005d7e1849197bd36b3a5e0b00",
+      "value_hex": "52f320cf4d72000000000000000003"
+    },
+    {
+      "function_id": 12340,
+      "instruction_offset": "03dd",
+      "kind": "object",
+      "value": {
+        "d": null,
+        "fill": "none",
+        "stroke": null,
+        "strokeOpacity": null,
+        "strokeWidth": null,
+        "strokeLinejoin": "miter"
+      },
+      "shape": 3173,
+      "literal_offset": 30945,
+      "file_offset": 1509805,
+      "key_hex": "5625468300d14b1e6696621368",
+      "value_hex": "01518c4803510c54"
+    }
+  ]
+}

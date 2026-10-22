@@ -1,0 +1,215 @@
+{
+  "evidence_type": "Static shipped Hermes bytecode and serialized literal buffers; no target execution in this pass",
+  "hbc_sha256": "f90ca5409470987bbe19dc4e27e52a3df77f34f0433d32002024782360bcaa15",
+  "startup_loading": {
+    "module_id": 1711,
+    "wrapper_fid": 1713,
+    "render_fid": 11424,
+    "config_module_id": 1053,
+    "config_fid": 1055,
+    "assets": {
+      "background": {
+        "module_id": 1214,
+        "name": "assets_loading.png",
+        "size": [
+          1024,
+          2207
+        ],
+        "asset_hash": "8580834059d6b72f8355e13cf98d43f7"
+      },
+      "game_logo": {
+        "module_id": 1216,
+        "name": "assets_logo.png",
+        "size": [
+          1505,
+          658
+        ],
+        "asset_hash": "955dc284eae26740debbdb21de9a7ca5"
+      },
+      "splash_logo": {
+        "module_id": 1215,
+        "size": [
+          367,
+          184
+        ],
+        "asset_hash": "2980f9baf6a00084c8f37a5419c63073"
+      }
+    },
+    "background": {
+      "color": "#FDF1D8",
+      "phone_fit": "cover",
+      "phone_image_view_rect": "full window [0,0,width,height]",
+      "tablet_fit": "contain",
+      "tablet_edge_fade_sc": 90
+    },
+    "logo": {
+      "width_fraction_of_image_view_rect": 0.84,
+      "aspect": 2.2872340425531914,
+      "center_y_fraction_of_image_view_rect": 0.47,
+      "layout_algorithm": "w=round(rect.width*0.84);h=round(w/(1505/658));left=rect.left+round((rect.width-w)/2);top=rect.top+round(rect.height*0.47-h/2)",
+      "rounding_unit": "React Native layout points, not physical pixels"
+    },
+    "label": {
+      "source": "LOADING. (dynamic dots 0..3)",
+      "localized_suggestion": "加载中. (dynamic dots 0..3)",
+      "dot_period_ms": 400,
+      "font_size_sc": 32,
+      "letter_spacing_sc": 4,
+      "min_width_sc": 260,
+      "text_align": "center",
+      "color": "#6B5E4A",
+      "top": "gameLogo.bottom+sc(10)",
+      "container": {
+        "position": "absolute",
+        "left": 0,
+        "right": 0,
+        "paddingBottom": 0,
+        "paddingHorizontal_sc": 24,
+        "alignItems": "center"
+      }
+    },
+    "progress_bar_visible": false,
+    "percentage_visible": false,
+    "progress_evidence": "fn11424 JSX produces only loadingLabel under bottomArea; progressTrack/progressFill/progressText remain unused StyleSheet entries in fn1713",
+    "nativeLogo": false,
+    "splash_overlay": {
+      "visible_content": "367x184 splash-icon Image centered on pure #FDF1D8 cover",
+      "logo_width_phone": "84% window width",
+      "logo_aspect": 1.9945652173913044,
+      "logo_width_tablet": "round(min(windowWidth*0.84,sc(round(327.6)),splashSourcePhysicalWidth*2.7/PixelRatio))",
+      "initial_cover_opacity": 1,
+      "logo_opacity": {
+        "from": 0,
+        "to": 1,
+        "duration_ms": 300
+      },
+      "logo_scale": 1,
+      "cover_fade": {
+        "delay_ms": 1500,
+        "duration_ms": 400,
+        "to": 0
+      },
+      "evidence": "fn17447 nativeLogo false uses env29=300; cover fade delay env29+env30=1500; env31=400. fn11424@0bc8..0bf4 creates Image with source env17=splash-logo, style StyleSheet.absoluteFill; fn11424@0b6e..0bc4 creates wrapper with width84% and aspectRatio367/184. Pseudocode lost Image child and must not be followed."
+    },
+    "minimum_loading_ms": 4000,
+    "maximum_loading_ms": 10000,
+    "completion": "Wait Promise.all(asset preload, extraTasks), then remaining minimum duration; maximum timeout forces finish",
+    "completion_fade": {
+      "duration_ms": 300,
+      "from": 1,
+      "to": 0,
+      "onDone_after_fade": true
+    },
+    "function_evidence": {
+      "constants": "fn1713@021a:0.84;@02db:sc10;@030d:420;@0317:300;@0321:1200;@032b:400;@10f9:4000;@1103:10000",
+      "geometry": "fn11424@0191..034c",
+      "dots": "fn17446 + fn21522 + fn23548",
+      "overlay": "fn17447; fn11424@0b10..0c02, Image at0bcd..0bf4 (pseudocode children:null is incorrect)",
+      "minimum_wait": "fn24462@0077..00f5",
+      "finish": "fn21525@0062 serialized object shape3819/valueOffset56836 => toValue0,duration300,useNativeDrivertrue;fn23549 calls onDone"
+    }
+  },
+  "gameplay_splash": {
+    "distinct_from_startup": true,
+    "module_id": 2175,
+    "wrapper_fid": 2177,
+    "render_fid": 12497,
+    "profile_module_id": 2164,
+    "profile_wrapper_fid": 2166,
+    "default_duration_ms": 2600,
+    "exit_duration_ms": 250,
+    "mozaik_choices": [
+      "mzPen",
+      "freeze",
+      "mzLens",
+      "mzHammer",
+      "extraTime"
+    ],
+    "selection": "random once per component mount from non-empty PREVIEW_PROFILE.splashes",
+    "layout": {
+      "title_top": "10%",
+      "title_font_size": "min(80,max(44,floor(640/title.length)))",
+      "description_font_size_sc": 18,
+      "description_margin_top_sc": 32,
+      "description_padding_horizontal_sc": 24,
+      "icon_size_sc": 220,
+      "icon_align": "window center",
+      "loading_bottom": "12%",
+      "loading_font_size_sc": 24
+    },
+    "animation": {
+      "whole_page_fade_in_ms": 200,
+      "icon_scale_in": {
+        "from": 0.5,
+        "to": 1,
+        "spring_tension": 80,
+        "spring_friction": 6
+      },
+      "icon_fade_in_ms": 250,
+      "title_delay_ms": 150,
+      "title_scale_spring": {
+        "to": 1,
+        "tension": 100,
+        "friction": 6
+      },
+      "title_fade_in_ms": 200,
+      "loading_delay_ms": 350,
+      "loading_fade_in_ms": 250,
+      "loading_pulse_opacity": [
+        1,
+        0.4,
+        1
+      ],
+      "loading_pulse_leg_ms": 700,
+      "exit": {
+        "page_alpha_to": 0,
+        "page_ms": 250,
+        "icon_scale_to": 1.15,
+        "icon_ms": 250,
+        "title_and_loading_alpha_ms": 200
+      }
+    },
+    "routing_source": "bundle 406183–406198: temporary splash branch renders module2175, onDone clears flag and changes screen to game",
+    "background_module_id": 1798,
+    "background_asset": {
+      "module_id": 1798,
+      "name": "shell_src_ui_gameplay-splash.png",
+      "size": [
+        854,
+        1842
+      ],
+      "asset_hash": "56b18a39ca84c4a07d07c181c11aa70a"
+    }
+  },
+  "unknowns": [
+    "No original device cold-start recording captured in this pass; startup wall-clock tasks may vary, so minimum/maximum and transitions are bytecode facts rather than observed timings.",
+    "Native Android OS launch/splash window separate from JS LoadingScreen was not re-inspected in this bounded pass.",
+    "GameplaySplash caller trigger policy was not fully traced; separate component, profile binding, layout and default timings are established, not a claim that it appears before every level.",
+    "Decompiler output loses some JSX children; all important startup view branches and animation constants above were checked against HASM; gameplay splash JSX icon/text should likewise follow HASM rather than null placeholders."
+  ],
+  "evidence_files": [
+    "loading-1055.hasm",
+    "loading-1713.hasm",
+    "loading-11424.hasm",
+    "loading-17446.hasm",
+    "loading-17447.hasm",
+    "loading-17448.hasm",
+    "loading-21522.hasm",
+    "loading-21525.hasm",
+    "loading-21526.hasm",
+    "loading-23548.hasm",
+    "loading-23549.hasm",
+    "loading-24462.hasm",
+    "loading-2166.hasm",
+    "loading-2177.hasm",
+    "loading-12497.hasm",
+    "loading-18232.hasm",
+    "loading-18233.hasm",
+    "loading-22020.hasm",
+    "loading-literals.json",
+    "loading-config.pseudocode.js",
+    "loading-component.pseudocode.js",
+    "gameplay-splash-profile.pseudocode.js",
+    "loading-router.pseudocode.js"
+  ]
+}

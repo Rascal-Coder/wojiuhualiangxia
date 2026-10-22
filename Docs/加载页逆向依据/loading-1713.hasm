@@ -1,0 +1,1110 @@
+; fn#1713 "<anonymous>" params=8 frame=29 regs=0(num=0,nonptr=0) size=5039 offset=0x22d3af exc_handlers=1
+0000  CreateFunctionEnvironment r2, 37
+0003  LoadParam r12, 2
+0006  StoreToEnvironment r2, 0, r12
+000a  LoadParam r10, 6
+000d  LoadParam r4, 7
+0010  StoreToEnvironment r2, 1, r4
+0014  LoadConstUndefined r0
+0016  LoadConstUndefined r9
+0018  CreateClosure r5, r0, 11422
+001d  CreateClosure r1, r2, 11424
+0022  StoreToEnvironment r2, 35, r1
+0026  GetGlobalObject r1
+0028  TryGetById r8, r1, 0, "Object"
+002e  GetByIdShort r7, r8, 1, "defineProperty"
+0033  LoadConstString r6, "__esModule"
+0037  NewObjectWithBuffer r3, 26, 27551
+003d  Call4 r3, r7, r8, r10, r6, r3
+0044  TryGetById r8, r1, 0, "Object"
+004a  GetByIdShort r7, r8, 1, "defineProperty"
+004f  NewObjectWithBuffer r6, 27, 28117
+0055  CreateClosure r3, r2, 11425
+005a  PutOwnBySlotIdx r6, r3, 1
+005e  LoadConstString r3, "default"
+0062  Call4 r3, r7, r8, r10, r3, r6
+0069  GetByIndex r3, r4, 0
+006d  Call2 r3, r12, r0, r3
+0072  StoreToEnvironment r2, 2, r3
+0076  GetByIndex r3, r4, 1
+007a  Call2 r8, r12, r0, r3
+007f  StoreToEnvironment r2, 3, r8
+0083  GetByIndex r3, r4, 2
+0087  Call2 r3, r12, r0, r3
+008c  GetByIndex r3, r4, 3
+0090  Call2 r3, r12, r0, r3
+0095  StoreToEnvironment r2, 4, r3
+0099  GetByIndex r3, r4, 4
+009d  Call2 r3, r12, r0, r3
+00a2  StoreToEnvironment r2, 5, r3
+00a6  GetByIndex r3, r4, 5
+00aa  Call2 r3, r12, r0, r3
+00af  LoadConstZero r11
+00b1  Call2 r3, r5, r11, r3
+00b6  StoreToEnvironment r2, 6, r3
+00ba  GetByIndex r3, r4, 6
+00be  Call2 r7, r12, r0, r3
+00c3  GetByIndex r3, r4, 7
+00c7  Call2 r3, r12, r0, r3
+00cc  Call2 r3, r5, r11, r3
+00d1  StoreToEnvironment r2, 7, r3
+00d5  GetByIndex r5, r4, 8
+00d9  Call2 r6, r12, r0, r5
+00de  StoreToEnvironment r2, 8, r6
+00e2  GetByIndex r5, r4, 9
+00e6  Call2 r5, r12, r0, r5
+00eb  StoreToEnvironment r2, 9, r5
+00ef  GetByIndex r5, r4, 10
+00f3  Call2 r5, r12, r0, r5
+00f8  StoreToEnvironment r2, 10, r5
+00fc  LoadConstNull r5
+00fe  LoadConstNull r9
+0100  GetByIndex r10, r4, 11
+0104  LoadConstString r4, "../ui/cube-blast-logo.png"
+0108  Call3 r9, r12, r0, r10, r4
+010e  Jmp L294
+L272:
+0110  Catch r4
+0112  TryGetById r12, r1, 2, "console"
+0118  GetByIdShort r10, r12, 3, "warn"
+011d  LoadConstString r4, "[LoadingScreen] cube-blast-logo.png not found"
+0121  Call2 r4, r10, r12, r4
+L294:
+0126  GetByIdShort r3, r3, 4, "default"
+012b  GetById r3, r3, 5, "loading"
+0131  JmpTrue L310, r3
+0134  NewObject r3
+L310:
+0136  StoreToEnvironment r2, 11, r3
+013a  GetById r4, r6, 6, "IS_TABLET"
+0140  LoadConstNull r13
+0142  JmpFalse L342, r4
+0145  GetById r4, r3, 7, "tablet"
+014b  LoadConstNull r13
+014d  JmpFalse L342, r4
+0150  GetById r13, r3, 7, "tablet"
+L342:
+0156  StoreToEnvironment r2, 12, r13
+015a  Mov r4, r13
+015d  JmpFalse L358, r4
+0160  GetById r4, r13, 8, "image"
+L358:
+0166  JmpTrue L367, r4
+0169  GetById r4, r3, 8, "image"
+L367:
+016f  JmpTrue L373, r4
+0172  Mov r4, r9
+L373:
+0175  StoreToEnvironment r2, 13, r4
+0179  LoadConstString r10, "cover"
+017d  Mov r4, r10
+0180  JmpFalse L420, r13
+0183  GetById r12, r13, 9, "fit"
+0189  LoadConstString r9, "contain"
+018d  JStrictEqual L414, r12, r9
+0191  GetById r9, r13, 9, "fit"
+0197  Mov r4, r10
+019a  JStrictNotEqual L420, r9, r4
+L414:
+019e  GetById r4, r13, 9, "fit"
+L420:
+01a4  StoreToEnvironment r2, 14, r4
+01a8  LoadConstZero r4
+01aa  JmpFalse L476, r13
+01ad  GetById r9, r13, 10, "edgeFade"
+01b3  LoadConstZero r4
+01b5  JmpTypeOfIs L476, r9, 479
+01bd  GetById r9, r13, 10, "edgeFade"
+01c3  Greater r9, r9, r11
+01c7  LoadConstZero r4
+01c9  JmpFalse L476, r9
+01cc  GetByIdShort r10, r6, 11, "sc"
+01d1  GetById r9, r13, 10, "edgeFade"
+01d7  Call2 r4, r10, r0, r9
+L476:
+01dc  StoreToEnvironment r2, 15, r4
+01e0  CreateClosure r4, r2, 11426
+01e5  Call1 r4, r4, r11
+01e9  StoreToEnvironment r2, 16, r4
+01ed  GetById r4, r3, 12, "splashLogo"
+01f3  JmpTrue L504, r4
+01f6  LoadConstNull r4
+L504:
+01f8  StoreToEnvironment r2, 17, r4
+01fc  GetById r10, r3, 13, "splashBg"
+0202  JmpTrue L521, r10
+0205  LoadConstString r10, "#0A0820"
+L521:
+0209  StoreToEnvironment r2, 18, r10
+020d  CreateClosure r4, r2, 11427
+0212  Call1 r4, r4, r11
+0216  StoreToEnvironment r2, 19, r4
+021a  LoadConstDouble r4, 0.84
+0224  StoreNPToEnvironment r2, 20, r4
+0228  CreateClosure r4, r2, 11428
+022d  Call1 r4, r4, r11
+0231  StoreToEnvironment r2, 21, r4
+0235  TryGetById r12, r1, 14, "Math"
+023b  GetByIdShort r9, r12, 15, "round"
+0240  LoadConstInt r4, 840
+0246  Call2 r4, r9, r12, r4
+024b  LoadConstUInt8 r12, 10
+024e  Div r9, r4, r12
+0252  TryGetById r4, r1, 16, "HermesInternal"
+0258  GetByIdShort r4, r4, 17, "concat"
+025d  LoadConstString r16, "%"
+0261  LoadConstString r15, ""
+0265  Call3 r9, r4, r15, r9, r16
+026b  TryGetById r17, r1, 14, "Math"
+0271  GetByIdShort r14, r17, 15, "round"
+0276  LoadConstDouble r4, 80.00000000000001
+0280  Call2 r4, r14, r17, r4
+0285  Div r14, r4, r12
+0289  TryGetById r4, r1, 16, "HermesInternal"
+028f  GetByIdShort r4, r4, 17, "concat"
+0294  Call3 r4, r4, r15, r14, r16
+029a  GetById r4, r3, 18, "gameLogo"
+02a0  JmpTrue L677, r4
+02a3  LoadConstNull r4
+L677:
+02a5  StoreToEnvironment r2, 22, r4
+02a9  CreateClosure r4, r2, 11429
+02ae  Call1 r4, r4, r11
+02b2  StoreToEnvironment r2, 23, r4
+02b6  JmpFalse L707, r13
+02b9  GetById r4, r13, 19, "gameLogoCenterY"
+02bf  JNotEqual L715, r4, r5
+L707:
+02c3  GetById r4, r3, 19, "gameLogoCenterY"
+02c9  Jmp L721
+L715:
+02cb  GetById r4, r13, 19, "gameLogoCenterY"
+L721:
+02d1  JNotEqual L727, r4, r5
+02d5  LoadConstNull r4
+L727:
+02d7  StoreToEnvironment r2, 24, r4
+02db  GetByIdShort r4, r6, 11, "sc"
+02e0  Call2 r4, r4, r0, r12
+02e5  StoreToEnvironment r2, 25, r4
+02e9  GetById r4, r3, 20, "loadingLabelColor"
+02ef  JmpTrue L756, r4
+02f2  LoadConstNull r4
+L756:
+02f4  CreateClosure r5, r0, 11423
+02f9  StoreToEnvironment r2, 26, r4
+02fd  GetById r4, r3, 21, "nativeLogo"
+0303  LoadConstFalse r3
+0305  StrictNeq r3, r4, r3
+0309  StoreNPToEnvironment r2, 27, r3
+030d  LoadConstInt r3, 420
+0313  StoreNPToEnvironment r2, 28, r3
+0317  LoadConstInt r3, 300
+031d  StoreNPToEnvironment r2, 29, r3
+0321  LoadConstInt r3, 1200
+0327  StoreNPToEnvironment r2, 30, r3
+032b  LoadConstInt r3, 400
+0331  StoreNPToEnvironment r2, 31, r3
+0335  CreateClosure r3, r2, 11430
+033a  Call2 r3, r5, r11, r3
+033f  NewArray r4, 250
+0343  DefineOwnInDenseArray r4, r3, 0
+0347  CreateClosure r3, r2, 11431
+034c  Call2 r3, r5, r11, r3
+0351  DefineOwnInDenseArray r4, r3, 1
+0355  CreateClosure r3, r2, 11432
+035a  Call2 r3, r5, r11, r3
+035f  DefineOwnInDenseArray r4, r3, 2
+0363  CreateClosure r3, r2, 11433
+0368  Call2 r3, r5, r11, r3
+036d  DefineOwnInDenseArray r4, r3, 3
+0371  CreateClosure r3, r2, 11434
+0376  Call2 r3, r5, r11, r3
+037b  DefineOwnInDenseArray r4, r3, 4
+037f  CreateClosure r3, r2, 11435
+0384  Call2 r3, r5, r11, r3
+0389  DefineOwnInDenseArray r4, r3, 5
+038d  CreateClosure r3, r2, 11436
+0392  Call2 r3, r5, r11, r3
+0397  DefineOwnInDenseArray r4, r3, 6
+039b  CreateClosure r3, r2, 11437
+03a0  Call2 r3, r5, r11, r3
+03a5  DefineOwnInDenseArray r4, r3, 7
+03a9  CreateClosure r3, r2, 11438
+03ae  Call2 r3, r5, r11, r3
+03b3  DefineOwnInDenseArray r4, r3, 8
+03b7  CreateClosure r3, r2, 11439
+03bc  Call2 r3, r5, r11, r3
+03c1  DefineOwnInDenseArray r4, r3, 9
+03c5  CreateClosure r3, r2, 11440
+03ca  Call2 r3, r5, r11, r3
+03cf  DefineOwnInDenseArray r4, r3, 10
+03d3  CreateClosure r3, r2, 11441
+03d8  Call2 r3, r5, r11, r3
+03dd  DefineOwnInDenseArray r4, r3, 11
+03e1  CreateClosure r3, r2, 11442
+03e6  Call2 r3, r5, r11, r3
+03eb  DefineOwnInDenseArray r4, r3, 12
+03ef  CreateClosure r3, r2, 11443
+03f4  Call2 r3, r5, r11, r3
+03f9  DefineOwnInDenseArray r4, r3, 13
+03fd  CreateClosure r3, r2, 11444
+0402  Call2 r3, r5, r11, r3
+0407  DefineOwnInDenseArray r4, r3, 14
+040b  CreateClosure r3, r2, 11445
+0410  Call2 r3, r5, r11, r3
+0415  DefineOwnInDenseArray r4, r3, 15
+0419  CreateClosure r3, r2, 11446
+041e  Call2 r3, r5, r11, r3
+0423  DefineOwnInDenseArray r4, r3, 16
+0427  CreateClosure r3, r2, 11447
+042c  Call2 r3, r5, r11, r3
+0431  DefineOwnInDenseArray r4, r3, 17
+0435  CreateClosure r3, r2, 11448
+043a  Call2 r3, r5, r11, r3
+043f  DefineOwnInDenseArray r4, r3, 18
+0443  CreateClosure r3, r2, 11449
+0448  Call2 r3, r5, r11, r3
+044d  DefineOwnInDenseArray r4, r3, 19
+0451  CreateClosure r3, r2, 11450
+0456  Call2 r3, r5, r11, r3
+045b  DefineOwnInDenseArray r4, r3, 20
+045f  CreateClosure r3, r2, 11451
+0464  Call2 r3, r5, r11, r3
+0469  DefineOwnInDenseArray r4, r3, 21
+046d  CreateClosure r3, r2, 11452
+0472  Call2 r3, r5, r11, r3
+0477  DefineOwnInDenseArray r4, r3, 22
+047b  CreateClosure r3, r2, 11453
+0480  Call2 r3, r5, r11, r3
+0485  DefineOwnInDenseArray r4, r3, 23
+0489  CreateClosure r3, r2, 11454
+048e  Call2 r3, r5, r11, r3
+0493  DefineOwnInDenseArray r4, r3, 24
+0497  CreateClosure r3, r2, 11455
+049c  Call2 r3, r5, r11, r3
+04a1  DefineOwnInDenseArray r4, r3, 25
+04a5  CreateClosure r3, r2, 11456
+04aa  Call2 r3, r5, r11, r3
+04af  DefineOwnInDenseArray r4, r3, 26
+04b3  CreateClosure r3, r2, 11457
+04b8  Call2 r3, r5, r11, r3
+04bd  DefineOwnInDenseArray r4, r3, 27
+04c1  CreateClosure r3, r2, 11458
+04c6  Call2 r3, r5, r11, r3
+04cb  DefineOwnInDenseArray r4, r3, 28
+04cf  CreateClosure r3, r2, 11459
+04d4  Call2 r3, r5, r11, r3
+04d9  DefineOwnInDenseArray r4, r3, 29
+04dd  CreateClosure r3, r2, 11460
+04e2  Call2 r3, r5, r11, r3
+04e7  DefineOwnInDenseArray r4, r3, 30
+04eb  CreateClosure r3, r2, 11461
+04f0  Call2 r3, r5, r11, r3
+04f5  DefineOwnInDenseArray r4, r3, 31
+04f9  CreateClosure r3, r2, 11462
+04fe  Call2 r3, r5, r11, r3
+0503  DefineOwnInDenseArray r4, r3, 32
+0507  CreateClosure r3, r2, 11463
+050c  Call2 r3, r5, r11, r3
+0511  DefineOwnInDenseArray r4, r3, 33
+0515  CreateClosure r3, r2, 11464
+051a  Call2 r3, r5, r11, r3
+051f  DefineOwnInDenseArray r4, r3, 34
+0523  CreateClosure r3, r2, 11465
+0528  Call2 r3, r5, r11, r3
+052d  DefineOwnInDenseArray r4, r3, 35
+0531  CreateClosure r3, r2, 11466
+0536  Call2 r3, r5, r11, r3
+053b  DefineOwnInDenseArray r4, r3, 36
+053f  CreateClosure r3, r2, 11467
+0544  Call2 r3, r5, r11, r3
+0549  DefineOwnInDenseArray r4, r3, 37
+054d  CreateClosure r3, r2, 11468
+0552  Call2 r3, r5, r11, r3
+0557  DefineOwnInDenseArray r4, r3, 38
+055b  CreateClosure r3, r2, 11469
+0560  Call2 r3, r5, r11, r3
+0565  DefineOwnInDenseArray r4, r3, 39
+0569  CreateClosure r3, r2, 11470
+056e  Call2 r3, r5, r11, r3
+0573  DefineOwnInDenseArray r4, r3, 40
+0577  CreateClosure r3, r2, 11471
+057c  Call2 r3, r5, r11, r3
+0581  DefineOwnInDenseArray r4, r3, 41
+0585  CreateClosure r3, r2, 11472
+058a  Call2 r3, r5, r11, r3
+058f  DefineOwnInDenseArray r4, r3, 42
+0593  CreateClosure r3, r2, 11473
+0598  Call2 r3, r5, r11, r3
+059d  DefineOwnInDenseArray r4, r3, 43
+05a1  CreateClosure r3, r2, 11474
+05a6  Call2 r3, r5, r11, r3
+05ab  DefineOwnInDenseArray r4, r3, 44
+05af  CreateClosure r3, r2, 11475
+05b4  Call2 r3, r5, r11, r3
+05b9  DefineOwnInDenseArray r4, r3, 45
+05bd  CreateClosure r3, r2, 11476
+05c2  Call2 r3, r5, r11, r3
+05c7  DefineOwnInDenseArray r4, r3, 46
+05cb  CreateClosure r3, r2, 11477
+05d0  Call2 r3, r5, r11, r3
+05d5  DefineOwnInDenseArray r4, r3, 47
+05d9  CreateClosure r3, r2, 11478
+05de  Call2 r3, r5, r11, r3
+05e3  DefineOwnInDenseArray r4, r3, 48
+05e7  CreateClosure r3, r2, 11479
+05ec  Call2 r3, r5, r11, r3
+05f1  DefineOwnInDenseArray r4, r3, 49
+05f5  CreateClosure r3, r2, 11480
+05fa  Call2 r3, r5, r11, r3
+05ff  DefineOwnInDenseArray r4, r3, 50
+0603  CreateClosure r3, r2, 11481
+0608  Call2 r3, r5, r11, r3
+060d  DefineOwnInDenseArray r4, r3, 51
+0611  CreateClosure r3, r2, 11482
+0616  Call2 r3, r5, r11, r3
+061b  DefineOwnInDenseArray r4, r3, 52
+061f  CreateClosure r3, r2, 11483
+0624  Call2 r3, r5, r11, r3
+0629  DefineOwnInDenseArray r4, r3, 53
+062d  CreateClosure r3, r2, 11484
+0632  Call2 r3, r5, r11, r3
+0637  DefineOwnInDenseArray r4, r3, 54
+063b  CreateClosure r3, r2, 11485
+0640  Call2 r3, r5, r11, r3
+0645  DefineOwnInDenseArray r4, r3, 55
+0649  CreateClosure r3, r2, 11486
+064e  Call2 r3, r5, r11, r3
+0653  DefineOwnInDenseArray r4, r3, 56
+0657  CreateClosure r3, r2, 11487
+065c  Call2 r3, r5, r11, r3
+0661  DefineOwnInDenseArray r4, r3, 57
+0665  CreateClosure r3, r2, 11488
+066a  Call2 r3, r5, r11, r3
+066f  DefineOwnInDenseArray r4, r3, 58
+0673  CreateClosure r3, r2, 11489
+0678  Call2 r3, r5, r11, r3
+067d  DefineOwnInDenseArray r4, r3, 59
+0681  CreateClosure r3, r2, 11490
+0686  Call2 r3, r5, r11, r3
+068b  DefineOwnInDenseArray r4, r3, 60
+068f  CreateClosure r3, r2, 11491
+0694  Call2 r3, r5, r11, r3
+0699  DefineOwnInDenseArray r4, r3, 61
+069d  CreateClosure r3, r2, 11492
+06a2  Call2 r3, r5, r11, r3
+06a7  DefineOwnInDenseArray r4, r3, 62
+06ab  CreateClosure r3, r2, 11493
+06b0  Call2 r3, r5, r11, r3
+06b5  DefineOwnInDenseArray r4, r3, 63
+06b9  CreateClosure r3, r2, 11494
+06be  Call2 r3, r5, r11, r3
+06c3  DefineOwnInDenseArray r4, r3, 64
+06c7  CreateClosure r3, r2, 11495
+06cc  Call2 r3, r5, r11, r3
+06d1  DefineOwnInDenseArray r4, r3, 65
+06d5  CreateClosure r3, r2, 11496
+06da  Call2 r3, r5, r11, r3
+06df  DefineOwnInDenseArray r4, r3, 66
+06e3  CreateClosure r3, r2, 11497
+06e8  Call2 r3, r5, r11, r3
+06ed  DefineOwnInDenseArray r4, r3, 67
+06f1  CreateClosure r3, r2, 11498
+06f6  Call2 r3, r5, r11, r3
+06fb  DefineOwnInDenseArray r4, r3, 68
+06ff  CreateClosure r3, r2, 11499
+0704  Call2 r3, r5, r11, r3
+0709  DefineOwnInDenseArray r4, r3, 69
+070d  CreateClosure r3, r2, 11500
+0712  Call2 r3, r5, r11, r3
+0717  DefineOwnInDenseArray r4, r3, 70
+071b  CreateClosure r3, r2, 11501
+0720  Call2 r3, r5, r11, r3
+0725  DefineOwnInDenseArray r4, r3, 71
+0729  CreateClosure r3, r2, 11502
+072e  Call2 r3, r5, r11, r3
+0733  DefineOwnInDenseArray r4, r3, 72
+0737  CreateClosure r3, r2, 11503
+073c  Call2 r3, r5, r11, r3
+0741  DefineOwnInDenseArray r4, r3, 73
+0745  CreateClosure r3, r2, 11504
+074a  Call2 r3, r5, r11, r3
+074f  DefineOwnInDenseArray r4, r3, 74
+0753  CreateClosure r3, r2, 11505
+0758  Call2 r3, r5, r11, r3
+075d  DefineOwnInDenseArray r4, r3, 75
+0761  CreateClosure r3, r2, 11506
+0766  Call2 r3, r5, r11, r3
+076b  DefineOwnInDenseArray r4, r3, 76
+076f  CreateClosure r3, r2, 11507
+0774  Call2 r3, r5, r11, r3
+0779  DefineOwnInDenseArray r4, r3, 77
+077d  CreateClosure r3, r2, 11508
+0782  Call2 r3, r5, r11, r3
+0787  DefineOwnInDenseArray r4, r3, 78
+078b  CreateClosure r3, r2, 11509
+0790  Call2 r3, r5, r11, r3
+0795  DefineOwnInDenseArray r4, r3, 79
+0799  CreateClosure r3, r2, 11510
+079e  Call2 r3, r5, r11, r3
+07a3  DefineOwnInDenseArray r4, r3, 80
+07a7  CreateClosure r3, r2, 11511
+07ac  Call2 r3, r5, r11, r3
+07b1  DefineOwnInDenseArray r4, r3, 81
+07b5  CreateClosure r3, r2, 11512
+07ba  Call2 r3, r5, r11, r3
+07bf  DefineOwnInDenseArray r4, r3, 82
+07c3  CreateClosure r3, r2, 11513
+07c8  Call2 r3, r5, r11, r3
+07cd  DefineOwnInDenseArray r4, r3, 83
+07d1  CreateClosure r3, r2, 11514
+07d6  Call2 r3, r5, r11, r3
+07db  DefineOwnInDenseArray r4, r3, 84
+07df  CreateClosure r3, r2, 11515
+07e4  Call2 r3, r5, r11, r3
+07e9  DefineOwnInDenseArray r4, r3, 85
+07ed  CreateClosure r3, r2, 11516
+07f2  Call2 r3, r5, r11, r3
+07f7  DefineOwnInDenseArray r4, r3, 86
+07fb  CreateClosure r3, r2, 11517
+0800  Call2 r3, r5, r11, r3
+0805  DefineOwnInDenseArray r4, r3, 87
+0809  CreateClosure r3, r2, 11518
+080e  Call2 r3, r5, r11, r3
+0813  DefineOwnInDenseArray r4, r3, 88
+0817  CreateClosure r3, r2, 11519
+081c  Call2 r3, r5, r11, r3
+0821  DefineOwnInDenseArray r4, r3, 89
+0825  CreateClosure r3, r2, 11520
+082a  Call2 r3, r5, r11, r3
+082f  DefineOwnInDenseArray r4, r3, 90
+0833  CreateClosure r3, r2, 11521
+0838  Call2 r3, r5, r11, r3
+083d  DefineOwnInDenseArray r4, r3, 91
+0841  CreateClosure r3, r2, 11522
+0846  Call2 r3, r5, r11, r3
+084b  DefineOwnInDenseArray r4, r3, 92
+084f  CreateClosure r3, r2, 11523
+0854  Call2 r3, r5, r11, r3
+0859  DefineOwnInDenseArray r4, r3, 93
+085d  CreateClosure r3, r2, 11524
+0862  Call2 r3, r5, r11, r3
+0867  DefineOwnInDenseArray r4, r3, 94
+086b  CreateClosure r3, r2, 11525
+0870  Call2 r3, r5, r11, r3
+0875  DefineOwnInDenseArray r4, r3, 95
+0879  CreateClosure r3, r2, 11526
+087e  Call2 r3, r5, r11, r3
+0883  DefineOwnInDenseArray r4, r3, 96
+0887  CreateClosure r3, r2, 11527
+088c  Call2 r3, r5, r11, r3
+0891  DefineOwnInDenseArray r4, r3, 97
+0895  CreateClosure r3, r2, 11528
+089a  Call2 r3, r5, r11, r3
+089f  DefineOwnInDenseArray r4, r3, 98
+08a3  CreateClosure r3, r2, 11529
+08a8  Call2 r3, r5, r11, r3
+08ad  DefineOwnInDenseArray r4, r3, 99
+08b1  CreateClosure r3, r2, 11530
+08b6  Call2 r3, r5, r11, r3
+08bb  DefineOwnInDenseArray r4, r3, 100
+08bf  CreateClosure r3, r2, 11531
+08c4  Call2 r3, r5, r11, r3
+08c9  DefineOwnInDenseArray r4, r3, 101
+08cd  CreateClosure r3, r2, 11532
+08d2  Call2 r3, r5, r11, r3
+08d7  DefineOwnInDenseArray r4, r3, 102
+08db  CreateClosure r3, r2, 11533
+08e0  Call2 r3, r5, r11, r3
+08e5  DefineOwnInDenseArray r4, r3, 103
+08e9  CreateClosure r3, r2, 11534
+08ee  Call2 r3, r5, r11, r3
+08f3  DefineOwnInDenseArray r4, r3, 104
+08f7  CreateClosure r3, r2, 11535
+08fc  Call2 r3, r5, r11, r3
+0901  DefineOwnInDenseArray r4, r3, 105
+0905  CreateClosure r3, r2, 11536
+090a  Call2 r3, r5, r11, r3
+090f  DefineOwnInDenseArray r4, r3, 106
+0913  CreateClosure r3, r2, 11537
+0918  Call2 r3, r5, r11, r3
+091d  DefineOwnInDenseArray r4, r3, 107
+0921  CreateClosure r3, r2, 11538
+0926  Call2 r3, r5, r11, r3
+092b  DefineOwnInDenseArray r4, r3, 108
+092f  CreateClosure r3, r2, 11539
+0934  Call2 r3, r5, r11, r3
+0939  DefineOwnInDenseArray r4, r3, 109
+093d  CreateClosure r3, r2, 11540
+0942  Call2 r3, r5, r11, r3
+0947  DefineOwnInDenseArray r4, r3, 110
+094b  CreateClosure r3, r2, 11541
+0950  Call2 r3, r5, r11, r3
+0955  DefineOwnInDenseArray r4, r3, 111
+0959  CreateClosure r3, r2, 11542
+095e  Call2 r3, r5, r11, r3
+0963  DefineOwnInDenseArray r4, r3, 112
+0967  CreateClosure r3, r2, 11543
+096c  Call2 r3, r5, r11, r3
+0971  DefineOwnInDenseArray r4, r3, 113
+0975  CreateClosure r3, r2, 11544
+097a  Call2 r3, r5, r11, r3
+097f  DefineOwnInDenseArray r4, r3, 114
+0983  CreateClosure r3, r2, 11545
+0988  Call2 r3, r5, r11, r3
+098d  DefineOwnInDenseArray r4, r3, 115
+0991  CreateClosure r3, r2, 11546
+0996  Call2 r3, r5, r11, r3
+099b  DefineOwnInDenseArray r4, r3, 116
+099f  CreateClosure r3, r2, 11547
+09a4  Call2 r3, r5, r11, r3
+09a9  DefineOwnInDenseArray r4, r3, 117
+09ad  CreateClosure r3, r2, 11548
+09b2  Call2 r3, r5, r11, r3
+09b7  DefineOwnInDenseArray r4, r3, 118
+09bb  CreateClosure r3, r2, 11549
+09c0  Call2 r3, r5, r11, r3
+09c5  DefineOwnInDenseArray r4, r3, 119
+09c9  CreateClosure r3, r2, 11550
+09ce  Call2 r3, r5, r11, r3
+09d3  DefineOwnInDenseArray r4, r3, 120
+09d7  CreateClosure r3, r2, 11551
+09dc  Call2 r3, r5, r11, r3
+09e1  DefineOwnInDenseArray r4, r3, 121
+09e5  CreateClosure r3, r2, 11552
+09ea  Call2 r3, r5, r11, r3
+09ef  DefineOwnInDenseArray r4, r3, 122
+09f3  CreateClosure r3, r2, 11553
+09f8  Call2 r3, r5, r11, r3
+09fd  DefineOwnInDenseArray r4, r3, 123
+0a01  CreateClosure r3, r2, 11554
+0a06  Call2 r3, r5, r11, r3
+0a0b  DefineOwnInDenseArray r4, r3, 124
+0a0f  CreateClosure r3, r2, 11555
+0a14  Call2 r3, r5, r11, r3
+0a19  DefineOwnInDenseArray r4, r3, 125
+0a1d  CreateClosure r3, r2, 11556
+0a22  Call2 r3, r5, r11, r3
+0a27  DefineOwnInDenseArray r4, r3, 126
+0a2b  CreateClosure r3, r2, 11557
+0a30  Call2 r3, r5, r11, r3
+0a35  DefineOwnInDenseArray r4, r3, 127
+0a39  CreateClosure r3, r2, 11558
+0a3e  Call2 r3, r5, r11, r3
+0a43  DefineOwnInDenseArray r4, r3, 128
+0a47  CreateClosure r3, r2, 11559
+0a4c  Call2 r3, r5, r11, r3
+0a51  DefineOwnInDenseArray r4, r3, 129
+0a55  CreateClosure r3, r2, 11560
+0a5a  Call2 r3, r5, r11, r3
+0a5f  DefineOwnInDenseArray r4, r3, 130
+0a63  CreateClosure r3, r2, 11561
+0a68  Call2 r3, r5, r11, r3
+0a6d  DefineOwnInDenseArray r4, r3, 131
+0a71  CreateClosure r3, r2, 11562
+0a76  Call2 r3, r5, r11, r3
+0a7b  DefineOwnInDenseArray r4, r3, 132
+0a7f  CreateClosure r3, r2, 11563
+0a84  Call2 r3, r5, r11, r3
+0a89  DefineOwnInDenseArray r4, r3, 133
+0a8d  CreateClosure r3, r2, 11564
+0a92  Call2 r3, r5, r11, r3
+0a97  DefineOwnInDenseArray r4, r3, 134
+0a9b  CreateClosure r3, r2, 11565
+0aa0  Call2 r3, r5, r11, r3
+0aa5  DefineOwnInDenseArray r4, r3, 135
+0aa9  CreateClosure r3, r2, 11566
+0aae  Call2 r3, r5, r11, r3
+0ab3  DefineOwnInDenseArray r4, r3, 136
+0ab7  CreateClosure r3, r2, 11567
+0abc  Call2 r3, r5, r11, r3
+0ac1  DefineOwnInDenseArray r4, r3, 137
+0ac5  CreateClosure r3, r2, 11568
+0aca  Call2 r3, r5, r11, r3
+0acf  DefineOwnInDenseArray r4, r3, 138
+0ad3  CreateClosure r3, r2, 11569
+0ad8  Call2 r3, r5, r11, r3
+0add  DefineOwnInDenseArray r4, r3, 139
+0ae1  CreateClosure r3, r2, 11570
+0ae6  Call2 r3, r5, r11, r3
+0aeb  DefineOwnInDenseArray r4, r3, 140
+0aef  CreateClosure r3, r2, 11571
+0af4  Call2 r3, r5, r11, r3
+0af9  DefineOwnInDenseArray r4, r3, 141
+0afd  CreateClosure r3, r2, 11572
+0b02  Call2 r3, r5, r11, r3
+0b07  DefineOwnInDenseArray r4, r3, 142
+0b0b  CreateClosure r3, r2, 11573
+0b10  Call2 r3, r5, r11, r3
+0b15  DefineOwnInDenseArray r4, r3, 143
+0b19  CreateClosure r3, r2, 11574
+0b1e  Call2 r3, r5, r11, r3
+0b23  DefineOwnInDenseArray r4, r3, 144
+0b27  CreateClosure r3, r2, 11575
+0b2c  Call2 r3, r5, r11, r3
+0b31  DefineOwnInDenseArray r4, r3, 145
+0b35  CreateClosure r3, r2, 11576
+0b3a  Call2 r3, r5, r11, r3
+0b3f  DefineOwnInDenseArray r4, r3, 146
+0b43  CreateClosure r3, r2, 11577
+0b48  Call2 r3, r5, r11, r3
+0b4d  DefineOwnInDenseArray r4, r3, 147
+0b51  CreateClosure r3, r2, 11578
+0b56  Call2 r3, r5, r11, r3
+0b5b  DefineOwnInDenseArray r4, r3, 148
+0b5f  CreateClosure r3, r2, 11579
+0b64  Call2 r3, r5, r11, r3
+0b69  DefineOwnInDenseArray r4, r3, 149
+0b6d  CreateClosure r3, r2, 11580
+0b72  Call2 r3, r5, r11, r3
+0b77  DefineOwnInDenseArray r4, r3, 150
+0b7b  CreateClosure r3, r2, 11581
+0b80  Call2 r3, r5, r11, r3
+0b85  DefineOwnInDenseArray r4, r3, 151
+0b89  CreateClosure r3, r2, 11582
+0b8e  Call2 r3, r5, r11, r3
+0b93  DefineOwnInDenseArray r4, r3, 152
+0b97  CreateClosure r3, r2, 11583
+0b9c  Call2 r3, r5, r11, r3
+0ba1  DefineOwnInDenseArray r4, r3, 153
+0ba5  CreateClosure r3, r2, 11584
+0baa  Call2 r3, r5, r11, r3
+0baf  DefineOwnInDenseArray r4, r3, 154
+0bb3  CreateClosure r3, r2, 11585
+0bb8  Call2 r3, r5, r11, r3
+0bbd  DefineOwnInDenseArray r4, r3, 155
+0bc1  CreateClosure r3, r2, 11586
+0bc6  Call2 r3, r5, r11, r3
+0bcb  DefineOwnInDenseArray r4, r3, 156
+0bcf  CreateClosure r3, r2, 11587
+0bd4  Call2 r3, r5, r11, r3
+0bd9  DefineOwnInDenseArray r4, r3, 157
+0bdd  CreateClosure r3, r2, 11588
+0be2  Call2 r3, r5, r11, r3
+0be7  DefineOwnInDenseArray r4, r3, 158
+0beb  CreateClosure r3, r2, 11589
+0bf0  Call2 r3, r5, r11, r3
+0bf5  DefineOwnInDenseArray r4, r3, 159
+0bf9  CreateClosure r3, r2, 11590
+0bfe  Call2 r3, r5, r11, r3
+0c03  DefineOwnInDenseArray r4, r3, 160
+0c07  CreateClosure r3, r2, 11591
+0c0c  Call2 r3, r5, r11, r3
+0c11  DefineOwnInDenseArray r4, r3, 161
+0c15  CreateClosure r3, r2, 11592
+0c1a  Call2 r3, r5, r11, r3
+0c1f  DefineOwnInDenseArray r4, r3, 162
+0c23  CreateClosure r3, r2, 11593
+0c28  Call2 r3, r5, r11, r3
+0c2d  DefineOwnInDenseArray r4, r3, 163
+0c31  CreateClosure r3, r2, 11594
+0c36  Call2 r3, r5, r11, r3
+0c3b  DefineOwnInDenseArray r4, r3, 164
+0c3f  CreateClosure r3, r2, 11595
+0c44  Call2 r3, r5, r11, r3
+0c49  DefineOwnInDenseArray r4, r3, 165
+0c4d  CreateClosure r3, r2, 11596
+0c52  Call2 r3, r5, r11, r3
+0c57  DefineOwnInDenseArray r4, r3, 166
+0c5b  CreateClosure r3, r2, 11597
+0c60  Call2 r3, r5, r11, r3
+0c65  DefineOwnInDenseArray r4, r3, 167
+0c69  CreateClosure r3, r2, 11598
+0c6e  Call2 r3, r5, r11, r3
+0c73  DefineOwnInDenseArray r4, r3, 168
+0c77  CreateClosure r3, r2, 11599
+0c7c  Call2 r3, r5, r11, r3
+0c81  DefineOwnInDenseArray r4, r3, 169
+0c85  CreateClosure r3, r2, 11600
+0c8a  Call2 r3, r5, r11, r3
+0c8f  DefineOwnInDenseArray r4, r3, 170
+0c93  CreateClosure r3, r2, 11601
+0c98  Call2 r3, r5, r11, r3
+0c9d  DefineOwnInDenseArray r4, r3, 171
+0ca1  CreateClosure r3, r2, 11602
+0ca6  Call2 r3, r5, r11, r3
+0cab  DefineOwnInDenseArray r4, r3, 172
+0caf  CreateClosure r3, r2, 11603
+0cb4  Call2 r3, r5, r11, r3
+0cb9  DefineOwnInDenseArray r4, r3, 173
+0cbd  CreateClosure r3, r2, 11604
+0cc2  Call2 r3, r5, r11, r3
+0cc7  DefineOwnInDenseArray r4, r3, 174
+0ccb  CreateClosure r3, r2, 11605
+0cd0  Call2 r3, r5, r11, r3
+0cd5  DefineOwnInDenseArray r4, r3, 175
+0cd9  CreateClosure r3, r2, 11606
+0cde  Call2 r3, r5, r11, r3
+0ce3  DefineOwnInDenseArray r4, r3, 176
+0ce7  CreateClosure r3, r2, 11607
+0cec  Call2 r3, r5, r11, r3
+0cf1  DefineOwnInDenseArray r4, r3, 177
+0cf5  CreateClosure r3, r2, 11608
+0cfa  Call2 r3, r5, r11, r3
+0cff  DefineOwnInDenseArray r4, r3, 178
+0d03  CreateClosure r3, r2, 11609
+0d08  Call2 r3, r5, r11, r3
+0d0d  DefineOwnInDenseArray r4, r3, 179
+0d11  CreateClosure r3, r2, 11610
+0d16  Call2 r3, r5, r11, r3
+0d1b  DefineOwnInDenseArray r4, r3, 180
+0d1f  CreateClosure r3, r2, 11611
+0d24  Call2 r3, r5, r11, r3
+0d29  DefineOwnInDenseArray r4, r3, 181
+0d2d  CreateClosure r3, r2, 11612
+0d32  Call2 r3, r5, r11, r3
+0d37  DefineOwnInDenseArray r4, r3, 182
+0d3b  CreateClosure r3, r2, 11613
+0d40  Call2 r3, r5, r11, r3
+0d45  DefineOwnInDenseArray r4, r3, 183
+0d49  CreateClosure r3, r2, 11614
+0d4e  Call2 r3, r5, r11, r3
+0d53  DefineOwnInDenseArray r4, r3, 184
+0d57  CreateClosure r3, r2, 11615
+0d5c  Call2 r3, r5, r11, r3
+0d61  DefineOwnInDenseArray r4, r3, 185
+0d65  CreateClosure r3, r2, 11616
+0d6a  Call2 r3, r5, r11, r3
+0d6f  DefineOwnInDenseArray r4, r3, 186
+0d73  CreateClosure r3, r2, 11617
+0d78  Call2 r3, r5, r11, r3
+0d7d  DefineOwnInDenseArray r4, r3, 187
+0d81  CreateClosure r3, r2, 11618
+0d86  Call2 r3, r5, r11, r3
+0d8b  DefineOwnInDenseArray r4, r3, 188
+0d8f  CreateClosure r3, r2, 11619
+0d94  Call2 r3, r5, r11, r3
+0d99  DefineOwnInDenseArray r4, r3, 189
+0d9d  CreateClosure r3, r2, 11620
+0da2  Call2 r3, r5, r11, r3
+0da7  DefineOwnInDenseArray r4, r3, 190
+0dab  CreateClosure r3, r2, 11621
+0db0  Call2 r3, r5, r11, r3
+0db5  DefineOwnInDenseArray r4, r3, 191
+0db9  CreateClosure r3, r2, 11622
+0dbe  Call2 r3, r5, r11, r3
+0dc3  DefineOwnInDenseArray r4, r3, 192
+0dc7  CreateClosure r3, r2, 11623
+0dcc  Call2 r3, r5, r11, r3
+0dd1  DefineOwnInDenseArray r4, r3, 193
+0dd5  CreateClosure r3, r2, 11624
+0dda  Call2 r3, r5, r11, r3
+0ddf  DefineOwnInDenseArray r4, r3, 194
+0de3  CreateClosure r3, r2, 11625
+0de8  Call2 r3, r5, r11, r3
+0ded  DefineOwnInDenseArray r4, r3, 195
+0df1  CreateClosure r3, r2, 11626
+0df6  Call2 r3, r5, r11, r3
+0dfb  DefineOwnInDenseArray r4, r3, 196
+0dff  CreateClosure r3, r2, 11627
+0e04  Call2 r3, r5, r11, r3
+0e09  DefineOwnInDenseArray r4, r3, 197
+0e0d  CreateClosure r3, r2, 11628
+0e12  Call2 r3, r5, r11, r3
+0e17  DefineOwnInDenseArray r4, r3, 198
+0e1b  CreateClosure r3, r2, 11629
+0e20  Call2 r3, r5, r11, r3
+0e25  DefineOwnInDenseArray r4, r3, 199
+0e29  CreateClosure r3, r2, 11630
+0e2e  Call2 r3, r5, r11, r3
+0e33  DefineOwnInDenseArray r4, r3, 200
+0e37  CreateClosure r3, r2, 11631
+0e3c  Call2 r3, r5, r11, r3
+0e41  DefineOwnInDenseArray r4, r3, 201
+0e45  CreateClosure r3, r2, 11632
+0e4a  Call2 r3, r5, r11, r3
+0e4f  DefineOwnInDenseArray r4, r3, 202
+0e53  CreateClosure r3, r2, 11633
+0e58  Call2 r3, r5, r11, r3
+0e5d  DefineOwnInDenseArray r4, r3, 203
+0e61  CreateClosure r3, r2, 11634
+0e66  Call2 r3, r5, r11, r3
+0e6b  DefineOwnInDenseArray r4, r3, 204
+0e6f  CreateClosure r3, r2, 11635
+0e74  Call2 r3, r5, r11, r3
+0e79  DefineOwnInDenseArray r4, r3, 205
+0e7d  CreateClosure r3, r2, 11636
+0e82  Call2 r3, r5, r11, r3
+0e87  DefineOwnInDenseArray r4, r3, 206
+0e8b  CreateClosure r3, r2, 11637
+0e90  Call2 r3, r5, r11, r3
+0e95  DefineOwnInDenseArray r4, r3, 207
+0e99  CreateClosure r3, r2, 11638
+0e9e  Call2 r3, r5, r11, r3
+0ea3  DefineOwnInDenseArray r4, r3, 208
+0ea7  CreateClosure r3, r2, 11639
+0eac  Call2 r3, r5, r11, r3
+0eb1  DefineOwnInDenseArray r4, r3, 209
+0eb5  CreateClosure r3, r2, 11640
+0eba  Call2 r3, r5, r11, r3
+0ebf  DefineOwnInDenseArray r4, r3, 210
+0ec3  CreateClosure r3, r2, 11641
+0ec8  Call2 r3, r5, r11, r3
+0ecd  DefineOwnInDenseArray r4, r3, 211
+0ed1  CreateClosure r3, r2, 11642
+0ed6  Call2 r3, r5, r11, r3
+0edb  DefineOwnInDenseArray r4, r3, 212
+0edf  CreateClosure r3, r2, 11643
+0ee4  Call2 r3, r5, r11, r3
+0ee9  DefineOwnInDenseArray r4, r3, 213
+0eed  CreateClosure r3, r2, 11644
+0ef2  Call2 r3, r5, r11, r3
+0ef7  DefineOwnInDenseArray r4, r3, 214
+0efb  CreateClosure r3, r2, 11645
+0f00  Call2 r3, r5, r11, r3
+0f05  DefineOwnInDenseArray r4, r3, 215
+0f09  CreateClosure r3, r2, 11646
+0f0e  Call2 r3, r5, r11, r3
+0f13  DefineOwnInDenseArray r4, r3, 216
+0f17  CreateClosure r3, r2, 11647
+0f1c  Call2 r3, r5, r11, r3
+0f21  DefineOwnInDenseArray r4, r3, 217
+0f25  CreateClosure r3, r2, 11648
+0f2a  Call2 r3, r5, r11, r3
+0f2f  DefineOwnInDenseArray r4, r3, 218
+0f33  CreateClosure r3, r2, 11649
+0f38  Call2 r3, r5, r11, r3
+0f3d  DefineOwnInDenseArray r4, r3, 219
+0f41  CreateClosure r3, r2, 11650
+0f46  Call2 r3, r5, r11, r3
+0f4b  DefineOwnInDenseArray r4, r3, 220
+0f4f  CreateClosure r3, r2, 11651
+0f54  Call2 r3, r5, r11, r3
+0f59  DefineOwnInDenseArray r4, r3, 221
+0f5d  CreateClosure r3, r2, 11652
+0f62  Call2 r3, r5, r11, r3
+0f67  DefineOwnInDenseArray r4, r3, 222
+0f6b  CreateClosure r3, r2, 11653
+0f70  Call2 r3, r5, r11, r3
+0f75  DefineOwnInDenseArray r4, r3, 223
+0f79  CreateClosure r3, r2, 11654
+0f7e  Call2 r3, r5, r11, r3
+0f83  DefineOwnInDenseArray r4, r3, 224
+0f87  CreateClosure r3, r2, 11655
+0f8c  Call2 r3, r5, r11, r3
+0f91  DefineOwnInDenseArray r4, r3, 225
+0f95  CreateClosure r3, r2, 11656
+0f9a  Call2 r3, r5, r11, r3
+0f9f  DefineOwnInDenseArray r4, r3, 226
+0fa3  CreateClosure r3, r2, 11657
+0fa8  Call2 r3, r5, r11, r3
+0fad  DefineOwnInDenseArray r4, r3, 227
+0fb1  CreateClosure r3, r2, 11658
+0fb6  Call2 r3, r5, r11, r3
+0fbb  DefineOwnInDenseArray r4, r3, 228
+0fbf  CreateClosure r3, r2, 11659
+0fc4  Call2 r3, r5, r11, r3
+0fc9  DefineOwnInDenseArray r4, r3, 229
+0fcd  CreateClosure r3, r2, 11660
+0fd2  Call2 r3, r5, r11, r3
+0fd7  DefineOwnInDenseArray r4, r3, 230
+0fdb  CreateClosure r3, r2, 11661
+0fe0  Call2 r3, r5, r11, r3
+0fe5  DefineOwnInDenseArray r4, r3, 231
+0fe9  CreateClosure r3, r2, 11662
+0fee  Call2 r3, r5, r11, r3
+0ff3  DefineOwnInDenseArray r4, r3, 232
+0ff7  CreateClosure r3, r2, 11663
+0ffc  Call2 r3, r5, r11, r3
+1001  DefineOwnInDenseArray r4, r3, 233
+1005  CreateClosure r3, r2, 11664
+100a  Call2 r3, r5, r11, r3
+100f  DefineOwnInDenseArray r4, r3, 234
+1013  CreateClosure r3, r2, 11665
+1018  Call2 r3, r5, r11, r3
+101d  DefineOwnInDenseArray r4, r3, 235
+1021  CreateClosure r3, r2, 11666
+1026  Call2 r3, r5, r11, r3
+102b  DefineOwnInDenseArray r4, r3, 236
+102f  CreateClosure r3, r2, 11667
+1034  Call2 r3, r5, r11, r3
+1039  DefineOwnInDenseArray r4, r3, 237
+103d  CreateClosure r3, r2, 11668
+1042  Call2 r3, r5, r11, r3
+1047  DefineOwnInDenseArray r4, r3, 238
+104b  CreateClosure r3, r2, 11669
+1050  Call2 r3, r5, r11, r3
+1055  DefineOwnInDenseArray r4, r3, 239
+1059  CreateClosure r3, r2, 11670
+105e  Call2 r3, r5, r11, r3
+1063  DefineOwnInDenseArray r4, r3, 240
+1067  CreateClosure r3, r2, 11671
+106c  Call2 r3, r5, r11, r3
+1071  DefineOwnInDenseArray r4, r3, 241
+1075  CreateClosure r3, r2, 11672
+107a  Call2 r3, r5, r11, r3
+107f  DefineOwnInDenseArray r4, r3, 242
+1083  CreateClosure r3, r2, 11673
+1088  Call2 r3, r5, r11, r3
+108d  DefineOwnInDenseArray r4, r3, 243
+1091  CreateClosure r3, r2, 11674
+1096  Call2 r3, r5, r11, r3
+109b  DefineOwnInDenseArray r4, r3, 244
+109f  CreateClosure r3, r2, 11675
+10a4  Call2 r3, r5, r11, r3
+10a9  DefineOwnInDenseArray r4, r3, 245
+10ad  CreateClosure r3, r2, 11676
+10b2  Call2 r3, r5, r11, r3
+10b7  DefineOwnInDenseArray r4, r3, 246
+10bb  CreateClosure r3, r2, 11677
+10c0  Call2 r3, r5, r11, r3
+10c5  DefineOwnInDenseArray r4, r3, 247
+10c9  CreateClosure r3, r2, 11678
+10ce  Call2 r3, r5, r11, r3
+10d3  DefineOwnInDenseArray r4, r3, 248
+10d7  CreateClosure r3, r2, 11679
+10dc  Call2 r3, r5, r11, r3
+10e1  DefineOwnInDenseArray r4, r3, 249
+10e5  GetByIdShort r3, r4, 22, "filter"
+10ea  TryGetById r1, r1, 23, "Boolean"
+10f0  Call2 r1, r3, r4, r1
+10f5  StoreToEnvironment r2, 32, r1
+10f9  LoadConstInt r1, 4000
+10ff  StoreNPToEnvironment r2, 33, r1
+1103  LoadConstInt r1, 10000
+1109  StoreNPToEnvironment r2, 34, r1
+110d  GetByIdShort r4, r8, 24, "StyleSheet"
+1112  GetByIdShort r3, r4, 25, "create"
+1117  NewObjectWithBuffer r1, 1103, 29296
+111d  NewObjectWithBuffer r5, 1104, 37155
+1123  PutOwnBySlotIdx r5, r10, 1
+1127  PutOwnBySlotIdx r1, r5, 0
+112b  NewObjectWithBuffer r5, 1105, 52178
+1131  PutOwnBySlotIdx r1, r5, 1
+1135  NewObjectWithBuffer r5, 1106, 38300
+113b  PutOwnBySlotIdx r1, r5, 2
+113f  NewObject r5
+1141  GetByIdShort r8, r8, 24, "StyleSheet"
+1146  GetByIdShort r19, r8, 26, "absoluteFill"
+114b  Mov r20, r5
+114e  CallBuiltin r8, 46, 3
+1152  LoadConstString r8, "100%"
+1156  DefineOwnById r5, r8, 0, "width"
+115c  DefineOwnById r5, r8, 1, "height"
+1162  PutOwnBySlotIdx r1, r5, 3
+1166  NewObjectWithBuffer r5, 1105, 52178
+116c  PutOwnBySlotIdx r1, r5, 4
+1170  NewObjectWithBuffer r5, 1107, 54776
+1176  GetByIdShort r10, r6, 11, "sc"
+117b  LoadConstUInt8 r8, 48
+117e  Call2 r8, r10, r0, r8
+1183  PutOwnBySlotIdx r5, r8, 1
+1187  GetByIdShort r19, r7, 27, "FONT_FIX"
+118c  Mov r20, r5
+118f  CallBuiltin r8, 46, 3
+1193  GetByIdShort r8, r7, 28, "FONT_FAMILY"
+1198  DefineOwnById r5, r8, 2, "fontFamily"
+119e  GetByIdShort r10, r6, 11, "sc"
+11a3  LoadConstUInt8 r8, 4
+11a6  Call2 r10, r10, r0, r8
+11ab  DefineOwnById r5, r10, 3, "letterSpacing"
+11b1  LoadConstString r10, "rgba(0,0,0,0.6)"
+11b5  DefineOwnById r5, r10, 4, "textShadowColor"
+11bb  NewObjectWithBuffer r11, 55, 30093
+11c1  GetByIdShort r13, r6, 11, "sc"
+11c6  LoadConstUInt8 r12, 3
+11c9  Call2 r12, r13, r0, r12
+11ce  PutOwnBySlotIdx r11, r12, 1
+11d2  DefineOwnById r5, r11, 5, "textShadowOffset"
+11d8  LoadConstUInt8 r11, 6
+11db  DefineOwnById r5, r11, 6, "textShadowRadius"
+11e1  PutOwnBySlotIdx r1, r5, 5
+11e5  NewObjectWithBuffer r5, 1107, 39611
+11eb  GetByIdShort r11, r6, 11, "sc"
+11f0  LoadConstUInt8 r12, 24
+11f3  Call2 r11, r11, r0, r12
+11f8  PutOwnBySlotIdx r5, r11, 1
+11fc  GetByIdShort r19, r7, 27, "FONT_FIX"
+1201  Mov r20, r5
+1204  CallBuiltin r11, 46, 3
+1208  GetByIdShort r11, r7, 28, "FONT_FAMILY"
+120d  DefineOwnById r5, r11, 2, "fontFamily"
+1213  GetByIdShort r13, r6, 11, "sc"
+1218  LoadConstUInt8 r11, 8
+121b  Call2 r13, r13, r0, r11
+1220  DefineOwnById r5, r13, 3, "letterSpacing"
+1226  GetByIdShort r13, r6, 11, "sc"
+122b  Call2 r13, r13, r0, r8
+1230  DefineOwnById r5, r13, 7, "marginTop"
+1236  PutOwnBySlotIdx r1, r5, 6
+123a  NewObjectWithBuffer r5, 135, 30701
+1240  PutOwnBySlotIdx r1, r5, 7
+1244  NewObjectWithBuffer r5, 1108, 24
+124a  PutOwnBySlotIdx r5, r9, 0
+124e  PutOwnBySlotIdx r1, r5, 8
+1252  NewObjectWithBuffer r5, 1109, 54806
+1258  GetByIdShort r9, r6, 11, "sc"
+125d  Call2 r9, r9, r0, r12
+1262  PutOwnBySlotIdx r5, r9, 1
+1266  GetByIdShort r12, r6, 11, "sc"
+126b  LoadConstUInt8 r9, 30
+126e  Call2 r9, r12, r0, r9
+1273  PutOwnBySlotIdx r5, r9, 2
+1277  GetByIdShort r9, r6, 11, "sc"
+127c  Call2 r9, r9, r0, r11
+1281  PutOwnBySlotIdx r5, r9, 4
+1285  PutOwnBySlotIdx r1, r5, 9
+1289  NewObjectWithBuffer r5, 1110, 54839
+128f  GetByIdShort r12, r6, 11, "sc"
+1294  LoadConstUInt8 r9, 16
+1297  Call2 r9, r12, r0, r9
+129c  PutOwnBySlotIdx r5, r9, 1
+12a0  GetByIdShort r9, r6, 11, "sc"
+12a5  Call2 r9, r9, r0, r11
+12aa  PutOwnBySlotIdx r5, r9, 3
+12ae  GetByIdShort r11, r6, 11, "sc"
+12b3  LoadConstUInt8 r9, 2
+12b6  Call2 r11, r11, r0, r9
+12bb  PutOwnBySlotIdx r5, r11, 4
+12bf  PutOwnBySlotIdx r1, r5, 10
+12c3  NewObjectWithBuffer r5, 1111, 54852
+12c9  PutOwnBySlotIdx r1, r5, 11
+12cd  NewObjectWithBuffer r5, 215, 26143
+12d3  PutOwnBySlotIdx r1, r5, 12
+12d7  NewObjectWithBuffer r5, 1107, 54776
+12dd  GetByIdShort r12, r6, 11, "sc"
+12e2  LoadConstUInt8 r11, 14
+12e5  Call2 r11, r12, r0, r11
+12ea  PutOwnBySlotIdx r5, r11, 1
+12ee  GetByIdShort r19, r7, 27, "FONT_FIX"
+12f3  Mov r20, r5
+12f6  CallBuiltin r11, 46, 3
+12fa  GetByIdShort r11, r7, 28, "FONT_FAMILY"
+12ff  DefineOwnById r5, r11, 2, "fontFamily"
+1305  GetByIdShort r11, r6, 11, "sc"
+130a  LoadConstUInt8 r12, 1
+130d  Call2 r11, r11, r0, r12
+1312  DefineOwnById r5, r11, 3, "letterSpacing"
+1318  DefineOwnById r5, r10, 4, "textShadowColor"
+131e  NewObjectWithBuffer r10, 55, 30093
+1324  GetByIdShort r11, r6, 11, "sc"
+1329  Call2 r11, r11, r0, r12
+132e  PutOwnBySlotIdx r10, r11, 1
+1332  DefineOwnById r5, r10, 5, "textShadowOffset"
+1338  DefineOwnById r5, r9, 6, "textShadowRadius"
+133e  PutOwnBySlotIdx r1, r5, 13
+1342  NewObjectWithBuffer r5, 1107, 54857
+1348  GetByIdShort r10, r6, 11, "sc"
+134d  LoadConstUInt8 r9, 32
+1350  Call2 r9, r10, r0, r9
+1355  PutOwnBySlotIdx r5, r9, 1
+1359  GetByIdShort r19, r7, 27, "FONT_FIX"
+135e  Mov r20, r5
+1361  CallBuiltin r9, 46, 3
+1365  GetByIdShort r7, r7, 28, "FONT_FAMILY"
+136a  DefineOwnById r5, r7, 2, "fontFamily"
+1370  GetByIdShort r7, r6, 11, "sc"
+1375  Call2 r7, r7, r0, r8
+137a  DefineOwnById r5, r7, 3, "letterSpacing"
+1380  GetByIdShort r7, r6, 11, "sc"
+1385  LoadConstInt r6, 260
+138b  Call2 r6, r7, r0, r6
+1390  DefineOwnById r5, r6, 8, "minWidth"
+1396  LoadConstString r6, "center"
+139a  DefineOwnById r5, r6, 9, "textAlign"
+13a0  PutOwnBySlotIdx r1, r5, 14
+13a4  Call2 r1, r3, r4, r1
+13a9  StoreToEnvironment r2, 36, r1
+13ad  Ret r0
+

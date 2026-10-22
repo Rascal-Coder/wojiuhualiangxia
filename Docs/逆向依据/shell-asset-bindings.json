@@ -1,0 +1,656 @@
+{
+  "1073": {
+    "AssetRegistry": {
+      "module": 1074,
+      "asset": "panel-slot-cap.png",
+      "source_size": [
+        106,
+        251
+      ]
+    },
+    "AssetRegistry2": {
+      "module": 1075,
+      "asset": "panel-slot-mid.png",
+      "source_size": [
+        4,
+        251
+      ]
+    },
+    "AssetRegistry3": {
+      "module": 1076,
+      "asset": "panel-slot-cap-on.png",
+      "source_size": [
+        106,
+        251
+      ]
+    },
+    "AssetRegistry4": {
+      "module": 1077,
+      "asset": "panel-slot-mid-on.png",
+      "source_size": [
+        4,
+        251
+      ]
+    },
+    "AssetRegistry5": {
+      "module": 1078,
+      "asset": "panel-badge-cap.png",
+      "source_size": [
+        59,
+        119
+      ]
+    },
+    "AssetRegistry6": {
+      "module": 1079,
+      "asset": "panel-badge-mid.png",
+      "source_size": [
+        4,
+        119
+      ]
+    },
+    "AssetRegistry7": {
+      "module": 1080,
+      "asset": "btn-frame-cap.png",
+      "source_size": [
+        77,
+        261
+      ]
+    },
+    "AssetRegistry8": {
+      "module": 1081,
+      "asset": "btn-frame-mid.png",
+      "source_size": [
+        4,
+        261
+      ]
+    },
+    "AssetRegistry9": {
+      "module": 1082,
+      "asset": "btn-green-cap.png",
+      "source_size": [
+        55,
+        197
+      ]
+    },
+    "AssetRegistry10": {
+      "module": 1083,
+      "asset": "btn-green-mid.png",
+      "source_size": [
+        4,
+        197
+      ]
+    },
+    "AssetRegistry11": {
+      "module": 1084,
+      "asset": "btn-blue-cap.png",
+      "source_size": [
+        55,
+        197
+      ]
+    },
+    "AssetRegistry12": {
+      "module": 1085,
+      "asset": "btn-blue-mid.png",
+      "source_size": [
+        4,
+        197
+      ]
+    },
+    "AssetRegistry13": {
+      "module": 1086,
+      "asset": "btn-red-cap.png",
+      "source_size": [
+        55,
+        197
+      ]
+    },
+    "AssetRegistry14": {
+      "module": 1087,
+      "asset": "btn-red-mid.png",
+      "source_size": [
+        4,
+        197
+      ]
+    },
+    "AssetRegistry15": {
+      "module": 1088,
+      "asset": "btn-purple-cap.png",
+      "source_size": [
+        55,
+        197
+      ]
+    },
+    "AssetRegistry16": {
+      "module": 1089,
+      "asset": "btn-purple-mid.png",
+      "source_size": [
+        4,
+        197
+      ]
+    },
+    "AssetRegistry17": {
+      "module": 1090,
+      "asset": "btn-orange-cap.png",
+      "source_size": [
+        55,
+        197
+      ]
+    },
+    "AssetRegistry18": {
+      "module": 1091,
+      "asset": "btn-orange-mid.png",
+      "source_size": [
+        4,
+        197
+      ]
+    },
+    "AssetRegistry19": {
+      "module": 1092,
+      "asset": "btn-black-cap.png",
+      "source_size": [
+        55,
+        197
+      ]
+    },
+    "AssetRegistry20": {
+      "module": 1093,
+      "asset": "btn-black-mid.png",
+      "source_size": [
+        4,
+        197
+      ]
+    },
+    "AssetRegistry21": {
+      "module": 1094,
+      "asset": "btn-frame-purple-cap.png",
+      "source_size": [
+        112,
+        372
+      ]
+    },
+    "AssetRegistry22": {
+      "module": 1095,
+      "asset": "btn-frame-purple-mid.png",
+      "source_size": [
+        4,
+        372
+      ]
+    },
+    "AssetRegistry23": {
+      "module": 1096,
+      "asset": "btn-purple-hard-cap.png",
+      "source_size": [
+        80,
+        286
+      ]
+    },
+    "AssetRegistry24": {
+      "module": 1097,
+      "asset": "btn-purple-hard-mid.png",
+      "source_size": [
+        4,
+        286
+      ]
+    },
+    "AssetRegistry25": {
+      "module": 1098,
+      "asset": "btn-frame-red-cap.png",
+      "source_size": [
+        112,
+        372
+      ]
+    },
+    "AssetRegistry26": {
+      "module": 1099,
+      "asset": "btn-frame-red-mid.png",
+      "source_size": [
+        4,
+        372
+      ]
+    },
+    "AssetRegistry27": {
+      "module": 1100,
+      "asset": "btn-red-xhard-cap.png",
+      "source_size": [
+        80,
+        286
+      ]
+    },
+    "AssetRegistry28": {
+      "module": 1101,
+      "asset": "btn-red-xhard-mid.png",
+      "source_size": [
+        4,
+        286
+      ]
+    },
+    "AssetRegistry29": {
+      "module": 1102,
+      "asset": "btn-frame-black-cap.png",
+      "source_size": [
+        115,
+        372
+      ]
+    },
+    "AssetRegistry30": {
+      "module": 1103,
+      "asset": "btn-frame-black-mid.png",
+      "source_size": [
+        4,
+        372
+      ]
+    },
+    "AssetRegistry31": {
+      "module": 1104,
+      "asset": "btn-black-uhard-cap.png",
+      "source_size": [
+        80,
+        286
+      ]
+    },
+    "AssetRegistry32": {
+      "module": 1105,
+      "asset": "btn-black-uhard-mid.png",
+      "source_size": [
+        4,
+        286
+      ]
+    },
+    "AssetRegistry33": {
+      "module": 1106,
+      "asset": "panel-tray-cap.png",
+      "source_size": [
+        44,
+        228
+      ]
+    },
+    "AssetRegistry34": {
+      "module": 1107,
+      "asset": "panel-tray-mid.png",
+      "source_size": [
+        4,
+        228
+      ]
+    },
+    "AssetRegistry35": {
+      "module": 1108,
+      "asset": "panel-tray-beige-cap.png",
+      "source_size": [
+        84,
+        648
+      ]
+    },
+    "AssetRegistry36": {
+      "module": 1109,
+      "asset": "panel-tray-beige-mid.png",
+      "source_size": [
+        4,
+        648
+      ]
+    },
+    "AssetRegistry37": {
+      "module": 1110,
+      "asset": "ribbon-cap.png",
+      "source_size": [
+        307,
+        256
+      ]
+    },
+    "AssetRegistry38": {
+      "module": 1111,
+      "asset": "ribbon-mid.png",
+      "source_size": [
+        4,
+        256
+      ]
+    }
+  },
+  "1122": {
+    "AssetRegistry": {
+      "module": 1123,
+      "asset": "pnl-purple-tl.png",
+      "source_size": [
+        99,
+        102
+      ]
+    },
+    "AssetRegistry2": {
+      "module": 1124,
+      "asset": "pnl-purple-t.png",
+      "source_size": [
+        4,
+        102
+      ]
+    },
+    "AssetRegistry3": {
+      "module": 1125,
+      "asset": "pnl-purple-l.png",
+      "source_size": [
+        99,
+        4
+      ]
+    },
+    "AssetRegistry4": {
+      "module": 1126,
+      "asset": "pnl-purple-c.png",
+      "source_size": [
+        4,
+        4
+      ]
+    },
+    "AssetRegistry5": {
+      "module": 1127,
+      "asset": "pnl-purple-bl.png",
+      "source_size": [
+        99,
+        110
+      ]
+    },
+    "AssetRegistry6": {
+      "module": 1128,
+      "asset": "pnl-purple-b.png",
+      "source_size": [
+        4,
+        110
+      ]
+    },
+    "AssetRegistry7": {
+      "module": 1129,
+      "asset": "pnl-red-tl.png",
+      "source_size": [
+        99,
+        102
+      ]
+    },
+    "AssetRegistry8": {
+      "module": 1130,
+      "asset": "pnl-red-t.png",
+      "source_size": [
+        4,
+        102
+      ]
+    },
+    "AssetRegistry9": {
+      "module": 1131,
+      "asset": "pnl-red-l.png",
+      "source_size": [
+        99,
+        4
+      ]
+    },
+    "AssetRegistry10": {
+      "module": 1132,
+      "asset": "pnl-red-c.png",
+      "source_size": [
+        4,
+        4
+      ]
+    },
+    "AssetRegistry11": {
+      "module": 1133,
+      "asset": "pnl-red-bl.png",
+      "source_size": [
+        99,
+        110
+      ]
+    },
+    "AssetRegistry12": {
+      "module": 1134,
+      "asset": "pnl-red-b.png",
+      "source_size": [
+        4,
+        110
+      ]
+    },
+    "AssetRegistry13": {
+      "module": 1135,
+      "asset": "pnl-black-tl.png",
+      "source_size": [
+        99,
+        102
+      ]
+    },
+    "AssetRegistry14": {
+      "module": 1136,
+      "asset": "pnl-black-t.png",
+      "source_size": [
+        4,
+        102
+      ]
+    },
+    "AssetRegistry15": {
+      "module": 1137,
+      "asset": "pnl-black-l.png",
+      "source_size": [
+        99,
+        4
+      ]
+    },
+    "AssetRegistry16": {
+      "module": 1138,
+      "asset": "pnl-black-c.png",
+      "source_size": [
+        4,
+        4
+      ]
+    },
+    "AssetRegistry17": {
+      "module": 1139,
+      "asset": "pnl-black-bl.png",
+      "source_size": [
+        99,
+        110
+      ]
+    },
+    "AssetRegistry18": {
+      "module": 1140,
+      "asset": "pnl-black-b.png",
+      "source_size": [
+        4,
+        110
+      ]
+    },
+    "AssetRegistry19": {
+      "module": 1141,
+      "asset": "pnl-orange-tl.png",
+      "source_size": [
+        99,
+        102
+      ]
+    },
+    "AssetRegistry20": {
+      "module": 1142,
+      "asset": "pnl-orange-t.png",
+      "source_size": [
+        4,
+        102
+      ]
+    },
+    "AssetRegistry21": {
+      "module": 1143,
+      "asset": "pnl-orange-l.png",
+      "source_size": [
+        99,
+        4
+      ]
+    },
+    "AssetRegistry22": {
+      "module": 1144,
+      "asset": "pnl-orange-c.png",
+      "source_size": [
+        4,
+        4
+      ]
+    },
+    "AssetRegistry23": {
+      "module": 1145,
+      "asset": "pnl-orange-bl.png",
+      "source_size": [
+        99,
+        110
+      ]
+    },
+    "AssetRegistry24": {
+      "module": 1146,
+      "asset": "pnl-orange-b.png",
+      "source_size": [
+        4,
+        110
+      ]
+    },
+    "AssetRegistry25": {
+      "module": 1147,
+      "asset": "bnr-cap.png",
+      "source_size": [
+        500,
+        512
+      ]
+    },
+    "AssetRegistry26": {
+      "module": 1148,
+      "asset": "bnr-mid.png",
+      "source_size": [
+        4,
+        512
+      ]
+    },
+    "AssetRegistry27": {
+      "module": 1149,
+      "asset": "bnr-purple-cap.png",
+      "source_size": [
+        500,
+        512
+      ]
+    },
+    "AssetRegistry28": {
+      "module": 1150,
+      "asset": "bnr-purple-mid.png",
+      "source_size": [
+        4,
+        512
+      ]
+    },
+    "AssetRegistry29": {
+      "module": 1151,
+      "asset": "bnr-red-cap.png",
+      "source_size": [
+        500,
+        512
+      ]
+    },
+    "AssetRegistry30": {
+      "module": 1152,
+      "asset": "bnr-red-mid.png",
+      "source_size": [
+        4,
+        512
+      ]
+    },
+    "AssetRegistry31": {
+      "module": 1153,
+      "asset": "bnr-navy-cap.png",
+      "source_size": [
+        500,
+        512
+      ]
+    },
+    "AssetRegistry32": {
+      "module": 1154,
+      "asset": "bnr-navy-mid.png",
+      "source_size": [
+        4,
+        512
+      ]
+    },
+    "AssetRegistry33": {
+      "module": 1155,
+      "asset": "preview-ticket-purple.png",
+      "source_size": [
+        303,
+        523
+      ]
+    },
+    "AssetRegistry34": {
+      "module": 1156,
+      "asset": "preview-ticket-red.png",
+      "source_size": [
+        303,
+        523
+      ]
+    },
+    "AssetRegistry35": {
+      "module": 1157,
+      "asset": "preview-ticket-black.png",
+      "source_size": [
+        303,
+        523
+      ]
+    }
+  },
+  "1196": {
+    "AssetRegistry2": {
+      "module": 1198,
+      "asset": "bar-tl.png",
+      "source_size": [
+        120,
+        120
+      ]
+    },
+    "AssetRegistry3": {
+      "module": 1199,
+      "asset": "bar-t.png",
+      "source_size": [
+        4,
+        120
+      ]
+    },
+    "AssetRegistry4": {
+      "module": 1200,
+      "asset": "bar-l.png",
+      "source_size": [
+        120,
+        4
+      ]
+    },
+    "AssetRegistry5": {
+      "module": 1201,
+      "asset": "bar-c.png",
+      "source_size": [
+        4,
+        4
+      ]
+    },
+    "AssetRegistry6": {
+      "module": 1202,
+      "asset": "tab-shop.png",
+      "source_size": [
+        240,
+        240
+      ]
+    },
+    "AssetRegistry7": {
+      "module": 1203,
+      "asset": "tab-home.png",
+      "source_size": [
+        240,
+        240
+      ]
+    },
+    "AssetRegistry8": {
+      "module": 1204,
+      "asset": "tab-rank.png",
+      "source_size": [
+        240,
+        240
+      ]
+    },
+    "AssetRegistry": {
+      "module": 1197,
+      "asset": "tab-active.png",
+      "source_size": [
+        4,
+        512
+      ]
+    }
+  }
+}
