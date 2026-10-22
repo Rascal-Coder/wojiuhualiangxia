@@ -12,10 +12,10 @@ namespace Inkomino
         public BoardState State;public Action<string> Message;public Func<bool> CanInput;public Func<int[],bool> StrokeAllowed;
         public readonly List<int> Trail=new List<int>();public int[] Reveal;public bool Tutorial;
         public float PixelDensity=2.625f;public bool FitActiveBounds=true;public float TutorialReservedDp;public bool Animating;
-        public int[] DrawTrace;public float DrawProgress=1;
+        public int[] DrawTrace;public float DrawProgress=1;public int[] HintCells;public float HintStrength,ScanProgress=-1;
         public static readonly string[] Palette={"#FF83AC","#8DCFFC","#B6A0F5","#FFD86B","#75DABA","#FFA8D2","#FFAA7A","#D6EA81","#8EAAFA","#C7A5EA"};
         internal sealed class PieceStyle
-        {public int ColorIndex,TextureIndex;public Vector2 Offset;public float Born;public int[] Order;public bool Locked,PopAfterInk,TutorialLocked;public float Duration{get{return .230f+.045f*Mathf.Max(0,Order.Length-1);}}}
+        {public int ColorIndex,TextureIndex;public Vector2 Offset;public float Born;public int[] Order;public bool Locked,PopAfterInk,TutorialLocked;public float Duration{get{return .58f+.025f*Mathf.Max(0,Order.Length-1);}}}
         readonly Dictionary<PieceData,PieceStyle> styles=new Dictionary<PieceData,PieceStyle>();
         readonly List<BoardMesh> meshes=new List<BoardMesh>();readonly System.Random random=new System.Random();
         RectTransform rt;Transform labels;int pointer=int.MinValue,pressCell=-1;PieceData removed;
@@ -35,7 +35,7 @@ namespace Inkomino
         {
             State=state;rt=(RectTransform)transform;var hit=gameObject.GetComponent<Image>()??gameObject.AddComponent<Image>();hit.color=new Color(1,1,1,.001f);hit.raycastTarget=true;
             var shader=Resources.Load<Shader>("Mosaic");if(shader)glassMaterial=new Material(shader);
-            Layer(0);for(int i=0;i<3;i++)Layer(1,i);Layer(3);Layer(2);Layer(7);
+            Layer(0);for(int i=0;i<3;i++)Layer(1,i);Layer(3);Layer(2);Layer(7);Layer(8);
             // Detailed round SVG strokes can exceed uGUI's16-bit vertex limit
             // when the whole board shares one graphic. Preserve all samples and
             // submit small cell batches instead of reducing symbol detail.
@@ -48,7 +48,7 @@ namespace Inkomino
         {
             if(State==null||rt==null)return;bool changed=lastSize!=rt.rect.size;if(changed){EnsureLayout();RefreshLabels();}
             bool previous=Animating;Animating=DrawTrace!=null&&DrawProgress<1||flashCells!=null&&SourceClock.Now<flashUntil||VictoryTimeRemaining>0;
-            foreach(var p in State.Pieces){PieceStyle s;if(styles.TryGetValue(p,out s)&&SourceClock.Now<s.Born+Mathf.Max(.62f,s.Duration))Animating=true;}
+            foreach(var p in State.Pieces){PieceStyle s;if(styles.TryGetValue(p,out s)&&SourceClock.Now<s.Born+Mathf.Max(.80f,s.Duration))Animating=true;}
             if(Animating||previous||changed||DrawTrace!=null)Dirty();
         }
         void Dirty(){foreach(var m in meshes)if(m)m.SetVerticesDirty();}
@@ -99,7 +99,9 @@ namespace Inkomino
         internal PieceStyle TrailStyle{get{return trailStyle;}}
         internal Rect CellRect(int i){int n=State.Level.n;return new Rect(origin.x+i%n*cellSize,origin.y-(i/n+1)*cellSize,cellSize,cellSize);}
         internal void Appearance(PieceData p,int cell,out float scale,out float opacity)
-        {scale=opacity=1;var s=Style(p);if(s==null)return;int j=Array.IndexOf(s.Order,cell);float u=Mathf.Clamp01((SourceClock.Now-s.Born-.045f*Mathf.Max(0,j))/.230f);scale=MenuMotion.Reduced?1:1-.12f*Mathf.Pow(1-u,2)+.035f*Mathf.Sin(u*Mathf.PI*2)*(1-u);opacity=Mathf.Lerp(.35f,1,SourceMotion.OutQuad(u));}
+        {scale=1;opacity=1;var s=Style(p);if(s==null||MenuMotion.Reduced)return;float t=SourceClock.Now-s.Born-.025f*Mathf.Max(0,Array.IndexOf(s.Order,cell));float u=Mathf.Clamp01(t/.48f);scale=1-.05f*(1-u);opacity=Mathf.Lerp(.7f,1,SourceMotion.OutQuad(u));}
+        internal float CornerFold(PieceData p,int cell)
+        {var s=Style(p);if(s==null||MenuMotion.Reduced)return 0;float t=SourceClock.Now-s.Born-.025f*Mathf.Max(0,Array.IndexOf(s.Order,cell));return cellSize*.36f*(1-SourceMotion.InOutQuad((t-.08f)/.40f));}
         public void Refresh(){if(State==null||meshes.Count==0)return;SyncStyles();Dirty();RefreshLabels();}
         void RefreshLabels()
         {
@@ -127,6 +129,7 @@ namespace Inkomino
             if(!ok&&allowed&&attempt.Length>0){flashCells=new HashSet<int>(attempt);flashUntil=SourceClock.Now+.320f;Animating=true;}
             removed=null;Trail.Clear();trailStyle=null;Refresh();if(ok){Reveal=null;SoundBank.Play("place");Message?.Invoke("");}else if(reason.Length>0){SoundBank.Play("invalid");Message?.Invoke(reason);}return ok;
         }
+        public void SetHintPresentation(int[] cells,float strength,float scan=-1){HintCells=cells;HintStrength=strength;ScanProgress=scan;Dirty();}
         public void NotifyChanged(){Refresh();}
     }
     public class BoardMesh:MaskableGraphic
@@ -161,12 +164,26 @@ namespace Inkomino
                     var style=piece!=null?View.Style(piece):View.TrailStyle;if(style==null||style.TextureIndex!=FacetIndex)continue;
                     float scale=1,opacity=trail?(validTrail?1:.86f):1;if(piece!=null)View.Appearance(piece,i,out scale,out opacity);
                     Color color=Co(PuzzleBoardView.Palette[style.ColorIndex]);color.a=opacity;
-                    Func<int,bool> same=j=>j>=0&&j<n*n&&(piece!=null?Array.IndexOf(piece.cells,j)>=0:View.Trail.Contains(j));
-                    bool top=i/n>0&&same(i-n),bottom=i/n<n-1&&same(i+n),left=i%n>0&&same(i-1),right=i%n<n-1&&same(i+1);
-                    var polygon=SourceBoardGeometry.CellPolygon(cell,4.5f*dp,!top&&!left,!top&&!right,!bottom&&!right,!bottom&&!left);
+                    float inset=Mathf.Clamp(cs*.035f,1.4f*dp,3.5f*dp);
+                    Rect outer=new Rect(cell.x+inset,cell.y+inset,cs-inset*2,cs-inset*2);
+                    var polygon=SourceBoardGeometry.CellPolygon(outer,4*dp,true,true,true,true);
                     for(int k=0;k<polygon.Count;k++)polygon[k]=cell.center+(polygon[k]-cell.center)*scale;
-                    float textureSize=View.BoardSize+cs;Vector2 origin=View.BoardOriginLocal;
-                    Polygon(vh,polygon,color,p=>{Vector2 original=cell.center+(p-cell.center)/Mathf.Max(.001f,scale);return new Vector2((original.x-origin.x-style.Offset.x)/textureSize,1-(origin.y-original.y-style.Offset.y)/textureSize);});
+                    float fold=piece!=null?View.CornerFold(piece,i):0;
+                    var cut=CutCorner(polygon,outer.xMax+outer.yMax-fold);
+                    Polygon(vh,cut.Select(v=>v+Vector2.down*1.4f*dp).ToList(),Alpha(Co("#A48ABF"),opacity*.60f));
+                    Polygon(vh,cut,Alpha(Color.white,opacity));
+                    Rect face=new Rect(outer.x+1.5f*dp,outer.y+1.5f*dp,outer.width-3*dp,outer.height-3*dp);
+                    var facePath=SourceBoardGeometry.CellPolygon(face,2.5f*dp,true,true,true,true);
+                    for(int k=0;k<facePath.Count;k++)facePath[k]=cell.center+(facePath[k]-cell.center)*scale;
+                    var fill=CutCorner(facePath,outer.xMax+outer.yMax-fold-1.3f*dp);
+                    int start=vh.currentVertCount;Polygon(vh,fill,color);
+                    UIVertex vertex=new UIVertex();for(int k=start;k<vh.currentVertCount;k++){vh.PopulateUIVertex(ref vertex,k);float light=Mathf.InverseLerp(face.yMin,face.yMax,vertex.position.y);Color c=Color.Lerp(color*.92f,Color.Lerp(color,Color.white,.18f),light);c.a=opacity;vertex.color=c;vh.SetUIVertex(vertex,k);}
+                    if(fold>1*dp)
+                    {
+                        Vector2 foldA=new Vector2(outer.xMax-fold,outer.yMax),foldB=new Vector2(outer.xMax,outer.yMax-fold),tip=new Vector2(outer.xMax-fold*.86f,outer.yMax-fold*.86f);
+                        Polygon(vh,new[]{foldA,foldB,tip+Vector2.down*1.5f*dp},Alpha(Co("#6645AA"),.20f*opacity));
+                        Polygon(vh,new[]{foldA,foldB,tip},Alpha(Co("#FFF6FF"),opacity));Line(vh,foldA,foldB,.8f*dp,Alpha(Color.white,opacity));
+                    }
                 }
                 if(Layer==2&&piece==null&&View.BadCell(i))Quad(vh,cell,new Color(214/255f,84/255f,72/255f,.55f));
             }
@@ -177,23 +194,34 @@ namespace Inkomino
                 if(b.Level.walls!=null){float woodDp=Mathf.Max(5,Mathf.Floor(cs/dp*.18f+.5f)),width=Mathf.Max(3,Mathf.Floor(woodDp*.78f+.5f))*dp;for(int i=0;i<n*n;i++){Rect cell=View.CellRect(i);if(b.Level.walls.e[i]>0)DrawWall(vh,new Vector2(cell.xMax,cell.yMin),new Vector2(cell.xMax,cell.yMax),width);if(b.Level.walls.s[i]>0)DrawWall(vh,new Vector2(cell.xMin,cell.yMin),new Vector2(cell.xMax,cell.yMin),width);}}
             }
             if(Layer==7)DrawStickerFeedback(vh);
+            if(Layer==8)DrawHint(vh);
             if(Layer==3&&View.SweepVisible)DrawSweep(vh);
             if(Layer==5)DrawSymbols(vh);
         }
         void DrawPiece(VertexHelper vh,IEnumerable<int> cells,float progress,bool drawing,bool drawInk)
         {
             float dp=View.PixelDensity;Color ink=Co("#6645AA"),light=Co("#FFFDF6");var paths=Paths(cells);
-            foreach(var p in Paths(cells,2.4f*dp))
-            {
-                Stroke(vh,p.Select(x=>x+Vector2.down*1.2f*dp).ToList(),5.2f*dp,Alpha(ink,.28f));
-                Stroke(vh,p,3.4f*dp,Color.white);
-            }
-            foreach(var p in Paths(cells,5.3f*dp))Stroke(vh,p,.85f*dp,Alpha(Color.white,.50f));
             if(drawInk){foreach(var p in paths)if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),2.3f*dp,ink,false);else Stroke(vh,p,2.3f*dp,ink);
             foreach(var p in Paths(cells,3.5f*dp))if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),2*dp,light,false);else Stroke(vh,p,2*dp,light);}
             if(View.VictoryInk<=0)return;
             foreach(var p in paths){Stroke(vh,p.Select(x=>x+new Vector2(.9f,-1.2f)*dp).ToList(),6.2f*dp,Alpha(Co("#6645AA"),.85f*View.VictoryInk));Stroke(vh,p.Select(x=>x+new Vector2(-.8f,1)*dp).ToList(),5.8f*dp,Alpha(Co("#FFFFFF"),.95f*View.VictoryInk));Stroke(vh,p,5*dp,Color.white,true,GoldAt);}
             foreach(var p in Paths(cells,3.5f*dp))Stroke(vh,p,1.4f*dp,Alpha(Co("#FFF7D6"),.85f*View.VictoryInk));
+        }
+        static List<Vector2> CutCorner(IList<Vector2> points,float limit)
+        {
+            var result=new List<Vector2>();if(points.Count==0)return result;
+            Vector2 a=points[points.Count-1];bool insideA=a.x+a.y<=limit;
+            foreach(var b in points){bool insideB=b.x+b.y<=limit;if(insideA!=insideB){float delta=b.x+b.y-a.x-a.y;if(Mathf.Abs(delta)>.0001f)result.Add(Vector2.LerpUnclamped(a,b,(limit-a.x-a.y)/delta));}if(insideB)result.Add(b);a=b;insideA=insideB;}return result;
+        }
+        void DrawHint(VertexHelper vh)
+        {
+            float dp=View.PixelDensity;
+            if(View.ScanProgress>=0){float scanY=Mathf.Lerp(View.VisibleBoundsLocal.yMax,View.VisibleBoundsLocal.yMin,View.ScanProgress);for(int i=0;i<View.State.Level.n*View.State.Level.n;i++)if(View.State.IsActive(i)&&View.State.At(i)==null){var cell=View.CellRect(i);float alpha=Mathf.Max(0,1-Mathf.Abs(cell.center.y-scanY)/(View.CellSize*.8f));if(alpha>0)Quad(vh,cell,Alpha(Co("#C8ADFF"),.25f*alpha));}}
+            if(View.HintCells==null)return;
+            foreach(int cell in View.HintCells)if(View.State.At(cell)!=null)return;
+            float strength=Mathf.Clamp01(View.HintStrength);
+            foreach(int cell in View.HintCells){Rect r=View.CellRect(cell);float pad=3*dp;r=new Rect(r.x+pad,r.y+pad,r.width-2*pad,r.height-2*pad);Polygon(vh,SourceBoardGeometry.CellPolygon(r,4*dp,true,true,true,true),Alpha(Co("#FFE36B"),.30f*strength));}
+            foreach(var path in Paths(View.HintCells,3*dp)){Stroke(vh,path,5*dp,Alpha(Color.white,strength));Stroke(vh,path,2.2f*dp,Alpha(Co("#9D6ED9"),strength));}
         }
         void DrawStickerFeedback(VertexHelper vh)
         {
@@ -209,7 +237,7 @@ namespace Inkomino
             foreach(var piece in View.State.Pieces)
             {
                 var style=View.Style(piece);if(style==null||style.Order.Length==0)continue;
-                float t=(SourceClock.Now-style.Born)/.62f;if(t<0||t>=1)continue;
+                float t=(SourceClock.Now-style.Born-.28f)/.46f;if(t<0||t>=1)continue;
                 Vector2 center=View.CellCenterLocal(style.Order[style.Order.Length-1]);
                 for(int i=0;i<6;i++)
                 {

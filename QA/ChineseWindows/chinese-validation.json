@@ -1,7 +1,7 @@
 {
     "status": "PASS",
-    "startedUtc": "2026-10-22T09:38:50.1337078Z",
-    "finishedUtc": "2026-10-22T09:39:46.7984382Z",
+    "startedUtc": "2026-10-22T10:30:49.2647915Z",
+    "finishedUtc": "2026-10-22T10:31:43.5407132Z",
     "engine": "2022.3.62t16",
     "outputDirectory": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\outputs\\InkominoTuanjie\\QA\\ChineseWindows",
     "actualRuntimeRender": true,
@@ -42,12 +42,12 @@
         },
         {
             "file": "02-loading-540x836.png",
-            "sha256": "cab1b84928e90f98cda245f30e7bdae37fef18f41824193a6aaea8566d4a1775",
+            "sha256": "e9a91f75852270f8f03fed7482beabcf74d40ba2aebd7c000e1d2fc567db8fff",
             "screen": "启动加载小窗口",
             "width": 540,
             "height": 836,
             "visibleTextInstances": 2,
-            "bytes": 150789,
+            "bytes": 150812,
             "visiblePixels": true,
             "texts": [
                 {
@@ -73,12 +73,12 @@
         },
         {
             "file": "03-home.png",
-            "sha256": "d979891f615b03d7e96eb73c9fa24dd17e27a0fc6af3ce3e94c03e1e57170b02",
+            "sha256": "a1ef3765a15fc08656085a9b1684a85b8ecdf34746ee20ba45eda46be03d068c",
             "screen": "主页",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 14,
-            "bytes": 1299258,
+            "bytes": 1299093,
             "visiblePixels": true,
             "texts": [
                 {
@@ -202,12 +202,12 @@
         },
         {
             "file": "04-settings.png",
-            "sha256": "dd0285d1daf9305a26f9d96313b42d217dc897cf0ad147a4d373a9ef7d0b007f",
+            "sha256": "c681da14138971b5da56e44678a9b96659512c207841372721845d6684dd35f6",
             "screen": "设置",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 18,
-            "bytes": 882348,
+            "bytes": 885632,
             "visiblePixels": true,
             "texts": [
                 {
@@ -364,12 +364,12 @@
         },
         {
             "file": "05-lives-full.png",
-            "sha256": "23e8f57536f35a4a28833f3713fb270e883abfbef068312558d24e95d1f8beeb",
+            "sha256": "c93f74185b167ee6b8c37b4f4f6fffe99f2dca818cfb0f69d578d4ce53697281",
             "screen": "生命已满",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 17,
-            "bytes": 762375,
+            "bytes": 762688,
             "visiblePixels": true,
             "texts": [
                 {
@@ -509,12 +509,12 @@
         },
         {
             "file": "06-lives-empty.png",
-            "sha256": "a343bb5c99859463ee10568fea991e289fdc92f94c705288f56a0195cd4df81b",
+            "sha256": "a3e3696b1f2061c26807dbdc14a1d81dffe6c903253ae1c744984d807c68d4c1",
             "screen": "恢复生命",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 22,
-            "bytes": 847274,
+            "bytes": 847270,
             "visiblePixels": true,
             "texts": [
                 {
@@ -690,12 +690,12 @@
         },
         {
             "file": "07-shop.png",
-            "sha256": "9381c3ce737c2ea58ee9712c4ce697d85761da497944500341e1b77d3f196a5e",
+            "sha256": "9683dc8cbbdc67ead97f2dee01465c74498346d160bf5366de06b50746f10fa2",
             "screen": "金币兑换道具",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 26,
-            "bytes": 1255526,
+            "bytes": 1255564,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1897,12 +1897,12 @@
         },
         {
             "file": "11-profile.png",
-            "sha256": "e2ca6661482af273ebcc3b838ca5da1d64ca092df452212440fd4f8cef725584",
+            "sha256": "7880fbcb8c01be065e94c4b2397d3c99adf1487fbe05710bf13cb48e072c9cbc",
             "screen": "个人资料",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 17,
-            "bytes": 914510,
+            "bytes": 914483,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2049,12 +2049,12 @@
         },
         {
             "file": "12-daily-gift.png",
-            "sha256": "317f7ea89c88dd9d57ef4ecfeb3850537139d0ac4e65abb7abbfafb52da9d2ec",
+            "sha256": "ce5011f7d583cf242bc67ecf50bd7edd00a14770da01ee678684302a80234437",
             "screen": "免费每日礼物",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 17,
-            "bytes": 935911,
+            "bytes": 936158,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2195,12 +2195,12 @@
         },
         {
             "file": "13-level23.png",
-            "sha256": "e3845ee8ae765dbb679f8f57cd5652445c3399da07dc1565df7a6eab0223d115",
+            "sha256": "c335b4101a6a36303ef8d03ac334d5de10e0813f8ae8d7d5684fa993657c7a86",
             "screen": "第23关",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 10,
-            "bytes": 430863,
+            "bytes": 398060,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2273,12 +2273,12 @@
         },
         {
             "file": "14-pause.png",
-            "sha256": "4dce05ba82f2c2fdba34f52aabffb6e6fbb8c7b1ab0da42ae0dbe7f2f82f917d",
+            "sha256": "10eda52a9a9702cf2aff9e60959039358b136e6933c6a332bedb74bc079ef2a6",
             "screen": "关卡暂停",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 15,
-            "bytes": 786771,
+            "bytes": 769216,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2393,12 +2393,12 @@
         },
         {
             "file": "15-booster-shop.png",
-            "sha256": "b4b5c6da0aef6681c3dfc4e55c60d22d333937ad67c9924f684e6c97e9fb31fc",
+            "sha256": "6531f7ddb09f8312f11cf894268589c5333f8f270c8740988aa838b9bcec1363",
             "screen": "补充道具",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 13,
-            "bytes": 824967,
+            "bytes": 803980,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2498,12 +2498,12 @@
         },
         {
             "file": "16-restart.png",
-            "sha256": "f3f3d34267ac4a8479fb76b6169d072be94492353ef4aea45e95922269c2c75c",
+            "sha256": "12bf54dccae4969f7a62103463484788b2187046a280ec9bf8006ed421820ad6",
             "screen": "重新开始确认",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 20,
-            "bytes": 779766,
+            "bytes": 767816,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2634,12 +2634,12 @@
         },
         {
             "file": "25-restart-small.png",
-            "sha256": "e5fc756a3040967790b5ca1b7c3873f67e7002d0ac0168cd4ff57eac3771e6d3",
+            "sha256": "f717f265cb2ca4ea4b6a4c42a51c594bbde566e7f97ea2f9faae25cd2b513ea5",
             "screen": "重开确认小窗口",
             "width": 540,
             "height": 836,
             "visibleTextInstances": 20,
-            "bytes": 169267,
+            "bytes": 166730,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2770,12 +2770,12 @@
         },
         {
             "file": "26-restart-narrow.png",
-            "sha256": "2c4c5d8b9e76ec9469944fd05d89991380ab5161e0fdb86e5aab6be850e66f40",
+            "sha256": "c7eeee214f8834f40f5c351c245f814283370b19eb2492348c27ead74fff807f",
             "screen": "重开确认窄屏",
             "width": 360,
             "height": 800,
             "visibleTextInstances": 20,
-            "bytes": 150665,
+            "bytes": 148457,
             "visiblePixels": true,
             "texts": [
                 {
@@ -2906,12 +2906,12 @@
         },
         {
             "file": "27-exit.png",
-            "sha256": "6f5df7227ed2980fefd28bb86c7bbef79045775d9719125969f351495410a52f",
+            "sha256": "c3982846edbfb684d734d462222e73d259141d7a4420d9262898c37afd8ac154",
             "screen": "退出确认",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 20,
-            "bytes": 763786,
+            "bytes": 751547,
             "visiblePixels": true,
             "texts": [
                 {
@@ -3063,12 +3063,12 @@
         },
         {
             "file": "28-exit-small.png",
-            "sha256": "606a3b00fe603ae1d01bead5984da643b22ddcb3f5234c365c7b818e0b80169f",
+            "sha256": "ca3202e11aaaadae67e21c2fb1cbc223bfd157f70706189cf6ada9f94e14fccd",
             "screen": "退出确认小窗口",
             "width": 540,
             "height": 836,
             "visibleTextInstances": 20,
-            "bytes": 166485,
+            "bytes": 163904,
             "visiblePixels": true,
             "texts": [
                 {
@@ -3220,12 +3220,12 @@
         },
         {
             "file": "17-failure-free.png",
-            "sha256": "e6cee62d87b0c093b2badf81a1670f83271fe4438feb43806f6aab125cbd3c9b",
+            "sha256": "2f15abec05cbaf13541a53f042e869f94633171b97fc70fcc2daee66f64f869f",
             "screen": "首次免费继续",
             "width": 1080,
             "height": 2400,
-            "visibleTextInstances": 14,
-            "bytes": 594300,
+            "visibleTextInstances": 17,
+            "bytes": 827573,
             "visiblePixels": true,
             "texts": [
                 {
@@ -3288,28 +3288,49 @@
                     "value": "时间到了！",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 84,
+                    "fontSize": 72,
                     "missingCharacters": ""
                 },
                 {
                     "value": "+60秒",
-                    "font": "LiangxiaSticker-Display",
+                    "font": "LiangxiaUISans-Medium",
                     "instances": 1,
-                    "fontSize": 76,
+                    "fontSize": 96,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "再给灵感一点时间",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续完成这一张拼图",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "现有金币 1200",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
                     "missingCharacters": ""
                 },
                 {
                     "value": "免费继续",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 79,
+                    "fontSize": 60,
                     "missingCharacters": ""
                 },
                 {
-                    "value": "1200",
-                    "font": "LiangxiaUISans-Medium",
+                    "value": "结束本局",
+                    "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 58,
+                    "fontSize": 46,
                     "missingCharacters": ""
                 }
             ],
@@ -3323,20 +3344,21 @@
                 "menu_freeze |  | Liangxia shared UI atlas",
                 "menu_lens |  | Liangxia shared UI atlas",
                 "Source ContinueScreen | ",
-                "game_assets_extratime |  | Liangxia shared UI atlas",
-                "ink_brush |  | Liangxia shared UI atlas",
+                "ink_time |  | Liangxia shared UI atlas",
                 "shell_src_ui_coin |  | Liangxia shared UI atlas",
-                "shell_src_ui_close |  | Liangxia shared UI atlas"
+                "shell_src_ui_close |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
+                "sticker_secondary |  | Liangxia shared UI atlas"
             ]
         },
         {
             "file": "18-failure-coins.png",
-            "sha256": "89d1406aefffa4168301eee80a093fce128139504326cb7317cc688f99c77dcd",
+            "sha256": "442a07534d0b4de59c5ccf2a380eee96804a23c995a91cfa54a3cbf1d600db5f",
             "screen": "金币继续挑战",
             "width": 1080,
             "height": 2400,
-            "visibleTextInstances": 16,
-            "bytes": 693470,
+            "visibleTextInstances": 19,
+            "bytes": 924460,
             "visiblePixels": true,
             "texts": [
                 {
@@ -3399,42 +3421,63 @@
                     "value": "时间到了！",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 84,
+                    "fontSize": 72,
                     "missingCharacters": ""
                 },
                 {
                     "value": "+60秒",
-                    "font": "LiangxiaSticker-Display",
+                    "font": "LiangxiaUISans-Medium",
                     "instances": 1,
-                    "fontSize": 76,
+                    "fontSize": 96,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "再给灵感一点时间",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续完成这一张拼图",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "现有金币 1200",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
                     "missingCharacters": ""
                 },
                 {
                     "value": "继续挑战",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 52,
+                    "fontSize": 60,
                     "missingCharacters": ""
                 },
                 {
                     "value": "120",
                     "font": "LiangxiaUISans-Medium",
                     "instances": 1,
-                    "fontSize": 63,
+                    "fontSize": 44,
                     "missingCharacters": ""
                 },
                 {
                     "value": "看视频 +60秒",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 52,
+                    "fontSize": 40,
                     "missingCharacters": ""
                 },
                 {
-                    "value": "1200",
-                    "font": "LiangxiaUISans-Medium",
+                    "value": "结束本局",
+                    "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 58,
+                    "fontSize": 46,
                     "missingCharacters": ""
                 }
             ],
@@ -3448,22 +3491,22 @@
                 "menu_freeze |  | Liangxia shared UI atlas",
                 "menu_lens |  | Liangxia shared UI atlas",
                 "Source ContinueScreen | ",
-                "game_assets_extratime |  | Liangxia shared UI atlas",
-                "ink_brush |  | Liangxia shared UI atlas",
+                "ink_time |  | Liangxia shared UI atlas",
                 "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
-                "game_assets_rewardedvideo |  | Liangxia shared UI atlas",
-                "shell_src_ui_close |  | Liangxia shared UI atlas"
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
             ]
         },
         {
             "file": "19-continue.png",
-            "sha256": "ab378679b5f0a7118c6c4a988c0613d797c3f50c07142fba566d95dab9045203",
+            "sha256": "3e29e8c54b0d0c50b058c0dbba4c2baf17176de56f3e812aa03d17b26f23e1d1",
             "screen": "继续上次进度",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 18,
-            "bytes": 918744,
+            "bytes": 918820,
             "visiblePixels": true,
             "texts": [
                 {
@@ -3698,12 +3741,12 @@
         },
         {
             "file": "21-tutorial-demo.png",
-            "sha256": "aeed130ba2a0116c20603c08c37879ddb5f00534dfc5df4976996b8275f8f05d",
+            "sha256": "867db7863d8023a5730303b442281e9c70e04c67df619c5cc60459996c718d79",
             "screen": "新手教学演示",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 11,
-            "bytes": 385556,
+            "bytes": 367162,
             "visiblePixels": true,
             "texts": [
                 {
@@ -3799,12 +3842,12 @@
         },
         {
             "file": "22-tutorial-guide.png",
-            "sha256": "21a9189c64904612d658212cf1341b764e1ffd27de3739429c61f87fbd47be09",
+            "sha256": "80820a75eb19c01250e3dd76edf531cc4b39d1dc24c2bf79ffd6737c43134d28",
             "screen": "新手教学轮到你",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 11,
-            "bytes": 371034,
+            "bytes": 361336,
             "visiblePixels": true,
             "texts": [
                 {
@@ -3900,12 +3943,12 @@
         },
         {
             "file": "23-tutorial-user.png",
-            "sha256": "fa1e4ef2dc37d4380cf17dcfb4164625063ecec3bd56d6ca16daf4c1c1f07ce7",
+            "sha256": "b164ac3fee0bb22cdba2caa8c40a90377436782d1558753f8fd7582580981b1b",
             "screen": "新手教学独立尝试",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 11,
-            "bytes": 332829,
+            "bytes": 331130,
             "visiblePixels": true,
             "texts": [
                 {

@@ -53,7 +53,7 @@ namespace Inkomino
         public void Fail(){CoreFail();}
         void Retry(){if(!Review&&Store.Data.hearts==0){LifePopup();return;}EnterLevelWithLoading(CurrentLevel,Review);}
         public static string FormatTime(float seconds){int t=Mathf.CeilToInt(Mathf.Max(0,seconds));return (t/60)+":"+(t%60).ToString("00");}
-        void TimerChanged(){if(timer)timer.text=FormatTime(Remaining);if(timer)timer.color=frozen>0?InkTheme.Jade:Skin.Ink;if(timeFill)timeFill.rectTransform.sizeDelta=new Vector2(timeTrackWidth*Mathf.Clamp01(Remaining/Board.Level.time),5*D);}
+        void TimerChanged(){if(timer)timer.text=FormatTime(Remaining);if(timer)timer.color=frozen>0?new Color32(28,130,122,255):Skin.Ink;if(timeFill)timeFill.rectTransform.sizeDelta=new Vector2(timeTrackWidth*Mathf.Clamp01(Remaining/Board.Level.time),5*D);}
         void Update(){if(!BootReady||TransitioningLevel)return;if(Input.GetKeyDown(KeyCode.F2))LevelLibrary((CurrentLevel>0?CurrentLevel-1:Store.Data.level-1)/25);if(Input.GetKeyDown(KeyCode.Escape)){if(SourceFailureExit!=null&&Playing&&Finished)SourceFailureExit();else if(popups.Count>0)ClosePopup();else if(Playing&&!Finished)Settings(true);else ShowHome();}if(InputEnabled){if(frozen>0)frozen=Mathf.Max(0,frozen-Time.unscaledDeltaTime);else Remaining=Mathf.Max(0,Remaining-Time.unscaledDeltaTime);int tick=Mathf.CeilToInt(Remaining);if(tick!=lastTick){lastTick=tick;TimerChanged();}if(Remaining<=0)Fail();}}
         IEnumerator Clock(){while(true){yield return new WaitForSecondsRealtime(1);Store.Recover();UpdateWallet();}}
         void OnApplicationPause(bool pause){SoundBank.SetSuspended(pause);if(pause){SaveBoard();if(InputEnabled)Settings(true);}else if(Store!=null){Store.Recover();UpdateWallet();}}

@@ -6,8 +6,8 @@
     1024
   ],
   "gpu_rgba_bytes": 4194304,
-  "encoded_bytes": 1055716,
-  "sha256": "f645f547cfe8cbbf7a360937af36e6642290aad00cee0d65b92450eba4d816f1",
+  "encoded_bytes": 1056971,
+  "sha256": "9ed2ddc8086b1ece6c07f48d3eb366a88dde6c0f9874948467c9816473d062c6",
   "regions": [
     {
       "key": "ink_home_hero",
@@ -297,9 +297,9 @@
     },
     {
       "key": "ink_music",
-      "x": 369,
+      "x": 364,
       "y": 232,
-      "width": 54,
+      "width": 63,
       "height": 64,
       "border": 0,
       "borderX": 0,

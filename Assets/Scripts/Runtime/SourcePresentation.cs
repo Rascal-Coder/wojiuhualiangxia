@@ -94,17 +94,17 @@ namespace Inkomino
         // The entire tray is anchored to the safe stage bottom; every hit area is 98dp wide.
         void BuildBoosterTray()
         {
-            var tray=Skin.Rect("Sticker booster tray",Content,new Vector2(.5f,0),new Vector2(0,190),new Vector2(1010,354));
+            var tray=Skin.Rect("Sticker booster tray",Content,new Vector2(.5f,0),new Vector2(0,218),new Vector2(1010,392));
             var dock=MenuUI.Art("sticker_dock",tray,Vector2.one*.5f,Vector2.zero,tray.sizeDelta);
             dock.preserveAspect=false;dock.type=Image.Type.Sliced;dock.pixelsPerUnitMultiplier=dock.sprite.rect.height/tray.sizeDelta.y;
             string[] icons={"pen","freeze","lens"};Color[] colors={new Color32(255,228,238,255),new Color32(221,248,237,255),new Color32(239,228,255,255)};
             for(int i=0;i<3;i++)
             {
-                int k=i;var slot=Skin.Rect("Source booster "+i,tray,new Vector2(.5f,.5f),new Vector2((i-1)*322,6),new Vector2(292,304));
-                Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(0,35),new Vector2(256,220),colors[i],48);
-                var icon=MenuUI.Art("menu_"+icons[i],slot,Vector2.one*.5f,new Vector2(0,51),Vector2.one*164);
+                int k=i;var slot=Skin.Rect("Source booster "+i,tray,new Vector2(.5f,.5f),new Vector2((i-1)*322,8),new Vector2(292,334));
+                Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(0,0),new Vector2(272,304),colors[i],48);
+                var icon=MenuUI.Art("menu_"+icons[i],slot,Vector2.one*.5f,new Vector2(0,65),Vector2.one*156);
                 bool locked=CurrentLevel<(i==0?3:i==1?7:10);icon.color=new Color(1,1,1,locked?.64f:1);
-                MenuUI.Label(i==0?Zh.MagicPen:i==1?Zh.FreezeTime:Zh.Lens,slot,Vector2.one*.5f,new Vector2(0,-66),new Vector2(250,62),44,MenuUI.Ink,TextAnchor.MiddleCenter,true);
+                MenuUI.Label(i==0?Zh.MagicPen:i==1?Zh.FreezeTime:Zh.Lens,slot,Vector2.one*.5f,new Vector2(0,-43),new Vector2(250,62),44,MenuUI.Ink,TextAnchor.MiddleCenter,true);
                 MenuMotion.Press(Skin.Hit(slot,()=>UseBooster(k),.8f));
             }
         }
@@ -114,8 +114,9 @@ namespace Inkomino
             var layer=Skin.Fill("Booster counts",Content);int[] counts={Store.Data.hint,Store.Data.freeze,Store.Data.lens};int[] unlock={3,7,10};
             for(int i=0;i<3;i++)
             {
-                var status=Skin.Rect("Booster status "+i,layer,new Vector2(.5f,0),new Vector2((i-1)*322,67),new Vector2(264,58));
+                var status=Skin.Rect("Booster status "+i,layer,new Vector2(.5f,0),new Vector2((i-1)*322,113),new Vector2(244,58));
                 bool locked=CurrentLevel<unlock[i];
+                Skin.RoundBox(status,Vector2.one*.5f,Vector2.zero,new Vector2(210,54),new Color32(255,255,255,235),27);
                 if(locked){Skin.Art("shell_src_ui_lock",status,Vector2.one*.5f,new Vector2(-77,0),Vector2.one*44);MenuUI.Label(Zh.UnlockBadge(unlock[i]),status,Vector2.one*.5f,new Vector2(24,0),new Vector2(188,58),42,MenuUI.Muted,TextAnchor.MiddleCenter);}
                 else {MenuUI.Label(counts[i]>0?"× "+counts[i]:"补充",status,Vector2.one*.5f,Vector2.zero,new Vector2(240,58),42,MenuUI.Ink,TextAnchor.MiddleCenter);}
             }

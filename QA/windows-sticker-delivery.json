@@ -5,7 +5,7 @@
   "suites": {
     "RuntimeInk": {
       "status": "PASS",
-      "screenshots": 18,
+      "screenshots": 21,
       "checks": 0
     },
     "MenuDesign": {
@@ -59,17 +59,17 @@
     {
       "path": "Inkomino_Data/boot.config",
       "bytes": 164,
-      "sha256": "9a0e2a1c33d69b1d086a5758b543ccb64f069b7d066be73812048f53b57a909b"
+      "sha256": "dfbf2d1fef16602bee46418338962aa18ee1f69880ad7ba11d65b826f580765a"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers",
-      "bytes": 54144,
-      "sha256": "05ccfc1f3730373dee0ffed2eaefcd9e6962becf6864c4350afae5f42db29f95"
+      "bytes": 54232,
+      "sha256": "18a7e8e4b7fa93a97d099c7e0ee8fb15d1bacdbf56723788e57a0c6537d58381"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers.assets",
       "bytes": 16720,
-      "sha256": "435d13eaba5976c9bc1f7cf34583a306ef25b5d82c7e21a9e62265a750220ead"
+      "sha256": "722c3f7472514c7cdf1f2f2147456ada5255246fbf80f1f8deb40301666a1d01"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers.assets.resS",
@@ -89,7 +89,7 @@
     {
       "path": "Inkomino_Data/Managed/Assembly-CSharp.dll",
       "bytes": 386048,
-      "sha256": "40b898abe85025caa22b5a70037c19553f52b8f69462eadae735c91647eda543"
+      "sha256": "851568ddd6d248a255606e68f2d73ef814c65cdcb03fd0a221c01941efb8b97d"
     },
     {
       "path": "Inkomino_Data/Managed/LitJson.dll",
@@ -618,8 +618,8 @@
     },
     {
       "path": "Inkomino_Data/resources.assets",
-      "bytes": 4238782,
-      "sha256": "899ac019b36a43b6c92cf6c4a439c0b4bbf09814e278b17da64243c2e767ea95"
+      "bytes": 4516238,
+      "sha256": "b07db101386baadcf1d7a761253c995902278707c66c52bfb52cfdbaa38d7517"
     },
     {
       "path": "Inkomino_Data/resources.assets.resS",
@@ -758,8 +758,8 @@
     },
     {
       "path": "使用说明.txt",
-      "bytes": 1517,
-      "sha256": "df4d874c675d8f1c50deee19efd2339222f9983f226a469307f74a1b5f4deb45"
+      "bytes": 1889,
+      "sha256": "2b47f4e62afab0b45eda35236ed4ea469f16844a6d594a47caee63678dd8f7b3"
     },
     {
       "path": "启动游戏.cmd",
@@ -769,8 +769,8 @@
   ],
   "archive": {
     "path": "outputs\\我就划两下_Windows_多巴胺贴纸测试版.zip",
-    "bytes": 89911741,
-    "sha256": "0091ca2842a7b83f8dc93996669f616f029f135c77029964b760cfc69755f1ff",
+    "bytes": 90192302,
+    "sha256": "5b6b7bbb8fc2910e9850f69f85104e6bf92c2710085d549f8f5b08ec71756b52",
     "crc": "PASS"
   }
 }

@@ -1,0 +1,38 @@
+{
+  "width": 512,
+  "height": 512,
+  "regions": [
+    {
+      "key": "fx_ice",
+      "x": 6,
+      "y": 260,
+      "width": 244,
+      "height": 248,
+      "border": 0
+    },
+    {
+      "key": "fx_cooling",
+      "x": 260,
+      "y": 269,
+      "width": 248,
+      "height": 231,
+      "border": 0
+    },
+    {
+      "key": "fx_frost_frame",
+      "x": 4,
+      "y": 58,
+      "width": 248,
+      "height": 141,
+      "border": 0
+    },
+    {
+      "key": "fx_glint",
+      "x": 260,
+      "y": 5,
+      "width": 248,
+      "height": 247,
+      "border": 0
+    }
+  ]
+}

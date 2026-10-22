@@ -543,6 +543,10 @@
       "passed": true
     },
     {
+      "name": "ink_music has no detached lower-row sprite fragment",
+      "passed": true
+    },
+    {
       "name": "ink_pause stays within atlas",
       "passed": true
     },

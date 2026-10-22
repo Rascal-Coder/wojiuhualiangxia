@@ -1,1 +1,1 @@
-vertex=60 first=RGBA(142, 170, 250, 255) texture=Sticker matte shader=Inkomino/Sticker
+vertex=1080 first=RGBA(164, 138, 191, 153) texture=Sticker matte shader=Inkomino/Sticker

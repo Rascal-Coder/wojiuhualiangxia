@@ -69,45 +69,46 @@ namespace Inkomino
         }
         public void CoreFail()
         {
-            if(Finished)return;Finished=true;if(!Review&&CurrentLevel>=ClimbActivity.Config.unlockLevel&&Store.Data.climb.joined&&!Store.Data.climb.isOut&&!ClimbActivity.AtTop(Store.Data.climb)){Store.Data.climbPendingFailure=CurrentLevel;Store.Save();}AnimationBusy=false;if(BoardView)BoardView.Cancel();SoundBank.Play("fail");
-            var black=Skin.Fill("Source ContinueScreen",Overlays);black.gameObject.AddComponent<Image>().color=MenuUI.Ink;Skin.Art("game_assets_bg",black,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,2400),false);popups.Push(black);
-            var motion=Skin.Fill("Failure popup section",black);var group=motion.gameObject.AddComponent<CanvasGroup>();
-            var coin=At(black,"Failure coin top slot",16*D,50*D,150*D,38*D);Skin.RoundBox(coin,new Vector2(.5f,.5f),Vector2.zero,coin.sizeDelta,new Color32(102,69,170,255),19*D);Skin.RoundBox(coin,new Vector2(.5f,.5f),Vector2.zero,coin.sizeDelta-Vector2.one*4*D,Skin.Paper,17*D);Skin.Art("shell_src_ui_coin",coin,new Vector2(0,.5f),new Vector2(19*D,0),Vector2.one*38*D);var coinText=Skin.Text(Store.Data.coins.ToString(),coin,new Vector2(.5f,.5f),new Vector2(10*D,-2*D),new Vector2(110,36)*D,Mathf.RoundToInt(22*D),Skin.Ink);
-            // Source full-screen flex: content paddingTop208/bottom24, two
-            // equal flexible sections separated by offer marginTop50dp.
-            float contentH=2400-232*D,sectionH=(contentH-50*D)/2,centerY=208*D+sectionH/2;
-            MenuUI.Paper(motion,new Vector2(.5f,1),new Vector2(0,-1250),new Vector2(960,1250),true);
-            var title=At(motion,"Time's Up title",16*D,centerY-220*D,1080-32*D,88*D);CoreFailureTitle(title,Zh.TimeUp,56);
-            var body=At(motion,"Failure phase content",16*D,centerY-112*D,1080-32*D,330*D);
-            var phase=Skin.Rect("Offer/loss transition only",body,new Vector2(.5f,1),new Vector2(0,-85*D),new Vector2(body.sizeDelta.x,170*D));var bg=phase.gameObject.AddComponent<CanvasGroup>();
-            var offer=Skin.Fill("Time offer",phase);var icon=Skin.Art("game_assets_extratime",offer,new Vector2(.5f,1),new Vector2(0,-55*D),Vector2.one*110*D);
-            Skin.Text(Zh.ExtraTime,offer,new Vector2(.5f,1),new Vector2(0,-135*D),new Vector2(220,42)*D,Mathf.RoundToInt(29*D),MenuUI.Ink);
-            var failed=Skin.Fill("Loss warning phase",phase);CoreLossSummary(failed,new Vector2(0,-110*D),body.sizeDelta.x,false,true);failed.gameObject.SetActive(false);
-            bool warning=false;Action exit=()=>{if(!warning){warning=true;StartCoroutine(CoreFailurePhase(offer,failed,bg,epoch:presentationEpoch));}else{if(!Review){Store.LoseHeart(CurrentLevel);Store.Data.resumeLevel=0;Store.Data.resumePieces=null;Store.Save();}ShowHome();}};
-            SourceFailureExit=exit;Skin.IconButton("shell_src_ui_close",black,new Vector2(1,1),new Vector2(-37*D,-101*D),Vector2.one*42*D,exit);
+            if(Finished)return;Finished=true;
+            if(!Review&&CurrentLevel>=ClimbActivity.Config.unlockLevel&&Store.Data.climb.joined&&!Store.Data.climb.isOut&&!ClimbActivity.AtTop(Store.Data.climb)){Store.Data.climbPendingFailure=CurrentLevel;Store.Save();}
+            AnimationBusy=false;if(BoardView)BoardView.Cancel();SoundBank.Play("fail");
             bool first=!Store.Data.firstContinueUsed&&continuations==0;int cost=90+Math.Min(continuations,2)*30;
-            var buttons=Skin.Rect("Failure continue buttons",body,new Vector2(.5f,1),new Vector2(0,-(170+57.5f)*D),new Vector2(Mathf.Min(943.2f,body.sizeDelta.x),115*D));var buttonsGroup=buttons.gameObject.AddComponent<CanvasGroup>();
+            bool showAd=!first&&!Review&&rewardedContinues<1&&RewardEntryEnabled(RewardPlacement.ContinueLevel);
+            var panel=Popup(Zh.TimeUp,1000,showAd?1320:1130);panel.name="Sticker timeout panel";var root=(RectTransform)panel.parent.parent;root.name="Source ContinueScreen";HideCoreClose(panel);
+            float width=panel.sizeDelta.x;var title=panel.GetComponentInChildren<Text>();
+            var offer=Skin.Rect("Time offer",panel,new Vector2(.5f,1),new Vector2(0,-347),new Vector2(width-100,310));
+            MenuUI.Art("ink_time",offer,Vector2.one*.5f,new Vector2(-190,15),Vector2.one*218);
+            MenuUI.Label(Zh.ExtraTime,offer,Vector2.one*.5f,new Vector2(120,38),new Vector2(370,120),96,MenuUI.Ink,TextAnchor.MiddleCenter);
+            MenuUI.Label("再给灵感一点时间",offer,Vector2.one*.5f,new Vector2(120,-58),new Vector2(405,64),42,MenuUI.Muted,TextAnchor.MiddleCenter);
+            var description=MenuUI.Label("继续完成这一张拼图",panel,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(width-100,70),48,MenuUI.Ink,TextAnchor.MiddleCenter);
+            var wallet=Skin.Rect("Continuation wallet",panel,new Vector2(.5f,1),new Vector2(0,-645),new Vector2(500,84));
+            Skin.RoundBox(wallet,Vector2.one*.5f,Vector2.zero,wallet.sizeDelta,new Color32(255,243,209,255),42);
+            Skin.Art("shell_src_ui_coin",wallet,Vector2.one*.5f,new Vector2(-135,0),Vector2.one*66);
+            MenuUI.Label("现有金币 "+Store.Data.coins,wallet,Vector2.one*.5f,new Vector2(35,0),new Vector2(340,70),42,MenuUI.Ink,TextAnchor.MiddleCenter);
+            var loss=Skin.Rect("Loss warning phase",panel,new Vector2(.5f,1),new Vector2(0,-347),new Vector2(width-100,310));
+            Skin.Art("shell_src_ui_heartbroken",loss,Vector2.one*.5f,new Vector2(-180,0),Vector2.one*202);
+            MenuUI.Label("本局进度将丢失",loss,Vector2.one*.5f,new Vector2(110,35),new Vector2(390,80),54,MenuUI.Ink,TextAnchor.MiddleCenter);
+            MenuUI.Label(Review?"可以重新挑战":"消耗 1 点体力",loss,Vector2.one*.5f,new Vector2(110,-55),new Vector2(390,70),44,MenuUI.Muted,TextAnchor.MiddleCenter);loss.gameObject.SetActive(false);
+            bool warning=false;Button exitButton=null;
+            Action exit=()=>{if(!warning){warning=true;offer.gameObject.SetActive(false);loss.gameObject.SetActive(true);if(title)title.text="确定结束吗？";description.text="也可以续时，接着完成";foreach(var label in exitButton.GetComponentsInChildren<Text>())label.text="确认结束";}else{if(!Review){Store.LoseHeart(CurrentLevel);Store.Data.resumeLevel=0;Store.Data.resumePieces=null;Store.Save();}SourceFailureExit=null;ShowHome();}};
+            SourceFailureExit=exit;
+            Skin.IconButton("shell_src_ui_close",panel,new Vector2(1,1),new Vector2(-40,-55),Vector2.one*42*D,exit);
             Action play=()=>{if(!first&&Store.Data.coins<cost)return;if(first)Store.Data.firstContinueUsed=true;else Store.Data.coins-=cost;Store.Data.climbPendingFailure=0;Store.Save();Remaining=Mathf.Max(0,Remaining)+60;SourceFailureExit=null;continuations++;Finished=false;AnimationBusy=false;ClosePopup();TimerChanged();SaveBoard();};
-            var playButton=CoreDialogButton(first?Zh.Free:Zh.PlayOn,buttons,new Vector2(.5f,.5f),Vector2.zero,new Vector2(buttons.sizeDelta.x*(first?.8f:1),115*D),play,first?"blue":"green",first?30:20,0);playButton.interactable=first||Store.Data.coins>=cost;
-            if(!first){var playLabel=playButton.GetComponentInChildren<Text>();if(playLabel)playLabel.rectTransform.anchoredPosition+=Vector2.up*14*D;}
-            if(!first){Skin.Art("shell_src_ui_coin",buttons,new Vector2(.5f,.5f),new Vector2(-22*D,-24*D),Vector2.one*24*D);Skin.Text(cost.ToString(),buttons,new Vector2(.5f,.5f),new Vector2(20*D,-24*D),new Vector2(85,28)*D,Mathf.RoundToInt(24*D),Color.white);}
-            if(!first&&!Review&&rewardedContinues<1&&RewardEntryEnabled(RewardPlacement.ContinueLevel))
+            var playButton=MenuUI.GameButton(first?Zh.Free:Zh.PlayOn,panel,new Vector2(.5f,1),new Vector2(0,-807),new Vector2(width-120,180),play,60);playButton.name="Timeout continue";playButton.interactable=first||Store.Data.coins>=cost;
+            var label=playButton.GetComponentInChildren<Text>();label.rectTransform.anchoredPosition=new Vector2(0,first?0:33);label.rectTransform.sizeDelta=new Vector2(width-170,75);
+            if(!first)
+            {
+                // Keep both cost icon and number inside the button's animated visual parent.
+                var face=label.transform.parent;Skin.Art("shell_src_ui_coin",face,Vector2.one*.5f,new Vector2(-54,-38),Vector2.one*49);
+                var price=MenuUI.Label(cost.ToString(),face,Vector2.one*.5f,new Vector2(28,-38),new Vector2(120,58),44,MenuUI.Ink,TextAnchor.MiddleCenter);price.name="Continuation cost";
+            }
+            if(showAd)
             {
                 int level=CurrentLevel,epoch=presentationEpoch;
-                RewardButton(RewardPlacement.ContinueLevel,RewardLabel(RewardPlacement.ContinueLevel),buttons,new Vector2(.5f,.5f),new Vector2(0,-135*D),new Vector2(buttons.sizeDelta.x*.88f,80*D),()=>RequestReward(RewardPlacement.ContinueLevel,()=>{
-                    Store.Data.climbPendingFailure=0;Remaining=Mathf.Max(0,Remaining)+AdPlacements.Slot(RewardPlacement.ContinueLevel).amount;SourceFailureExit=null;continuations++;rewardedContinues++;Finished=false;AnimationBusy=false;ClosePopup();TimerChanged();SaveBoard();
-                },()=>CurrentLevel==level&&presentationEpoch==epoch&&Playing&&Finished&&black&&black.gameObject.activeInHierarchy));
+                RewardButton(RewardPlacement.ContinueLevel,RewardLabel(RewardPlacement.ContinueLevel),panel,new Vector2(.5f,1),new Vector2(0,-1010),new Vector2(width-120,160),()=>RequestReward(RewardPlacement.ContinueLevel,()=>{Store.Data.climbPendingFailure=0;Remaining=Mathf.Max(0,Remaining)+AdPlacements.Slot(RewardPlacement.ContinueLevel).amount;SourceFailureExit=null;continuations++;rewardedContinues++;Finished=false;AnimationBusy=false;ClosePopup();TimerChanged();SaveBoard();},()=>CurrentLevel==level&&presentationEpoch==epoch&&Playing&&Finished&&root&&root.gameObject.activeInHierarchy));
             }
-            StartCoroutine(CoreFailureMotion(black,motion,group,coin,buttons,buttonsGroup,icon.rectTransform,coinText));
-        }
-        IEnumerator CoreFailureMotion(RectTransform root,RectTransform panel,CanvasGroup group,RectTransform coin,RectTransform buttons,CanvasGroup buttonGroup,RectTransform icon,Text money)
-        {
-            int epoch=presentationEpoch;float start=SourceClock.Now;Vector2 coinPos=coin.anchoredPosition,iconPos=icon.anchoredPosition;var coinGroup=coin.gameObject.AddComponent<CanvasGroup>();
-            while(root&&root.gameObject.activeInHierarchy&&epoch==presentationEpoch){float t=SourceClock.Now-start;panel.anchoredPosition=new Vector2(0,-SourceMotion.Spring(t,-2400,0,50,10));group.alpha=SourceMotion.DefaultTiming(t/.2f);coin.anchoredPosition=coinPos+Vector2.right*(t<.25f?-1080:SourceMotion.Spring(t-.25f,-1080,0,60,11));coinGroup.alpha=SourceMotion.DefaultTiming((t-.25f)/.3f);float b=t-.45f;buttons.localScale=Vector3.one*(b<0?0:SourceMotion.Spring(b,0,1,55,7));buttonGroup.alpha=SourceMotion.DefaultTiming(b/.25f);float bob=Mathf.Repeat(t,1.8f);icon.anchoredPosition=iconPos+Vector2.up*Mathf.Lerp(0,6*D,bob<.9f?SourceMotion.DefaultTiming(bob/.9f):1-SourceMotion.DefaultTiming((bob-.9f)/.9f));money.text=Store.Data.coins.ToString();yield return null;}
-        }
-        IEnumerator CoreFailurePhase(RectTransform offer,RectTransform failed,CanvasGroup group,int epoch)
-        {
-            Vector3 origin=group.transform.localPosition;float start=SourceClock.Now;while(offer&&epoch==presentationEpoch&&SourceClock.Now-start<.18f){float t=SourceMotion.DefaultTiming((SourceClock.Now-start)/.18f);group.alpha=1-t;group.transform.localPosition=origin+Vector3.left*220*D*t;yield return null;}if(!offer||epoch!=presentationEpoch)yield break;offer.gameObject.SetActive(false);failed.gameObject.SetActive(true);start=SourceClock.Now;while(failed&&epoch==presentationEpoch&&SourceClock.Now-start<1){float t=SourceClock.Now-start;group.alpha=SourceMotion.DefaultTiming(t/.22f);group.transform.localPosition=origin+Vector3.right*SourceMotion.Spring(t,220*D,0,70,10);yield return null;}if(group){group.alpha=1;group.transform.localPosition=origin;}
+            exitButton=MenuUI.SecondaryButton("结束本局",panel,new Vector2(.5f,0),new Vector2(0,116),new Vector2(width-270,110),exit,46);exitButton.name="Timeout exit";
+            if(!playButton.interactable)description.text="金币不足，可以选择其他方式";
         }
         void CoreLossSummary(Transform parent,Vector2 topCenter,float width,bool onPaper=true,bool warningFirst=false)
         {

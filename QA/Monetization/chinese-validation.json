@@ -1,7 +1,7 @@
 {
     "status": "PASS",
-    "startedUtc": "2026-10-22T09:37:59.0075668Z",
-    "finishedUtc": "2026-10-22T09:38:21.9979997Z",
+    "startedUtc": "2026-10-22T10:33:26.0108057Z",
+    "finishedUtc": "2026-10-22T10:33:48.1775269Z",
     "engine": "2022.3.62t16",
     "outputDirectory": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\outputs\\InkominoTuanjie\\QA\\Monetization",
     "actualRuntimeRender": true,
@@ -11,12 +11,12 @@
     "frames": [
         {
             "file": "01-loading-1080x2400.png",
-            "sha256": "d4a981dc012de58552079b4d7d612dbc1bbf3ea1e3ed057d22f3a5e876c1a1de",
+            "sha256": "e59cfa259edd0911f9e3c4950a406e7ed554cb6b6178a30e2cb509fb11ab5e08",
             "screen": "启动加载",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 2,
-            "bytes": 795869,
+            "bytes": 795874,
             "visiblePixels": true,
             "texts": [
                 {
@@ -42,12 +42,12 @@
         },
         {
             "file": "02-loading-540x836.png",
-            "sha256": "cab1b84928e90f98cda245f30e7bdae37fef18f41824193a6aaea8566d4a1775",
+            "sha256": "27966e4d5074794f9ddb72ea1c1f9877a807f47c47702093f71ed7f8fa889259",
             "screen": "启动加载小窗口",
             "width": 540,
             "height": 836,
             "visibleTextInstances": 2,
-            "bytes": 150789,
+            "bytes": 150801,
             "visiblePixels": true,
             "texts": [
                 {
@@ -73,12 +73,12 @@
         },
         {
             "file": "03-home-countdown.png",
-            "sha256": "ac21f0d150456e5ab57f7edce3b02b99e85f9b5fbb592505ebdfe353301b5fdc",
+            "sha256": "824bd02b2e07b9fe0d0fe56629b0d2888b7b68a2de18a8df3bf6aa6c762dd91c",
             "screen": "真实首页倒计时",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 14,
-            "bytes": 1297559,
+            "bytes": 1298192,
             "visiblePixels": true,
             "texts": [
                 {
@@ -202,12 +202,12 @@
         },
         {
             "file": "04-shop-ad.png",
-            "sha256": "b3ce9649b13ce92e6eec0365d42c97211706cfbc874577ce56c7db28ce67788e",
+            "sha256": "05106fe6f55ff46fadfb1a501b1a3e1cf18cc99d66b6ff36e765aa33c218198e",
             "screen": "金币补给视频入口",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 26,
-            "bytes": 1253059,
+            "bytes": 1253460,
             "visiblePixels": true,
             "texts": [
                 {
@@ -388,12 +388,12 @@
         },
         {
             "file": "05-ad-unavailable.png",
-            "sha256": "816d38e82f4b5ba5da7f847be8f9a56ffee5ae7117649ed486705c839bf38342",
+            "sha256": "de2222bb419481bccce52220cf6c4f64fd7495eff05cf287007d7b198a32d093",
             "screen": "未配置广告的真实提示",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 29,
-            "bytes": 927531,
+            "bytes": 927128,
             "visiblePixels": true,
             "texts": [
                 {
@@ -597,12 +597,12 @@
         },
         {
             "file": "06-booster-ad.png",
-            "sha256": "99b14cca2bc95d4633159110b13e1ffd22b96c7d17ba7804ceb22f56737dcfcc",
+            "sha256": "59d1e14a99e28b745e73ebae51efb747bc9f8d1a9bd1f04ce5a183437836ac5e",
             "screen": "补道具视频与金币双选择",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 13,
-            "bytes": 826421,
+            "bytes": 804668,
             "visiblePixels": true,
             "texts": [
                 {
@@ -709,12 +709,12 @@
         },
         {
             "file": "07-life-ad.png",
-            "sha256": "642399f674d332a0114764a3946e9acbcc26a39dc5b495fff07570cb07ee8e42",
+            "sha256": "15f358eb0bb5b9f3c490eb0be1b55e35b113498e9a7f84da72c1adc17fcad965",
             "screen": "生命奖励与金币补满",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 22,
-            "bytes": 843852,
+            "bytes": 843890,
             "visiblePixels": true,
             "texts": [
                 {
@@ -890,12 +890,12 @@
         },
         {
             "file": "08-life-small.png",
-            "sha256": "d6862d43a694829335a8fe6bab53c1ce86620fcb676de505e52e6ee5a2dca4da",
+            "sha256": "4aaf7ded9ec7ae4b7564bb3f57b0614829dfbdbf4e88f9e654b7f6afbd6acf79",
             "screen": "生命弹窗小屏",
             "width": 540,
             "height": 836,
             "visibleTextInstances": 22,
-            "bytes": 179702,
+            "bytes": 179700,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1071,12 +1071,12 @@
         },
         {
             "file": "09-continue-ad.png",
-            "sha256": "a048a2497dfbd4e3bd7deee2c7e96cea53ce4c99ebda8cff6b687e936d52be48",
+            "sha256": "bd2cdb70b9af477df25de45575c2df75bffb9f2307e2bb2cf9a2716866fe6b9b",
             "screen": "失败后视频加时入口",
             "width": 1080,
             "height": 2400,
-            "visibleTextInstances": 16,
-            "bytes": 693389,
+            "visibleTextInstances": 19,
+            "bytes": 922883,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1146,42 +1146,63 @@
                     "value": "时间到了！",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 84,
+                    "fontSize": 72,
                     "missingCharacters": ""
                 },
                 {
                     "value": "+60秒",
-                    "font": "LiangxiaSticker-Display",
+                    "font": "LiangxiaUISans-Medium",
                     "instances": 1,
-                    "fontSize": 76,
+                    "fontSize": 96,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "再给灵感一点时间",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续完成这一张拼图",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "现有金币 1150",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
                     "missingCharacters": ""
                 },
                 {
                     "value": "继续挑战",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 52,
+                    "fontSize": 60,
                     "missingCharacters": ""
                 },
                 {
                     "value": "90",
                     "font": "LiangxiaUISans-Medium",
                     "instances": 1,
-                    "fontSize": 63,
+                    "fontSize": 44,
                     "missingCharacters": ""
                 },
                 {
                     "value": "看视频 +60秒",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 52,
+                    "fontSize": 40,
                     "missingCharacters": ""
                 },
                 {
-                    "value": "1150",
-                    "font": "LiangxiaUISans-Medium",
+                    "value": "结束本局",
+                    "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 58,
+                    "fontSize": 46,
                     "missingCharacters": ""
                 }
             ],
@@ -1195,22 +1216,22 @@
                 "menu_freeze |  | Liangxia shared UI atlas",
                 "menu_lens |  | Liangxia shared UI atlas",
                 "Source ContinueScreen | ",
-                "game_assets_extratime |  | Liangxia shared UI atlas",
-                "ink_brush |  | Liangxia shared UI atlas",
+                "ink_time |  | Liangxia shared UI atlas",
                 "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
-                "game_assets_rewardedvideo |  | Liangxia shared UI atlas",
-                "shell_src_ui_close |  | Liangxia shared UI atlas"
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
             ]
         },
         {
             "file": "10-continue-small.png",
-            "sha256": "d73e4c1937aecbb8e9fc472bdaf92e7aff5d6d87a7aaa82447039ae32a724eee",
+            "sha256": "09580833e9b4fcedfa55ec124a07c5819cca0c5db190acaa2e9728edb5a1545e",
             "screen": "加时入口小屏",
             "width": 540,
             "height": 836,
-            "visibleTextInstances": 16,
-            "bytes": 151975,
+            "visibleTextInstances": 19,
+            "bytes": 195398,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1280,42 +1301,63 @@
                     "value": "时间到了！",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 84,
+                    "fontSize": 72,
                     "missingCharacters": ""
                 },
                 {
                     "value": "+60秒",
-                    "font": "LiangxiaSticker-Display",
+                    "font": "LiangxiaUISans-Medium",
                     "instances": 1,
-                    "fontSize": 76,
+                    "fontSize": 96,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "再给灵感一点时间",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "继续完成这一张拼图",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "现有金币 1150",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 42,
                     "missingCharacters": ""
                 },
                 {
                     "value": "继续挑战",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 52,
+                    "fontSize": 60,
                     "missingCharacters": ""
                 },
                 {
                     "value": "90",
                     "font": "LiangxiaUISans-Medium",
                     "instances": 1,
-                    "fontSize": 63,
+                    "fontSize": 44,
                     "missingCharacters": ""
                 },
                 {
                     "value": "看视频 +60秒",
                     "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 52,
+                    "fontSize": 40,
                     "missingCharacters": ""
                 },
                 {
-                    "value": "1150",
-                    "font": "LiangxiaUISans-Medium",
+                    "value": "结束本局",
+                    "font": "LiangxiaSticker-Display",
                     "instances": 1,
-                    "fontSize": 58,
+                    "fontSize": 46,
                     "missingCharacters": ""
                 }
             ],
@@ -1329,12 +1371,12 @@
                 "menu_freeze |  | Liangxia shared UI atlas",
                 "menu_lens |  | Liangxia shared UI atlas",
                 "Source ContinueScreen | ",
-                "game_assets_extratime |  | Liangxia shared UI atlas",
-                "ink_brush |  | Liangxia shared UI atlas",
+                "ink_time |  | Liangxia shared UI atlas",
                 "shell_src_ui_coin |  | Liangxia shared UI atlas",
+                "shell_src_ui_close |  | Liangxia shared UI atlas",
+                "ink_brush |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
-                "game_assets_rewardedvideo |  | Liangxia shared UI atlas",
-                "shell_src_ui_close |  | Liangxia shared UI atlas"
+                "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
             ]
         },
         {

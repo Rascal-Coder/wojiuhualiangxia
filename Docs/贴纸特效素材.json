@@ -1,0 +1,82 @@
+{
+  "generator": "built-in image_gen",
+  "source": "Assets/Editor/StickerArtSource/freeze-fx-source.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "manual_crop_boxes": {
+    "fx_ice": [
+      20,
+      70,
+      665,
+      715
+    ],
+    "fx_cooling": [
+      675,
+      90,
+      1254,
+      700
+    ],
+    "fx_frost_frame": [
+      0,
+      758,
+      760,
+      1210
+    ],
+    "fx_glint": [
+      775,
+      735,
+      1248,
+      1210
+    ]
+  },
+  "texture": "Assets\\Resources\\MenuArt\\sticker_fx_atlas.bytes",
+  "bytes": 274018,
+  "size": [
+    512,
+    512
+  ],
+  "gpu_rgba_bytes": 1398100,
+  "sha256": "d76479508f9501688da13e45b1cbf5baa268e2947ecaa052cd44820a3141fa5f",
+  "regions": [
+    {
+      "key": "fx_ice",
+      "x": 6,
+      "y": 260,
+      "width": 244,
+      "height": 248,
+      "border": 0
+    },
+    {
+      "key": "fx_cooling",
+      "x": 260,
+      "y": 269,
+      "width": 248,
+      "height": 231,
+      "border": 0
+    },
+    {
+      "key": "fx_frost_frame",
+      "x": 4,
+      "y": 58,
+      "width": 248,
+      "height": 141,
+      "border": 0
+    },
+    {
+      "key": "fx_glint",
+      "x": 260,
+      "y": 5,
+      "width": 248,
+      "height": 247,
+      "border": 0
+    }
+  ],
+  "checks": [
+    "frost center transparent"
+  ],
+  "mipmaps": true,
+  "filter": "Trilinear for small rotated stickers",
+  "style": "Rounded mint stickers with purple outline and white die-cut border, referenced from menu_freeze and chrome-sheet; replaces rejected crystalline draft"
+}
