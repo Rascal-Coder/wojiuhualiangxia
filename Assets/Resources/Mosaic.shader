@@ -1,4 +1,4 @@
-Shader "Inkomino/InkWash"
+Shader "Inkomino/Sticker"
 {
     Properties { [PerRendererData] _MainTex("Ink grain",2D)="white"{} }
     SubShader

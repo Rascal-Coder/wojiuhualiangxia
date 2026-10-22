@@ -20,9 +20,9 @@ namespace Inkomino
             MenuUI.Art("menu_achievement_medallion",summary,new Vector2(0,.5f),new Vector2(130,0),Vector2.one*190);
             MenuUI.Label("已通关",summary,new Vector2(0,.5f),new Vector2(400,65),new Vector2(310,66),46,MenuUI.Muted);
             MenuUI.Label(Store.Data.wins+" / 500",summary,new Vector2(0,.5f),new Vector2(445,-25),new Vector2(400,105),76,MenuUI.Ink,TextAnchor.MiddleLeft,true);
-            MenuUI.Label("最高连胜  "+Store.Data.bestStreak+"\n累计登顶  "+Store.Data.climb.summits,summary,new Vector2(1,.5f),new Vector2(-165,0),new Vector2(290,150),42,MenuUI.Muted,TextAnchor.MiddleLeft);
+            MenuUI.Label("最高连胜  "+Store.Data.bestStreak+"\n集章完成  "+Store.Data.climb.summits,summary,new Vector2(1,.5f),new Vector2(-165,0),new Vector2(290,150),42,MenuUI.Muted,TextAnchor.MiddleLeft);
             int[] milestones={10,50,100,250,500};string[] titles={"刚会划两下","有点东西","划线高手","脑力担当","全关通关"};
-            Color[] ranks={new Color32(165,70,56,255),new Color32(56,99,83,255),new Color32(60,91,83,255),new Color32(60,91,83,255),new Color32(134,151,133,255)};
+            Color[] ranks={new Color32(234,72,119,255),new Color32(102,69,170,255),new Color32(102,69,170,255),new Color32(102,69,170,255),new Color32(204,181,232,255)};
             for(int i=0;i<milestones.Length;i++)
             {
                 bool reached=Store.Data.wins>=milestones[i];float y=1245+i*158;
@@ -32,7 +32,7 @@ namespace Inkomino
                 if(!reached)icon.color=new Color(1,1,1,.48f);
                 else MenuMotion.Sparkle(icon.rectTransform,3,true);
                 var rank=Skin.Rect("Achievement rank "+(i+1),row,new Vector2(0,.5f),new Vector2(125,-32),Vector2.one*50);
-                Skin.RoundBox(rank,new Vector2(.5f,.5f),Vector2.zero,rank.sizeDelta,reached?ranks[i]:new Color32(223,229,219,255),25);
+                Skin.RoundBox(rank,new Vector2(.5f,.5f),Vector2.zero,rank.sizeDelta,reached?ranks[i]:new Color32(244,232,255,255),25);
                 MenuUI.Label((i+1).ToString(),rank,new Vector2(.5f,.5f),Vector2.zero,rank.sizeDelta,42,reached?Color.white:MenuUI.Muted,TextAnchor.MiddleCenter);
                 MenuUI.Label(titles[i],row,new Vector2(0,.5f),new Vector2(380,27),new Vector2(400,65),50,MenuUI.Ink);
                 MenuUI.Label(reached?"已达成":Mathf.Min(Store.Data.wins,milestones[i])+" / "+milestones[i],row,new Vector2(1,.5f),new Vector2(-180,27),new Vector2(290,65),42,reached?MenuUI.Green:MenuUI.Muted,TextAnchor.MiddleRight);

@@ -4,48 +4,58 @@
   "regions": [
     {
       "key": "ink_home_hero",
-      "x": 4,
+      "x": 25,
       "y": 720,
-      "width": 504,
+      "width": 462,
       "height": 300,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_home_hero.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_home_hero.png"
     },
     {
       "key": "menu_climb_journey",
       "x": 516,
-      "y": 720,
+      "y": 726,
       "width": 504,
-      "height": 300,
+      "height": 288,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/menu_climb_journey.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/menu_climb_journey.png"
     },
     {
       "key": "menu_pen",
-      "x": 4,
+      "x": 14,
       "y": 552,
-      "width": 160,
+      "width": 139,
       "height": 160,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/menu_pen.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/menu_pen.png"
     },
     {
       "key": "menu_freeze",
-      "x": 172,
+      "x": 186,
       "y": 552,
-      "width": 160,
+      "width": 132,
       "height": 160,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/menu_freeze.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/menu_freeze.png"
     },
     {
       "key": "menu_lens",
       "x": 340,
-      "y": 552,
+      "y": 554,
       "width": 160,
-      "height": 160,
+      "height": 156,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/menu_lens.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/menu_lens.png"
     },
     {
       "key": "menu_treasure",
@@ -54,97 +64,141 @@
       "width": 160,
       "height": 160,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/menu_treasure.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/menu_treasure.png"
     },
     {
       "key": "menu_achievement_medallion",
       "x": 172,
-      "y": 384,
+      "y": 388,
       "width": 160,
-      "height": 160,
+      "height": 152,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/menu_achievement_medallion.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/menu_achievement_medallion.png"
     },
     {
       "key": "ink_stamp",
-      "x": 340,
+      "x": 346,
       "y": 384,
-      "width": 160,
+      "width": 147,
       "height": 160,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_stamp.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_stamp.png"
     },
     {
       "key": "ink_paper",
-      "x": 520,
+      "x": 548,
       "y": 472,
-      "width": 496,
+      "width": 439,
       "height": 240,
       "border": 48,
-      "source": "Assets/Editor/InkArtSource/ink_paper.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_paper.png"
     },
     {
       "key": "ink_brush",
-      "x": 520,
+      "x": 642,
       "y": 344,
-      "width": 496,
+      "width": 252,
       "height": 120,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_brush.png"
+      "borderX": 60,
+      "borderY": 59,
+      "source": "Assets/Editor/StickerArtSource/ink_brush.png"
     },
     {
       "key": "ink_seal",
       "x": 520,
-      "y": 176,
+      "y": 177,
       "width": 160,
-      "height": 160,
+      "height": 159,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_seal.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_seal.png"
     },
     {
       "key": "ink_bloom",
-      "x": 688,
+      "x": 692,
       "y": 144,
-      "width": 192,
+      "width": 184,
       "height": 192,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_bloom.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_bloom.png"
+    },
+    {
+      "key": "sticker_secondary",
+      "x": 121,
+      "y": 8,
+      "width": 270,
+      "height": 128,
+      "border": 0,
+      "borderX": 64,
+      "borderY": 63,
+      "source": "Assets/Editor/StickerArtSource/sticker_secondary.png"
+    },
+    {
+      "key": "sticker_dock",
+      "x": 545,
+      "y": 8,
+      "width": 446,
+      "height": 128,
+      "border": 0,
+      "borderX": 64,
+      "borderY": 63,
+      "source": "Assets/Editor/StickerArtSource/sticker_dock.png"
     },
     {
       "key": "ink_avatar0",
-      "x": 4,
+      "x": 6,
       "y": 304,
-      "width": 64,
+      "width": 59,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_avatar0.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_avatar0.png"
     },
     {
       "key": "ink_avatar1",
-      "x": 76,
+      "x": 80,
       "y": 304,
-      "width": 64,
+      "width": 56,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_avatar1.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_avatar1.png"
     },
     {
       "key": "ink_avatar2",
       "x": 148,
-      "y": 304,
+      "y": 305,
       "width": 64,
-      "height": 64,
+      "height": 63,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_avatar2.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_avatar2.png"
     },
     {
       "key": "ink_avatar3",
       "x": 220,
-      "y": 304,
+      "y": 306,
       "width": 64,
-      "height": 64,
+      "height": 61,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_avatar3.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_avatar3.png"
     },
     {
       "key": "ink_close",
@@ -153,52 +207,64 @@
       "width": 64,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_close.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_close.png"
     },
     {
       "key": "ink_coin",
       "x": 364,
-      "y": 304,
+      "y": 305,
       "width": 64,
-      "height": 64,
+      "height": 63,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_coin.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_coin.png"
     },
     {
       "key": "ink_haptics",
       "x": 436,
-      "y": 304,
+      "y": 306,
       "width": 64,
-      "height": 64,
+      "height": 61,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_haptics.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_haptics.png"
     },
     {
       "key": "ink_heart",
       "x": 4,
-      "y": 232,
+      "y": 236,
       "width": 64,
-      "height": 64,
+      "height": 57,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_heart.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_heart.png"
     },
     {
       "key": "ink_heartbroken",
       "x": 76,
-      "y": 232,
+      "y": 236,
       "width": 64,
-      "height": 64,
+      "height": 57,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_heartbroken.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_heartbroken.png"
     },
     {
       "key": "ink_home",
       "x": 148,
-      "y": 232,
+      "y": 233,
       "width": 64,
-      "height": 64,
+      "height": 63,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_home.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_home.png"
     },
     {
       "key": "ink_info",
@@ -207,25 +273,31 @@
       "width": 64,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_info.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_info.png"
     },
     {
       "key": "ink_lock",
-      "x": 292,
+      "x": 296,
       "y": 232,
-      "width": 64,
+      "width": 56,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_lock.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_lock.png"
     },
     {
       "key": "ink_music",
-      "x": 364,
+      "x": 369,
       "y": 232,
-      "width": 64,
+      "width": 54,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_music.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_music.png"
     },
     {
       "key": "ink_pause",
@@ -234,7 +306,9 @@
       "width": 64,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_pause.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_pause.png"
     },
     {
       "key": "ink_plus",
@@ -243,61 +317,86 @@
       "width": 64,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_plus.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_plus.png"
     },
     {
       "key": "ink_settings",
       "x": 76,
-      "y": 160,
+      "y": 161,
       "width": 64,
-      "height": 64,
+      "height": 63,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_settings.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_settings.png"
     },
     {
       "key": "ink_shop",
-      "x": 148,
+      "x": 149,
       "y": 160,
-      "width": 64,
+      "width": 62,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_shop.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_shop.png"
     },
     {
       "key": "ink_sound",
       "x": 220,
-      "y": 160,
+      "y": 167,
       "width": 64,
-      "height": 64,
+      "height": 51,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_sound.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_sound.png"
     },
     {
       "key": "ink_time",
-      "x": 292,
+      "x": 293,
       "y": 160,
-      "width": 64,
+      "width": 62,
       "height": 64,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_time.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_time.png"
     },
     {
       "key": "ink_video",
       "x": 364,
-      "y": 160,
+      "y": 167,
       "width": 64,
-      "height": 64,
+      "height": 51,
       "border": 0,
-      "source": "Assets/Editor/InkArtSource/ink_video.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_video.png"
+    },
+    {
+      "key": "ink_rank",
+      "x": 436,
+      "y": 164,
+      "width": 64,
+      "height": 56,
+      "border": 0,
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_rank.png"
     },
     {
       "key": "menu_climb_node",
-      "x": 520,
+      "x": 548,
       "y": 472,
-      "width": 496,
+      "width": 439,
       "height": 240,
       "border": 48,
-      "source": "Assets/Editor/InkArtSource/ink_paper.png"
+      "borderX": 0,
+      "borderY": 0,
+      "source": "Assets/Editor/StickerArtSource/ink_paper.png"
     }
   ]
 }

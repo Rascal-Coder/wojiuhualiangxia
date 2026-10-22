@@ -1,7 +1,7 @@
 {
   "game_name": "我就划两下",
   "engine": "Tuanjie 1.10.4 / 2022.3.62t16",
-  "style": "文房入画：毛笔、砚台、画卷、书法与朱砂印章",
+  "style": "元气手账：年轻女性向多巴胺贴纸风",
   "assets": [
     {
       "role": "logo",
@@ -15,8 +15,8 @@
         0,
         255
       ],
-      "sha256": "d83ee0af419559fb4d82747fe5f0443a8df0ba262f35cf5ed551840ed32d6d16",
-      "source": "Built-in image_gen, normalized512 icon; live brush-font Chinese logo",
+      "sha256": "5cf7b1170280f51532eee0c36abfbd25aac2662765c695b2b01073b8e6938074",
+      "source": "image_gen sticker artwork; normalized composite and live OFL display lettering",
       "normalized": true
     },
     {
@@ -28,8 +28,8 @@
       ],
       "mode": "RGB",
       "alpha_range": null,
-      "sha256": "303df42a3fa2931e56e375364a8c2bd1c86a192dab731fa390c564dfd1596fc9",
-      "source": "Built-in image_gen, normalized512 icon; live brush-font Chinese logo",
+      "sha256": "65d262f24b23fabc1b9b2a86f0871ff1d86d8330a32700a0a63a268b8f61576e",
+      "source": "image_gen sticker artwork; normalized composite and live OFL display lettering",
       "normalized": true
     }
   ],
@@ -38,7 +38,8 @@
   "default_engine_splash_preserved": true,
   "platform_profile_not_changed": "微信公众平台展示名称和头像未代为提交；本次修改本地工程与导出素材",
   "validation": {
-    "status": "PENDING",
-    "runtime": "Awaiting actual ink-wash player captures"
+    "status": "PASS",
+    "runtime": "QA/ChineseWindows actual native Tuanjie loading and menu renders; QA/MenuDesign three sizes",
+    "phone_tested": false
   }
 }

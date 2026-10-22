@@ -1,5 +1,5 @@
 {
-    "status": "FAIL",
+    "status": "PASS",
     "checks": [
         "application exists",
         "motion capture uses real 360x800 rendering",
@@ -146,26 +146,24 @@
         "home after 20 switches static counters match actual live playback components",
         "no menu motion ticker survives outside the game stage"
     ],
-    "errors": [
-        "shop entry converges in less than 400ms without recording overhead"
-    ],
+    "errors": [],
     "entries": [
         {
             "page": "shop",
             "animatedChildren": 6,
-            "completionSeconds": 0.7016968727111816,
+            "completionSeconds": 0.2948184013366699,
             "inputReadyAtStart": true
         },
         {
             "page": "achievements",
             "animatedChildren": 10,
-            "completionSeconds": 0.30802392959594729,
+            "completionSeconds": 0.3016958236694336,
             "inputReadyAtStart": true
         },
         {
             "page": "climb",
             "animatedChildren": 9,
-            "completionSeconds": 0.2537498474121094,
+            "completionSeconds": 0.2763652801513672,
             "inputReadyAtStart": true
         }
     ],
@@ -183,7 +181,217 @@
         {
             "sequence": "01-shop-entry",
             "file": "frames/01-shop-entry/001.png",
-            "elapsed": 0.9499883651733398,
+            "elapsed": 0.06290626525878906,
+            "entranceProgress": 0.2096879929304123,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/002.png",
+            "elapsed": 0.08710289001464844,
+            "entranceProgress": 0.290343314409256,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/003.png",
+            "elapsed": 0.11607933044433594,
+            "entranceProgress": 0.38693132996559145,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/004.png",
+            "elapsed": 0.13830804824829102,
+            "entranceProgress": 0.461026668548584,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/005.png",
+            "elapsed": 0.1619114875793457,
+            "entranceProgress": 0.5397056341171265,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/006.png",
+            "elapsed": 0.18348360061645509,
+            "entranceProgress": 0.6116126179695129,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/007.png",
+            "elapsed": 0.2077484130859375,
+            "entranceProgress": 0.6924960017204285,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/008.png",
+            "elapsed": 0.23026609420776368,
+            "entranceProgress": 0.7675545811653137,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/009.png",
+            "elapsed": 0.2554464340209961,
+            "entranceProgress": 0.8514889478683472,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/010.png",
+            "elapsed": 0.27925920486450198,
+            "entranceProgress": 0.930864691734314,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 5,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/011.png",
+            "elapsed": 0.3061685562133789,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/012.png",
+            "elapsed": 0.3340611457824707,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/013.png",
+            "elapsed": 0.3632993698120117,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/014.png",
+            "elapsed": 0.38030052185058596,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/015.png",
+            "elapsed": 0.39696693420410159,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/016.png",
+            "elapsed": 0.413637638092041,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/017.png",
+            "elapsed": 0.43030309677124026,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/018.png",
+            "elapsed": 0.44696950912475588,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/019.png",
+            "elapsed": 0.46364641189575198,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/020.png",
+            "elapsed": 0.4803047180175781,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/021.png",
+            "elapsed": 0.49697399139404299,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 3
+        },
+        {
+            "sequence": "01-shop-entry",
+            "file": "frames/01-shop-entry/022.png",
+            "elapsed": 0.5136504173278809,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
@@ -213,17 +421,17 @@
         {
             "sequence": "04-button-press",
             "file": "frames/04-button-press/002.png",
-            "elapsed": 0.7508506774902344,
+            "elapsed": 0.24734210968017579,
             "entranceProgress": 1.0,
             "pressScale": 0.9700000286102295,
             "progressTotal": 0.0,
             "activeMotions": 4,
-            "particles": 0
+            "particles": 1
         },
         {
             "sequence": "04-button-press",
             "file": "frames/04-button-press/003.png",
-            "elapsed": 1.0518674850463868,
+            "elapsed": 0.4895052909851074,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
@@ -233,8 +441,8 @@
         {
             "sequence": "08-purchase-celebration",
             "file": "frames/08-purchase-celebration/000.png",
-            "elapsed": 0.13487482070922852,
-            "entranceProgress": 0.4495829641819,
+            "elapsed": 0.13379240036010743,
+            "entranceProgress": 0.4459746479988098,
             "pressScale": 1.0,
             "progressTotal": 0.0,
             "activeMotions": 6,
@@ -243,7 +451,7 @@
         {
             "sequence": "08-purchase-celebration",
             "file": "frames/08-purchase-celebration/001.png",
-            "elapsed": 0.3037567138671875,
+            "elapsed": 0.31270837783813479,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
@@ -253,7 +461,7 @@
         {
             "sequence": "08-purchase-celebration",
             "file": "frames/08-purchase-celebration/002.png",
-            "elapsed": 0.4542837142944336,
+            "elapsed": 0.46013975143432619,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
@@ -263,7 +471,7 @@
         {
             "sequence": "08-purchase-celebration",
             "file": "frames/08-purchase-celebration/003.png",
-            "elapsed": 0.5506176948547363,
+            "elapsed": 0.5621953010559082,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
@@ -283,67 +491,117 @@
         {
             "sequence": "02-achievements-entry",
             "file": "frames/02-achievements-entry/001.png",
-            "elapsed": 0.21257972717285157,
-            "entranceProgress": 0.7086012959480286,
+            "elapsed": 0.06365108489990235,
+            "entranceProgress": 0.21217232942581178,
             "pressScale": 1.0,
-            "progressTotal": 3086.172119140625,
+            "progressTotal": 1486.066650390625,
             "activeMotions": 10,
             "particles": 12
         },
         {
             "sequence": "02-achievements-entry",
             "file": "frames/02-achievements-entry/002.png",
-            "elapsed": 0.2633028030395508,
-            "entranceProgress": 0.8776759505271912,
+            "elapsed": 0.09418582916259766,
+            "entranceProgress": 0.3139536678791046,
             "pressScale": 1.0,
-            "progressTotal": 3235.07177734375,
+            "progressTotal": 2002.363525390625,
             "activeMotions": 10,
             "particles": 12
         },
         {
             "sequence": "02-achievements-entry",
             "file": "frames/02-achievements-entry/003.png",
-            "elapsed": 0.3149547576904297,
-            "entranceProgress": 1.0,
+            "elapsed": 0.11949825286865235,
+            "entranceProgress": 0.39832866191864016,
             "pressScale": 1.0,
-            "progressTotal": 3281.7021484375,
-            "activeMotions": 9,
+            "progressTotal": 2346.677734375,
+            "activeMotions": 10,
             "particles": 12
         },
         {
             "sequence": "02-achievements-entry",
             "file": "frames/02-achievements-entry/004.png",
-            "elapsed": 0.35118770599365237,
-            "entranceProgress": 1.0,
+            "elapsed": 0.1446981430053711,
+            "entranceProgress": 0.48232901096343996,
             "pressScale": 1.0,
-            "progressTotal": 3285.0,
-            "activeMotions": 4,
+            "progressTotal": 2622.0107421875,
+            "activeMotions": 10,
             "particles": 12
         },
         {
             "sequence": "02-achievements-entry",
             "file": "frames/02-achievements-entry/005.png",
-            "elapsed": 0.38939571380615237,
-            "entranceProgress": 1.0,
+            "elapsed": 0.16761016845703126,
+            "entranceProgress": 0.5587023496627808,
             "pressScale": 1.0,
-            "progressTotal": 3285.0,
-            "activeMotions": 4,
+            "progressTotal": 2820.132568359375,
+            "activeMotions": 10,
             "particles": 12
         },
         {
             "sequence": "02-achievements-entry",
             "file": "frames/02-achievements-entry/006.png",
-            "elapsed": 0.4363880157470703,
-            "entranceProgress": 1.0,
+            "elapsed": 0.1932973861694336,
+            "entranceProgress": 0.6443246603012085,
             "pressScale": 1.0,
-            "progressTotal": 3285.0,
-            "activeMotions": 4,
+            "progressTotal": 2990.177978515625,
+            "activeMotions": 10,
             "particles": 12
         },
         {
             "sequence": "02-achievements-entry",
             "file": "frames/02-achievements-entry/007.png",
-            "elapsed": 0.49437904357910159,
+            "elapsed": 0.22007083892822267,
+            "entranceProgress": 0.7335713505744934,
+            "pressScale": 1.0,
+            "progressTotal": 3116.947265625,
+            "activeMotions": 10,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/008.png",
+            "elapsed": 0.2500934600830078,
+            "entranceProgress": 0.8336465954780579,
+            "pressScale": 1.0,
+            "progressTotal": 3208.59765625,
+            "activeMotions": 10,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/009.png",
+            "elapsed": 0.27539634704589846,
+            "entranceProgress": 0.9179883003234863,
+            "pressScale": 1.0,
+            "progressTotal": 3253.18701171875,
+            "activeMotions": 10,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/010.png",
+            "elapsed": 0.30470848083496096,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 3277.881591796875,
+            "activeMotions": 9,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/011.png",
+            "elapsed": 0.3302011489868164,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 3284.4052734375,
+            "activeMotions": 9,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/012.png",
+            "elapsed": 0.3549842834472656,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 3285.0,
@@ -352,8 +610,58 @@
         },
         {
             "sequence": "02-achievements-entry",
-            "file": "frames/02-achievements-entry/008.png",
-            "elapsed": 0.529937744140625,
+            "file": "frames/02-achievements-entry/013.png",
+            "elapsed": 0.38445568084716799,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 3285.0,
+            "activeMotions": 4,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/014.png",
+            "elapsed": 0.41239452362060549,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 3285.0,
+            "activeMotions": 4,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/015.png",
+            "elapsed": 0.4362030029296875,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 3285.0,
+            "activeMotions": 4,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/016.png",
+            "elapsed": 0.46222972869873049,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 3285.0,
+            "activeMotions": 4,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/017.png",
+            "elapsed": 0.4909391403198242,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 3285.0,
+            "activeMotions": 4,
+            "particles": 12
+        },
+        {
+            "sequence": "02-achievements-entry",
+            "file": "frames/02-achievements-entry/018.png",
+            "elapsed": 0.5156345367431641,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 3285.0,
@@ -373,62 +681,182 @@
         {
             "sequence": "03-climb-entry",
             "file": "frames/03-climb-entry/001.png",
-            "elapsed": 0.16544723510742188,
-            "entranceProgress": 0.5514932870864868,
+            "elapsed": 0.060062408447265628,
+            "entranceProgress": 0.20020632445812226,
             "pressScale": 1.0,
             "progressTotal": 0.0,
             "activeMotions": 4,
-            "particles": 6
+            "particles": 2
         },
         {
             "sequence": "03-climb-entry",
             "file": "frames/03-climb-entry/002.png",
-            "elapsed": 0.200927734375,
-            "entranceProgress": 0.6697589159011841,
+            "elapsed": 0.09044075012207031,
+            "entranceProgress": 0.3014696538448334,
             "pressScale": 1.0,
             "progressTotal": 0.0,
             "activeMotions": 4,
-            "particles": 6
+            "particles": 2
         },
         {
             "sequence": "03-climb-entry",
             "file": "frames/03-climb-entry/003.png",
-            "elapsed": 0.24910736083984376,
-            "entranceProgress": 0.8303592801094055,
+            "elapsed": 0.11713314056396485,
+            "entranceProgress": 0.39044231176376345,
             "pressScale": 1.0,
             "progressTotal": 0.0,
             "activeMotions": 4,
-            "particles": 6
+            "particles": 2
         },
         {
             "sequence": "03-climb-entry",
             "file": "frames/03-climb-entry/004.png",
-            "elapsed": 0.2949638366699219,
-            "entranceProgress": 0.9832146167755127,
+            "elapsed": 0.14472389221191407,
+            "entranceProgress": 0.48241230845451357,
             "pressScale": 1.0,
             "progressTotal": 0.0,
             "activeMotions": 4,
-            "particles": 6
+            "particles": 2
         },
         {
             "sequence": "03-climb-entry",
             "file": "frames/03-climb-entry/005.png",
-            "elapsed": 0.46947765350341799,
-            "entranceProgress": 1.0,
+            "elapsed": 0.16927814483642579,
+            "entranceProgress": 0.5642603039741516,
             "pressScale": 1.0,
             "progressTotal": 0.0,
-            "activeMotions": 3,
-            "particles": 6
+            "activeMotions": 4,
+            "particles": 2
         },
         {
             "sequence": "03-climb-entry",
             "file": "frames/03-climb-entry/006.png",
-            "elapsed": 0.5159978866577148,
+            "elapsed": 0.19433212280273438,
+            "entranceProgress": 0.6477736234664917,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/007.png",
+            "elapsed": 0.22168540954589845,
+            "entranceProgress": 0.7389512658119202,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/008.png",
+            "elapsed": 0.2512693405151367,
+            "entranceProgress": 0.8375629186630249,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/009.png",
+            "elapsed": 0.2752981185913086,
+            "entranceProgress": 0.9176602363586426,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/010.png",
+            "elapsed": 0.2987947463989258,
+            "entranceProgress": 0.9959805607795715,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 4,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/011.png",
+            "elapsed": 0.32742977142333987,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
             "activeMotions": 3,
-            "particles": 6
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/012.png",
+            "elapsed": 0.3542156219482422,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 3,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/013.png",
+            "elapsed": 0.3800678253173828,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 3,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/014.png",
+            "elapsed": 0.4072294235229492,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 3,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/015.png",
+            "elapsed": 0.43550682067871096,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 3,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/016.png",
+            "elapsed": 0.46015357971191409,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 3,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/017.png",
+            "elapsed": 0.4874296188354492,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 3,
+            "particles": 2
+        },
+        {
+            "sequence": "03-climb-entry",
+            "file": "frames/03-climb-entry/018.png",
+            "elapsed": 0.5143098831176758,
+            "entranceProgress": 1.0,
+            "pressScale": 1.0,
+            "progressTotal": 0.0,
+            "activeMotions": 3,
+            "particles": 2
         },
         {
             "sequence": "09-live-motion-preference",
@@ -443,12 +871,12 @@
         {
             "sequence": "09-live-motion-preference",
             "file": "frames/09-live-motion-preference/001.png",
-            "elapsed": 3.9005823135375978,
+            "elapsed": 3.90206241607666,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
             "activeMotions": 2,
-            "particles": 0
+            "particles": 3
         },
         {
             "sequence": "05-reduced-shop",
@@ -463,7 +891,7 @@
         {
             "sequence": "05-reduced-shop",
             "file": "frames/05-reduced-shop/001.png",
-            "elapsed": 0.567164421081543,
+            "elapsed": 0.5013751983642578,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
@@ -483,7 +911,7 @@
         {
             "sequence": "06-reduced-achievements",
             "file": "frames/06-reduced-achievements/001.png",
-            "elapsed": 0.5278034210205078,
+            "elapsed": 0.4913787841796875,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 3285.0,
@@ -503,7 +931,7 @@
         {
             "sequence": "07-reduced-climb",
             "file": "frames/07-reduced-climb/001.png",
-            "elapsed": 0.5801887512207031,
+            "elapsed": 0.496795654296875,
             "entranceProgress": 1.0,
             "pressScale": 1.0,
             "progressTotal": 0.0,
@@ -517,7 +945,7 @@
             "stage": "creation",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.38065052032470705,
+            "elapsed": 0.07851552963256836,
             "centerX": 268.3333435058594,
             "centerY": 366.3333435058594,
             "rectWidth": 360.0,
@@ -525,9 +953,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 27,
+            "frame": 51,
             "graphicDepth": -1,
-            "registeredGraphics": 84,
+            "registeredGraphics": 80,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -550,7 +978,7 @@
             "stage": "first actual rendered frame",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.6996307373046875,
+            "elapsed": 0.17633676528930665,
             "centerX": 268.3333435058594,
             "centerY": 366.3333435058594,
             "rectWidth": 360.0,
@@ -558,9 +986,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 27,
-            "graphicDepth": 38,
-            "registeredGraphics": 84,
+            "frame": 51,
+            "graphicDepth": 35,
+            "registeredGraphics": 80,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -571,7 +999,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint depth=38 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint depth=35 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -581,20 +1009,20 @@
         },
         {
             "page": "shop",
-            "stage": "settled",
+            "stage": "first following frame",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.7045221328735352,
-            "centerX": 268.3333435058594,
-            "centerY": 366.3333435058594,
+            "elapsed": 0.1951746940612793,
+            "centerX": 267.47760009765627,
+            "centerY": 369.00885009765627,
             "rectWidth": 360.0,
             "rectHeight": 130.0,
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
-            "inheritedAlpha": 0.18000000715255738,
-            "frame": 27,
-            "graphicDepth": 38,
-            "registeredGraphics": 84,
+            "inheritedAlpha": 0.9859330654144287,
+            "frame": 52,
+            "graphicDepth": 35,
+            "registeredGraphics": 80,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -605,12 +1033,46 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint depth=38 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint depth=35 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
                 "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint alpha=1 blocks=True interactable=True ignoreParent=False",
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0 alpha=0.18 blocks=True interactable=True ignoreParent=False"
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0 alpha=0.9859331 blocks=True interactable=True ignoreParent=False"
+            ]
+        },
+        {
+            "page": "shop",
+            "stage": "settled",
+            "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint",
+            "canvasMode": "ScreenSpaceOverlay",
+            "elapsed": 0.2954983711242676,
+            "centerX": 267.47760009765627,
+            "centerY": 369.0993957519531,
+            "rectWidth": 360.0,
+            "rectHeight": 130.0,
+            "graphicAlpha": 0.0,
+            "rendererAlpha": 1.0,
+            "inheritedAlpha": 1.0,
+            "frame": 58,
+            "graphicDepth": 35,
+            "registeredGraphics": 80,
+            "targetExists": true,
+            "active": true,
+            "enabled": true,
+            "interactable": true,
+            "raycastTarget": true,
+            "rendererCull": false,
+            "insideRect": true,
+            "graphicRaycast": true,
+            "topHitMatches": true,
+            "hits": [
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint depth=35 sorting=0",
+                "Inkomino Canvas/Letterbox depth=0 sorting=0"
+            ],
+            "groups": [
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint alpha=1 blocks=True interactable=True ignoreParent=False",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0 alpha=1 blocks=True interactable=True ignoreParent=False"
             ]
         },
         {
@@ -626,9 +1088,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 27,
-            "graphicDepth": 38,
-            "registeredGraphics": 84,
+            "frame": 58,
+            "graphicDepth": 35,
+            "registeredGraphics": 80,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -639,7 +1101,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint depth=38 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Shop row 0/Shop exchange hint depth=35 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -652,7 +1114,7 @@
             "stage": "creation",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.05366182327270508,
+            "elapsed": 0.053086280822753909,
             "centerX": 101.33332824707031,
             "centerY": 541.3333740234375,
             "rectWidth": 466.0,
@@ -660,9 +1122,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 146,
+            "frame": 217,
             "graphicDepth": -1,
-            "registeredGraphics": 103,
+            "registeredGraphics": 99,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -685,7 +1147,7 @@
             "stage": "first actual rendered frame",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.10175657272338867,
+            "elapsed": 0.08231544494628906,
             "centerX": 101.33332824707031,
             "centerY": 541.3333740234375,
             "rectWidth": 466.0,
@@ -693,9 +1155,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 146,
-            "graphicDepth": 30,
-            "registeredGraphics": 103,
+            "frame": 217,
+            "graphicDepth": 27,
+            "registeredGraphics": 99,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -706,7 +1168,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=30 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=27 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -719,17 +1181,17 @@
             "stage": "first following frame",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.1068730354309082,
+            "elapsed": 0.08777904510498047,
             "centerX": 102.09304809570313,
-            "centerY": 541.2479858398438,
+            "centerY": 540.6351928710938,
             "rectWidth": 466.0,
             "rectHeight": 140.0,
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
-            "inheritedAlpha": 0.8209400177001953,
-            "frame": 147,
-            "graphicDepth": 30,
-            "registeredGraphics": 103,
+            "inheritedAlpha": 0.72580885887146,
+            "frame": 218,
+            "graphicDepth": 27,
+            "registeredGraphics": 99,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -740,12 +1202,12 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=30 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=27 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
                 "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab alpha=1 blocks=True interactable=True ignoreParent=False",
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs alpha=0.82094 blocks=True interactable=True ignoreParent=False"
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs alpha=0.7258089 blocks=True interactable=True ignoreParent=False"
             ]
         },
         {
@@ -753,7 +1215,7 @@
             "stage": "settled",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.30873632431030276,
+            "elapsed": 0.3022327423095703,
             "centerX": 102.09304809570313,
             "centerY": 542.4013671875,
             "rectWidth": 466.0,
@@ -761,9 +1223,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 1.0,
-            "frame": 159,
-            "graphicDepth": 30,
-            "registeredGraphics": 103,
+            "frame": 231,
+            "graphicDepth": 27,
+            "registeredGraphics": 99,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -774,7 +1236,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=30 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=27 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -795,9 +1257,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 166,
-            "graphicDepth": 30,
-            "registeredGraphics": 103,
+            "frame": 239,
+            "graphicDepth": 27,
+            "registeredGraphics": 99,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -808,7 +1270,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=30 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/Achievement tabs/Achievements tab depth=27 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -821,7 +1283,7 @@
             "stage": "creation",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.046329498291015628,
+            "elapsed": 0.048737525939941409,
             "centerX": 180.0,
             "centerY": 71.33331298828125,
             "rectWidth": 820.0,
@@ -829,9 +1291,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 175,
+            "frame": 258,
             "graphicDepth": -1,
-            "registeredGraphics": 77,
+            "registeredGraphics": 84,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -853,7 +1315,7 @@
             "stage": "first actual rendered frame",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.0848541259765625,
+            "elapsed": 0.07205009460449219,
             "centerX": 180.0,
             "centerY": 71.33331298828125,
             "rectWidth": 820.0,
@@ -861,9 +1323,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 175,
-            "graphicDepth": 75,
-            "registeredGraphics": 77,
+            "frame": 258,
+            "graphicDepth": 82,
+            "registeredGraphics": 84,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -874,7 +1336,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=75 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=82 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -886,17 +1348,17 @@
             "stage": "first following frame",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.08822345733642578,
+            "elapsed": 0.08055305480957031,
             "centerX": 180.0,
-            "centerY": 73.88027954101563,
+            "centerY": 72.9857177734375,
             "rectWidth": 820.0,
             "rectHeight": 190.0,
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
-            "inheritedAlpha": 0.6451185941696167,
-            "frame": 176,
-            "graphicDepth": 75,
-            "registeredGraphics": 77,
+            "inheritedAlpha": 0.5064367651939392,
+            "frame": 259,
+            "graphicDepth": 82,
+            "registeredGraphics": 84,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -907,11 +1369,11 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=75 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=82 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button alpha=0.6451186 blocks=True interactable=True ignoreParent=False"
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button alpha=0.5064368 blocks=True interactable=True ignoreParent=False"
             ]
         },
         {
@@ -919,7 +1381,7 @@
             "stage": "settled",
             "buttonPath": "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button",
             "canvasMode": "ScreenSpaceOverlay",
-            "elapsed": 0.2543363571166992,
+            "elapsed": 0.27746105194091799,
             "centerX": 180.0,
             "centerY": 76.16934204101563,
             "rectWidth": 820.0,
@@ -927,9 +1389,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 1.0,
-            "frame": 186,
-            "graphicDepth": 75,
-            "registeredGraphics": 77,
+            "frame": 271,
+            "graphicDepth": 82,
+            "registeredGraphics": 84,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -940,7 +1402,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=75 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=82 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -960,9 +1422,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 0.18000000715255738,
-            "frame": 186,
-            "graphicDepth": 75,
-            "registeredGraphics": 77,
+            "frame": 271,
+            "graphicDepth": 82,
+            "registeredGraphics": 84,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -973,7 +1435,7 @@
             "graphicRaycast": true,
             "topHitMatches": true,
             "hits": [
-                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=75 sorting=0",
+                "Inkomino Canvas/Safe area/Portrait Stage/Screens/Menu page layout/ menu button depth=82 sorting=0",
                 "Inkomino Canvas/Letterbox depth=0 sorting=0"
             ],
             "groups": [
@@ -993,9 +1455,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 1.0,
-            "frame": 404,
+            "frame": 536,
             "graphicDepth": -1,
-            "registeredGraphics": 84,
+            "registeredGraphics": 80,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -1026,9 +1488,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 1.0,
-            "frame": 427,
+            "frame": 567,
             "graphicDepth": -1,
-            "registeredGraphics": 103,
+            "registeredGraphics": 99,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -1059,9 +1521,9 @@
             "graphicAlpha": 0.0,
             "rendererAlpha": 1.0,
             "inheritedAlpha": 1.0,
-            "frame": 457,
+            "frame": 597,
             "graphicDepth": -1,
-            "registeredGraphics": 77,
+            "registeredGraphics": 84,
             "targetExists": true,
             "active": true,
             "enabled": true,
@@ -1079,8 +1541,8 @@
             ]
         }
     ],
-    "homeLiveBaseline": 9,
+    "homeLiveBaseline": 12,
     "homeActiveBaseline": 1,
-    "homeLiveAfterSwitches": 9,
+    "homeLiveAfterSwitches": 14,
     "homeActiveAfterSwitches": 1
 }

@@ -11,7 +11,7 @@ namespace Inkomino
     {
         Vector2 EffectPoint(Vector2 screen){Vector2 p;var canvas=Effects.GetComponentInParent<Canvas>();RectTransformUtility.ScreenPointToLocalPointInRectangle(Effects,screen,canvas.renderMode==RenderMode.ScreenSpaceOverlay?null:canvas.worldCamera,out p);return p;}
         Vector2 EffectCell(int cell){return EffectPoint(BoardView.CellCenterScreen(cell));}
-        Vector2 BoosterOrigin(int i){return new Vector2(289.5f+i*252-540,1200-2197.5f);}
+        Vector2 BoosterOrigin(int i){return new Vector2((i-1)*322,190+6+51-1200);}
         public void UseBooster(int index)
         {
             if(!InputEnabled||index<0||index>2)return;int unlock=index==0?3:index==1?7:10;
@@ -52,9 +52,9 @@ namespace Inkomino
             Vector2 destination=new Vector2(0,1200-201-(headerLayout?headerLayout.Offset:0));yield return SourceMotion.Tween(.330f,t=>{if(particle)particle.rectTransform.anchoredPosition=Vector2.Lerp(BoosterOrigin(1),destination,t);},SourceMotion.OutCubic);
             if(epoch!=presentationEpoch||!root)yield break;Destroy(root.gameObject);frozen=10;TimerChanged();
             var layer=Skin.Fill("Source freeze edge",Effects);var group=layer.gameObject.AddComponent<CanvasGroup>();group.blocksRaycasts=false;
-            var edge=MenuUI.Art("ink_bloom",layer,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,1800));edge.color=new Color(1,1,1,.08f);edge.rectTransform.localScale=new Vector3(1.3f,1.8f,1);
-            var flakeRoots=new List<RectTransform>();var yBase=new List<float>();var rand=new System.Random(19);
-            for(int i=0;i<12;i++){float x=(i%2==0?1+rand.Next(13):84+rand.Next(13))*.01f*1080-540,y=1200-(4+rand.Next(91))*.01f*2400,size=(13+rand.Next(21))*D;var f=MenuUI.Art("ink_bloom",layer,new Vector2(.5f,.5f),new Vector2(x,y),Vector2.one*size);f.color=new Color(1,1,1,.12f+(float)rand.NextDouble()*.16f);f.rectTransform.localRotation=Quaternion.Euler(0,0,rand.Next(360));flakeRoots.Add(f.rectTransform);yBase.Add(y);}
+            var halo=Skin.RoundBox(layer,Vector2.one*.5f,destination,new Vector2(335,152),new Color32(105,216,177,50),60);
+            var flakeRoots=new List<RectTransform>();var yBase=new List<float>();
+            for(int i=0;i<6;i++){float x=destination.x+(i<3?-1:1)*(195+28*(i%3)),y=destination.y+(i%3-1)*48;var f=Skin.RoundBox(layer,Vector2.one*.5f,new Vector2(x,y),Vector2.one*(18+8*(i%3)),new Color32(105,216,177,170),20);flakeRoots.Add(f.rectTransform);yBase.Add(y);}
             float born=SourceClock.Now;while(epoch==presentationEpoch&&layer&&(frozen>0||SourceClock.Now-born<.220f))
             {float t=SourceClock.Now-born;group.alpha=SourceMotion.OutQuad(t/.220f);for(int i=0;i<flakeRoots.Count;i++){var f=flakeRoots[i];float period=2.6f+.6f*(i%4),phase=Mathf.Max(0,t-i*.300f)/period*Mathf.PI*2;f.anchoredPosition=new Vector2(f.anchoredPosition.x,yBase[i]+Mathf.Sin(phase)*(3+i%5)*D);}yield return null;}
             if(epoch!=presentationEpoch||!layer)yield break;yield return SourceMotion.Tween(.360f,t=>{if(group)group.alpha=1-t;},SourceMotion.OutQuad);if(layer)Destroy(layer.gameObject);TimerChanged();

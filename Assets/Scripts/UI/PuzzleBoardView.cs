@@ -13,7 +13,7 @@ namespace Inkomino
         public readonly List<int> Trail=new List<int>();public int[] Reveal;public bool Tutorial;
         public float PixelDensity=2.625f;public bool FitActiveBounds=true;public float TutorialReservedDp;public bool Animating;
         public int[] DrawTrace;public float DrawProgress=1;
-        public static readonly string[] Palette={"#7BA68A","#829EA9","#A396AD","#C3A27D","#72A49C","#BE929A","#C78470","#BFB174","#8B94B6","#A6AF85"};
+        public static readonly string[] Palette={"#FF83AC","#8DCFFC","#B6A0F5","#FFD86B","#75DABA","#FFA8D2","#FFAA7A","#D6EA81","#8EAAFA","#C7A5EA"};
         internal sealed class PieceStyle
         {public int ColorIndex,TextureIndex;public Vector2 Offset;public float Born;public int[] Order;public bool Locked,PopAfterInk,TutorialLocked;public float Duration{get{return .230f+.045f*Mathf.Max(0,Order.Length-1);}}}
         readonly Dictionary<PieceData,PieceStyle> styles=new Dictionary<PieceData,PieceStyle>();
@@ -35,7 +35,7 @@ namespace Inkomino
         {
             State=state;rt=(RectTransform)transform;var hit=gameObject.GetComponent<Image>()??gameObject.AddComponent<Image>();hit.color=new Color(1,1,1,.001f);hit.raycastTarget=true;
             var shader=Resources.Load<Shader>("Mosaic");if(shader)glassMaterial=new Material(shader);
-            Layer(0);for(int i=0;i<3;i++)Layer(1,i);Layer(3);Layer(2);
+            Layer(0);for(int i=0;i<3;i++)Layer(1,i);Layer(3);Layer(2);Layer(7);
             // Detailed round SVG strokes can exceed uGUI's16-bit vertex limit
             // when the whole board shares one graphic. Preserve all samples and
             // submit small cell batches instead of reducing symbol detail.
@@ -48,7 +48,7 @@ namespace Inkomino
         {
             if(State==null||rt==null)return;bool changed=lastSize!=rt.rect.size;if(changed){EnsureLayout();RefreshLabels();}
             bool previous=Animating;Animating=DrawTrace!=null&&DrawProgress<1||flashCells!=null&&SourceClock.Now<flashUntil||VictoryTimeRemaining>0;
-            foreach(var p in State.Pieces){PieceStyle s;if(styles.TryGetValue(p,out s)&&SourceClock.Now<s.Born+s.Duration)Animating=true;}
+            foreach(var p in State.Pieces){PieceStyle s;if(styles.TryGetValue(p,out s)&&SourceClock.Now<s.Born+Mathf.Max(.62f,s.Duration))Animating=true;}
             if(Animating||previous||changed||DrawTrace!=null)Dirty();
         }
         void Dirty(){foreach(var m in meshes)if(m)m.SetVerticesDirty();}
@@ -99,7 +99,7 @@ namespace Inkomino
         internal PieceStyle TrailStyle{get{return trailStyle;}}
         internal Rect CellRect(int i){int n=State.Level.n;return new Rect(origin.x+i%n*cellSize,origin.y-(i/n+1)*cellSize,cellSize,cellSize);}
         internal void Appearance(PieceData p,int cell,out float scale,out float opacity)
-        {scale=opacity=1;var s=Style(p);if(s==null)return;int j=Array.IndexOf(s.Order,cell);float u=Mathf.Clamp01((SourceClock.Now-s.Born-.045f*Mathf.Max(0,j))/.230f);scale=Mathf.Lerp(.96f,1,SourceMotion.OutQuad(u));opacity=Mathf.Lerp(.16f,1,SourceMotion.OutQuad(u));}
+        {scale=opacity=1;var s=Style(p);if(s==null)return;int j=Array.IndexOf(s.Order,cell);float u=Mathf.Clamp01((SourceClock.Now-s.Born-.045f*Mathf.Max(0,j))/.230f);scale=MenuMotion.Reduced?1:1-.12f*Mathf.Pow(1-u,2)+.035f*Mathf.Sin(u*Mathf.PI*2)*(1-u);opacity=Mathf.Lerp(.35f,1,SourceMotion.OutQuad(u));}
         public void Refresh(){if(State==null||meshes.Count==0)return;SyncStyles();Dirty();RefreshLabels();}
         void RefreshLabels()
         {
@@ -141,7 +141,7 @@ namespace Inkomino
         void Stroke(VertexHelper vh,IList<Vector2> p,float width,Color c,bool closed=true,Func<Vector2,Color> gradient=null)
         {
             if(p.Count<2)return;int start=vh.currentVertCount;
-            for(int i=0;i<p.Count;i++){Vector2 previous=i==0?(closed?p[p.Count-1]:p[0]-(p[1]-p[0])):p[i-1],next=i==p.Count-1?(closed?p[0]:p[i]+(p[i]-p[i-1])):p[i+1];var a=(p[i]-previous).normalized;var b=(next-p[i]).normalized;var na=new Vector2(-a.y,a.x);var nb=new Vector2(-b.y,b.x);var m=(na+nb).normalized;if(m.sqrMagnitude<.01f)m=nb;float pressure=1+.12f*Mathf.Sin(p[i].x*.047f+p[i].y*.039f);float length=width*.5f*pressure/Mathf.Max(.25f,Vector2.Dot(m,nb));Color co=gradient==null?c:gradient(p[i]);vh.AddVert(p[i]-m*length,co,Vector2.zero);vh.AddVert(p[i]+m*length,co,Vector2.zero);}
+            for(int i=0;i<p.Count;i++){Vector2 previous=i==0?(closed?p[p.Count-1]:p[0]-(p[1]-p[0])):p[i-1],next=i==p.Count-1?(closed?p[0]:p[i]+(p[i]-p[i-1])):p[i+1];var a=(p[i]-previous).normalized;var b=(next-p[i]).normalized;var na=new Vector2(-a.y,a.x);var nb=new Vector2(-b.y,b.x);var m=(na+nb).normalized;if(m.sqrMagnitude<.01f)m=nb;float pressure=1;float length=width*.5f*pressure/Mathf.Max(.25f,Vector2.Dot(m,nb));Color co=gradient==null?c:gradient(p[i]);vh.AddVert(p[i]-m*length,co,Vector2.zero);vh.AddVert(p[i]+m*length,co,Vector2.zero);}
             int segments=closed?p.Count:p.Count-1;for(int i=0;i<segments;i++){int a=start+i*2,b=start+((i+1)%p.Count)*2;vh.AddTriangle(a,a+1,b+1);vh.AddTriangle(b+1,b,a);}
         }
         List<List<Vector2>> Paths(IEnumerable<int> cells,float inset=0){return SourceBoardGeometry.Paths(View.State.Level.n,cells,View.CellSize,View.BoardOriginLocal,inset,4.5f*View.PixelDensity);}
@@ -154,7 +154,7 @@ namespace Inkomino
                 if(!b.IsActive(i))continue;Rect cell=View.CellRect(i);var piece=b.At(i);bool trail=View.Trail.Contains(i);
                 if(Layer==0)
                 {
-                    Quad(vh,cell,Co("#F7F5EC"));
+                    Quad(vh,cell,Co("#FFF9EE"));
                 }
                 if(Layer==1&&(piece!=null||trail))
                 {
@@ -176,20 +176,52 @@ namespace Inkomino
                 foreach(var p in b.Pieces){bool drawing=View.DrawTrace!=null&&new HashSet<int>(View.DrawTrace).SetEquals(p.cells);var s=View.Style(p);if(drawing&&s!=null)s.Locked=true;DrawPiece(vh,p.cells,drawing?View.DrawProgress:1,drawing,s!=null&&s.Locked);}
                 if(b.Level.walls!=null){float woodDp=Mathf.Max(5,Mathf.Floor(cs/dp*.18f+.5f)),width=Mathf.Max(3,Mathf.Floor(woodDp*.78f+.5f))*dp;for(int i=0;i<n*n;i++){Rect cell=View.CellRect(i);if(b.Level.walls.e[i]>0)DrawWall(vh,new Vector2(cell.xMax,cell.yMin),new Vector2(cell.xMax,cell.yMax),width);if(b.Level.walls.s[i]>0)DrawWall(vh,new Vector2(cell.xMin,cell.yMin),new Vector2(cell.xMax,cell.yMin),width);}}
             }
+            if(Layer==7)DrawStickerFeedback(vh);
             if(Layer==3&&View.SweepVisible)DrawSweep(vh);
             if(Layer==5)DrawSymbols(vh);
         }
         void DrawPiece(VertexHelper vh,IEnumerable<int> cells,float progress,bool drawing,bool drawInk)
         {
-            float dp=View.PixelDensity;Color ink=Co("#1F1C1A"),light=Co("#FFFDF6");var paths=Paths(cells);
-            if(drawInk){foreach(var p in paths)if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),5*dp,ink,false);else Stroke(vh,p,5*dp,ink);
+            float dp=View.PixelDensity;Color ink=Co("#6645AA"),light=Co("#FFFDF6");var paths=Paths(cells);
+            foreach(var p in Paths(cells,2.4f*dp))
+            {
+                Stroke(vh,p.Select(x=>x+Vector2.down*1.2f*dp).ToList(),5.2f*dp,Alpha(ink,.28f));
+                Stroke(vh,p,3.4f*dp,Color.white);
+            }
+            foreach(var p in Paths(cells,5.3f*dp))Stroke(vh,p,.85f*dp,Alpha(Color.white,.50f));
+            if(drawInk){foreach(var p in paths)if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),2.3f*dp,ink,false);else Stroke(vh,p,2.3f*dp,ink);
             foreach(var p in Paths(cells,3.5f*dp))if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),2*dp,light,false);else Stroke(vh,p,2*dp,light);}
             if(View.VictoryInk<=0)return;
-            foreach(var p in paths){Stroke(vh,p.Select(x=>x+new Vector2(.9f,-1.2f)*dp).ToList(),6.2f*dp,Alpha(Co("#3B5147"),.85f*View.VictoryInk));Stroke(vh,p.Select(x=>x+new Vector2(-.8f,1)*dp).ToList(),5.8f*dp,Alpha(Co("#F4F3E9"),.95f*View.VictoryInk));Stroke(vh,p,5*dp,Color.white,true,GoldAt);}
+            foreach(var p in paths){Stroke(vh,p.Select(x=>x+new Vector2(.9f,-1.2f)*dp).ToList(),6.2f*dp,Alpha(Co("#6645AA"),.85f*View.VictoryInk));Stroke(vh,p.Select(x=>x+new Vector2(-.8f,1)*dp).ToList(),5.8f*dp,Alpha(Co("#FFFFFF"),.95f*View.VictoryInk));Stroke(vh,p,5*dp,Color.white,true,GoldAt);}
             foreach(var p in Paths(cells,3.5f*dp))Stroke(vh,p,1.4f*dp,Alpha(Co("#FFF7D6"),.85f*View.VictoryInk));
         }
-        Color GoldAt(Vector2 p){float[] stops={0,.25f,.45f,.6f,.8f,1};string[] colors={"#789B85","#3C6657","#DBE6D7","#7E9E8B","#3B5A50","#91AC96"};Vector2 local=p-View.BoardOriginLocal;float t=Mathf.Clamp01((.7f*local.x-local.y)/(View.BoardSize*1.49f));for(int i=1;i<stops.Length;i++)if(t<=stops[i])return Alpha(Color.Lerp(Co(colors[i-1]),Co(colors[i]),Mathf.InverseLerp(stops[i-1],stops[i],t)),View.VictoryInk);return Alpha(Co(colors[colors.Length-1]),View.VictoryInk);}
-        void DrawWall(VertexHelper vh,Vector2 a,Vector2 b,float width){Line(vh,a,b,width,Co("#32443E"));Line(vh,a,b,width*.86f,Co("#D6DED0"));Line(vh,a,b,width*.56f,Co("#6F8776"));Line(vh,a,b,width*.32f,Co("#A0AE99"));}
+        void DrawStickerFeedback(VertexHelper vh)
+        {
+            float dp=View.PixelDensity;
+            if(View.Trail.Count>0)
+            {
+                DrawPiece(vh,View.Trail,1,false,false);
+                var points=View.Trail.Select(View.CellCenterLocal).ToList();
+                if(points.Count>1){RoundStroke(vh,points,4*dp,Alpha(Co("#6645AA"),.15f),false);RoundStroke(vh,points,2.4f*dp,Alpha(Color.white,.85f),false);}
+                var tip=points[points.Count-1];Disc(vh,tip,6.5f*dp,Color.white);Disc(vh,tip,3.8f*dp,Co("#FF638B"));
+            }
+            if(MenuMotion.Reduced)return;
+            foreach(var piece in View.State.Pieces)
+            {
+                var style=View.Style(piece);if(style==null||style.Order.Length==0)continue;
+                float t=(SourceClock.Now-style.Born)/.62f;if(t<0||t>=1)continue;
+                Vector2 center=View.CellCenterLocal(style.Order[style.Order.Length-1]);
+                for(int i=0;i<6;i++)
+                {
+                    float angle=(i*60+25)*Mathf.Deg2Rad;var direction=new Vector2(Mathf.Cos(angle),Mathf.Sin(angle));
+                    var point=center+direction*View.CellSize*(.20f+.35f*SourceMotion.OutQuad(t));float radius=(i%2==0?5:3)*dp*Mathf.Sin(Mathf.PI*t);
+                    Color color=Alpha(Co(i%3==0?"#FF638B":i%3==1?"#FFE36B":"#6645AA"),(1-t)*.95f);
+                    Polygon(vh,new[]{point+Vector2.up*radius*1.5f,point+Vector2.right*radius,point+Vector2.down*radius*1.5f,point+Vector2.left*radius},color);
+                }
+            }
+        }
+        Color GoldAt(Vector2 p){float[] stops={0,.25f,.45f,.6f,.8f,1};string[] colors={"#FF83AC","#B6A0F5","#FFE36B","#75DABA","#FF83AC","#B6A0F5"};Vector2 local=p-View.BoardOriginLocal;float t=Mathf.Clamp01((.7f*local.x-local.y)/(View.BoardSize*1.49f));for(int i=1;i<stops.Length;i++)if(t<=stops[i])return Alpha(Color.Lerp(Co(colors[i-1]),Co(colors[i]),Mathf.InverseLerp(stops[i-1],stops[i],t)),View.VictoryInk);return Alpha(Co(colors[colors.Length-1]),View.VictoryInk);}
+        void DrawWall(VertexHelper vh,Vector2 a,Vector2 b,float width){Line(vh,a,b,width,Co("#A184C4"));Line(vh,a,b,width*.86f,Color.white);Line(vh,a,b,width*.56f,Co("#CFB5EE"));}
         static List<Vector2> CirclePoints(Vector2 center,float radius,int segments=48)
         {var p=new List<Vector2>();for(int i=0;i<segments;i++){float a=i*Mathf.PI*2/segments;p.Add(center+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*radius);}return p;}
         void Disc(VertexHelper vh,Vector2 center,float radius,Color color){Polygon(vh,CirclePoints(center,radius),color);}
@@ -209,7 +241,7 @@ namespace Inkomino
         }
         void DrawSymbols(VertexHelper vh)
         {
-            var b=View.State;int n=b.Level.n;float dp=View.PixelDensity,cs=View.CellSize,r=Mathf.Clamp(cs/dp*.17f,6,14)*dp,w=Mathf.Max(1.4f,cs/dp*.028f)*dp;Color paper=Co("#F7F5EC"),ink=Co("#1F1C1A");
+            var b=View.State;int n=b.Level.n;float dp=View.PixelDensity,cs=View.CellSize,r=Mathf.Clamp(cs/dp*.17f,6,14)*dp,w=Mathf.Max(1.4f,cs/dp*.028f)*dp;Color paper=Co("#FFF9EE"),ink=Co("#6645AA");
             int first=Mathf.Max(0,SymbolStart),last=Mathf.Min(n*n,SymbolEnd);
             if(b.Level.icons!=null)for(int i=first;i<last;i++)
             {

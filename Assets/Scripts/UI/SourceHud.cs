@@ -31,8 +31,8 @@ namespace Inkomino
             public bool Animate;
         }
         readonly List<Card> cards=new List<Card>();
-        static readonly Color Ink=new Color32(43,59,52,255),Paper=new Color32(246,243,232,255);
-        static readonly Color Orange=new Color32(134,151,133,255),Green=new Color32(56,99,83,255);
+        static readonly Color Ink=new Color32(102,69,170,255),Paper=new Color32(255,249,238,255);
+        static readonly Color Orange=new Color32(102,69,170,255),Green=new Color32(102,69,170,255);
         BoardState board; RectTransform holder,generated; float d,lastWidth=-1;
         const float WidthDp=68,HeightDp=86,GapDp=8;
 

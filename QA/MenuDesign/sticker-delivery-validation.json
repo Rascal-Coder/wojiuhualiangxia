@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "suites": {
+    "MenuDesign": {
+      "status": "PASS",
+      "screenshots": 42,
+      "checks": 1364
+    },
+    "ChineseWindows": {
+      "status": "PASS",
+      "screenshots": 28,
+      "checks": 90
+    },
+    "RuntimeInk": {
+      "status": "PASS",
+      "screenshots": 18,
+      "checks": 0
+    },
+    "MenuMotion": {
+      "status": "PASS",
+      "screenshots": null,
+      "checks": 144
+    },
+    "Social": {
+      "status": "PASS",
+      "screenshots": 7,
+      "checks": 26
+    },
+    "Tutorial": {
+      "status": "PASS",
+      "screenshots": null,
+      "checks": 24
+    },
+    "SafeLayout": {
+      "status": "PASS",
+      "screenshots": 12,
+      "checks": 57
+    },
+    "Monetization": {
+      "status": "PASS",
+      "screenshots": 12,
+      "checks": 65
+    }
+  },
+  "sprite_validation": "QA/MenuArt/sprite-validation.json",
+  "phone_tested": false
+}

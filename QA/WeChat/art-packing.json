@@ -1,7 +1,7 @@
 {
     "encoding": "Original PNG/JPG bytes, no resizing or re-encoding",
-    "selected": 139,
-    "excluded": 240,
+    "selected": 138,
+    "excluded": 241,
     "entries": [
         {
             "key": "game_assets_bg",
@@ -865,13 +865,6 @@
             "height": 112
         },
         {
-            "key": "shell_src_ui_coinxlarge",
-            "sha256": "06ec4b5b74fbe941093039be90712ee440ff2c57abebe310e111b19c5d81f983",
-            "bytes": 49499,
-            "width": 249,
-            "height": 246
-        },
-        {
             "key": "shell_src_ui_dailyrewardcardicon",
             "sha256": "b657b89a1b11c1bd2487217b9ead13db0b4fe113a12086ce8eafc2f98a7c4141",
             "bytes": 74029,
@@ -964,15 +957,15 @@
         },
         {
             "key": "source_loading_background",
-            "sha256": "e09d3b54342b0bdfc5f9a65887b4dd1f2c49c7943a9ceb3f7d50cd428dd9d758",
-            "bytes": 334534,
+            "sha256": "da6c19dcdaf995959b9c5d6c7830f6a49aa5add9de8f7f491a2e428979d8c642",
+            "bytes": 317152,
             "width": 720,
             "height": 1560
         },
         {
             "key": "zh_loading_logo",
-            "sha256": "d83ee0af419559fb4d82747fe5f0443a8df0ba262f35cf5ed551840ed32d6d16",
-            "bytes": 18735,
+            "sha256": "5cf7b1170280f51532eee0c36abfbd25aac2662765c695b2b01073b8e6938074",
+            "bytes": 35557,
             "width": 960,
             "height": 240
         }

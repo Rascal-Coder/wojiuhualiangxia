@@ -7,7 +7,7 @@ namespace Inkomino
     // Does not change resource IDs used by sound, saves, rewards or gameplay.
     public static class InkTheme
     {
-        public static readonly Color32 Ink=new Color32(41,61,53,255),Muted=new Color32(101,115,104,255),Paper=new Color32(247,245,236,255),Line=new Color32(190,200,181,255),Jade=new Color32(60,102,87,255),Cinnabar=new Color32(173,76,62,255);
+        public static readonly Color32 Ink=new Color32(65,47,91,255),Muted=new Color32(126,105,147,255),Paper=new Color32(255,249,238,255),Line=new Color32(228,211,241,255),Jade=new Color32(102,69,170,255),Cinnabar=new Color32(234,72,119,255);
         static Texture2D paper,grain,wash;
         static Sprite paperSprite;
         static Texture2D Noise(string name,Color32 basis,int variation)
@@ -20,9 +20,9 @@ namespace Inkomino
         public static Texture2D Texture(string key)
         {
             if(key=="game_assets_homebg"||key=="game_assets_bg"||key=="game_assets_shopbg"||key=="game_assets_paper"||key=="source_loading_background"||key=="shell_src_ui_gameplaysplash")
-            {if(!paper)paper=Noise("Ink xuan paper",Paper,1);return paper;}
-            if(key=="game_assets_wood"){if(!grain)grain=Noise("Ink board wash",new Color32(166,182,157,255),9);return grain;}
-            if(key.StartsWith("game_assets_facets")){if(!wash)wash=Noise("Ink pigment grain",new Color32(232,238,225,255),15);return wash;}
+            {if(!paper)paper=Noise("Sticker cream",Paper,0);return paper;}
+            if(key=="game_assets_wood"){if(!grain)grain=Noise("Sticker rim",new Color32(226,207,247,255),0);return grain;}
+            if(key.StartsWith("game_assets_facets")){if(!wash)wash=Noise("Sticker matte",new Color32(255,255,255,255),0);return wash;}
             return null;
         }
         public static Sprite Sprite(string key)
@@ -33,9 +33,9 @@ namespace Inkomino
             if(key.Contains("avatars_avatar_")){int value;int.TryParse(key.Substring(key.LastIndexOf('_')+1),out value);icon=new[]{"ink_stamp","menu_pen","menu_lens","menu_achievement_medallion"}[value%4];}
             else if(key=="shell_src_ui_tutorialhand")icon="menu_pen";
             else if(key=="shell_src_ui_defaultparticle")icon="ink_bloom";
-            else if(key.Contains("nav_tabhome"))icon="ink_stamp";
-            else if(key.Contains("nav_tabshop"))icon="menu_pen";
-            else if(key.Contains("nav_tabrank"))icon="menu_achievement_medallion";
+            else if(key.Contains("nav_tabhome"))icon="ink_home";
+            else if(key.Contains("nav_tabshop"))icon="ink_shop";
+            else if(key.Contains("nav_tabrank"))icon="ink_rank";
             else if(key.Contains("settings"))icon="ink_settings";
             else if(key.Contains("pause"))icon="ink_pause";
             else if(key.Contains("heartbroken"))icon="ink_heartbroken";
@@ -60,12 +60,12 @@ namespace Inkomino
         }
         public static RectTransform Brand(Transform parent,Vector2 anchor,Vector2 position,Vector2 size)
         {
-            var r=Skin.Rect("Ink game brand",parent,anchor,position,size);
-            MenuUI.Label("我就划两下",r,Vector2.one*.5f,new Vector2(-30,15),size-new Vector2(125,0),118,Ink,TextAnchor.MiddleCenter,true);
-            var seal=Skin.Rect("Ink brand seal",r,new Vector2(1,.5f),new Vector2(-55,-12),new Vector2(72,112));
-            Skin.RoundBox(seal,Vector2.one*.5f,Vector2.zero,seal.sizeDelta,Cinnabar,4);
-            MenuUI.Label("益\n趣",seal,Vector2.one*.5f,Vector2.zero,new Vector2(65,112),42,Paper,TextAnchor.MiddleCenter,true);
+            var r=Skin.Rect("Sticker game brand",parent,anchor,position,size);
+            var title=MenuUI.Label("我就划两下",r,Vector2.one*.5f,new Vector2(0,0),size,142,Ink,TextAnchor.MiddleCenter,true);
+            var outline=title.gameObject.AddComponent<Outline>();outline.effectColor=Color.white;outline.effectDistance=new Vector2(7,-7);
+            title.rectTransform.localRotation=Quaternion.Euler(0,0,3);
             return r;
         }
+
     }
 }

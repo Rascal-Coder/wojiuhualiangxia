@@ -17,7 +17,7 @@ namespace Inkomino
         static Font latinFont;
         public static Font Font{get{if(!latinFont)latinFont=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");if(!latinFont)latinFont=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");return latinFont;}}
         static Font chineseFont;
-        public static Font ChineseFont{get{if(!chineseFont)chineseFont=Resources.Load<Font>("Fonts/LiangxiaBrush-Regular");return chineseFont?chineseFont:Font;}}
+        public static Font ChineseFont{get{if(!chineseFont)chineseFont=Resources.Load<Font>("Fonts/LiangxiaSticker-Display");return chineseFont?chineseFont:Font;}}
         public static bool HasChinese(string value){if(string.IsNullOrEmpty(value))return false;foreach(char c in value)if(c>=0x2e80&&c<=0xffef)return true;return false;}
         public static Font FontFor(string value){return HasChinese(value)?ChineseFont:Font;}
         public static RectTransform Rect(string name,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));go.transform.SetParent(parent,false);var r=(RectTransform)go.transform;r.anchorMin=r.anchorMax=anchor;r.pivot=new Vector2(.5f,.5f);r.sizeDelta=size;r.anchoredPosition=pos;return r;}
@@ -76,7 +76,7 @@ namespace Inkomino
             Art(iconKey,front,new Vector2(.5f,.5f),Vector2.zero,iconSize??Vector2.one*(40*DP));
             return Hit(r,action,.8f);
         }
-        public static Button IconButton(string key,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action){var r=Rect(key+" button",parent,anchor,pos,size);Art(key,r,new Vector2(.5f,.5f),Vector2.zero,size);return Hit(r,action);}
+        public static Button IconButton(string key,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action){var r=Rect(key+" button",parent,anchor,pos,size);Art(key,r,new Vector2(.5f,.5f),Vector2.zero,size);var button=Hit(r,action);MenuMotion.Press(button);return button;}
         public static void PopupPanel(Transform parent,Vector2 size,string color="orange")
         {MenuUI.Paper(parent,new Vector2(.5f,.5f),Vector2.zero,size,true);}
         public static void Banner(string title,Transform parent,float width){SourceBanner(title,parent,width);}

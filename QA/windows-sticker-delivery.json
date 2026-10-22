@@ -1,0 +1,776 @@
+{
+  "status": "PASS",
+  "platform": "Windows x64",
+  "engine": "Tuanjie1.10.4 /2022.3.62t16",
+  "suites": {
+    "RuntimeInk": {
+      "status": "PASS",
+      "screenshots": 18,
+      "checks": 0
+    },
+    "MenuDesign": {
+      "status": "PASS",
+      "screenshots": 42,
+      "checks": 1364
+    },
+    "ChineseWindows": {
+      "status": "PASS",
+      "screenshots": 28,
+      "checks": 90
+    },
+    "MenuMotion": {
+      "status": "PASS",
+      "screenshots": null,
+      "checks": 144
+    },
+    "Tutorial": {
+      "status": "PASS",
+      "screenshots": null,
+      "checks": 24
+    },
+    "SafeLayout": {
+      "status": "PASS",
+      "screenshots": 12,
+      "checks": 57
+    },
+    "Social": {
+      "status": "PASS",
+      "screenshots": 7,
+      "checks": 26
+    },
+    "Monetization": {
+      "status": "PASS",
+      "screenshots": 12,
+      "checks": 65
+    }
+  },
+  "wechat_build": "Cancelled at user request; existing imported release untouched",
+  "files": [
+    {
+      "path": "Inkomino.exe",
+      "bytes": 464384,
+      "sha256": "7a14d89f15a1699f3ac420e089a96d2010d5b5c04998bb71e263e0acdfc72dab"
+    },
+    {
+      "path": "Inkomino_Data/app.info",
+      "bytes": 36,
+      "sha256": "51439115d2080953824afb775755a3ab4b2c21fd40433623834814fd9a4af008"
+    },
+    {
+      "path": "Inkomino_Data/boot.config",
+      "bytes": 164,
+      "sha256": "9a0e2a1c33d69b1d086a5758b543ccb64f069b7d066be73812048f53b57a909b"
+    },
+    {
+      "path": "Inkomino_Data/globalgamemanagers",
+      "bytes": 54144,
+      "sha256": "05ccfc1f3730373dee0ffed2eaefcd9e6962becf6864c4350afae5f42db29f95"
+    },
+    {
+      "path": "Inkomino_Data/globalgamemanagers.assets",
+      "bytes": 16720,
+      "sha256": "435d13eaba5976c9bc1f7cf34583a306ef25b5d82c7e21a9e62265a750220ead"
+    },
+    {
+      "path": "Inkomino_Data/globalgamemanagers.assets.resS",
+      "bytes": 2796240,
+      "sha256": "66e06b7726dda07c0c1b8664108da1461117a40180d004b956cf3875bd79372d"
+    },
+    {
+      "path": "Inkomino_Data/level0",
+      "bytes": 2096,
+      "sha256": "c011f5088e8cfa1558d26d9766cb3d4882263d43ffe31d0b0acf57e4ce87deb2"
+    },
+    {
+      "path": "Inkomino_Data/level0.resS",
+      "bytes": 131232,
+      "sha256": "acd3b21674e2863bb9c19615c37c7b231210b13a0d94ebd0bef6a783b62402cc"
+    },
+    {
+      "path": "Inkomino_Data/Managed/Assembly-CSharp.dll",
+      "bytes": 386048,
+      "sha256": "40b898abe85025caa22b5a70037c19553f52b8f69462eadae735c91647eda543"
+    },
+    {
+      "path": "Inkomino_Data/Managed/LitJson.dll",
+      "bytes": 60416,
+      "sha256": "c1d86a5fc075734207fc08c6ef8a7db2a8f8f3c3c82c1d15f1972a0cab2a0c04"
+    },
+    {
+      "path": "Inkomino_Data/Managed/Mono.Security.dll",
+      "bytes": 241152,
+      "sha256": "2d7873a4b4beff04552395a65fcc8ef37b27a8c2dd1086de5eead48607e245cb"
+    },
+    {
+      "path": "Inkomino_Data/Managed/mscorlib.dll",
+      "bytes": 4631552,
+      "sha256": "a0b2be9fbd29e5919764b836121858376bfd5f64978429887bf0da7b0b229b67"
+    },
+    {
+      "path": "Inkomino_Data/Managed/netstandard.dll",
+      "bytes": 90112,
+      "sha256": "6ae62e082dc494a2433984177f60ca4db5fae69b1f360a8b33754172b310b8c5"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.ComponentModel.Composition.dll",
+      "bytes": 257024,
+      "sha256": "849d8e6f926316d042cee63863b1ec1d14a0ab6876307942f27d7bb58bc42dad"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Configuration.dll",
+      "bytes": 124928,
+      "sha256": "58e8908a09a0e0237d444a5002cf31e759513903d05de443e533e1cce3638545"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Core.dll",
+      "bytes": 1113088,
+      "sha256": "004bba2445e78170db699a0aa8741ef85604fe6c1ce59efe503456de54bb082a"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Data.DataSetExtensions.dll",
+      "bytes": 29696,
+      "sha256": "f437891cd82d172758aab6cdceb7df868c8bef0813bc02bfe7e02447048ccdb3"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Data.dll",
+      "bytes": 2125312,
+      "sha256": "202e89d3ece1fb0c4b6a92003afbb7e4add1265c26364c6fd0aa51b62710b87f"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.dll",
+      "bytes": 2639872,
+      "sha256": "e3220eb5b57502041f5027d40d86b6fca4fb1ce0d151e8766dc2a25d591c346b"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Drawing.dll",
+      "bytes": 489984,
+      "sha256": "c69a175fcc18f436860172f2f8e78e2631b69f1dc64661d410fecd74e24affae"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.EnterpriseServices.dll",
+      "bytes": 44544,
+      "sha256": "322a825f861af29dd7212fb91bcda9c4573e927e8f5efda8f0d5647f5c86cf89"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.IO.Compression.dll",
+      "bytes": 114688,
+      "sha256": "b4cd740a14bb2eb2263203bfb85bdb758e81ff270e91019d9b8a58b8a94c53ae"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.IO.Compression.FileSystem.dll",
+      "bytes": 18432,
+      "sha256": "b04df9d1933eae9a8474eca6ca0646b155f3d222735707db67704c84e10ab984"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Net.Http.dll",
+      "bytes": 122880,
+      "sha256": "a326a1efe08ddfc33f6ccfaa9e268ef328a7cbf47a763fa38bbca58e0be19015"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Numerics.dll",
+      "bytes": 119296,
+      "sha256": "786f1c5e9ab50ca71d3714b5b795d1f34c39d42a666a61e27db539eca143e1ef"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Runtime.Serialization.dll",
+      "bytes": 934400,
+      "sha256": "db52920647ac0f55521e6c095e86845d36dbd4e53187b98f5f8166df392c7061"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Security.dll",
+      "bytes": 320000,
+      "sha256": "d2b40ccb59c3bdac10366090784346057fc4742802bdd02f1b99b63c83c48480"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.ServiceModel.Internals.dll",
+      "bytes": 215040,
+      "sha256": "32214a5f0e001cb09fd66badfdb7a782dde0e89fe07f04240ab0d3a6f33426c3"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Transactions.dll",
+      "bytes": 35328,
+      "sha256": "a34eab6e7ea02b4eb94331971b2a7950bf339765557414a15b8296bae0ee7b00"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Xml.dll",
+      "bytes": 3160064,
+      "sha256": "4f7f5600ac3288b17aecbc92b5a0ce818d005b99b7112454951961433ab9bec0"
+    },
+    {
+      "path": "Inkomino_Data/Managed/System.Xml.Linq.dll",
+      "bytes": 136704,
+      "sha256": "a2e50bd64c59273af8f999296cd7d2f6aa06cda7a4b1e744332fae64af721c65"
+    },
+    {
+      "path": "Inkomino_Data/Managed/Unity.FontABTool.dll",
+      "bytes": 20992,
+      "sha256": "88c7409cefe05324bd126c1c164884c9b510e926c156b938e1fcb5c8956d0d96"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AccessibilityModule.dll",
+      "bytes": 25944,
+      "sha256": "48fd89e9df9fabacfcd5f24d2a2e15b95c9d27eaf4b2f16fbfb1672e0a144b67"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AIModule.dll",
+      "bytes": 60760,
+      "sha256": "0cbc345637e7b2d623787922bacb4a5bf519f32eac7dc0b3b011285dd450569a"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AndroidAppViewModule.dll",
+      "bytes": 22872,
+      "sha256": "633f8bd3a5084bdcc459b9047600307a8b2a4c35feb25fc12b4587995a64e14e"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AndroidJNIModule.dll",
+      "bytes": 98648,
+      "sha256": "374fba3aaeb4e5bcef26d9958c650090f45b1a0fecdc378852ef6a00c1dd5966"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AnimationModule.dll",
+      "bytes": 292696,
+      "sha256": "8caa306c95e00443d1ddcf85587608c8311b2f0ca240f5611cab48486b1fbf70"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ARModule.dll",
+      "bytes": 23896,
+      "sha256": "6b9349ad0a08a3debe79b204ac48b691bcbe914134e3ad44e501212824417658"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AssetBundleModule.dll",
+      "bytes": 36184,
+      "sha256": "0a6ac21a82fcab6eec9ddfdd848f18729efd3a7d93012b5fd567ea0b3d7322d2"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AudioModule.dll",
+      "bytes": 74072,
+      "sha256": "d154c87886c0dd722851212cba06e6e6598eb04e43025720abf9a3197bcc8450"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.AutoStreamingModule.dll",
+      "bytes": 23384,
+      "sha256": "24fe8575c3b9af08e1042e336748a90ed1fd2db81f43d75e009d3546b39c2792"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ClothModule.dll",
+      "bytes": 28504,
+      "sha256": "6a90274bbcd5e268fa6d7bb86f6414a28a13cbcfc8a8e770d4ba63af52563bce"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ClusterInputModule.dll",
+      "bytes": 23896,
+      "sha256": "4932c7379236a6e17930fca81d08522c5ff414ebdfc686d445b07b5316a13a1e"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ClusterRendererModule.dll",
+      "bytes": 25944,
+      "sha256": "e0e8be4e93f69af0d951cd2ee1f61db9d2d3b2a4e26aa4f125e5833003f05daf"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ContentLoadModule.dll",
+      "bytes": 30040,
+      "sha256": "68722c5e0eca1bf5e5f9383d3d4cf04d47d8518d15fe2343af8cefc48aa1220a"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.CoreModule.dll",
+      "bytes": 1504088,
+      "sha256": "8350b7babfba64d78458814f904d04627452a50cc15feb51dad642ff92a8c547"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.CrashReportingModule.dll",
+      "bytes": 23896,
+      "sha256": "c3771843bf705ece5e2d7525a02187e75a9d1a9902639af3fb16b34eb57baa40"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.DirectorModule.dll",
+      "bytes": 27480,
+      "sha256": "b384a2d0227ea6f628c3526de90172e86a573e2f849be204c985bfdcaa729765"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.dll",
+      "bytes": 157528,
+      "sha256": "4417152b68ba333a83456fc87acee4e133cad36bcd6533e22b6c284cc45b6aaa"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.DSPGraphModule.dll",
+      "bytes": 32088,
+      "sha256": "6d85de67724594d4c5b12804c9e358bfaf9bf924c87b27463d0095804d228a15"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.EmbeddedLinuxApiModule.dll",
+      "bytes": 25432,
+      "sha256": "cc383b6905a4bdb10d41e06306950f7970e27a83061e2eb548333f0aabae9b66"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.GameCenterModule.dll",
+      "bytes": 42328,
+      "sha256": "887bbc80909d2320e609f56f0ff8d7535b8dd1608ae075814882643f8370c781"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.GIModule.dll",
+      "bytes": 22872,
+      "sha256": "c3df2134756e32f8aeaad2d1dbc4f2b34901d7ecf68281b8d60975a26f1800fb"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.GridModule.dll",
+      "bytes": 27480,
+      "sha256": "cd0afdd68acf8d292756ccf12719015c3459e4515272ee3726ee64134fa71ab5"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.HotReloadModule.dll",
+      "bytes": 22872,
+      "sha256": "ce0f389c099148b726252f616d3b6821bdf47547d1888f10652446594cf7c1e2"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ImageConversionModule.dll",
+      "bytes": 26968,
+      "sha256": "d37c29c3dc93bcb0f21ff02bbd9e07aa3276bb4a0852d25e2810cb3897cc065a"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.IMGUIModule.dll",
+      "bytes": 193880,
+      "sha256": "d2ad5dee84a82f6e248ce405ecc04e3740f80e7d8184977d25519771af13c6b6"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.InfinityModule.dll",
+      "bytes": 248664,
+      "sha256": "0016219063d2f907ddbcea79b8c036c98ba5623b4579b506cf2c3d2ccc38d599"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.InputLegacyModule.dll",
+      "bytes": 41816,
+      "sha256": "f2791a1f7747716357da61427b0365d598327dc4d85b7733cfb48a9b55ab1d07"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.InputModule.dll",
+      "bytes": 26456,
+      "sha256": "5476ee5485665149c8e1537b810ec059d18233173d34e4b7700b78e707091f75"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.InstantAssetModule.dll",
+      "bytes": 27480,
+      "sha256": "1575a5416279eb1a034b4418488fcb27b6da9ad7ddfa2fa750b19682ee1effe2"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.JSONSerializeModule.dll",
+      "bytes": 24920,
+      "sha256": "dd5e5187d5ac2c4cd6cb715a1b170c12fc55c2d9d31307efd5ceff00672125df"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.LocalizationModule.dll",
+      "bytes": 23896,
+      "sha256": "2a910d0d31bf08ddcb61735d0910aa49ea919e7b2672cb2f3768d7ba62d60b02"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.NvApiModule.dll",
+      "bytes": 22872,
+      "sha256": "ec4402bee293afb536c5c2565aab7ceed24b1425fc713d9603dde5b2fb2ba4b7"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.NVIDIAModule.dll",
+      "bytes": 44888,
+      "sha256": "6ae74d19bc42a9115edc835999e303aa130d1ddf30310420653dc639687072e3"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.OcclusionCullingModule.dll",
+      "bytes": 22872,
+      "sha256": "637b1429b5b14c7716681adab4d73746731902b0916a14c58d765a68466f003c"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.OpenHarmonyJSModule.dll",
+      "bytes": 56664,
+      "sha256": "74bc30302ca4c193ef8f07bb4ad1fdce6913651c5b2a0a994c9ba2a6f97dbaeb"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ParticleSystemModule.dll",
+      "bytes": 164184,
+      "sha256": "3fe02e703e2b71626a4f17d96dbadd6a6681b8176c662ead853a5622678d9af9"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.PerformanceReportingModule.dll",
+      "bytes": 23384,
+      "sha256": "918dc3441d19effb8c205f62dcc6b64cdd7ebb7b93e1110996d905d344064ac8"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.Physics2DModule.dll",
+      "bytes": 146264,
+      "sha256": "5e1b1fbc4ee74e0b9c24bd72c8e7f4f6871fa59f2c40290b06070624fbf6f35f"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.PhysicsModule.dll",
+      "bytes": 142680,
+      "sha256": "7f80a949a5c8b3ef00d86c09e5c97809f32775594939c170807eebbdcf391f0c"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ProfilerModule.dll",
+      "bytes": 22872,
+      "sha256": "e3ff798c6bf789583dabbcc9729f4d26ca64e1fa51e7444ed40fc12b4cb58bc9"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.PropertiesModule.dll",
+      "bytes": 157528,
+      "sha256": "bd6bdd178f0bcef108d3dd2186c32ca63400274bb0bc81ef18fad5bb09b290c4"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
+      "bytes": 22872,
+      "sha256": "f613a26f4ac170eb71ebe7eb1a1e9b8ea78ab595d488e6ad3aebafb88dbaecae"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.ScreenCaptureModule.dll",
+      "bytes": 23896,
+      "sha256": "8c34a77bd06a77f0c916c7a55d978557df6246f5dee7e6ebf0633177c9460e8f"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.SharedInternalsModule.dll",
+      "bytes": 35160,
+      "sha256": "ddea452063f425a957eaffafe89516c03b0dd981206902dc787d3dc79e15f43a"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.SpriteMaskModule.dll",
+      "bytes": 25432,
+      "sha256": "55547f012db2518138fd56ad2889eff73ab7d537883668e69bc4585362aeaef3"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.SpriteShapeModule.dll",
+      "bytes": 28504,
+      "sha256": "694bd51b8da7fdd04215695d95e7f2276d6626a904e791a0822ccdc3dbdff493"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.StreamingModule.dll",
+      "bytes": 23384,
+      "sha256": "64f3c09c56578ab74873dba3e197808454752335b7d0e6b1a50e596da6e05a69"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.SubstanceModule.dll",
+      "bytes": 27480,
+      "sha256": "9d7f91ac714134cde1770ded87bc363386f4e4ac4aad7e842bc470c1b010517b"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.SubsystemsModule.dll",
+      "bytes": 37208,
+      "sha256": "fc809ba32ed1741bfdbc0482d426f410ad49b2ebdaf276dd051a80d7c4ea81c9"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TerrainModule.dll",
+      "bytes": 103768,
+      "sha256": "ee6170ae04ae16402651d80327d5f6a075b714e75aa6d72da6eedfe0a265840c"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TerrainPhysicsModule.dll",
+      "bytes": 23384,
+      "sha256": "1bd1103d9274b6af22527bd1e3948e59420ae184756d2fd4599505a1031c9d0f"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll",
+      "bytes": 75096,
+      "sha256": "123ad34abbcb4a4aaf3d8e9a93a6be2cc816b00f30f308cb95f49cc6199d3e16"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll",
+      "bytes": 252760,
+      "sha256": "b12720b72de1e8ccd72f991952e6215989b076260f82090044e3814c2eb4b8a7"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TextRenderingModule.dll",
+      "bytes": 41304,
+      "sha256": "fbd9ba6800dba64c0ee44bbdf014b44b831ae03fdbc710fe67bfcad4a689a7f0"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TextureManagerModule.dll",
+      "bytes": 23896,
+      "sha256": "096d279e44bf8514354347122589c756978dc8a6741dd608f9005943d2b57363"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TilemapModule.dll",
+      "bytes": 49496,
+      "sha256": "fa38a0148630e91ea82c011af467bf12977352b1899fc51e2f2905c0795dc957"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TLSModule.dll",
+      "bytes": 29528,
+      "sha256": "71fe5cd11a339a05fba2c1457d6b5dcf75d1791256dad226d7eea8c669267494"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.TuanjieGIModule.dll",
+      "bytes": 27992,
+      "sha256": "30314b1307b2559c93c3bc962e18ff87b958702753ab95d14a06c5e703a09c1d"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UI.dll",
+      "bytes": 259584,
+      "sha256": "59823db831e2cf18c933fe406b5ad918db2af437f8702a2b05c7da37ee114da0"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UIElementsModule.dll",
+      "bytes": 1539416,
+      "sha256": "28e071330e5b3fd9a36825b3c0cfd7f659b3e2e0331900d62ab8ebef60782b50"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UIModule.dll",
+      "bytes": 39768,
+      "sha256": "e4187d27bb5975dab96fbded9f6127e62c33d111a10a8e3ffe55dabf28f306b7"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UmbraModule.dll",
+      "bytes": 22872,
+      "sha256": "1fd195714fee6129852e195bf3c3fb3dde9fcc44ab8fa0989b6cc2e1a60ad04f"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll",
+      "bytes": 23384,
+      "sha256": "8eb76d703bc0f987b231bdc1fe3afa87ba9bc39dd473bb749feaae0e00c9a1a7"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityAnalyticsModule.dll",
+      "bytes": 46936,
+      "sha256": "900bddd1264253684923928a91559a4a67cc20e9887dca48a326155b89e110ea"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityConnectModule.dll",
+      "bytes": 24408,
+      "sha256": "27c00fdbe1a007fb4fa08fca950993351ffccb00ccec0804404b7a9f397e321a"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityCurlModule.dll",
+      "bytes": 24408,
+      "sha256": "b93423be618e35cf9c7203b53dfe356f0a1127bf843ee724dfe6731791970eb5"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityTestProtocolModule.dll",
+      "bytes": 22872,
+      "sha256": "843a0723fde2de2998c44e1097407ab24b2d1c00cce754304447352faead21f4"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll",
+      "bytes": 25944,
+      "sha256": "19fe185ddbc140d551500c6107749e3a5e44c17d66e00edaccb4588516869113"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll",
+      "bytes": 25432,
+      "sha256": "5a9a21fa4a7e7a95227f2d80c1cb4e76decc030e8f75e1299ed598db03e4a21c"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityWebRequestModule.dll",
+      "bytes": 60760,
+      "sha256": "52aae6482bc4c7d907c7a7c2600d754e3b820b86d0df9b1cd9bbb9d86ab127c7"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll",
+      "bytes": 24408,
+      "sha256": "b8e9447a89130748edddd79e64cb99b0bf125d2ace108148f09591d0d27eaac6"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll",
+      "bytes": 34136,
+      "sha256": "cc3d5a758fd7029c4b05b3b8f15295d26a7f2caa880dc9c7cc5bfac633d1a0b5"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.VehiclesModule.dll",
+      "bytes": 26968,
+      "sha256": "8ab740bd97666bd90c35b83d231d855c0bc8131da8005704c263d6780f90bdcc"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.VFXModule.dll",
+      "bytes": 61272,
+      "sha256": "92dab90a9c2638e093ec8561a62edb92dee6f88e582ff7cf3a44cf3486f3daae"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.VideoModule.dll",
+      "bytes": 43864,
+      "sha256": "59aa7de78c5384bd3a15c5f4df9a761e87eb81a0324505657c61f25958c82a40"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.VirtualTexturingModule.dll",
+      "bytes": 38232,
+      "sha256": "d5fa44da817c001427200bd1e5ba6c24d01f589d3be9ede35c2e42aca6af9aba"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.VRModule.dll",
+      "bytes": 29528,
+      "sha256": "419a22760269f4655c109c34594135310b378c93ab3de46bcdf450ef346df6f6"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.WindModule.dll",
+      "bytes": 23384,
+      "sha256": "bd3269ccd04d3366f0c444822b169fdc2091a6caf99648eb834007b963783063"
+    },
+    {
+      "path": "Inkomino_Data/Managed/UnityEngine.XRModule.dll",
+      "bytes": 73560,
+      "sha256": "15dca00c5c030afbb20da7d0fe6dfca5211af9ee2eacc7d1d28a4969551eef60"
+    },
+    {
+      "path": "Inkomino_Data/Managed/Wx.dll",
+      "bytes": 4096,
+      "sha256": "cdc7e5014bf7b61d3efd9c3534476d9979ea77a0cf42fb0a4140eb161d20b25f"
+    },
+    {
+      "path": "Inkomino_Data/Resources/tuanjie default resources",
+      "bytes": 4437468,
+      "sha256": "0779c9eee4c6184abddd1232e9dfee7288ef41db86a451674a8830f7db034bed"
+    },
+    {
+      "path": "Inkomino_Data/Resources/tuanjie_builtin_extra",
+      "bytes": 381988,
+      "sha256": "b54038acd50ad8e88b62059c90ef3393ff6223a68301d9d54ea5dd7328827573"
+    },
+    {
+      "path": "Inkomino_Data/resources.assets",
+      "bytes": 4238782,
+      "sha256": "899ac019b36a43b6c92cf6c4a439c0b4bbf09814e278b17da64243c2e767ea95"
+    },
+    {
+      "path": "Inkomino_Data/resources.assets.resS",
+      "bytes": 156012720,
+      "sha256": "6058fdbe34e5b59f52dcacf0a7bb8fcb192b7eead4d1b00de803ccab93171b59"
+    },
+    {
+      "path": "Inkomino_Data/resources.resource",
+      "bytes": 1911879,
+      "sha256": "fd9fbbb1e6bff1c5a192f07035edd0cbaeed6ae77df0ffefc9f650a23bea0027"
+    },
+    {
+      "path": "Inkomino_Data/RuntimeInitializeOnLoads.json",
+      "bytes": 13,
+      "sha256": "6a33c1efd5944feb0cb1e012e26b30c3f43fec918e5643e72ab945a9c504ff13"
+    },
+    {
+      "path": "Inkomino_Data/ScriptingAssemblies.json",
+      "bytes": 3061,
+      "sha256": "a321b5ad9caf3ebd5350303de02ac47764f96778437a55953c54457c4c743c22"
+    },
+    {
+      "path": "Inkomino_Data/sharedassets0.assets",
+      "bytes": 7712,
+      "sha256": "0bf93c5193a1d31c19eb16af1393c33f0b5a2d9610f3f8d9a397079d51697ea2"
+    },
+    {
+      "path": "MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll",
+      "bytes": 7974232,
+      "sha256": "abe00eaf03df2f59769583e1da9ce0d799b5e9a0763672ef16e2d471bb1b8843"
+    },
+    {
+      "path": "MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll",
+      "bytes": 677720,
+      "sha256": "02314ba5c267804cb7ae79dd3f1dc41425a4a0290ae33e3ef6fa32210d19d5ad"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser",
+      "bytes": 1605,
+      "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx",
+      "bytes": 60575,
+      "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/machine.config",
+      "bytes": 29066,
+      "sha256": "e91782a27fa39fc6c1d6ee8b08529f5d35052310d0006034b878eb04b8f2af30"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/settings.map",
+      "bytes": 2622,
+      "sha256": "49c6160f9d54af4270a3b4e997fc4a8301f79b9e2070118fa46ddbcbbc44f9a2"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/2.0/web.config",
+      "bytes": 11635,
+      "sha256": "cf2b54339e069b9e42f7d6795eecbf562c50c1011f4ca8f65f578fe52d97ff92"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser",
+      "bytes": 1605,
+      "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx",
+      "bytes": 60575,
+      "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/machine.config",
+      "bytes": 33598,
+      "sha256": "e60aec2c5115d65b3acb3c55ea21576dbd770f579166c017125571e46ae560ed"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/settings.map",
+      "bytes": 2622,
+      "sha256": "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.0/web.config",
+      "bytes": 18802,
+      "sha256": "e38bb8cc68fe5b4edecdfd288d094b9e8ced7629039b2a347682aba0d8bd7492"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser",
+      "bytes": 1605,
+      "sha256": "8a1082057ac5681dcd4e9c227ed7fb8eb42ac1618963b5de3b65739dd77e2741"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx",
+      "bytes": 60575,
+      "sha256": "751861040b69ea63a3827507b7c8da9c7f549dc181c1c8af4b7ca78cc97d710a"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/machine.config",
+      "bytes": 34056,
+      "sha256": "ee950004b576fb28dc85f4b0435ed04bf96612de2e8b53be84d07afe85a0de6c"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/settings.map",
+      "bytes": 2622,
+      "sha256": "ce1db1ad8a9512073164e3eccdc193f7eda036e1a9733caec4635de21b2865c8"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/4.5/web.config",
+      "bytes": 18811,
+      "sha256": "c4cbddd4fd9347b58cc5a72b36dc4ba1ad2bb699e65869d05cd3fb9865f0d824"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/browscap.ini",
+      "bytes": 311984,
+      "sha256": "4ddd50f31fb968f30bedefc253a46dc3f2890192d05cdaa9e0a64a056eee807e"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/config",
+      "bytes": 3815,
+      "sha256": "5776169973a26a387b8b3e5c0f2301a7ab9a6dd7c7d3efa22a96abc47fbf8662"
+    },
+    {
+      "path": "MonoBleedingEdge/etc/mono/mconfig/config.xml",
+      "bytes": 25817,
+      "sha256": "0c56e34c69124510fa8c19e7b4c2ca6c1c4ff460ae19f798dd0ca035809e396d"
+    },
+    {
+      "path": "TuanjieCrashHandler64.exe",
+      "bytes": 1170776,
+      "sha256": "da59edd6b52baf862578873801a6c038174d64df263223d1559baa03c5d50b7f"
+    },
+    {
+      "path": "TuanjiePlayer.dll",
+      "bytes": 47481688,
+      "sha256": "c2fc81e436a1c5d4c982f2f26795dd8368f89d5e6bb3627bba4b69daddd2763b"
+    },
+    {
+      "path": "使用说明.txt",
+      "bytes": 1517,
+      "sha256": "df4d874c675d8f1c50deee19efd2339222f9983f226a469307f74a1b5f4deb45"
+    },
+    {
+      "path": "启动游戏.cmd",
+      "bytes": 99,
+      "sha256": "4b0fe015f5c50c79f7f7af29c6513198264d6054b3231053b75a419f593f6eec"
+    }
+  ],
+  "archive": {
+    "path": "outputs\\我就划两下_Windows_多巴胺贴纸测试版.zip",
+    "bytes": 89911741,
+    "sha256": "0091ca2842a7b83f8dc93996669f616f029f135c77029964b760cfc69755f1ff",
+    "crc": "PASS"
+  }
+}

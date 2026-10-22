@@ -14,7 +14,8 @@
     "haptics": true,
     "drawIntroSeen": false,
     "firstContinueUsed": false,
-    "regenAt": 1792577433,
+    "reducedMenuMotion": false,
+    "regenAt": 1792660535,
     "dailyAt": 0,
     "lastRewardAdAt": 0,
     "lastInterstitialAt": 0,
@@ -527,7 +528,7 @@
     "bestStreak": 0,
     "climbPendingFailure": 0,
     "climb": {
-        "windowStart": 1792490400,
+        "windowStart": 1792576800,
         "cooldownUntil": 0,
         "joined": false,
         "isOut": false,

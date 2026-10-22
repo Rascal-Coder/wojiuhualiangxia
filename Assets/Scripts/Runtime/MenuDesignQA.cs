@@ -64,7 +64,7 @@ namespace Inkomino
             Check(app!=null,"application exists");if(!app)yield break;
             app.enabled=false;app.StopAllCoroutines();app.SourceTutorialEnabled=false;AudioListener.volume=0;
             var body=MenuUI.BodyFont;result.bodyFont=body?body.name:"missing";
-            var resource=Resources.Load<Font>("Fonts/LiangxiaInkSerif-Semibold");
+            var resource=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");
             Check(resource&&body==resource&&body!=Skin.ChineseFont,"dedicated readable body font loads instead of display-font fallback");
             foreach(var size in new[]{new Vector2Int(360,800),new Vector2Int(375,812),new Vector2Int(540,836)})
             {
@@ -75,7 +75,7 @@ namespace Inkomino
 
                 Profile(9,8);app.ShowHome();yield return Page("01-home",false);CheckNavigation();CheckCapsule();
                 CheckMenuText("01-home",app.Content,true);CheckButtonsAboveNavigation("01-home");
-                Check(Find("Home ink scroll showcase")!=null&&Find("Home level directory")!=null,"home has a coherent puzzle showcase and level entry "+id);
+                Check(Find("Home sticker showcase")!=null&&Find("Home level directory")!=null,"home has a coherent puzzle showcase and level entry "+id);
                 Profile(9,8);app.ShowShop();yield return Page("02-shop");yield return CheckExchange();
                 Profile(1,0);app.ShowAchievements(false);yield return Page("03-achievements-zero");
                 Profile(251,250);app.Store.Data.bestStreak=17;app.Store.Data.climb.summits=4;

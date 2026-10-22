@@ -127,6 +127,7 @@ namespace Inkomino
             var clip=Skin.Fill("Original loading artwork viewport",root);clip.gameObject.AddComponent<RectMask2D>();
             float cover=Mathf.Max(1080f/1024,2400f/2207),drawWidth=1024*cover,drawHeight=2207*cover;
             Skin.Art("source_loading_background",clip,new Vector2(.5f,.5f),Vector2.zero,new Vector2(drawWidth,drawHeight),false);
+            var dots=Skin.Fill("Sticker journal dots",clip).gameObject.AddComponent<StickerBackdrop>();dots.raycastTarget=false;
             float dp=Skin.DP,windowW=1080/dp,windowH=2400/dp;
             view.Logo=InkTheme.Brand(root,new Vector2(.5f,1),new Vector2(0,-990),new Vector2(950,240));
             MenuUI.Art("ink_home_hero",root,new Vector2(.5f,1),new Vector2(0,-1500),new Vector2(1080,720));

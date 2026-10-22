@@ -3,9 +3,9 @@
         {
             "key": "backgroundImage",
             "source": "images/background.jpg",
-            "cacheFile": "inkomino_boot_a4ec1396507caf60.jpg",
-            "sha256": "a4ec1396507caf60100964038b8601b685b65c3d203c40e1898d06de0d76547a",
-            "bytes": 74408,
+            "cacheFile": "inkomino_boot_b44e0e00d547f96f.jpg",
+            "sha256": "b44e0e00d547f96f82d7e5f869c06ff0caf4d352654375cad6d79998821806f7",
+            "bytes": 92479,
             "width": 720,
             "height": 1560
         },

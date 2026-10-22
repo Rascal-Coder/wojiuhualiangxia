@@ -13,7 +13,7 @@ namespace Inkomino
         public static readonly Color Ink=InkTheme.Ink,Muted=InkTheme.Muted,Gold=InkTheme.Line,Green=InkTheme.Jade,Purple=InkTheme.Cinnabar;
         static Font bodyFont,numberFont;
         static readonly Dictionary<string,Sprite> art=new Dictionary<string,Sprite>();
-        [Serializable] public sealed class AtlasRegion{public string key;public int x,y,width,height,border;}
+        [Serializable] public sealed class AtlasRegion{public string key;public int x,y,width,height,border,borderX,borderY;}
         [Serializable] public sealed class AtlasIndex{public int width,height;public AtlasRegion[] regions;}
         static bool atlasLoaded;
         static void LoadAtlas()
@@ -25,15 +25,15 @@ namespace Inkomino
             var texture=new Texture2D(2,2,TextureFormat.RGBA32,false);texture.name="Liangxia shared UI atlas";
             if(!texture.LoadImage(data.bytes,true)){UnityEngine.Object.Destroy(texture);return;}
             texture.filterMode=FilterMode.Bilinear;texture.wrapMode=TextureWrapMode.Clamp;
-            foreach(var r in JsonUtility.FromJson<AtlasIndex>(index.text).regions)art[r.key]=Sprite.Create(texture,new Rect(r.x,r.y,r.width,r.height),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(r.border,r.border,r.border,r.border));
+            foreach(var r in JsonUtility.FromJson<AtlasIndex>(index.text).regions)art[r.key]=Sprite.Create(texture,new Rect(r.x,r.y,r.width,r.height),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(r.borderX>0?r.borderX:r.border,r.borderY>0?r.borderY:r.border,r.borderX>0?r.borderX:r.border,r.borderY>0?r.borderY:r.border));
             Resources.UnloadAsset(data);Resources.UnloadAsset(index);
         }
-        public static Font BodyFont { get { if(!bodyFont)bodyFont=Resources.Load<Font>("Fonts/LiangxiaInkSerif-Semibold");return bodyFont?bodyFont:Skin.ChineseFont; } }
+        public static Font BodyFont { get { if(!bodyFont)bodyFont=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");return bodyFont?bodyFont:Skin.ChineseFont; } }
         public static Font NumberFont{get{if(!numberFont)numberFont=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");return numberFont?numberFont:BodyFont;}}
         public static Text Label(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,int fontSize=Body,Color? color=null,TextAnchor align=TextAnchor.MiddleLeft,bool display=false)
         {
             var r=Skin.Rect("Menu text "+text,parent,anchor,pos,size);var label=r.gameObject.AddComponent<Text>();
-            label.font=display?Skin.ChineseFont:Skin.HasChinese(text)?BodyFont:NumberFont;label.text=text;label.fontSize=fontSize;label.color=color??Ink;label.alignment=align;
+            label.font=display&&!(!string.IsNullOrEmpty(text)&&char.IsDigit(text[0]))?Skin.ChineseFont:Skin.HasChinese(text)?BodyFont:NumberFont;label.text=text;label.fontSize=fontSize;label.color=color??Ink;label.alignment=align;
             label.raycastTarget=false;label.supportRichText=false;label.resizeTextForBestFit=false;label.lineSpacing=1.06f;label.alignByGeometry=true;
             // CJK font ascent/descent can exceed the visible glyph height.
             // Do not drop a whole single line just because its line metrics
@@ -44,7 +44,7 @@ namespace Inkomino
         {
             var r=Skin.Rect("Menu paper",parent,anchor,pos,size);
             var sheet=Art("ink_paper",r,Vector2.one*.5f,Vector2.zero,size);sheet.preserveAspect=false;sheet.type=Image.Type.Sliced;
-            if(accent){var stamp=Art("ink_seal",r,new Vector2(0,1),new Vector2(35,-30),new Vector2(28,28));stamp.color=new Color(1,1,1,.85f);}
+            if(accent){var tape=Skin.RoundBox(r,new Vector2(0,1),new Vector2(65,-8),new Vector2(118,25),new Color32(255,221,105,230),7);tape.rectTransform.localRotation=Quaternion.Euler(0,0,14);}
             return r;
         }
         public static void Title(string title,string subtitle,Transform parent)
@@ -67,10 +67,9 @@ namespace Inkomino
         {
             var r=Skin.Rect(text+" menu button",parent,anchor,pos,size);
             var face=Skin.Fill("Button artwork",r);face.gameObject.AddComponent<CanvasGroup>();
-            if(!primary)Paper(face,Vector2.one*.5f,Vector2.zero,size);
-            else{var brush=Art("ink_brush",face,Vector2.one*.5f,Vector2.zero,size+new Vector2(25,10));brush.preserveAspect=false;}
-            Label(text,face,Vector2.one*.5f,Vector2.zero,size-new Vector2(90,26),fontSize,primary?InkTheme.Paper:Ink,TextAnchor.MiddleCenter,true);
-            return Skin.Hit(r,action,1);
+            var sheet=Art(primary?"ink_brush":"sticker_secondary",face,Vector2.one*.5f,Vector2.zero,size);sheet.preserveAspect=false;sheet.type=Image.Type.Sliced;sheet.pixelsPerUnitMultiplier=sheet.sprite.rect.height/Mathf.Max(1,size.y);
+            Label(text,face,Vector2.one*.5f,Vector2.zero,size-new Vector2(50,20),fontSize,Ink,TextAnchor.MiddleCenter,true);
+            var button=Skin.Hit(r,action,1);MenuMotion.Press(button);return button;
         }
         public static void Tabs(Transform parent,bool friends,Action achievements,Action ranking)
         {
@@ -78,7 +77,7 @@ namespace Inkomino
             for(int i=0;i<2;i++)
             {
                 bool selected=friends?i==1:i==0;var tab=Skin.Rect(i==0?"Achievements tab":"Friends tab",r,new Vector2(.5f,.5f),new Vector2(i==0?-236:236,0),new Vector2(466,140));
-                if(selected)Skin.RoundBox(tab,new Vector2(.5f,.5f),Vector2.zero,tab.sizeDelta,InkTheme.Jade,8);
+                if(selected)Skin.RoundBox(tab,new Vector2(.5f,.5f),Vector2.zero,tab.sizeDelta,InkTheme.Jade,38);
                 Label(i==0?"我的成就":"好友排行",tab,new Vector2(.5f,.5f),Vector2.zero,new Vector2(430,116),52,selected?Color.white:Muted,TextAnchor.MiddleCenter,true);
                 Skin.Hit(tab,i==0?achievements:ranking,.8f);
             }

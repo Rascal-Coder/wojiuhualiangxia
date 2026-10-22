@@ -14,7 +14,7 @@ namespace Inkomino
             
             var root=Skin.Fill("Source LevelCompleteScreen",Content);
             var motion=root.gameObject.AddComponent<SourceResultMotion>();
-            float width=1080,height=2400,dp=Skin.DP;
+            float width=1080,dp=Skin.DP;
             var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(920,240));
             motion.BuildTitle(title,Zh.WellDone,118);
             var seal=MenuUI.Art("ink_stamp",root,new Vector2(.5f,1),new Vector2(340,-550),new Vector2(170,170));MenuMotion.Celebrate(seal.rectTransform);
@@ -28,8 +28,8 @@ namespace Inkomino
             MenuUI.Label("通关奖励",rewardRoot,new Vector2(.5f,1),new Vector2(0,-75),new Vector2(700,80),54,MenuUI.Ink,TextAnchor.MiddleCenter,true);
             var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,15),Vector2.one*380);
             MenuUI.Art("menu_treasure",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*380);
-            var amount=MenuUI.Label("+"+reward+" 铜钱",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-240),new Vector2(700,95),68,MenuUI.Ink,TextAnchor.MiddleCenter);
-            MenuUI.Label(Review||reward==0?"已完成的关卡，不重复发放铜钱":"奖励已加入铜钱余额",root,new Vector2(.5f,1),new Vector2(0,-1600),new Vector2(940,80),46,MenuUI.Muted,TextAnchor.MiddleCenter);
+            var amount=MenuUI.Label("+"+reward+" 金币",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-240),new Vector2(700,95),68,MenuUI.Ink,TextAnchor.MiddleCenter);
+            MenuUI.Label(Review||reward==0?"已完成的关卡，不重复发放金币":"奖励已加入金币余额",root,new Vector2(.5f,1),new Vector2(0,-1600),new Vector2(940,80),46,MenuUI.Muted,TextAnchor.MiddleCenter);
             motion.Reward=rewardRoot;motion.RewardAlpha=rewardRoot.gameObject.AddComponent<CanvasGroup>();
 
             // Source no-ad branch: module2120 AutoWidthGreenButton, activeOpacity=.85.
@@ -43,7 +43,7 @@ namespace Inkomino
             {
                 buttonRoot.anchoredPosition+=Vector2.down*230;bool doubled=false;int baseReward=reward,epoch=presentationEpoch;Button doubleButton=null;
                 doubleButton=RewardButton(RewardPlacement.DoubleCoins,RewardLabel(RewardPlacement.DoubleCoins),buttonRoot,new Vector2(.5f,.5f),new Vector2(0,buttonH/2+130),new Vector2(790,190),()=>RequestReward(RewardPlacement.DoubleCoins,()=>{
-                    doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra)+" 铜钱";doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");
+                    doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra)+" 金币";doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");
                 },()=>!doubled&&presentationEpoch==epoch&&screen=="result"&&CurrentLevel==level),true);
             }
             motion.Button=buttonRoot;motion.ButtonAlpha=buttonRoot.gameObject.AddComponent<CanvasGroup>();motion.Width=width;
@@ -51,7 +51,7 @@ namespace Inkomino
             if(!review&&CurrentLevel>=41&&Store.Data.climb.joined&&!Store.Data.climb.isOut)
             {
                 var climb=Store.Data.climb;
-                MenuUI.SecondaryButton(ClimbActivity.AtTop(climb)?"登顶成功 · 领取奖励":"登顶寻宝 "+climb.stage+" / 7",root,new Vector2(.5f,0),new Vector2(0,90),new Vector2(800,130),ShowClimb,49);
+                MenuUI.SecondaryButton(ClimbActivity.AtTop(climb)?"集章完成 · 领取奖励":"快乐集章 "+climb.stage+" / 7",root,new Vector2(.5f,0),new Vector2(0,90),new Vector2(800,130),ShowClimb,49);
             }
             foreach(var control in root.GetComponentsInChildren<Button>())MenuMotion.Press(control);
             motion.Begin();
@@ -109,7 +109,7 @@ namespace Inkomino
         readonly List<Bit> bits=new List<Bit>();float begin;
         public void Begin()
         {
-            begin=SourceClock.Now;string[] colors={"#AD4C3E","#789B85","#BDB18A","#A6BC9D","#B77964","#879F91","#697C70","#D5DBC7"};var random=new System.Random();Func<float> rand=()=> (float)random.NextDouble();float dp=Skin.DP;
+            begin=SourceClock.Now;string[] colors={"#FF638B","#75DABA","#FFE36B","#B6A0F5","#FFA8D2","#8DCFFC","#6645AA","#D6EA81"};var random=new System.Random();Func<float> rand=()=> (float)random.NextDouble();float dp=Skin.DP;
             for(int i=0;i<24;i++){float size=(7+rand()*7)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.6f+rand()*.8f)),color,2*dp);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.180f,Rise=(350+rand()*350)*dp,RiseDuration=(400+rand()*200)/1000,FallDuration=(900+rand()*500)/1000,Spin=540+rand()*540,X=(.1f+rand()*.8f)*1080};bits.Add(bit);}Apply();
         }
         void Update(){Apply();}

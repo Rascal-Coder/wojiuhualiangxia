@@ -72,10 +72,10 @@ namespace Inkomino
             while(app.LoadingView&&app.LoadingView.Label.text==firstLabel&&Time.realtimeSinceStartup<deadline)yield return null;
             CheckIt(app.LoadingView&&app.LoadingView.Label.text!=firstLabel,"加载中文字后的圆点真实变化");
             yield return Capture("02-loading-540x836.png","启动加载小窗口",540,836);
-            CheckIt(app.LoadingView.Logo&&app.LoadingView.Logo.gameObject.name=="Ink game brand","加载页使用水墨书法标志");
+            CheckIt(app.LoadingView.Logo&&app.LoadingView.Logo.gameObject.name=="Sticker game brand","加载页使用多巴胺贴纸标志");
             CheckIt(Application.productName==Zh.GameName&&Zh.GameName=="我就划两下","工程显示名称与游戏名一致",Application.productName);
             var brandTexts=app.LoadingView.Logo.GetComponentsInChildren<Text>();
-            CheckIt(brandTexts.Any(t=>t.text==Zh.GameName&&t.font==Skin.ChineseFont),"标题使用真实毛笔字体并完整显示五字游戏名");
+            CheckIt(brandTexts.Any(t=>t.text==Zh.GameName&&t.font==Skin.ChineseFont),"标题使用真实圆趣字体并完整显示五字游戏名");
             var loadTexts=app.LoadingView.GetComponentsInChildren<Text>().Where(Visible).Select(t=>t.text).ToArray();
             CheckIt(loadTexts.Any(t=>t.StartsWith("加载中",StringComparison.Ordinal)),"加载页显示真实加载提示");
 

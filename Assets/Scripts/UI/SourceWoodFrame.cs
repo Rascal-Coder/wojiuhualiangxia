@@ -57,12 +57,12 @@ namespace Inkomino
         static readonly float[] B={.055f,.15f,.215f,.66f,.74f,.855f,.95f,1};
         static readonly string[] Profile={"#58695B","#C7D0BC","#B0BDA7",null,"#B2BDA7","#7D907D","#6F806E","#35473C"};
         static readonly float[] BeamInsets={0,.07f,.22f,.34f};
-        static readonly string[] BeamColors={"#34473D","#CFD8C7","#8B9D87",null};
+        static readonly string[] BeamColors={"#6645AA","#FFFFFF","#CFB5EE",null};
         public override Texture mainTexture
         {
             get
             {
-                bool textured=Mode==1||Mode==3||Mode==6;
+                bool textured=Mode==6;
                 if(textured&&!sourceTexture)sourceTexture=SourceArt.Texture(Mode==3?"game_assets_paper":"game_assets_wood");
                 return textured&&sourceTexture?sourceTexture:Texture2D.whiteTexture;
             }
@@ -155,12 +155,16 @@ namespace Inkomino
                 var cells=new List<int>();for(int i=0;i<n*n;i++)if(state.IsActive(i))cells.Add(i);
                 foreach(var grid in SourceBoardGeometry.Trace(n,cells))
                 {
-                    if(Mode==0)Band(vh,grid,-.7f*w,.3f*w,radius,cs,origin,dp,Co("#E3E7DB"),false,tw,th,anchor);
-                    // Ink paper rim uses no wood texture layer.
-                    if(Mode==2)for(int k=0;k<2;k++)
+                    if(Mode==0)
                     {
-                        float mid=(k==0?-.67f:.27f)*w,width=1.15f*dp;
-                        Band(vh,grid,mid-width/2,mid+width/2,radius,cs,origin,dp,Co("#61735F"),false,tw,th,anchor);
+                        if(!InsideCellsOnly){Band(vh,grid,-.73f*w,.31f*w,radius,cs,origin+new Vector2(0,-5*dp),dp,Co("#DDC9EC"),false,tw,th,anchor);Band(vh,grid,-.70f*w,.31f*w,radius,cs,origin+new Vector2(0,-3*dp),dp,Co("#BCA0DA"),false,tw,th,anchor);}
+                        Band(vh,grid,-.70f*w,.30f*w,radius,cs,origin,dp,Co("#BCA0EB"),false,tw,th,anchor);
+                    }
+                    if(Mode==2)
+                    {
+                        Band(vh,grid,-.66f*w,-.47f*w,radius,cs,origin,dp,Co("#FFFFFF"),false,tw,th,anchor);
+                        Band(vh,grid,-.40f*w,.10f*w,radius,cs,origin,dp,Co("#DAC7F4"),false,tw,th,anchor);
+                        Band(vh,grid,.10f*w,.28f*w,radius,cs,origin,dp,Co("#FFFFFF"),false,tw,th,anchor);
                     }
                 }
             }
@@ -170,7 +174,7 @@ namespace Inkomino
                 for(int i=0;i<n*n;i++)if(state.IsActive(i))
                 {
                     Rect cell=new Rect(origin.x+i%n*cs,origin.y-(i/n+1)*cs,cs,cs);
-                    Poly(vh,Points(cell),Color.white,p=>new Vector2((p.x-origin.x)/size,1-(origin.y-p.y)/size));
+                    Poly(vh,Points(cell),Co(i%2==0?"#FFFDFB":"#FFF9FE"),p=>new Vector2((p.x-origin.x)/size,1-(origin.y-p.y)/size));
                 }
             }
             else if(Mode==4)DrawGrid(vh,cs,dp);

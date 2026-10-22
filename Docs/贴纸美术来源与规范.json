@@ -1,0 +1,38 @@
+{
+  "style": "元气手账：年轻女性向多巴胺贴纸风",
+  "palette": {
+    "cream": "#FFF9EE",
+    "coral": "#FF638B",
+    "grape": "#6645AA",
+    "mint": "#69D8B1",
+    "lemon": "#FFE36B"
+  },
+  "art": {
+    "generator": "built-in image_gen",
+    "sources": "Assets/Editor/StickerArtSource",
+    "families": [
+      "六道具与奖励贴纸",
+      "首页手账插画",
+      "活动集章册插画",
+      "十六功能贴纸",
+      "主次按钮、卡片和底栏皮肤"
+    ],
+    "normalization": "人工核对裁切框；alpha 连通区域清理与抗锯齿保留；四像素内边距；统一打入 1024 图集；9-slice 保护按钮和卡片边角",
+    "runtime": "36 logical atlas sprites; raw generated sheets remain Editor-only"
+  },
+  "fonts": [
+    {
+      "role": "标题与主按钮",
+      "name": "ZCOOL KuaiLe, subset renamed Liangxia Sticker",
+      "license": "OFL-1.1",
+      "source": "https://github.com/googlefonts/zcool-kuaile"
+    },
+    {
+      "role": "正文与数值",
+      "name": "Noto Sans SC Semibold, subset renamed Liangxia UI Sans",
+      "license": "OFL-1.1",
+      "source": "https://github.com/google/fonts/tree/main/ofl/notosanssc"
+    }
+  ],
+  "controls": "按钮皮肤和图标为完整贴纸美术；文字、状态、命中区域由引擎绘制。按压反馈只影响外观，不缩小点击区域。支持精简动效。"
+}

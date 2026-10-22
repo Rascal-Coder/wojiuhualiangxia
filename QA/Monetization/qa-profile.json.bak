@@ -15,15 +15,15 @@
     "drawIntroSeen": true,
     "firstContinueUsed": true,
     "reducedMenuMotion": false,
-    "regenAt": 1792657945,
-    "dailyAt": 1792657052,
-    "lastRewardAdAt": 1792657086,
+    "regenAt": 1792662780,
+    "dailyAt": 1792661883,
+    "lastRewardAdAt": 1792661901,
     "lastInterstitialAt": 0,
     "adUsage": [
         {
             "placement": "DoubleCoins",
             "day": 20748,
-            "lastAt": 1792657086,
+            "lastAt": 1792661901,
             "count": 1
         }
     ],

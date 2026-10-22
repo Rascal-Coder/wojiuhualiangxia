@@ -80,7 +80,7 @@ namespace Inkomino
         // The source profile has five entries. Its hammer hint is omitted here
         // because this port has no start-of-level hammer. Extra time describes
         // the implemented +60-second continuation, rather than a new booster.
-        static readonly string[] titles={"灵墨毛笔","凝时香","照形镜","额外时间"};
+        static readonly string[] titles={"涂鸦笔","冰冰饮","灵感镜","额外时间"};
         static readonly string[] descriptions={
             "自动为你画出一个正确形状，并将它固定。",
             "暂停倒计时10秒，安心规划下一步。",
