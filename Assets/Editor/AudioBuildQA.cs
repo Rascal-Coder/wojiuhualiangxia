@@ -20,7 +20,7 @@ public static class AudioBuildQA
         var errors=new List<string>();var rows=new List<EntryResult>();var report=new Result();string root=Directory.GetParent(Application.dataPath).FullName;string outDir=Path.Combine(root,"QA/Audio");Directory.CreateDirectory(outDir);
         try
         {
-            var inventory=JsonUtility.FromJson<Inventory>(File.ReadAllText(Path.Combine(outDir,"original-audio-inventory.json")));var data=Resources.Load<TextAsset>("Data/original-audio");if(!data)throw new InvalidOperationException("Missing original audio catalog");
+            var inventory=JsonUtility.FromJson<Inventory>(File.ReadAllText(Path.Combine(root,"Assets/Editor/SourceManifests/original-audio-inventory.json")));var data=Resources.Load<TextAsset>("Data/original-audio");if(!data)throw new InvalidOperationException("Missing original audio catalog");
             var catalog=JsonUtility.FromJson<OriginalAudioCatalog>(data.text);report.catalogCount=catalog.entries.Length;report.inventoryCount=inventory.files.Length;
             if(report.catalogCount!=83||inventory.count!=83||report.inventoryCount!=83)errors.Add("Catalog and inventory must each contain 83 original MP3 assets");
             var keys=new HashSet<string>();var matched=new HashSet<string>();

@@ -1,1 +1,0 @@
-vertex=0 first=none texture=Puffy sticker material shader=UI/Default

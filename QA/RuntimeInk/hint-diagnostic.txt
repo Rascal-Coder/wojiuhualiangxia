@@ -1,1 +1,0 @@
-cells=36,37,38,39 strength=1 vertices=288

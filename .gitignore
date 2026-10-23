@@ -9,3 +9,7 @@
 /QA/**/*profile*.json
 /QA/*profile*.json
 /.vs/
+
+/QA/
+/__pycache__/
+/Tools/__pycache__/

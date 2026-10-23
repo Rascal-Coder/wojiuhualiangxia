@@ -1,0 +1,13 @@
+我就划两下
+
+Assets、Packages、ProjectSettings：团结1.10.4工程。
+Builds/WeChat/minigame：最新微信开发者工具导入目录。
+Builds/Windows：最近一次Windows测试版。
+Docs：现行设计、玩法、广告说明与素材来源。
+Tools/subset_fonts.py：修改中文文本后重新生成字体子集；先 pip install -r Tools/requirements.txt。
+Assets/Editor/FontSource：完整字体和许可证，不进入游戏运行包。
+Assets/Editor/SourceManifests：构建所需的原始音频素材清单。
+
+工程QA、历史日志、部分反编译中间输出、旧预览和含报告的重复微信包已清理。原始逆向资料、工具依赖与旧Windows测试包暂保留。
+重新构建或手动运行测试可能生成 QA、Logs 等临时目录；它们不属于运行包，可以在构建完成后删除。
+云存档尚未接入；微信广告ID尚未填写。现有本地玩家存档未清理。

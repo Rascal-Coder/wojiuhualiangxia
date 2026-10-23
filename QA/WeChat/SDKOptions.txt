@@ -1,5 +1,0 @@
-System.Boolean UseFriendRelation
-System.Boolean UseCompressedTexture
-System.Boolean UseMiniGameChat
-System.Boolean PreloadWXFont
-System.Boolean disableMultiTouch

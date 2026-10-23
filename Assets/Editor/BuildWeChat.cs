@@ -12,6 +12,7 @@ public static class BuildWeChat
     [MenuItem("我就划两下/导出微信小游戏")]
     public static void Build()
     {
+        Directory.CreateDirectory(Path.Combine(Application.dataPath,"../QA/WeChat"));
         WeChatArtPacking.Recover();PrepareCompatibilityPlugins();BuildTools.Prepare();BuildTools.Validate();AudioBuildQA.Run();
         string root=Path.GetFullPath(Path.Combine(Application.dataPath,".."));
         var profile=AssetDatabase.LoadAssetAtPath<BuildProfile>("Assets/Settings/Build Profiles/WeChat.asset");
@@ -56,7 +57,8 @@ public static class BuildWeChat
     }
     public static void VerifyExisting()
     {
-        WeChatArtPacking.Recover();BuildTools.Validate();ValidateExport();
+        Directory.CreateDirectory(Path.Combine(Application.dataPath,"../QA/WeChat"));
+        WeChatArtPacking.Recover();BuildTools.Validate();AudioBuildQA.Run();ValidateExport();
         string root=Path.GetFullPath(Path.Combine(Application.dataPath,".."));
         File.WriteAllText(Path.Combine(root,"QA/WeChat/reopen-validation.json"),"{\"status\":\"PASS\",\"appid\":\""+AppId+"\",\"levels\":500,\"export_guard\":true}");
     }

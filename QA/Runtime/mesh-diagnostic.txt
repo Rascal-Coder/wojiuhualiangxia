@@ -1,1 +1,0 @@
-vertex=60 first=RGBA(91, 115, 214, 255) texture=game_assets_facets shader=Inkomino/MosaicGlass
