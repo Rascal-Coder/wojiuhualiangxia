@@ -96,6 +96,7 @@ namespace Inkomino
             result.homeLiveBaseline=MenuMotion.LiveCount;result.homeActiveBaseline=MenuMotion.ActiveCount;
             Check(!MenuMotion.Reduced,"full menu motion is enabled in ordinary profile");
             CheckCounterConsistency("initial home");
+            yield return TestAchievementCoverage();
 
             yield return TimeEntry("shop",app.ShowShop);
             yield return RecordEntry("01-shop-entry",app.ShowShop);
@@ -123,6 +124,44 @@ namespace Inkomino
             app.Store.Data=new PlayerProfile{level=251,wins=250,bestStreak=17,coins=1000,hearts=5,hint=3,freeze=2,lens=1,avatar=2,drawIntroSeen=true,regenAt=now+900,dailyAt=now-86400+1800,reducedMenuMotion=reduced};
             for(int i=0;i<250;i++)app.Store.Data.completed[i]=true;
             ClimbActivity.Refresh(app.Store.Data,now);app.Store.Data.climb.summits=4;
+        }
+        IEnumerator TestAchievementCoverage()
+        {
+            Profile(false);app.Store.Data.level=18;app.Store.Data.wins=17;
+            app.ShowAchievements(false);
+            // Force the real first-frame mesh while progress reveal scale is zero.
+            // RenderTexture capture changes canvas mode and can hide this cached-mesh bug.
+            Canvas.ForceUpdateCanvases();CheckRoundedCoverage("collapsed entry");
+            yield return new WaitForEndOfFrame();
+            SaveScreen("achievement-17-entry.png");
+            yield return new WaitForSecondsRealtime(.65f);
+            yield return new WaitForEndOfFrame();
+            CheckRoundedCoverage("settled entry");SaveScreen("achievement-17-settled.png");
+            Check(app.Content.GetComponentsInChildren<RectTransform>().Count(r=>r.name.StartsWith("Achievement milestone "))==5,"17 wins retains five achievement rows");
+            app.ShowAchievements(true);yield return new WaitForSecondsRealtime(.5f);
+            app.ShowAchievements(false);yield return new WaitForSecondsRealtime(.65f);
+            yield return new WaitForEndOfFrame();
+            CheckRoundedCoverage("return from friends");SaveScreen("achievement-17-return.png");
+        }
+        void SaveScreen(string file)
+        {
+            var image=ScreenCapture.CaptureScreenshotAsTexture();
+            bool visible=image.GetPixels32().Any(c=>c.r>80&&c.g>60);
+            if(visible)File.WriteAllBytes(Path.Combine(dir,file),image.EncodeToPNG());
+            Destroy(image);
+            // Hidden/minimized Windows players can return an empty backbuffer.
+            // Mesh assertions above run before this explicit rendering fallback.
+            if(!visible){result.checks.Add("empty hidden-window backbuffer; explicit render fallback "+file);FidelityCapture.Save(Path.Combine(dir,file),Screen.width,Screen.height);}
+        }
+        void CheckRoundedCoverage(string stage)
+        {
+            foreach(var graphic in app.Content.GetComponentsInChildren<RoundedGraphic>())
+            {
+                var mesh=graphic.canvasRenderer.GetMesh();if(!mesh||mesh.vertexCount==0)continue;
+                var r=graphic.rectTransform.rect;var bounds=mesh.bounds;
+                bool finite=!float.IsNaN(bounds.size.x)&&!float.IsInfinity(bounds.size.x)&&!float.IsNaN(bounds.size.y)&&!float.IsInfinity(bounds.size.y);
+                Check(finite&&bounds.min.x>=r.xMin-32&&bounds.max.x<=r.xMax+32&&bounds.min.y>=r.yMin-32&&bounds.max.y<=r.yMax+32,"bounded rounded mesh "+stage+" "+HierarchyPath(graphic.transform));
+            }
         }
         void ClimbProfile(bool reduced,int stages)
         {

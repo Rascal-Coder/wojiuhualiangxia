@@ -21,7 +21,7 @@
     "MenuMotion": {
       "status": "PASS",
       "screenshots": null,
-      "checks": 144
+      "checks": 208
     },
     "Tutorial": {
       "status": "PASS",
@@ -59,12 +59,12 @@
     {
       "path": "Inkomino_Data/boot.config",
       "bytes": 164,
-      "sha256": "3c8158317c20dcef986571b4962d5df65aa4e0c3e3b50b2c62f6b6cfb0787232"
+      "sha256": "fd589cb48bdd7fff5946bc347b1ef148d6c2f45327d4cdc85a1bcf39575c1543"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers",
       "bytes": 54688,
-      "sha256": "25aa9f9109e151afb6ba5d92bd4c22f72668ec8c94826c85295a85175e582374"
+      "sha256": "3582605e093893d1a0dced9ff3c2c7016be27d551bf7d274b91e08a97efc6b02"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers.assets",
@@ -79,7 +79,7 @@
     {
       "path": "Inkomino_Data/level0",
       "bytes": 2096,
-      "sha256": "c4c9ca5b20b1ff42f2d23d1f0cb82e8a6b1a85bb527332cb1b692d4cb97057b7"
+      "sha256": "6cf332f3f82bfd00b3d6c55108789b29d07f3298e6d97dd5d44d3dff3826ed2a"
     },
     {
       "path": "Inkomino_Data/level0.resS",
@@ -88,8 +88,8 @@
     },
     {
       "path": "Inkomino_Data/Managed/Assembly-CSharp.dll",
-      "bytes": 409088,
-      "sha256": "78c6df010a17f60de107338e4bbe7fff26628337c7b27692ffa8fae165628079"
+      "bytes": 411648,
+      "sha256": "ab826542bb62fc007b536a3c7d30f5d73d9de017f0d263fa53b93ba02ab9842e"
     },
     {
       "path": "Inkomino_Data/Managed/LitJson.dll",
@@ -758,8 +758,8 @@
     },
     {
       "path": "使用说明.txt",
-      "bytes": 2854,
-      "sha256": "ad1922838be92d68a333cc54139e9cff16de42c6d1851714db140b3948135d6b"
+      "bytes": 3056,
+      "sha256": "885448dfa50c4891fb32d5e8576cd80fcbb9ff78f506702f2c67328564b2acf2"
     },
     {
       "path": "启动游戏.cmd",
@@ -769,8 +769,8 @@
   ],
   "archive": {
     "path": "outputs\\我就划两下_Windows_多巴胺贴纸测试版.zip",
-    "bytes": 91728022,
-    "sha256": "006a26d533c5cc506e9f0a9e2b15f1fbdcb06eef2b15a095689ba69facbca06d",
+    "bytes": 91729071,
+    "sha256": "554c96a47354d8bfb4459592a357cadbc2485e2b7cc4c979a914519d793ea832",
     "crc": "PASS"
   }
 }

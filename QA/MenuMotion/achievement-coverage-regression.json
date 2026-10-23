@@ -1,0 +1,12 @@
+{
+  "afterErrors": [],
+  "screenshots": [
+    "achievement-17-settled.png",
+    "achievement-17-return.png"
+  ],
+  "afterStatus": "PASS",
+  "afterChecks": 208,
+  "beforeCoverageErrors": 15,
+  "state": "isolated profile with 17 wins; player save untouched",
+  "beforeStatus": "FAIL"
+}

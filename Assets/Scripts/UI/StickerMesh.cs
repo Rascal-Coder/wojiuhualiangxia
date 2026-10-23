@@ -14,7 +14,12 @@ namespace Inkomino
             Camera camera=canvas&&canvas.renderMode!=RenderMode.ScreenSpaceOverlay?canvas.worldCamera:null;
             var a=RectTransformUtility.WorldToScreenPoint(camera,rt.TransformPoint(Vector3.zero));
             var b=RectTransformUtility.WorldToScreenPoint(camera,rt.TransformPoint(Vector3.right*100));
-            return 100/Mathf.Max(.01f,Vector2.Distance(a,b));
+            var c=RectTransformUtility.WorldToScreenPoint(camera,rt.TransformPoint(Vector3.up*100));
+            // A progress reveal collapses X to zero before its first mesh build.
+            // Use the non-collapsed axis so cached AA vertices cannot grow across
+            // the page when X expands again. Bound fully collapsed transforms too.
+            float pixels=Mathf.Max(Vector2.Distance(a,b),Vector2.Distance(a,c));
+            return 100/Mathf.Max(6.25f,pixels);
         }
         public static List<Vector2> Rounded(Rect r,float radius)
         {
