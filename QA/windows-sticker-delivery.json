@@ -59,12 +59,12 @@
     {
       "path": "Inkomino_Data/boot.config",
       "bytes": 164,
-      "sha256": "9f70ebc6739fa6041abb2d1f80972bc5f03cf1054eabc49c343320a50ac54369"
+      "sha256": "d7e80e33a22d56ee9a70c810f1787f4789da402f7efbe7b97bca7d4d59469e5e"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers",
       "bytes": 54504,
-      "sha256": "1dd60bb7e9ce5472a2154d5d928b376126c320e5833a1d1e7ebd0f99a7e78b64"
+      "sha256": "abe03478485832b576d18c5f1d1c3dadab01282ceb85aab1e4e18ee95b6939f9"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers.assets",
@@ -88,8 +88,8 @@
     },
     {
       "path": "Inkomino_Data/Managed/Assembly-CSharp.dll",
-      "bytes": 396288,
-      "sha256": "6dc778efc51a445d1b81e514b762826e2eb4ff3f6474b3d3952a38b2e7be32fe"
+      "bytes": 395776,
+      "sha256": "bfb52382cc7b48560b8faacf5b3e22c026049a485d09ed11ff98a1fd71fbbba4"
     },
     {
       "path": "Inkomino_Data/Managed/LitJson.dll",
@@ -758,8 +758,8 @@
     },
     {
       "path": "使用说明.txt",
-      "bytes": 2143,
-      "sha256": "5baf76e86d7350623da159f268b26a8c575a9b01404cfd11cee4302c7924683b"
+      "bytes": 2256,
+      "sha256": "96d303a4ac6bf13d0f1894c4f17d432ca1970fe507d63ec2de1a8b4635ba9d79"
     },
     {
       "path": "启动游戏.cmd",
@@ -769,8 +769,8 @@
   ],
   "archive": {
     "path": "outputs\\我就划两下_Windows_多巴胺贴纸测试版.zip",
-    "bytes": 91556086,
-    "sha256": "52c63c71e54c7332230ca0225c840adfd1bd3955252c5b6098df9b764e7033bd",
+    "bytes": 91556009,
+    "sha256": "56296548ca89513769a875739286786e7924ca0880fcd323de23fa242cd6db90",
     "crc": "PASS"
   }
 }

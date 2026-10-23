@@ -237,13 +237,6 @@ namespace Inkomino
         void DrawStickerFeedback(VertexHelper vh)
         {
             float dp=View.PixelDensity;
-            if(View.Trail.Count>0)
-            {
-                DrawPiece(vh,View.Trail,1,false,false);
-                var points=View.Trail.Select(View.CellCenterLocal).ToList();
-                if(points.Count>1){RoundStroke(vh,points,4*dp,Alpha(Co("#6645AA"),.15f),false);RoundStroke(vh,points,2.4f*dp,Alpha(Color.white,.85f),false);}
-                var tip=points[points.Count-1];Disc(vh,tip,6.5f*dp,Color.white);Disc(vh,tip,3.8f*dp,Co("#FF638B"));
-            }
             if(MenuMotion.Reduced)return;
             foreach(var piece in View.State.Pieces)
             {
