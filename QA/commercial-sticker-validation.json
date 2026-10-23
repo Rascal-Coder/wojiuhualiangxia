@@ -34,7 +34,7 @@
     "MenuDesign": {
       "status": "PASS",
       "screenshots": 42,
-      "checks": 1349
+      "checks": 1358
     },
     "MenuMotion": {
       "status": "PASS",
@@ -44,7 +44,7 @@
     "Tutorial": {
       "status": "PASS",
       "screenshots": null,
-      "checks": 24
+      "checks": 67
     },
     "SafeLayout": {
       "status": "PASS",

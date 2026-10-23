@@ -284,12 +284,7 @@ namespace Inkomino
         }
         void WallMark(VertexHelper vh,Vector2 center,int kind,float radius,float width,Color paper,Color ink)
         {
-            ink=Co("#412F5B");
-            // 1 = barrier only; 2 = same shape; 3 = different shapes. Match BoardState rules.
-            if(kind==1){RoundStroke(vh,new[]{center+Vector2.left*radius*.65f,center+Vector2.right*radius*.65f},width,ink,false);return;}
-            RoundStroke(vh,new[]{center+new Vector2(-.72f,-.36f)*radius,center+new Vector2(.72f,-.36f)*radius},width,ink,false);
-            RoundStroke(vh,new[]{center+new Vector2(-.72f,.36f)*radius,center+new Vector2(.72f,.36f)*radius},width,ink,false);
-            if(kind==3)RoundStroke(vh,new[]{center+new Vector2(-.48f,-.78f)*radius,center+new Vector2(.48f,.78f)*radius},width,ink,false);
+            StickerRuleGlyph.Draw(vh,rectTransform,center,kind,radius,width);
         }
 
         void DrawSweep(VertexHelper vh)

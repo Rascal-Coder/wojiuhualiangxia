@@ -80,6 +80,7 @@ namespace Inkomino
             int firstHud=Content.childCount;
             var clock=At(Content,"Source timer",396,139,288,124);MenuUI.Paper(clock,new Vector2(.5f,.5f),Vector2.zero,clock.sizeDelta);timer=MenuUI.Label("",clock,new Vector2(.5f,.5f),Vector2.zero,new Vector2(270,105),76,MenuUI.Ink,TextAnchor.MiddleCenter);timeFill=null;
             var lp=At(Content,"Source level",33,151,241,101);MenuUI.Paper(lp,new Vector2(.5f,.5f),Vector2.zero,lp.sizeDelta);MenuUI.Label(Zh.Level(CurrentLevel),lp,new Vector2(.5f,.5f),Vector2.zero,new Vector2(230,90),46,MenuUI.Ink,TextAnchor.MiddleCenter,true);Skin.IconButton("game_assets_btnpause",Content,new Vector2(0,1),new Vector2(991,-207),Vector2.one*42*D,()=>Settings(true));
+            var rules=MenuUI.SecondaryButton("规则",Content,new Vector2(0,1),new Vector2(819,-207),new Vector2(160,100),ShowGameHelp,42);rules.name="Game rules entry";
             targets=At(Content,"Source targets",31.5f,273,1017,225);((RectTransform)targets).pivot=new Vector2(0,1);((RectTransform)targets).anchoredPosition=new Vector2(31.5f,-273);
             headerLayout=clock.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,firstHud);
             var boardArea=At(Content,"Source board area",38,540,1004,1395);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}
@@ -88,7 +89,7 @@ namespace Inkomino
             bool restartIntro=id==1&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen;
             if(restartIntro&&!review&&Store.Data.resumeLevel==1){Store.Data.resumeLevel=0;Store.Data.resumePieces=null;Store.Data.resumeTime=0;Store.Save();}
             Board.Changed+=BoardChanged;if(resume&&!restartIntro&&Store.Data.resumeLevel==id&&Store.Data.resumePieces!=null){suppress=true;Board.Restore(Store.Data.resumePieces);Remaining=Mathf.Max(1,Store.Data.resumeTime);suppress=false;}
-            RefreshTargets();BoosterCounts();TimerChanged();if(id==1&&Board.Pieces.Count==0&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen)Tutorial();FocusFirst();}
+            RefreshTargets();BoosterCounts();TimerChanged();if(id==1&&Board.Pieces.Count==0&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen)Tutorial();else StartContextGuide();FocusFirst();}
         void RefreshTargets(){if(targets!=null&&!targets.GetComponent<SourceTargetsStrip>())SourceHud.BuildTargets((RectTransform)targets,Board,D);}
         // Three equal columns, with independent icon, name and status rows.
         // The entire tray is anchored to the safe stage bottom; every hit area is 98dp wide.

@@ -9,6 +9,7 @@ namespace Inkomino
         public int schema=1,level=1,coins=100,hearts=5,hint=3,freeze=3,lens=3,wins=0,streak=0,avatar=1;
         public bool sound=true,music=true,haptics=true,drawIntroSeen=false,firstContinueUsed=false,reducedMenuMotion=false;
         public long regenAt,dailyAt,lastRewardAdAt,lastInterstitialAt;
+        public int boosterIntroSeen,barrierIntroSeen;
         public long shopDay;public int[] shopPurchases=new int[3];
         public AdUsage[] adUsage=new AdUsage[0];public bool[] completed=new bool[500];
         public int resumeLevel;public float resumeTime;public PieceData[] resumePieces;

@@ -84,6 +84,43 @@ namespace Inkomino
             CheckIt(!app.Playing&&app.Store.Data.level==2,"completed player starts on home");
             app.Store.Data=new PlayerProfile{level=23,coins=1234,drawIntroSeen=true};app.ShowStartupDestination();
             CheckIt(!app.Playing&&app.Store.Data.level==23&&app.Store.Data.coins==1234,"returning progress preserved");
+            yield return ContextGuides();
+        }
+        bool HasPanel(string name){return app.Overlays.GetComponentsInChildren<RectTransform>().Any(t=>t.gameObject.activeInHierarchy&&t.name==name);}
+        void ConfirmGuide(){var b=app.Overlays.GetComponentsInChildren<UnityEngine.UI.Button>().Last(x=>x.gameObject.activeInHierarchy&&x.name=="Guide confirm");b.onClick.Invoke();}
+        IEnumerator ContextGuides()
+        {
+            app.Store.Data=new PlayerProfile{level=3,drawIntroSeen=true};app.StartLevel(2);
+            CheckIt(!HasPanel("Booster guide 0"),"no booster intro before unlock");
+            int[] levels={3,7,10};
+            for(int i=0;i<3;i++){
+                app.Store.Data.level=levels[i];app.StartLevel(levels[i]);yield return Advance(45);
+                CheckIt(HasPanel("Booster guide "+i)&&!app.InputEnabled,"unlock entry shows blocking booster intro "+i);
+                float time=app.Remaining;app.enabled=true;yield return new WaitForSecondsRealtime(.2f);app.enabled=false;
+                CheckIt(Mathf.Abs(app.Remaining-time)<.01f,"booster introduction pauses timer "+i);
+                CheckIt(app.Store.Data.hint==3&&app.Store.Data.freeze==3&&app.Store.Data.lens==3,"intro never consumes tools "+i);
+                yield return Capture("guide-booster-"+i+".png");
+                app.ClosePopup();CheckIt((app.Store.Data.boosterIntroSeen&(1<<i))==0,"dismissed unfinished guide remains unseen "+i);
+                app.StartLevel(levels[i]);yield return Advance(40);CheckIt(HasPanel("Booster guide "+i),"interrupted introduction resumes "+i);
+                ConfirmGuide();var reloaded=new SaveStore(app.Store.Path);
+                CheckIt((reloaded.Data.boosterIntroSeen&(1<<i))!=0,"confirmed introduction survives reload "+i);
+                app.Store.Data=reloaded.Data;app.StartLevel(levels[i]);yield return Advance(2);
+                CheckIt(!HasPanel("Booster guide "+i)&&app.InputEnabled,"confirmed introduction does not repeat "+i);
+            }
+            int[] barrierLevels={11,20,21};
+            for(int i=0;i<3;i++){
+                app.StartLevel(barrierLevels[i]);yield return Advance(45);
+                CheckIt(HasPanel("Barrier guide "+(i+1))&&!app.InputEnabled,"first barrier appearance explained "+(i+1));
+                yield return Capture("guide-barrier-"+(i+1)+".png");ConfirmGuide();
+                CheckIt((new SaveStore(app.Store.Path).Data.barrierIntroSeen&(1<<i))!=0,"barrier knowledge persists "+(i+1));
+                app.StartLevel(barrierLevels[i]);yield return Advance(2);CheckIt(!HasPanel("Barrier guide "+(i+1)),"barrier guide shown once "+(i+1));
+            }
+            app.ShowGameHelp();yield return Advance(45);CheckIt(HasPanel("Game rules help"),"rules can be reopened during play");
+            CheckIt(app.Overlays.GetComponentsInChildren<RectTransform>().Count(t=>t.name.StartsWith("Rule explanation "))==3,"manual help contains all three illustrated rules");
+            yield return Capture("guide-rules-overview.png");
+            app.ShowBoosterGuide(0);yield return Advance(45);CheckIt(HasPanel("Booster guide 0"),"tool instructions can be revisited");app.ClosePopup();
+            CheckIt(HasPanel("Game rules help")&&!app.InputEnabled,"nested help returns to rules without resuming timer");app.ClosePopup();
+            CheckIt(app.InputEnabled,"closing help returns to the board");
         }
         IEnumerator Advance(int frames){for(int i=0;i<frames;i++){SourceClock.Step(1f/60);yield return new WaitForEndOfFrame();SourceClock.ManualDelta=0;}}
         IEnumerator Capture(string file){yield return new WaitForEndOfFrame();Canvas.ForceUpdateCanvases();FidelityCapture.Save(Path.Combine(dir,file),1080,2400);CheckIt(new FileInfo(Path.Combine(dir,file)).Length>10000,"real rendered screenshot "+file);}

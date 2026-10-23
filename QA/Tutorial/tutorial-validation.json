@@ -98,6 +98,178 @@
         {
             "name": "returning progress preserved",
             "passed": true
+        },
+        {
+            "name": "no booster intro before unlock",
+            "passed": true
+        },
+        {
+            "name": "unlock entry shows blocking booster intro 0",
+            "passed": true
+        },
+        {
+            "name": "booster introduction pauses timer 0",
+            "passed": true
+        },
+        {
+            "name": "intro never consumes tools 0",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot guide-booster-0.png",
+            "passed": true
+        },
+        {
+            "name": "dismissed unfinished guide remains unseen 0",
+            "passed": true
+        },
+        {
+            "name": "interrupted introduction resumes 0",
+            "passed": true
+        },
+        {
+            "name": "confirmed introduction survives reload 0",
+            "passed": true
+        },
+        {
+            "name": "confirmed introduction does not repeat 0",
+            "passed": true
+        },
+        {
+            "name": "unlock entry shows blocking booster intro 1",
+            "passed": true
+        },
+        {
+            "name": "booster introduction pauses timer 1",
+            "passed": true
+        },
+        {
+            "name": "intro never consumes tools 1",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot guide-booster-1.png",
+            "passed": true
+        },
+        {
+            "name": "dismissed unfinished guide remains unseen 1",
+            "passed": true
+        },
+        {
+            "name": "interrupted introduction resumes 1",
+            "passed": true
+        },
+        {
+            "name": "confirmed introduction survives reload 1",
+            "passed": true
+        },
+        {
+            "name": "confirmed introduction does not repeat 1",
+            "passed": true
+        },
+        {
+            "name": "unlock entry shows blocking booster intro 2",
+            "passed": true
+        },
+        {
+            "name": "booster introduction pauses timer 2",
+            "passed": true
+        },
+        {
+            "name": "intro never consumes tools 2",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot guide-booster-2.png",
+            "passed": true
+        },
+        {
+            "name": "dismissed unfinished guide remains unseen 2",
+            "passed": true
+        },
+        {
+            "name": "interrupted introduction resumes 2",
+            "passed": true
+        },
+        {
+            "name": "confirmed introduction survives reload 2",
+            "passed": true
+        },
+        {
+            "name": "confirmed introduction does not repeat 2",
+            "passed": true
+        },
+        {
+            "name": "first barrier appearance explained 1",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot guide-barrier-1.png",
+            "passed": true
+        },
+        {
+            "name": "barrier knowledge persists 1",
+            "passed": true
+        },
+        {
+            "name": "barrier guide shown once 1",
+            "passed": true
+        },
+        {
+            "name": "first barrier appearance explained 2",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot guide-barrier-2.png",
+            "passed": true
+        },
+        {
+            "name": "barrier knowledge persists 2",
+            "passed": true
+        },
+        {
+            "name": "barrier guide shown once 2",
+            "passed": true
+        },
+        {
+            "name": "first barrier appearance explained 3",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot guide-barrier-3.png",
+            "passed": true
+        },
+        {
+            "name": "barrier knowledge persists 3",
+            "passed": true
+        },
+        {
+            "name": "barrier guide shown once 3",
+            "passed": true
+        },
+        {
+            "name": "rules can be reopened during play",
+            "passed": true
+        },
+        {
+            "name": "manual help contains all three illustrated rules",
+            "passed": true
+        },
+        {
+            "name": "real rendered screenshot guide-rules-overview.png",
+            "passed": true
+        },
+        {
+            "name": "tool instructions can be revisited",
+            "passed": true
+        },
+        {
+            "name": "nested help returns to rules without resuming timer",
+            "passed": true
+        },
+        {
+            "name": "closing help returns to the board",
+            "passed": true
         }
     ],
     "errors": []
