@@ -15,7 +15,7 @@ namespace Inkomino
             ClearScreen("game_assets_shopbg");
             Wallet();
             int firstContentChild=Content.childCount;
-            MenuUI.Title("灵感补给站","给灵感加点料，轻松划过难关",Content);
+            MenuUI.Title("灵感补给站","每日 0 点补货",Content);
 
             string[] icons={"pen","freeze","lens"};
             string[] items={"hint","freeze","lens"};
@@ -43,9 +43,11 @@ namespace Inkomino
                 MenuUI.Label("3 个装",pack,new Vector2(.5f,.5f),Vector2.zero,pack.sizeDelta,42,MenuUI.Muted,TextAnchor.MiddleCenter);
 
                 MenuUI.Label(descriptions[i],row,top,new Vector2(600,-134),new Vector2(600,60),48,MenuUI.Muted);
-                MenuUI.Label("已有 "+ShopOwnedCount(counts[i])+" 个",row,top,new Vector2(405,-250),new Vector2(210,65),42,MenuUI.Muted);
+                MenuUI.Label("库存 "+ShopOwnedCount(counts[i])+"/30",row,top,new Vector2(405,-272),new Vector2(210,65),42,MenuUI.Muted);
 
-                var buy=MenuUI.GameButton(prices[i]+" 金币",row,top,new Vector2(745,-250),new Vector2(360,130),()=>
+                MenuUI.Label("剩余 "+Store.ShopRemaining(items[i],SaveStore.Now)+"/3",row,top,new Vector2(405,-204),new Vector2(210,65),42,MenuUI.Muted);
+                string blocked=Store.ShopError(items[i],prices[i],SaveStore.Now);
+                var buy=MenuUI.GameButton(blocked.Length==0?prices[i]+" 金币":blocked,row,top,new Vector2(745,-250),new Vector2(360,130),()=>
                 {
                     if(Store.Buy(items[index],prices[index]))
                     {
@@ -57,9 +59,9 @@ namespace Inkomino
                         var confirmation=popups.Peek().Find("Source popup motion/"+Zh.PurchaseReady+" panel") as RectTransform;
                         if(confirmation){var granted=MenuUI.Art("menu_"+icons[index],confirmation,new Vector2(.5f,.5f),new Vector2(0,220),Vector2.one*170);if(granted)MenuMotion.Celebrate(granted.rectTransform);}
                     }
-                    else Info(Zh.MoreCoins,Zh.EarnCoins);
+                    else {ShowShop();SetMessage(Store.ShopError(items[index],prices[index],SaveStore.Now));}
                 },52);
-                buy.name="Shop exchange "+items[i];
+                buy.name="Shop exchange "+items[i];buy.interactable=blocked.Length==0;
             }
 
             var supply=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-855),new Vector2(960,260),true);

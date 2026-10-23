@@ -1,1 +1,1 @@
-vertex=1080 first=RGBA(164, 138, 191, 153) texture=Sticker matte shader=Inkomino/Sticker
+vertex=0 first=none texture=Puffy sticker material shader=UI/Default

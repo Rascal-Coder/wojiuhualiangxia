@@ -120,7 +120,7 @@ namespace Inkomino
     public class RoundedGraphic:MaskableGraphic
     {
         public float Radius=32;
-        protected override void OnPopulateMesh(VertexHelper vh){vh.Clear();var r=rectTransform.rect;float rad=Mathf.Min(Radius,Mathf.Min(r.width,r.height)/2);vh.AddVert(r.center,color,Vector2.zero);for(int corner=0;corner<4;corner++){var center=new Vector2(corner==0||corner==3?r.xMax-rad:r.xMin+rad,corner<2?r.yMax-rad:r.yMin+rad);for(int k=0;k<=8;k++){float a=(corner*90+k*90f/8)*Mathf.Deg2Rad;vh.AddVert(center+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*rad,color,Vector2.zero);}}for(int i=1;i<vh.currentVertCount;i++)vh.AddTriangle(0,i,i==vh.currentVertCount-1?1:i+1);}
+        protected override void OnPopulateMesh(VertexHelper vh){vh.Clear();StickerMesh.Solid(vh,StickerMesh.Rounded(rectTransform.rect,Radius),color,StickerMesh.Pixel(rectTransform)*.9f);}
     }
     public class SafeArea:MonoBehaviour
     {

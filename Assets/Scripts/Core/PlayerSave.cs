@@ -9,6 +9,7 @@ namespace Inkomino
         public int schema=1,level=1,coins=100,hearts=5,hint=3,freeze=3,lens=3,wins=0,streak=0,avatar=1;
         public bool sound=true,music=true,haptics=true,drawIntroSeen=false,firstContinueUsed=false,reducedMenuMotion=false;
         public long regenAt,dailyAt,lastRewardAdAt,lastInterstitialAt;
+        public long shopDay;public int[] shopPurchases=new int[3];
         public AdUsage[] adUsage=new AdUsage[0];public bool[] completed=new bool[500];
         public int resumeLevel;public float resumeTime;public PieceData[] resumePieces;
         public int bestStreak,climbPendingFailure;public ClimbState climb=new ClimbState();
@@ -54,6 +55,29 @@ namespace Inkomino
             Directory.CreateDirectory(System.IO.Path.GetDirectoryName(Path));string tmp=Path+".tmp";File.WriteAllText(tmp,JsonUtility.ToJson(Data,true));if(File.Exists(Path)){if(File.Exists(Path+".bak"))File.Delete(Path+".bak");File.Replace(tmp,Path,Path+".bak");}else File.Move(tmp,Path);
 #endif
             }catch(Exception e){Debug.LogError("Save failed: "+e.Message);}Changed?.Invoke();}
-        public bool Buy(string item,int cost){if(Data.coins<cost)return false;Data.coins-=cost;if(item=="hint")Data.hint+=3;else if(item=="freeze")Data.freeze+=3;else if(item=="lens")Data.lens+=3;Save();return true;}
+        public const int ShopDailyLimit=3,ShopStockLimit=30;
+        static int ShopIndex(string item){return item=="hint"?0:item=="freeze"?1:item=="lens"?2:-1;}
+        public int ShopRemaining(string item,long now)
+        {
+            int index=ShopIndex(item);if(index<0)return 0;long day=(now+8*3600)/86400;
+            if(Data.shopDay!=day||Data.shopPurchases==null||Data.shopPurchases.Length!=3){Data.shopDay=day;Data.shopPurchases=new int[3];}
+            return Math.Max(0,ShopDailyLimit-Data.shopPurchases[index]);
+        }
+        public string ShopError(string item,int cost,long now)
+        {
+            int index=ShopIndex(item);if(index<0||cost!=(index==1?120:150))return "商品暂不可用";
+            if(ShopRemaining(item,now)==0)return "今日已售罄";
+            int owned=index==0?Data.hint:index==1?Data.freeze:Data.lens;
+            if(owned>ShopStockLimit-3)return "背包已满";
+            if(Data.coins<cost)return "金币不足";return "";
+        }
+        public bool Buy(string item,int cost){return BuyAt(item,cost,Now);}
+        public bool BuyAt(string item,int cost,long now)
+        {
+            if(ShopError(item,cost,now).Length>0)return false;int index=ShopIndex(item);
+            Data.coins-=cost;if(index==0)Data.hint+=3;else if(index==1)Data.freeze+=3;else Data.lens+=3;
+            Data.shopPurchases[index]++;Save();return true;
+        }
+
     }
 }

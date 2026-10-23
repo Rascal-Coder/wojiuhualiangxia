@@ -1,0 +1,134 @@
+{
+  "width": 1024,
+  "height": 1024,
+  "regions": [
+    {
+      "key": "badge_seed",
+      "x": 18,
+      "y": 778,
+      "width": 219,
+      "height": 236,
+      "border": 0
+    },
+    {
+      "key": "badge_star",
+      "x": 279,
+      "y": 778,
+      "width": 210,
+      "height": 236,
+      "border": 0
+    },
+    {
+      "key": "badge_shield",
+      "x": 534,
+      "y": 778,
+      "width": 211,
+      "height": 236,
+      "border": 0
+    },
+    {
+      "key": "badge_laurel",
+      "x": 778,
+      "y": 790,
+      "width": 236,
+      "height": 212,
+      "border": 0
+    },
+    {
+      "key": "badge_crown",
+      "x": 10,
+      "y": 537,
+      "width": 236,
+      "height": 207,
+      "border": 0
+    },
+    {
+      "key": "stamp_sun",
+      "x": 266,
+      "y": 527,
+      "width": 236,
+      "height": 226,
+      "border": 0
+    },
+    {
+      "key": "stamp_luck",
+      "x": 527,
+      "y": 522,
+      "width": 225,
+      "height": 236,
+      "border": 0
+    },
+    {
+      "key": "stamp_bulb",
+      "x": 778,
+      "y": 533,
+      "width": 236,
+      "height": 214,
+      "border": 0
+    },
+    {
+      "key": "stamp_hand",
+      "x": 10,
+      "y": 271,
+      "width": 236,
+      "height": 226,
+      "border": 0
+    },
+    {
+      "key": "stamp_shine",
+      "x": 266,
+      "y": 270,
+      "width": 236,
+      "height": 229,
+      "border": 0
+    },
+    {
+      "key": "stamp_rocket",
+      "x": 529,
+      "y": 266,
+      "width": 222,
+      "height": 236,
+      "border": 0
+    },
+    {
+      "key": "stamp_surprise",
+      "x": 778,
+      "y": 272,
+      "width": 236,
+      "height": 225,
+      "border": 0
+    },
+    {
+      "key": "entry_daily",
+      "x": 10,
+      "y": 18,
+      "width": 236,
+      "height": 220,
+      "border": 0
+    },
+    {
+      "key": "entry_album",
+      "x": 266,
+      "y": 26,
+      "width": 236,
+      "height": 205,
+      "border": 0
+    },
+    {
+      "key": "reward_coins",
+      "x": 522,
+      "y": 12,
+      "width": 236,
+      "height": 232,
+      "border": 0
+    },
+    {
+      "key": "entry_friends",
+      "x": 778,
+      "y": 36,
+      "width": 236,
+      "height": 184,
+      "border": 0
+    }
+  ]
+}

@@ -16,8 +16,7 @@ namespace Inkomino
         public int attempt,stage,startLevel,finalBots,finalCount,summits;
         public int[] eliminated=new int[7];
     }
-    // Port of retained modules2091/2092. Opponents are locally seeded; this
-    // activity does not share its simulated roster with the real friend board.
+    // Solo seven-stamp collection. Legacy roster fields remain only for save compatibility.
     public static class ClimbActivity
     {
         static ClimbConfig config;
@@ -31,42 +30,27 @@ namespace Inkomino
             return false;
         }
         public static bool Unlocked(PlayerProfile profile){return Config.enabled&&profile.level>=Config.unlockLevel;}
-        public static int AliveBots(ClimbState state){return Math.Max(0,Config.roster-1-(state.eliminated==null?0:state.eliminated.Sum()));}
-        public static int Alive(ClimbState state){return AliveBots(state)+(state.isOut?0:1);}
+        public static int AliveBots(ClimbState state){return 0;}
+        public static int Alive(ClimbState state){return state.isOut?0:1;}
         public static bool AtTop(ClimbState state){return state.joined&&!state.isOut&&state.stage>=Config.stages;}
-        public static int Prize(ClimbState state)
-        {int count=state.finalCount>0?state.finalCount:Math.Max(1,Alive(state));double amount=Config.prizePool/(double)count;return Config.payoutRoundTo>0?Config.payoutRoundTo*(int)Math.Ceiling(amount/Config.payoutRoundTo):(int)Math.Ceiling(amount);}
+        public static int Prize(ClimbState state){return Config.prizePool;}
         public static bool Join(SaveStore store,long now)
         {
             Refresh(store.Data,now);var state=store.Data.climb;
             if(!Unlocked(store.Data)||state.joined&&(!state.isOut||now<state.cooldownUntil))return false;
             int attempt=state.joined?state.attempt+1:1;
             state=new ClimbState{windowStart=state.windowStart,summits=state.summits,attempt=attempt,joined=true,eliminated=new int[Config.stages]};
-            var rng=new Random32(AttemptSeed(state)^668265263u);
-            int segment=Config.segmentCycle[Math.Max(0,state.summits)%Config.segmentCycle.Length];
-            var weights=Config.segments[Mathf.Clamp(segment,0,Config.segments.Length-1)].finalDist;
-            double choice=rng.Next()*weights.Sum();int selected=weights.Length-1;
-            for(int i=0;i<weights.Length;i++){choice-=weights[i];if(choice<0){selected=i;break;}}
-            state.finalBots=Mathf.Clamp(selected,0,Config.roster-1);store.Data.climb=state;store.Save();return true;
+            state.finalBots=0;store.Data.climb=state;store.Save();return true;
         }
         public static void Advance(PlayerProfile profile,LevelData level,GameData catalog,long now)
         {
             Refresh(profile,now);var state=profile.climb;
             if(!Unlocked(profile)||level.id<Config.unlockLevel||!state.joined||state.isOut||state.stage>=Config.stages)return;
             if(state.startLevel==0)state.startLevel=level.id;
-            var weights=new double[Config.stages];
-            for(int i=0;i<weights.Length;i++)
-            {
-                string difficulty=level.difficulty;
-                if(catalog!=null)difficulty=catalog.levels[Mathf.Clamp(state.startLevel+i-1,0,catalog.levels.Length-1)].difficulty;
-                int multiple=difficulty=="ULTRA_HARD"?8:difficulty=="EXTRA_HARD"?6:difficulty=="HARD"?4:2;
-                weights[i]=Config.stepWeights[i]*multiple;
-            }
-            int bound=Math.Max(0,AliveBots(state)-state.finalBots);double remaining=weights.Skip(state.stage).Sum();
-            int drop=remaining>0?(int)Math.Ceiling(weights[state.stage]/remaining*bound):(state.stage==Config.stages-1?bound:0);
-            state.eliminated[state.stage]=Mathf.Clamp(drop,0,bound);state.stage++;
-            if(state.stage>=Config.stages){state.finalCount=AliveBots(state)+1;state.summits++;}
+            state.stage++;
+            if(state.stage>=Config.stages){state.finalCount=1;state.summits++;}
         }
+
         public static void Fail(PlayerProfile profile,long now)
         {
             Refresh(profile,now);var state=profile.climb;

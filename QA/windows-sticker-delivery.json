@@ -5,13 +5,13 @@
   "suites": {
     "RuntimeInk": {
       "status": "PASS",
-      "screenshots": 21,
+      "screenshots": 23,
       "checks": 0
     },
     "MenuDesign": {
       "status": "PASS",
       "screenshots": 42,
-      "checks": 1364
+      "checks": 1349
     },
     "ChineseWindows": {
       "status": "PASS",
@@ -36,12 +36,12 @@
     "Social": {
       "status": "PASS",
       "screenshots": 7,
-      "checks": 26
+      "checks": 35
     },
     "Monetization": {
       "status": "PASS",
       "screenshots": 12,
-      "checks": 65
+      "checks": 64
     }
   },
   "wechat_build": "Cancelled at user request; existing imported release untouched",
@@ -59,17 +59,17 @@
     {
       "path": "Inkomino_Data/boot.config",
       "bytes": 164,
-      "sha256": "dfbf2d1fef16602bee46418338962aa18ee1f69880ad7ba11d65b826f580765a"
+      "sha256": "9f70ebc6739fa6041abb2d1f80972bc5f03cf1054eabc49c343320a50ac54369"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers",
-      "bytes": 54232,
-      "sha256": "18a7e8e4b7fa93a97d099c7e0ee8fb15d1bacdbf56723788e57a0c6537d58381"
+      "bytes": 54504,
+      "sha256": "1dd60bb7e9ce5472a2154d5d928b376126c320e5833a1d1e7ebd0f99a7e78b64"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers.assets",
-      "bytes": 16720,
-      "sha256": "722c3f7472514c7cdf1f2f2147456ada5255246fbf80f1f8deb40301666a1d01"
+      "bytes": 17080,
+      "sha256": "493650a649e5c28c67cf4d56267f18c6109e77c5b9571b25f7ba79e6a36d3c22"
     },
     {
       "path": "Inkomino_Data/globalgamemanagers.assets.resS",
@@ -88,8 +88,8 @@
     },
     {
       "path": "Inkomino_Data/Managed/Assembly-CSharp.dll",
-      "bytes": 386048,
-      "sha256": "851568ddd6d248a255606e68f2d73ef814c65cdcb03fd0a221c01941efb8b97d"
+      "bytes": 396288,
+      "sha256": "6dc778efc51a445d1b81e514b762826e2eb4ff3f6474b3d3952a38b2e7be32fe"
     },
     {
       "path": "Inkomino_Data/Managed/LitJson.dll",
@@ -618,8 +618,8 @@
     },
     {
       "path": "Inkomino_Data/resources.assets",
-      "bytes": 4516238,
-      "sha256": "b07db101386baadcf1d7a761253c995902278707c66c52bfb52cfdbaa38d7517"
+      "bytes": 5874582,
+      "sha256": "1f9b74d39bfec65b85ffdf053d3b0e2413eea145fa966ee738382b11cd00c350"
     },
     {
       "path": "Inkomino_Data/resources.assets.resS",
@@ -758,8 +758,8 @@
     },
     {
       "path": "使用说明.txt",
-      "bytes": 1889,
-      "sha256": "2b47f4e62afab0b45eda35236ed4ea469f16844a6d594a47caee63678dd8f7b3"
+      "bytes": 2143,
+      "sha256": "5baf76e86d7350623da159f268b26a8c575a9b01404cfd11cee4302c7924683b"
     },
     {
       "path": "启动游戏.cmd",
@@ -769,8 +769,8 @@
   ],
   "archive": {
     "path": "outputs\\我就划两下_Windows_多巴胺贴纸测试版.zip",
-    "bytes": 90192302,
-    "sha256": "5b6b7bbb8fc2910e9850f69f85104e6bf92c2710085d549f8f5b08ec71756b52",
+    "bytes": 91556086,
+    "sha256": "52c63c71e54c7332230ca0225c840adfd1bd3955252c5b6098df9b764e7033bd",
     "crc": "PASS"
   }
 }

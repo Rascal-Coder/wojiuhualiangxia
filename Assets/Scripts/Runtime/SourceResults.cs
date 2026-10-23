@@ -27,7 +27,7 @@ namespace Inkomino
             var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-1150),new Vector2(820,660),true);rewardRoot.name="Source reward";
             MenuUI.Label("通关奖励",rewardRoot,new Vector2(.5f,1),new Vector2(0,-75),new Vector2(700,80),54,MenuUI.Ink,TextAnchor.MiddleCenter,true);
             var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,15),Vector2.one*380);
-            MenuUI.Art("menu_treasure",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*380);
+            MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*380);
             var amount=MenuUI.Label("+"+reward+" 金币",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-240),new Vector2(700,95),68,MenuUI.Ink,TextAnchor.MiddleCenter);
             MenuUI.Label(Review||reward==0?"已完成的关卡，不重复发放金币":"奖励已加入金币余额",root,new Vector2(.5f,1),new Vector2(0,-1600),new Vector2(940,80),46,MenuUI.Muted,TextAnchor.MiddleCenter);
             motion.Reward=rewardRoot;motion.RewardAlpha=rewardRoot.gameObject.AddComponent<CanvasGroup>();

@@ -1,0 +1,36 @@
+{
+  "source": "built-in image_gen",
+  "reference": "current dopamine stationery design",
+  "crop_boxes": [
+    [
+      10,
+      10,
+      617,
+      617
+    ],
+    [
+      637,
+      10,
+      1244,
+      617
+    ],
+    [
+      10,
+      637,
+      617,
+      1244
+    ]
+  ],
+  "atlas": [
+    512,
+    512
+  ],
+  "mipmaps": true,
+  "bytes": 150093,
+  "sha256": "5b4a6e283c271c2d6a3a1bc5ba462b92caa44e66a1cd61b06179ac5954814e74",
+  "white_sample": [
+    510.5,
+    510.5
+  ],
+  "note": "Three tintable puffy vinyl faces; generated original is Editor-only."
+}

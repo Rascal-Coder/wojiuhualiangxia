@@ -7,7 +7,7 @@ namespace Inkomino
     // Does not change resource IDs used by sound, saves, rewards or gameplay.
     public static class InkTheme
     {
-        public static readonly Color32 Ink=new Color32(65,47,91,255),Muted=new Color32(126,105,147,255),Paper=new Color32(255,249,238,255),Line=new Color32(228,211,241,255),Jade=new Color32(102,69,170,255),Cinnabar=new Color32(234,72,119,255);
+        public static readonly Color32 Ink=StickerDesign.Ink,Muted=StickerDesign.Muted,Paper=StickerDesign.Background,Line=new Color32(228,211,241,255),Jade=new Color32(102,69,170,255),Cinnabar=new Color32(234,72,119,255);
         static Texture2D paper,grain,wash;
         static Sprite paperSprite;
         static Texture2D Noise(string name,Color32 basis,int variation)
@@ -46,7 +46,8 @@ namespace Inkomino
             else if(key.Contains("plus"))icon="ink_plus";
             else if(key.Contains("greenbase"))icon="ink_seal";
             else if(key.Contains("lock"))icon="ink_lock";
-            else if(key.Contains("dailyreward")||key.Contains("chest"))icon="menu_treasure";
+            else if(key.Contains("dailyreward"))icon="entry_daily";
+            else if(key.Contains("chest"))icon="stamp_surprise";
             else if(key.Contains("soundicon"))icon="ink_sound";
             else if(key.Contains("musicicon"))icon="ink_music";
             else if(key.Contains("hapticsicon"))icon="ink_haptics";

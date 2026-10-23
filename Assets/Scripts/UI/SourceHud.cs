@@ -60,16 +60,16 @@ namespace Inkomino
                 ShapeData shape;
                 if(board.Library.Shapes.TryGetValue(id,out shape)&&shape.cells!=null&&shape.cells.Length>0)
                 {
-                    float gap=0,step=cell;
+                    float gap=cell*.12f,step=cell+gap;
                     int minC=shape.cells.Min(x=>x.c),minR=shape.cells.Min(x=>x.r);
                     int columns=shape.cells.Max(x=>x.c)-minC+1,rows=shape.cells.Max(x=>x.r)-minR+1;
                     float gw=columns*cell+(columns-1)*gap,gh=rows*cell+(rows-1)*gap;
                     var glyph=Skin.Rect("ShapeGlyph "+id,card.Root,new Vector2(.5f,1),new Vector2(0,-32*d),new Vector2(gw,gh));
-                    foreach(var c in shape.cells)Skin.RoundBox(glyph,new Vector2(0,1),new Vector2((c.c-minC)*step+cell/2,-(c.r-minR)*step-cell/2),Vector2.one*cell,Ink,d*.6f);
+                    foreach(var c in shape.cells){var tile=Skin.Rect("Preview sticker cell",glyph,new Vector2(0,1),new Vector2((c.c-minC)*step+cell/2,-(c.r-minR)*step-cell/2),Vector2.one*cell);var face=tile.gameObject.AddComponent<StickerPreviewTile>();face.color=new Color32(176,137,238,255);face.Variant=cards.Count%3;face.raycastTarget=false;}
                 }
-                Skin.ColorBox(card.Root,new Vector2(.5f,1),new Vector2(0,-58.5f*d),new Vector2(46*d,d),new Color(Ink.r,Ink.g,Ink.b,.22f));
+                Skin.RoundBox(card.Root,new Vector2(.5f,1),new Vector2(0,-72*d),new Vector2(51,20)*d,new Color32(239,226,255,255),10*d);
                 card.CountRoot=Skin.Rect("CountSlot",card.Root,new Vector2(.5f,1),new Vector2(0,-71*d),new Vector2(64,22)*d);
-                var tr=Skin.Rect("Remaining count",card.CountRoot,new Vector2(.5f,.5f),new Vector2(0,-15*.148f*d),new Vector2(64,22)*d);
+                var tr=Skin.Rect("Remaining count",card.CountRoot,new Vector2(.5f,.5f),Vector2.zero,new Vector2(64,22)*d);
                 var text=tr.gameObject.AddComponent<Text>();text.font=MenuUI.BodyFont;text.fontSize=42;
                 text.color=Orange;text.alignment=TextAnchor.MiddleCenter;text.horizontalOverflow=HorizontalWrapMode.Overflow;
                 text.verticalOverflow=VerticalWrapMode.Overflow;text.supportRichText=false;text.raycastTarget=false;card.Label=text;

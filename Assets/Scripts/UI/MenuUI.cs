@@ -19,12 +19,12 @@ namespace Inkomino
         static void LoadAtlas()
         {
             if(atlasLoaded)return;atlasLoaded=true;
-            LoadSheet("menu_ui");LoadSheet("sticker_fx");
+            LoadSheet("menu_ui");LoadSheet("sticker_fx");LoadSheet("sticker_semantic");
         }
         static void LoadSheet(string key)
         {
             var data=Resources.Load<TextAsset>("MenuArt/"+key+"_atlas");var index=Resources.Load<TextAsset>("MenuArt/"+key+"_atlas_index");if(!data||!index)return;
-            bool effects=key=="sticker_fx";var texture=new Texture2D(2,2,TextureFormat.RGBA32,effects);texture.name=effects?"Liangxia sticker FX atlas":"Liangxia shared UI atlas";
+            bool effects=key!="menu_ui";var texture=new Texture2D(2,2,TextureFormat.RGBA32,effects);texture.name=effects?"Liangxia "+key+" atlas":"Liangxia shared UI atlas";
             if(!texture.LoadImage(data.bytes,true)){UnityEngine.Object.Destroy(texture);return;}texture.filterMode=effects?FilterMode.Trilinear:FilterMode.Bilinear;texture.wrapMode=TextureWrapMode.Clamp;
             foreach(var r in JsonUtility.FromJson<AtlasIndex>(index.text).regions)art[r.key]=Sprite.Create(texture,new Rect(r.x,r.y,r.width,r.height),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(r.borderX>0?r.borderX:r.border,r.borderY>0?r.borderY:r.border,r.borderX>0?r.borderX:r.border,r.borderY>0?r.borderY:r.border));
             Resources.UnloadAsset(data);Resources.UnloadAsset(index);

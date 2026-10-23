@@ -98,7 +98,7 @@ namespace Inkomino
                 if(rules!=null)
                 {
                     rules.Invoke(app,null);yield return Settle();
-                    Check(app.Overlays.GetComponentsInChildren<Text>().Any(t=>t.text.Contains("模拟")),"rules disclose simulated opponents "+id);
+                    Check(app.Overlays.GetComponentsInChildren<Text>().Any(t=>t.text.Contains("1000"))&&!app.Overlays.GetComponentsInChildren<Text>().Any(t=>t.text.Contains("模拟")||t.text.Contains("奖池")),"rules describe solo collection reward "+id);
                     Check(!app.Overlays.GetComponentsInChildren<Text>().Any(t=>t.text.Contains("提现")),"rules omit redundant currency disclaimer "+id);
                     CheckMenuText("10-climb-rules",app.Overlays,false);
                     CheckPopupInStage();yield return Capture("10-climb-rules-"+id+".png");app.ClosePopup();

@@ -17,19 +17,19 @@ namespace Inkomino
         IEnumerator Start()
         {
             app=InkominoApp.Instance;app.enabled=false;app.SourceTutorialEnabled=false;AudioListener.volume=0;dir=InkominoApp.QAOutput();Directory.CreateDirectory(dir);
-            long now=SaveStore.Now;var store=app.Store;var data=app.Data;
+            long now=SaveStore.Now;var store=app.Store;var data=app.Data;VerifyShop(now);
             store.Data=new PlayerProfile{level=40,drawIntroSeen=true};ClimbActivity.Refresh(store.Data,now);
             Check(!ClimbActivity.Join(store,now),"level40 cannot join");app.ShowClimb();yield return Capture("01-locked.png");
             store.Data.level=41;Check(ClimbActivity.Join(store,now),"level41 free entry");var state=store.Data.climb;
-            Check(state.finalBots>=3&&state.finalBots<=5,"first summit distribution has3to5 simulated survivors");
+            Check(state.finalBots==0&&ClimbActivity.AliveBots(state)==0,"solo collection has no simulated opponents");
             Check(!ClimbActivity.Join(store,now),"cannot replace active attempt");
             ClimbActivity.Advance(store.Data,data.levels[39],data,now);Check(state.stage==0,"below41 cannot advance event");
             store.Complete(data.levels[40],data);Check(state.stage==1,"main completion advances one island");
             store.LoseHeart(10);Check(!state.isOut,"unrelated low-level failure does not eliminate");
             app.ShowClimb();yield return Capture("02-active.png");
             for(int i=1;i<7;i++)ClimbActivity.Advance(store.Data,data.levels[40+i],data,now);
-            Check(ClimbActivity.AtTop(state)&&state.finalCount==state.finalBots+1&&state.summits==1,"seven clears reach seeded final survivors");
-            Check(state.eliminated.Sum()==99-state.finalBots,"dropouts conserve simulated population");
+            Check(ClimbActivity.AtTop(state)&&state.finalCount==state.finalBots+1&&state.summits==1,"seven clears complete solo collection");
+            Check(state.eliminated.Sum()==0&&ClimbActivity.Prize(state)==1000,"collection grants fixed advertised1000coins");
             app.ShowClimb();yield return Capture("03-summit.png");
             int before=store.Data.coins,prize=ClimbActivity.Prize(state);int claimed=ClimbActivity.Claim(store,now);
             Check(claimed==prize&&store.Data.coins==before+prize&&prize%5==0,"rounded summit reward granted once");
@@ -57,6 +57,17 @@ namespace Inkomino
             if(surface){var proof=surface.gameObject.AddComponent<RawImage>();proof.texture=Texture2D.whiteTexture;proof.color=Color.cyan;proof.raycastTarget=false;yield return Capture("07-shared-surface-visibility.png",true);Destroy(proof);}
             app.ShowHome();app.ShowClimb();yield return null;app.ShowHome();yield return null;Check(!app.Content.GetComponentsInChildren<ClimbPageMotion>().Any(),"activity motion removed on navigation");
             result.status=result.errors.Count==0?"PASS":"FAIL";File.WriteAllText(Path.Combine(dir,"social-validation.json"),JsonUtility.ToJson(result,true));Debug.Log("INKOMINO_SOCIAL_QA "+result.status+" "+string.Join(";",result.errors));Application.Quit(result.errors.Count==0?0:1);
+        }
+        void VerifyShop(long now)
+        {
+            var path=Path.Combine(dir,"shop-policy-profile.json");var store=new SaveStore(path);store.Data=new PlayerProfile{coins=3000,hint=0,freeze=0,lens=0};
+            Check(!store.BuyAt("unknown",150,now)&&!store.BuyAt("hint",-10,now)&&store.Data.coins==3000,"invalid item or price cannot deduct coins");
+            for(int i=0;i<3;i++)Check(store.BuyAt("hint",150,now),"daily pack "+i+" grants three tools");
+            int coins=store.Data.coins;Check(!store.BuyAt("hint",150,now)&&store.Data.coins==coins&&store.Data.hint==9,"fourth daily pack cannot spend or grant");
+            var reload=new SaveStore(path);Check(reload.ShopRemaining("hint",now)==0&&reload.Data.hint==9,"daily quota survives relaunch");
+            Check(reload.ShopRemaining("freeze",now)==3,"different tools have independent daily quota");
+            long midnight=((now+8*3600)/86400+1)*86400-8*3600;Check(reload.ShopRemaining("hint",midnight-1)==0&&reload.ShopRemaining("hint",midnight)==3,"quota resets at China midnight exactly");
+            reload.Data.freeze=28;coins=reload.Data.coins;Check(!reload.BuyAt("freeze",120,midnight)&&reload.Data.freeze==28&&reload.Data.coins==coins,"stock ceiling rejects partial or overflowing packs");
         }
         IEnumerator Capture(string name,bool surfaceProbe=false)
         {

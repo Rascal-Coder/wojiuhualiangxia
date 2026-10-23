@@ -34,7 +34,7 @@ namespace Inkomino
         public void Init(BoardState state)
         {
             State=state;rt=(RectTransform)transform;var hit=gameObject.GetComponent<Image>()??gameObject.AddComponent<Image>();hit.color=new Color(1,1,1,.001f);hit.raycastTarget=true;
-            var shader=Resources.Load<Shader>("Mosaic");if(shader)glassMaterial=new Material(shader);
+            // Shared tintable vinyl material; standard UI shader preserves white die-cut edges and alpha coverage.
             Layer(0);for(int i=0;i<3;i++)Layer(1,i);Layer(3);Layer(2);Layer(7);Layer(8);
             // Detailed round SVG strokes can exceed uGUI's16-bit vertex limit
             // when the whole board shares one graphic. Preserve all samples and
@@ -48,7 +48,7 @@ namespace Inkomino
         {
             if(State==null||rt==null)return;bool changed=lastSize!=rt.rect.size;if(changed){EnsureLayout();RefreshLabels();}
             bool previous=Animating;Animating=DrawTrace!=null&&DrawProgress<1||flashCells!=null&&SourceClock.Now<flashUntil||VictoryTimeRemaining>0;
-            foreach(var p in State.Pieces){PieceStyle s;if(styles.TryGetValue(p,out s)&&SourceClock.Now<s.Born+Mathf.Max(.80f,s.Duration))Animating=true;}
+            foreach(var p in State.Pieces){PieceStyle s;if(styles.TryGetValue(p,out s)&&SourceClock.Now<s.Born+Mathf.Max(.80f,s.Duration+.15f))Animating=true;}
             if(Animating||previous||changed||DrawTrace!=null)Dirty();
         }
         void Dirty(){foreach(var m in meshes)if(m)m.SetVerticesDirty();}
@@ -135,10 +135,10 @@ namespace Inkomino
     public class BoardMesh:MaskableGraphic
     {
         public PuzzleBoardView View;public int Layer,FacetIndex;public int SymbolStart,SymbolEnd=int.MaxValue;Texture2D texture;
-        public override Texture mainTexture{get{if(!texture&&Layer==1)texture=SourceArt.Texture(new[]{"game_assets_facets","game_assets_facetsb","game_assets_facetsc"}[Mathf.Clamp(FacetIndex,0,2)]);if(!texture&&Layer==3)texture=SourceArt.Texture("game_assets_shine");return texture?texture:Texture2D.whiteTexture;}}
+        public override Texture mainTexture{get{if(Layer==1)return StickerMaterial.Texture;if(!texture&&Layer==3)texture=SourceArt.Texture("game_assets_shine");return texture?texture:Texture2D.whiteTexture;}}
         static Color Co(string s){Color c;ColorUtility.TryParseHtmlString(s,out c);return c;}
         static Color Alpha(Color c,float a){c.a=a;return c;}
-        void Polygon(VertexHelper vh,IList<Vector2> p,Color c,Func<Vector2,Vector2> uv=null){int s=vh.currentVertCount;foreach(var v in p)vh.AddVert(v,c,uv==null?Vector2.zero:uv(v));for(int k=1;k+1<p.Count;k++)vh.AddTriangle(s,s+k,s+k+1);}
+        void Polygon(VertexHelper vh,IList<Vector2> p,Color c,Func<Vector2,Vector2> uv=null){if(Layer==1){StickerMesh.Solid(vh,p,c,StickerMesh.Pixel(rectTransform)*.8f,uv??(v=>StickerMaterial.WhiteUV));return;}int s=vh.currentVertCount;foreach(var v in p)vh.AddVert(v,c,uv==null?Vector2.zero:uv(v));for(int k=1;k+1<p.Count;k++)vh.AddTriangle(s,s+k,s+k+1);}
         void Quad(VertexHelper vh,Rect r,Color c,Func<Vector2,Vector2> uv=null){Polygon(vh,new[]{new Vector2(r.xMin,r.yMin),new Vector2(r.xMin,r.yMax),new Vector2(r.xMax,r.yMax),new Vector2(r.xMax,r.yMin)},c,uv);}
         void Line(VertexHelper vh,Vector2 a,Vector2 b,float w,Color c){var d=(b-a).normalized;var normal=new Vector2(-d.y,d.x)*w/2;Polygon(vh,new[]{a-normal,a+normal,b+normal,b-normal},c);}
         void Stroke(VertexHelper vh,IList<Vector2> p,float width,Color c,bool closed=true,Func<Vector2,Color> gradient=null)
@@ -166,18 +166,17 @@ namespace Inkomino
                     Color color=Co(PuzzleBoardView.Palette[style.ColorIndex]);color.a=opacity;
                     float inset=Mathf.Clamp(cs*.035f,1.4f*dp,3.5f*dp);
                     Rect outer=new Rect(cell.x+inset,cell.y+inset,cs-inset*2,cs-inset*2);
-                    var polygon=SourceBoardGeometry.CellPolygon(outer,4*dp,true,true,true,true);
+                    var polygon=SourceBoardGeometry.CellPolygon(outer,cs*.12f,true,true,true,true);
                     for(int k=0;k<polygon.Count;k++)polygon[k]=cell.center+(polygon[k]-cell.center)*scale;
                     float fold=piece!=null?View.CornerFold(piece,i):0;
                     var cut=CutCorner(polygon,outer.xMax+outer.yMax-fold);
                     Polygon(vh,cut.Select(v=>v+Vector2.down*1.4f*dp).ToList(),Alpha(Co("#A48ABF"),opacity*.60f));
                     Polygon(vh,cut,Alpha(Color.white,opacity));
                     Rect face=new Rect(outer.x+1.5f*dp,outer.y+1.5f*dp,outer.width-3*dp,outer.height-3*dp);
-                    var facePath=SourceBoardGeometry.CellPolygon(face,2.5f*dp,true,true,true,true);
+                    var facePath=SourceBoardGeometry.CellPolygon(face,cs*.09f,true,true,true,true);
                     for(int k=0;k<facePath.Count;k++)facePath[k]=cell.center+(facePath[k]-cell.center)*scale;
                     var fill=CutCorner(facePath,outer.xMax+outer.yMax-fold-1.3f*dp);
-                    int start=vh.currentVertCount;Polygon(vh,fill,color);
-                    UIVertex vertex=new UIVertex();for(int k=start;k<vh.currentVertCount;k++){vh.PopulateUIVertex(ref vertex,k);float light=Mathf.InverseLerp(face.yMin,face.yMax,vertex.position.y);Color c=Color.Lerp(color*.92f,Color.Lerp(color,Color.white,.18f),light);c.a=opacity;vertex.color=c;vh.SetUIVertex(vertex,k);}
+                    Polygon(vh,fill,color,p=>StickerMaterial.UV(style.TextureIndex,p,face));
                     if(fold>1*dp)
                     {
                         Vector2 foldA=new Vector2(outer.xMax-fold,outer.yMax),foldB=new Vector2(outer.xMax,outer.yMax-fold),tip=new Vector2(outer.xMax-fold*.86f,outer.yMax-fold*.86f);
@@ -190,7 +189,7 @@ namespace Inkomino
             if(Layer==0)SourceGridGeometry.Draw(vh,rectTransform,View);
             if(Layer==2)
             {
-                foreach(var p in b.Pieces){bool drawing=View.DrawTrace!=null&&new HashSet<int>(View.DrawTrace).SetEquals(p.cells);var s=View.Style(p);if(drawing&&s!=null)s.Locked=true;DrawPiece(vh,p.cells,drawing?View.DrawProgress:1,drawing,s!=null&&s.Locked);}
+                foreach(var p in b.Pieces){bool drawing=View.DrawTrace!=null&&new HashSet<int>(View.DrawTrace).SetEquals(p.cells);var s=View.Style(p);if(drawing&&s!=null)s.Locked=true;if(!drawing&&s!=null)DrawFinishedOutline(vh,p.cells,s);DrawPiece(vh,p.cells,drawing?View.DrawProgress:1,drawing,s!=null&&s.Locked);}
                 if(b.Level.walls!=null){float woodDp=Mathf.Max(5,Mathf.Floor(cs/dp*.18f+.5f)),width=Mathf.Max(3,Mathf.Floor(woodDp*.78f+.5f))*dp;for(int i=0;i<n*n;i++){Rect cell=View.CellRect(i);if(b.Level.walls.e[i]>0)DrawWall(vh,new Vector2(cell.xMax,cell.yMin),new Vector2(cell.xMax,cell.yMax),width);if(b.Level.walls.s[i]>0)DrawWall(vh,new Vector2(cell.xMin,cell.yMin),new Vector2(cell.xMax,cell.yMin),width);}}
             }
             if(Layer==7)DrawStickerFeedback(vh);
@@ -198,10 +197,22 @@ namespace Inkomino
             if(Layer==3&&View.SweepVisible)DrawSweep(vh);
             if(Layer==5)DrawSymbols(vh);
         }
+        void DrawFinishedOutline(VertexHelper vh,IEnumerable<int> cells,PuzzleBoardView.PieceStyle style)
+        {
+            float opacity=MenuMotion.Reduced?1:Mathf.SmoothStep(0,1,Mathf.InverseLerp(style.Duration-.18f,style.Duration+.12f,SourceClock.Now-style.Born));
+            if(opacity<=0)return;
+            float dp=View.PixelDensity,aa=StickerMesh.Pixel(rectTransform)*.75f;
+            Color edge=Color.Lerp(Co(PuzzleBoardView.Palette[style.ColorIndex]),Co("#49335F"),.42f);
+            // Trace the union perimeter, including holes, rather than outlining each cell again.
+            foreach(var path in Paths(cells,2.4f*dp)){
+                StickerMesh.Outline(vh,path,4.1f*dp,Alpha(Color.white,opacity),aa);
+                StickerMesh.Outline(vh,path,1.55f*dp,Alpha(edge,opacity),aa);
+            }
+        }
         void DrawPiece(VertexHelper vh,IEnumerable<int> cells,float progress,bool drawing,bool drawInk)
         {
             float dp=View.PixelDensity;Color ink=Co("#6645AA"),light=Co("#FFFDF6");var paths=Paths(cells);
-            if(drawInk){foreach(var p in paths)if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),2.3f*dp,ink,false);else Stroke(vh,p,2.3f*dp,ink);
+            if(drawInk&&drawing){foreach(var p in paths)if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),2.3f*dp,ink,false);else Stroke(vh,p,2.3f*dp,ink);
             foreach(var p in Paths(cells,3.5f*dp))if(drawing&&progress<1)Stroke(vh,SourceBoardGeometry.Prefix(p,progress),2*dp,light,false);else Stroke(vh,p,2*dp,light);}
             if(View.VictoryInk<=0)return;
             foreach(var p in paths){Stroke(vh,p.Select(x=>x+new Vector2(.9f,-1.2f)*dp).ToList(),6.2f*dp,Alpha(Co("#6645AA"),.85f*View.VictoryInk));Stroke(vh,p.Select(x=>x+new Vector2(-.8f,1)*dp).ToList(),5.8f*dp,Alpha(Co("#FFFFFF"),.95f*View.VictoryInk));Stroke(vh,p,5*dp,Color.white,true,GoldAt);}
@@ -252,9 +263,9 @@ namespace Inkomino
         void DrawWall(VertexHelper vh,Vector2 a,Vector2 b,float width){Line(vh,a,b,width,Co("#A184C4"));Line(vh,a,b,width*.86f,Color.white);Line(vh,a,b,width*.56f,Co("#CFB5EE"));}
         static List<Vector2> CirclePoints(Vector2 center,float radius,int segments=48)
         {var p=new List<Vector2>();for(int i=0;i<segments;i++){float a=i*Mathf.PI*2/segments;p.Add(center+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*radius);}return p;}
-        void Disc(VertexHelper vh,Vector2 center,float radius,Color color){Polygon(vh,CirclePoints(center,radius),color);}
+        void Disc(VertexHelper vh,Vector2 center,float radius,Color color){StickerMesh.Solid(vh,CirclePoints(center,radius),color,StickerMesh.Pixel(rectTransform)*.8f);}
         void RoundStroke(VertexHelper vh,IList<Vector2> path,float width,Color color,bool closed=true)
-        {for(int i=1;i<path.Count;i++)Line(vh,path[i-1],path[i],width,color);if(closed&&path.Count>1)Line(vh,path[path.Count-1],path[0],width,color);foreach(var p in path)Disc(vh,p,width/2,color);}
+        {if(!closed&&path.Count==2){var d=path[1]-path[0];var axis=d.normalized;var side=new Vector2(-axis.y,axis.x);var center=(path[0]+path[1])*.5f;var capsule=StickerMesh.Rounded(new Rect(-d.magnitude*.5f-width*.5f,-width*.5f,d.magnitude+width,width),width*.5f);StickerMesh.Solid(vh,capsule.Select(p=>center+axis*p.x+side*p.y).ToList(),color,StickerMesh.Pixel(rectTransform)*.7f);return;}for(int i=1;i<path.Count;i++)Line(vh,path[i-1],path[i],width,color);if(closed&&path.Count>1)Line(vh,path[path.Count-1],path[0],width,color);foreach(var p in path)Disc(vh,p,width/2,color);}
         void ConcavePolygon(VertexHelper vh,IList<Vector2> path,Color color)
         {int start=vh.currentVertCount;foreach(var p in path)vh.AddVert(p,color,Vector2.zero);var indices=SourceBoardGeometry.Triangulate(path);for(int i=0;i+2<indices.Count;i+=3)vh.AddTriangle(start+indices[i],start+indices[i+1],start+indices[i+2]);}
         static Vector2 Cubic(Vector2 a,Vector2 b,Vector2 c,Vector2 d,float t){float u=1-t;return u*u*u*a+3*u*u*t*b+3*u*t*t*c+t*t*t*d;}
@@ -282,7 +293,7 @@ namespace Inkomino
         }
         void WallMark(VertexHelper vh,Vector2 center,int kind,float radius,float width,Color paper,Color ink)
         {
-            Disc(vh,center,radius,paper);RoundStroke(vh,CirclePoints(center,radius),width,ink);
+            Disc(vh,center,radius+width*.5f,ink);Disc(vh,center,radius-width*.5f,paper);
             if(kind==1){RoundStroke(vh,new[]{center+new Vector2(-.5f,-.225f)*radius,center+new Vector2(.5f,-.225f)*radius},width,ink,false);RoundStroke(vh,new[]{center+new Vector2(-.5f,.225f)*radius,center+new Vector2(.5f,.225f)*radius},width,ink,false);}
             else{RoundStroke(vh,new[]{center+new Vector2(-.5f,-.5f)*radius,center+new Vector2(.5f,.5f)*radius},width,ink,false);RoundStroke(vh,new[]{center+new Vector2(-.5f,.5f)*radius,center+new Vector2(.5f,-.5f)*radius},width,ink,false);}
         }

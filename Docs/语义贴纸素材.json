@@ -1,0 +1,43 @@
+{
+  "generator": "built-in image_gen",
+  "style_reference": "Assets/Editor/StickerArtSource/chrome-sheet.png",
+  "source": "Assets/Editor/StickerArtSource/semantic-stickers-source.png",
+  "crop_x": [
+    0,
+    330,
+    638,
+    930,
+    1254
+  ],
+  "crop_y": [
+    0,
+    367,
+    646,
+    928,
+    1254
+  ],
+  "keys": [
+    "badge_seed",
+    "badge_star",
+    "badge_shield",
+    "badge_laurel",
+    "badge_crown",
+    "stamp_sun",
+    "stamp_luck",
+    "stamp_bulb",
+    "stamp_hand",
+    "stamp_shine",
+    "stamp_rocket",
+    "stamp_surprise",
+    "entry_daily",
+    "entry_album",
+    "reward_coins",
+    "entry_friends"
+  ],
+  "atlas": [
+    1024,
+    1024
+  ],
+  "bytes": 1210793,
+  "sha256": "a8392e769d6c8a3259b52efd5ef7516ad04eacc0100ab70f75dd7de904fbc622"
+}

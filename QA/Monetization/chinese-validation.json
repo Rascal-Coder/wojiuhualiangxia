@@ -1,7 +1,7 @@
 {
     "status": "PASS",
-    "startedUtc": "2026-10-22T10:33:26.0108057Z",
-    "finishedUtc": "2026-10-22T10:33:48.1775269Z",
+    "startedUtc": "2026-10-23T02:18:28.7904667Z",
+    "finishedUtc": "2026-10-23T02:18:53.3731299Z",
     "engine": "2022.3.62t16",
     "outputDirectory": "C:\\Users\\aaa\\Documents\\Codex\\2026-10-20\\shi\\outputs\\InkominoTuanjie\\QA\\Monetization",
     "actualRuntimeRender": true,
@@ -11,12 +11,43 @@
     "frames": [
         {
             "file": "01-loading-1080x2400.png",
-            "sha256": "e59cfa259edd0911f9e3c4950a406e7ed554cb6b6178a30e2cb509fb11ab5e08",
+            "sha256": "5e84c02b68c33e15406a410104ecde9db588d4f4d06da5d2770cae1580ea4588",
             "screen": "启动加载",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 2,
-            "bytes": 795874,
+            "bytes": 795860,
+            "visiblePixels": true,
+            "texts": [
+                {
+                    "value": "我就划两下",
+                    "font": "LiangxiaSticker-Display",
+                    "instances": 1,
+                    "fontSize": 142,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "加载中...",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 1,
+                    "fontSize": 48,
+                    "missingCharacters": ""
+                }
+            ],
+            "visibleImages": [
+                "Source startup loading | ",
+                "source_loading_background |  | Sticker cream",
+                "ink_home_hero |  | Liangxia shared UI atlas"
+            ]
+        },
+        {
+            "file": "02-loading-540x836.png",
+            "sha256": "6ab1f9682c357d742e82b352815f5d5c5b5443526cb5cb12189c89bd7d66d218",
+            "screen": "启动加载小窗口",
+            "width": 540,
+            "height": 836,
+            "visibleTextInstances": 2,
+            "bytes": 150940,
             "visiblePixels": true,
             "texts": [
                 {
@@ -41,44 +72,13 @@
             ]
         },
         {
-            "file": "02-loading-540x836.png",
-            "sha256": "27966e4d5074794f9ddb72ea1c1f9877a807f47c47702093f71ed7f8fa889259",
-            "screen": "启动加载小窗口",
-            "width": 540,
-            "height": 836,
-            "visibleTextInstances": 2,
-            "bytes": 150801,
-            "visiblePixels": true,
-            "texts": [
-                {
-                    "value": "我就划两下",
-                    "font": "LiangxiaSticker-Display",
-                    "instances": 1,
-                    "fontSize": 142,
-                    "missingCharacters": ""
-                },
-                {
-                    "value": "加载中",
-                    "font": "LiangxiaUISans-Medium",
-                    "instances": 1,
-                    "fontSize": 48,
-                    "missingCharacters": ""
-                }
-            ],
-            "visibleImages": [
-                "Source startup loading | ",
-                "source_loading_background |  | Sticker cream",
-                "ink_home_hero |  | Liangxia shared UI atlas"
-            ]
-        },
-        {
             "file": "03-home-countdown.png",
-            "sha256": "824bd02b2e07b9fe0d0fe56629b0d2888b7b68a2de18a8df3bf6aa6c762dd91c",
+            "sha256": "3d34dde43bd5281535863d5dc46d8101f2557162b38fb08a0ea6071112bdc48c",
             "screen": "真实首页倒计时",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 14,
-            "bytes": 1298192,
+            "bytes": 1400746,
             "visiblePixels": true,
             "texts": [
                 {
@@ -182,6 +182,7 @@
             ],
             "visibleImages": [
                 "game_assets_homebg |  | Sticker cream",
+                "stamp_shine |  | Liangxia sticker_semantic atlas",
                 "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
                 "ink_paper |  | Liangxia shared UI atlas",
                 "shell_src_ui_heart |  | Liangxia shared UI atlas",
@@ -192,8 +193,8 @@
                 "ink_home_hero |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
                 "ink_brush |  | Liangxia shared UI atlas",
-                "shell_src_ui_dailyrewardcardicon |  | Liangxia shared UI atlas",
-                "menu_treasure |  | Liangxia shared UI atlas",
+                "shell_src_ui_dailyrewardcardicon |  | Liangxia sticker_semantic atlas",
+                "entry_album |  | Liangxia sticker_semantic atlas",
                 "sticker_dock |  | Liangxia shared UI atlas",
                 "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
                 "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
@@ -202,12 +203,12 @@
         },
         {
             "file": "04-shop-ad.png",
-            "sha256": "05106fe6f55ff46fadfb1a501b1a3e1cf18cc99d66b6ff36e765aa33c218198e",
+            "sha256": "b065e1bc56447564535cc74970ad83165a0bcd6345f8597d2d1fc11a506d35e4",
             "screen": "金币补给视频入口",
             "width": 1080,
             "height": 2400,
-            "visibleTextInstances": 26,
-            "bytes": 1253460,
+            "visibleTextInstances": 29,
+            "bytes": 1331327,
             "visiblePixels": true,
             "texts": [
                 {
@@ -239,7 +240,7 @@
                     "missingCharacters": ""
                 },
                 {
-                    "value": "给灵感加点料，轻松划过难关",
+                    "value": "每日 0 点补货",
                     "font": "LiangxiaUISans-Medium",
                     "instances": 1,
                     "fontSize": 42,
@@ -270,6 +271,13 @@
                     "value": "已有 0 个",
                     "font": "LiangxiaUISans-Medium",
                     "instances": 2,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "今日 3/3",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 3,
                     "fontSize": 42,
                     "missingCharacters": ""
                 },
@@ -367,6 +375,7 @@
             ],
             "visibleImages": [
                 "game_assets_shopbg |  | Sticker cream",
+                "reward_coins |  | Liangxia sticker_semantic atlas",
                 "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
                 "ink_paper |  | Liangxia shared UI atlas",
                 "shell_src_ui_heart |  | Liangxia shared UI atlas",
@@ -388,12 +397,12 @@
         },
         {
             "file": "05-ad-unavailable.png",
-            "sha256": "de2222bb419481bccce52220cf6c4f64fd7495eff05cf287007d7b198a32d093",
+            "sha256": "fb8b9c1f40b14b88f0456550aae4e78cfea537e7bf300dfddaf4005a8744e3e1",
             "screen": "未配置广告的真实提示",
             "width": 1080,
             "height": 2400,
-            "visibleTextInstances": 29,
-            "bytes": 927128,
+            "visibleTextInstances": 32,
+            "bytes": 972859,
             "visiblePixels": true,
             "texts": [
                 {
@@ -425,7 +434,7 @@
                     "missingCharacters": ""
                 },
                 {
-                    "value": "给灵感加点料，轻松划过难关",
+                    "value": "每日 0 点补货",
                     "font": "LiangxiaUISans-Medium",
                     "instances": 1,
                     "fontSize": 42,
@@ -456,6 +465,13 @@
                     "value": "已有 0 个",
                     "font": "LiangxiaUISans-Medium",
                     "instances": 2,
+                    "fontSize": 42,
+                    "missingCharacters": ""
+                },
+                {
+                    "value": "今日 3/3",
+                    "font": "LiangxiaUISans-Medium",
+                    "instances": 3,
                     "fontSize": 42,
                     "missingCharacters": ""
                 },
@@ -574,6 +590,7 @@
             ],
             "visibleImages": [
                 "game_assets_shopbg |  | Sticker cream",
+                "reward_coins |  | Liangxia sticker_semantic atlas",
                 "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
                 "ink_paper |  | Liangxia shared UI atlas",
                 "shell_src_ui_heart |  | Liangxia shared UI atlas",
@@ -597,12 +614,12 @@
         },
         {
             "file": "06-booster-ad.png",
-            "sha256": "59d1e14a99e28b745e73ebae51efb747bc9f8d1a9bd1f04ce5a183437836ac5e",
+            "sha256": "a6a13bc893e0111e31dbc62ee729a7c3bc989900c0c47ba8063eb5e71794a688",
             "screen": "补道具视频与金币双选择",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 13,
-            "bytes": 804668,
+            "bytes": 773278,
             "visiblePixels": true,
             "texts": [
                 {
@@ -693,9 +710,7 @@
             "visibleImages": [
                 "game_assets_bg |  | Sticker cream",
                 "ink_paper |  | Liangxia shared UI atlas",
-                "Panel | ",
                 "game_assets_btnpause |  | Liangxia shared UI atlas",
-                "sticker_dock |  | Liangxia shared UI atlas",
                 "menu_pen |  | Liangxia shared UI atlas",
                 "menu_freeze |  | Liangxia shared UI atlas",
                 "menu_lens |  | Liangxia shared UI atlas",
@@ -709,12 +724,12 @@
         },
         {
             "file": "07-life-ad.png",
-            "sha256": "15f358eb0bb5b9f3c490eb0be1b55e35b113498e9a7f84da72c1adc17fcad965",
+            "sha256": "f4e670e8380e3d40901006a3365a37fe8b85b6792e95ffc03009d3b1c3081618",
             "screen": "生命奖励与金币补满",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 22,
-            "bytes": 843890,
+            "bytes": 895818,
             "visiblePixels": true,
             "texts": [
                 {
@@ -867,6 +882,7 @@
             ],
             "visibleImages": [
                 "game_assets_homebg |  | Sticker cream",
+                "stamp_shine |  | Liangxia sticker_semantic atlas",
                 "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
                 "ink_paper |  | Liangxia shared UI atlas",
                 "shell_src_ui_heart |  | Liangxia shared UI atlas",
@@ -877,8 +893,8 @@
                 "ink_home_hero |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
                 "ink_brush |  | Liangxia shared UI atlas",
-                "shell_src_ui_dailyrewardcardicon |  | Liangxia shared UI atlas",
-                "menu_treasure |  | Liangxia shared UI atlas",
+                "shell_src_ui_dailyrewardcardicon |  | Liangxia sticker_semantic atlas",
+                "entry_album |  | Liangxia sticker_semantic atlas",
                 "sticker_dock |  | Liangxia shared UI atlas",
                 "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
                 "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
@@ -890,12 +906,12 @@
         },
         {
             "file": "08-life-small.png",
-            "sha256": "4aaf7ded9ec7ae4b7564bb3f57b0614829dfbdbf4e88f9e654b7f6afbd6acf79",
+            "sha256": "fc95327bc3ef5abfe808631093e7d854c8471f36a2140e6931699760d2e1f0c3",
             "screen": "生命弹窗小屏",
             "width": 540,
             "height": 836,
             "visibleTextInstances": 22,
-            "bytes": 179700,
+            "bytes": 188944,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1048,6 +1064,7 @@
             ],
             "visibleImages": [
                 "game_assets_homebg |  | Sticker cream",
+                "stamp_shine |  | Liangxia sticker_semantic atlas",
                 "shell_src_ui_avatars_avatar_1 |  | Liangxia shared UI atlas",
                 "ink_paper |  | Liangxia shared UI atlas",
                 "shell_src_ui_heart |  | Liangxia shared UI atlas",
@@ -1058,8 +1075,8 @@
                 "ink_home_hero |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
                 "ink_brush |  | Liangxia shared UI atlas",
-                "shell_src_ui_dailyrewardcardicon |  | Liangxia shared UI atlas",
-                "menu_treasure |  | Liangxia shared UI atlas",
+                "shell_src_ui_dailyrewardcardicon |  | Liangxia sticker_semantic atlas",
+                "entry_album |  | Liangxia sticker_semantic atlas",
                 "sticker_dock |  | Liangxia shared UI atlas",
                 "game_assets_nav_tabshop |  | Liangxia shared UI atlas",
                 "game_assets_nav_tabhome |  | Liangxia shared UI atlas",
@@ -1071,12 +1088,12 @@
         },
         {
             "file": "09-continue-ad.png",
-            "sha256": "bd2cdb70b9af477df25de45575c2df75bffb9f2307e2bb2cf9a2716866fe6b9b",
+            "sha256": "70b1a54209313f53f94830f745d20b15363edb7aec80dbc7e912b13b447e113a",
             "screen": "失败后视频加时入口",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 19,
-            "bytes": 922883,
+            "bytes": 891961,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1209,9 +1226,7 @@
             "visibleImages": [
                 "game_assets_bg |  | Sticker cream",
                 "ink_paper |  | Liangxia shared UI atlas",
-                "Panel | ",
                 "game_assets_btnpause |  | Liangxia shared UI atlas",
-                "sticker_dock |  | Liangxia shared UI atlas",
                 "menu_pen |  | Liangxia shared UI atlas",
                 "menu_freeze |  | Liangxia shared UI atlas",
                 "menu_lens |  | Liangxia shared UI atlas",
@@ -1226,12 +1241,12 @@
         },
         {
             "file": "10-continue-small.png",
-            "sha256": "09580833e9b4fcedfa55ec124a07c5819cca0c5db190acaa2e9728edb5a1545e",
+            "sha256": "6701b680846ae98dbfce90d6e36350b50ca33e16e2472ade7fba95a71e607455",
             "screen": "加时入口小屏",
             "width": 540,
             "height": 836,
             "visibleTextInstances": 19,
-            "bytes": 195398,
+            "bytes": 189738,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1364,9 +1379,7 @@
             "visibleImages": [
                 "game_assets_bg |  | Sticker cream",
                 "ink_paper |  | Liangxia shared UI atlas",
-                "Panel | ",
                 "game_assets_btnpause |  | Liangxia shared UI atlas",
-                "sticker_dock |  | Liangxia shared UI atlas",
                 "menu_pen |  | Liangxia shared UI atlas",
                 "menu_freeze |  | Liangxia shared UI atlas",
                 "menu_lens |  | Liangxia shared UI atlas",
@@ -1381,12 +1394,12 @@
         },
         {
             "file": "11-result-double.png",
-            "sha256": "6b21df51ee36bcdba7a69d71d129407319bf9212e42e9abc46b099c45cecd2fe",
+            "sha256": "b4d56248b416a42a62ea1748ed61db6fe88f90f12acdcd36bb35c66427ca92f7",
             "screen": "金币翻倍与普通继续",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 10,
-            "bytes": 681196,
+            "bytes": 788775,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1462,9 +1475,10 @@
             ],
             "visibleImages": [
                 "game_assets_bg |  | Sticker cream",
+                "stamp_shine |  | Liangxia sticker_semantic atlas",
                 "ink_stamp |  | Liangxia shared UI atlas",
                 "ink_paper |  | Liangxia shared UI atlas",
-                "menu_treasure |  | Liangxia shared UI atlas",
+                "reward_coins |  | Liangxia sticker_semantic atlas",
                 "ink_brush |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
                 "game_assets_rewardedvideo |  | Liangxia shared UI atlas"
@@ -1472,12 +1486,12 @@
         },
         {
             "file": "12-result-claimed.png",
-            "sha256": "0500b9e6ca7f5f30be6e29c63dbe416881a853713863b878a50d7f70b7a55054",
+            "sha256": "e198ddf1dae3d4afb4fb536614f9d54d05fe19d97bc954f5d5e2cae9e62ef16a",
             "screen": "翻倍领取完成",
             "width": 1080,
             "height": 2400,
             "visibleTextInstances": 10,
-            "bytes": 647357,
+            "bytes": 755431,
             "visiblePixels": true,
             "texts": [
                 {
@@ -1553,9 +1567,10 @@
             ],
             "visibleImages": [
                 "game_assets_bg |  | Sticker cream",
+                "stamp_shine |  | Liangxia sticker_semantic atlas",
                 "ink_stamp |  | Liangxia shared UI atlas",
                 "ink_paper |  | Liangxia shared UI atlas",
-                "menu_treasure |  | Liangxia shared UI atlas",
+                "reward_coins |  | Liangxia sticker_semantic atlas",
                 "ink_brush |  | Liangxia shared UI atlas",
                 "sticker_secondary |  | Liangxia shared UI atlas",
                 "game_assets_rewardedvideo |  | Liangxia shared UI atlas"

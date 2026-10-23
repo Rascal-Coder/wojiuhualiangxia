@@ -57,7 +57,7 @@ namespace Inkomino
         static readonly float[] B={.055f,.15f,.215f,.66f,.74f,.855f,.95f,1};
         static readonly string[] Profile={"#58695B","#C7D0BC","#B0BDA7",null,"#B2BDA7","#7D907D","#6F806E","#35473C"};
         static readonly float[] BeamInsets={0,.07f,.22f,.34f};
-        static readonly string[] BeamColors={"#6645AA","#FFFFFF","#CFB5EE",null};
+        static readonly string[] BeamColors={"#6645AA","#FFFFFF","#E6D7F5","#FBF6FF"};
         public override Texture mainTexture
         {
             get
@@ -123,6 +123,7 @@ namespace Inkomino
         void Band(VertexHelper vh,IList<Vector2> grid,float outer,float inner,float radius,float cs,Vector2 origin,float dp,Color color,bool grain,float tw,float th,Vector2 anchor)
         {
             var a=Offset(grid,outer,radius,cs,origin,dp);var b=Offset(grid,inner,radius,cs,origin,dp);
+            if(!grain&&!InsideCellsOnly){var ma=a.ConvertAll(Map);var mb=b.ConvertAll(Map);StickerMesh.Band(vh,ma,mb,color,StickerMesh.Pixel(rectTransform)*.9f);return;}
             for(int i=0;i<a.Count;i++)
             {int j=(i+1)%a.Count;var p=new[]{a[i],a[j],b[j],b[i]};if(grain)Tiled(vh,p,tw,th,anchor);else Poly(vh,p,color);}
         }
@@ -157,13 +158,13 @@ namespace Inkomino
                 {
                     if(Mode==0)
                     {
-                        if(!InsideCellsOnly){Band(vh,grid,-.73f*w,.31f*w,radius,cs,origin+new Vector2(0,-5*dp),dp,Co("#DDC9EC"),false,tw,th,anchor);Band(vh,grid,-.70f*w,.31f*w,radius,cs,origin+new Vector2(0,-3*dp),dp,Co("#BCA0DA"),false,tw,th,anchor);}
-                        Band(vh,grid,-.70f*w,.30f*w,radius,cs,origin,dp,Co("#BCA0EB"),false,tw,th,anchor);
+                        if(!InsideCellsOnly){Band(vh,grid,-.73f*w,.31f*w,radius,cs,origin+new Vector2(0,-7*dp),dp,new Color32(128,92,171,30),false,tw,th,anchor);Band(vh,grid,-.70f*w,.31f*w,radius,cs,origin+new Vector2(0,-3*dp),dp,new Color32(128,92,171,65),false,tw,th,anchor);}
+                        Band(vh,grid,-.70f*w,.30f*w,radius,cs,origin,dp,Co("#B69AD9"),false,tw,th,anchor);
                     }
                     if(Mode==2)
                     {
-                        Band(vh,grid,-.66f*w,-.47f*w,radius,cs,origin,dp,Co("#FFFFFF"),false,tw,th,anchor);
-                        Band(vh,grid,-.40f*w,.10f*w,radius,cs,origin,dp,Co("#DAC7F4"),false,tw,th,anchor);
+                        Band(vh,grid,-.64f*w,-.30f*w,radius,cs,origin,dp,Co("#FFFFFF"),false,tw,th,anchor);
+                        Band(vh,grid,-.30f*w,.10f*w,radius,cs,origin,dp,Co("#E8DAFB"),false,tw,th,anchor);
                         Band(vh,grid,.10f*w,.28f*w,radius,cs,origin,dp,Co("#FFFFFF"),false,tw,th,anchor);
                     }
                 }
@@ -174,7 +175,7 @@ namespace Inkomino
                 for(int i=0;i<n*n;i++)if(state.IsActive(i))
                 {
                     Rect cell=new Rect(origin.x+i%n*cs,origin.y-(i/n+1)*cs,cs,cs);
-                    Poly(vh,Points(cell),Co(i%2==0?"#FFFDFB":"#FFF9FE"),p=>new Vector2((p.x-origin.x)/size,1-(origin.y-p.y)/size));
+                    Poly(vh,Points(cell),Co("#F6F0FC"),p=>new Vector2((p.x-origin.x)/size,1-(origin.y-p.y)/size));
                 }
             }
             else if(Mode==4)DrawGrid(vh,cs,dp);
