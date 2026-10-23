@@ -24,6 +24,15 @@ namespace Inkomino
             app.Settings(true);before=app.Remaining;yield return new WaitForSecondsRealtime(.2f);Check(!app.InputEnabled&&Mathf.Abs(before-app.Remaining)<.1f,"pause blocks input and timer");yield return Capture("04-paused");app.ClosePopup();
             app.StartLevel(11,true);yield return null;app.Board.Restore(app.Board.Level.solution);Check(app.Board.Solved,"level 11 corrected reference solves");yield return new WaitForSecondsRealtime(2.6f);yield return Capture("05-win");
             app.StartLevel(15,true);yield return Capture("21-level15-preview");foreach(var placement in app.Board.Level.solution.Take(3)){app.Board.TryPlace(placement.cells,out string why);}yield return Capture("22-level15-stickers");
+            Screen.SetResolution(360,800,false);yield return new WaitForSecondsRealtime(.5f);
+            foreach(int levelId in new[]{17,20,21,22}){
+                app.StartLevel(levelId,true);yield return Capture("barrier-level"+levelId);
+                var barriers=app.BoardView.GetComponentInChildren<StickerBarrierGraphic>();
+                int expected=app.Board.Level.walls.e.Count(w=>w>0)+app.Board.Level.walls.s.Count(w=>w>0);
+                Check(barriers&&barriers.RenderedBarrierCount==expected,"all barriers use the sticker atlas on level "+levelId);
+                Check(barriers&&!barriers.raycastTarget,"barrier art does not intercept drawing gestures");
+            }
+            Screen.SetResolution(540,960,false);yield return new WaitForSecondsRealtime(.5f);
             app.StartLevel(25,true);yield return null;app.Board.TryPlace(app.Board.Level.solution[0].cells,out string reason);yield return Capture("06-symbols");
             app.StartLevel(50,false);yield return null;app.Remaining=0;yield return new WaitForSecondsRealtime(.1f);Check(app.Finished,"timeout ends level");yield return Capture("07-timeout");CheckTimeout(app,false);int heartBefore=app.Store.Data.hearts;var freeButton=FindButton(app,Zh.Free);Check(freeButton!=null,"first failure has original FREE continuation");if(freeButton){freeButton.onClick.Invoke();Check(!app.Finished&&app.Remaining>59&&app.Store.Data.firstContinueUsed,"first free continuation adds60seconds");}app.Remaining=0;app.Fail();yield return new WaitForSecondsRealtime(1);yield return Capture("19-timeout-paid",.02f);CheckTimeout(app,true);var paid=FindButton(app,Zh.PlayOn);int coinsBefore=app.Store.Data.coins;Check(paid!=null,"repeat failure has local coin continuation");if(paid){paid.onClick.Invoke();Check(!app.Finished&&app.Remaining>59&&app.Store.Data.coins==coinsBefore-120,"second continuation spends120 and adds60seconds");}app.Remaining=0;app.Fail();yield return new WaitForSecondsRealtime(1);app.SourceFailureExit?.Invoke();yield return new WaitForSecondsRealtime(1);app.SourceFailureExit?.Invoke();Check(!app.Playing&&app.Store.Data.hearts==heartBefore-1,"confirmed give-up loses exactly one life");
             app.ShowShop();yield return Capture("08-shop");app.ShowCollection();yield return Capture("09-collection");app.LevelLibrary(19);yield return Capture("10-level-library");

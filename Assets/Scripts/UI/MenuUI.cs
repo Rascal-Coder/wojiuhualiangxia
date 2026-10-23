@@ -19,7 +19,7 @@ namespace Inkomino
         static void LoadAtlas()
         {
             if(atlasLoaded)return;atlasLoaded=true;
-            LoadSheet("menu_ui");LoadSheet("sticker_fx");LoadSheet("sticker_semantic");
+            LoadSheet("menu_ui");LoadSheet("sticker_fx");LoadSheet("sticker_semantic");LoadSheet("sticker_barrier");
         }
         static void LoadSheet(string key)
         {

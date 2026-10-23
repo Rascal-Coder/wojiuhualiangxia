@@ -1,0 +1,60 @@
+{
+  "width": 512,
+  "height": 512,
+  "regions": [
+    {
+      "key": "barrier_strip_plain",
+      "x": 8,
+      "y": 387,
+      "width": 358,
+      "height": 84,
+      "borderX": 57,
+      "borderY": 0
+    },
+    {
+      "key": "barrier_badge_plain",
+      "x": 380,
+      "y": 369,
+      "width": 119,
+      "height": 120,
+      "borderX": 0,
+      "borderY": 0
+    },
+    {
+      "key": "barrier_strip_same",
+      "x": 8,
+      "y": 221,
+      "width": 358,
+      "height": 85,
+      "borderX": 57,
+      "borderY": 0
+    },
+    {
+      "key": "barrier_badge_same",
+      "x": 380,
+      "y": 203,
+      "width": 119,
+      "height": 120,
+      "borderX": 0,
+      "borderY": 0
+    },
+    {
+      "key": "barrier_strip_different",
+      "x": 8,
+      "y": 55,
+      "width": 358,
+      "height": 84,
+      "borderX": 57,
+      "borderY": 0
+    },
+    {
+      "key": "barrier_badge_different",
+      "x": 380,
+      "y": 37,
+      "width": 119,
+      "height": 120,
+      "borderX": 0,
+      "borderY": 0
+    }
+  ]
+}

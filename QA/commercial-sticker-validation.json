@@ -23,7 +23,7 @@
   "suites": {
     "RuntimeInk": {
       "status": "PASS",
-      "screenshots": 23,
+      "screenshots": 27,
       "checks": 0
     },
     "ChineseWindows": {

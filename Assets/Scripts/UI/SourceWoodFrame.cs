@@ -39,8 +39,9 @@ namespace Inkomino
             grid.SetSiblingIndex(baseIndex+3);
             for(int i=0;i<board.transform.childCount;i++)
             {var mesh=board.transform.GetChild(i).GetComponent<BoardMesh>();if(mesh&&mesh.Layer==2)wallIndex=i;}
-            var beams=Skin.Fill("Source wall wood profile",board.transform);Add(beams,board,5);beams.SetSiblingIndex(wallIndex+1);
-            var beamTexture=Skin.Fill("Source wall wood grain",board.transform);Add(beamTexture,board,6);beamTexture.SetSiblingIndex(wallIndex+2);
+            var barriers=Skin.Fill("Sticker barrier seals",board.transform);
+            var seals=barriers.gameObject.AddComponent<StickerBarrierGraphic>();seals.Board=board;seals.raycastTarget=false;
+            barriers.SetSiblingIndex(wallIndex+1);
         }
         static void Add(RectTransform parent,PuzzleBoardView board,int mode,bool inside=false)
         {

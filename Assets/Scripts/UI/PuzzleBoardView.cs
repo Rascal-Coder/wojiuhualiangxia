@@ -190,7 +190,6 @@ namespace Inkomino
             if(Layer==2)
             {
                 foreach(var p in b.Pieces){bool drawing=View.DrawTrace!=null&&new HashSet<int>(View.DrawTrace).SetEquals(p.cells);var s=View.Style(p);if(drawing&&s!=null)s.Locked=true;if(!drawing&&s!=null)DrawFinishedOutline(vh,p.cells,s);DrawPiece(vh,p.cells,drawing?View.DrawProgress:1,drawing,s!=null&&s.Locked);}
-                if(b.Level.walls!=null){float woodDp=Mathf.Max(5,Mathf.Floor(cs/dp*.18f+.5f)),width=Mathf.Max(3,Mathf.Floor(woodDp*.78f+.5f))*dp;for(int i=0;i<n*n;i++){Rect cell=View.CellRect(i);if(b.Level.walls.e[i]>0)DrawWall(vh,new Vector2(cell.xMax,cell.yMin),new Vector2(cell.xMax,cell.yMax),width);if(b.Level.walls.s[i]>0)DrawWall(vh,new Vector2(cell.xMin,cell.yMin),new Vector2(cell.xMax,cell.yMin),width);}}
             }
             if(Layer==7)DrawStickerFeedback(vh);
             if(Layer==8)DrawHint(vh);
@@ -253,7 +252,6 @@ namespace Inkomino
             }
         }
         Color GoldAt(Vector2 p){float[] stops={0,.25f,.45f,.6f,.8f,1};string[] colors={"#FF83AC","#B6A0F5","#FFE36B","#75DABA","#FF83AC","#B6A0F5"};Vector2 local=p-View.BoardOriginLocal;float t=Mathf.Clamp01((.7f*local.x-local.y)/(View.BoardSize*1.49f));for(int i=1;i<stops.Length;i++)if(t<=stops[i])return Alpha(Color.Lerp(Co(colors[i-1]),Co(colors[i]),Mathf.InverseLerp(stops[i-1],stops[i],t)),View.VictoryInk);return Alpha(Co(colors[colors.Length-1]),View.VictoryInk);}
-        void DrawWall(VertexHelper vh,Vector2 a,Vector2 b,float width){Line(vh,a,b,width,Co("#A184C4"));Line(vh,a,b,width*.86f,Color.white);Line(vh,a,b,width*.56f,Co("#CFB5EE"));}
         static List<Vector2> CirclePoints(Vector2 center,float radius,int segments=48)
         {var p=new List<Vector2>();for(int i=0;i<segments;i++){float a=i*Mathf.PI*2/segments;p.Add(center+new Vector2(Mathf.Cos(a),Mathf.Sin(a))*radius);}return p;}
         void Disc(VertexHelper vh,Vector2 center,float radius,Color color){StickerMesh.Solid(vh,CirclePoints(center,radius),color,StickerMesh.Pixel(rectTransform)*.8f);}
@@ -281,15 +279,19 @@ namespace Inkomino
                 if(kind==4){int start=vh.currentVertCount;for(int j=0;j<48;j++){float a=j*Mathf.PI*2/48;var d=new Vector2(Mathf.Cos(a),Mathf.Sin(a));vh.AddVert(center+d*r,paper,Vector2.zero);vh.AddVert(center+d*r*.38f,paper,Vector2.zero);}for(int j=0;j<48;j++){int a=start+j*2,z=start+((j+1)%48)*2;vh.AddTriangle(a,z,z+1);vh.AddTriangle(a,z+1,a+1);}RoundStroke(vh,CirclePoints(center,r),w,ink);RoundStroke(vh,CirclePoints(center,r*.38f),w,ink);}
                 else{var p=IconPath(kind,center,r);ConcavePolygon(vh,p,paper);RoundStroke(vh,p,w,ink);}
             }
-            if(b.Level.walls==null)return;float wr=Mathf.Clamp(cs/dp*.16f,6,13)*dp,ww=Mathf.Max(1.6f,cs/dp*.032f)*dp;
+            if(b.Level.walls==null)return;float wr=StickerBarrierGraphic.BadgeSize(cs,dp)*.29f,ww=Mathf.Max(1.5f*dp,wr*.25f);
             for(int i=first;i<last;i++){Rect cell=View.CellRect(i);if(b.Level.walls.e[i]>0)WallMark(vh,new Vector2(cell.xMax,cell.center.y),b.Level.walls.e[i],wr,ww,paper,ink);if(b.Level.walls.s[i]>0)WallMark(vh,new Vector2(cell.center.x,cell.yMin),b.Level.walls.s[i],wr,ww,paper,ink);}
         }
         void WallMark(VertexHelper vh,Vector2 center,int kind,float radius,float width,Color paper,Color ink)
         {
-            Disc(vh,center,radius+width*.5f,ink);Disc(vh,center,radius-width*.5f,paper);
-            if(kind==1){RoundStroke(vh,new[]{center+new Vector2(-.5f,-.225f)*radius,center+new Vector2(.5f,-.225f)*radius},width,ink,false);RoundStroke(vh,new[]{center+new Vector2(-.5f,.225f)*radius,center+new Vector2(.5f,.225f)*radius},width,ink,false);}
-            else{RoundStroke(vh,new[]{center+new Vector2(-.5f,-.5f)*radius,center+new Vector2(.5f,.5f)*radius},width,ink,false);RoundStroke(vh,new[]{center+new Vector2(-.5f,.5f)*radius,center+new Vector2(.5f,-.5f)*radius},width,ink,false);}
+            ink=Co("#412F5B");
+            // 1 = barrier only; 2 = same shape; 3 = different shapes. Match BoardState rules.
+            if(kind==1){RoundStroke(vh,new[]{center+Vector2.left*radius*.65f,center+Vector2.right*radius*.65f},width,ink,false);return;}
+            RoundStroke(vh,new[]{center+new Vector2(-.72f,-.36f)*radius,center+new Vector2(.72f,-.36f)*radius},width,ink,false);
+            RoundStroke(vh,new[]{center+new Vector2(-.72f,.36f)*radius,center+new Vector2(.72f,.36f)*radius},width,ink,false);
+            if(kind==3)RoundStroke(vh,new[]{center+new Vector2(-.48f,-.78f)*radius,center+new Vector2(.48f,.78f)*radius},width,ink,false);
         }
+
         void DrawSweep(VertexHelper vh)
         {
             float size=View.BoardSize,width=size*.32f,height=size*2.6f,u=SourceMotion.InOutQuad(View.SweepProgress);Vector2 o=View.BoardOriginLocal;

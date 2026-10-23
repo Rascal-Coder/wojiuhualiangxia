@@ -216,7 +216,7 @@
         "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Screens / 5",
         "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Climb countdown / 本轮剩余 07:13:57 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Climb countdown / 本轮剩余 06:17:45 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 06-climb-locked-360x800.png / Climb prize / 集满 7 枚即可领取",
@@ -251,7 +251,7 @@
         "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Screens / 5",
         "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Climb countdown / 本轮剩余 07:13:57 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Climb countdown / 本轮剩余 06:17:44 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 07-climb-active-360x800.png / Climb prize / 集满 7 枚即可领取",
@@ -289,7 +289,7 @@
         "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Screens / 5",
         "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Climb countdown / 本轮剩余 07:13:56 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Climb countdown / 本轮剩余 06:17:43 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Climb prize / 本轮收获",
         "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 08-climb-summit-360x800.png / Climb prize / 集满 7 枚即可领取",
@@ -330,7 +330,7 @@
         "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Screens / 5",
         "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Climb countdown / 本轮剩余 07:13:55 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Climb countdown / 本轮剩余 06:17:43 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 09-climb-cooldown-360x800.png / Climb prize / 集满 7 枚即可领取",
@@ -364,7 +364,7 @@
         "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Screens / 5",
         "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Climb countdown / 本轮剩余 07:13:54 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Climb countdown / 本轮剩余 06:17:42 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 10-climb-rules-360x800.png / Climb prize / 集满 7 枚即可领取",
@@ -464,7 +464,7 @@
         "visible TextGenerator glyph mesh 01-home-375x812.png / Button artwork / 第 9 关  ·  查看关卡",
         "visible TextGenerator glyph mesh 01-home-375x812.png / Button artwork / 开始游戏",
         "visible TextGenerator glyph mesh 01-home-375x812.png / Menu press visuals / 每日礼物",
-        "visible TextGenerator glyph mesh 01-home-375x812.png / Menu press visuals / 00:30:00",
+        "visible TextGenerator glyph mesh 01-home-375x812.png / Menu press visuals / 00:29:59",
         "visible TextGenerator glyph mesh 01-home-375x812.png / Menu press visuals / 快乐集章",
         "visible TextGenerator glyph mesh 01-home-375x812.png / Menu press visuals / 41关解锁",
         "visible TextGenerator glyph mesh 01-home-375x812.png / Menu press visuals / 商店",
@@ -665,7 +665,7 @@
         "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Screens / 5",
         "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Climb countdown / 本轮剩余 07:13:43 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Climb countdown / 本轮剩余 06:17:31 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 06-climb-locked-375x812.png / Climb prize / 集满 7 枚即可领取",
@@ -700,7 +700,7 @@
         "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Screens / 5",
         "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Climb countdown / 本轮剩余 07:13:42 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Climb countdown / 本轮剩余 06:17:30 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 07-climb-active-375x812.png / Climb prize / 集满 7 枚即可领取",
@@ -738,7 +738,7 @@
         "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Screens / 5",
         "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Climb countdown / 本轮剩余 07:13:42 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Climb countdown / 本轮剩余 06:17:30 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Climb prize / 本轮收获",
         "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 08-climb-summit-375x812.png / Climb prize / 集满 7 枚即可领取",
@@ -779,7 +779,7 @@
         "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Screens / 5",
         "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Climb countdown / 本轮剩余 07:13:41 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Climb countdown / 本轮剩余 06:17:29 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 09-climb-cooldown-375x812.png / Climb prize / 集满 7 枚即可领取",
@@ -813,7 +813,7 @@
         "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Screens / 5",
         "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Climb countdown / 本轮剩余 07:13:41 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Climb countdown / 本轮剩余 06:17:29 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 10-climb-rules-375x812.png / Climb prize / 集满 7 枚即可领取",
@@ -1114,7 +1114,7 @@
         "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Screens / 5",
         "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Climb countdown / 本轮剩余 07:13:29 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Climb countdown / 本轮剩余 06:17:17 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 06-climb-locked-540x836.png / Climb prize / 集满 7 枚即可领取",
@@ -1149,7 +1149,7 @@
         "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Screens / 5",
         "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Climb countdown / 本轮剩余 07:13:28 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Climb countdown / 本轮剩余 06:17:16 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 07-climb-active-540x836.png / Climb prize / 集满 7 枚即可领取",
@@ -1187,7 +1187,7 @@
         "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Screens / 5",
         "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Climb countdown / 本轮剩余 07:13:27 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Climb countdown / 本轮剩余 06:17:16 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Climb prize / 本轮收获",
         "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 08-climb-summit-540x836.png / Climb prize / 集满 7 枚即可领取",
@@ -1228,7 +1228,7 @@
         "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Screens / 5",
         "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Climb countdown / 本轮剩余 07:13:27 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Climb countdown / 本轮剩余 06:17:15 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 09-climb-cooldown-540x836.png / Climb prize / 集满 7 枚即可领取",
@@ -1262,7 +1262,7 @@
         "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Screens / 5",
         "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Coin pill / 1000",
         "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Menu page layout / 快乐集章",
-        "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Climb countdown / 本轮剩余 07:13:26 · 每天 18:00 更新",
+        "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Climb countdown / 本轮剩余 06:17:14 · 每天 18:00 更新",
         "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Climb prize / 集齐奖励",
         "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Climb prize / 1000 金币",
         "visible TextGenerator glyph mesh 10-climb-rules-540x836.png / Climb prize / 集满 7 枚即可领取",
@@ -1392,7 +1392,7 @@
             "bodyLabels": 6,
             "buttons": 15,
             "minimumBodyPixels": 13.86479663848877,
-            "headerGapPixels": 20.18426513671875
+            "headerGapPixels": 20.18408203125
         },
         {
             "page": "06-climb-locked",
@@ -1400,7 +1400,7 @@
             "bodyLabels": 16,
             "buttons": 9,
             "minimumBodyPixels": 13.883956909179688,
-            "headerGapPixels": 20.19049072265625
+            "headerGapPixels": 20.1904296875
         },
         {
             "page": "07-climb-active",
@@ -1408,7 +1408,7 @@
             "bodyLabels": 16,
             "buttons": 9,
             "minimumBodyPixels": 13.883956909179688,
-            "headerGapPixels": 20.19049072265625
+            "headerGapPixels": 20.1904296875
         },
         {
             "page": "08-climb-summit",
@@ -1431,7 +1431,7 @@
             "resolution": "360x800",
             "bodyLabels": 3,
             "buttons": 2,
-            "minimumBodyPixels": 13.994086265563965,
+            "minimumBodyPixels": 13.994606971740723,
             "headerGapPixels": 0.0
         },
         {
@@ -1488,7 +1488,7 @@
             "bodyLabels": 21,
             "buttons": 12,
             "minimumBodyPixels": 14.105741500854493,
-            "headerGapPixels": 20.49786376953125
+            "headerGapPixels": 20.497802734375
         },
         {
             "page": "05-friends-desktop",
@@ -1520,7 +1520,7 @@
             "bodyLabels": 16,
             "buttons": 9,
             "minimumBodyPixels": 14.120514869689942,
-            "headerGapPixels": 20.5028076171875
+            "headerGapPixels": 20.50274658203125
         },
         {
             "page": "09-climb-cooldown",
@@ -1535,7 +1535,7 @@
             "resolution": "375x812",
             "bodyLabels": 3,
             "buttons": 2,
-            "minimumBodyPixels": 14.203622817993164,
+            "minimumBodyPixels": 14.203595161437989,
             "headerGapPixels": 0.0
         },
         {
@@ -1576,7 +1576,7 @@
             "bodyLabels": 20,
             "buttons": 13,
             "minimumBodyPixels": 14.587496757507325,
-            "headerGapPixels": 21.1253662109375
+            "headerGapPixels": 21.12530517578125
         },
         {
             "page": "03-achievements-zero",
@@ -1608,7 +1608,7 @@
             "bodyLabels": 16,
             "buttons": 9,
             "minimumBodyPixels": 14.593632698059082,
-            "headerGapPixels": 21.12744140625
+            "headerGapPixels": 21.1273193359375
         },
         {
             "page": "07-climb-active",
@@ -1632,14 +1632,14 @@
             "bodyLabels": 16,
             "buttons": 9,
             "minimumBodyPixels": 14.593632698059082,
-            "headerGapPixels": 21.1273193359375
+            "headerGapPixels": 21.12738037109375
         },
         {
             "page": "10-climb-rules",
             "resolution": "540x836",
             "bodyLabels": 3,
             "buttons": 2,
-            "minimumBodyPixels": 14.625738143920899,
+            "minimumBodyPixels": 14.624049186706543,
             "headerGapPixels": 0.0
         },
         {
