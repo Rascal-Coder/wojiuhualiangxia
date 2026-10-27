@@ -1,0 +1,22 @@
+{
+  "generator": "built-in image_gen",
+  "date": "2026-10-23",
+  "style_reference": "menu_pen.png",
+  "sources": [
+    "brand_logo.png",
+    "brand_startup.png"
+  ],
+  "runtime_atlas": "Assets/Resources/MenuArt/sticker_brand_atlas.bytes",
+  "app_icon": "Assets/Branding/app-icon.png",
+  "normalization": "Tools/pack_brand_art.py",
+  "prompts": [
+    {
+      "asset": "brand_logo.png",
+      "prompt": "Production horizontal title logo for Chinese casual polyomino drawing puzzle game. Exact title 我就划两下. Match menu_pen reference: rounded coral and grape custom lettering, cream highlights, mint and lemon polyomino pieces, small pink marker with yellow heart and a lively underline, thick white die-cut border, short lilac offset shadow. Title dominant, commercial dopamine journal sticker style for young women. Transparent background, safe margins. No extra text, watermark, gold or wood."
+    },
+    {
+      "asset": "brand_startup.png",
+      "prompt": "Production startup illustration for 我就划两下. Match menu_pen reference: an open cream journal with interlocking mint, lilac, lemon and coral polyomino tiles; same coral marker with yellow heart filling a shape with a short ink stroke. Top-down tilted stationery composition, grape outline, white die-cut border, short lilac shadow, two small sparkle accents. No text, loading bar, circular platform, wood or watermark. Transparent background."
+    }
+  ]
+}

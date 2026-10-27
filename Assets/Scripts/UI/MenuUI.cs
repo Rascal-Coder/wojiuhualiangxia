@@ -54,6 +54,12 @@ namespace Inkomino
             if(!string.IsNullOrEmpty(subtitle))Label(subtitle,parent,new Vector2(.5f,1),new Vector2(0,-640),new Vector2(960,64),Small,Muted,TextAnchor.MiddleCenter);
         }
         public static Sprite AtlasSprite(string key){LoadAtlas();Sprite value;return art.TryGetValue(key,out value)?value:null;}
+        public static Sprite TipSprite(string key){if(!art.ContainsKey(key))LoadSheet("sticker_tips");Sprite value;return art.TryGetValue(key,out value)?value:null;}
+        public static Sprite BrandSprite(string key){if(!art.ContainsKey(key))LoadSheet("sticker_brand");Sprite value;return art.TryGetValue(key,out value)?value:null;}
+        public const int AvatarCount=8;
+        // Older profiles used IDs 1..16. Map them without rewriting player progress.
+        public static int AvatarId(int id){return id<=0?1:(id-1)%AvatarCount+1;}
+        public static Sprite AvatarSprite(int id){string key="avatar_"+AvatarId(id);if(!art.ContainsKey(key))LoadSheet("sticker_avatars");Sprite value;return art.TryGetValue(key,out value)?value:null;}
         public static Image Art(string key,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size)
         {
             LoadAtlas();

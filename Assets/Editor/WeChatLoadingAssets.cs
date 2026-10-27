@@ -12,8 +12,10 @@ public static class WeChatLoadingAssets
     {
         string output=Path.Combine(root,"Builds/WeChat/minigame"),images=Path.Combine(output,"images");
         Directory.CreateDirectory(images);
-        string[] names={"background.jpg","unity_logo.png"},keys={"backgroundImage","iconImage"};
-        var files=new ImageFile[2];
+        // The background already contains the brand logo; the SDK icon is hidden.
+        // Do not ship and cache another full logo for that unused image slot.
+        string[] names={"background.jpg"},keys={"backgroundImage"};
+        var files=new ImageFile[names.Length];
         for(int i=0;i<names.Length;i++)
         {
             string source=Path.Combine(root,"Assets/WX-WASM-SDK-V2/Runtime/wechat-default/images",names[i]);
@@ -27,6 +29,8 @@ public static class WeChatLoadingAssets
             }
             finally{UnityEngine.Object.DestroyImmediate(texture);}
         }
+        string unusedIcon=Path.Combine(images,"unity_logo.png");
+        if(File.Exists(unusedIcon))File.Delete(unusedIcon);
         string list=JsonUtility.ToJson(new ImageList{images=files});
         // JsonUtility wraps arrays; retain just the JSON array for the JS module.
         string array=list.Substring(list.IndexOf('['),list.LastIndexOf(']')-list.IndexOf('[')+1);
@@ -41,6 +45,8 @@ public static class WeChatLoadingAssets
             game=game.Replace(assign,"const loadingAssets = prepareLoadingAssets();\n        "+assign);
             game=ReplaceOne(game,@"backgroundImage:\s*'images/background\.jpg'","backgroundImage: loadingAssets.backgroundImage");
             game=ReplaceOne(game,@"iconImage:\s*'images/unity_logo\.png'","iconImage: loadingAssets.iconImage");
+            game=game.Replace("firstStartText: '首次加载请耐心等待'","firstStartText: ''").Replace("正在加载资源","正在准备资源").Replace("编译中","正在准备资源").Replace("初始化中","正在启动游戏");
+            game=ReplaceOne(game,@"iconConfig:\s*\{\s*visible:\s*true","iconConfig: { visible: false");
             File.WriteAllText(gamePath,game);
         }
         File.WriteAllText(Path.Combine(root,"QA/WeChat/loading-assets.json"),JsonUtility.ToJson(new ImageList{images=files},true));
@@ -59,7 +65,9 @@ public static class WeChatLoadingAssets
         {
             string file=Path.Combine(output,image.source);if(!File.Exists(file)||new FileInfo(file).Length!=image.bytes)throw new Exception("Missing loading cover asset: "+image.source);
         }
+        if(File.Exists(Path.Combine(output,"images/unity_logo.png")))throw new Exception("Unused hidden loading icon still packaged.");
         string game=File.ReadAllText(Path.Combine(output,"game.js"));
         if(!game.Contains("backgroundImage: loadingAssets.backgroundImage")||!game.Contains("iconImage: loadingAssets.iconImage"))throw new Exception("Native loading image paths not linked.");
+        if(!Regex.IsMatch(game,@"iconConfig:\s*\{\s*visible:\s*false"))throw new Exception("Duplicate native loading icon must stay hidden.");
     }
 }

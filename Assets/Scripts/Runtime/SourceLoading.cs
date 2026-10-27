@@ -55,6 +55,9 @@ namespace Inkomino
 #endif
             InitializeGameData();
             if(!Store.PersistenceAvailable){LoadingView.StatusMessage="存档读取失败，请重新进入";yield break;}
+            // Valid returning profiles start cloud login in the background;
+            // only the first local installation waits for an initial restore.
+            yield return InitializeCloudSave();
             long dataReadyMs=startupWatch.ElapsedMilliseconds;int warmed=0;
             foreach(string key in SourceLoadingView.StartupResources(Store.HasCompletedLevel))
             {
@@ -69,13 +72,14 @@ namespace Inkomino
             }
             while(LoadingView.Elapsed<SourceLoadingView.MinimumSeconds||LoadingView.HoldForQA)yield return null;
             long warmReadyMs=startupWatch.ElapsedMilliseconds;
+            cloudRefreshAfterStartup=false;
             ShowStartupDestination();long screenReadyMs=startupWatch.ElapsedMilliseconds;LoadingView.transform.SetAsLastSibling();
             yield return LoadingView.FadeOut();
-            LoadingView.gameObject.SetActive(false);Destroy(LoadingView.gameObject);LoadingView=null;BootReady=true;StartCoroutine(Clock());
+            LoadingView.gameObject.SetActive(false);Destroy(LoadingView.gameObject);LoadingView=null;BootReady=true;CompleteCloudSaveStartup();StartCoroutine(Clock());
 #if WEIXINMINIGAME && !UNITY_EDITOR
             FriendsRanking.SubmitProgress(Store.Data.wins);
             WeChatWASM.WX.ReportGameStart();
-            Debug.Log("INKOMINO_STARTUP ready_ms="+startupWatch.ElapsedMilliseconds+" data_ready_ms="+dataReadyMs+" warm_ready_ms="+warmReadyMs+" screen_ready_ms="+screenReadyMs+" warmed_images="+warmed+" max_decode_ms="+SourceArt.MaximumDecodeMilliseconds+" max_decode_image="+SourceArt.SlowestDecodeKey+" storage=wx.setStorageSync");
+            Debug.Log("INKOMINO_STARTUP ready_ms="+startupWatch.ElapsedMilliseconds+" data_ready_ms="+dataReadyMs+" warm_ready_ms="+warmReadyMs+" screen_ready_ms="+screenReadyMs+" warmed_images="+warmed+" max_decode_ms="+SourceArt.MaximumDecodeMilliseconds+" max_decode_image="+SourceArt.SlowestDecodeKey+" cloud_waited="+ShouldAwaitInitialCloud+" storage=wx.setStorageSync");
 #endif
         }
 
@@ -94,7 +98,7 @@ namespace Inkomino
     // progressTrack/Fill/Text (those are unused generic styles in that module).
     public sealed class SourceLoadingView:MonoBehaviour
     {
-        public const float MinimumSeconds=4f,MaximumSeconds=10f,FadeSeconds=.3f;
+        public const float MinimumSeconds=1.2f,MaximumSeconds=10f,FadeSeconds=.3f;
         public bool HoldForQA;
         public string StatusMessage;
         public float Elapsed { get { return Mathf.Max(0,Time.unscaledTime-begin); } }
@@ -129,15 +133,16 @@ namespace Inkomino
             Skin.Art("source_loading_background",clip,new Vector2(.5f,.5f),Vector2.zero,new Vector2(drawWidth,drawHeight),false);
             var dots=Skin.Fill("Sticker journal dots",clip).gameObject.AddComponent<StickerBackdrop>();dots.raycastTarget=false;
             float dp=Skin.DP,windowW=1080/dp,windowH=2400/dp;
-            view.Logo=InkTheme.Brand(root,new Vector2(.5f,1),new Vector2(0,-990),new Vector2(950,240));
-            MenuUI.Art("ink_home_hero",root,new Vector2(.5f,1),new Vector2(0,-1500),new Vector2(1080,720));
-            view.Label=MenuUI.Label("加载中",root,new Vector2(.5f,1),new Vector2(0,-1990),new Vector2(920,120),48,InkTheme.Muted,TextAnchor.MiddleCenter);
+            view.Logo=InkTheme.Brand(root,new Vector2(.5f,1),new Vector2(0,-760),new Vector2(960,340));
+            var illustration=Skin.Rect("Startup journal illustration",root,new Vector2(.5f,1),new Vector2(0,-1340),new Vector2(800,820));
+            var art=illustration.gameObject.AddComponent<Image>();art.sprite=MenuUI.BrandSprite("brand_startup");art.preserveAspect=true;art.raycastTarget=false;
+            view.Label=MenuUI.Label("正在准备拼图",root,new Vector2(.5f,1),new Vector2(0,-1900),new Vector2(920,120),48,InkTheme.Muted,TextAnchor.MiddleCenter);
 
             // The publisher overlay is omitted at the user's request. The
             // engine's default startup splash remains in PlayerSettings.
             return view;
         }
-        void Update(){if(Label)Label.text=string.IsNullOrEmpty(StatusMessage)?"加载中"+new string('.',Mathf.FloorToInt(Elapsed/.4f)%4):StatusMessage;}
+        void Update(){if(Label)Label.text=string.IsNullOrEmpty(StatusMessage)?"正在准备拼图"+new string('·',Mathf.FloorToInt(Elapsed/.4f)%4):StatusMessage;}
         public IEnumerator FadeOut()
         {
             float started=Time.unscaledTime;

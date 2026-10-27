@@ -74,9 +74,9 @@ namespace Inkomino
         public void BuildTitle(RectTransform title,string text,float fontSize)
         {
             float dp=Skin.DP;int fs=Mathf.RoundToInt(fontSize);float total=TextWidth(text,fs),x=-total/2;
-            // Chinese uses fewer glyphs; preserve the original ten-character
-            // title entrance span so the reward and button keep their timing.
-            float stagger=text==Zh.WellDone&&text.Length>1?.675f/(text.Length-1):.075f;
+            // Reward feedback overlaps the title instead of waiting for a spring
+            // to reach an imperceptible rest threshold.
+            float stagger=.035f;
             var row=Skin.Rect("Arc title row",title,new Vector2(.5f,.5f),Vector2.zero,new Vector2(total,100*dp));row.localScale=Vector3.one*Mathf.Min(1,title.sizeDelta.x/Mathf.Max(1,total));
             for(int i=0;i<text.Length;i++)
             {
@@ -85,20 +85,18 @@ namespace Inkomino
                 TitleGlyph(ch,r,fs,InkTheme.Ink);
                 letters.Add(new Letter{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=i*stagger});
             }
-            titleDone=Mathf.Max(0,text.Length-1)*stagger+SpringRest(.3f,1,140,6);
+            titleDone=.100f;
         }
         static Text TitleGlyph(string ch,RectTransform parent,int size,Color color)
         {var t=Skin.Text(ch,parent,new Vector2(.5f,.5f),Vector2.zero,new Vector2(size*2,size*1.7f),size,color);t.horizontalOverflow=HorizontalWrapMode.Overflow;t.verticalOverflow=VerticalWrapMode.Overflow;return t;}
-        // Native SpringAnimation defaults: restSpeedThreshold=.001, restDisplacementThreshold=.001.
-        static float SpringRest(float from,float to,float tension,float friction)
-        {for(int i=1;i<1800;i++){float t=i/240f,v=SourceMotion.Spring(t,from,to,tension,friction),previous=SourceMotion.Spring(t-1/240f,from,to,tension,friction);if(Mathf.Abs(v-to)<=.001f&&Mathf.Abs(v-previous)*240<=.001f)return t;}return 7.5f;}
         public void Begin(){begin=SourceClock.Now;buttonPosition=Button.anchoredPosition;Apply(0);}
         void Update(){Apply(Elapsed);}
         void Apply(float t)
         {
             foreach(var letter in letters){float age=t-letter.Delay;letter.Alpha.alpha=age<=0?0:SourceMotion.DefaultTiming(age/.180f);letter.Rect.localScale=Vector3.one*(age<0?.3f:age>2?1:SourceMotion.Spring(age,.3f,1,140,6));}
-            float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.DefaultTiming(rewardAge/.250f);Reward.localScale=Vector3.one*(rewardAge<0?.3f:rewardAge>3?1:SourceMotion.Spring(rewardAge,.3f,1,55,5));
-            float buttonAge=rewardAge-.250f;ButtonAlpha.alpha=SourceMotion.DefaultTiming(buttonAge/.250f);Button.anchoredPosition=buttonPosition+Vector2.right*(buttonAge<0?Width:buttonAge>3?0:SourceMotion.Spring(buttonAge,Width,0,55,10));
+            float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.OutCubic(rewardAge/.180f);Reward.localScale=Vector3.one*(MenuMotion.Reduced?1:Mathf.Lerp(.92f,1,SourceMotion.OutCubic(rewardAge/.240f)));
+            float buttonAge=t-.200f;ButtonAlpha.alpha=SourceMotion.OutCubic(buttonAge/.180f);Button.anchoredPosition=buttonPosition+Vector2.down*(MenuMotion.Reduced?0:36*(1-SourceMotion.OutCubic(buttonAge/.220f)));
+            ButtonAlpha.interactable=ButtonAlpha.blocksRaycasts=buttonAge>=.180f;
             if(!confettiStarted&&rewardAge>=0){confettiStarted=true;var confetti=ConfettiParent.gameObject.AddComponent<SourceResultConfetti>();confetti.Begin();}
         }
     }

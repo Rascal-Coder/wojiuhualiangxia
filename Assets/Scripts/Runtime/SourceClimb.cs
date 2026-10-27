@@ -9,6 +9,7 @@ namespace Inkomino
 
         public void ShowClimb()
         {
+            if(!ClimbActivity.Unlocked(Store.Data)){Info("快乐集章","第 "+ClimbActivity.Config.unlockLevel+" 关开启");return;}
             if(ClimbActivity.Refresh(Store.Data,SaveStore.Now))Store.Save();
             Playing=false;Review=false;screen="climb";var state=Store.Data.climb;
             bool preview=!state.joined;ClearScreen("game_assets_shopbg");Wallet();int first=Content.childCount;
@@ -103,11 +104,13 @@ namespace Inkomino
         }
         string ClimbHomeLabel()
         {
-            if(ClimbActivity.Refresh(Store.Data,SaveStore.Now))Store.Save();var state=Store.Data.climb;
+            long now=SaveStore.Now;if(ClimbActivity.Refresh(Store.Data,now))Store.Save();var state=Store.Data.climb;
             if(!ClimbActivity.Unlocked(Store.Data))return "41关解锁";
-            if(ClimbActivity.AtTop(state))return state.claimed?"已领取":"领奖励";
-            if(state.isOut&&SaveStore.Now<state.cooldownUntil)return RewardCountdown(state.cooldownUntil-SaveStore.Now);
-            return state.joined&&!state.isOut?state.stage+"/7":"快乐集章";
+            if(ClimbActivity.AtTop(state)&&!state.claimed)return Zh.GiftReady;
+            if(state.isOut&&now<state.cooldownUntil)return RewardCountdown(state.cooldownUntil-now);
+            // Home mirrors the daily-gift card: time until refresh, or a ready reward.
+            // Stamp progress stays on the activity page.
+            return RewardCountdown(ClimbActivity.WindowStart(now)+86400-now);
         }
     }
     // A small static mesh keeps the highlight soft without a texture, material

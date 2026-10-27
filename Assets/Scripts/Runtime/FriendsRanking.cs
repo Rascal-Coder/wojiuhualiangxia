@@ -9,7 +9,7 @@ namespace Inkomino
     {
 #if WEIXINMINIGAME && !UNITY_EDITOR
         static WeChatWASM.WXOpenDataContext context;
-        static WeChatWASM.WXOpenDataContext Context {get{if(context==null)context=WeChatWASM.WX.GetOpenDataContext();return context;}}
+        static WeChatWASM.WXOpenDataContext Context {get{if(context==null)context=WeChatWASM.WX.GetOpenDataContext(new WeChatWASM.OpenDataContextOption{sharedCanvasMode=WeChatWASM.CanvasType.ScreenCanvas});return context;}}
 #endif
         [Serializable] sealed class Message {public string type;public int score,delta;}
         public static void SubmitProgress(int count){Send("score:update",Mathf.Clamp(count,0,500));}

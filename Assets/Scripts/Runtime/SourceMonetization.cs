@@ -7,7 +7,7 @@ namespace Inkomino
     public partial class InkominoApp
     {
         int rewardedContinues;
-        public static string RewardCountdown(long seconds){seconds=Math.Max(0,seconds);return string.Format("{0:00}:{1:00}:{2:00}",seconds/3600,seconds/60%60,seconds%60);}
+        public static string RewardCountdown(long seconds){seconds=Math.Max(0,seconds);long minutes=seconds/60+(seconds%60>0?1:0);return string.Format("{0:00}:{1:00}",minutes/60,minutes%60);}
         bool RewardEntryEnabled(RewardPlacement placement){var slot=AdPlacements.Slot(placement);return slot!=null&&slot.enabled&&Store.Data.level>=AdPlacements.Settings.rewardMinProgressLevel;}
         string RewardLabel(RewardPlacement placement)
         {

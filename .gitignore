@@ -13,3 +13,11 @@
 /QA/
 /__pycache__/
 /Tools/__pycache__/
+/CloudSave/**/.env*
+/CloudSave/**/node_modules/
+/CloudSave/**/secrets*.json
+/CloudSave/**/*.key
+
+/*.log
+
+/SafeNet Sentinel/

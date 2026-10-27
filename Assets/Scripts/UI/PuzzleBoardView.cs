@@ -15,20 +15,21 @@ namespace Inkomino
         public int[] DrawTrace;public float DrawProgress=1;public int[] HintCells;public float HintStrength,ScanProgress=-1;
         public static readonly string[] Palette={"#FF83AC","#8DCFFC","#B6A0F5","#FFD86B","#75DABA","#FFA8D2","#FFAA7A","#D6EA81","#8EAAFA","#C7A5EA"};
         internal sealed class PieceStyle
-        {public int ColorIndex,TextureIndex;public Vector2 Offset;public float Born;public int[] Order;public bool Locked,PopAfterInk,TutorialLocked;public float Duration{get{return .58f+.025f*Mathf.Max(0,Order.Length-1);}}}
+        {public int ColorIndex,TextureIndex;public Vector2 Offset;public float Born;public int[] Order;public float[] CellTimes;public bool Locked,PopAfterInk,TutorialLocked;public float Duration{get{return .58f+.025f*Mathf.Max(0,Order.Length-1);}}}
+        readonly Dictionary<int,float> entered=new Dictionary<int,float>();
         readonly Dictionary<PieceData,PieceStyle> styles=new Dictionary<PieceData,PieceStyle>();
         readonly List<BoardMesh> meshes=new List<BoardMesh>();readonly System.Random random=new System.Random();
-        RectTransform rt;Transform labels;int pointer=int.MinValue,pressCell=-1;PieceData removed;
+        RectTransform rt;Transform labels;int pointer=int.MinValue,pressCell=-1,cursorCell=-1;PieceData removed;
         bool moved,stylesInitialized,victoryRequested;float cellSize,boardSize,victoryStart=float.PositiveInfinity,flashUntil;
         Vector2 origin,lastSize;Rect visibleBounds;HashSet<int> flashCells;PieceStyle trailStyle;int nextColor;Material glassMaterial;
         public float CellSize{get{EnsureLayout();return cellSize;}}
         public int NextColorIndex{get{return nextColor;}}
         public Vector2 BoardOriginLocal{get{EnsureLayout();return origin;}}
         public Rect VisibleBoundsLocal{get{EnsureLayout();return visibleBounds;}}
-        public float VictoryTimeRemaining{get{return victoryRequested?Mathf.Max(0,victoryStart+1.120f-SourceClock.Now):0;}}
-        internal float VictoryInk{get{return victoryRequested?SourceMotion.DefaultTiming((SourceClock.Now-victoryStart)/.300f):0;}}
-        internal float SweepProgress{get{return victoryRequested?Mathf.Clamp01((SourceClock.Now-victoryStart-.220f)/.900f):-1;}}
-        internal bool SweepVisible{get{float t=SourceClock.Now-victoryStart-.220f;return victoryRequested&&t>=0&&t<=.900f;}}
+        public float VictoryTimeRemaining{get{return victoryRequested?Mathf.Max(0,victoryStart+.480f-SourceClock.Now):0;}}
+        internal float VictoryInk{get{return victoryRequested?SourceMotion.OutCubic((SourceClock.Now-victoryStart)/.180f):0;}}
+        internal float SweepProgress{get{return victoryRequested?Mathf.Clamp01((SourceClock.Now-victoryStart-.080f)/.400f):-1;}}
+        internal bool SweepVisible{get{float t=SourceClock.Now-victoryStart-.080f;return victoryRequested&&t>=0&&t<=.400f;}}
         internal float BoardSize{get{EnsureLayout();return boardSize;}}
         internal bool BadCell(int i){return flashCells!=null&&SourceClock.Now<flashUntil&&flashCells.Contains(i);}
         public void Init(BoardState state)
@@ -47,7 +48,7 @@ namespace Inkomino
         void Update()
         {
             if(State==null||rt==null)return;bool changed=lastSize!=rt.rect.size;if(changed){EnsureLayout();RefreshLabels();}
-            bool previous=Animating;Animating=DrawTrace!=null&&DrawProgress<1||flashCells!=null&&SourceClock.Now<flashUntil||VictoryTimeRemaining>0;
+            bool previous=Animating;Animating=Trail.Count>0||DrawTrace!=null&&DrawProgress<1||flashCells!=null&&SourceClock.Now<flashUntil||VictoryTimeRemaining>0;
             foreach(var p in State.Pieces){PieceStyle s;if(styles.TryGetValue(p,out s)&&SourceClock.Now<s.Born+Mathf.Max(.80f,s.Duration+.15f))Animating=true;}
             if(Animating||previous||changed||DrawTrace!=null)Dirty();
         }
@@ -81,7 +82,7 @@ namespace Inkomino
             Dirty();
         }
         public void PlayVictory()
-        {if(victoryRequested)return;SyncStyles();float wait=0;foreach(var p in State.Pieces){var s=styles[p];wait=Mathf.Max(wait,s.Born+s.Duration-SourceClock.Now);}victoryStart=SourceClock.Now+(wait>0?wait+.040f:0);victoryRequested=true;Animating=true;Dirty();}
+        {if(victoryRequested)return;SyncStyles();float wait=0;foreach(var p in State.Pieces){var s=styles[p];wait=Mathf.Max(wait,s.Born+s.Duration-SourceClock.Now);}victoryStart=SourceClock.Now+Mathf.Clamp(wait,0,.160f);victoryRequested=true;Animating=true;Dirty();}
         PieceStyle MakeStyle(int[] order,bool animate)
         {float d=Mathf.Max(.01f,PixelDensity),cs=cellSize/d;return new PieceStyle{ColorIndex=nextColor,TextureIndex=random.Next(3),Offset=new Vector2(-Mathf.Floor((float)random.NextDouble()*cs+.5f)*d,-Mathf.Floor((float)random.NextDouble()*cs+.5f)*d),Born=animate?SourceClock.Now:-1000,Order=order.ToArray()};}
         void PickNextColor(PieceStyle last)
@@ -90,7 +91,7 @@ namespace Inkomino
         {
             EnsureLayout();foreach(var stale in styles.Keys.Where(p=>p!=removed&&!State.Pieces.Contains(p)).ToArray())styles.Remove(stale);foreach(var p in State.Pieces)
             {if(styles.ContainsKey(p))continue;bool fromTrail=trailStyle!=null&&Trail.Count==p.cells.Length&&new HashSet<int>(Trail).SetEquals(p.cells);
-             var s=fromTrail?new PieceStyle{ColorIndex=trailStyle.ColorIndex,TextureIndex=trailStyle.TextureIndex,Offset=trailStyle.Offset,Order=Trail.ToArray(),Born=SourceClock.Now}:MakeStyle(p.cells,stylesInitialized);
+             var s=fromTrail?new PieceStyle{ColorIndex=trailStyle.ColorIndex,TextureIndex=trailStyle.TextureIndex,Offset=trailStyle.Offset,Order=Trail.ToArray(),Born=SourceClock.Now,CellTimes=Trail.Select(c=>entered.ContainsKey(c)?entered[c]:SourceClock.Now-.3f).ToArray()}:MakeStyle(p.cells,stylesInitialized);
              if(DrawTrace!=null&&new HashSet<int>(DrawTrace).SetEquals(p.cells)){s.Locked=true;s.PopAfterInk=true;s.Born=-1000;}
              if(p.appearanceSaved){s.ColorIndex=Mathf.Clamp(p.colorIndex,0,Palette.Length-1);s.TextureIndex=Mathf.Clamp(p.textureIndex,0,2);s.Offset=new Vector2(p.textureOffsetX,p.textureOffsetY);}else {p.appearanceSaved=true;p.colorIndex=s.ColorIndex;p.textureIndex=s.TextureIndex;p.textureOffsetX=s.Offset.x;p.textureOffsetY=s.Offset.y;}s.Locked|=p.locked&&!p.tutLock;s.TutorialLocked|=p.tutLock;p.locked=s.Locked||s.TutorialLocked;styles[p]=s;PickNextColor(s);}
             stylesInitialized=true;
@@ -98,8 +99,11 @@ namespace Inkomino
         internal PieceStyle Style(PieceData p){PieceStyle s;return styles.TryGetValue(p,out s)?s:null;}
         internal PieceStyle TrailStyle{get{return trailStyle;}}
         internal Rect CellRect(int i){int n=State.Level.n;return new Rect(origin.x+i%n*cellSize,origin.y-(i/n+1)*cellSize,cellSize,cellSize);}
+        float CellAge(PieceStyle s,int cell){int index=Mathf.Max(0,Array.IndexOf(s.Order,cell));return SourceClock.Now-(s.CellTimes!=null&&index<s.CellTimes.Length?s.CellTimes[index]:s.Born+.045f*index);}
         internal void Appearance(PieceData p,int cell,out float scale,out float opacity)
-        {scale=1;opacity=1;var s=Style(p);if(s==null||MenuMotion.Reduced)return;float t=SourceClock.Now-s.Born-.025f*Mathf.Max(0,Array.IndexOf(s.Order,cell));float u=Mathf.Clamp01(t/.48f);scale=1-.05f*(1-u);opacity=Mathf.Lerp(.7f,1,SourceMotion.OutQuad(u));}
+        {scale=1;opacity=1;var s=Style(p);if(s==null||MenuMotion.Reduced)return;float t=CellAge(s,cell);float u=SourceMotion.OutCubic(t/.22f);scale=Mathf.Lerp(.86f,1,u);opacity=SourceMotion.OutQuad(t/.12f);}
+        internal void TrailAppearance(int cell,out float scale,out float opacity)
+        {float age=entered.ContainsKey(cell)?SourceClock.Now-entered[cell]:1;float u=MenuMotion.Reduced?1:SourceMotion.OutCubic(age/.22f);scale=Mathf.Lerp(.86f,1,u);opacity=MenuMotion.Reduced?1:SourceMotion.OutQuad(age/.12f);}
         internal float CornerFold(PieceData p,int cell)
         {var s=Style(p);if(s==null||MenuMotion.Reduced)return 0;float t=SourceClock.Now-s.Born-.025f*Mathf.Max(0,Array.IndexOf(s.Order,cell));return cellSize*.36f*(1-SourceMotion.InOutQuad((t-.08f)/.40f));}
         public void Refresh(){if(State==null||meshes.Count==0)return;SyncStyles();Dirty();RefreshLabels();}
@@ -110,17 +114,18 @@ namespace Inkomino
             for(int i=0;i<n*n;i++){int kind=State.Level.icons==null?0:State.Level.icons[i],num=State.Level.nums==null?0:State.Level.nums[i];if(kind>0||num<=0)continue;float font=Mathf.Clamp(cellSize/PixelDensity*.3f,10,22)*PixelDensity;Skin.Text(num.ToString(),labels,new Vector2(.5f,.5f),CellCenterLocal(i),Vector2.one*cellSize,Mathf.RoundToInt(font),Skin.Ink);}
         }
         public int CellAt(Vector2 screen,Camera camera){EnsureLayout();if(cellSize<=0)return -1;Vector2 local;RectTransformUtility.ScreenPointToLocalPointInRectangle(rt,screen,camera,out local);int n=State.Level.n,c=Mathf.FloorToInt((local.x-origin.x)/cellSize),r=Mathf.FloorToInt((origin.y-local.y)/cellSize);return r>=0&&r<n&&c>=0&&c<n?r*n+c:-1;}
+        void EnterCell(int cell){float previous=Trail.Count>0&&entered.ContainsKey(Trail[Trail.Count-1])?entered[Trail[Trail.Count-1]]:SourceClock.Now-.025f;Trail.Add(cell);entered[cell]=Mathf.Min(SourceClock.Now+.12f,Mathf.Max(SourceClock.Now,previous+.025f));}
         public void OnPointerDown(PointerEventData e){if(pointer!=int.MinValue||!(CanInput?.Invoke()??true))return;pointer=e.pointerId;BeginCell(CellAt(e.position,e.pressEventCamera));}
         public void OnDrag(PointerEventData e){if(pointer==e.pointerId)MoveCell(CellAt(e.position,e.pressEventCamera));}
         public void OnPointerUp(PointerEventData e){if(pointer!=e.pointerId)return;pointer=int.MinValue;EndStroke();}
         public bool CommitTutorialStroke(){pointer=int.MinValue;return EndStroke();}
-        public void Cancel(){if(removed!=null)State.Pieces.Add(removed);removed=null;Trail.Clear();trailStyle=null;pointer=int.MinValue;Refresh();}
-        public void BeginCell(int cell){Trail.Clear();pressCell=cell;moved=false;removed=State.At(cell);if(removed!=null&&Style(removed)!=null&&(Style(removed).Locked||Style(removed).TutorialLocked)){removed=null;return;}if(removed!=null){State.Pieces.Remove(removed);Trail.AddRange(removed.cells);trailStyle=Style(removed);}else if(State.IsActive(cell)){Trail.Add(cell);trailStyle=MakeStyle(new[]{cell},false);}Refresh();}
+        public void Cancel(){if(removed!=null)State.Pieces.Add(removed);removed=null;Trail.Clear();entered.Clear();trailStyle=null;pointer=int.MinValue;Refresh();}
+        public void BeginCell(int cell){Trail.Clear();entered.Clear();cursorCell=pressCell=cell;moved=false;removed=State.At(cell);if(removed!=null&&Style(removed)!=null&&(Style(removed).Locked||Style(removed).TutorialLocked)){removed=null;return;}if(removed!=null){State.Pieces.Remove(removed);Trail.AddRange(removed.cells);foreach(int c in removed.cells)entered[c]=SourceClock.Now-.3f;trailStyle=Style(removed);}else if(State.IsActive(cell)){EnterCell(cell);trailStyle=MakeStyle(new[]{cell},false);}Refresh();}
         public void MoveCell(int cell)
         {
-            if(!State.IsActive(cell)||State.At(cell)!=null||Trail.Count==0)return;if(cell==pressCell&&!moved)return;moved=true;if(Trail.Contains(cell)){Refresh();return;}
-            int last=Trail[Trail.Count-1],n=State.Level.n;if(Math.Abs(cell/n-last/n)+Math.Abs(cell%n-last%n)>1){int r=last/n,c=last%n;for(int k=0;k<n*2&&last!=cell;k++){int next=r!=cell/n?(r+Math.Sign(cell/n-r))*n+c:r*n+c+Math.Sign(cell%n-c);if(!State.IsActive(next)||State.At(next)!=null||State.Wall(last,next)>0)break;if(!Trail.Contains(next))Trail.Add(next);last=next;r=last/n;c=last%n;}Refresh();return;}
-            if(State.Wall(last,cell)==0)Trail.Add(cell);Refresh();
+            if(!State.IsActive(cell)||State.At(cell)!=null||Trail.Count==0)return;if(cell==pressCell&&!moved)return;moved=true;if(cell==cursorCell){Refresh();return;}
+            int last=cursorCell,n=State.Level.n;if(Math.Abs(cell/n-last/n)+Math.Abs(cell%n-last%n)>1){int r=last/n,c=last%n;for(int k=0;k<n*2&&last!=cell;k++){int next=r!=cell/n?(r+Math.Sign(cell/n-r))*n+c:r*n+c+Math.Sign(cell%n-c);if(!State.IsActive(next)||State.At(next)!=null||State.Wall(last,next)>0)break;if(!Trail.Contains(next))EnterCell(next);last=cursorCell=next;r=last/n;c=last%n;}Refresh();return;}
+            if(State.Wall(last,cell)==0){if(!Trail.Contains(cell))EnterCell(cell);cursorCell=cell;}Refresh();
         }
         public bool EndStroke()
         {
@@ -162,7 +167,7 @@ namespace Inkomino
                 if(Layer==1&&(piece!=null||trail))
                 {
                     var style=piece!=null?View.Style(piece):View.TrailStyle;if(style==null||style.TextureIndex!=FacetIndex)continue;
-                    float scale=1,opacity=trail?(validTrail?1:.86f):1;if(piece!=null)View.Appearance(piece,i,out scale,out opacity);
+                    float scale=1,opacity=1;if(piece!=null)View.Appearance(piece,i,out scale,out opacity);else if(trail){View.TrailAppearance(i,out scale,out opacity);opacity*=validTrail?1:.86f;}if(opacity<=0)continue;
                     Color color=Co(PuzzleBoardView.Palette[style.ColorIndex]);color.a=opacity;
                     float inset=Mathf.Clamp(cs*.035f,1.4f*dp,3.5f*dp);
                     Rect outer=new Rect(cell.x+inset,cell.y+inset,cs-inset*2,cs-inset*2);

@@ -1,0 +1,51 @@
+{
+  "title": "我就划两下 / 好友排行贴纸素材",
+  "date": "2026-10-26",
+  "generation": {
+    "mode": "built-in image_gen",
+    "transparent_background": true
+  },
+  "direction": "Existing game art references; grape outlines, white die-cut sticker borders, candy coral/mint/lemon/lavender. No baked text; rank numerals use the game's font at runtime.",
+  "sharedPrompt": "Use case: stylized-concept. Production 2D UI sticker asset for the existing Chinese casual puzzle game 我就划两下. Use the attached images only as style references, not edit targets. Match their hand-drawn puffy stationery sticker style exactly: very bold dark grape-purple contour, chunky rounded shapes, clean thick white die-cut border, short lavender offset shadow, glossy painted highlights, rich candy color, crisp readable silhouette. Palette cream #FFF9EE, grape #6645AA, coral #FF638B, mint #69D8B1, lemon #FFE36B. Simple polished illustration, not photoreal, not metallic, not flat geometry/wireframe. Transparent background with genuine alpha. Single isolated centered asset, square canvas, no panel/background, no watermark, no words, no numbers, no letters. Leave generous transparent margins, no clipping. ",
+  "assets": [
+    {
+      "file": "friends_rank_1.png",
+      "generatedFile": "exec-07fdf981-d82c-439a-b8e0-f5ecea8ab6e6.png",
+      "references": [
+        "badge_crown.png",
+        "badge_star.png",
+        "entry_friends.png"
+      ],
+      "prompt": "Use case: stylized-concept. Production 2D UI sticker asset for the existing Chinese casual puzzle game 我就划两下. Use the attached images only as style references, not edit targets. Match their hand-drawn puffy stationery sticker style exactly: very bold dark grape-purple contour, chunky rounded shapes, clean thick white die-cut border, short lavender offset shadow, glossy painted highlights, rich candy color, crisp readable silhouette. Palette cream #FFF9EE, grape #6645AA, coral #FF638B, mint #69D8B1, lemon #FFE36B. Simple polished illustration, not photoreal, not metallic, not flat geometry/wireframe. Transparent background with genuine alpha. Single isolated centered asset, square canvas, no panel/background, no watermark, no words, no numbers, no letters. Leave generous transparent margins, no clipping. Subject: first-place leaderboard rosette badge, warm lemon-yellow scalloped circular rosette with a small purple and yellow crown perched above it, two short coral ribbon tails below. Large completely blank cream-yellow circular center for the game to overlay a numeral later, this blank disk must be about 48% of the asset width and centered horizontally around42% of the asset height. Cheerful premium sticker, thick grape outlines matching references. Must remain readable as a32px rank icon; keep details very simple. One badge only, no numeral."
+    },
+    {
+      "file": "friends_rank_2.png",
+      "generatedFile": "exec-9eef4ca1-259c-4795-b93c-baa3c4c2accf.png",
+      "references": [
+        "friends_rank_1.png",
+        "entry_friends.png"
+      ],
+      "prompt": "Use case: stylized-concept. Production 2D UI sticker asset for the existing Chinese casual puzzle game 我就划两下. Use the attached images only as style references, not edit targets. Match their hand-drawn puffy stationery sticker style exactly: very bold dark grape-purple contour, chunky rounded shapes, clean thick white die-cut border, short lavender offset shadow, glossy painted highlights, rich candy color, crisp readable silhouette. Palette cream #FFF9EE, grape #6645AA, coral #FF638B, mint #69D8B1, lemon #FFE36B. Simple polished illustration, not photoreal, not metallic, not flat geometry/wireframe. Transparent background with genuine alpha. Single isolated centered asset, square canvas, no panel/background, no watermark, no words, no numbers, no letters. Leave generous transparent margins, no clipping. Subject: SECOND-place rosette badge in the EXACT SAME SHAPE FAMILY and proportions as image1. Mint-green scalloped circular rosette, cream-mint COMPLETELY BLANK disk at exactly the same position and size as image1. Two short lavender ribbon tails. Replace the crown at the top with a single small rounded lavender-and-lemon star ornament. Match thick purple outlines, white sticker border, highlight direction and short lavender shadow. Asset height,width and blank inner disk placement should match image1. This will be a32px rank icon. Absolutely no number/letter/text, disk must be empty."
+    },
+    {
+      "file": "friends_rank_3.png",
+      "generatedFile": "exec-1d84936a-a026-48b4-973b-fd2ab602d508.png",
+      "references": [
+        "friends_rank_1.png",
+        "entry_friends.png"
+      ],
+      "prompt": "Use case: stylized-concept. Production 2D UI sticker asset for the existing Chinese casual puzzle game 我就划两下. Use the attached images only as style references, not edit targets. Match their hand-drawn puffy stationery sticker style exactly: very bold dark grape-purple contour, chunky rounded shapes, clean thick white die-cut border, short lavender offset shadow, glossy painted highlights, rich candy color, crisp readable silhouette. Palette cream #FFF9EE, grape #6645AA, coral #FF638B, mint #69D8B1, lemon #FFE36B. Simple polished illustration, not photoreal, not metallic, not flat geometry/wireframe. Transparent background with genuine alpha. Single isolated centered asset, square canvas, no panel/background, no watermark, no words, no numbers, no letters. Leave generous transparent margins, no clipping. Subject: THIRD-place rosette badge in the EXACT SAME SHAPE FAMILY and proportions as image1. Lavender-purple scalloped circular rosette, pale cream-lavender COMPLETELY BLANK disk at exactly the same position and size as image1. Two short coral-pink ribbon tails. Replace the crown at the top with a single small rounded coral heart ornament. Match thick purple outlines, white sticker border, highlight direction and short lavender shadow. Asset height,width and blank inner disk placement should match image1. This will be a32px rank icon. Absolutely no number/letter/text, disk must be empty."
+    },
+    {
+      "file": "friends_empty.png",
+      "generatedFile": "exec-37c63484-4ab7-48ba-ac24-ebc64784ac38.png",
+      "references": [
+        "friends_rank_1.png",
+        "entry_friends.png"
+      ],
+      "prompt": "Use case: stylized-concept. Production 2D UI sticker asset for the existing Chinese casual puzzle game 我就划两下. Use the attached images only as style references, not edit targets. Match their hand-drawn puffy stationery sticker style exactly: very bold dark grape-purple contour, chunky rounded shapes, clean thick white die-cut border, short lavender offset shadow, glossy painted highlights, rich candy color, crisp readable silhouette. Palette cream #FFF9EE, grape #6645AA, coral #FF638B, mint #69D8B1, lemon #FFE36B. Simple polished illustration, not photoreal, not metallic, not flat geometry/wireframe. Transparent background with genuine alpha. Single isolated centered asset, square canvas, no panel/background, no watermark, no words, no numbers, no letters. Leave generous transparent margins, no clipping. Subject: friendly empty-friends-leaderboard illustration. Two overlapping puffy speech-bubble stickers in coral pink and mint green, the front bubble contains a simple cream heart and the rear bubble a small lemon star. Below them a tiny open cream spiral-bound sticker notebook, with a simple purple empty rosette sticker on its page, inviting future friends. One cohesive compact illustration with 2 tiny decorative sparkles only. Cheerful and inviting, not sad or broken. Match the heart speech bubbles in image2 and the purple outline treatment of image1 exactly. Composition wider than tall (approx5:4), readable at100px width. No text, no numerals, no real faces, no UI rectangle."
+    }
+  ],
+  "normalization": "Tools/build_friends_art.py only crops transparent margins, preserves aspect ratio, scales and packs selected originals. Runtime loads one transparent atlas. Original generated files retained.",
+  "originalDirectory": "C:/Users/aaa/.codex/generated_images/01a15745-1db1-7a03-88b5-3147fd3eb5ea"
+}

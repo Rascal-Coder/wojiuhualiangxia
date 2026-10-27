@@ -38,7 +38,6 @@ namespace Inkomino
                 MenuUI.Label(reached?"已达成":Mathf.Min(Store.Data.wins,milestones[i])+" / "+milestones[i],row,new Vector2(1,.5f),new Vector2(-180,27),new Vector2(290,65),42,reached?MenuUI.Green:MenuUI.Muted,TextAnchor.MiddleRight);
                 MenuUI.Progress(row,new Vector2(0,.5f),new Vector2(545,-38),new Vector2(730,16),(float)Store.Data.wins/milestones[i]);
             }
-            MenuUI.SecondaryButton(Zh.LevelLibrary,Content,new Vector2(.5f,1),new Vector2(0,-2020),new Vector2(960,130),()=>LevelLibrary(0),52);
         }
         void FriendsPage()
         {
@@ -57,7 +56,6 @@ namespace Inkomino
             MenuUI.SecondaryButton("上一页",Content,new Vector2(.5f,1),new Vector2(-325,-1815),new Vector2(310,150),()=>FriendsRanking.Send("friends:page",delta:-1),48);
             MenuUI.GameButton("刷新",Content,new Vector2(.5f,1),new Vector2(0,-1815),new Vector2(310,150),()=>{FriendsRanking.SubmitProgress(Store.Data.wins);FriendsRanking.Send("friends:refresh");},52);
             MenuUI.SecondaryButton("下一页",Content,new Vector2(.5f,1),new Vector2(325,-1815),new Vector2(310,150),()=>FriendsRanking.Send("friends:page",delta:1),48);
-            MenuUI.SecondaryButton("排行权限设置",Content,new Vector2(.5f,1),new Vector2(0,-1975),new Vector2(650,130),FriendsRanking.OpenSettings,42);
         }
     }
 }

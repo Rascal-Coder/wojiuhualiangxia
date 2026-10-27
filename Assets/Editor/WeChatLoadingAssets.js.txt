@@ -3,7 +3,7 @@
 export const loadingImageFiles = $LOADING_IMAGE_FILES;
 
 export function prepareLoadingAssets(wxApi = wx) {
-    const result = {};
+    const result = {iconImage: ''};
     let fileSystem;
     let root;
     try {

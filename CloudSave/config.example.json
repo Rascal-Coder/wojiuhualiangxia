@@ -1,0 +1,7 @@
+{
+  "WX_APPID": "wx3a628e8b48216b63",
+  "TCB_ENV_ID": "midian-game-d5g5oalova408143b",
+  "WX_APPSECRET": "Fill only in cloud-function environment variables",
+  "TCB_API_KEY": "Fill only in cloud-function environment variables; service_role API Key",
+  "SESSION_SIGNING_KEY": "Generate a private random value of at least 32 characters"
+}

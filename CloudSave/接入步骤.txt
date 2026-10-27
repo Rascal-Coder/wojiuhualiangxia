@@ -1,0 +1,89 @@
+我就划两下 · PostgreSQL 云存档部署
+
+目标 AppID：wx3a628e8b48216b63
+现有 CloudBase 环境：midian-game-d5g5oalova408143b
+
+本包提供部署文件。已对现有服务完成配置与随机测试身份的数据库只读连通检查，未读写真实玩家存档。
+不需要再新建微信云开发环境，也不需要转换或销毁现有环境。
+
+本次更新：自动同步最新存档
+已部署本服务时，只需用 function/index.js 更新现有 liangxia-save 云函数代码。
+本次不需要改密钥、环境变量、HTTP 路由或数据库表结构，也不要清空已有记录。
+新客户端会随存档提交实际游戏记录时间，服务端将该时间保存在现有 profile JSON 内；
+响应会移除内部字段并单独返回保存时间和服务端时间，旧客户端仍可正常登录和保存。
+客户端的异常未来时间会被限制到服务端当前时间，非法时间不会写入数据库。
+
+新版小游戏也能继续访问旧云函数，但旧函数没有实际游戏记录时间，只能退回使用上传时间；
+离线记录较晚上传时，这两种时间可能不同。建议同步更新云函数，以便自动判断采用实际记录时间。
+旧数据库记录没有实际保存时间时，仍兼容使用原有 updated_at，不需要迁移或补写历史时间。
+
+1. 更新存档表
+在现有环境的「SQL 型数据库 → SQL 编辑器」执行 setup.sql。
+即使前面建过 game_saves 也可执行；脚本保留已有记录，补充重试标识和服务端权限。
+执行后，game_saves 应有 app_id/openid/profile/revision/updated_at/last_operation_id 六列。
+不为匿名或普通用户开放表读写，不创建公开 RLS 策略。
+
+2. 创建普通事件云函数
+在「云函数 / 托管」创建名为 liangxia-save 的云函数。
+选择 Node.js 18 或更高版本，函数入口 index.main。
+上传 liangxia-save-function.zip（其中 index.js 和 package.json 位于压缩包根目录）。
+这是普通事件云函数，由 HTTP 网关调用，不是需要自行监听端口的 HTTP Web 函数。
+代码没有第三方 npm 依赖。函数执行超时至少 20 秒。
+
+3. 在云函数的环境变量配置五项
+WX_APPID = wx3a628e8b48216b63
+TCB_ENV_ID = midian-game-d5g5oalova408143b
+WX_APPSECRET = 该小游戏的 AppSecret
+TCB_API_KEY = 当前 CloudBase 环境的服务端 API Key（对应 service_role）
+SESSION_SIGNING_KEY = 密码管理器生成的至少 32 字符随机字符串
+
+后三项只在云端填写，不发给 Codex，不填入游戏配置，不写进仓库。
+Publishable Key / anon Key 不能代替服务端 API Key。
+
+4. 配置 HTTP 网关
+在环境「HTTP 网关」创建 /liangxia-save 路由，关联上面的 liangxia-save 云函数。
+允许 POST 访问；此路由需要能接收尚未登录的微信 code 请求。
+不要因此开放数据库权限。登录、查询、写入权限仍由函数代码进行验证。
+复制控制台提供的完整 HTTPS 访问 URL，不要自己根据环境 ID 猜地址。
+
+用工具发 POST JSON {"action":"login","code":"test-invalid-code"} 到此 URL：
+配置正确时应返回 LOGIN_FAILED（测试凭证无效），而不是 NOT_CONFIGURED/404/HTML。
+这只检查路由和配置，不能代替真正微信登录验证。
+
+若真实登录返回 LOGIN_FAILED，说明云函数的微信登录凭证校验未通过，尚未读取存档表。
+查看响应中的 upstreamCode，或云函数日志里 [INKOMINO_CLOUD_LOGIN] 的 upstreamCode。
+新版只记录微信数字错误码，不记录登录凭证、AppSecret、openid 或 session_key。
+更新云函数代码可直接服务于现有小游戏，无需修改现有环境变量或清空数据库。
+
+5. 配置小游戏合法域名
+在微信公众平台「开发管理 → 开发设置 → 服务器域名」把上一步 URL 的主机名加入 request 合法域名。
+如果控制台默认域名不允许用于正式小游戏，需要绑定符合微信要求的 HTTPS 自定义域名，不能靠关闭域名校验上线。
+域名与套餐费用以控制台为准；复用体验环境不代表永久免费。
+
+6. 把接口 URL 发回当前任务
+只需要发送完整 HTTPS URL，不发送任何密钥。
+接下来可填写项目 Assets/Resources/Settings/cloud-save.json 的 endpoint 并把 enabled 改为 true，重新导出微信包。
+当前项目已填写已部署接口并启用开关；重新导出后通过真机完成真实微信登录、写入和跨设备恢复验收。
+
+7. 真机验收
+手机 A 在同一微信账号通关，打开设置的云存档，确认显示「已同步」。
+手机 B 用同一微信账号进入同一 AppID，确认关卡、金币、道具和未完成棋盘恢复。
+换一个微信账号应使用独立存档。
+两台设备都修改后，新版会自动比较并选用较新的整份记录，不再弹出本机/云端选择框。
+可以确认只有一端改动时，优先同步这一端；真正两端改动时才根据记录时间决定。
+自动覆盖前会先保留两份备份；正在玩关卡时等待返回首页后再检查和恢复，不中途替换棋盘。
+不能直接把金币或道具取最大值合并。
+断网时进度先保存在本机，恢复网络后重试；请求响应丢失时不重复写入同一操作。
+
+隐私说明建议据实际接入更新：
+微信用户标识：用于识别账号并同步游戏存档。
+游戏进度与道具数据：用于云端保存及跨设备恢复游戏进度。
+
+方案范围
+这是一套带身份验证、版本冲突检测和请求重试的存档同步，不是完整的服务端游戏结算或防作弊系统。
+金币/道具规则仍在现有游戏客户端运行；如果以后需要防修改，应把奖励和消耗结算另行迁到服务端。
+
+官方参考
+https://docs.cloudbase.net/database/postgresql/connecting-to-postgresql
+https://docs.cloudbase.net/database/postgresql/quickstart
+https://docs.cloudbase.net/service/access-cloud-function

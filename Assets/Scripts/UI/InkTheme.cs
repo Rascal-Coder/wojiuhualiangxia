@@ -30,7 +30,7 @@ namespace Inkomino
             var texture=Texture(key);
             if(texture&&texture==paper){if(!paperSprite)paperSprite=UnityEngine.Sprite.Create(paper,new Rect(0,0,128,128),Vector2.one*.5f,100);return paperSprite;}
             string icon=null;
-            if(key.Contains("avatars_avatar_")){int value;int.TryParse(key.Substring(key.LastIndexOf('_')+1),out value);icon=new[]{"ink_stamp","menu_pen","menu_lens","menu_achievement_medallion"}[value%4];}
+            if(key.Contains("avatars_avatar_")){int value;int.TryParse(key.Substring(key.LastIndexOf('_')+1),out value);return MenuUI.AvatarSprite(value);}
             else if(key=="shell_src_ui_tutorialhand")icon="menu_pen";
             else if(key=="shell_src_ui_defaultparticle")icon="ink_bloom";
             else if(key.Contains("nav_tabhome"))icon="ink_home";
@@ -62,9 +62,8 @@ namespace Inkomino
         public static RectTransform Brand(Transform parent,Vector2 anchor,Vector2 position,Vector2 size)
         {
             var r=Skin.Rect("Sticker game brand",parent,anchor,position,size);
-            var title=MenuUI.Label("我就划两下",r,Vector2.one*.5f,new Vector2(0,0),size,142,Ink,TextAnchor.MiddleCenter,true);
-            var outline=title.gameObject.AddComponent<Outline>();outline.effectColor=Color.white;outline.effectDistance=new Vector2(7,-7);
-            title.rectTransform.localRotation=Quaternion.Euler(0,0,3);
+            var mark=Skin.Rect("我就划两下",r,Vector2.one*.5f,Vector2.zero,new Vector2(size.x,Mathf.Max(size.y,size.x*.355f)));
+            var image=mark.gameObject.AddComponent<Image>();image.sprite=MenuUI.BrandSprite("brand_logo");image.preserveAspect=true;image.raycastTarget=false;
             return r;
         }
 

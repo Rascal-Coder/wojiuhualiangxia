@@ -1,0 +1,37 @@
+/* Generated sticker artwork. Only positioning and scaling happen at runtime. */
+'use strict';
+const atlas = require('./art/friends-art.js');
+
+module.exports = function createFriendsArt(wx, ctx, invalidate) {
+  let image = null, attempted = false, ready = false;
+  function prepare() {
+    if (attempted) return;
+    attempted = true;
+    try {
+      image = wx.createImage();
+      image.onload = () => { ready = true; invalidate(); };
+      image.onerror = () => {
+        ready = false;
+        console.warn('[INK_FRIENDS] sticker image unavailable');
+        invalidate();
+      };
+      image.src = 'open-data/art/' + atlas.file;
+    } catch (_) {
+      console.warn('[INK_FRIENDS] sticker image unavailable');
+    }
+  }
+  function paint(key, cx, cy, maxWidth, maxHeight) {
+    const frame = atlas.frames[key];
+    if (!frame || !(maxWidth > 0) || !(maxHeight > 0)) return null;
+    const scale = Math.min(maxWidth / frame.w, maxHeight / frame.h);
+    const width = frame.w * scale, height = frame.h * scale;
+    const left = cx - width / 2, top = cy - height / 2;
+    const digit = frame.digit || [.5, .5];
+    // Keep number placement stable while the illustration decodes.
+    const anchor = {x: left + digit[0] * width, y: top + digit[1] * height};
+    prepare();
+    if (ready) ctx.drawImage(image, frame.x, frame.y, frame.w, frame.h, left, top, width, height);
+    return anchor;
+  }
+  return {prepare, paint};
+};

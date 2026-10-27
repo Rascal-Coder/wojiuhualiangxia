@@ -1,0 +1,22 @@
+{
+  "width": 1024,
+  "height": 1024,
+  "regions": [
+    {
+      "key": "brand_logo",
+      "x": 24,
+      "y": 698,
+      "width": 960,
+      "height": 318,
+      "border": 0
+    },
+    {
+      "key": "brand_startup",
+      "x": 202,
+      "y": 13,
+      "width": 611,
+      "height": 646,
+      "border": 0
+    }
+  ]
+}

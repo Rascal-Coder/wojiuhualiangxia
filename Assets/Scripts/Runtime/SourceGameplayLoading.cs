@@ -87,7 +87,7 @@ namespace Inkomino
             "显示一个正确形状的位置，帮助你继续拼图。",
             "时间不足时，续关可以增加60秒。"
         };
-        static readonly string[] icons={"game_assets_pen","game_assets_freeze","game_assets_lens","game_assets_extratime"};
+        static readonly string[] icons={"tip_pen","tip_freeze","tip_lens","tip_time"};
 
         public static SourceGameplayLoadingView Create(RectTransform stage,int tipIndex=-1)
         {
@@ -120,9 +120,9 @@ namespace Inkomino
             view.Description.font=Skin.ChineseFont;
 
 
-            view.Icon=Skin.Rect("Source splash icon spring",root,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*220*dp);
+            view.Icon=Skin.Rect("Source splash icon spring",root,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*(view.TipIndex==3?268:384));
             view.iconAlpha=view.Icon.gameObject.AddComponent<CanvasGroup>();
-            Skin.Art(icons[view.TipIndex],view.Icon,new Vector2(.5f,.5f),Vector2.zero,view.Icon.sizeDelta);
+            var illustration=view.Icon.gameObject.AddComponent<Image>();illustration.sprite=MenuUI.TipSprite(icons[view.TipIndex]);illustration.preserveAspect=true;illustration.raycastTarget=false;
             var loading=Skin.Rect("Source gameplay loading label",root,new Vector2(.5f,0),new Vector2(0,288+18*dp),new Vector2(940,36*dp));
             view.labelAlpha=loading.gameObject.AddComponent<CanvasGroup>();
             view.Label=Skin.Text("加载中……",loading,new Vector2(.5f,.5f),Vector2.zero,loading.sizeDelta,Mathf.RoundToInt(24*dp),InkTheme.Muted,0);
@@ -146,7 +146,7 @@ namespace Inkomino
         public void ApplyAtElapsed(float elapsed)
         {
             Group.alpha=SourceMotion.DefaultTiming(elapsed/.2f);
-            Icon.localScale=Vector3.one*SourceMotion.Spring(elapsed,.5f,1,80,6);
+            Icon.localScale=Vector3.one*Mathf.Lerp(.9f,1,SourceMotion.OutCubic(elapsed/.28f));
             iconAlpha.alpha=SourceMotion.DefaultTiming(elapsed/.25f);
             float titleAge=elapsed-.15f;
             Title.localScale=Vector3.one*(titleAge<=0?0:SourceMotion.Spring(titleAge,0,1,100,6));
@@ -164,7 +164,7 @@ namespace Inkomino
             {
                 float t=SourceClock.Now-started;
                 Group.alpha=1-SourceMotion.DefaultTiming(t/ExitSeconds);
-                Icon.localScale=Vector3.one*Mathf.Lerp(startScale,1.15f,SourceMotion.DefaultTiming(t/ExitSeconds));
+                Icon.localScale=Vector3.one*Mathf.Lerp(startScale,.98f,SourceMotion.DefaultTiming(t/ExitSeconds));
                 titleAlpha.alpha=startTitleAlpha*(1-SourceMotion.DefaultTiming(t/.2f));
                 labelAlpha.alpha=startLabelAlpha*(1-SourceMotion.DefaultTiming(t/.2f));
                 yield return null;

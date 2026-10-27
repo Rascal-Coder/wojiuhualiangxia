@@ -1,0 +1,38 @@
+{
+  "width": 1024,
+  "height": 1024,
+  "regions": [
+    {
+      "key": "tip_pen",
+      "x": 16,
+      "y": 528,
+      "width": 456,
+      "height": 480,
+      "border": 0
+    },
+    {
+      "key": "tip_freeze",
+      "x": 528,
+      "y": 535,
+      "width": 480,
+      "height": 473,
+      "border": 0
+    },
+    {
+      "key": "tip_lens",
+      "x": 16,
+      "y": 16,
+      "width": 453,
+      "height": 480,
+      "border": 0
+    },
+    {
+      "key": "tip_time",
+      "x": 528,
+      "y": 228,
+      "width": 257,
+      "height": 268,
+      "border": 0
+    }
+  ]
+}

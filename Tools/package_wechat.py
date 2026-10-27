@@ -9,6 +9,7 @@ game = json.loads((M / 'game.json').read_text(encoding='utf-8-sig'))
 assert config['appid'] == 'wx3a628e8b48216b63' and config['compileType'] == 'game'
 assert game['openDataContext'] == 'open-data'
 assert 'loadDataPackageFromSubpackage: true' in (M / 'game.js').read_text(encoding='utf-8-sig')
+assert not (M / 'images/unity_logo.png').exists(), 'Hidden duplicate loading logo must not be packaged'
 
 def ignored(file):
     rel = file.relative_to(M).as_posix()
@@ -20,9 +21,14 @@ def ignored(file):
 
 files = sorted(f for f in M.rglob('*') if f.is_file() and not ignored(f))
 roots = [s['root'].rstrip('/') + '/' for s in game.get('subpackages', [])]
+for root in roots:
+    entry = M / root / 'game.js'
+    assert entry.is_file() and entry.read_text(encoding='utf-8-sig').strip(), f'Missing executable subpackage entry: {entry}'
 total = sum(f.stat().st_size for f in files)
 main = sum(f.stat().st_size for f in files if not any(f.relative_to(M).as_posix().startswith(r) for r in roots))
-assert main < 4 * 1024**2 and total < 30 * 1024**2
+# DevTools compilation adds code bytes; do not ship a package near its 4MiB cap.
+assert main <= 3774873, f'Main source {main} exceeds the 3.6MiB safety budget'
+assert total < 30 * 1024**2
 dest = P.parent / '我就划两下_微信小游戏_最新版.zip'
 with zipfile.ZipFile(dest, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as archive:
     for file in files: archive.write(file, 'minigame/' + file.relative_to(M).as_posix())

@@ -74,10 +74,10 @@ namespace Inkomino
             yield return Capture("02-loading-540x836.png","启动加载小窗口",540,836);
             CheckIt(app.LoadingView.Logo&&app.LoadingView.Logo.gameObject.name=="Sticker game brand","加载页使用多巴胺贴纸标志");
             CheckIt(Application.productName==Zh.GameName&&Zh.GameName=="我就划两下","工程显示名称与游戏名一致",Application.productName);
-            var brandTexts=app.LoadingView.Logo.GetComponentsInChildren<Text>();
-            CheckIt(brandTexts.Any(t=>t.text==Zh.GameName&&t.font==Skin.ChineseFont),"标题使用真实圆趣字体并完整显示五字游戏名");
+            var brandImages=app.LoadingView.Logo.GetComponentsInChildren<Image>();
+            CheckIt(brandImages.Any(i=>i.sprite==MenuUI.BrandSprite("brand_logo")),"标题使用统一的五字游戏标志素材");
             var loadTexts=app.LoadingView.GetComponentsInChildren<Text>().Where(Visible).Select(t=>t.text).ToArray();
-            CheckIt(loadTexts.Any(t=>t.StartsWith("加载中",StringComparison.Ordinal)),"加载页显示真实加载提示");
+            CheckIt(loadTexts.Any(t=>t.StartsWith("正在准备拼图",StringComparison.Ordinal)),"加载页显示真实加载提示");
 
             CheckIt(loadTexts.All(t=>!t.Contains("%")&&!t.Contains("广告")),"加载页无伪造百分比或广告文案");
             if(Environment.GetCommandLineArgs().Contains("-brandingOnly"))yield break;

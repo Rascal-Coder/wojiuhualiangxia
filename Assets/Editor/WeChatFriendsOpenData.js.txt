@@ -1,14 +1,19 @@
-/* Friend data never leaves this open-data context. No demo or generated scores. */
+/* Friend data stays in this open-data context. No demo or generated scores. */
 'use strict';
 const KEY = 'inkomino_completed_v1';
-const VERSION = 'friends-20261022-r2';
-const canvas = wx.getSharedCanvas();
-const ctx = canvas.getContext('2d');
-const PAGE_SIZE = 5;
-let visible = false, requestedFriends = false, rows = [], page = 0, state = 'idle', request = 0;
+const VERSION = 'friends-20261026-r9';
+const canvas = wx.getSharedCanvas(), ctx = canvas.getContext('2d');
+const PAGE_SIZE = 5, CACHE_TTL = 30000, REFRESH_COOLDOWN = 1500;
+let visible = false, requestedFriends = false, rows = [], page = 0, state = 'idle';
+let inFlight = null, hasSnapshot = false, lastSuccess = 0, lastAttempt = -Infinity;
+let dataVersion = 0, snapshotVersion = -1, lastAttemptVersion = -1;
 let pendingScore = -1, knownScore = -1, syncing = false, syncNotice = '';
-let scoreRevision = 0, retryTimer = null, retryCount = 0;
+let retryTimer = null, retryCount = 0, failureCode = '', refreshNotice = '';
+let animationTimer = null, repaint = null;
 const avatars = Object.create(null);
+const C = {ink:'#493362', muted:'#8a739f', grape:'#6645aa', coral:'#ef628b', paper:'#fff9ee', edge:'#e7d8f2'};
+const gameType = require('./font')(wx, ctx, () => draw());
+const gameArt = require('./art')(wx, ctx, () => draw());
 console.log('[INK_FRIENDS] init ' + VERSION);
 
 function score(value) {
@@ -21,14 +26,10 @@ function valueOf(kv) {
   return score(entry ? entry.value : 0);
 }
 function queueScore(value) {
-  pendingScore = Math.max(pendingScore, score(value));
-  retryCount = 0;
-  syncScore();
+  pendingScore = Math.max(pendingScore, score(value)); retryCount = 0; syncScore();
 }
 function syncFailure() {
-  syncing = false;
-  syncNotice = '进度同步稍后重试';
-  draw();
+  syncing = false; syncNotice = '进度同步稍后重试'; draw();
   if (!retryTimer && retryCount < 3) {
     retryCount++;
     retryTimer = setTimeout(() => { retryTimer = null; syncScore(); }, retryCount * 15000);
@@ -40,138 +41,212 @@ function syncScore() {
   let finished = false;
   const timer = setTimeout(() => { if (!finished) { finished = true; syncFailure(); } }, 12000);
   function failure() { if (finished) return; finished = true; clearTimeout(timer); syncFailure(); }
-  function finish(value) {
+  function finish(value, written = false) {
     if (finished) return;
     finished = true; clearTimeout(timer); knownScore = Math.max(knownScore, value);
     syncing = false; syncNotice = ''; retryCount = 0;
-    // A newer clear may have arrived while the cloud read/write was pending.
+    if (retryTimer !== null) { clearTimeout(retryTimer); retryTimer = null; }
+    // Only committed writes invalidate the snapshot. Concurrent commits are
+    // coalesced into one follow-up read, never a fabricated local rank.
+    if (written) dataVersion++;
     if (pendingScore > knownScore) syncScore();
-    scoreRevision++; draw();
+    if (written && requestedFriends && visible) fetchFriends(); else draw();
   }
   try {
     wx.getUserCloudStorage({keyList: [KEY], success(result) {
       if (finished) return;
       const best = Math.max(valueOf(result.KVDataList), pendingScore, knownScore);
       if (best === valueOf(result.KVDataList)) { finish(best); return; }
-      wx.setUserCloudStorage({KVDataList: [{key: KEY, value: String(best)}],
-        success() { finish(best); }, fail: failure});
+      try {
+        wx.setUserCloudStorage({KVDataList: [{key: KEY, value: String(best)}],
+          success() { finish(best, true); }, fail: failure});
+      } catch (_) { failure(); }
     }, fail: failure});
   } catch (_) { failure(); }
 }
-function fetchFriends() {
-  const revision = ++request;
-  state = 'loading'; page = 0; draw();
-  console.log('[INK_FRIENDS] fetch start');
-  let finished = false;
-  const timeout = setTimeout(() => {
-    if (revision !== request || finished) return;
-    finished = true; state = 'error'; draw();
-  }, 12000);
-  function done() { if (finished || revision !== request) return false; finished = true; clearTimeout(timeout); return true; }
+function fetchFriends(force = false) {
+  if (inFlight) { draw(); return; }
+  const now = Date.now(), dirty = dataVersion !== snapshotVersion;
+  if (!force && hasSnapshot && !dirty && now - lastSuccess < CACHE_TTL) { draw(); return; }
+  // Share cooldown across taps/focus events; a newly committed score bypasses it.
+  if (now - lastAttempt < REFRESH_COOLDOWN && dataVersion <= lastAttemptVersion) { draw(); return; }
+  const task = {version: dataVersion}; inFlight = task;
+  lastAttempt = now; lastAttemptVersion = dataVersion;
+  if (!hasSnapshot) state = 'loading';
+  failureCode = ''; refreshNotice = '';
+  const timeout = setTimeout(() => failed({errMsg:'getFriendCloudStorage timeout'}, 'TIMEOUT'), 12000);
+  draw(); console.log('[INK_FRIENDS] fetch start');
+  function done() {
+    if (inFlight !== task) return false;
+    inFlight = null; clearTimeout(timeout); return true;
+  }
+  function failed(error, fallback = 'API_FAILURE') {
+    if (!done()) return;
+    const message = String(error && (error.errMsg || error.message) || 'unknown error');
+    const raw = error && (error.errno ?? error.errCode ?? error.errcode);
+    failureCode = /^-?\d{1,9}$/.test(String(raw)) ? 'WX_' + raw : fallback;
+    console.warn('[INK_FRIENDS] fetch failed: ' + message.slice(0,180) + ' code=' + failureCode);
+    const configuration = [1026,112,101100,101101].includes(Number(raw)) || /privacy api banned|please go to mp.*(?:privacy|official popup)|onNeedPrivacyAuthorization.*announce/i.test(message);
+    const permission = [103,104,101102].includes(Number(raw)) || /auth deny|auth denied|authorize:fail|permission denied|scope\.WxFriendInteraction|privacy permission is not authorized|user deny|user denied/i.test(message);
+    if (configuration || permission) {
+      // Revoked/configuration-blocked friend data must not survive in memory.
+      rows = []; page = 0; hasSnapshot = false; snapshotVersion = -1;
+      Object.keys(avatars).forEach(url => delete avatars[url]);
+      gameType.clear();
+      state = configuration ? 'configuration' : 'permission';
+    } else if (hasSnapshot) refreshNotice = '更新未完成，点击刷新';
+    else state = 'error';
+    draw();
+    // A read started before a score commit is obsolete even when it fails.
+    // Retry once for that newer version, but never loop on permission errors.
+    if (!configuration && !permission && dataVersion !== task.version && requestedFriends && visible) fetchFriends();
+  }
   try {
+    if (typeof wx.getFriendCloudStorage !== 'function') { failed({errMsg:'getFriendCloudStorage unavailable'}, 'API_UNAVAILABLE'); return; }
     wx.getFriendCloudStorage({keyList: [KEY], success(result) {
       if (!done()) return;
       const seen = Object.create(null);
-      rows = (Array.isArray(result.data) ? result.data : []).filter(item => {
-        if (!item || !Array.isArray(item.KVDataList) || !item.KVDataList.some(k => k.key === KEY)) return false;
+      rows = (result && Array.isArray(result.data) ? result.data : []).filter(item => {
+        if (!item || !Array.isArray(item.KVDataList) || !item.KVDataList.some(k => k && k.key === KEY)) return false;
         if (item.openid && seen[item.openid]) return false;
         if (item.openid) seen[item.openid] = true;
         return true;
-      }).map(item => ({name: String(item.nickname || '微信好友'), avatar: String(item.avatarUrl || ''), score: valueOf(item.KVDataList)}));
+      }).map(item => ({name:String(item.nickname || '微信好友'), avatar:String(item.avatarUrl || ''), score:valueOf(item.KVDataList)}));
       rows.sort((a,b) => b.score-a.score || a.name.localeCompare(b.name));
-      state = rows.length ? 'ready' : 'empty'; draw();
-      console.log('[INK_FRIENDS] fetch success count=' + rows.length);
-    }, fail(error) {
-      if (!done()) return;
-      const message = String(error && error.errMsg || '');
-      console.warn('[INK_FRIENDS] fetch failed: ' + message);
-      state = /please go to mp to announce your privacy usage/i.test(message) ? 'configuration' : /auth deny|auth denied|authorize:fail|permission denied|scope\.WxFriendInteraction|privacy permission is not authorized/i.test(message) ? 'permission' : 'error';
-      rows = []; draw();
-    }});
-  } catch (_) { if (done()) { state = 'error'; rows = []; draw(); } }
+      hasSnapshot = true; lastSuccess = Date.now(); snapshotVersion = task.version;
+      state = rows.length ? 'ready' : 'empty'; page = Math.min(page, maxPage());
+      const urls = new Set(rows.map(item => item.avatar));
+      Object.keys(avatars).forEach(url => { if (!urls.has(url) || avatars[url].failed) delete avatars[url]; });
+      draw(); console.log('[INK_FRIENDS] fetch success count=' + rows.length);
+      if (dataVersion !== task.version && requestedFriends && visible) fetchFriends();
+    }, fail: failed});
+  } catch (error) { failed(error, 'CALL_ERROR'); }
 }
-function text(value, x, y, size, color = '#412f5b', align = 'center') {
-  ctx.font = `500 ${size}px "PingFang SC", "Microsoft YaHei", sans-serif`; ctx.textAlign = align; ctx.textBaseline = 'middle';
-  ctx.fillStyle = color; ctx.fillText(value, x, y);
+function maxPage() { return Math.max(0, Math.ceil(rows.length / PAGE_SIZE) - 1); }
+function text(value,x,y,size,color=C.ink,align='center',role='body') {
+  gameType.paint(value,x,y,size,color,align,role);
 }
-function shortName(value, width) {
-  const chars = Array.from(value);
-  while (chars.length && ctx.measureText(chars.join('') + (chars.length < Array.from(value).length ? '…' : '')).width > width) chars.pop();
-  return chars.length < Array.from(value).length ? chars.join('') + '…' : value;
+function shortName(value,width,size) {
+  return gameType.truncate(value,width,size);
 }
+function roundPath(x,y,w,h,r) {
+  r=Math.max(0,Math.min(r,w/2,h/2));ctx.beginPath();ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();
+}
+function box(x,y,w,h,r,fill,stroke=null,line=1) {
+  roundPath(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill();
+  if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=line;ctx.stroke();}
+}
+function circle(x,y,r,fill) {ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();}
 function avatarImage(url) {
-  if (!url || !/^https:\/\//i.test(url)) return null;
-  if (avatars[url]) return avatars[url].ready ? avatars[url].image : null;
-  // Bound memory to the current list rather than retaining unlimited avatars.
-  if (Object.keys(avatars).length >= 100) return null;
-  const entry = {image: wx.createImage(), ready: false}; avatars[url] = entry;
-  entry.image.onload = () => { entry.ready = true; draw(); };
-  entry.image.onerror = () => { entry.ready = false; };
-  entry.image.src = url; return null;
+  if(!url||!/^https:\/\//i.test(url))return null;
+  const cached=avatars[url];
+  if(cached){cached.used=Date.now();return cached.ready?cached.image:null;}
+  // Only load visible-page avatars. LRU avoids the old permanent image cutoff.
+  const urls=Object.keys(avatars);
+  if(urls.length>=40){urls.sort((a,b)=>avatars[a].used-avatars[b].used);delete avatars[urls[0]];}
+  let image;try{image=wx.createImage();}catch(_){return null;}
+  const entry={image,ready:false,failed:false,used:Date.now()};avatars[url]=entry;
+  image.onload=()=>{if(avatars[url]!==entry)return;entry.ready=true;draw();};
+  image.onerror=()=>{entry.failed=true;};image.src=url;return null;
+}
+function avatar(item,x,y,size) {
+  const image=avatarImage(item.avatar);
+  box(x,y,size,size,size*.28,'#eadff9','#ffffff',3*size/80);
+  if(image){
+    ctx.save();roundPath(x+2,y+2,size-4,size-4,size*.25);ctx.clip();
+    try{const iw=image.width||size,ih=image.height||size,side=Math.min(iw,ih);
+      ctx.drawImage(image,(iw-side)/2,(ih-side)/2,side,side,x,y,size,size);}catch(_){}
+    ctx.restore();
+  }else{
+    circle(x+size*.5,y+size*.38,size*.16,'#b6a0d5');
+    box(x+size*.22,y+size*.58,size*.56,size*.29,size*.14,'#b6a0d5');
+  }
+}
+function medal(rank,x,y,u,rowHeight) {
+  if(rank>3){text(String(rank),x,y,44*u,C.muted);return;}
+  const anchor=gameArt.paint('rank'+rank,x,y,88*u,rowHeight-8*u);
+  text(String(rank),anchor?anchor.x:x,anchor?anchor.y:y,42*u,C.ink);
+}
+function stopAnimation() {
+  if(animationTimer!==null){clearTimeout(animationTimer);animationTimer=null;}
+  if(repaint!==null){cancelAnimationFrame(repaint);repaint=null;}
+}
+function surfaceFrame() {
+  draw();
+  // ShowOpenData clears the native canvas even at the same size. Draw now and
+  // once next frame; the SDK copies textures itself, without a static RAF loop.
+  if(repaint===null&&visible)repaint=requestAnimationFrame(()=>{repaint=null;draw();});
+}
+function loadingDot(x,y,u) {
+  const phase=Math.floor(Date.now()/180)%3;
+  for(let i=0;i<3;i++)circle(x+i*17*u,y,5*u,i===phase?C.grape:'#d8c7ee');
 }
 function draw() {
-  if (!visible || canvas.width < 1 || canvas.height < 1) return;
-  const w = canvas.width, h = canvas.height, u = w / 960;
-  ctx.clearRect(0, 0, w, h); ctx.fillStyle = '#fff9ee'; ctx.fillRect(0, 0, w, h);
-  if (state === 'ready') {
-    text('名次', 68*u, 46*u, 42*u, '#7e6993');
-    text('同玩好友', 220*u, 46*u, 42*u, '#7e6993', 'left');
-    text('通关', w-48*u, 46*u, 42*u, '#7e6993', 'right');
-    const rowHeight = Math.min(122*u, (h-175*u-(syncNotice?54*u:0))/PAGE_SIZE);
-    rows.slice(page*PAGE_SIZE, (page+1)*PAGE_SIZE).forEach((item, i) => {
-      const y = 94*u + i*rowHeight, rank = page*PAGE_SIZE+i+1;
-      ctx.fillStyle = rank<=3 ? '#f3e4ff' : '#fff4f8'; ctx.fillRect(14*u, y+3*u, w-28*u, rowHeight-9*u);
-      text(String(rank), 68*u, y+rowHeight/2, 48*u, rank<=3?'#ea4877':'#7e6993');
-      const image = avatarImage(item.avatar), size = 76*u;
-      ctx.fillStyle = '#b6a0f5'; ctx.fillRect(120*u, y+(rowHeight-size)/2, size, size);
-      if (image) { try { ctx.drawImage(image,120*u,y+(rowHeight-size)/2,size,size); } catch (_) {} }
-      else text('友',158*u,y+rowHeight/2,42*u,'#fff9ee');
-      ctx.font = `500 ${46*u}px "PingFang SC", "Microsoft YaHei", sans-serif`;
-      text(shortName(item.name, 420*u), 223*u, y+rowHeight/2, 46*u, '#412f5b','left');
-      text(item.score+' 关', w-48*u, y+rowHeight/2, 46*u, '#6645aa','right');
-    });
-    text(`${page+1} / ${Math.max(1,Math.ceil(rows.length/PAGE_SIZE))} 页`,w/2,h-38*u,42*u,'#7e6993');
-  } else {
-    const messages = {
-      idle: ['点击刷新查看好友排行', ''], loading: ['正在读取好友进度…', ''],
-      empty: ['还没有可展示的同玩好友', '好友进入游戏并完成关卡后再来看看'],
-      permission: ['好友互动权限未开启', '点击“排行权限设置”开启权限'],
-      configuration: ['好友排行暂不可用', '功能准备中，请稍后再试'],
-      error: ['暂时无法读取好友排行', '请检查网络后点击刷新']
+  if(!visible||canvas.width<1||canvas.height<1)return;
+  if(animationTimer!==null){clearTimeout(animationTimer);animationTimer=null;}
+  const w=canvas.width,h=canvas.height,u=w/960;
+  ctx.clearRect(0,0,w,h);ctx.fillStyle=C.paper;ctx.fillRect(0,0,w,h);
+  if(state==='ready'||state==='loading'){
+    text('名次',66*u,37*u,42*u,C.muted);text('好友',220*u,37*u,42*u,C.muted,'left');
+    text('已通关',w-48*u,37*u,42*u,C.muted,'right');
+    const top=82*u,gap=12*u,rowHeight=Math.min(132*u,Math.max(84*u,(h-top-78*u-gap*4)/PAGE_SIZE));
+    const pageRows=rows.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE),count=state==='loading'?PAGE_SIZE:pageRows.length;
+    for(let i=0;i<count;i++){
+      const y=top+i*(rowHeight+gap),cy=y+rowHeight/2,rank=page*PAGE_SIZE+i+1;
+      const tint=state==='loading'?'#fffdf7':rank===1?'#fff7dc':rank===2?'#f0faf4':rank===3?'#f6efff':'#fffcf6';
+      box(15*u,y+4*u,w-30*u,rowHeight,23*u,'#ebddf5');box(15*u,y,w-30*u,rowHeight,23*u,tint,C.edge,2*u);
+      const size=Math.min(82*u,rowHeight-18*u),ax=119*u,ay=cy-size/2;
+      if(state==='loading'){
+        const alpha=.28+(.5+.5*Math.sin(Date.now()/400))*.13,fill='rgba(174,150,207,'+alpha+')';
+        circle(66*u,cy,21*u,fill);box(ax,ay,size,size,22*u,fill);
+        box(220*u,cy-12*u,(i%2?245:310)*u,24*u,12*u,fill);box(w-205*u,cy-16*u,155*u,32*u,16*u,fill);
+      }else{
+        const item=pageRows[i];medal(rank,66*u,cy,u,rowHeight);avatar(item,ax,ay,size);
+        text(shortName(item.name,w-465*u,46*u),220*u,cy,46*u,C.ink,'left');
+        box(w-213*u,cy-32*u,177*u,64*u,25*u,rank===1?'#ffedb5':'#f0e6fb');text(item.score+' 关',w-124*u,cy,44*u,C.grape);
+      }
+    }
+    const footY=h-29*u;
+    if(inFlight){loadingDot(32*u,footY,u);text(hasSnapshot?'正在更新…':'正在读取好友进度…',84*u,footY,42*u,C.muted,'left');}
+    else text(refreshNotice||syncNotice||('共 '+rows.length+' 位好友'),28*u,footY,42*u,refreshNotice?C.coral:C.muted,'left');
+    if(state==='ready')text((page+1)+' / '+(maxPage()+1)+' 页',w-28*u,footY,42*u,C.muted,'right');
+  }else{
+    gameArt.paint('empty',w/2,h*.28,340*u,h*.42);
+    const messages={
+      idle:['和好友一起闯关','点击刷新查看好友排行'],
+      empty:['还没有同玩好友的成绩',''],
+      permission:['好友互动尚未授权','允许好友互动后，点击下方刷新'],
+      configuration:['好友排行暂不可用','隐私功能配置尚未就绪'],
+      error:['好友排行加载未完成','请检查网络后，点击下方刷新']
     };
-    const lines = messages[state] || messages.error;
-    ctx.fillStyle='#eee1ff';ctx.fillRect(w/2-54*u,h*.24-54*u,108*u,108*u);
-    text('友',w/2,h*.24,58*u,'#ea4877');
-    text(lines[0], w/2,h*.46,48*u);text(lines[1],w/2,h*.59,42*u,'#7e6993');
+    const lines=messages[state]||messages.error;
+    text(lines[0],w/2,h*.53,47*u,C.ink,'center','display');text(lines[1],w/2,h*.66,42*u,C.muted);
+    if(failureCode)text('错误码：'+failureCode,w/2,h*.79,42*u,C.muted);
+    if(inFlight){loadingDot(w/2-118*u,h-32*u,u);text('正在更新…',w/2+35*u,h-32*u,42*u,C.muted);}
+    else if(refreshNotice||syncNotice)text(refreshNotice||syncNotice,w/2,h-32*u,42*u,C.muted);
   }
-  if (syncNotice) text(syncNotice,w/2,h-90*u,42*u,'#ea4877');
+  if(inFlight)animationTimer=setTimeout(()=>{animationTimer=null;draw();},180);
 }
-wx.onMessage(message => {
-  // WXOpenDataContext.PostMessage(string) is forwarded as a string by the
-  // official SDK; its WXRender/WXDestroy events are plain objects.
-  if (typeof message === 'string') {
-    try { message = JSON.parse(message); }
-    catch (_) { console.warn('[INK_FRIENDS] ignored invalid JSON message'); return; }
+wx.onMessage(message=>{
+  if(typeof message==='string'){
+    try{message=JSON.parse(message);}catch(_){console.warn('[INK_FRIENDS] ignored invalid JSON message');return;}
   }
-  if (!message) return;
-  if (message.type === 'friends:show') console.log('[INK_FRIENDS] show ' + VERSION);
-  switch (message.type) {
-    case 'score:update': queueScore(message.score); break;
-    case 'WXRender': case 'WXShow':
-      visible = true;
-      if (requestedFriends && state === 'idle') fetchFriends(); else draw();
-      break;
-    case 'WXDestroy':
-      visible = false; request++;
-      if (state === 'loading') state = 'idle';
-      break;
-    case 'friends:hide':
-      visible = false; requestedFriends = false; request++;
-      if (state === 'loading') state = 'idle';
-      break;
-    case 'friends:prepare': break;
-    case 'friends:show': requestedFriends = true; visible = true; fetchFriends(); break;
-    case 'friends:refresh': syncScore(); fetchFriends(); break;
-    case 'friends:page': page = Math.max(0, Math.min(Math.max(0,Math.ceil(rows.length/PAGE_SIZE)-1), page + (message.delta < 0 ? -1 : 1))); draw(); break;
+  if(!message)return;
+  switch(message.type){
+    case 'score:update':queueScore(message.score);break;
+    case 'WXRender':case 'WXShow':
+      if(message.type==='WXShow'&&!requestedFriends)break;
+      if(message.width>0&&canvas.width!==message.width)canvas.width=message.width;
+      if(message.height>0&&canvas.height!==message.height)canvas.height=message.height;
+      visible=true;if(requestedFriends)fetchFriends();surfaceFrame();break;
+    case 'WXDestroy':visible=false;stopAnimation();break;
+    case 'friends:hide':visible=false;requestedFriends=false;stopAnimation();break;
+    case 'friends:prepare':gameType.prepare();gameArt.prepare();break;
+    case 'friends:show':requestedFriends=true;visible=true;fetchFriends();surfaceFrame();break;
+    case 'friends:resume':if(requestedFriends&&visible){syncScore();fetchFriends();}break;
+    case 'friends:refresh':if(requestedFriends&&visible){syncScore();fetchFriends(true);}break;
+    case 'friends:page':page=Math.max(0,Math.min(maxPage(),page+(message.delta<0?-1:1)));draw();break;
   }
 });

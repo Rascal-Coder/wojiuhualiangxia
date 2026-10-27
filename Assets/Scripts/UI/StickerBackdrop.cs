@@ -3,6 +3,7 @@ using UnityEngine.UI;
 namespace Inkomino
 {
     // Static low-contrast journal dots: a single UI mesh, no image or Update loop.
+    [RequireComponent(typeof(CanvasRenderer))]
     public sealed class StickerBackdrop:MaskableGraphic
     {
         protected override void OnPopulateMesh(VertexHelper vh)

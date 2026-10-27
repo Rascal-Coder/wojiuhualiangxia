@@ -15,53 +15,34 @@ namespace Inkomino
             ClearScreen("game_assets_shopbg");
             Wallet();
             int firstContentChild=Content.childCount;
-            MenuUI.Title("灵感补给站","每日 0 点补货",Content);
+            MenuUI.Title("灵感补给站","每种每日 3 次 · 0 点刷新",Content);
 
             string[] icons={"pen","freeze","lens"};
             string[] items={"hint","freeze","lens"};
             string[] titles={Zh.MagicPen,Zh.FreezeTime,Zh.Lens};
             string[] descriptions={"自动完成一块图形","暂停倒计时 10 秒","查看两块图形的提示"};
-            int[] prices={150,120,150};
-            int[] counts={Store.Data.hint,Store.Data.freeze,Store.Data.lens};
             Vector2 top=new Vector2(0,1);
 
             for(int i=0;i<icons.Length;i++)
             {
                 int index=i;
-                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-(1200+i*355)),new Vector2(960,330));
+                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-(1170+i*370)),new Vector2(960,350));
                 row.name="Shop row "+i;
 
-                // Jewel-and-gold booster art shares one silhouette scale;
-                // the paper card gives every item one text baseline.
-                Skin.RoundBox(row,top,new Vector2(150,-165),Vector2.one*238,new Color32(244,232,255,255),48);
-                var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(150,-164),Vector2.one*224);
+                Skin.RoundBox(row,top,new Vector2(135,-175),Vector2.one*214,new Color32(244,232,255,255),48);
+                var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(135,-174),Vector2.one*202);
                 if(tool){MenuMotion.Float(tool.rectTransform,4,1.1f);if(i==0)MenuMotion.Sparkle(tool.rectTransform,3,true);}
                 MenuUI.Label(titles[i],row,top,new Vector2(515,-58),new Vector2(430,72),56,MenuUI.Ink,TextAnchor.MiddleLeft,true);
 
-                var pack=Skin.Rect("Three boosters per pack",row,top,new Vector2(840,-58),new Vector2(170,66));
-                Skin.RoundBox(pack,new Vector2(.5f,.5f),Vector2.zero,pack.sizeDelta,new Color32(244,232,255,255),30);
-                MenuUI.Label("3 个装",pack,new Vector2(.5f,.5f),Vector2.zero,pack.sizeDelta,42,MenuUI.Muted,TextAnchor.MiddleCenter);
-
-                MenuUI.Label(descriptions[i],row,top,new Vector2(600,-134),new Vector2(600,60),48,MenuUI.Muted);
-                MenuUI.Label("库存 "+ShopOwnedCount(counts[i])+"/30",row,top,new Vector2(405,-272),new Vector2(210,65),42,MenuUI.Muted);
-
-                MenuUI.Label("剩余 "+Store.ShopRemaining(items[i],SaveStore.Now)+"/3",row,top,new Vector2(405,-204),new Vector2(210,65),42,MenuUI.Muted);
-                string blocked=Store.ShopError(items[i],prices[i],SaveStore.Now);
-                var buy=MenuUI.GameButton(blocked.Length==0?prices[i]+" 金币":blocked,row,top,new Vector2(745,-250),new Vector2(360,130),()=>
+                MenuUI.Label(descriptions[i],row,top,new Vector2(600,-124),new Vector2(600,60),48,MenuUI.Muted);
+                ShopPurchaseControls(row,items[i],top,new Vector2(600,-278),quantity=>
                 {
-                    if(Store.Buy(items[index],prices[index]))
-                    {
                         SoundBank.Play("coin");
-                        // Recreate the wallet and inventory before the success
-                        // overlay, so closing it never reveals stale quantities.
                         ShowShop();
-                        Info(Zh.PurchaseReady,"已获得 3 个"+titles[index]+"。");
+                        Info(Zh.PurchaseReady,"已获得 "+quantity+" 个"+titles[index]+"。");
                         var confirmation=popups.Peek().Find("Source popup motion/"+Zh.PurchaseReady+" panel") as RectTransform;
                         if(confirmation){var granted=MenuUI.Art("menu_"+icons[index],confirmation,new Vector2(.5f,.5f),new Vector2(0,220),Vector2.one*170);if(granted)MenuMotion.Celebrate(granted.rectTransform);}
-                    }
-                    else {ShowShop();SetMessage(Store.ShopError(items[index],prices[index],SaveStore.Now));}
-                },52);
-                buy.name="Shop exchange "+items[i];buy.interactable=blocked.Length==0;
+                },new Vector2(800,-58));
             }
 
             var supply=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-855),new Vector2(960,260),true);
@@ -96,11 +77,29 @@ namespace Inkomino
             FocusFirst();
         }
 
-        static string ShopOwnedCount(int count)
+        void ShopPurchaseControls(Transform parent,string item,Vector2 anchor,Vector2 position,Action<int> purchased,Vector2? quotaPosition=null)
         {
-            if(count>=100000000)return (count/100000000).ToString()+"亿";
-            if(count>=10000)return (count/10000).ToString()+"万";
-            return Mathf.Max(0,count).ToString();
+            var group=Skin.Rect("Shop purchase "+item,parent,anchor,position,new Vector2(660,126));
+            var quota=Skin.Rect("Shop remaining "+item,parent,anchor,quotaPosition??position+new Vector2(0,110),new Vector2(230,80));
+            var stamps=new Image[SaveStore.ShopDailyLimit];
+            for(int i=0;i<stamps.Length;i++){stamps[i]=Skin.Art("game_assets_nav_tabshop",quota,Vector2.one*.5f,new Vector2((i-1)*72,0),Vector2.one*70);stamps[i].name="Purchase stamp "+i;}
+            var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(-151,0),new Vector2(110,100),52,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
+            int quantity=1;Button minus=null,plus=null,buy=null;
+            void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++)stamps[i].color=i<left?Color.white:new Color(.65f,.60f,.72f,.24f);amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
+            minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-275,0),new Vector2(136,126),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},60);minus.name="Shop minus "+item;
+            plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(-27,0),new Vector2(136,126),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},60);plus.name="Shop plus "+item;
+            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(195,0),new Vector2(270,126),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity))purchased(quantity);else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;
+            Refresh();
+            group.gameObject.AddComponent<ShopPurchaseRefresh>().Init(Store,Refresh);
         }
+    }
+    // Refresh affordability after rewards/cloud changes without rebuilding the cards.
+    public sealed class ShopPurchaseRefresh:MonoBehaviour
+    {
+        SaveStore store;Action refresh;long day;
+        public void Init(SaveStore value,Action update){store=value;refresh=update;day=(SaveStore.Now+8*3600)/86400;store.Changed+=Changed;InvokeRepeating(nameof(CheckDay),1,1);}
+        void Changed(){if(isActiveAndEnabled)refresh?.Invoke();}
+        void CheckDay(){long current=(SaveStore.Now+8*3600)/86400;if(current!=day){day=current;Changed();}}
+        void OnDisable(){if(store!=null)store.Changed-=Changed;CancelInvoke();}
     }
 }

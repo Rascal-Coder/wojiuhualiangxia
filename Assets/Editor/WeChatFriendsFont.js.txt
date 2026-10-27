@@ -1,0 +1,121 @@
+/* Bitmap glyphs come from the same body/display faces used by MenuUI.
+   Precolored images draw directly to the shared canvas on mobile clients. */
+'use strict';
+const metrics = require('./fonts/friends-fonts.js');
+const BASE = metrics.size;
+module.exports = function createGameType(wx, ctx, invalidate) {
+  const entries = Object.create(null);
+  const LOAD_TIMEOUT = 4500;
+  const segmenter = typeof Intl !== 'undefined' && typeof Intl.Segmenter === 'function'
+    ? new Intl.Segmenter(undefined, {granularity:'grapheme'}) : null;
+  let markPattern;try{markPattern=new RegExp('\\p{Mark}','u');}catch(_){markPattern=null;}
+  function chars(value) {
+    if(segmenter)return Array.from(segmenter.segment(String(value)),part=>part.segment);
+    // Older clients still keep emoji joins, accents, flags and skin tones whole.
+    const parts=[];let join=false,regional=false;
+    for(const ch of Array.from(String(value))){
+      const code=ch.codePointAt(0),flag=code>=0x1f1e6&&code<=0x1f1ff;
+      const mark=markPattern?markPattern.test(ch):(code>=0x300&&code<=0x36f)||(code>=0x1ab0&&code<=0x1aff)||(code>=0x1dc0&&code<=0x1dff)||(code>=0x20d0&&code<=0x20ff)||(code>=0xfe20&&code<=0xfe2f);
+      const suffix=mark||(code>=0xfe00&&code<=0xfe0f)||(code>=0x1f3fb&&code<=0x1f3ff)||(code>=0xe0020&&code<=0xe007f)||(code>=0xe0100&&code<=0xe01ef);
+      if(parts.length&&(join||suffix||code===0x200d||(flag&&regional)))parts[parts.length-1]+=ch;else parts.push(ch);
+      join=code===0x200d;regional=flag&&!regional;
+    }
+    return parts;
+  }
+  function fallbackFont(context, size) {
+    context.font = '600 '+size+'px "PingFang SC", "Microsoft YaHei", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif';
+  }
+  function plan(value, role) {
+    const face = metrics.roles[role] || metrics.roles.body, runs = [];
+    let width = 0, left = 0, right = 0, top = Infinity, bottom = -Infinity, unknown = '';
+    function flush() {
+      if(!unknown)return;
+      fallbackFont(ctx, BASE);ctx.textAlign='left';ctx.textBaseline='alphabetic';
+      const measure=ctx.measureText(unknown), advance=measure.width;
+      runs.push({fallback:unknown,x:width});
+      left=Math.min(left,width-(measure.actualBoundingBoxLeft||0));
+      right=Math.max(right,width+(measure.actualBoundingBoxRight||advance));width+=advance;
+      top=Math.min(top,-(measure.actualBoundingBoxAscent || BASE*.8));
+      bottom=Math.max(bottom,measure.actualBoundingBoxDescent || BASE*.2);
+      unknown='';
+    }
+    for(const ch of chars(value)) {
+      const g=Array.from(ch).length===1 ? face.glyphs[String(ch.codePointAt(0))] : null;
+      if(!g){unknown+=ch;continue;}
+      flush();runs.push({glyph:g,key:String(ch.codePointAt(0)),x:width});
+      left=Math.min(left,width+g[5]);right=Math.max(right,width+g[5]+g[3]);width+=g[7];
+      if(g[3]>0&&g[4]>0){top=Math.min(top,g[6]);bottom=Math.max(bottom,g[6]+g[4]);}
+    }
+    flush();
+    if(!Number.isFinite(top)){top=-BASE*.8;bottom=BASE*.2;}
+    return {face,runs,width,left,right:Math.max(right,width),top,bottom};
+  }
+  function page(face, index) {
+    const spec=face.pages[index];
+    if(!spec)return null;
+    if(entries[spec.file])return entries[spec.file];
+    const entry={image:null,state:'loading'};entries[spec.file]=entry;
+    let timer;
+    function settle(ready) {
+      if(entry.state!=='loading')return;
+      clearTimeout(timer);entry.state=ready?'ready':'failed';
+      if(!ready)console.warn('[INK_FRIENDS] font image unavailable: '+spec.file);
+      invalidate();
+    }
+    try {
+      entry.image=wx.createImage();
+      entry.image.onload=()=>settle(entry.image.width>0&&entry.image.height>0);
+      entry.image.onerror=()=>settle(false);
+      timer=setTimeout(()=>settle(false),LOAD_TIMEOUT);
+      entry.image.src='open-data/fonts/'+spec.file;
+    } catch(_) { settle(false); }
+    return entry;
+  }
+  function measure(value,size,role='body') { return plan(value,role).width*size/BASE; }
+  function truncate(value,width,size,role='body') {
+    const parts=chars(value),count=parts.length;
+    while(parts.length && measure(parts.join('')+(parts.length<count?'…':''),size,role)>width)parts.pop();
+    return parts.length<count?parts.join('')+'…':value;
+  }
+  function prepare() {
+    for(const role of Object.keys(metrics.roles)) {
+      const face=metrics.roles[role];
+      for(let index=0;index<(face.priorityPages||1);index++)page(face,index);
+    }
+  }
+  function paint(value,x,y,size,color,align='center',role='body') {
+    const line=plan(value,role),scale=size/BASE;
+    let pending=false,failed=false;
+    for(const run of line.runs) {
+      if(!run.glyph||!run.glyph[3]||!run.glyph[4])continue;
+      const tint=line.face.tints&&line.face.tints[String(color).toLowerCase()];
+      const face=tint&&tint.glyphs[run.key]?tint:line.face;
+      run.paintGlyph=face.glyphs[run.key];
+      const entry=page(face,run.paintGlyph[0]);run.entry=entry;
+      if(!entry||entry.state==='failed')failed=true;
+      else if(entry.state!=='ready')pending=true;
+    }
+    // Do not flash a different typeface while local font images are decoding.
+    if(pending)return;
+    if(failed) {
+      fallbackFont(ctx,size);ctx.textAlign=align;ctx.textBaseline='middle';ctx.fillStyle=color;
+      ctx.fillText(value,x,y);return;
+    }
+    const left=x-(align==='center'?line.width*scale/2:align==='right'?line.width*scale:0);
+    const baseline=y-(line.top+line.bottom)*scale/2;
+    for(const run of line.runs) {
+      const g=run.paintGlyph;if(!g||!g[3]||!g[4])continue;
+      ctx.drawImage(run.entry.image,g[1],g[2],g[3],g[4],
+        left+(run.x+g[5])*scale,baseline+g[6]*scale,g[3]*scale,g[4]*scale);
+    }
+    // Unknown nickname glyphs and emoji alone use a native fallback. Every
+    // fixed label and all supported nickname glyphs keep the game's exact face.
+    for(const run of line.runs)if(run.fallback){
+      fallbackFont(ctx,size);ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.fillStyle=color;
+      ctx.fillText(run.fallback,left+run.x*scale,baseline);
+    }
+  }
+  // Atlas entries contain only public font glyphs; no nickname pixels are cached.
+  function clear() {}
+  return {measure,paint,truncate,prepare,clear};
+};

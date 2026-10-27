@@ -117,6 +117,7 @@ namespace Inkomino
         public void OnPointerUp(PointerEventData e){}
         public void OnPointerExit(PointerEventData e){}
     }
+    [RequireComponent(typeof(CanvasRenderer))]
     public class RoundedGraphic:MaskableGraphic
     {
         public float Radius=32;

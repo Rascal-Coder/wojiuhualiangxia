@@ -38,7 +38,7 @@ namespace Inkomino
         }
         IEnumerator CoreLivesMotion(RectTransform panel,RectTransform heart,RectTransform dot,Text count,Text value,Text label,RectTransform clock,GameObject refill,GameObject rewardAd)
         {
-            float begin=SourceClock.Now;while(panel&&panel.gameObject.activeInHierarchy){float t=SourceClock.Now-begin,u=Mathf.Repeat(t,1);heart.localScale=Vector3.one*Mathf.Lerp(1,1.1f,u<.5f?SourceMotion.DefaultTiming(u/.5f):1-SourceMotion.DefaultTiming((u-.5f)/.5f));dot.localRotation=Quaternion.Euler(0,0,-360*SourceMotion.DefaultTiming(Mathf.Repeat(t,2)/2));count.text=Store.Data.hearts.ToString();long sec=Math.Max(0,Store.Data.regenAt-SaveStore.Now);value.text=(sec/60).ToString("00")+":"+(sec%60).ToString("00");if(Store.Data.hearts>=5){label.text=Zh.LivesFullTitle;label.color=MenuUI.Green;clock.gameObject.SetActive(false);refill.SetActive(false);if(rewardAd)rewardAd.SetActive(false);}yield return null;}
+            float begin=SourceClock.Now;while(panel&&panel.gameObject.activeInHierarchy){float t=SourceClock.Now-begin,u=Mathf.Repeat(t,1);heart.localScale=Vector3.one*Mathf.Lerp(1,1.1f,u<.5f?SourceMotion.DefaultTiming(u/.5f):1-SourceMotion.DefaultTiming((u-.5f)/.5f));dot.localRotation=Quaternion.Euler(0,0,-360*SourceMotion.DefaultTiming(Mathf.Repeat(t,2)/2));count.text=Store.Data.hearts.ToString();long sec=Math.Max(0,Store.Data.regenAt-SaveStore.Now);value.text=RewardCountdown(sec);if(Store.Data.hearts>=5){label.text=Zh.LivesFullTitle;label.color=MenuUI.Green;clock.gameObject.SetActive(false);refill.SetActive(false);if(rewardAd)rewardAd.SetActive(false);}yield return null;}
         }
         void CoreLeavePrompt(bool retry)
         {
