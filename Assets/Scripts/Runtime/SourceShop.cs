@@ -37,7 +37,6 @@ namespace Inkomino
                 MenuUI.Label(descriptions[i],row,top,new Vector2(600,-124),new Vector2(600,60),48,MenuUI.Muted);
                 ShopPurchaseControls(row,items[i],top,new Vector2(600,-278),quantity=>
                 {
-                        SoundBank.Play("coin");
                         ShowShop();
                         Info(Zh.PurchaseReady,"已获得 "+quantity+" 个"+titles[index]+"。");
                         var confirmation=popups.Peek().Find("Source popup motion/"+Zh.PurchaseReady+" panel") as RectTransform;
@@ -82,13 +81,19 @@ namespace Inkomino
             var group=Skin.Rect("Shop purchase "+item,parent,anchor,position,new Vector2(660,126));
             var quota=Skin.Rect("Shop remaining "+item,parent,anchor,quotaPosition??position+new Vector2(0,110),new Vector2(230,80));
             var stamps=new Image[SaveStore.ShopDailyLimit];
-            for(int i=0;i<stamps.Length;i++){stamps[i]=Skin.Art("game_assets_nav_tabshop",quota,Vector2.one*.5f,new Vector2((i-1)*72,0),Vector2.one*70);stamps[i].name="Purchase stamp "+i;}
+            for(int i=0;i<stamps.Length;i++)
+            {
+                var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*72,0),Vector2.one*78);
+                Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(0,-3),slot.sizeDelta,new Color32(169,128,239,40),20);
+                Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,new Color32(255,249,238,255),20);
+                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*62);if(stamps[i])stamps[i].name="Purchase stamp "+i;
+            }
             var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(-151,0),new Vector2(110,100),52,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
             int quantity=1;Button minus=null,plus=null,buy=null;
-            void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++)stamps[i].color=i<left?Color.white:new Color(.65f,.60f,.72f,.24f);amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
+            void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++)if(stamps[i])stamps[i].color=i<left?Color.white:new Color(.65f,.60f,.72f,.24f);amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
             minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-275,0),new Vector2(136,126),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},60);minus.name="Shop minus "+item;
             plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(-27,0),new Vector2(136,126),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},60);plus.name="Shop plus "+item;
-            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(195,0),new Vector2(270,126),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity))purchased(quantity);else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;
+            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(195,0),new Vector2(270,126),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;
             Refresh();
             group.gameObject.AddComponent<ShopPurchaseRefresh>().Init(Store,Refresh);
         }

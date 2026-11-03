@@ -71,7 +71,7 @@ namespace Inkomino
         {
             if(Finished)return;Finished=true;
             if(!Review&&CurrentLevel>=ClimbActivity.Config.unlockLevel&&Store.Data.climb.joined&&!Store.Data.climb.isOut&&!ClimbActivity.AtTop(Store.Data.climb)){Store.Data.climbPendingFailure=CurrentLevel;Store.Save();}
-            AnimationBusy=false;if(BoardView)BoardView.Cancel();SoundBank.Play("fail");
+            AnimationBusy=false;if(BoardView)BoardView.Cancel();SoundBank.Play("fail");Feel.Warn();
             bool first=!Store.Data.firstContinueUsed&&continuations==0;int cost=90+Math.Min(continuations,2)*30;
             bool showAd=!first&&!Review&&rewardedContinues<1&&RewardEntryEnabled(RewardPlacement.ContinueLevel);
             var panel=Popup(Zh.TimeUp,1000,showAd?1320:1130);panel.name="Sticker timeout panel";var root=(RectTransform)panel.parent.parent;root.name="Source ContinueScreen";HideCoreClose(panel);

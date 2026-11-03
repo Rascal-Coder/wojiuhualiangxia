@@ -135,6 +135,7 @@ namespace Inkomino
             var popupBuy=app.Overlays.GetComponentsInChildren<Button>().First(b=>b.name=="Shop exchange hint");
             Check(popupBuy.GetComponentInChildren<Text>().text=="100 金币"&&popupBuy.interactable,"in-level replenishment uses the same selected-quantity price");
             yield return Capture("00-shop-replenishment.png");popupBuy.onClick.Invoke();
+            yield return new WaitForSecondsRealtime(.2f);
             Check(app.Store.Data.hint==34&&app.Store.Data.coins==400&&app.Store.ShopRemaining("hint",SaveStore.Now)==1&&!app.IsModalOpen,"in-level purchase grants selected quantity and closes its modal");
         }
         IEnumerator Capture(string name,bool surfaceProbe=false)

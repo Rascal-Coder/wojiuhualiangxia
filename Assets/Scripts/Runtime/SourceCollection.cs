@@ -49,7 +49,7 @@ namespace Inkomino
             var image=surface.gameObject.AddComponent<RawImage>();image.raycastTarget=false;surface.gameObject.AddComponent<FriendsRankView>();
             FriendsRanking.SubmitProgress(Store.Data.wins);
 #else
-            Skin.Art("game_assets_nav_tabrank",area,new Vector2(.5f,.5f),new Vector2(0,145),Vector2.one*170);
+            MenuUI.Art("entry_friends",area,new Vector2(.5f,.5f),new Vector2(0,145),Vector2.one*220);
             MenuUI.Label("在微信中与好友比一比",area,new Vector2(.5f,.5f),new Vector2(0,-30),new Vector2(860,90),52,MenuUI.Ink,TextAnchor.MiddleCenter,true);
             MenuUI.Label("仅展示同玩好友的真实通关进度",area,new Vector2(.5f,.5f),new Vector2(0,-145),new Vector2(860,90),42,MenuUI.Muted,TextAnchor.MiddleCenter);
 #endif

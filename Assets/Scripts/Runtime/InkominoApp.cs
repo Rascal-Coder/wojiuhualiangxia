@@ -14,9 +14,9 @@ namespace Inkomino
         public static InkominoApp Instance;public GameData Data;public ShapeLibrary Shapes;public SaveStore Store;public BoardState Board;public PuzzleBoardView BoardView;
         public RectTransform Stage,Content,Overlays;public float Remaining;public bool Playing,Review,Finished;public int CurrentLevel;
         readonly Stack<RectTransform> popups=new Stack<RectTransform>();Text coins,hearts,lifeTimer,timer,message;Image timeFill;Transform targets;float frozen,lastTick=-1;bool suppress;int reward,continuations;string screen="home";public bool IsQA;
-        public bool IsModalOpen{get{return popups.Count>0;}}
+        public bool IsModalOpen{get{return popups.Count>0||SourceMotion.HasDismissing;}}
         public bool IsHomeScreen{get{return screen=="home";}}
-        public bool InputEnabled{get{return BootReady&&!TransitioningLevel&&Playing&&!Finished&&!AnimationBusy&&!RewardedAds.IsShowing&&!AdPlacements.InterstitialShowing&&popups.Count==0;}}
+        public bool InputEnabled{get{return BootReady&&!TransitioningLevel&&Playing&&!Finished&&!AnimationBusy&&!RewardedAds.IsShowing&&!AdPlacements.InterstitialShowing&&!IsModalOpen;}}
         void Awake(){Instance=this;Application.targetFrameRate=60;Application.runInBackground=true;Screen.sleepTimeout=SleepTimeout.NeverSleep;
 #if UNITY_EDITOR || UNITY_STANDALONE
             var args=Environment.GetCommandLineArgs();bool chineseQA=args.Contains("-inkominoChineseQA"),audioQA=args.Contains("-inkominoAudioQA"),tutorialQA=args.Contains("-inkominoTutorialQA"),safeAreaQA=args.Contains("-inkominoSafeAreaQA"),socialQA=args.Contains("-inkominoSocialQA"),menuQA=args.Contains("-inkominoMenuQA"),motionQA=args.Contains("-inkominoMenuMotionQA"),gameClubQA=args.Contains("-inkominoGameClubQA");IsQA=args.Contains("-inkominoQA")||args.Contains("-inkominoFidelityQA")||args.Contains("-inkominoGridQA")||chineseQA||audioQA||tutorialQA||safeAreaQA||socialQA||menuQA||motionQA||gameClubQA;
@@ -50,7 +50,7 @@ namespace Inkomino
         
         
         void SetMessage(string value){if(message)message.text=value;}
-        public void Win(){if(Finished)return;Finished=true;reward=Review?0:Store.Complete(Board.Level,Data);if(!Review)FriendsRanking.SubmitProgress(Store.Data.wins);SoundBank.Play("win");BoardView.PlayVictory();StartCoroutine(WinPopup());}
+        public void Win(){if(Finished)return;Finished=true;reward=Review?0:Store.Complete(Board.Level,Data);if(!Review)FriendsRanking.SubmitProgress(Store.Data.wins);SoundBank.Play("win");Feel.Celebrate();BoardView.PlayVictory();StartCoroutine(WinPopup());}
         
         public void Fail(){CoreFail();}
         void Retry(){if(!Review&&Store.Data.hearts==0){LifePopup();return;}EnterLevelWithLoading(CurrentLevel,Review);}
@@ -61,8 +61,22 @@ namespace Inkomino
         void OnApplicationPause(bool pause){SoundBank.SetSuspended(pause);if(pause){SaveBoard();if(CloudSave)CloudSave.Flush();if(InputEnabled)Settings(true);}else if(Store!=null){Store.Recover();UpdateWallet();if(CloudSave)CloudSave.Foreground();}}
         void OnApplicationQuit(){SaveBoard();Store?.Save();}
         
-        public void ClosePopup(){if(popups.Count==0)return;var p=popups.Pop();p.gameObject.SetActive(false);Destroy(p.gameObject);if(homeGameClubEntry)homeGameClubEntry.RefreshVisibility();FocusFirst();if(Playing&&Finished&&popups.Count==0)ShowHome();}
-        public void ClearPopups(){while(popups.Count>0){var p=popups.Pop();p.gameObject.SetActive(false);Destroy(p.gameObject);}if(homeGameClubEntry)homeGameClubEntry.RefreshVisibility();}
+        public void ClosePopup()
+        {
+            if(popups.Count==0)return;
+            var p=popups.Pop();
+            bool leaveToHome=Playing&&Finished&&popups.Count==0;
+            if(leaveToHome||MenuMotion.Reduced||SourceClock.Manual){p.gameObject.SetActive(false);Destroy(p.gameObject);}
+            else SourceMotion.Dismiss(p);
+            if(homeGameClubEntry)homeGameClubEntry.RefreshVisibility();FocusFirst();
+            if(leaveToHome)ShowHome();
+        }
+        public void ClearPopups()
+        {
+            while(popups.Count>0){var p=popups.Pop();p.gameObject.SetActive(false);Destroy(p.gameObject);}
+            SourceMotion.CancelDismissals();
+            if(homeGameClubEntry)homeGameClubEntry.RefreshVisibility();
+        }
         void FocusFirst(){StartCoroutine(FocusLater());}IEnumerator FocusLater(){yield return null;var root=popups.Count>0?popups.Peek():Content;var first=root.GetComponentsInChildren<Button>().FirstOrDefault(x=>x.interactable);if(first&&EventSystem.current)EventSystem.current.SetSelectedGameObject(first.gameObject);}
         
         void LeavePrompt(bool retry){CoreLeavePrompt(retry);}
@@ -70,9 +84,9 @@ namespace Inkomino
         
         public void LevelLibrary(int page){if(!IsQA)return;var panel=Popup(Zh.LevelLibrary,1000,1700);panel.gameObject.AddComponent<LevelDirectoryView>().Init(this,page);}
         void LifePopup(){CoreLivesPopup();}
-        void DailyReward(){var panel=Popup(Zh.DailyGift,900,1050);Skin.Art("shell_src_ui_chestgoldopen",panel,new Vector2(.5f,.5f),new Vector2(0,200),new Vector2(340,300));bool ready=Store.DailyGiftSeconds(SaveStore.Now)==0;Skin.Text(ready?Zh.DailyContents:Zh.Tomorrow,panel,new Vector2(.5f,.5f),new Vector2(0,-40),new Vector2(780,130),47);Skin.Button(ready?Zh.Claim:Zh.Ok,panel,new Vector2(.5f,0),new Vector2(0,170),new Vector2(640,190),()=>{if(ready&&Store.ClaimDailyGift(SaveStore.Now))SoundBank.Play("coin");ClosePopup();},"green",70);}
+        void DailyReward(){var panel=Popup(Zh.DailyGift,900,1050);Skin.Art("shell_src_ui_chestgoldopen",panel,new Vector2(.5f,.5f),new Vector2(0,200),new Vector2(340,300));bool ready=Store.DailyGiftSeconds(SaveStore.Now)==0;MenuUI.Label(ready?Zh.DailyContents:Zh.Tomorrow,panel,new Vector2(.5f,.5f),new Vector2(0,-40),new Vector2(780,130),48,MenuUI.Ink,TextAnchor.MiddleCenter);Skin.Button(ready?Zh.Claim:Zh.Ok,panel,new Vector2(.5f,0),new Vector2(0,170),new Vector2(640,190),()=>{if(ready&&Store.ClaimDailyGift(SaveStore.Now)){SoundBank.Play("coin");Feel.Success();}ClosePopup();},"green",70);}
         Image profileAvatar;
-        void Profile(){var panel=Popup(Zh.Profile,900,1100);profileAvatar=Skin.Art("shell_src_ui_avatars_avatar_"+Store.Data.avatar,panel,new Vector2(.5f,.5f),new Vector2(0,200),Vector2.one*260);Skin.Text(Zh.ProfileBody(Store.Data.level,Store.Data.wins),panel,new Vector2(.5f,.5f),new Vector2(0,-60),new Vector2(750,290),49);Skin.Button(Zh.ChangeAvatar,panel,new Vector2(.5f,0),new Vector2(0,160),new Vector2(680,170),()=>{ClosePopup();AvatarPicker();},"blue",50);}
+        void Profile(){var panel=Popup(Zh.Profile,900,1100);profileAvatar=Skin.Art("shell_src_ui_avatars_avatar_"+Store.Data.avatar,panel,new Vector2(.5f,.5f),new Vector2(0,200),Vector2.one*260);MenuUI.Label(Zh.ProfileBody(Store.Data.level,Store.Data.wins),panel,new Vector2(.5f,.5f),new Vector2(0,-60),new Vector2(750,290),48,MenuUI.Ink,TextAnchor.MiddleCenter);Skin.Button(Zh.ChangeAvatar,panel,new Vector2(.5f,0),new Vector2(0,160),new Vector2(680,170),()=>{ClosePopup();AvatarPicker();},"blue",50);}
         void AvatarPicker()
         {
             var panel=Popup(Zh.ChangeAvatar,900,900);

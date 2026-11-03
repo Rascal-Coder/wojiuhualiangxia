@@ -44,7 +44,7 @@ namespace Inkomino
             img.raycastTarget=true;
             if(!parent.GetComponent<CanvasGroup>())parent.gameObject.AddComponent<CanvasGroup>();
             var b=parent.gameObject.AddComponent<SourceOpacityButton>();b.targetGraphic=img;b.transition=Selectable.Transition.None;b.ActiveOpacity=activeOpacity;
-            b.onClick.AddListener(()=>{action?.Invoke();});return b;
+            b.onClick.AddListener(()=>{action?.Invoke();});MenuMotion.Press(b);return b;
         }
         struct FrameSpec{
             public string frame,fill;public float aspect,top,bottom,side,fillAspect;

@@ -84,8 +84,8 @@ namespace Inkomino
             for(int i=0;i<2;i++)
             {
                 bool selected=friends?i==1:i==0;var tab=Skin.Rect(i==0?"Achievements tab":"Friends tab",r,new Vector2(.5f,.5f),new Vector2(i==0?-236:236,0),new Vector2(466,140));
-                if(selected)Skin.RoundBox(tab,new Vector2(.5f,.5f),Vector2.zero,tab.sizeDelta,InkTheme.Jade,38);
-                Label(i==0?"我的成就":"好友排行",tab,new Vector2(.5f,.5f),Vector2.zero,new Vector2(430,116),52,selected?Color.white:Muted,TextAnchor.MiddleCenter,true);
+                if(selected)Skin.RoundBox(tab,new Vector2(.5f,.5f),Vector2.zero,tab.sizeDelta,new Color32(255,226,236,255),38);
+                Label(i==0?"我的成就":"好友排行",tab,new Vector2(.5f,.5f),Vector2.zero,new Vector2(430,116),52,selected?InkTheme.Cinnabar:Muted,TextAnchor.MiddleCenter,true);
                 Skin.Hit(tab,i==0?achievements:ranking,.8f);
             }
         }

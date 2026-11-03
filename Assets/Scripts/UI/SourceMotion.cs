@@ -30,12 +30,61 @@ namespace Inkomino
         }
         public static IEnumerator Tween(float duration,Action<float> apply,Func<float,float> ease=null){float begin=SourceClock.Now;apply(0);while(SourceClock.Now-begin<duration){float t=Mathf.Clamp01((SourceClock.Now-begin)/duration);apply(ease==null?t:ease(t));yield return null;}apply(1);}
         public static SourcePopupMotion Popup(RectTransform panel){return panel.gameObject.AddComponent<SourcePopupMotion>();}
+        static readonly System.Collections.Generic.List<RectTransform> dismissing=new System.Collections.Generic.List<RectTransform>();
+        public static bool HasDismissing { get { return dismissing.Count>0; } }
+        public static void Dismiss(RectTransform overlay)
+        {
+            if(!overlay)return;
+            if(!dismissing.Contains(overlay))dismissing.Add(overlay);
+            var motion=overlay.GetComponent<SourcePopupDismiss>();
+            if(!motion)motion=overlay.gameObject.AddComponent<SourcePopupDismiss>();
+            motion.Play();
+        }
+        public static void CancelDismissals()
+        {
+            for(int i=dismissing.Count-1;i>=0;i--)if(dismissing[i])UnityEngine.Object.Destroy(dismissing[i].gameObject);
+            dismissing.Clear();
+        }
+        internal static void ForgetDismiss(RectTransform overlay)
+        {
+            if(overlay)dismissing.Remove(overlay);
+        }
     }
     public class SourcePopupMotion:MonoBehaviour
     {
         CanvasGroup group;float begin;public float Progress { get{return Mathf.Clamp01((SourceClock.Now-begin)/.2f);} }
-        void Awake(){group=gameObject.AddComponent<CanvasGroup>();begin=SourceClock.Now;if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}group.alpha=0;transform.localScale=Vector3.one*.7f;}
-        void Update(){if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}float t=Mathf.Max(0,SourceClock.Now-begin);group.alpha=SourceMotion.DefaultTiming(t/.2f);transform.localScale=Vector3.one*(t>1?1:SourceMotion.Spring(t,.7f,1));if(t>1)enabled=false;}
+        void Awake(){group=gameObject.AddComponent<CanvasGroup>();begin=SourceClock.Now;if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}group.alpha=0;transform.localScale=Vector3.one*.82f;}
+        void Update(){if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}float t=Mathf.Max(0,SourceClock.Now-begin);group.alpha=SourceMotion.DefaultTiming(t/.18f);transform.localScale=Vector3.one*(t>.9f?1:SourceMotion.Spring(t,.82f,1,80,10));if(t>.9f)enabled=false;}
+    }
+    [UnityEngine.Scripting.Preserve]
+    public sealed class SourcePopupDismiss:MonoBehaviour
+    {
+        CanvasGroup group;Transform motion;float begin;bool playing;
+        public const float Duration=.16f;
+        public void Play()
+        {
+            group=GetComponent<CanvasGroup>();if(!group)group=gameObject.AddComponent<CanvasGroup>();
+            group.blocksRaycasts=false;group.interactable=false;
+            motion=transform.Find("Source popup motion");
+            begin=SourceClock.Now;playing=true;enabled=true;
+            if(MenuMotion.Reduced){Finish();return;}
+        }
+        void Update()
+        {
+            if(!playing)return;
+            if(MenuMotion.Reduced){Finish();return;}
+            float u=Mathf.Clamp01((SourceClock.Now-begin)/Duration);
+            float t=SourceMotion.DefaultTiming(u);
+            if(group)group.alpha=1-t;
+            if(motion)motion.localScale=Vector3.one*Mathf.Lerp(1,.88f,t);
+            if(u>=1)Finish();
+        }
+        void Finish()
+        {
+            playing=false;SourceMotion.ForgetDismiss(transform as RectTransform);
+            if(gameObject)Destroy(gameObject);
+        }
+        void OnDisable(){if(playing){playing=false;SourceMotion.ForgetDismiss(transform as RectTransform);}}
     }
     public static class FidelityCapture
     {

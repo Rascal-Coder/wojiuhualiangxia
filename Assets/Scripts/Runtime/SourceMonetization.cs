@@ -50,6 +50,6 @@ namespace Inkomino
         {
             RequestReward(RewardPlacement.Life,()=>{Store.Data.hearts=Mathf.Min(5,Store.Data.hearts+AdPlacements.Slot(RewardPlacement.Life).amount);if(panel&&panel.gameObject.activeInHierarchy){ClosePopup();CoreLivesPopup();}});
         }
-        void RewardCoinSupply(){RequestReward(RewardPlacement.CoinSupply,()=>{Store.Data.coins+=AdPlacements.Slot(RewardPlacement.CoinSupply).amount;SoundBank.Play("coin");});}
+        void RewardCoinSupply(){RequestReward(RewardPlacement.CoinSupply,()=>{Store.Data.coins+=AdPlacements.Slot(RewardPlacement.CoinSupply).amount;SoundBank.Play("coin");Feel.Success();});}
     }
 }

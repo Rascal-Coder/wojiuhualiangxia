@@ -60,9 +60,9 @@ namespace Inkomino
                 if(ClimbActivity.AtTop(current))
                 {
                     if(current.claimed){ShowHome();return;}
-                    int amount=ClimbActivity.Claim(Store,now);if(amount>0){SoundBank.Play("climb_win");ShowClimb();Info("集章奖励","已领取 "+amount+" 金币！");}return;
+                    int amount=ClimbActivity.Claim(Store,now);if(amount>0){SoundBank.Play("climb_win");Feel.Celebrate();ShowClimb();Info("集章奖励","已领取 "+amount+" 金币！");}return;
                 }
-                if(!current.joined||current.isOut){if(ClimbActivity.Join(Store,now)){SoundBank.Play("climb_join");ShowClimb();}return;}
+                if(!current.joined||current.isOut){if(ClimbActivity.Join(Store,now)){SoundBank.Play("climb_join");Feel.Success();ShowClimb();}return;}
                 PlayCurrent();
             },64);
             var actionArt=action.transform.Find("Button artwork").GetComponent<CanvasGroup>();

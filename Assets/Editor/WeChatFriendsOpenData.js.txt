@@ -1,7 +1,7 @@
 /* Friend data stays in this open-data context. No demo or generated scores. */
 'use strict';
 const KEY = 'inkomino_completed_v1';
-const VERSION = 'friends-20261026-r9';
+const VERSION = 'friends-20261103-r10';
 const canvas = wx.getSharedCanvas(), ctx = canvas.getContext('2d');
 const PAGE_SIZE = 5, CACHE_TTL = 30000, REFRESH_COOLDOWN = 1500;
 let visible = false, requestedFriends = false, rows = [], page = 0, state = 'idle';
@@ -199,9 +199,11 @@ function draw() {
       box(15*u,y+4*u,w-30*u,rowHeight,23*u,'#ebddf5');box(15*u,y,w-30*u,rowHeight,23*u,tint,C.edge,2*u);
       const size=Math.min(82*u,rowHeight-18*u),ax=119*u,ay=cy-size/2;
       if(state==='loading'){
-        const alpha=.28+(.5+.5*Math.sin(Date.now()/400))*.13,fill='rgba(174,150,207,'+alpha+')';
-        circle(66*u,cy,21*u,fill);box(ax,ay,size,size,22*u,fill);
-        box(220*u,cy-12*u,(i%2?245:310)*u,24*u,12*u,fill);box(w-205*u,cy-16*u,155*u,32*u,16*u,fill);
+        const alpha=.30+(.5+.5*Math.sin(Date.now()/420+i))*.16,fill='rgba(174,150,207,'+alpha+')';
+        circle(66*u,cy,22*u,fill);
+        box(ax,ay,size,size,size*.28,fill);
+        box(220*u,cy-14*u,(i%2?236:304)*u,28*u,14*u,fill);
+        box(w-213*u,cy-32*u,177*u,64*u,25*u,fill);
       }else{
         const item=pageRows[i];medal(rank,66*u,cy,u,rowHeight);avatar(item,ax,ay,size);
         text(shortName(item.name,w-465*u,46*u),220*u,cy,46*u,C.ink,'left');
