@@ -186,6 +186,7 @@ namespace Inkomino
     {
         Button button;
         RectTransform visual;
+        RoundedGraphic highlight;
         Vector3 originalScale=Vector3.one;
         int pointerId=int.MinValue;
         float from=1,to=1,current=1,elapsed,duration;Vector2 originalVisualPosition;
@@ -207,7 +208,7 @@ namespace Inkomino
             if(visual)return true;if(attempted||!button)return false;attempted=true;
             var root=button.transform as RectTransform;if(!root)return false;
             var existing=root.Find("Menu press visuals") as RectTransform;
-            if(existing){visual=existing;originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;return true;}
+            if(existing){visual=existing;originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;BindHighlight();return true;}
             var graphic=root.GetComponent<Graphic>();
             // Never scale the hit rectangle as a fallback. Root graphics or a
             // layout controller cannot safely be relocated by this helper.
@@ -221,7 +222,8 @@ namespace Inkomino
             // Equal-sized stretch root preserves the children's anchors, clips,
             // SourceOpacityButton artwork groups, and existing sibling ordering.
             for(int i=0;i<childCount;i++)root.GetChild(0).SetParent(visual,false);
-            originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;return true;
+            originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;
+            BindHighlight();return true;
         }
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -230,7 +232,7 @@ namespace Inkomino
             Feel.Tap();
             if(MenuMotion.Reduced){Restore();return;}
             if(!EnsureVisual())return;
-            pointerId=eventData.pointerId;IsPressed=true;Tween(.94f,.07f);
+            pointerId=eventData.pointerId;IsPressed=true;Tween(.86f,.06f);
         }
         public void OnPointerUp(PointerEventData eventData)
         {
@@ -268,11 +270,30 @@ namespace Inkomino
             current=Mathf.Lerp(from,to,t);Apply();
             if(elapsed>=duration){current=to;Apply();Completed=true;Playback(false);}
         }
-        void Apply(){if(visual){visual.localScale=originalScale*current;visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*260;}}
+        void BindHighlight()
+        {
+            if(!visual||highlight)return;
+            var existing=visual.Find("Press highlight") as RectTransform;
+            if(existing){highlight=existing.GetComponent<RoundedGraphic>();return;}
+            var cover=Skin.Fill("Press highlight",visual);
+            highlight=cover.gameObject.AddComponent<RoundedGraphic>();
+            highlight.color=new Color32(255,255,255,0);highlight.Radius=36;highlight.raycastTarget=false;
+            cover.SetAsLastSibling();
+        }
+        void Apply()
+        {
+            if(visual){visual.localScale=originalScale*new Vector3(current,current*(2f-current),1);visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*320;}
+            if(highlight)
+            {
+                float flash=current>=.995f?0:Mathf.Lerp(.24f,0,Mathf.InverseLerp(.86f,1,current));
+                var c=highlight.color;c.a=flash;highlight.color=c;
+            }
+        }
         void Restore()
         {
             pointerId=int.MinValue;IsPressed=false;current=from=to=1;
             if(visual){visual.localScale=originalScale;visual.anchoredPosition=originalVisualPosition;}
+            if(highlight){var c=highlight.color;c.a=0;highlight.color=c;}
             Completed=true;Playback(false);
         }
         void OnApplicationFocus(bool focused){if(!focused)Restore();}

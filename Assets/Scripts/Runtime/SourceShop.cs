@@ -85,10 +85,8 @@ namespace Inkomino
             for(int i=0;i<stamps.Length;i++)
             {
                 var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*78,0),Vector2.one*88);
-                Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(2,-5),slot.sizeDelta,new Color32(145,110,196,55),44);
-                Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,new Color32(214,72,118,40),44);
-                Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta-Vector2.one*6,MenuUI.Cream,41);
-                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*64);if(stamps[i]){stamps[i].name="Purchase stamp "+i;stamps[i].rectTransform.localRotation=Quaternion.Euler(0,0,i==1?0:i==0?-9:9);}
+                MenuUI.Extrude(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,MenuUI.Cream,MenuUI.CoralChip,44);
+                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*64);if(stamps[i])stamps[i].name="Purchase stamp "+i;
             }
             var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(-151,0),new Vector2(110,100),52,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
             int quantity=1;Button minus=null,plus=null,buy=null;

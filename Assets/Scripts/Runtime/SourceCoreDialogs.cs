@@ -82,7 +82,7 @@ namespace Inkomino
             MenuUI.Label("再给灵感一点时间",offer,Vector2.one*.5f,new Vector2(120,-58),new Vector2(405,64),42,MenuUI.Muted,TextAnchor.MiddleCenter);
             var description=MenuUI.Label("继续完成这一张拼图",panel,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(width-100,70),48,MenuUI.Ink,TextAnchor.MiddleCenter);
             var wallet=Skin.Rect("Continuation wallet",panel,new Vector2(.5f,1),new Vector2(0,-645),new Vector2(500,84));
-            Skin.RoundBox(wallet,Vector2.one*.5f,Vector2.zero,wallet.sizeDelta,new Color32(255,243,209,255),42);
+            MenuUI.Extrude(wallet,Vector2.one*.5f,Vector2.zero,wallet.sizeDelta,MenuUI.Lemon,new Color32(232,176,72,200),42);
             Skin.Art("shell_src_ui_coin",wallet,Vector2.one*.5f,new Vector2(-135,0),Vector2.one*66);
             MenuUI.Label("现有金币 "+Store.Data.coins,wallet,Vector2.one*.5f,new Vector2(35,0),new Vector2(340,70),42,MenuUI.Ink,TextAnchor.MiddleCenter);
             var loss=Skin.Rect("Loss warning phase",panel,new Vector2(.5f,1),new Vector2(0,-347),new Vector2(width-100,310));

@@ -56,8 +56,7 @@ namespace Inkomino
                 card.Root=Skin.Rect("Target "+id,generated,new Vector2(0,1),Vector2.zero,new Vector2(WidthDp,HeightDp)*d);
                 card.Root.pivot=new Vector2(0,1);card.Group=card.Root.gameObject.AddComponent<CanvasGroup>();
                 card.Group.interactable=false;card.Group.blocksRaycasts=false;
-                MenuUI.Paper(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta);
-                Skin.RoundBox(card.Root,new Vector2(0,1),new Vector2(8,-8),new Vector2(10,28)*d,MenuUI.CoralChip,5*d);
+                MenuUI.Extrude(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta,Color.white,new Color32(145,110,196,70),18*d);
                 ShapeData shape;
                 if(board.Library.Shapes.TryGetValue(id,out shape)&&shape.cells!=null&&shape.cells.Length>0)
                 {
@@ -68,13 +67,14 @@ namespace Inkomino
                     var glyph=Skin.Rect("ShapeGlyph "+id,card.Root,new Vector2(.5f,1),new Vector2(0,-32*d),new Vector2(gw,gh));
                     foreach(var c in shape.cells){var tile=Skin.Rect("Preview sticker cell",glyph,new Vector2(0,1),new Vector2((c.c-minC)*step+cell/2,-(c.r-minR)*step-cell/2),Vector2.one*cell);var face=tile.gameObject.AddComponent<StickerPreviewTile>();face.color=new Color32(176,137,238,255);face.Variant=cards.Count%3;face.raycastTarget=false;}
                 }
-                Skin.RoundBox(card.Root,new Vector2(.5f,1),new Vector2(0,-72*d),new Vector2(54,22)*d,MenuUI.CoralChip,11*d);
-                card.CountRoot=Skin.Rect("CountSlot",card.Root,new Vector2(.5f,1),new Vector2(0,-71*d),new Vector2(64,22)*d);
+                card.CountRoot=Skin.Rect("CountSlot",card.Root,new Vector2(1,1),new Vector2(-6*d,10*d),new Vector2(38,22)*d);
+                Skin.RoundBox(card.CountRoot,Vector2.one*.5f,new Vector2(0,-3),card.CountRoot.sizeDelta,MenuUI.CoralDepth,11*d);
+                Skin.RoundBox(card.CountRoot,Vector2.one*.5f,Vector2.zero,card.CountRoot.sizeDelta,MenuUI.CoralChip,11*d);
                 var tr=Skin.Rect("Remaining count",card.CountRoot,new Vector2(.5f,.5f),Vector2.zero,new Vector2(64,22)*d);
                 var text=tr.gameObject.AddComponent<Text>();text.font=MenuUI.BodyFont;text.fontSize=42;
                 text.color=Orange;text.alignment=TextAnchor.MiddleCenter;text.horizontalOverflow=HorizontalWrapMode.Overflow;
                 text.verticalOverflow=VerticalWrapMode.Overflow;text.supportRichText=false;text.raycastTarget=false;card.Label=text;
-                card.TickRoot=Skin.Rect("Completed CountSlot",card.Root,new Vector2(.5f,1),new Vector2(0,-71*d),Vector2.one*(19*d));
+                card.TickRoot=Skin.Rect("Completed CountSlot",card.Root,new Vector2(1,1),new Vector2(-6*d,10*d),Vector2.one*(19*d));
                 Skin.RoundBox(card.TickRoot,new Vector2(.5f,.5f),Vector2.zero,card.TickRoot.sizeDelta,Green,9.5f*d);
                 var check=Skin.Fill("White check M5.4 10.4 L8.6 13.5 L14.8 6.8",card.TickRoot).gameObject.AddComponent<SourceTargetCheck>();check.color=Color.white;check.raycastTarget=false;
                 card.Remaining=Remaining(card);card.AlphaFrom=card.AlphaTo=card.Remaining==0?.45f:1;
