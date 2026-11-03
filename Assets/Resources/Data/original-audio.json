@@ -105,7 +105,7 @@
     {
       "key": "shell:fail",
       "resource": "Audio/shell_src_ui_sounds_fail",
-      "volume": 1.0,
+      "volume": 0.78,
       "music": false
     },
     {
@@ -255,7 +255,7 @@
     {
       "key": "deny",
       "resource": "Audio/shell_src_ui_sounds_pm_deny",
-      "volume": 0.6,
+      "volume": 0.4,
       "music": false
     },
     {
@@ -327,7 +327,7 @@
     {
       "key": "invalid_drop",
       "resource": "Audio/shell_src_ui_sounds_pm_invalid_drop",
-      "volume": 0.7,
+      "volume": 0.45,
       "music": false
     },
     {
@@ -345,7 +345,7 @@
     {
       "key": "level_fail",
       "resource": "Audio/shell_src_ui_sounds_pm_level_fail",
-      "volume": 0.8,
+      "volume": 0.75,
       "music": false
     },
     {
@@ -357,7 +357,7 @@
     {
       "key": "level_win",
       "resource": "Audio/shell_src_ui_sounds_pm_level_win",
-      "volume": 1.0,
+      "volume": 0.85,
       "music": false
     },
     {
@@ -375,13 +375,13 @@
     {
       "key": "lightning_zap",
       "resource": "Audio/shell_src_ui_sounds_pm_lightning_zap",
-      "volume": 0.9,
+      "volume": 0.6,
       "music": false
     },
     {
       "key": "pipe_place",
       "resource": "Audio/shell_src_ui_sounds_pm_pipe_place",
-      "volume": 0.9,
+      "volume": 0.75,
       "music": false
     },
     {
@@ -459,7 +459,7 @@
     {
       "key": "ui_tap",
       "resource": "Audio/shell_src_ui_sounds_pm_ui_tap",
-      "volume": 0.5,
+      "volume": 0.42,
       "music": false
     },
     {
@@ -489,7 +489,7 @@
     {
       "key": "shell:win",
       "resource": "Audio/shell_src_ui_sounds_win",
-      "volume": 1.0,
+      "volume": 0.85,
       "music": false
     },
     {

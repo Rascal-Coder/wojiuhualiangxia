@@ -1,14 +1,15 @@
 {
   "rewardMinProgressLevel": 3,
   "dayResetUtcOffsetMinutes": 480,
+  "toolDailyCap": 9,
   "rewarded": [
     {"placement":"ContinueLevel","adUnitId":"","enabled":true,"amount":60,"dailyLimit":3,"cooldownSeconds":45},
     {"placement":"Life","adUnitId":"","enabled":true,"amount":1,"dailyLimit":5,"cooldownSeconds":60},
     {"placement":"Pen","adUnitId":"","enabled":true,"amount":1,"dailyLimit":5,"cooldownSeconds":45},
     {"placement":"Freeze","adUnitId":"","enabled":true,"amount":1,"dailyLimit":5,"cooldownSeconds":45},
     {"placement":"Lens","adUnitId":"","enabled":true,"amount":1,"dailyLimit":5,"cooldownSeconds":45},
-    {"placement":"DoubleCoins","adUnitId":"","enabled":true,"amount":2,"dailyLimit":10,"cooldownSeconds":30},
-    {"placement":"CoinSupply","adUnitId":"","enabled":true,"amount":50,"dailyLimit":3,"cooldownSeconds":60}
+    {"placement":"DoubleCoins","adUnitId":"","enabled":true,"amount":2,"dailyLimit":6,"cooldownSeconds":60},
+    {"placement":"CoinSupply","adUnitId":"","enabled":true,"amount":50,"dailyLimit":6,"cooldownSeconds":60}
   ],
   "interstitial":{"enabled":false,"adUnitId":"","minLevel":6,"everyWins":3,"cooldownSeconds":180,"dailyLimit":6,"rewardQuietSeconds":120}
 }

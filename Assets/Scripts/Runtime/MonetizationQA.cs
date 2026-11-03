@@ -67,10 +67,13 @@ namespace Inkomino
         void CheckPolicy()
         {
             var store=new SaveStore(Path.Combine(dir,"policy-profile.json"));store.Data=new PlayerProfile{level=23,wins=12};long now=1000000000;string reason;
-            for(int i=0;i<3;i++){CheckIt(AdPlacements.CanReward(store,RewardPlacement.CoinSupply,now+i*61,out reason),"金币补给额度内可请求 "+i);AdPlacements.Record(store,"CoinSupply",now+i*61);}
-            CheckIt(!AdPlacements.CanReward(store,RewardPlacement.CoinSupply,now+1000,out reason)&&reason==Zh.AdDailyLimit,"每日三次金币补给达到上限");
+            for(int i=0;i<6;i++){CheckIt(AdPlacements.CanReward(store,RewardPlacement.CoinSupply,now+i*61,out reason),"金币补给额度内可请求 "+i);AdPlacements.Record(store,"CoinSupply",now+i*61);}
+            CheckIt(!AdPlacements.CanReward(store,RewardPlacement.CoinSupply,now+1000,out reason)&&reason==Zh.AdDailyLimit,"每日六次金币补给达到上限");
             CheckIt(AdPlacements.CanReward(store,RewardPlacement.CoinSupply,now+86400,out reason),"跨日恢复额度");
-            CheckIt(new SaveStore(store.Path).Data.adUsage.Single(x=>x.placement=="CoinSupply").count==3,"广告次数和时间持久化");
+            CheckIt(new SaveStore(store.Path).Data.adUsage.Single(x=>x.placement=="CoinSupply").count==6,"广告次数和时间持久化");
+            var tools=new SaveStore(Path.Combine(dir,"policy-tools.json"));tools.Data=new PlayerProfile{level=23,wins=12};long toolNow=1000000000;
+            for(int i=0;i<9;i++){var slot=i%3==0?RewardPlacement.Pen:i%3==1?RewardPlacement.Freeze:RewardPlacement.Lens;CheckIt(AdPlacements.CanReward(tools,slot,toolNow+i*61,out reason),"道具补给共享额度内可请求 "+i);AdPlacements.Record(tools,slot.ToString(),toolNow+i*61);}
+            CheckIt(!AdPlacements.CanReward(tools,RewardPlacement.Pen,toolNow+1000,out reason)&&reason==Zh.AdDailyLimit,"画笔冻结放大镜共享每日9次上限");
             bool enabled=AdPlacements.Settings.interstitial.enabled;var fake=new FakeInterstitial();int next=0;
             AdPlacements.Settings.interstitial.enabled=true;AdPlacements.RegisterInterstitial(fake);store.Data.lastRewardAdAt=0;
             AdPlacements.TryLevelEnd(store,23,false,()=>next++);CheckIt(fake.shows==1&&next==1,"插屏只在自然结束点触发且重复关闭回调只前进一次");
