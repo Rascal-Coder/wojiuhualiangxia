@@ -83,7 +83,7 @@ namespace Inkomino
         }
         int Remaining(Card c){return Mathf.Max(0,c.Need-(board.Solved?Mathf.Max(c.Need,board.Pieces.Count(p=>p.shape==c.Id)):board.Pieces.Count(p=>p.shape==c.Id)));}
         void SetCounter(Card c){c.Label.text="×"+c.Remaining;c.CountRoot.gameObject.SetActive(c.Remaining!=0);c.TickRoot.gameObject.SetActive(c.Remaining==0);}
-        void Refresh(){foreach(var c in cards){int value=Remaining(c);if(value==c.Remaining)continue;c.Remaining=value;c.Begin=SourceClock.Now;c.AlphaFrom=c.Group.alpha;c.AlphaTo=value==0?.45f:1;c.Animate=true;SetCounter(c);c.CountRoot.localScale=Vector3.one;c.TickRoot.localScale=Vector3.one*(value==0?0:1);}}
+        void Refresh(){foreach(var c in cards){int value=Remaining(c);if(value==c.Remaining)continue;if(value==0&&c.Remaining>0)Feel.Soft();c.Remaining=value;c.Begin=SourceClock.Now;c.AlphaFrom=c.Group.alpha;c.AlphaTo=value==0?.45f:1;c.Animate=true;SetCounter(c);c.CountRoot.localScale=Vector3.one;c.TickRoot.localScale=Vector3.one*(value==0?0:1);}}
         void Layout()
         {
             if(!holder||!generated)return;float width=holder.rect.width;if(width<=0)width=holder.sizeDelta.x;if(width<=0)width=1016;

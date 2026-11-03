@@ -101,9 +101,10 @@ namespace Inkomino
         internal Rect CellRect(int i){int n=State.Level.n;return new Rect(origin.x+i%n*cellSize,origin.y-(i/n+1)*cellSize,cellSize,cellSize);}
         float CellAge(PieceStyle s,int cell){int index=Mathf.Max(0,Array.IndexOf(s.Order,cell));return SourceClock.Now-(s.CellTimes!=null&&index<s.CellTimes.Length?s.CellTimes[index]:s.Born+.045f*index);}
         internal void Appearance(PieceData p,int cell,out float scale,out float opacity)
-        {scale=1;opacity=1;var s=Style(p);if(s==null||MenuMotion.Reduced)return;float t=CellAge(s,cell);float u=SourceMotion.OutCubic(t/.22f);scale=Mathf.Lerp(.86f,1,u);opacity=SourceMotion.OutQuad(t/.12f);}
+        {scale=1;opacity=1;var s=Style(p);if(s==null||MenuMotion.Reduced)return;float t=CellAge(s,cell);float u=SourceMotion.OutCubic(t/.22f);scale=Mathf.Lerp(.80f,1,u);opacity=SourceMotion.OutQuad(t/.12f);}
         internal void TrailAppearance(int cell,out float scale,out float opacity)
-        {float age=entered.ContainsKey(cell)?SourceClock.Now-entered[cell]:1;float u=MenuMotion.Reduced?1:SourceMotion.OutCubic(age/.22f);scale=Mathf.Lerp(.86f,1,u);opacity=MenuMotion.Reduced?1:SourceMotion.OutQuad(age/.12f);}
+        {float age=entered.ContainsKey(cell)?SourceClock.Now-entered[cell]:1;float u=MenuMotion.Reduced?1:SourceMotion.OutCubic(age/.22f);scale=Mathf.Lerp(.80f,1,u);opacity=MenuMotion.Reduced?1:SourceMotion.OutQuad(age/.12f);}
+        internal float RejectPulse{get{return flashCells==null||SourceClock.Now>=flashUntil?-1:1-(flashUntil-SourceClock.Now)/.320f;}}
         internal float CornerFold(PieceData p,int cell)
         {var s=Style(p);if(s==null||MenuMotion.Reduced)return 0;float t=SourceClock.Now-s.Born-.025f*Mathf.Max(0,Array.IndexOf(s.Order,cell));return cellSize*.36f*(1-SourceMotion.InOutQuad((t-.08f)/.40f));}
         public void Refresh(){if(State==null||meshes.Count==0)return;SyncStyles();Dirty();RefreshLabels();}
@@ -129,10 +130,10 @@ namespace Inkomino
         }
         public bool EndStroke()
         {
-            if(removed!=null&&!moved){removed=null;Trail.Clear();trailStyle=null;SoundBank.Play("card_pick");State.Notify();Refresh();Message?.Invoke(Zh.PieceRemoved);return false;}
+            if(removed!=null&&!moved){removed=null;Trail.Clear();trailStyle=null;SoundBank.Play("card_pick");Feel.Soft();State.Notify();Refresh();Message?.Invoke(Zh.PieceRemoved);return false;}
             string reason="";int[] attempt=Trail.ToArray();bool allowed=StrokeAllowed==null||StrokeAllowed(attempt);bool ok=allowed&&State.TryPlace(attempt,out reason);if(!ok&&removed!=null)State.Pieces.Add(removed);
-            if(!ok&&allowed&&attempt.Length>0){flashCells=new HashSet<int>(attempt);flashUntil=SourceClock.Now+.320f;Animating=true;}
-            removed=null;Trail.Clear();trailStyle=null;Refresh();if(ok){Reveal=null;SoundBank.Play("place");Message?.Invoke("");}else if(reason.Length>0){SoundBank.Play("invalid");Message?.Invoke(reason);}return ok;
+            if(!ok&&allowed&&attempt.Length>0){flashCells=new HashSet<int>(attempt);flashUntil=SourceClock.Now+.320f;Animating=true;Feel.Reject();}
+            removed=null;Trail.Clear();trailStyle=null;Refresh();if(ok){Reveal=null;SoundBank.Play("place");Feel.Success();Message?.Invoke("");}else if(reason.Length>0){SoundBank.Play("invalid");if(flashCells==null)Feel.Reject();Message?.Invoke(reason);}return ok;
         }
         public void SetHintPresentation(int[] cells,float strength,float scan=-1){HintCells=cells;HintStrength=strength;ScanProgress=scan;Dirty();}
         public void NotifyChanged(){Refresh();}
@@ -189,7 +190,7 @@ namespace Inkomino
                         Polygon(vh,new[]{foldA,foldB,tip},Alpha(Co("#FFF6FF"),opacity));Line(vh,foldA,foldB,.8f*dp,Alpha(Color.white,opacity));
                     }
                 }
-                if(Layer==2&&piece==null&&View.BadCell(i))Quad(vh,cell,new Color(214/255f,84/255f,72/255f,.55f));
+                if(Layer==2&&piece==null&&View.BadCell(i))Quad(vh,cell,new Color(255/255f,99/255f,139/255f,.34f));
             }
             if(Layer==0)SourceGridGeometry.Draw(vh,rectTransform,View);
             if(Layer==2)
@@ -241,6 +242,18 @@ namespace Inkomino
         void DrawStickerFeedback(VertexHelper vh)
         {
             float dp=View.PixelDensity;
+            float reject=View.RejectPulse;
+            if(reject>=0)
+            {
+                float pulse=Mathf.Sin(Mathf.Clamp01(reject)*Mathf.PI);
+                Color edge=Alpha(Co("#FF638B"),.55f*pulse),halo=Alpha(Co("#FF638B"),.16f*pulse);
+                for(int i=0;i<View.State.Level.n*View.State.Level.n;i++)if(View.BadCell(i))
+                {
+                    Rect cell=View.CellRect(i);float pad=2.2f*dp;
+                    var path=SourceBoardGeometry.CellPolygon(new Rect(cell.x+pad,cell.y+pad,cell.width-2*pad,cell.height-2*pad),View.CellSize*.12f,true,true,true,true);
+                    Polygon(vh,path,halo);Stroke(vh,path,2.4f*dp,edge);
+                }
+            }
             if(MenuMotion.Reduced)return;
             foreach(var piece in View.State.Pieces)
             {

@@ -226,9 +226,11 @@ namespace Inkomino
         public void OnPointerDown(PointerEventData eventData)
         {
             if(eventData==null||eventData.button!=PointerEventData.InputButton.Left||!Ready()||IsPressed)return;
+            // Sound/haptics stay on even when reduced-motion skips the squash.
+            Feel.Tap();
             if(MenuMotion.Reduced){Restore();return;}
             if(!EnsureVisual())return;
-            pointerId=eventData.pointerId;IsPressed=true;Tween(.97f,.08f);
+            pointerId=eventData.pointerId;IsPressed=true;Tween(.94f,.07f);
         }
         public void OnPointerUp(PointerEventData eventData)
         {
@@ -266,7 +268,7 @@ namespace Inkomino
             current=Mathf.Lerp(from,to,t);Apply();
             if(elapsed>=duration){current=to;Apply();Completed=true;Playback(false);}
         }
-        void Apply(){if(visual){visual.localScale=originalScale*current;visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*200;}}
+        void Apply(){if(visual){visual.localScale=originalScale*current;visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*260;}}
         void Restore()
         {
             pointerId=int.MinValue;IsPressed=false;current=from=to=1;

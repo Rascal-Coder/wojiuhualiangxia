@@ -95,6 +95,7 @@ namespace Inkomino
             Profile(false);app.ShowHome();yield return Pause(.45f);
             result.homeLiveBaseline=MenuMotion.LiveCount;result.homeActiveBaseline=MenuMotion.ActiveCount;
             Check(!MenuMotion.Reduced,"full menu motion is enabled in ordinary profile");
+            Check(app.Content.GetComponentsInChildren<Button>().Where(b=>b.name=="Add"||b.name.StartsWith("Tab ")).All(b=>b.GetComponent<MenuPressFeedback>()),"wallet plus and dock tabs keep press feedback");
             CheckCounterConsistency("initial home");
             yield return TestAchievementCoverage();
 
@@ -306,8 +307,9 @@ namespace Inkomino
             SaveFrame("04-button-press",0,start);
             ExecuteEvents.Execute(button.gameObject,pointer,ExecuteEvents.pointerDownHandler);
             Check(press.IsPressed&&press.CurrentScale<1,"pointer down acknowledges press in the event frame");
+            Check(Feel.LastKind==Feel.Kind.Tap,"pointer down plays the shared tap feel");
             SaveFrame("04-button-press",1,start);yield return Pause(.09f);SaveFrame("04-button-press",2,start);
-            Check(press.CurrentScale<=.975f,"pointer down reaches the intended compressed visual");
+            Check(press.CurrentScale<=.95f,"pointer down reaches the intended compressed visual");
             Check(Vector3.Distance(rect.localScale,hitScale)<.0001f&&Vector2.Distance(rect.anchoredPosition,hitPosition)<.001f,"press preserves the hit rectangle");
             Check(CenterReceives(button),"pressed button keeps the same clickable center");
             ExecuteEvents.Execute(button.gameObject,pointer,ExecuteEvents.pointerUpHandler);

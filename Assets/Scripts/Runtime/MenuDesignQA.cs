@@ -75,7 +75,7 @@ namespace Inkomino
 
                 Profile(9,8);app.ShowHome();yield return Page("01-home",false);CheckNavigation();CheckCapsule();
                 CheckMenuText("01-home",app.Content,true);CheckButtonsAboveNavigation("01-home");
-                Check(Find("Home sticker showcase")!=null&&Find("Home level directory")!=null,"home has a coherent puzzle showcase and level entry "+id);
+                Check(Find("Home sticker showcase")!=null&&Find("Home current level")!=null,"home keeps the journal showcase and current level on Start Game "+id);
                 Profile(9,8);app.ShowShop();yield return Page("02-shop");yield return CheckExchange();
                 Profile(1,0);app.ShowAchievements(false);yield return Page("03-achievements-zero");
                 Profile(251,250);app.Store.Data.bestStreak=17;app.Store.Data.climb.summits=4;
@@ -221,8 +221,12 @@ namespace Inkomino
         IEnumerator CheckExchange()
         {
             var row=Find("Shop row 0");Check(row!=null,"shop has first item row "+id);if(!row)yield break;
-            var button=row.GetComponentsInChildren<Button>().FirstOrDefault(b=>ButtonText(b).Contains("150"));
-            Check(button!=null,"shop exposes 150-coin pen exchange "+id);if(!button)yield break;
+            var button=row.GetComponentsInChildren<Button>().FirstOrDefault(b=>b.name=="Shop exchange hint");
+            var plus=row.GetComponentsInChildren<Button>().FirstOrDefault(b=>b.name=="Shop plus hint");
+            Check(button!=null&&ButtonText(button).Contains("50"),"shop defaults to a 50-coin unit price "+id);if(!button)yield break;
+            Check(plus!=null,"shop pen row has a quantity plus control "+id);
+            if(plus){plus.onClick.Invoke();plus.onClick.Invoke();}
+            Check(ButtonText(button).Contains("150"),"selecting three pens shows the 150-coin total "+id);
             var pointer=new PointerEventData(EventSystem.current){position=ScreenRect((RectTransform)button.transform).center};
             var hits=new List<RaycastResult>();EventSystem.current.RaycastAll(pointer,hits);
             Check(hits.Count>0&&hits[0].gameObject.GetComponentInParent<Button>()==button,"shop exchange center receives pointer "+id);
