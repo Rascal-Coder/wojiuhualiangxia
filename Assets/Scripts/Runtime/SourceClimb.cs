@@ -15,40 +15,45 @@ namespace Inkomino
             bool preview=!state.joined;ClearScreen("game_assets_shopbg");Wallet();int first=Content.childCount;
             var motion=Skin.Fill("Climb motion lifetime",Content).gameObject.AddComponent<ClimbPageMotion>();
             MenuUI.Title("快乐集章",null,Content);
-            ((RectTransform)Skin.IconButton("shell_src_ui_close",Content,new Vector2(1,1),new Vector2(-120,-550),Vector2.one*120,ShowHome).transform).sizeDelta=Vector2.one*150;
-            ((RectTransform)Skin.IconButton("shell_src_ui_climb_infobtn",Content,new Vector2(0,1),new Vector2(120,-550),Vector2.one*120,ClimbInfo).transform).sizeDelta=Vector2.one*150;
+            ((RectTransform)Skin.IconButton("shell_src_ui_close",Content,new Vector2(1,1),new Vector2(-120,-528),Vector2.one*120,ShowHome).transform).sizeDelta=Vector2.one*150;
+            ((RectTransform)Skin.IconButton("shell_src_ui_climb_infobtn",Content,new Vector2(0,1),new Vector2(120,-528),Vector2.one*120,ClimbInfo).transform).sizeDelta=Vector2.one*150;
 
-            var clockCard=Skin.Rect("Climb countdown strip",Content,new Vector2(.5f,1),new Vector2(0,-735),new Vector2(960,90));
+            var clockCard=Skin.Rect("Climb countdown strip",Content,new Vector2(.5f,1),new Vector2(0,-708),new Vector2(920,78));
             clockCard.name="Climb countdown";
+            Skin.RoundBox(clockCard,Vector2.one*.5f,Vector2.zero,clockCard.sizeDelta,MenuUI.LilacWash,39);
             var clock=MenuUI.Label("",clockCard,new Vector2(.5f,.5f),Vector2.zero,new Vector2(850,70),42,MenuUI.Muted,TextAnchor.MiddleCenter);
-            var prize=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-915),new Vector2(960,260),true);prize.name="Climb prize";
-            MenuUI.Label(ClimbActivity.AtTop(state)?"本轮收获":"集齐奖励",prize,new Vector2(0,.5f),new Vector2(310,67),new Vector2(480,70),48,MenuUI.Muted);
-            MenuUI.Label((ClimbActivity.AtTop(state)?ClimbActivity.Prize(state):1000)+" 金币",prize,new Vector2(0,.5f),new Vector2(310,-15),new Vector2(480,96),76,MenuUI.Ink,TextAnchor.MiddleLeft,true);
-            MenuUI.Label("集满 7 枚即可领取",prize,new Vector2(0,.5f),new Vector2(310,-91),new Vector2(480,56),42,MenuUI.Muted);
-            var gift=MenuUI.Art("reward_coins",prize,new Vector2(1,.5f),new Vector2(-142,0),Vector2.one*220);MenuMotion.Float(gift.rectTransform,5,1.2f);
-            var album=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-1505),new Vector2(960,850));album.name=preview?"Climb invitation":"Climb island route";
-            MenuUI.Label("我的快乐集章册",album,new Vector2(0,1),new Vector2(360,-70),new Vector2(600,75),56,MenuUI.Ink,TextAnchor.MiddleLeft,true);
-            MenuUI.Label(state.stage+" / 7",album,new Vector2(1,1),new Vector2(-110,-70),new Vector2(170,75),48,MenuUI.Muted,TextAnchor.MiddleRight);
+            var prize=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-888),new Vector2(960,248),true);prize.name="Climb prize";
+            MenuUI.Plate(prize,new Vector2(1,.5f),new Vector2(-138,0),Vector2.one*196,MenuUI.Lemon,52);
+            MenuUI.Label(ClimbActivity.AtTop(state)?"本轮收获":"集齐奖励",prize,new Vector2(0,.5f),new Vector2(318,64),new Vector2(500,66),48,MenuUI.Muted);
+            MenuUI.Label((ClimbActivity.AtTop(state)?ClimbActivity.Prize(state):1000)+" 金币",prize,new Vector2(0,.5f),new Vector2(318,-16),new Vector2(500,96),78,MenuUI.Ink,TextAnchor.MiddleLeft,true);
+            MenuUI.Label("集满 7 枚即可领取",prize,new Vector2(0,.5f),new Vector2(318,-88),new Vector2(500,54),42,MenuUI.Muted);
+            var gift=MenuUI.Art("reward_coins",prize,new Vector2(1,.5f),new Vector2(-138,0),Vector2.one*176);MenuMotion.Float(gift.rectTransform,5,1.2f);
+            var album=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-1490),new Vector2(960,880));album.name=preview?"Climb invitation":"Climb island route";
+            Skin.RoundBox(album,new Vector2(.5f,1),new Vector2(0,-78),new Vector2(900,92),MenuUI.Blush,32);
+            MenuUI.Label("我的快乐集章册",album,new Vector2(0,1),new Vector2(360,-78),new Vector2(600,75),56,MenuUI.Ink,TextAnchor.MiddleLeft,true);
+            MenuUI.Label(state.stage+" / 7",album,new Vector2(1,1),new Vector2(-110,-78),new Vector2(170,75),48,MenuUI.Grape,TextAnchor.MiddleRight);
             Color32[] fills={new Color32(255,224,236,255),new Color32(224,247,237,255),new Color32(255,240,180,255),new Color32(235,221,255,255),new Color32(220,239,255,255),new Color32(255,226,205,255)};
             string[] names={"好心情","小确幸","有灵感","超顺手","会发光","真厉害"};
             string[] icons=StickerDesign.Stamps;
             for(int i=0;i<6;i++)
             {
                 bool passed=i<state.stage,current=!preview&&i==state.stage;
-                var cell=Skin.Rect("Stamp stage "+(i+1),album,new Vector2(.5f,1),new Vector2((i%3-1)*292,-260-i/3*255),new Vector2(258,225));
-                Skin.RoundBox(cell,Vector2.one*.5f,new Vector2(0,-6),cell.sizeDelta,new Color32(225,211,238,255),35);
-                Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,current?InkTheme.Jade:Color.white,35);
-                Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta-Vector2.one*(current?12:6),fills[i],29);
-                var art=MenuUI.Art(icons[i],cell,Vector2.one*.5f,new Vector2(0,26),Vector2.one*130);if(!passed&&!current)art.color=new Color(1,1,1,.35f);
+                var cell=Skin.Rect("Stamp stage "+(i+1),album,new Vector2(.5f,1),new Vector2((i%3-1)*286,-268-i/3*236),new Vector2(268,214));
+                Skin.RoundBox(cell,Vector2.one*.5f,new Vector2(6,-8),cell.sizeDelta,new Color32(145,110,196,55),38);
+                Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,current?MenuUI.Coral:Color.white,38);
+                Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta-Vector2.one*(current?14:8),fills[i],32);
+                var art=MenuUI.Art(icons[i],cell,Vector2.one*.5f,new Vector2(0,22),Vector2.one*124);if(!passed&&!current)art.color=new Color(1,1,1,.35f);
                 if(current){cell.localScale=Vector3.one*1.04f;MenuMotion.Float(art.rectTransform,4,1.1f);MenuMotion.Sparkle(art.rectTransform,2,true);}
-                MenuUI.Label(names[i],cell,Vector2.one*.5f,new Vector2(0,-73),new Vector2(240,65),42,MenuUI.Ink,TextAnchor.MiddleCenter);
-                if(passed){var stamp=Skin.Rect("Climb stage status",cell,new Vector2(1,1),new Vector2(-35,-32),Vector2.one*65);Skin.RoundBox(stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,InkTheme.Jade,32);MenuUI.Label("好",stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,42,Color.white,TextAnchor.MiddleCenter,true);stamp.localRotation=Quaternion.Euler(0,0,-12);}
+                MenuUI.Label(names[i],cell,Vector2.one*.5f,new Vector2(0,-70),new Vector2(240,62),42,MenuUI.Ink,TextAnchor.MiddleCenter);
+                if(passed){var stamp=Skin.Rect("Climb stage status",cell,new Vector2(1,1),new Vector2(-32,-30),Vector2.one*68);Skin.RoundBox(stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,MenuUI.Coral,34);MenuUI.Label("好",stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,42,Color.white,TextAnchor.MiddleCenter,true);stamp.localRotation=Quaternion.Euler(0,0,-12);}
             }
-            var final=Skin.Rect("Stamp final reward",album,new Vector2(.5f,1),new Vector2(0,-725),new Vector2(850,155));
-            Skin.RoundBox(final,Vector2.one*.5f,Vector2.zero,final.sizeDelta,new Color32(255,236,164,255),38);
-            MenuUI.Art(StickerDesign.Stamps[6],final,new Vector2(0,.5f),new Vector2(92,0),Vector2.one*150);
-            MenuUI.Label(state.stage>=7?"快乐集齐，开礼物！":"惊喜派送",final,Vector2.one*.5f,new Vector2(70,24),new Vector2(620,70),52,MenuUI.Ink,TextAnchor.MiddleCenter,true);
-            MenuUI.Label(state.stage>=7?"这份奖励属于你":"第 7 枚印章",final,Vector2.one*.5f,new Vector2(70,-42),new Vector2(620,60),42,MenuUI.Muted,TextAnchor.MiddleCenter);
+            var final=Skin.Rect("Stamp final reward",album,new Vector2(.5f,1),new Vector2(0,-738),new Vector2(880,168));
+            Skin.RoundBox(final,Vector2.one*.5f,new Vector2(0,-6),final.sizeDelta,new Color32(145,110,196,48),42);
+            Skin.RoundBox(final,Vector2.one*.5f,Vector2.zero,final.sizeDelta,Color.white,42);
+            Skin.RoundBox(final,Vector2.one*.5f,Vector2.zero,final.sizeDelta-Vector2.one*10,new Color32(255,236,164,255),36);
+            MenuUI.Art(StickerDesign.Stamps[6],final,new Vector2(0,.5f),new Vector2(96,0),Vector2.one*148);
+            MenuUI.Label(state.stage>=7?"快乐集齐，开礼物！":"惊喜派送",final,Vector2.one*.5f,new Vector2(78,24),new Vector2(620,70),54,MenuUI.Ink,TextAnchor.MiddleCenter,true);
+            MenuUI.Label(state.stage>=7?"这份奖励属于你":"第 7 枚印章",final,Vector2.one*.5f,new Vector2(78,-42),new Vector2(620,58),42,MenuUI.Muted,TextAnchor.MiddleCenter);
             if(state.stage>=6&&!state.isOut)MenuMotion.Sparkle(final,3,true);
             if(ClimbActivity.AtTop(state)&&!state.claimed)MenuMotion.Celebrate(gift.rectTransform);
 

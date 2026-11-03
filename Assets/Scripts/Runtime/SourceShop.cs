@@ -21,21 +21,22 @@ namespace Inkomino
             string[] items={"hint","freeze","lens"};
             string[] titles={Zh.MagicPen,Zh.FreezeTime,Zh.Lens};
             string[] descriptions={"自动完成一块图形","暂停倒计时 10 秒","查看两块图形的提示"};
+            Color32[] plates={MenuUI.Blush,MenuUI.MintWash,MenuUI.LilacWash};
             Vector2 top=new Vector2(0,1);
 
             for(int i=0;i<icons.Length;i++)
             {
                 int index=i;
-                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-(1170+i*370)),new Vector2(960,350));
+                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-(1176+i*372)),new Vector2(960,356));
                 row.name="Shop row "+i;
 
-                Skin.RoundBox(row,top,new Vector2(135,-175),Vector2.one*214,new Color32(244,232,255,255),48);
-                var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(135,-174),Vector2.one*202);
+                MenuUI.Plate(row,top,new Vector2(148,-178),Vector2.one*236,plates[i],56);
+                var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(148,-176),Vector2.one*198);
                 if(tool){MenuMotion.Float(tool.rectTransform,4,1.1f);if(i==0)MenuMotion.Sparkle(tool.rectTransform,3,true);}
-                MenuUI.Label(titles[i],row,top,new Vector2(515,-58),new Vector2(430,72),56,MenuUI.Ink,TextAnchor.MiddleLeft,true);
+                MenuUI.Label(titles[i],row,top,new Vector2(528,-56),new Vector2(450,76),60,MenuUI.Ink,TextAnchor.MiddleLeft,true);
 
-                MenuUI.Label(descriptions[i],row,top,new Vector2(600,-124),new Vector2(600,60),48,MenuUI.Muted);
-                ShopPurchaseControls(row,items[i],top,new Vector2(600,-278),quantity=>
+                MenuUI.Label(descriptions[i],row,top,new Vector2(612,-128),new Vector2(600,58),46,MenuUI.Muted);
+                ShopPurchaseControls(row,items[i],top,new Vector2(612,-280),quantity=>
                 {
                         ShowShop();
                         Info(Zh.PurchaseReady,"已获得 "+quantity+" 个"+titles[index]+"。");
@@ -44,7 +45,7 @@ namespace Inkomino
                 },new Vector2(800,-58));
             }
 
-            var supply=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-855),new Vector2(960,260),true);
+            var supply=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-848),new Vector2(960,268),true);
             supply.name="Shop coin supply";
             if(RewardEntryEnabled(RewardPlacement.CoinSupply))
             {
@@ -83,17 +84,18 @@ namespace Inkomino
             var stamps=new Image[SaveStore.ShopDailyLimit];
             for(int i=0;i<stamps.Length;i++)
             {
-                var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*72,0),Vector2.one*78);
-                Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(0,-3),slot.sizeDelta,new Color32(169,128,239,40),20);
-                Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,new Color32(255,249,238,255),20);
-                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*62);if(stamps[i])stamps[i].name="Purchase stamp "+i;
+                var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*78,0),Vector2.one*88);
+                Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(2,-5),slot.sizeDelta,new Color32(145,110,196,55),44);
+                Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,new Color32(214,72,118,40),44);
+                Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta-Vector2.one*6,MenuUI.Cream,41);
+                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*64);if(stamps[i]){stamps[i].name="Purchase stamp "+i;stamps[i].rectTransform.localRotation=Quaternion.Euler(0,0,i==1?0:i==0?-9:9);}
             }
             var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(-151,0),new Vector2(110,100),52,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
             int quantity=1;Button minus=null,plus=null,buy=null;
             void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++)if(stamps[i])stamps[i].color=i<left?Color.white:new Color(.65f,.60f,.72f,.24f);amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
             minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-275,0),new Vector2(136,126),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},60);minus.name="Shop minus "+item;
             plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(-27,0),new Vector2(136,126),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},60);plus.name="Shop plus "+item;
-            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(195,0),new Vector2(270,126),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;
+            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(204,0),new Vector2(288,132),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},48);buy.name="Shop exchange "+item;
             Refresh();
             group.gameObject.AddComponent<ShopPurchaseRefresh>().Init(Store,Refresh);
         }
