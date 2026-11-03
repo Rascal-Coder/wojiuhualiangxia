@@ -1,0 +1,410 @@
+{
+  "count": 45,
+  "files": [
+    {
+      "name": "shell_src_ui_sounds_pm_ui_tap",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_ui_tap.mp3",
+      "source_clip": "click_wood_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 3141,
+      "sha256": "39da768b1aaad9d427495c4800bed418a9abce95b811c7c5cc45a876fd966637"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_booster_press",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_booster_press.mp3",
+      "source_clip": "click_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 2674,
+      "sha256": "d12905b93638d6e5df6ecd85dc3885f7005a74bbfe35a7f70353c083796a9c00"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_popup_open",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_popup_open.mp3",
+      "source_clip": "open_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 9280,
+      "sha256": "ed64ba2473ac962d64289bf13e6ae402af8f1b6a68b60497d2fcd1f34abc9fde"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_popup_close",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_popup_close.mp3",
+      "source_clip": "close_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 4783,
+      "sha256": "111ec9a719ba37d31cfaf96ab234104ad56c05be38caba4f87eaea71dc981999"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_deny",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_deny.mp3",
+      "source_clip": "error_buzz_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 3063,
+      "sha256": "091ef9ff97c3629b273f14d9d6d20cb33db2a32a8f4813ebad3765535af96cfe"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_invalid_drop",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_invalid_drop.mp3",
+      "source_clip": "error_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 3583,
+      "sha256": "acae729bc356aa6fbc8ac8285f56c06a35045f5f2505dc3b02d22cdf942a7b12"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_level_start",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_level_start.mp3",
+      "source_clip": "notify_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 18742,
+      "sha256": "81b8e8d5ac081d67851d4b31deca567104348d8cb5ad95db33afbad48dec37c3"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_continue_offer",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_continue_offer.mp3",
+      "source_clip": "notify_03",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 9928,
+      "sha256": "ba3661f74ec3399adb3960e211f6d9ed09a6c6ad597e3774fe3d72e1110fa4fd"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_life_gain",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_life_gain.mp3",
+      "source_clip": "confirm_03",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 11644,
+      "sha256": "acca048fe34a3e1b7fe27e257ce7515e5c906a30228049d3aa9d290b3b39e42d"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_life_lose",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_life_lose.mp3",
+      "source_clip": "cancel_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 4208,
+      "sha256": "24746ebda8c343103cce02d7d70152dc46525d1e8906eabe148933b0460d7594"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_purchase",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_purchase.mp3",
+      "source_clip": "confirm_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 5742,
+      "sha256": "d3a8369b05c0b02caf3bedfd88c35df5e738c2829a4da038ea7d201966cd3b14"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_match",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_card_match.mp3",
+      "source_clip": "confirm_pluck_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 5694,
+      "sha256": "dbc461115d36296951a2b2532154678cee95ca7ed6b3c3b4e2774f5c4043ce67"
+    },
+    {
+      "name": "shell_src_ui_sounds_coin",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_coin.mp3",
+      "source_clip": "coin",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 10398,
+      "sha256": "77f50c1864f2732e220094ae05072eaa53179aa539e1693c7690c8703b5e5b4f"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_balloon_pop",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_balloon_pop.mp3",
+      "source_clip": "pop_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 2699,
+      "sha256": "6f5bae618c7c15ab6ad9a4e479768049c46cc0a8accc70fbde9f27ca66e7cac6"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_timer_tick",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_timer_tick.mp3",
+      "source_clip": "hover_tick_01",
+      "license": "Soft UI SFX Free / heyheythere / CC BY 4.0",
+      "url": "https://heyheythere.itch.io/soft-ui-sfx-free",
+      "bytes": 2284,
+      "sha256": "c6ff3d3c722e32953de16cfce6a02ea7fc4e5671e801afbd7bee657abf0ad103"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_pipe_place",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_pipe_place.mp3",
+      "source_clip": "card-place-1",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 6840,
+      "sha256": "e052e63fe5d42e895cbe995465560a136f0b754b5cf498028d76d301afdfa509"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_pick",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_card_pick.mp3",
+      "source_clip": "card-place-2",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 5019,
+      "sha256": "abb8200f2e2f7aefc5a2abf73299102009e0a5e92075f8ab98e1d935edd09ce7"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_deal_1",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_card_deal_1.mp3",
+      "source_clip": "card-slide-1",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 5718,
+      "sha256": "9de112d02dad984ec9307e38d9f604bfce4a48cc6a3f377195af58e179848ce6"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_deal_2",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_card_deal_2.mp3",
+      "source_clip": "card-slide-2",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 6138,
+      "sha256": "88e62feb2a857e406185882647c95bd9e4ffc364976fd35484bf704bf0467683"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_hand_slide",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_hand_slide.mp3",
+      "source_clip": "card-slide-3",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 5953,
+      "sha256": "49e5d8d3aaac993a6309b54467e00fef4c9cae463c49f691319746f3ebf39dcd"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_fourcard_fan",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_fourcard_fan.mp3",
+      "source_clip": "card-fan-1",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 10865,
+      "sha256": "f69c8b9648d96b669b1fce91731f0660d53d9f6e9e64fda7a621099df36054a8"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_shuffle_swirl",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_shuffle_swirl.mp3",
+      "source_clip": "card-shuffle",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 28213,
+      "sha256": "44063dba754a54a36574924c4e848f11d5159f907da3196576d9a65a79ca191f"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_flip_1",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_card_flip_1.mp3",
+      "source_clip": "bookFlip1",
+      "license": "Kenney RPG Audio / CC0",
+      "url": "https://opengameart.org/content/50-rpg-sound-effects",
+      "bytes": 7704,
+      "sha256": "15717837a14a8d19b52c946ad04390c4c55b1f815860bb3ff5aa67f3ed7929a7"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_card_flip_2",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_card_flip_2.mp3",
+      "source_clip": "bookFlip2",
+      "license": "Kenney RPG Audio / CC0",
+      "url": "https://opengameart.org/content/50-rpg-sound-effects",
+      "bytes": 5519,
+      "sha256": "370b6ad2e437b9b3f7765daba2a98d641af11d0993489baf2e656536786aeb66"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_chest_open",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_chest_open.mp3",
+      "source_clip": "bookOpen",
+      "license": "Kenney RPG Audio / CC0",
+      "url": "https://opengameart.org/content/50-rpg-sound-effects",
+      "bytes": 2469,
+      "sha256": "ad6f8d17374945cdbae5fdfede3a6b766eb73ea67be1e183a3947f7ce88acdbc"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_burst",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_coin_burst.mp3",
+      "source_clip": "handleCoins",
+      "license": "Kenney RPG Audio / CC0",
+      "url": "https://opengameart.org/content/50-rpg-sound-effects",
+      "bytes": 9349,
+      "sha256": "368edcd074943866b32e6d5e1dba25a2371522e8060b816bcbd756a1372fbead"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_tick_1",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_coin_tick_1.mp3",
+      "source_clip": "chip-lay-1",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 2625,
+      "sha256": "198b0fbca97facdfadc1e3336202de72b73186b436320d9b908a15198caf4d70"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_tick_2",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_coin_tick_2.mp3",
+      "source_clip": "chip-lay-2",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 3041,
+      "sha256": "e287bc89e0a706c994b033d728f41f94c9c1bae475e85dad7b56d9c451687cc2"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_coin_tick_3",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_coin_tick_3.mp3",
+      "source_clip": "chip-lay-3",
+      "license": "Kenney Casino Audio / CC0",
+      "url": "https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips",
+      "bytes": 3327,
+      "sha256": "0a2bc6c9595cb2a05e03416bc023c259b25418b97a8d8342ee00aefc92630680"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_level_win",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_level_win.mp3",
+      "source_clip": "Cozy Puzzle Clear (Jingle)",
+      "license": "MintoDog / Cozy Puzzle Jingle & Result / CC0",
+      "url": "https://opengameart.org/content/cozy-puzzle-jingle-result",
+      "bytes": 88893,
+      "sha256": "156f73b5fc1f3a74199bedc00f52e74f041dff8fe541ed287acd1163d9662642"
+    },
+    {
+      "name": "shell_src_ui_sounds_win",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_win.mp3",
+      "source_clip": "Cozy Puzzle Clear (Jingle)",
+      "license": "MintoDog / Cozy Puzzle Jingle & Result / CC0",
+      "url": "https://opengameart.org/content/cozy-puzzle-jingle-result",
+      "bytes": 88893,
+      "sha256": "156f73b5fc1f3a74199bedc00f52e74f041dff8fe541ed287acd1163d9662642"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_level_fail",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_level_fail.mp3",
+      "source_clip": "Cozy Puzzle Failure (Jingle)",
+      "license": "MintoDog / Cozy Puzzle Jingle & Result / CC0",
+      "url": "https://opengameart.org/content/cozy-puzzle-jingle-result",
+      "bytes": 77488,
+      "sha256": "2680231a457a03c9123f509df2874d012309281120e24cb932f3d8c8553bcc88"
+    },
+    {
+      "name": "shell_src_ui_sounds_fail",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_fail.mp3",
+      "source_clip": "Cozy Puzzle Failure (Jingle)",
+      "license": "MintoDog / Cozy Puzzle Jingle & Result / CC0",
+      "url": "https://opengameart.org/content/cozy-puzzle-jingle-result",
+      "bytes": 77488,
+      "sha256": "2680231a457a03c9123f509df2874d012309281120e24cb932f3d8c8553bcc88"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_hint_sparkle",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_hint_sparkle.mp3",
+      "source_clip": "3083 Magic sparkle touch",
+      "license": "Mixkit / Magic sparkle touch / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 20739,
+      "sha256": "a00c03105e2b5ea8aec6282f17bb3f1fc74e04791d8ff329f010c84042cb8dec"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_claim_sparkle",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_claim_sparkle.mp3",
+      "source_clip": "871 Fairy magic sparkle",
+      "license": "Mixkit / Fairy magic sparkle / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 11191,
+      "sha256": "8e76e16762fd3092800bb2941b04e193ccb06bf76b3a87548e6c6b0a3dc20fe5"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_compass_reveal",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_compass_reveal.mp3",
+      "source_clip": "867 Fairy glitter",
+      "license": "Mixkit / Fairy glitter / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 25349,
+      "sha256": "1cfaa7dc65aa416134c9464e523a366a5d1a01ebddadf77bba5bcb06b35c2f61"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_freeze_cast",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_freeze_cast.mp3",
+      "source_clip": "873 Light spell",
+      "license": "Mixkit / Light spell / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 17718,
+      "sha256": "a92f2c27139bf83b7dce9e688d30b419fb9bf58b60df6359f2c9e13885a38e20"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_freeze_end",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_freeze_end.mp3",
+      "source_clip": "2628 Relaxing harp sweep",
+      "license": "Mixkit / Relaxing harp sweep / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 37463,
+      "sha256": "5b92ac1b80b63b6da7616ef341f6f9f67fb1cc65313bd599c3455a6c3543e5db"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_joker_cast",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_joker_cast.mp3",
+      "source_clip": "870 Sparkling fairy glow",
+      "license": "Mixkit / Sparkling fairy glow / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 45471,
+      "sha256": "1a302cb55b4caf33171f38170047020bcbdbabd48afb2820a7faf6022fddb061"
+    },
+    {
+      "name": "shell_src_ui_sounds_joker",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_joker.mp3",
+      "source_clip": "2352 Magic glitter or particles",
+      "license": "Mixkit / Magic glitter or particles / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 48097,
+      "sha256": "92358ec0665627a5c50722eba14fed7a9fdce0e0a794b08ab9e4cbc30360d690"
+    },
+    {
+      "name": "shell_src_ui_sounds_pm_lightning_zap",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_pm_lightning_zap.mp3",
+      "source_clip": "869 Fairy sparkle whoosh",
+      "license": "Mixkit / Fairy sparkle whoosh / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 34073,
+      "sha256": "e36924f4defc162b8b580e2485a505a13e6071a6cf8a63026018c68bcff00066"
+    },
+    {
+      "name": "shell_src_ui_sounds_zap",
+      "file": "Assets/Resources/Audio/shell_src_ui_sounds_zap.mp3",
+      "source_clip": "2350 Magic sparkle whoosh",
+      "license": "Mixkit / Magic sparkle whoosh / Mixkit License (free commercial)",
+      "url": "https://mixkit.co/free-sound-effects/magic/",
+      "bytes": 24644,
+      "sha256": "685154640da3ec85ce7eaaf1b6f8b3f1db2c9386bf352508d1d7bf67409be8fa"
+    },
+    {
+      "name": "game_assets_music_calmdaylight",
+      "file": "Assets/Resources/Audio/game_assets_music_calmdaylight.mp3",
+      "source_clip": "cozy_puzzle_in-game_1_bpm118",
+      "license": "MintoDog / Cozy Puzzle In-Game 1 / CC0",
+      "url": "https://opengameart.org/content/cozy-puzzle-in-game-1",
+      "bytes": 476661,
+      "sha256": "f5097962b9cd63320bd7151a75f7592849760fa56e72cd72e8061373fdeee189"
+    },
+    {
+      "name": "game_assets_music_calmdusk",
+      "file": "Assets/Resources/Audio/game_assets_music_calmdusk.mp3",
+      "source_clip": "cozy_puzzle_in-game_2_bpm90",
+      "license": "MintoDog / Cozy Puzzle In-Game 2 / CC0",
+      "url": "https://opengameart.org/content/cozy-puzzle-in-game-2",
+      "bytes": 476660,
+      "sha256": "94743340994cfe1f74542ede7ec3697a6a1414d36d7e82d08984e8c9fd500349"
+    },
+    {
+      "name": "game_assets_music_calmpaper",
+      "file": "Assets/Resources/Audio/game_assets_music_calmpaper.mp3",
+      "source_clip": "cozy_puzzle_in-game_3_bpm108",
+      "license": "MintoDog / Cozy Puzzle In-Game 3 / CC0",
+      "url": "https://opengameart.org/content/cozy-puzzle-in-game-3",
+      "bytes": 476661,
+      "sha256": "78abd7a6b8bb66a5eca8414d0f2aa44a11261513fb7cb6f17a2d1167e0cdc6f9"
+    }
+  ]
+}

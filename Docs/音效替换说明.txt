@@ -1,0 +1,85 @@
+我就划两下 · 音效替换说明
+
+目的：把原壳里偏硬、偏游戏机的高频 SFX 换成手账/贴纸风的轻点击、软提示和温暖胜负乐句。资源名与 original-audio.json 键保持不变，避免改调用。AudioBuildQA 仍校验 83 个 MP3 与 inventory 哈希，已按新文件更新。
+
+必须署名（CC BY 4.0）
+Soft UI SFX Free by heyheythere
+https://heyheythere.itch.io/soft-ui-sfx-free
+CC BY 4.0 — 商业可用，需保留本行署名。
+本包用于：点击、弹窗开关、拒绝/无效、开局提示、生命增减、购买确认、金币、气泡等 UI。
+
+其余素材均为 CC0 或 Mixkit 免费商用许可，署名非强制，仍记录出处。
+
+old → new（覆盖同名 Resources）
+
+UI / 反馈
+pm_ui_tap          ← Soft UI click_wood_01（木质轻点）
+pm_booster_press   ← Soft UI click_01
+pm_popup_open      ← Soft UI open_01
+pm_popup_close     ← Soft UI close_01
+pm_deny            ← Soft UI error_buzz_01（转码时压到 0.55，目录音量 0.4）
+pm_invalid_drop    ← Soft UI error_01（转码 0.5，目录音量 0.45）
+pm_level_start     ← Soft UI notify_01
+pm_continue_offer  ← Soft UI notify_03
+pm_life_gain       ← Soft UI confirm_03
+pm_life_lose       ← Soft UI cancel_01
+pm_purchase        ← Soft UI confirm_01
+pm_card_match      ← Soft UI confirm_pluck_01
+pm_balloon_pop     ← Soft UI pop_01
+pm_timer_tick      ← Soft UI hover_tick_01
+shell:coin         ← Soft UI coin
+
+放置 / 纸页 / 卡牌（Kenney CC0）
+pm_pipe_place      ← Kenney Casino card-place-1
+https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips
+pm_card_pick       ← Kenney Casino card-place-2
+pm_card_deal_1/2   ← Kenney Casino card-slide-1/2
+pm_hand_slide      ← Kenney Casino card-slide-3
+pm_fourcard_fan    ← Kenney Casino card-fan-1
+pm_shuffle_swirl   ← Kenney Casino card-shuffle
+pm_card_flip_1/2   ← Kenney RPG bookFlip1/2（纸页翻面）
+https://opengameart.org/content/50-rpg-sound-effects
+pm_chest_open      ← Kenney RPG bookOpen
+pm_coin_burst      ← Kenney RPG handleCoins
+pm_coin_tick_1/2/3 ← Kenney Casino chip-lay-1/2/3
+
+胜负
+pm_level_win / shell:win   ← MintoDog Cozy Puzzle Clear (Jingle) CC0
+pm_level_fail / shell:fail ← MintoDog Cozy Puzzle Failure (Jingle) CC0
+https://opengameart.org/content/cozy-puzzle-jingle-result
+失败乐句是软提示，不是长号/放屁音。
+
+道具 / 魔法（Mixkit 免费商用，无刺耳雷声或金属 NES 毛刺）
+pm_hint_sparkle    ← Mixkit 3083 Magic sparkle touch
+pm_claim_sparkle   ← Mixkit 871 Fairy magic sparkle
+pm_compass_reveal  ← Mixkit 867 Fairy glitter
+pm_freeze_cast     ← Mixkit 873 Light spell
+pm_freeze_end      ← Mixkit 2628 Relaxing harp sweep
+pm_joker_cast      ← Mixkit 870 Sparkling fairy glow
+shell:joker        ← Mixkit 2352 Magic glitter or particles
+pm_lightning_zap   ← Mixkit 869 Fairy sparkle whoosh
+shell:zap          ← Mixkit 2350 Magic sparkle whoosh
+https://mixkit.co/free-sound-effects/magic/
+
+BGM（压到约 68 秒 / 56kbps，方便微信包体）
+game_assets_music_calmdaylight ← MintoDog Cozy Puzzle In-Game 1 CC0
+https://opengameart.org/content/cozy-puzzle-in-game-1
+game_assets_music_calmdusk     ← MintoDog Cozy Puzzle In-Game 2 CC0
+https://opengameart.org/content/cozy-puzzle-in-game-2
+game_assets_music_calmpaper    ← MintoDog Cozy Puzzle In-Game 3 CC0
+https://opengameart.org/content/cozy-puzzle-in-game-3
+
+未替换（时间盒，登顶/水流/壳遗留）
+climb_* 全系列，shell:music 兜底曲（三首专属 BGM 存在时不会播），
+explode / hit / jump / launch / throw / swap，
+absorb / leak_drip / pump_hit_* / reservoir_fill / valve_stop / water_pour / small_glug / flow_* / fill_ramp，
+burst / boing / poop_plop / rock_break / portal_warp / extratime。
+这些多数不在当前贴纸主线触发。需要时用同一套 Soft UI / Kenney 再覆盖即可。
+
+未用上的候选
+Crisp Cozy Free（https://anipixels.itch.io/crisp-cozy-free）页面是“自订价格后下载”，本环境拿不到文件，改用 Soft UI 木质点击。
+Kenney Interface Sounds 已下载作后备（CC0，https://opengameart.org/content/interface-sounds），实际 UI 优先 Soft UI。
+
+清单
+Assets/Editor/SourceManifests/soft-audio-remap.json — 替换表、许可、URL、SHA-256
+Assets/Editor/SourceManifests/original-audio-inventory.json — 83 个现行文件哈希（替换项的 extracted_source 改为新 URL）

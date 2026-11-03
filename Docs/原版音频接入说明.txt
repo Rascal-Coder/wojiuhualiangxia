@@ -1,6 +1,6 @@
 原版音频接入说明
 
-本次导入 APK 提取的全部 83 个 MP3，共 2,858,261 字节；原始文件内容未修改。Assets/Editor/SourceManifests/original-audio-inventory.json 保存来源和 SHA-256；Resources/Data/original-audio.json 是运行时精确音频表。
+本次导入 APK 提取的全部 83 个 MP3，键名与 Resources 路径保持不变。主线高频 UI/胜负/金币/放置等已替换为更软的可商用免费素材，详见《音效替换说明.txt》。Assets/Editor/SourceManifests/original-audio-inventory.json 保存当前交付字节和 SHA-256；soft-audio-remap.json 记录替换出处；Resources/Data/original-audio.json 是运行时精确音频表。
 
 背景音乐：三首 calm-paper、calm-dusk、calm-daylight。按照原版 module1996，在会话首次加载时等概率选一首，音量0.3、单曲循环；音乐开关与后台暂停使用暂停/恢复，保持当前曲目和播放位置，不在每关结束时强制换曲。共享壳 fallback 的 music.mp3 也完整保留，Inkomino 配置有三首专属音乐时不使用该兜底曲目。
 
