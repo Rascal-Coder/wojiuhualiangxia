@@ -282,7 +282,7 @@ namespace Inkomino
         }
         void Apply()
         {
-            if(visual){visual.localScale=originalScale*new Vector3(current,current*(2f-current),1);visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*320;}
+            if(visual){visual.localScale=Vector3.Scale(originalScale,new Vector3(current,current*(2f-current),1));visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*320;}
             if(highlight)
             {
                 float flash=current>=.995f?0:Mathf.Lerp(.24f,0,Mathf.InverseLerp(.86f,1,current));
