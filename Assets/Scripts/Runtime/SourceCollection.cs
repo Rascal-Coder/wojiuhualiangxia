@@ -16,46 +16,52 @@ namespace Inkomino
         }
         void AchievementsPage()
         {
-            var summary=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-995),new Vector2(960,270),true);summary.name="Achievement summary";
-            MenuUI.Art(StickerDesign.Achievement(Store.Data.wins),summary,new Vector2(0,.5f),new Vector2(130,0),Vector2.one*190);
-            MenuUI.Label("已通关",summary,new Vector2(0,.5f),new Vector2(400,65),new Vector2(310,66),46,MenuUI.Muted);
-            MenuUI.Label(Store.Data.wins+" / 500",summary,new Vector2(0,.5f),new Vector2(445,-25),new Vector2(400,105),76,MenuUI.Ink,TextAnchor.MiddleLeft,true);
-            MenuUI.Label("最高连胜  "+Store.Data.bestStreak+"\n集章完成  "+Store.Data.climb.summits,summary,new Vector2(1,.5f),new Vector2(-165,0),new Vector2(290,150),42,MenuUI.Muted,TextAnchor.MiddleLeft);
+            var summary=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-990),new Vector2(960,286),true);summary.name="Achievement summary";
+            MenuUI.Plate(summary,new Vector2(0,.5f),new Vector2(138,0),Vector2.one*196,MenuUI.Lemon,56);
+            MenuUI.Art(StickerDesign.Achievement(Store.Data.wins),summary,new Vector2(0,.5f),new Vector2(138,0),Vector2.one*176);
+            MenuUI.Label("已通关",summary,new Vector2(0,.5f),new Vector2(418,68),new Vector2(310,64),46,MenuUI.Muted);
+            MenuUI.Label(Store.Data.wins+" / 500",summary,new Vector2(0,.5f),new Vector2(458,-22),new Vector2(400,108),78,MenuUI.Ink,TextAnchor.MiddleLeft,true);
+            MenuUI.Label("最高连胜  "+Store.Data.bestStreak+"\n集章完成  "+Store.Data.climb.summits,summary,new Vector2(1,.5f),new Vector2(-158,0),new Vector2(300,150),42,MenuUI.Muted,TextAnchor.MiddleLeft);
             int[] milestones={10,50,100,250,500};string[] titles={"刚会划两下","有点东西","划线高手","脑力担当","全关通关"};
-            Color[] ranks={new Color32(234,72,119,255),new Color32(102,69,170,255),new Color32(102,69,170,255),new Color32(102,69,170,255),new Color32(204,181,232,255)};
+            Color[] ranks={MenuUI.Coral,MenuUI.Grape,MenuUI.Grape,MenuUI.Grape,new Color32(204,181,232,255)};
             for(int i=0;i<milestones.Length;i++)
             {
-                bool reached=Store.Data.wins>=milestones[i];float y=1245+i*158;
-                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-y),new Vector2(960,146),reached);row.name="Achievement milestone "+milestones[i];
-                var icon=MenuUI.Art(StickerDesign.Badges[i],row,new Vector2(0,.5f),new Vector2(85,0),Vector2.one*116);
-                if(!icon)icon=Skin.Art("game_assets_nav_tabrank",row,new Vector2(0,.5f),new Vector2(85,0),Vector2.one*116);
+                bool reached=Store.Data.wins>=milestones[i];float y=1236+i*174;
+                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-y),new Vector2(960,162),reached);row.name="Achievement milestone "+milestones[i];
+                Skin.RoundBox(row,new Vector2(0,.5f),new Vector2(14,0),new Vector2(14,118),reached?MenuUI.CoralChip:new Color32(228,211,241,255),7);
+                MenuUI.Plate(row,new Vector2(0,.5f),new Vector2(108,0),Vector2.one*118,reached?MenuUI.Blush:MenuUI.LilacWash,36);
+                var icon=MenuUI.Art(StickerDesign.Badges[i],row,new Vector2(0,.5f),new Vector2(108,0),Vector2.one*104);
+                if(!icon)icon=Skin.Art("game_assets_nav_tabrank",row,new Vector2(0,.5f),new Vector2(108,0),Vector2.one*104);
                 if(!reached)icon.color=new Color(1,1,1,.64f);
                 else MenuMotion.Sparkle(icon.rectTransform,3,true);
-                var rank=Skin.Rect("Achievement rank "+(i+1),row,new Vector2(0,.5f),new Vector2(125,-32),Vector2.one*50);
-                Skin.RoundBox(rank,new Vector2(.5f,.5f),Vector2.zero,rank.sizeDelta,reached?ranks[i]:new Color32(244,232,255,255),25);
+                var rank=Skin.Rect("Achievement rank "+(i+1),row,new Vector2(0,.5f),new Vector2(148,-36),Vector2.one*52);
+                Skin.RoundBox(rank,new Vector2(.5f,.5f),Vector2.zero,rank.sizeDelta,reached?ranks[i]:new Color32(244,232,255,255),26);
                 MenuUI.Label((i+1).ToString(),rank,new Vector2(.5f,.5f),Vector2.zero,rank.sizeDelta,42,reached?Color.white:MenuUI.Muted,TextAnchor.MiddleCenter);
-                MenuUI.Label(titles[i],row,new Vector2(0,.5f),new Vector2(380,27),new Vector2(400,65),50,MenuUI.Ink);
-                MenuUI.Label(reached?"已达成":Mathf.Min(Store.Data.wins,milestones[i])+" / "+milestones[i],row,new Vector2(1,.5f),new Vector2(-180,27),new Vector2(290,65),42,reached?MenuUI.Green:MenuUI.Muted,TextAnchor.MiddleRight);
-                MenuUI.Progress(row,new Vector2(0,.5f),new Vector2(545,-38),new Vector2(730,16),(float)Store.Data.wins/milestones[i]);
+                MenuUI.Label(titles[i],row,new Vector2(0,.5f),new Vector2(400,32),new Vector2(400,66),52,MenuUI.Ink);
+                MenuUI.Label(reached?"已达成":Mathf.Min(Store.Data.wins,milestones[i])+" / "+milestones[i],row,new Vector2(1,.5f),new Vector2(-176,32),new Vector2(290,66),42,reached?MenuUI.Green:MenuUI.Muted,TextAnchor.MiddleRight);
+                MenuUI.Progress(row,new Vector2(0,.5f),new Vector2(556,-36),new Vector2(720,22),(float)Store.Data.wins/milestones[i]);
             }
         }
         void FriendsPage()
         {
             MenuUI.Label("已通关 "+Store.Data.wins+" 关",Content,new Vector2(.5f,1),new Vector2(-220,-880),new Vector2(490,72),46,MenuUI.Ink);
             MenuUI.Label("按通关数排名",Content,new Vector2(.5f,1),new Vector2(245,-880),new Vector2(460,72),42,MenuUI.Muted,TextAnchor.MiddleRight);
-            var area=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-1325),new Vector2(960,790));area.name="Friends rank canvas";
-            var surface=Skin.Fill("Friends rank surface",area);surface.offsetMin=Vector2.one*16;surface.offsetMax=Vector2.one*-16;
+            var area=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-1325),new Vector2(960,790),true);area.name="Friends rank canvas";
+            var surface=Skin.Fill("Friends rank surface",area);surface.offsetMin=Vector2.one*22;surface.offsetMax=Vector2.one*-22;
 #if WEIXINMINIGAME && !UNITY_EDITOR
             var image=surface.gameObject.AddComponent<RawImage>();image.raycastTarget=false;surface.gameObject.AddComponent<FriendsRankView>();
             FriendsRanking.SubmitProgress(Store.Data.wins);
 #else
-            MenuUI.Art("entry_friends",area,new Vector2(.5f,.5f),new Vector2(0,145),Vector2.one*220);
-            MenuUI.Label("在微信中与好友比一比",area,new Vector2(.5f,.5f),new Vector2(0,-30),new Vector2(860,90),52,MenuUI.Ink,TextAnchor.MiddleCenter,true);
-            MenuUI.Label("仅展示同玩好友的真实通关进度",area,new Vector2(.5f,.5f),new Vector2(0,-145),new Vector2(860,90),42,MenuUI.Muted,TextAnchor.MiddleCenter);
+            Skin.RoundBox(area,new Vector2(.5f,.5f),new Vector2(0,118),new Vector2(420,420),MenuUI.Blush,210);
+            MenuUI.Art("stamp_hand",area,new Vector2(.5f,.5f),new Vector2(-286,248),Vector2.one*108);
+            MenuUI.Art("stamp_shine",area,new Vector2(.5f,.5f),new Vector2(292,48),Vector2.one*96);
+            MenuUI.Art("entry_friends",area,new Vector2(.5f,.5f),new Vector2(0,148),Vector2.one*280);
+            MenuUI.Label("在微信中与好友比一比",area,new Vector2(.5f,.5f),new Vector2(0,-52),new Vector2(860,90),54,MenuUI.Ink,TextAnchor.MiddleCenter,true);
+            MenuUI.Label("仅展示同玩好友的真实通关进度",area,new Vector2(.5f,.5f),new Vector2(0,-148),new Vector2(860,80),42,MenuUI.Muted,TextAnchor.MiddleCenter);
 #endif
-            MenuUI.SecondaryButton("上一页",Content,new Vector2(.5f,1),new Vector2(-325,-1815),new Vector2(310,150),()=>FriendsRanking.Send("friends:page",delta:-1),48);
-            MenuUI.GameButton("刷新",Content,new Vector2(.5f,1),new Vector2(0,-1815),new Vector2(310,150),()=>{FriendsRanking.SubmitProgress(Store.Data.wins);FriendsRanking.Send("friends:refresh");},52);
-            MenuUI.SecondaryButton("下一页",Content,new Vector2(.5f,1),new Vector2(325,-1815),new Vector2(310,150),()=>FriendsRanking.Send("friends:page",delta:1),48);
+            MenuUI.SecondaryButton("上一页",Content,new Vector2(.5f,1),new Vector2(-325,-1818),new Vector2(318,156),()=>FriendsRanking.Send("friends:page",delta:-1),48);
+            MenuUI.GameButton("刷新",Content,new Vector2(.5f,1),new Vector2(0,-1818),new Vector2(318,156),()=>{FriendsRanking.SubmitProgress(Store.Data.wins);FriendsRanking.Send("friends:refresh");},52);
+            MenuUI.SecondaryButton("下一页",Content,new Vector2(.5f,1),new Vector2(325,-1818),new Vector2(318,156),()=>FriendsRanking.Send("friends:page",delta:1),48);
         }
     }
 }

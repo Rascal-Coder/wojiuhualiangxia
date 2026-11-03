@@ -11,6 +11,7 @@ namespace Inkomino
     {
         public const int TitleSize=72,Body=48,Small=42;
         public static readonly Color Ink=InkTheme.Ink,Muted=InkTheme.Muted,Gold=InkTheme.Line,Green=InkTheme.Jade,Purple=InkTheme.Cinnabar;
+        public static readonly Color32 Coral=new Color32(255,99,139,255),CoralChip=new Color32(255,168,190,255),Grape=new Color32(102,69,170,255),Cream=new Color32(255,249,238,255),Lemon=new Color32(255,243,209,255),MintWash=new Color32(221,248,237,255),Blush=new Color32(255,228,238,255),LilacWash=new Color32(239,228,255,255);
         static Font bodyFont,numberFont;
         static readonly Dictionary<string,Sprite> art=new Dictionary<string,Sprite>();
         [Serializable] public sealed class AtlasRegion{public string key;public int x,y,width,height,border,borderX,borderY;}
@@ -41,17 +42,41 @@ namespace Inkomino
             // exceed a compact label box; the real glyph bounds are verified.
             label.horizontalOverflow=HorizontalWrapMode.Wrap;label.verticalOverflow=VerticalWrapMode.Overflow;return label;
         }
+        public static void StickerDepth(Transform parent,Vector2 size,float radius=-1)
+        {
+            float rad=radius>0?radius:Mathf.Min(48,Mathf.Min(size.x,size.y)*.2f);
+            float drop=Mathf.Clamp(size.y*.045f,8,16);
+            var shadow=Skin.RoundBox(parent,Vector2.one*.5f,new Vector2(8,-drop),size,new Color32(145,110,196,62),rad);
+            shadow.name="Sticker card shadow";
+        }
+        public static RoundedGraphic Plate(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color color,float radius=-1)
+        {
+            float rad=radius>0?radius:Mathf.Min(size.x,size.y)*.28f;
+            var rim=Skin.RoundBox(parent,anchor,pos+new Vector2(0,-5),size,new Color32(145,110,196,48),rad);
+            rim.name="Sticker plate shadow";
+            var face=Skin.RoundBox(parent,anchor,pos,size,Color.white,rad);
+            face.name="Sticker plate rim";
+            var fill=Skin.RoundBox(parent,anchor,pos,size-Vector2.one*10,color,Mathf.Max(12,rad-6));
+            fill.name="Sticker plate";
+            return fill;
+        }
         public static RectTransform Paper(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,bool accent=false)
         {
             var r=Skin.Rect("Menu paper",parent,anchor,pos,size);
-            var sheet=Art("ink_paper",r,Vector2.one*.5f,Vector2.zero,size);sheet.preserveAspect=false;sheet.type=Image.Type.Sliced;
-            if(accent){var tape=Skin.RoundBox(r,new Vector2(0,1),new Vector2(65,-8),new Vector2(118,25),new Color32(255,221,105,230),7);tape.rectTransform.localRotation=Quaternion.Euler(0,0,14);}
+            float radius=Mathf.Min(48,Mathf.Min(size.x,size.y)*.18f);
+            StickerDepth(r,size,radius);
+            var rim=Skin.RoundBox(r,Vector2.one*.5f,Vector2.zero,size,Color.white,radius);
+            rim.name="Sticker card rim";
+            float pad=Mathf.Clamp(Mathf.Min(size.x,size.y)*.03f,6,12);
+            var sheet=Art("ink_paper",r,Vector2.one*.5f,Vector2.zero,size-Vector2.one*(pad*2));
+            if(sheet){sheet.preserveAspect=false;sheet.type=Image.Type.Sliced;sheet.name="Sticker card face";}
+            if(accent){var tape=Skin.RoundBox(r,new Vector2(0,1),new Vector2(72,-6),new Vector2(132,28),new Color32(255,221,105,235),8);tape.rectTransform.localRotation=Quaternion.Euler(0,0,13);tape.name="Sticker tape";}
             return r;
         }
         public static void Title(string title,string subtitle,Transform parent)
         {
-            var t=Label(title,parent,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(920,112),TitleSize,Ink,TextAnchor.MiddleCenter,true);t.name="Menu page title";
-            if(!string.IsNullOrEmpty(subtitle))Label(subtitle,parent,new Vector2(.5f,1),new Vector2(0,-640),new Vector2(960,64),Small,Muted,TextAnchor.MiddleCenter);
+            var t=Label(title,parent,new Vector2(.5f,1),new Vector2(0,-528),new Vector2(920,120),TitleSize,Ink,TextAnchor.MiddleCenter,true);t.name="Menu page title";
+            if(!string.IsNullOrEmpty(subtitle))Label(subtitle,parent,new Vector2(.5f,1),new Vector2(0,-636),new Vector2(960,58),Small,Muted,TextAnchor.MiddleCenter);
         }
         public static Sprite AtlasSprite(string key){LoadAtlas();Sprite value;return art.TryGetValue(key,out value)?value:null;}
         public static Sprite TipSprite(string key){if(!art.ContainsKey(key))LoadSheet("sticker_tips");Sprite value;return art.TryGetValue(key,out value)?value:null;}
@@ -74,26 +99,29 @@ namespace Inkomino
         {
             var r=Skin.Rect(text+" menu button",parent,anchor,pos,size);
             var face=Skin.Fill("Button artwork",r);face.gameObject.AddComponent<CanvasGroup>();
-            var sheet=Art(primary?"ink_brush":"sticker_secondary",face,Vector2.one*.5f,Vector2.zero,size);sheet.preserveAspect=false;sheet.type=Image.Type.Sliced;sheet.pixelsPerUnitMultiplier=sheet.sprite.rect.height/Mathf.Max(1,size.y);
-            Label(text,face,Vector2.one*.5f,Vector2.zero,size-new Vector2(50,20),fontSize,Ink,TextAnchor.MiddleCenter,true);
+            float lift=Mathf.Clamp(size.y*.07f,10,20);
+            if(primary){var depth=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,-lift*.55f),new Vector2(size.x-6,size.y-2),new Color32(214,72,118,230),size.y*.42f);depth.name="Primary button depth";}
+            else StickerDepth(face,size,size.y*.42f);
+            var sheet=Art(primary?"ink_brush":"sticker_secondary",face,Vector2.one*.5f,new Vector2(0,primary?lift*.28f:0),size);if(sheet){sheet.preserveAspect=false;sheet.type=Image.Type.Sliced;sheet.pixelsPerUnitMultiplier=sheet.sprite.rect.height/Mathf.Max(1,size.y);}
+            Label(text,face,Vector2.one*.5f,new Vector2(0,primary?lift*.22f:0),size-new Vector2(50,20),fontSize,Ink,TextAnchor.MiddleCenter,true);
             var button=Skin.Hit(r,action,1);MenuMotion.Press(button);return button;
         }
         public static void Tabs(Transform parent,bool friends,Action achievements,Action ranking)
         {
-            var r=Paper(parent,new Vector2(.5f,1),new Vector2(0,-760),new Vector2(960,154));r.name="Achievement tabs";
+            var r=Paper(parent,new Vector2(.5f,1),new Vector2(0,-748),new Vector2(960,172));r.name="Achievement tabs";
             for(int i=0;i<2;i++)
             {
-                bool selected=friends?i==1:i==0;var tab=Skin.Rect(i==0?"Achievements tab":"Friends tab",r,new Vector2(.5f,.5f),new Vector2(i==0?-236:236,0),new Vector2(466,140));
-                if(selected)Skin.RoundBox(tab,new Vector2(.5f,.5f),Vector2.zero,tab.sizeDelta,new Color32(255,226,236,255),38);
-                Label(i==0?"我的成就":"好友排行",tab,new Vector2(.5f,.5f),Vector2.zero,new Vector2(430,116),52,selected?InkTheme.Cinnabar:Muted,TextAnchor.MiddleCenter,true);
+                bool selected=friends?i==1:i==0;var tab=Skin.Rect(i==0?"Achievements tab":"Friends tab",r,new Vector2(.5f,.5f),new Vector2(i==0?-232:232,0),new Vector2(456,144));
+                if(selected){Skin.RoundBox(tab,new Vector2(.5f,.5f),new Vector2(0,-4),tab.sizeDelta,new Color32(214,72,118,70),42);Skin.RoundBox(tab,new Vector2(.5f,.5f),Vector2.zero,tab.sizeDelta-new Vector2(8,10),CoralChip,40);}
+                Label(i==0?"我的成就":"好友排行",tab,new Vector2(.5f,.5f),Vector2.zero,new Vector2(420,118),54,selected?Grape:Muted,TextAnchor.MiddleCenter,true);
                 Skin.Hit(tab,i==0?achievements:ranking,.8f);
             }
         }
         public static void Progress(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float value)
         {
             var r=Skin.Rect("Menu progress",parent,anchor,pos,size);
-            Skin.RoundBox(r,new Vector2(.5f,.5f),Vector2.zero,size,InkTheme.Line,size.y/2);
-            float width=size.x*Mathf.Clamp01(value);if(width>0){var fill=Skin.RoundBox(r,new Vector2(0,.5f),new Vector2(width/2,0),new Vector2(width,size.y),InkTheme.Jade,size.y/2);fill.name="Menu progress fill";MenuMotion.RevealProgress(fill.rectTransform,width);}
+            Skin.RoundBox(r,new Vector2(.5f,.5f),Vector2.zero,size,new Color32(228,211,241,255),size.y/2);
+            float width=size.x*Mathf.Clamp01(value);if(width>0){var fill=Skin.RoundBox(r,new Vector2(0,.5f),new Vector2(width/2,0),new Vector2(width,size.y),Coral,size.y/2);fill.name="Menu progress fill";MenuMotion.RevealProgress(fill.rectTransform,width);}
         }
         public static void Adapt(Transform parent,WeChatHeaderLayout header,int firstContentChild,float bottom=2020)
         {

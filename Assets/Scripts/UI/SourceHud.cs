@@ -57,6 +57,7 @@ namespace Inkomino
                 card.Root.pivot=new Vector2(0,1);card.Group=card.Root.gameObject.AddComponent<CanvasGroup>();
                 card.Group.interactable=false;card.Group.blocksRaycasts=false;
                 MenuUI.Paper(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta);
+                Skin.RoundBox(card.Root,new Vector2(0,1),new Vector2(8,-8),new Vector2(10,28)*d,MenuUI.CoralChip,5*d);
                 ShapeData shape;
                 if(board.Library.Shapes.TryGetValue(id,out shape)&&shape.cells!=null&&shape.cells.Length>0)
                 {
@@ -67,7 +68,7 @@ namespace Inkomino
                     var glyph=Skin.Rect("ShapeGlyph "+id,card.Root,new Vector2(.5f,1),new Vector2(0,-32*d),new Vector2(gw,gh));
                     foreach(var c in shape.cells){var tile=Skin.Rect("Preview sticker cell",glyph,new Vector2(0,1),new Vector2((c.c-minC)*step+cell/2,-(c.r-minR)*step-cell/2),Vector2.one*cell);var face=tile.gameObject.AddComponent<StickerPreviewTile>();face.color=new Color32(176,137,238,255);face.Variant=cards.Count%3;face.raycastTarget=false;}
                 }
-                Skin.RoundBox(card.Root,new Vector2(.5f,1),new Vector2(0,-72*d),new Vector2(51,20)*d,new Color32(239,226,255,255),10*d);
+                Skin.RoundBox(card.Root,new Vector2(.5f,1),new Vector2(0,-72*d),new Vector2(54,22)*d,MenuUI.CoralChip,11*d);
                 card.CountRoot=Skin.Rect("CountSlot",card.Root,new Vector2(.5f,1),new Vector2(0,-71*d),new Vector2(64,22)*d);
                 var tr=Skin.Rect("Remaining count",card.CountRoot,new Vector2(.5f,.5f),Vector2.zero,new Vector2(64,22)*d);
                 var text=tr.gameObject.AddComponent<Text>();text.font=MenuUI.BodyFont;text.fontSize=42;
