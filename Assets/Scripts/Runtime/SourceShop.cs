@@ -27,22 +27,22 @@ namespace Inkomino
             for(int i=0;i<icons.Length;i++)
             {
                 int index=i;
-                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-(1176+i*372)),new Vector2(960,356));
+                var row=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-(1150+i*316)),new Vector2(940,292));
                 row.name="Shop row "+i;
 
-                MenuUI.Plate(row,top,new Vector2(148,-178),Vector2.one*236,plates[i],56);
-                var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(148,-176),Vector2.one*198);
+                MenuUI.Plate(row,top,new Vector2(124,-146),Vector2.one*186,plates[i],48);
+                var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(124,-146),Vector2.one*158);
                 if(tool){MenuMotion.Float(tool.rectTransform,4,1.1f);if(i==0)MenuMotion.Sparkle(tool.rectTransform,3,true);}
-                MenuUI.Label(titles[i],row,top,new Vector2(528,-56),new Vector2(450,76),60,MenuUI.Ink,TextAnchor.MiddleLeft,true);
+                MenuUI.Label(titles[i],row,top,new Vector2(500,-42),new Vector2(400,56),48,MenuUI.Ink,TextAnchor.MiddleLeft,true);
 
-                MenuUI.Label(descriptions[i],row,top,new Vector2(612,-128),new Vector2(600,58),46,MenuUI.Muted);
-                ShopPurchaseControls(row,items[i],top,new Vector2(612,-280),quantity=>
+                MenuUI.Label(descriptions[i],row,top,new Vector2(540,-108),new Vector2(480,48),42,MenuUI.Muted);
+                ShopPurchaseControls(row,items[i],top,new Vector2(520,-214),quantity=>
                 {
                         ShowShop();
                         Info(Zh.PurchaseReady,"已获得 "+quantity+" 个"+titles[index]+"。");
                         var confirmation=popups.Peek().Find("Source popup motion/"+Zh.PurchaseReady+" panel") as RectTransform;
                         if(confirmation){var granted=MenuUI.Art("menu_"+icons[index],confirmation,new Vector2(.5f,.5f),new Vector2(0,220),Vector2.one*170);if(granted)MenuMotion.Celebrate(granted.rectTransform);}
-                },new Vector2(800,-58));
+                },new Vector2(760,-40));
             }
 
             var supply=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-848),new Vector2(960,268),true);
@@ -79,21 +79,21 @@ namespace Inkomino
 
         void ShopPurchaseControls(Transform parent,string item,Vector2 anchor,Vector2 position,Action<int> purchased,Vector2? quotaPosition=null)
         {
-            var group=Skin.Rect("Shop purchase "+item,parent,anchor,position,new Vector2(660,126));
-            var quota=Skin.Rect("Shop remaining "+item,parent,anchor,quotaPosition??position+new Vector2(0,110),new Vector2(230,80));
+            var group=Skin.Rect("Shop purchase "+item,parent,anchor,position,new Vector2(600,110));
+            var quota=Skin.Rect("Shop remaining "+item,parent,anchor,quotaPosition??position+new Vector2(0,96),new Vector2(220,72));
             var stamps=new Image[SaveStore.ShopDailyLimit];
             for(int i=0;i<stamps.Length;i++)
             {
-                var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*78,0),Vector2.one*88);
-                MenuUI.Extrude(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,MenuUI.Cream,MenuUI.CoralChip,44);
-                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*64);if(stamps[i])stamps[i].name="Purchase stamp "+i;
+                var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*72,0),Vector2.one*68);
+                MenuUI.Extrude(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,MenuUI.Cream,MenuUI.CoralChip,34);
+                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*48);if(stamps[i])stamps[i].name="Purchase stamp "+i;
             }
-            var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(-151,0),new Vector2(110,100),52,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
+            var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(-140,0),new Vector2(80,72),46,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
             int quantity=1;Button minus=null,plus=null,buy=null;
             void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++)if(stamps[i])stamps[i].color=i<left?Color.white:new Color(.65f,.60f,.72f,.24f);amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
-            minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-275,0),new Vector2(136,126),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},60);minus.name="Shop minus "+item;
-            plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(-27,0),new Vector2(136,126),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},60);plus.name="Shop plus "+item;
-            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(204,0),new Vector2(288,132),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},48);buy.name="Shop exchange "+item;
+            minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-244,0),new Vector2(112,110),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},48);minus.name="Shop minus "+item;
+            plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(-36,0),new Vector2(112,110),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},48);plus.name="Shop plus "+item;
+            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(156,0),new Vector2(240,110),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;
             Refresh();
             group.gameObject.AddComponent<ShopPurchaseRefresh>().Init(Store,Refresh);
         }

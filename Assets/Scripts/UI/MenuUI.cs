@@ -135,7 +135,7 @@ namespace Inkomino
         {
             return GameButton(text,parent,anchor,pos,size,action,fontSize,false);
         }
-        public static Button GameButton(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action,int fontSize=60,bool primary=true)
+        public static Button GameButton(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Action action,int fontSize=52,bool primary=true)
         {
             var r=Skin.Rect(text+" menu button",parent,anchor,pos,size);
             var face=Skin.Fill("Button artwork",r);face.gameObject.AddComponent<CanvasGroup>();
@@ -153,12 +153,12 @@ namespace Inkomino
         }
         public static void Tabs(Transform parent,bool friends,Action achievements,Action ranking)
         {
-            var r=Paper(parent,new Vector2(.5f,1),new Vector2(0,-748),new Vector2(960,172));r.name="Achievement tabs";
+            var r=Paper(parent,new Vector2(.5f,1),new Vector2(0,-728),new Vector2(920,148));r.name="Achievement tabs";
             for(int i=0;i<2;i++)
             {
-                bool selected=friends?i==1:i==0;var tab=Skin.Rect(i==0?"Achievements tab":"Friends tab",r,new Vector2(.5f,.5f),new Vector2(i==0?-232:232,0),new Vector2(456,144));
-                if(selected)Extrude(tab,Vector2.one*.5f,Vector2.zero,tab.sizeDelta-new Vector2(8,10),CoralChip,CoralDepth,40);
-                Label(i==0?"我的成就":"好友排行",tab,new Vector2(.5f,.5f),new Vector2(0,selected?4:0),new Vector2(420,118),54,selected?Grape:Muted,TextAnchor.MiddleCenter,true);
+                bool selected=friends?i==1:i==0;var tab=Skin.Rect(i==0?"Achievements tab":"Friends tab",r,new Vector2(.5f,.5f),new Vector2(i==0?-222:222,0),new Vector2(420,116));
+                if(selected)Extrude(tab,Vector2.one*.5f,Vector2.zero,tab.sizeDelta-new Vector2(8,10),CoralChip,CoralDepth,36);
+                Label(i==0?"我的成就":"好友排行",tab,new Vector2(.5f,.5f),new Vector2(0,selected?2:0),new Vector2(380,90),46,selected?Grape:Muted,TextAnchor.MiddleCenter,true);
                 Skin.Hit(tab,i==0?achievements:ranking,.8f);
             }
         }

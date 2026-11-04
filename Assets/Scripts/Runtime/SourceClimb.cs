@@ -59,7 +59,7 @@ namespace Inkomino
 
             var status=MenuUI.Label("",Content,new Vector2(.5f,1),new Vector2(0,-2010),new Vector2(960,105),48,MenuUI.Ink,TextAnchor.MiddleCenter);
             Button action=null;
-            action=MenuUI.GameButton("",Content,new Vector2(.5f,1),new Vector2(0,-2170),new Vector2(820,190),()=>
+            action=MenuUI.GameButton("",Content,new Vector2(.5f,1),new Vector2(0,-2164),new Vector2(760,168),()=>
             {
                 var current=Store.Data.climb;long now=SaveStore.Now;
                 if(ClimbActivity.AtTop(current))
@@ -69,7 +69,7 @@ namespace Inkomino
                 }
                 if(!current.joined||current.isOut){if(ClimbActivity.Join(Store,now)){SoundBank.Play("climb_join");Feel.Success();ShowClimb();}return;}
                 PlayCurrent();
-            },64);
+            },56);
             var actionArt=action.transform.Find("Button artwork").GetComponent<CanvasGroup>();
             Action tick=()=>
             {

@@ -15,40 +15,40 @@ namespace Inkomino
             var root=Skin.Fill("Source LevelCompleteScreen",Content);
             var motion=root.gameObject.AddComponent<SourceResultMotion>();
             float width=1080,dp=Skin.DP;
-            var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-420),new Vector2(920,240));
-            motion.BuildTitle(title,Zh.Cleared,128);
-            MenuUI.Label(Zh.Level(CurrentLevel),root,new Vector2(.5f,1),new Vector2(0,-620),new Vector2(900,70),54,MenuUI.Muted,TextAnchor.MiddleCenter);
+            var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-380),new Vector2(860,200));
+            motion.BuildTitle(title,Zh.Cleared,72);
+            MenuUI.Label(Zh.Level(CurrentLevel),root,new Vector2(.5f,1),new Vector2(0,-560),new Vector2(860,64),46,MenuUI.Muted,TextAnchor.MiddleCenter);
 
             // Root title margins: top44, height100, bottom4; root gap8.
             // The remaining flex centerZone centres reward(200 + vertical margins8), gap8,
             // and the auto-width button(104 + top8 + bottom40).
-            float buttonH=188;
-            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-980),new Vector2(860,520));rewardRoot.name="Source reward";
-            MenuUI.Label(Zh.CoinsGot,rewardRoot,new Vector2(.5f,1),new Vector2(0,-58),new Vector2(700,70),48,MenuUI.Muted,TextAnchor.MiddleCenter,true);
-            var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,36),Vector2.one*280);
-            MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*280);
-            var amount=MenuUI.Label("+"+reward,rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-168),new Vector2(700,90),78,MenuUI.Coral,TextAnchor.MiddleCenter);
+            float buttonH=168;
+            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-880),new Vector2(800,440));rewardRoot.name="Source reward";
+            MenuUI.Label(Zh.CoinsGot,rewardRoot,new Vector2(.5f,1),new Vector2(0,-48),new Vector2(640,56),44,MenuUI.Muted,TextAnchor.MiddleCenter,true);
+            var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,28),Vector2.one*200);
+            MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*200);
+            var amount=MenuUI.Label("+"+reward,rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-140),new Vector2(640,72),64,MenuUI.Coral,TextAnchor.MiddleCenter);
             motion.Reward=rewardRoot;motion.RewardAlpha=rewardRoot.gameObject.AddComponent<CanvasGroup>();
             motion.Coin=pile;
             float used=Mathf.Max(0,Board!=null?Board.Level.time-Remaining:0);
             int steps=Board!=null?Board.Pieces.Count:0;
             int stars=Board==null||used<=0?3:used<=Board.Level.time*.45f?3:used<=Board.Level.time*.75f?2:1;
-            var stats=Skin.Rect("Result stats",root,new Vector2(.5f,1),new Vector2(0,-1320),new Vector2(920,180));
+            var stats=Skin.Rect("Result stats",root,new Vector2(.5f,1),new Vector2(0,-1240),new Vector2(880,156));
             string[] statTitles={Zh.TimeStat,Zh.StepsStat,Zh.StarsStat};
             string[] statValues={FormatTime(used),steps.ToString(),stars+"/3"};
             Color32[] statFaces={MenuUI.LilacWash,MenuUI.Sky,MenuUI.Lemon};
             for(int i=0;i<3;i++)
             {
-                var cell=Skin.Rect("Result stat "+i,stats,Vector2.one*.5f,new Vector2((i-1)*300,0),new Vector2(260,168));
+                var cell=Skin.Rect("Result stat "+i,stats,Vector2.one*.5f,new Vector2((i-1)*280,0),new Vector2(236,144));
                 MenuUI.Extrude(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,statFaces[i],new Color32(145,110,196,70),48);
                 MenuUI.Label(statTitles[i],cell,Vector2.one*.5f,new Vector2(0,42),new Vector2(220,48),42,MenuUI.Muted,TextAnchor.MiddleCenter,true);
                 MenuUI.Label(statValues[i],cell,Vector2.one*.5f,new Vector2(0,-22),new Vector2(220,70),52,MenuUI.Ink,TextAnchor.MiddleCenter);
             }
 
             // Source no-ad branch: module2120 AutoWidthGreenButton, activeOpacity=.85.
-            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1680),new Vector2(800,buttonH));
+            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1560),new Vector2(760,buttonH));
             int level=CurrentLevel;bool review=Review;
-            var button=MenuUI.GameButton(Zh.NextLevel,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>{Feel.Success();AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();});},72);
+            var button=MenuUI.GameButton(Zh.NextLevel,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>{Feel.Success();AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();});},64);
             foreach(var label in button.GetComponentsInChildren<SourceTrackedText>()){label.LetterSpacing=.5f*dp;var clip=label.transform.parent as RectTransform;if(clip)clip.anchoredPosition=Vector2.zero;}
             var opacity=button as SourceOpacityButton;if(opacity)opacity.ActiveOpacity=.85f;
             bool showDouble=!review&&reward>0&&RewardEntryEnabled(RewardPlacement.DoubleCoins);
@@ -59,8 +59,8 @@ namespace Inkomino
                     doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra);doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");Feel.Success();
                 },()=>!doubled&&presentationEpoch==epoch&&screen=="result"&&CurrentLevel==level),true);
             }
-            MenuUI.SecondaryButton(Zh.PlayAgain,root,new Vector2(.5f,1),new Vector2(0,showDouble?-1980:-1900),new Vector2(720,140),Retry,50);
-            MenuUI.SecondaryButton(Zh.BackHome,root,new Vector2(.5f,0),new Vector2(0,70),new Vector2(720,120),ShowHome,48);
+            MenuUI.SecondaryButton(Zh.PlayAgain,root,new Vector2(.5f,1),new Vector2(0,showDouble?-1840:-1760),new Vector2(680,124),Retry,46);
+            MenuUI.SecondaryButton(Zh.BackHome,root,new Vector2(.5f,0),new Vector2(0,64),new Vector2(680,108),ShowHome,44);
             motion.Button=buttonRoot;motion.ButtonAlpha=buttonRoot.gameObject.AddComponent<CanvasGroup>();motion.Width=width;
             motion.ConfettiParent=Skin.Fill("Source result confetti",root);motion.ConfettiParent.SetAsFirstSibling();
             if(!review&&CurrentLevel>=41&&Store.Data.climb.joined&&!Store.Data.climb.isOut)
