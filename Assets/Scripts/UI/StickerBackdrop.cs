@@ -9,11 +9,11 @@ namespace Inkomino
         protected override void OnPopulateMesh(VertexHelper vh)
         {
             vh.Clear();var r=rectTransform.rect;
-            Color32[] spots={new Color32(255,168,190,38),new Color32(117,218,186,32),new Color32(174,133,226,28),new Color32(255,227,107,26),new Color32(141,207,252,30)};
+            Color32[] spots={new Color32(255,122,86,58),new Color32(255,196,92,52),new Color32(255,96,122,46),new Color32(120,214,176,40)};
             int i=0;
-            for(float y=r.yMin+70;y<r.yMax;y+=210)for(float x=r.xMin+80;x<r.xMax;x+=190)
+            for(float y=r.yMin+90;y<r.yMax;y+=280)for(float x=r.xMin+110;x<r.xMax;x+=250)
             {
-                var c=spots[i++%spots.Length];float radius=36+((i*17)%28);
+                var c=spots[i++%spots.Length];float radius=48+((i*23)%40);
                 int n=vh.currentVertCount;vh.AddVert(new Vector3(x,y),c,Vector2.zero);
                 var edge=c;edge.a=0;
                 for(int k=0;k<=16;k++)

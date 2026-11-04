@@ -19,13 +19,13 @@ namespace Inkomino
             bool showAd=!full&&RewardEntryEnabled(RewardPlacement.Life);float adSpace=showAd?90:0;
             var panel=Popup(Zh.Lives,943.2f,82*D+areaH+(full?26:16+115+26+adSpace)*D);float width=panel.sizeDelta.x-36*D;
             var area=Skin.Rect("Source lives heart area",panel,new Vector2(.5f,1),new Vector2(0,-82*D-areaH/2),new Vector2(width,areaH));
-            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta,new Color32(204,181,232,255),16*D);
+            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta,new Color32(255,214,180,255),16*D);
             Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta-Vector2.one*4*D,new Color32(244,232,255,255),14*D);
             var heart=Skin.Rect("Pulsing life",area,new Vector2(.5f,1),new Vector2(0,-79*D),new Vector2(120,110)*D);
             Skin.Art("shell_src_ui_heart",heart,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*96*D);
             var count=Skin.Text(Store.Data.hearts.ToString(),heart,new Vector2(.5f,.5f),new Vector2(0,-2*D),Vector2.one*90*D,Mathf.RoundToInt(44*D),Color.white);
             var label=Skin.Text(full?Zh.LivesFullTitle:Zh.NextLife,area,new Vector2(.5f,1),new Vector2(0,-(full?158:151)*D),new Vector2(width-20*D,28*D),Mathf.RoundToInt((full?20:14)*D),full?MenuUI.Green:MenuUI.Muted);
-            var clock=Skin.Rect("Next life countdown",area,new Vector2(.5f,1),new Vector2(0,-180*D),new Vector2(180,40)*D);Skin.RoundBox(clock,new Vector2(.5f,.5f),Vector2.zero,clock.sizeDelta,new Color32(204,181,232,255),18*D);
+            var clock=Skin.Rect("Next life countdown",area,new Vector2(.5f,1),new Vector2(0,-180*D),new Vector2(180,40)*D);Skin.RoundBox(clock,new Vector2(.5f,.5f),Vector2.zero,clock.sizeDelta,new Color32(255,196,150,255),18*D);
             var dot=Skin.Rect("Rotating clock dot",clock,new Vector2(0,.5f),new Vector2(22*D,0),Vector2.one*28*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta,new Color32(155,120,207,255),14*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta-Vector2.one*6*D,new Color32(155,120,207,255),11*D);
             // timerDotText is an em dash (fn12514 @03b5, literal47093).
             Skin.Text("—",dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta,Mathf.RoundToInt(14*D),Color.white);

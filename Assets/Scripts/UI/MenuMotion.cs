@@ -190,7 +190,7 @@ namespace Inkomino
         Vector3 originalScale=Vector3.one;
         int pointerId=int.MinValue;
         float from=1,to=1,current=1,elapsed,duration;Vector2 originalVisualPosition;
-        bool attempted;
+        bool attempted,spring;
         public Button Button { get { return button; } }
         public RectTransform VisualTarget { get { return visual; } }
         public Vector3 OriginalVisualScale { get { return originalScale; } }
@@ -232,7 +232,7 @@ namespace Inkomino
             Feel.Tap();
             if(MenuMotion.Reduced){Restore();return;}
             if(!EnsureVisual())return;
-            pointerId=eventData.pointerId;IsPressed=true;Tween(.86f,.06f);
+            pointerId=eventData.pointerId;IsPressed=true;Tween(.94f,.06f);
         }
         public void OnPointerUp(PointerEventData eventData)
         {
@@ -250,15 +250,26 @@ namespace Inkomino
         {
             pointerId=int.MinValue;IsPressed=false;
             if(!Ready()||MenuMotion.Reduced){Restore();return;}
-            Tween(1,.14f);
+            SpringTo(1,.15f);
         }
         void Tween(float value,float seconds)
         {
-            to=value;elapsed=0;duration=seconds;Completed=false;Playback(true);
+            spring=false;to=value;elapsed=0;duration=seconds;Completed=false;Playback(true);
             // Acknowledge the pointer in the event frame without waiting for an
             // animation tick; the remainder of the press settles over 80ms.
             if(value<current){current=Mathf.Lerp(current,value,.28f);Apply();}
             from=current;
+        }
+        void SpringTo(float value,float seconds)
+        {
+            spring=true;to=value;elapsed=0;duration=seconds;Completed=false;Playback(true);from=current;
+        }
+        static float SpringEase(float a,float b,float t)
+        {
+            if(t>=1f)return b;
+            float peak=b+(b-a)*.55f;
+            if(t<.4f){float u=t/.4f;return Mathf.Lerp(a,peak,1f-(1f-u)*(1f-u));}
+            float v=(t-.4f)/.6f;return Mathf.Lerp(peak,b,1f-(1f-v)*(1f-v)*(1f-v));
         }
         void Update()
         {
@@ -266,8 +277,8 @@ namespace Inkomino
             if(!attempted)EnsureVisual();
             if(!Ready()||MenuMotion.Reduced){if(IsPressed||IsAnimating||current!=1)Restore();return;}
             if(!IsAnimating)return;
-            elapsed+=Time.unscaledDeltaTime;float t=MenuMotion.EaseOut(elapsed/Mathf.Max(.001f,duration));
-            current=Mathf.Lerp(from,to,t);Apply();
+            elapsed+=Time.unscaledDeltaTime;float u=elapsed/Mathf.Max(.001f,duration);
+            current=spring?SpringEase(from,to,u):Mathf.Lerp(from,to,MenuMotion.EaseOut(Mathf.Clamp01(u)));Apply();
             if(elapsed>=duration){current=to;Apply();Completed=true;Playback(false);}
         }
         void BindHighlight()
@@ -282,16 +293,16 @@ namespace Inkomino
         }
         void Apply()
         {
-            if(visual){visual.localScale=Vector3.Scale(originalScale,new Vector3(current,current*(2f-current),1));visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*320;}
+            if(visual){float squash=Mathf.Min(current,1f);visual.localScale=Vector3.Scale(originalScale,new Vector3(current,squash*(2f-squash),1));visual.anchoredPosition=originalVisualPosition+Vector2.down*Mathf.Max(0f,1f-current)*420f;}
             if(highlight)
             {
-                float flash=current>=.995f?0:Mathf.Lerp(.24f,0,Mathf.InverseLerp(.86f,1,current));
+                float flash=current>=.995f?0:Mathf.Lerp(.32f,0,Mathf.Clamp01(Mathf.InverseLerp(.94f,1f,current)));
                 var c=highlight.color;c.a=flash;highlight.color=c;
             }
         }
         void Restore()
         {
-            pointerId=int.MinValue;IsPressed=false;current=from=to=1;
+            pointerId=int.MinValue;IsPressed=false;spring=false;current=from=to=1;
             if(visual){visual.localScale=originalScale;visual.anchoredPosition=originalVisualPosition;}
             if(highlight){var c=highlight.color;c.a=0;highlight.color=c;}
             Completed=true;Playback(false);

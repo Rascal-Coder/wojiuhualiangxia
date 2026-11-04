@@ -18,6 +18,7 @@ namespace Inkomino
             if(CurrentLevel<unlock){SetMessage(Zh.Unlock(unlock));return;}
             int count=index==0?Store.Data.hint:index==1?Store.Data.freeze:Store.Data.lens;
             if(count<=0){BoosterShop(index);return;}
+            var slot=Content.Find("Sticker booster tray/Source booster "+index) as RectTransform;if(slot)MenuMotion.Sparkle(slot,5,false);
             if(index==1){Store.Data.freeze--;Store.Save();BoosterCounts();StartCoroutine(SourceFreeze(presentationEpoch));return;}
             var answer=Board.Solve(60000);if(answer==null||answer.Count==0){SetMessage(Zh.RemoveForRoom);return;}
             AnimationBusy=true;if(index==0){Store.Data.hint--;StartCoroutine(SourcePen(answer[0],presentationEpoch));}

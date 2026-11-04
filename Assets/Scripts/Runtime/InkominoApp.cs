@@ -92,7 +92,7 @@ namespace Inkomino
             var panel=Popup(Zh.ChangeAvatar,900,900);
             var borders=new RoundedGraphic[MenuUI.AvatarCount];
             var faces=new RoundedGraphic[MenuUI.AvatarCount];
-            void Refresh(){for(int j=0;j<borders.Length;j++){bool selected=MenuUI.AvatarId(Store.Data.avatar)==j+1;borders[j].color=selected?MenuUI.Ink:InkTheme.Line;faces[j].color=selected?new Color32(211,248,231,255):new Color32(249,241,255,255);}}
+            void Refresh(){for(int j=0;j<borders.Length;j++){bool selected=MenuUI.AvatarId(Store.Data.avatar)==j+1;borders[j].color=selected?MenuUI.Coral:new Color32(236,196,160,255);faces[j].color=selected?new Color32(214,248,230,255):new Color32(255,244,228,255);}}
             for(int i=0;i<MenuUI.AvatarCount;i++)
             {
                 int id=i+1;

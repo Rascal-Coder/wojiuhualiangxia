@@ -11,7 +11,7 @@ namespace Inkomino
     {
         public const int TitleSize=72,Body=48,Small=42;
         public static readonly Color Ink=InkTheme.Ink,Muted=InkTheme.Muted,Gold=InkTheme.Line,Green=InkTheme.Jade,Purple=InkTheme.Cinnabar;
-        public static readonly Color32 Coral=new Color32(255,99,139,255),CoralChip=new Color32(255,168,190,255),CoralDepth=new Color32(214,72,118,255),Grape=new Color32(102,69,170,255),Cream=new Color32(255,252,255,255),Lemon=new Color32(255,243,209,255),Mint=new Color32(117,218,186,255),MintWash=new Color32(221,248,237,255),MintDepth=new Color32(72,176,148,255),Blush=new Color32(255,228,238,255),LilacWash=new Color32(239,228,255,255),Sky=new Color32(232,244,255,255),SoftWhite=new Color32(255,255,255,255),PenWash=new Color32(255,206,224,255),IceWash=new Color32(196,230,255,255),LensWash=new Color32(224,208,255,255);
+        public static readonly Color32 Coral=new Color32(255,78,116,255),CoralChip=new Color32(255,176,188,255),CoralDepth=new Color32(196,42,78,255),Grape=new Color32(98,52,34,255),Cream=new Color32(255,250,244,255),Lemon=new Color32(255,236,176,255),Mint=new Color32(88,214,168,255),MintWash=new Color32(214,248,230,255),MintDepth=new Color32(36,156,122,255),Blush=new Color32(255,228,214,255),LilacWash=new Color32(255,226,204,255),Sky=new Color32(214,236,232,255),SoftWhite=new Color32(255,252,248,255),PenWash=new Color32(255,196,206,255),IceWash=new Color32(186,228,255,255),LensWash=new Color32(255,214,160,255),WarmShadow=new Color32(132,74,40,96);
         static Font bodyFont,numberFont;
         static readonly Dictionary<string,Sprite> art=new Dictionary<string,Sprite>();
         [Serializable] public sealed class AtlasRegion{public string key;public int x,y,width,height,border,borderX,borderY;}
@@ -44,9 +44,9 @@ namespace Inkomino
         }
         public static void SoftDepth(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float radius=-1,Color32? shade=null)
         {
-            float rad=radius>0?radius:Mathf.Min(48,Mathf.Min(size.x,size.y)*.22f);
-            float drop=Mathf.Clamp(size.y*.055f,10,20);
-            var shadow=Skin.RoundBox(parent,anchor,pos+new Vector2(0,-drop),new Vector2(size.x-4,size.y-2),shade??new Color32(145,110,196,70),rad);
+            float rad=radius>0?radius:Mathf.Min(44,Mathf.Min(size.x,size.y)*.22f);
+            float drop=Mathf.Clamp(size.y*.08f,12,28);
+            var shadow=Skin.RoundBox(parent,anchor,pos+new Vector2(0,-drop),new Vector2(size.x-4,size.y-2),shade??WarmShadow,rad);
             shadow.name="Soft plate shadow";
         }
         public static void SoftDepth(Transform parent,Vector2 size,float radius=-1,Color32? shade=null)
@@ -56,14 +56,14 @@ namespace Inkomino
         public static void StickerDepth(Transform parent,Vector2 size,float radius=-1){SoftDepth(parent,size,radius);}
         public static RoundedGraphic Gloss(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float radius)
         {
-            var shine=Skin.RoundBox(parent,anchor,pos,size,new Color32(255,255,255,78),Mathf.Max(8,radius*.7f));
+            var shine=Skin.RoundBox(parent,anchor,pos,size,new Color32(255,255,255,120),Mathf.Max(8,radius*.7f));
             shine.name="Soft plate gloss";
             return shine;
         }
         public static RoundedGraphic Extrude(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color face,Color depth,float radius=-1,bool light=true)
         {
-            float rad=radius>0?radius:Mathf.Min(size.x,size.y)*.42f;
-            float lift=Mathf.Clamp(size.y*.08f,10,22);
+            float rad=radius>0?radius:Mathf.Min(44,Mathf.Min(size.x,size.y)*.42f);
+            float lift=Mathf.Clamp(size.y*.12f,14,30);
             var basePlate=Skin.RoundBox(parent,anchor,pos+new Vector2(0,-lift*.55f),new Vector2(size.x-2,size.y-2),depth,rad);
             basePlate.name="Soft plate depth";
             var top=Skin.RoundBox(parent,anchor,pos+new Vector2(0,lift*.12f),size,face,rad);
@@ -87,7 +87,7 @@ namespace Inkomino
         public static RectTransform Paper(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,bool accent=false)
         {
             var r=Skin.Rect("Menu paper",parent,anchor,pos,size);
-            float radius=Mathf.Clamp(Mathf.Min(size.x,size.y)*.18f,32f,48f);
+            float radius=Mathf.Clamp(Mathf.Min(size.x,size.y)*.16f,28f,44f);
             SoftDepth(r,size,radius);
             var rim=Skin.RoundBox(r,Vector2.one*.5f,Vector2.zero,size,Color.white,radius);
             rim.name="Soft card rim";
@@ -100,17 +100,17 @@ namespace Inkomino
         public static RectTransform Capsule(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color fill)
         {
             var r=Skin.Rect("Soft capsule",parent,anchor,pos,size);
-            Extrude(r,Vector2.one*.5f,Vector2.zero,size,fill,new Color32(145,110,196,90),size.y*.5f);
+            Extrude(r,Vector2.one*.5f,Vector2.zero,size,fill,WarmShadow,size.y*.5f);
             return r;
         }
         public static RectTransform CountBubble(Transform parent,Vector2 pos,Vector2 size,string text,Color32? fill=null,Color? ink=null)
         {
             var r=Skin.Rect("Count bubble",parent,new Vector2(.5f,.5f),pos,size);
             float rad=size.y*.5f;
-            SoftDepth(r,size,rad,new Color32(145,110,196,70));
-            var face=Skin.RoundBox(r,Vector2.one*.5f,Vector2.zero,size,fill??CoralChip,rad);
+            SoftDepth(r,size,rad,WarmShadow);
+            var face=Skin.RoundBox(r,Vector2.one*.5f,Vector2.zero,size,fill??Coral,rad);
             face.name="Count bubble face";
-            Label(text,r,Vector2.one*.5f,Vector2.zero,size-new Vector2(8,4),Mathf.Max(42,Mathf.RoundToInt(size.y*.55f)),ink??Grape,TextAnchor.MiddleCenter);
+            Label(text,r,Vector2.one*.5f,Vector2.zero,size-new Vector2(8,4),Mathf.Max(42,Mathf.RoundToInt(size.y*.55f)),ink??Color.white,TextAnchor.MiddleCenter);
             return r;
         }
         public static void Title(string title,string subtitle,Transform parent)
@@ -139,15 +139,18 @@ namespace Inkomino
         {
             var r=Skin.Rect(text+" menu button",parent,anchor,pos,size);
             var face=Skin.Fill("Button artwork",r);face.gameObject.AddComponent<CanvasGroup>();
-            float lift=Mathf.Clamp(size.y*.08f,12,22);
+            float lift=Mathf.Clamp(size.y*.14f,18,36);
+            float rad=size.y*.48f;
             Color32 depth=primary?CoralDepth:MintDepth;
             Color32 top=primary?Coral:SoftWhite;
-            var basePlate=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,-lift*.6f),new Vector2(size.x-4,size.y-2),depth,size.y*.46f);
+            var basePlate=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,-lift*.75f),new Vector2(size.x-8,size.y),depth,rad);
             basePlate.name=primary?"Primary button depth":"Secondary button depth";
-            var sheet=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.22f),size,top,size.y*.46f);
+            var sheet=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.32f),size,top,rad);
             sheet.name=primary?"Primary button face":"Secondary button face";
             sheet.gameObject.AddComponent<MenuSurfaceLight>();
-            Gloss(face,Vector2.one*.5f,new Vector2(0,lift*.42f+size.y*.16f),new Vector2(size.x*.7f,size.y*.26f),size.y*.4f);
+            var lip=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.55f+size.y*.22f),new Vector2(size.x*.62f,Mathf.Max(18,size.y*.22f)),new Color32(255,255,255,primary?150:110),rad*.7f);
+            lip.name="Button gloss lip";
+            Gloss(face,Vector2.one*.5f,new Vector2(-size.x*.16f,lift*.7f+size.y*.24f),new Vector2(size.x*.28f,Mathf.Max(12,size.y*.1f)),rad*.5f);
             Label(text,face,Vector2.one*.5f,new Vector2(0,lift*.2f),size-new Vector2(50,20),fontSize,primary?Color.white:Ink,TextAnchor.MiddleCenter,true);
             var button=Skin.Hit(r,action,1);MenuMotion.Press(button);return button;
         }
@@ -165,7 +168,7 @@ namespace Inkomino
         public static void Progress(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float value)
         {
             var r=Skin.Rect("Menu progress",parent,anchor,pos,size);
-            Skin.RoundBox(r,new Vector2(.5f,.5f),Vector2.zero,size,new Color32(228,211,241,255),size.y/2);
+            Skin.RoundBox(r,new Vector2(.5f,.5f),Vector2.zero,size,new Color32(244,210,184,255),size.y/2);
             float width=size.x*Mathf.Clamp01(value);if(width>0){var fill=Skin.RoundBox(r,new Vector2(0,.5f),new Vector2(width/2,0),new Vector2(width,size.y),Coral,size.y/2);fill.name="Menu progress fill";fill.gameObject.AddComponent<MenuSurfaceLight>();MenuMotion.RevealProgress(fill.rectTransform,width);}
         }
         public static void Adapt(Transform parent,WeChatHeaderLayout header,int firstContentChild,float bottom=2020)

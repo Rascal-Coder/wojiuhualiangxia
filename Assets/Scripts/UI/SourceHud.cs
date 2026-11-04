@@ -32,7 +32,7 @@ namespace Inkomino
             public bool Animate;
         }
         readonly List<Card> cards=new List<Card>();
-        static readonly Color Orange=new Color32(102,69,170,255),Green=new Color32(102,69,170,255);
+        static readonly Color Orange=new Color32(98,52,34,255),Green=new Color32(36,156,122,255);
         BoardState board; RectTransform holder,generated; float d,lastWidth=-1;
         const float Gap=16f;
 
@@ -65,7 +65,7 @@ namespace Inkomino
                 card.Group.interactable=false;card.Group.blocksRaycasts=false;
                 Color candy;if(!ColorUtility.TryParseHtmlString(string.IsNullOrEmpty(shape.color)?"#B689EE":shape.color,out candy))candy=new Color32(182,137,238,255);
                 Color wash=Color.Lerp(Color.white,candy,.16f);
-                MenuUI.Extrude(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta,wash,new Color32(145,110,196,70),28);
+                MenuUI.Extrude(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta,wash,MenuUI.WarmShadow,28);
                 var glyph=Skin.Rect("ShapeGlyph "+id,card.Root,new Vector2(0,.5f),new Vector2(pad+gw/2,0),new Vector2(gw,gh));
                 foreach(var c in shape.cells)
                 {

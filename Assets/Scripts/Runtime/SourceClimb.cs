@@ -39,7 +39,7 @@ namespace Inkomino
             {
                 bool passed=i<state.stage,current=!preview&&i==state.stage;
                 var cell=Skin.Rect("Stamp stage "+(i+1),album,new Vector2(.5f,1),new Vector2((i%3-1)*286,-268-i/3*236),new Vector2(268,214));
-                Skin.RoundBox(cell,Vector2.one*.5f,new Vector2(6,-8),cell.sizeDelta,new Color32(145,110,196,55),38);
+                Skin.RoundBox(cell,Vector2.one*.5f,new Vector2(6,-8),cell.sizeDelta,MenuUI.WarmShadow,38);
                 Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,current?MenuUI.Coral:Color.white,38);
                 Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta-Vector2.one*(current?14:8),fills[i],32);
                 var art=MenuUI.Art(icons[i],cell,Vector2.one*.5f,new Vector2(0,22),Vector2.one*124);if(!passed&&!current)art.color=new Color(1,1,1,.35f);
@@ -48,7 +48,7 @@ namespace Inkomino
                 if(passed){var stamp=Skin.Rect("Climb stage status",cell,new Vector2(1,1),new Vector2(-32,-30),Vector2.one*68);Skin.RoundBox(stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,MenuUI.Coral,34);MenuUI.Label("好",stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,42,Color.white,TextAnchor.MiddleCenter,true);stamp.localRotation=Quaternion.Euler(0,0,-12);}
             }
             var final=Skin.Rect("Stamp final reward",album,new Vector2(.5f,1),new Vector2(0,-738),new Vector2(880,168));
-            Skin.RoundBox(final,Vector2.one*.5f,new Vector2(0,-6),final.sizeDelta,new Color32(145,110,196,48),42);
+            Skin.RoundBox(final,Vector2.one*.5f,new Vector2(0,-6),final.sizeDelta,new Color32(132,74,40,70),42);
             Skin.RoundBox(final,Vector2.one*.5f,Vector2.zero,final.sizeDelta,Color.white,42);
             Skin.RoundBox(final,Vector2.one*.5f,Vector2.zero,final.sizeDelta-Vector2.one*10,new Color32(255,236,164,255),36);
             MenuUI.Art(StickerDesign.Stamps[6],final,new Vector2(0,.5f),new Vector2(96,0),Vector2.one*148);
@@ -90,7 +90,7 @@ namespace Inkomino
         {
             var rect=Skin.Rect(ring?"Climb current stage halo":"Climb treasure glow",parent,anchor,position,size);
             var glow=rect.gameObject.AddComponent<ClimbHaloGraphic>();glow.Ring=ring;glow.raycastTarget=false;
-            glow.color=ring?new Color32(204,181,232,120):new Color32(100,139,120,35);return rect;
+            glow.color=ring?new Color32(232,156,96,140):new Color32(255,196,120,50);return rect;
         }
         static Vector2 ClimbIslandPoint(int index){return new Vector2(index%2==0?-165:165,-345+index*120);}
         void ClimbInfo()
