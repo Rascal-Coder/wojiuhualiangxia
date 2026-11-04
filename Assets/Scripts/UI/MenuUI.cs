@@ -42,12 +42,16 @@ namespace Inkomino
             // exceed a compact label box; the real glyph bounds are verified.
             label.horizontalOverflow=HorizontalWrapMode.Wrap;label.verticalOverflow=VerticalWrapMode.Overflow;return label;
         }
-        public static void SoftDepth(Transform parent,Vector2 size,float radius=-1,Color32? shade=null)
+        public static void SoftDepth(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float radius=-1,Color32? shade=null)
         {
             float rad=radius>0?radius:Mathf.Min(48,Mathf.Min(size.x,size.y)*.22f);
             float drop=Mathf.Clamp(size.y*.055f,10,20);
-            var shadow=Skin.RoundBox(parent,Vector2.one*.5f,new Vector2(0,-drop),new Vector2(size.x-4,size.y-2),shade??new Color32(145,110,196,70),rad);
+            var shadow=Skin.RoundBox(parent,anchor,pos+new Vector2(0,-drop),new Vector2(size.x-4,size.y-2),shade??new Color32(145,110,196,70),rad);
             shadow.name="Soft plate shadow";
+        }
+        public static void SoftDepth(Transform parent,Vector2 size,float radius=-1,Color32? shade=null)
+        {
+            SoftDepth(parent,Vector2.one*.5f,Vector2.zero,size,radius,shade);
         }
         public static void StickerDepth(Transform parent,Vector2 size,float radius=-1){SoftDepth(parent,size,radius);}
         public static RoundedGraphic Gloss(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float radius)
@@ -71,7 +75,7 @@ namespace Inkomino
         public static RoundedGraphic Plate(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color color,float radius=-1)
         {
             float rad=radius>0?radius:Mathf.Min(size.x,size.y)*.28f;
-            SoftDepth(parent,size,rad);
+            SoftDepth(parent,anchor,pos,size,rad);
             var rim=Skin.RoundBox(parent,anchor,pos,size,Color.white,rad);
             rim.name="Soft plate rim";
             rim.gameObject.AddComponent<MenuSurfaceLight>();
