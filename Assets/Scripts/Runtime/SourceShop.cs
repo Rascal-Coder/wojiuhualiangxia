@@ -80,17 +80,18 @@ namespace Inkomino
         void ShopPurchaseControls(Transform parent,string item,Vector2 anchor,Vector2 position,Action<int> purchased,Vector2? quotaPosition=null)
         {
             var group=Skin.Rect("Shop purchase "+item,parent,anchor,position,new Vector2(600,110));
-            var quota=Skin.Rect("Shop remaining "+item,parent,anchor,quotaPosition??position+new Vector2(0,96),new Vector2(220,72));
+            var quota=Skin.Rect("Shop remaining "+item,parent,anchor,quotaPosition??position+new Vector2(0,96),new Vector2(160,40));
             var stamps=new Image[SaveStore.ShopDailyLimit];
+            var pips=new RoundedGraphic[SaveStore.ShopDailyLimit];
             for(int i=0;i<stamps.Length;i++)
             {
-                var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*72,0),Vector2.one*68);
-                MenuUI.Extrude(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,MenuUI.Cream,MenuUI.CoralChip,34);
-                stamps[i]=MenuUI.Art("ink_shop",slot,Vector2.one*.5f,Vector2.zero,Vector2.one*48);if(stamps[i])stamps[i].name="Purchase stamp "+i;
+                var slot=Skin.Rect("Purchase stamp slot "+i,quota,Vector2.one*.5f,new Vector2((i-1)*44,0),Vector2.one*32);
+                pips[i]=Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,MenuUI.Coral,16);pips[i].name="Purchase pip";
+                var mark=slot.gameObject.AddComponent<Image>();mark.raycastTarget=false;mark.enabled=false;mark.color=Color.white;mark.name="Purchase stamp "+i;stamps[i]=mark;
             }
             var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(-140,0),new Vector2(80,72),46,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
             int quantity=1;Button minus=null,plus=null,buy=null;
-            void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++)if(stamps[i])stamps[i].color=i<left?Color.white:new Color(.65f,.60f,.72f,.24f);amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
+            void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++){bool on=i<left;if(stamps[i])stamps[i].color=on?Color.white:new Color(.65f,.60f,.72f,.24f);if(pips[i])pips[i].color=on?MenuUI.Coral:new Color(.78f,.74f,.82f,.35f);}amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
             minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-244,0),new Vector2(112,110),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},48);minus.name="Shop minus "+item;
             plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(-36,0),new Vector2(112,110),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},48);plus.name="Shop plus "+item;
             buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(156,0),new Vector2(240,110),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;

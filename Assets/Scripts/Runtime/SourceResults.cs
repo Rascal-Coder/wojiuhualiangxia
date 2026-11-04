@@ -22,33 +22,34 @@ namespace Inkomino
             // Root title margins: top44, height100, bottom4; root gap8.
             // The remaining flex centerZone centres reward(200 + vertical margins8), gap8,
             // and the auto-width button(104 + top8 + bottom40).
-            float buttonH=168;
-            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-880),new Vector2(800,440));rewardRoot.name="Source reward";
-            MenuUI.Label(Zh.CoinsGot,rewardRoot,new Vector2(.5f,1),new Vector2(0,-48),new Vector2(640,56),44,MenuUI.Muted,TextAnchor.MiddleCenter,true);
-            var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,28),Vector2.one*200);
-            MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*200);
-            var amount=MenuUI.Label("+"+reward,rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-140),new Vector2(640,72),64,MenuUI.Coral,TextAnchor.MiddleCenter);
+            float buttonH=176;
+            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-760),new Vector2(880,210));rewardRoot.name="Source reward";
+            MenuUI.Plate(rewardRoot,new Vector2(0,.5f),new Vector2(118,0),Vector2.one*148,MenuUI.Lemon,40);
+            var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(0,.5f),new Vector2(118,0),Vector2.one*124);
+            MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*112);
+            MenuUI.Label(Zh.CoinsGot,rewardRoot,new Vector2(0,.5f),new Vector2(470,36),new Vector2(520,48),44,MenuUI.Muted,TextAnchor.MiddleLeft,true);
+            var amount=MenuUI.Label("+"+reward,rewardRoot,new Vector2(0,.5f),new Vector2(470,-34),new Vector2(520,72),68,MenuUI.Coral,TextAnchor.MiddleLeft);
             motion.Reward=rewardRoot;motion.RewardAlpha=rewardRoot.gameObject.AddComponent<CanvasGroup>();
             motion.Coin=pile;
             float used=Mathf.Max(0,Board!=null?Board.Level.time-Remaining:0);
             int steps=Board!=null?Board.Pieces.Count:0;
             int stars=Board==null||used<=0?3:used<=Board.Level.time*.45f?3:used<=Board.Level.time*.75f?2:1;
-            var stats=Skin.Rect("Result stats",root,new Vector2(.5f,1),new Vector2(0,-1240),new Vector2(880,156));
+            var stats=Skin.Rect("Result stats",root,new Vector2(.5f,1),new Vector2(0,-1048),new Vector2(880,148));
             string[] statTitles={Zh.TimeStat,Zh.StepsStat,Zh.StarsStat};
             string[] statValues={FormatTime(used),steps.ToString(),stars+"/3"};
             Color32[] statFaces={MenuUI.LilacWash,MenuUI.Sky,MenuUI.Lemon};
             for(int i=0;i<3;i++)
             {
-                var cell=Skin.Rect("Result stat "+i,stats,Vector2.one*.5f,new Vector2((i-1)*280,0),new Vector2(236,144));
-                MenuUI.Extrude(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,statFaces[i],new Color32(145,110,196,70),48);
+                var cell=Skin.Rect("Result stat "+i,stats,Vector2.one*.5f,new Vector2((i-1)*284,0),new Vector2(252,136));
+                MenuUI.Extrude(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,statFaces[i],new Color32(145,110,196,70),36);
                 MenuUI.Label(statTitles[i],cell,Vector2.one*.5f,new Vector2(0,42),new Vector2(220,48),42,MenuUI.Muted,TextAnchor.MiddleCenter,true);
                 MenuUI.Label(statValues[i],cell,Vector2.one*.5f,new Vector2(0,-22),new Vector2(220,70),52,MenuUI.Ink,TextAnchor.MiddleCenter);
             }
 
             // Source no-ad branch: module2120 AutoWidthGreenButton, activeOpacity=.85.
-            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1560),new Vector2(760,buttonH));
+            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1400),new Vector2(880,buttonH));
             int level=CurrentLevel;bool review=Review;
-            var button=MenuUI.GameButton(Zh.NextLevel,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>{Feel.Success();AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();});},64);
+            var button=MenuUI.GameButton(Zh.NextLevel,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>{Feel.Success();AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();});},68);
             foreach(var label in button.GetComponentsInChildren<SourceTrackedText>()){label.LetterSpacing=.5f*dp;var clip=label.transform.parent as RectTransform;if(clip)clip.anchoredPosition=Vector2.zero;}
             var opacity=button as SourceOpacityButton;if(opacity)opacity.ActiveOpacity=.85f;
             bool showDouble=!review&&reward>0&&RewardEntryEnabled(RewardPlacement.DoubleCoins);
@@ -59,7 +60,7 @@ namespace Inkomino
                     doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra);doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");Feel.Success();
                 },()=>!doubled&&presentationEpoch==epoch&&screen=="result"&&CurrentLevel==level),true);
             }
-            MenuUI.SecondaryButton(Zh.PlayAgain,root,new Vector2(.5f,1),new Vector2(0,showDouble?-1840:-1760),new Vector2(680,124),Retry,46);
+            MenuUI.SecondaryButton(Zh.PlayAgain,root,new Vector2(.5f,1),new Vector2(0,showDouble?-1720:-1620),new Vector2(640,112),Retry,44);
             MenuUI.SecondaryButton(Zh.BackHome,root,new Vector2(.5f,0),new Vector2(0,64),new Vector2(680,108),ShowHome,44);
             motion.Button=buttonRoot;motion.ButtonAlpha=buttonRoot.gameObject.AddComponent<CanvasGroup>();motion.Width=width;
             motion.ConfettiParent=Skin.Fill("Source result confetti",root);motion.ConfettiParent.SetAsFirstSibling();

@@ -87,7 +87,7 @@ namespace Inkomino
         public static RectTransform Paper(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,bool accent=false)
         {
             var r=Skin.Rect("Menu paper",parent,anchor,pos,size);
-            float radius=Mathf.Min(72,Mathf.Min(size.x,size.y)*.22f);
+            float radius=Mathf.Clamp(Mathf.Min(size.x,size.y)*.18f,32f,48f);
             SoftDepth(r,size,radius);
             var rim=Skin.RoundBox(r,Vector2.one*.5f,Vector2.zero,size,Color.white,radius);
             rim.name="Soft card rim";
