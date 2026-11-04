@@ -53,8 +53,8 @@ namespace Inkomino
     public class SourcePopupMotion:MonoBehaviour
     {
         CanvasGroup group;float begin;public float Progress { get{return Mathf.Clamp01((SourceClock.Now-begin)/.2f);} }
-        void Awake(){group=gameObject.AddComponent<CanvasGroup>();begin=SourceClock.Now;if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}group.alpha=0;transform.localScale=Vector3.one*.72f;}
-        void Update(){if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}float t=Mathf.Max(0,SourceClock.Now-begin);group.alpha=SourceMotion.DefaultTiming(t/.16f);transform.localScale=Vector3.one*(t>.85f?1:SourceMotion.Spring(t,.72f,1,160,8));if(t>.85f)enabled=false;}
+        void Awake(){group=gameObject.AddComponent<CanvasGroup>();begin=SourceClock.Now;if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}group.alpha=0;transform.localScale=Vector3.one*.94f;}
+        void Update(){if(MenuMotion.Reduced){group.alpha=1;transform.localScale=Vector3.one;enabled=false;return;}float t=Mathf.Max(0,SourceClock.Now-begin);group.alpha=SourceMotion.DefaultTiming(t/.16f);float u=Mathf.Clamp01(t/.22f);float s=u<.65f?Mathf.Lerp(.94f,1.04f,SourceMotion.OutCubic(u/.65f)):Mathf.Lerp(1.04f,1f,SourceMotion.OutCubic((u-.65f)/.35f));transform.localScale=Vector3.one*(u>=1f?1f:s);if(t>.24f){transform.localScale=Vector3.one;group.alpha=1;enabled=false;}}
     }
     [UnityEngine.Scripting.Preserve]
     public sealed class SourcePopupDismiss:MonoBehaviour

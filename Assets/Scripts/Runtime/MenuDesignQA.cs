@@ -64,8 +64,8 @@ namespace Inkomino
             Check(app!=null,"application exists");if(!app)yield break;
             app.enabled=false;app.StopAllCoroutines();app.SourceTutorialEnabled=false;AudioListener.volume=0;
             var body=MenuUI.BodyFont;result.bodyFont=body?body.name:"missing";
-            var resource=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");
-            Check(resource&&body==resource&&body!=Skin.ChineseFont,"dedicated readable body font loads instead of display-font fallback");
+            var resource=Resources.Load<Font>("Fonts/ZCOOLKuaiLe-Regular");
+            Check(resource&&body==resource&&Skin.ChineseFont==resource,"rounded ZCOOL KuaiLe loads for body and display");
             foreach(var size in new[]{new Vector2Int(360,800),new Vector2Int(375,812),new Vector2Int(540,836)})
             {
                 Screen.SetResolution(size.x,size.y,false);yield return new WaitForSecondsRealtime(.5f);

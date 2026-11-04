@@ -31,7 +31,6 @@ namespace Inkomino
                 var spriteRect=painting.sprite.rect;float aspect=spriteRect.width/Mathf.Max(1f,spriteRect.height);var box=clip.sizeDelta;
                 bool wide=box.x/Mathf.Max(1f,box.y)>aspect;
                 painting.preserveAspect=true;painting.rectTransform.sizeDelta=new Vector2(wide?box.x:box.y*aspect,wide?box.x/aspect:box.y)+new Vector2(48,48);
-                MenuMotion.Float(painting.rectTransform,6,.7f);
             }
             HomeGameClub();
             homePlayButton=MenuUI.GameButton(Zh.Play,Content,new Vector2(.5f,1),new Vector2(0,-1694),new Vector2(960,208),()=>{Feel.Success();PlayCurrent();},72);
@@ -40,7 +39,7 @@ namespace Inkomino
             var level=MenuUI.Label("第"+Store.Data.level+"关",playLabel.transform.parent,Vector2.one*.5f,new Vector2(-310,8),new Vector2(196,68),46,MenuUI.Ink,TextAnchor.MiddleCenter,true);level.name="Home current level";
             HomeEvent(0,"每日礼物","shell_src_ui_dailyrewardcardicon",-268,DailyReward);
             HomeEvent(3,"快乐集章","entry_album",268,ShowClimb);
-            UpdateHomeTimers();MenuUI.Adapt(Content,headerLayout,first,2032);Navigation(1);
+            UpdateHomeTimers();MenuUI.Adapt(Content,headerLayout,first,2032);Navigation(1);MenuMotion.Arrive(Content);
         }
         void HomeGameClub()
         {
@@ -127,14 +126,14 @@ namespace Inkomino
             bool restartIntro=id==1&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen;
             if(restartIntro&&!review&&Store.Data.resumeLevel==1){Store.Data.resumeLevel=0;Store.Data.resumePieces=null;Store.Data.resumeTime=0;Store.Save();}
             Board.Changed+=BoardChanged;if(resume&&!restartIntro&&Store.Data.resumeLevel==id&&Store.Data.resumePieces!=null){suppress=true;Board.Restore(Store.Data.resumePieces);Remaining=Mathf.Max(1,Store.Data.resumeTime);suppress=false;}
-            RefreshTargets();BoosterCounts();TimerChanged();if(id==1&&Board.Pieces.Count==0&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen)Tutorial();else StartContextGuide();FocusFirst();}
+            RefreshTargets();BoosterCounts();TimerChanged();if(id==1&&Board.Pieces.Count==0&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen)Tutorial();else StartContextGuide();MenuMotion.Arrive(Content);FocusFirst();}
         void RefreshTargets(){if(targets!=null&&!targets.GetComponent<SourceTargetsStrip>())SourceHud.BuildTargets((RectTransform)targets,Board,D);}
         // Three equal columns, with independent icon, name and status rows.
         // The entire tray is anchored to the safe stage bottom; every hit area is 98dp wide.
         void BuildBoosterTray()
         {
             var tray=Skin.Rect("Sticker booster tray",Content,new Vector2(.5f,0),new Vector2(0,404),new Vector2(980,320));
-            // Layout-only container. Each booster has its own glossy casual tile.
+            // Layout-only container. Each booster is a soft clay tile.
             string[] icons={"pen","freeze","lens"};Color[] colors={MenuUI.PenWash,MenuUI.IceWash,MenuUI.LensWash};
             for(int i=0;i<3;i++)
             {
@@ -142,7 +141,6 @@ namespace Inkomino
                 MenuUI.SoftDepth(slot,new Vector2(268,284),40,MenuUI.WarmShadow);
                 var rim=Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(0,-8),new Vector2(268,284),i==0?MenuUI.CoralDepth:i==1?new Color32(48,140,196,255):new Color32(214,140,48,255),40);rim.gameObject.AddComponent<MenuSurfaceLight>();
                 Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(0,6),new Vector2(252,268),colors[i],36);
-                MenuUI.Gloss(slot,Vector2.one*.5f,new Vector2(0,78),new Vector2(190,64),28);
                 var icon=MenuUI.Art("menu_"+icons[i],slot,Vector2.one*.5f,new Vector2(0,46),Vector2.one*136);
                 bool locked=CurrentLevel<(i==0?3:i==1?7:10);if(icon)icon.color=new Color(1,1,1,locked?.64f:1);
                 MenuUI.Label(i==0?Zh.MagicPen:i==1?Zh.FreezeTime:Zh.Lens,slot,Vector2.one*.5f,new Vector2(0,-36),new Vector2(240,52),44,MenuUI.Ink,TextAnchor.MiddleCenter,true);

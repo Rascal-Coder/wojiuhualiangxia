@@ -345,7 +345,6 @@ namespace Inkomino
                 Skin.RoundBox(host,Vector2.one*.5f,new Vector2(0,-tile*.045f),Vector2.one*(tile*.98f),new Color32(186,104,58,255),radius);
                 var face=Skin.RoundBox(host,Vector2.one*.5f,new Vector2(0,tile*.025f),Vector2.one*(tile*.88f),new Color32(255,252,246,255),radius*.88f);
                 face.gameObject.AddComponent<MenuSurfaceLight>();
-                MenuUI.Gloss(host,Vector2.one*.5f,new Vector2(0,tile*.2f),new Vector2(tile*.42f,tile*.14f),radius*.45f);
             }
         }
     }

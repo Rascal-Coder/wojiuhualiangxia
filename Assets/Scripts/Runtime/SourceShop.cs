@@ -62,7 +62,7 @@ namespace Inkomino
                 MenuUI.Extrude(row,Vector2.one*.5f,Vector2.zero,row.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,36);
                 MenuUI.Plate(row,top,new Vector2(128,-146),Vector2.one*176,plates[i],40);
                 var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(128,-146),Vector2.one*148);
-                if(tool){MenuMotion.Float(tool.rectTransform,4,1.1f);if(i==0)MenuMotion.Sparkle(tool.rectTransform,3,true);}
+                if(tool)tool.raycastTarget=false;
                 MenuUI.Label(titles[i],row,top,new Vector2(430,-78),new Vector2(340,56),48,MenuUI.Ink,TextAnchor.MiddleLeft,true);
                 MenuUI.Label(descriptions[i],row,top,new Vector2(430,-142),new Vector2(340,48),42,MenuUI.Muted);
                 ShopPurchaseControls(row,items[i],top,new Vector2(812,-152),quantity=>
@@ -76,6 +76,7 @@ namespace Inkomino
 
             MenuUI.Adapt(Content,headerLayout,firstContentChild,2041f,2253f);
             Navigation(0);
+            MenuMotion.Arrive(Content);
             FocusFirst();
         }
 

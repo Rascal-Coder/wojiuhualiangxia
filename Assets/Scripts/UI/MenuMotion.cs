@@ -38,6 +38,15 @@ namespace Inkomino
             if(!motion)motion=page.gameObject.AddComponent<MenuPageEntrance>();
             motion.Play(page);
         }
+        // Whole-screen arrive. Background stays put. Foreground fades in place.
+        // No position offset, so the board and HUD cannot jitter on entry.
+        public static void Arrive(RectTransform page)
+        {
+            if(!page)return;
+            var motion=page.GetComponent<MenuScreenFade>();
+            if(!motion)motion=page.gameObject.AddComponent<MenuScreenFade>();
+            motion.Play(page);
+        }
         public static void Press(Button button)
         {
             if(!button)return;
@@ -131,9 +140,8 @@ namespace Inkomino
                 var group=rect.GetComponent<CanvasGroup>();if(!group)group=rect.gameObject.AddComponent<CanvasGroup>();
                 // Visible controls remain visibly actionable throughout entry.
                 // Preserve CanvasGroup input flags and its original alpha.
-                bool textOnly=rect.GetComponent<Text>()!=null&&rect.childCount==0;
                 items[next]=new Item{rect=rect,group=group,position=rect.anchoredPosition,alpha=group.alpha,
-                    delay=count>1?MaximumStagger*next/(count-1):0,initialAlpha=textOnly?0:.18f};
+                    delay=count>1?MaximumStagger*next/(count-1):0,initialAlpha=0};
                 next++;
             }
             elapsed=0;Progress01=0;Completed=false;enabled=true;
@@ -178,6 +186,54 @@ namespace Inkomino
             }
         }
         void Finish(){Restore();Progress01=1;Completed=true;Playback(false);}
+        protected override void OnDisable(){Finish();base.OnDisable();}
+    }
+
+    // One-shot fade of a screen's foreground. The peach background is excluded
+    // so the camera clear color never flashes between pages.
+    [UnityEngine.Scripting.Preserve]
+    public sealed class MenuScreenFade:MenuMotionProbe
+    {
+        struct Item{public CanvasGroup group;public float alpha;}
+        Item[] items;
+        float elapsed;
+        public const float Duration=.26f;
+        public void Play(RectTransform page)
+        {
+            Restore();
+            if(!page){Completed=true;return;}
+            var list=new System.Collections.Generic.List<Item>();
+            for(int i=0;i<page.childCount;i++)
+            {
+                var rect=page.GetChild(i) as RectTransform;
+                if(!rect||!rect.gameObject.activeSelf)continue;
+                if(rect.name=="Source background viewport"||rect.name=="Menu gold sparkle layer")continue;
+                var group=rect.GetComponent<CanvasGroup>();if(!group)group=rect.gameObject.AddComponent<CanvasGroup>();
+                list.Add(new Item{group=group,alpha=group.alpha});
+            }
+            items=list.ToArray();elapsed=0;Completed=false;enabled=true;
+            if(MenuMotion.Reduced||!gameObject.activeInHierarchy||items.Length==0){Finish();return;}
+            Apply();Playback(true);
+        }
+        void Update()
+        {
+            if(!IsAnimating)return;
+            if(MenuMotion.Reduced){Finish();return;}
+            elapsed+=Time.unscaledDeltaTime;Apply();
+            if(elapsed>=Duration)Finish();
+        }
+        void Apply()
+        {
+            if(items==null)return;
+            float t=MenuMotion.EaseOut(Mathf.Clamp01(elapsed/Duration));
+            for(int i=0;i<items.Length;i++)if(items[i].group)items[i].group.alpha=Mathf.Lerp(0,items[i].alpha,t);
+        }
+        void Restore()
+        {
+            if(items==null)return;
+            for(int i=0;i<items.Length;i++)if(items[i].group)items[i].group.alpha=items[i].alpha;
+        }
+        void Finish(){Restore();Completed=true;Playback(false);}
         protected override void OnDisable(){Finish();base.OnDisable();}
     }
 
@@ -293,12 +349,9 @@ namespace Inkomino
         }
         void Apply()
         {
-            if(visual){float squash=Mathf.Min(current,1f);visual.localScale=Vector3.Scale(originalScale,new Vector3(current,squash*(2f-squash),1));visual.anchoredPosition=originalVisualPosition+Vector2.down*Mathf.Max(0f,1f-current)*420f;}
-            if(highlight)
-            {
-                float flash=current>=.995f?0:Mathf.Lerp(.32f,0,Mathf.Clamp01(Mathf.InverseLerp(.92f,1f,current)));
-                var c=highlight.color;c.a=flash;highlight.color=c;
-            }
+            // Scale only. A position punch and a white flash read as shake and gloss.
+            if(visual){visual.localScale=Vector3.Scale(originalScale,Vector3.one*current);visual.anchoredPosition=originalVisualPosition;}
+            if(highlight){var c=highlight.color;c.a=0;highlight.color=c;}
         }
         void Restore()
         {

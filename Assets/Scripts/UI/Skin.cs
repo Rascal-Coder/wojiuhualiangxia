@@ -15,9 +15,9 @@ namespace Inkomino
         static Dictionary<string,Sprite> sprites=new Dictionary<string,Sprite>();
         public static Color Ink=InkTheme.Ink,Paper=InkTheme.Paper;
         static Font latinFont;
-        public static Font Font{get{if(!latinFont)latinFont=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");if(!latinFont)latinFont=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");return latinFont;}}
+        public static Font Font{get{if(!latinFont)latinFont=Resources.Load<Font>("Fonts/ZCOOLKuaiLe-Regular");if(!latinFont)latinFont=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");return latinFont;}}
         static Font chineseFont;
-        public static Font ChineseFont{get{if(!chineseFont)chineseFont=Resources.Load<Font>("Fonts/LiangxiaSticker-Display");return chineseFont?chineseFont:Font;}}
+        public static Font ChineseFont{get{if(!chineseFont)chineseFont=Resources.Load<Font>("Fonts/ZCOOLKuaiLe-Regular");return chineseFont?chineseFont:Font;}}
         public static bool HasChinese(string value){if(string.IsNullOrEmpty(value))return false;foreach(char c in value)if(c>=0x2e80&&c<=0xffef)return true;return false;}
         public static Font FontFor(string value){return HasChinese(value)?ChineseFont:Font;}
         public static RectTransform Rect(string name,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));go.transform.SetParent(parent,false);var r=(RectTransform)go.transform;r.anchorMin=r.anchorMax=anchor;r.pivot=new Vector2(.5f,.5f);r.sizeDelta=size;r.anchoredPosition=pos;return r;}

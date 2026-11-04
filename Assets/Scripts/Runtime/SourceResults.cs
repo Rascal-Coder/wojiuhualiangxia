@@ -49,6 +49,16 @@ namespace Inkomino
             float used=Mathf.Max(0,Board!=null?Board.Level.time-Remaining:0);
             int steps=Board!=null?Board.Pieces.Count:0;
             int stars=Board==null||used<=0?3:used<=Board.Level.time*.45f?3:used<=Board.Level.time*.75f?2:1;
+            motion.FilledStars=stars;
+            motion.Stars=new RectTransform[3];
+            for(int s=0;s<3;s++)
+            {
+                var star=Skin.Rect("Result star "+s,medal,Vector2.one*.5f,new Vector2((s-1)*58f,-92f),Vector2.one*40);
+                var glyph=star.gameObject.AddComponent<ResultStarGraphic>();
+                glyph.color=s<stars?new Color32(255,186,64,255):new Color32(255,228,196,160);
+                glyph.raycastTarget=false;
+                motion.Stars[s]=star;
+            }
             // One cream strip. The old 36×8 bars were pinned into the paper gloss,
             // so the coverage fringe on the side chips did not match the center chip.
             var stats=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-945-down),new Vector2(920,196));stats.name="Result stats";
@@ -87,6 +97,7 @@ namespace Inkomino
             }
             foreach(var control in root.GetComponentsInChildren<Button>())MenuMotion.Press(control);
             motion.Begin();
+            MenuMotion.Arrive(Content);
         }
     }
 
@@ -94,8 +105,8 @@ namespace Inkomino
     {
         sealed class Letter{public RectTransform Rect;public CanvasGroup Alpha;public float Delay;}
         readonly List<Letter> letters=new List<Letter>();
-        public RectTransform Reward,Button,ConfettiParent,Coin,Trophy;public CanvasGroup RewardAlpha,ButtonAlpha;public float Width;
-        float begin,titleDone;Vector2 buttonPosition;bool confettiStarted,trophySparkle;
+        public RectTransform Reward,Button,ConfettiParent,Coin,Trophy;public RectTransform[] Stars;public int FilledStars;public CanvasGroup RewardAlpha,ButtonAlpha;public float Width;
+        float begin,titleDone;Vector2 buttonPosition;bool confettiStarted;
         public float Elapsed{get{return SourceClock.Now-begin;}}
         public float RewardStart{get{return titleDone;}}
         public static float TextWidth(string text,int fontSize)
@@ -120,16 +131,27 @@ namespace Inkomino
             titleDone=.100f;
         }
         static Text TitleGlyph(string ch,RectTransform parent,int size,Color color)
-        {var t=Skin.Text(ch,parent,new Vector2(.5f,.5f),Vector2.zero,new Vector2(size*2,size*1.7f),size,color);t.horizontalOverflow=HorizontalWrapMode.Overflow;t.verticalOverflow=VerticalWrapMode.Overflow;return t;}
-        public void Begin(){begin=SourceClock.Now;buttonPosition=Button.anchoredPosition;Apply(0);}
+        {var t=Skin.Text(ch,parent,new Vector2(.5f,.5f),Vector2.zero,new Vector2(size*2,size*1.7f),size,color);t.horizontalOverflow=HorizontalWrapMode.Overflow;t.verticalOverflow=VerticalWrapMode.Overflow;MenuUI.CandyType(t);return t;}
+        // One hump, then rest. An underdamped spring kept the clear screen shaking.
+        public static float Pop(float age)
+        {
+            const float dur=.34f;
+            if(age<=0f)return .2f;
+            if(age>=dur)return 1f;
+            float u=age/dur;
+            if(u<.62f)return Mathf.Lerp(.2f,1.06f,SourceMotion.OutCubic(u/.62f));
+            return Mathf.Lerp(1.06f,1f,SourceMotion.OutCubic((u-.62f)/.38f));
+        }
+        public void Begin(){begin=SourceClock.Now;buttonPosition=Button.anchoredPosition;if(Trophy&&!MenuMotion.Reduced)MenuMotion.Celebrate(Trophy);Apply(0);}
         void Update(){Apply(Elapsed);}
         void Apply(float t)
         {
-            foreach(var letter in letters){float age=t-letter.Delay;letter.Alpha.alpha=age<=0?0:SourceMotion.DefaultTiming(age/.160f);letter.Rect.localScale=Vector3.one*(age<0?.2f:age>2?1:SourceMotion.Spring(age,.2f,1,180,6));}
-            float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.OutCubic(rewardAge/.160f);Reward.localScale=Vector3.one*(MenuMotion.Reduced?1:rewardAge>1.05f?1:SourceMotion.Spring(rewardAge,.55f,1,240,8));
-            if(Coin)Coin.localScale=Vector3.one*(MenuMotion.Reduced||rewardAge<0?1:rewardAge>1.15f?1:SourceMotion.Spring(rewardAge,.08f,1,420,8));
-            if(Trophy){float age=rewardAge-.02f;Trophy.localScale=Vector3.one*(MenuMotion.Reduced?1:age>1.2f?1:SourceMotion.Spring(Mathf.Max(0,age),.16f,1,360,7));if(!trophySparkle&&age>=.12f){trophySparkle=true;MenuMotion.Sparkle(Trophy,8,false);}}
-            float buttonAge=t-.160f;ButtonAlpha.alpha=SourceMotion.OutCubic(buttonAge/.140f);Button.anchoredPosition=buttonPosition+Vector2.down*(MenuMotion.Reduced?0:36*(1-SourceMotion.OutCubic(buttonAge/.180f)));Button.localScale=Vector3.one*(MenuMotion.Reduced?1:buttonAge>1.05f?1:SourceMotion.Spring(Mathf.Max(0,buttonAge),.7f,1,230,8));
+            foreach(var letter in letters){float age=t-letter.Delay;letter.Alpha.alpha=age<=0?0:SourceMotion.DefaultTiming(age/.160f);letter.Rect.localScale=Vector3.one*(MenuMotion.Reduced||age>=.34f?1:Pop(age));}
+            float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.OutCubic(rewardAge/.160f);Reward.localScale=Vector3.one*(MenuMotion.Reduced||rewardAge>=.34f?1:Pop(rewardAge));
+            if(Coin)Coin.localScale=Vector3.one*(MenuMotion.Reduced||rewardAge>=.40f?1:Pop(rewardAge-.06f));
+            if(Trophy){float age=rewardAge-.02f;Trophy.localScale=Vector3.one*(MenuMotion.Reduced||age>=.34f?1:Pop(age));}
+            if(Stars!=null)for(int i=0;i<Stars.Length;i++)if(Stars[i]){float age=rewardAge-.08f-i*.05f;float empty=i<FilledStars?1f:.82f;Stars[i].localScale=Vector3.one*(MenuMotion.Reduced?empty:i<FilledStars?Pop(age):age<=0?.2f:Mathf.Lerp(.2f,empty,SourceMotion.OutCubic(Mathf.Clamp01(age/.22f))));}
+            float buttonAge=t-.160f;ButtonAlpha.alpha=SourceMotion.OutCubic(buttonAge/.140f);Button.anchoredPosition=buttonPosition+Vector2.down*(MenuMotion.Reduced?0:18*(1-SourceMotion.OutCubic(buttonAge/.180f)));Button.localScale=Vector3.one*(MenuMotion.Reduced||buttonAge>=.34f?1:Pop(buttonAge));
             ButtonAlpha.interactable=ButtonAlpha.blocksRaycasts=buttonAge>=.160f;
             if(!confettiStarted&&rewardAge>=0){confettiStarted=true;var confetti=ConfettiParent.gameObject.AddComponent<SourceResultConfetti>();confetti.Begin();MenuMotion.Celebrate(Reward);}
         }
@@ -142,12 +164,23 @@ namespace Inkomino
         public void Begin()
         {
             begin=SourceClock.Now;string[] colors={"#FF638B","#75DABA","#FFE36B","#B6A0F5","#FFA8D2","#8DCFFC","#6645AA","#D6EA81"};var random=new System.Random();Func<float> rand=()=> (float)random.NextDouble();float dp=Skin.DP;
-            for(int i=0;i<36;i++){float size=(8+rand()*9)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.55f+rand()*.9f)),color,3*dp);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.140f,Rise=(380+rand()*420)*dp,RiseDuration=(320+rand()*180)/1000,FallDuration=(800+rand()*500)/1000,Spin=540+rand()*720,X=(.06f+rand()*.88f)*1080};bits.Add(bit);}Apply();
+            for(int i=0;i<14;i++){float size=(10+rand()*8)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.7f+rand()*.4f)),color,size*.5f);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.120f,Rise=(280+rand()*260)*dp,RiseDuration=(280+rand()*140)/1000,FallDuration=(700+rand()*400)/1000,Spin=180+rand()*220,X=(.12f+rand()*.76f)*1080};bits.Add(bit);}Apply();
         }
         void Update(){Apply();}
         void Apply()
         {
             float dp=Skin.DP;foreach(var bit in bits){float t=SourceClock.Now-begin-bit.Delay,phase=bit.RiseDuration+bit.FallDuration,y=t<=phase?bit.Rise*SourceMotion.OutQuad(t/bit.RiseDuration):Mathf.Lerp(bit.Rise,-800*dp,Mathf.Pow(Mathf.Clamp01((t-phase)/bit.FallDuration),2));bit.Rect.anchoredPosition=new Vector2(bit.X,y);bit.Rect.localRotation=Quaternion.Euler(0,0,-bit.Spin*SourceMotion.DefaultTiming(t/phase));bit.Alpha.alpha=t<0?0:t<phase?SourceMotion.DefaultTiming(t/.080f):1-SourceMotion.DefaultTiming((t-phase-bit.FallDuration+.500f)/.500f);}
+        }
+    }
+
+    public sealed class ResultStarGraphic:MaskableGraphic
+    {
+        protected override void OnPopulateMesh(VertexHelper vh)
+        {
+            vh.Clear();var rect=rectTransform.rect;float radius=Mathf.Min(rect.width,rect.height)*.5f;if(radius<=0)return;
+            Vector2 center=rect.center;int start=vh.currentVertCount;vh.AddVert(center,color,Vector2.zero);
+            for(int i=0;i<10;i++){float angle=-Mathf.PI*.5f+i*Mathf.PI/5f,length=radius*(i%2==0?1f:.46f);vh.AddVert(center+new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*length,color,Vector2.zero);}
+            for(int i=0;i<10;i++)vh.AddTriangle(start,start+1+i,start+1+(i+1)%10);
         }
     }
 }

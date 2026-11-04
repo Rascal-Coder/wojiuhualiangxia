@@ -30,8 +30,8 @@ namespace Inkomino
             foreach(var r in JsonUtility.FromJson<AtlasIndex>(index.text).regions)art[r.key]=Sprite.Create(texture,new Rect(r.x,r.y,r.width,r.height),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(r.borderX>0?r.borderX:r.border,r.borderY>0?r.borderY:r.border,r.borderX>0?r.borderX:r.border,r.borderY>0?r.borderY:r.border));
             Resources.UnloadAsset(data);Resources.UnloadAsset(index);
         }
-        public static Font BodyFont { get { if(!bodyFont)bodyFont=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");return bodyFont?bodyFont:Skin.ChineseFont; } }
-        public static Font NumberFont{get{if(!numberFont)numberFont=Resources.Load<Font>("Fonts/LiangxiaUISans-Medium");return numberFont?numberFont:BodyFont;}}
+        public static Font BodyFont { get { if(!bodyFont)bodyFont=Resources.Load<Font>("Fonts/ZCOOLKuaiLe-Regular");return bodyFont?bodyFont:Skin.ChineseFont; } }
+        public static Font NumberFont{get{if(!numberFont)numberFont=Resources.Load<Font>("Fonts/ZCOOLKuaiLe-Regular");return numberFont?numberFont:BodyFont;}}
         public static Text Label(string text,Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,int fontSize=Body,Color? color=null,TextAnchor align=TextAnchor.MiddleLeft,bool display=false)
         {
             var r=Skin.Rect("Menu text "+text,parent,anchor,pos,size);var label=r.gameObject.AddComponent<Text>();
@@ -40,7 +40,21 @@ namespace Inkomino
             // CJK font ascent/descent can exceed the visible glyph height.
             // Do not drop a whole single line just because its line metrics
             // exceed a compact label box; the real glyph bounds are verified.
-            label.horizontalOverflow=HorizontalWrapMode.Wrap;label.verticalOverflow=VerticalWrapMode.Overflow;return label;
+            label.horizontalOverflow=HorizontalWrapMode.Wrap;label.verticalOverflow=VerticalWrapMode.Overflow;
+            CandyType(label);return label;
+        }
+        // One rounded family for titles, HUD and counts. Outline + a short
+        // shadow give the soft-3D candy read without moving the label rect.
+        public static void CandyType(Text label)
+        {
+            if(!label||label.GetComponent<Outline>())return;
+            bool light=label.color.r+label.color.g+label.color.b>2.1f;
+            var outline=label.gameObject.AddComponent<Outline>();
+            outline.effectColor=light?new Color32(120,42,62,220):new Color32(255,248,240,230);
+            float distance=Mathf.Clamp(label.fontSize*.07f,3f,6f);
+            outline.effectDistance=new Vector2(distance,-distance);
+            var shadow=label.gameObject.AddComponent<Shadow>();
+            shadow.effectColor=new Color(.35f,.14f,.1f,.35f);shadow.effectDistance=new Vector2(0,-3f);
         }
         public static void SoftDepth(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float radius=-1,Color32? shade=null)
         {
@@ -54,11 +68,11 @@ namespace Inkomino
             SoftDepth(parent,Vector2.one*.5f,Vector2.zero,size,radius,shade);
         }
         public static void StickerDepth(Transform parent,Vector2 size,float radius=-1){SoftDepth(parent,size,radius);}
+        // Clay light lives on MenuSurfaceLight. A white pill here read as a
+        // plastic specular sticker across buttons, tiles and icons.
         public static RoundedGraphic Gloss(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,float radius)
         {
-            var shine=Skin.RoundBox(parent,anchor,pos,size,new Color32(255,255,255,120),Mathf.Max(8,radius*.7f));
-            shine.name="Soft plate gloss";
-            return shine;
+            return null;
         }
         public static RoundedGraphic Extrude(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color face,Color depth,float radius=-1,bool light=true)
         {
@@ -69,7 +83,6 @@ namespace Inkomino
             var top=Skin.RoundBox(parent,anchor,pos+new Vector2(0,lift*.12f),size,face,rad);
             top.name="Soft plate face";
             if(light)top.gameObject.AddComponent<MenuSurfaceLight>();
-            Gloss(parent,anchor,pos+new Vector2(0,lift*.28f+size.y*.18f),new Vector2(size.x*.72f,Mathf.Max(16,size.y*.28f)),rad);
             return top;
         }
         public static RoundedGraphic Plate(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color color,float radius=-1)
@@ -81,7 +94,6 @@ namespace Inkomino
             rim.gameObject.AddComponent<MenuSurfaceLight>();
             var fill=Skin.RoundBox(parent,anchor,pos+new Vector2(0,2),size-Vector2.one*12,color,Mathf.Max(12,rad-6));
             fill.name="Soft plate";
-            Gloss(parent,anchor,pos+new Vector2(0,size.y*.22f),new Vector2(size.x*.62f,size.y*.22f),rad);
             return fill;
         }
         public static RectTransform Paper(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,bool accent=false)
@@ -94,7 +106,6 @@ namespace Inkomino
             rim.gameObject.AddComponent<MenuSurfaceLight>();
             var face=Skin.RoundBox(r,Vector2.one*.5f,new Vector2(0,3),size-Vector2.one*10,accent?Blush:Cream,Mathf.Max(16,radius-6));
             face.name="Soft card face";
-            Gloss(r,new Vector2(.5f,1),new Vector2(0,-size.y*.16f),new Vector2(size.x*.7f,size.y*.2f),radius);
             return r;
         }
         public static RectTransform Capsule(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,Color fill)
@@ -148,9 +159,6 @@ namespace Inkomino
             var sheet=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.32f),size,top,rad);
             sheet.name=primary?"Primary button face":"Secondary button face";
             sheet.gameObject.AddComponent<MenuSurfaceLight>();
-            // Top 10pt sheen only. A mid-face lip sat on the label like a progress bar.
-            float sheen=30f;
-            Gloss(face,Vector2.one*.5f,new Vector2(0,size.y*.5f-sheen*.5f),new Vector2(size.x*.52f,sheen),Mathf.Min(rad*.35f,sheen*.5f));
             Label(text,face,Vector2.one*.5f,new Vector2(0,lift*.2f),size-new Vector2(50,20),fontSize,primary?Color.white:Ink,TextAnchor.MiddleCenter,true);
             var button=Skin.Hit(r,action,1);MenuMotion.Press(button);return button;
         }
@@ -191,7 +199,7 @@ namespace Inkomino
             for(int i=0;i<vertices.currentVertCount;i++)
             {
                 vertices.PopulateUIVertex(ref vertex,i);float t=Mathf.InverseLerp(bounds.yMin,bounds.yMax,vertex.position.y);
-                Color original=vertex.color;Color shaded=Color.Lerp(original*.88f,Color.Lerp(original,Color.white,.16f),t);shaded.a=original.a;
+                Color original=vertex.color;Color shaded=Color.Lerp(original*.93f,Color.Lerp(original,Color.white,.06f),t);shaded.a=original.a;
                 vertex.color=shaded;vertices.SetUIVertex(vertex,i);
             }
         }

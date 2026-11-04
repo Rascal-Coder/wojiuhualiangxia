@@ -12,7 +12,7 @@ namespace Inkomino
             MenuUI.Title("成就与好友",null,Content);
             MenuUI.Tabs(Content,friends,()=>ShowAchievements(false),()=>ShowAchievements(true));
             if(friends)FriendsPage();else AchievementsPage();
-            MenuUI.Adapt(Content,headerLayout,first,2032);Navigation(2);FocusFirst();
+            MenuUI.Adapt(Content,headerLayout,first,2032);Navigation(2);MenuMotion.Arrive(Content);FocusFirst();
         }
         void AchievementsPage()
         {

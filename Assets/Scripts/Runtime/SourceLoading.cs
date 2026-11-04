@@ -105,6 +105,7 @@ namespace Inkomino
         public Text Label { get; private set; }
         public RectTransform Logo { get; private set; }
         public CanvasGroup Group { get; private set; }
+        RectTransform progressFill;
         float begin;
         public static readonly string[] WarmResources={
             "game_assets_homebg","game_assets_bg","game_assets_shopbg","game_assets_paper","game_assets_wood",
@@ -137,12 +138,21 @@ namespace Inkomino
             var illustration=Skin.Rect("Startup journal illustration",root,new Vector2(.5f,1),new Vector2(0,-1340),new Vector2(800,820));
             var art=illustration.gameObject.AddComponent<Image>();art.sprite=MenuUI.BrandSprite("brand_startup");art.preserveAspect=true;art.raycastTarget=false;
             view.Label=MenuUI.Label("正在准备拼图",root,new Vector2(.5f,1),new Vector2(0,-1900),new Vector2(920,120),48,InkTheme.Muted,TextAnchor.MiddleCenter);
+            var track=Skin.Rect("Source startup progress",root,new Vector2(.5f,1),new Vector2(0,-2040),new Vector2(520,28));
+            Skin.RoundBox(track,Vector2.one*.5f,Vector2.zero,track.sizeDelta,new Color32(255,236,220,255),14);
+            var fill=Skin.RoundBox(track,new Vector2(0,.5f),new Vector2(8,0),new Vector2(28,18),MenuUI.Coral,9);
+            fill.name="Source startup progress fill";fill.rectTransform.pivot=new Vector2(0,.5f);
+            view.progressFill=fill.rectTransform;
 
             // The publisher overlay is omitted at the user's request. The
             // engine's default startup splash remains in PlayerSettings.
             return view;
         }
-        void Update(){if(Label)Label.text=string.IsNullOrEmpty(StatusMessage)?"正在准备拼图"+new string('·',Mathf.FloorToInt(Elapsed/.4f)%4):StatusMessage;}
+        void Update()
+        {
+            if(Label)Label.text=string.IsNullOrEmpty(StatusMessage)?"正在准备拼图"+new string('·',Mathf.FloorToInt(Elapsed/.4f)%4):StatusMessage;
+            if(progressFill)progressFill.sizeDelta=new Vector2(Mathf.Lerp(28f,504f,SourceMotion.OutCubic(Mathf.Clamp01(Elapsed/MinimumSeconds))),18f);
+        }
         public IEnumerator FadeOut()
         {
             float started=Time.unscaledTime;

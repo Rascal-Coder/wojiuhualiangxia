@@ -27,7 +27,7 @@ namespace Inkomino
             MenuUI.Label(ClimbActivity.AtTop(state)?"本轮收获":"集齐奖励",prize,new Vector2(0,.5f),new Vector2(318,64),new Vector2(500,66),48,MenuUI.Muted);
             MenuUI.Label((ClimbActivity.AtTop(state)?ClimbActivity.Prize(state):1000)+" 金币",prize,new Vector2(0,.5f),new Vector2(318,-16),new Vector2(500,96),78,MenuUI.Ink,TextAnchor.MiddleLeft,true);
             MenuUI.Label("集满 7 枚即可领取",prize,new Vector2(0,.5f),new Vector2(318,-88),new Vector2(500,54),42,MenuUI.Muted);
-            var gift=MenuUI.Art("reward_coins",prize,new Vector2(1,.5f),new Vector2(-138,0),Vector2.one*176);MenuMotion.Float(gift.rectTransform,5,1.2f);
+            var gift=MenuUI.Art("reward_coins",prize,new Vector2(1,.5f),new Vector2(-138,0),Vector2.one*176);
             var album=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(0,-1490),new Vector2(960,880));album.name=preview?"Climb invitation":"Climb island route";
             Skin.RoundBox(album,new Vector2(.5f,1),new Vector2(0,-78),new Vector2(900,92),MenuUI.Blush,32);
             MenuUI.Label("我的快乐集章册",album,new Vector2(0,1),new Vector2(360,-78),new Vector2(600,75),56,MenuUI.Ink,TextAnchor.MiddleLeft,true);
@@ -43,7 +43,7 @@ namespace Inkomino
                 Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,current?MenuUI.Coral:Color.white,38);
                 Skin.RoundBox(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta-Vector2.one*(current?14:8),fills[i],32);
                 var art=MenuUI.Art(icons[i],cell,Vector2.one*.5f,new Vector2(0,22),Vector2.one*124);if(!passed&&!current)art.color=new Color(1,1,1,.35f);
-                if(current){cell.localScale=Vector3.one*1.04f;MenuMotion.Float(art.rectTransform,4,1.1f);MenuMotion.Sparkle(art.rectTransform,2,true);}
+                if(current){cell.localScale=Vector3.one*1.04f;MenuMotion.Sparkle(art.rectTransform,2,true);}
                 MenuUI.Label(names[i],cell,Vector2.one*.5f,new Vector2(0,-70),new Vector2(240,62),42,MenuUI.Ink,TextAnchor.MiddleCenter);
                 if(passed){var stamp=Skin.Rect("Climb stage status",cell,new Vector2(1,1),new Vector2(-32,-30),Vector2.one*68);Skin.RoundBox(stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,MenuUI.Coral,34);MenuUI.Label("好",stamp,Vector2.one*.5f,Vector2.zero,stamp.sizeDelta,42,Color.white,TextAnchor.MiddleCenter,true);stamp.localRotation=Quaternion.Euler(0,0,-12);}
             }
@@ -84,7 +84,7 @@ namespace Inkomino
                 status.text=!unlocked?"第 41 关开启 · 当前第 "+Store.Data.level+" 关":ClimbActivity.AtTop(current)?(current.claimed?"奖励已领取，下一轮再来挑战":"七枚印章集齐！领取惊喜奖励"):cooling?"休整中 · "+RewardCountdown(current.cooldownUntil-SaveStore.Now)+" 后可重试":current.isOut?"整理好心情，再集一册":"已收集 "+current.stage+" / 7 枚印章";
                 if(preview&&unlocked)status.text="准备好了，就划这七关";
             };
-            motion.Tick=tick;tick();MenuUI.Adapt(Content,headerLayout,first,2350);FocusFirst();
+            motion.Tick=tick;tick();MenuUI.Adapt(Content,headerLayout,first,2350);MenuMotion.Arrive(Content);FocusFirst();
         }
         static RectTransform ClimbHalo(Transform parent,Vector2 anchor,Vector2 position,Vector2 size,bool ring)
         {

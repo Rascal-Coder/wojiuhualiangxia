@@ -80,7 +80,7 @@ namespace Inkomino
                 var tr=Skin.Rect("Remaining count",card.CountRoot,new Vector2(.5f,.5f),Vector2.zero,new Vector2(80,44));
                 var text=tr.gameObject.AddComponent<Text>();text.font=MenuUI.BodyFont;text.fontSize=42;
                 text.color=Orange;text.alignment=TextAnchor.MiddleCenter;text.horizontalOverflow=HorizontalWrapMode.Overflow;
-                text.verticalOverflow=VerticalWrapMode.Overflow;text.supportRichText=false;text.raycastTarget=false;card.Label=text;
+                text.verticalOverflow=VerticalWrapMode.Overflow;text.supportRichText=false;text.raycastTarget=false;MenuUI.CandyType(text);card.Label=text;
                 card.TickRoot=Skin.Rect("Completed CountSlot",card.Root,new Vector2(1,.5f),new Vector2(-(pad+badge)/2f,0),Vector2.one*48);
                 Skin.RoundBox(card.TickRoot,new Vector2(.5f,.5f),Vector2.zero,card.TickRoot.sizeDelta,Green,24);
                 var check=Skin.Fill("White check M5.4 10.4 L8.6 13.5 L14.8 6.8",card.TickRoot).gameObject.AddComponent<SourceTargetCheck>();check.color=Color.white;check.raycastTarget=false;
@@ -102,9 +102,9 @@ namespace Inkomino
         {
             Layout();foreach(var c in cards){if(!c.Animate)continue;float t=Mathf.Max(0,SourceClock.Now-c.Begin);
                 c.Group.alpha=Mathf.Lerp(c.AlphaFrom,c.AlphaTo,SourceMotion.OutQuad(t/.240f));
-                if(c.Remaining==0)c.TickRoot.localScale=Vector3.one*(t>2?1:SourceMotion.Spring(t,0,1,120,5));
-                else c.CountRoot.localScale=Vector3.one*(t<.110f?Mathf.Lerp(1,1.4f,SourceMotion.OutQuad(t/.110f)):t>2?1:SourceMotion.Spring(t-.110f,1.4f,1,140,6));
-                if(t>2){c.Animate=false;c.Group.alpha=c.AlphaTo;c.CountRoot.localScale=c.TickRoot.localScale=Vector3.one;}}
+                if(c.Remaining==0)c.TickRoot.localScale=Vector3.one*(t>.34f?1:SourceResultMotion.Pop(t));
+                else c.CountRoot.localScale=Vector3.one*(t<.12f?Mathf.Lerp(1f,1.12f,SourceMotion.OutCubic(t/.12f)):t>.34f?1:Mathf.Lerp(1.12f,1f,SourceMotion.OutCubic((t-.12f)/.22f)));
+                if(t>.36f){c.Animate=false;c.Group.alpha=c.AlphaTo;c.CountRoot.localScale=c.TickRoot.localScale=Vector3.one;}}
         }
         void OnDestroy(){if(board!=null)board.Changed-=Refresh;}
     }
