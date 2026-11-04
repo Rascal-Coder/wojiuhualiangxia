@@ -17,6 +17,13 @@ namespace Inkomino
             float width=1080,dp=Skin.DP;
             var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-340),new Vector2(900,180));
             motion.BuildTitle(title,Zh.Cleared,78);
+            var medal=Skin.Rect("Result trophy",root,new Vector2(.5f,1),new Vector2(-390,-330),new Vector2(156,156));
+            MenuUI.SoftDepth(medal,medal.sizeDelta,48,MenuUI.WarmShadow);
+            Skin.RoundBox(medal,Vector2.one*.5f,new Vector2(0,-6),medal.sizeDelta,new Color32(214,140,48,255),48);
+            var medalFace=Skin.RoundBox(medal,Vector2.one*.5f,new Vector2(0,6),medal.sizeDelta-new Vector2(18,18),MenuUI.Lemon,42);
+            medalFace.gameObject.AddComponent<MenuSurfaceLight>();
+            MenuUI.Art("ink_rank",medal,Vector2.one*.5f,new Vector2(0,4),Vector2.one*108);
+            motion.Trophy=medal;
             MenuUI.Label(Zh.Level(CurrentLevel),root,new Vector2(.5f,1),new Vector2(0,-520),new Vector2(860,64),46,MenuUI.Muted,TextAnchor.MiddleCenter);
 
             float buttonH=204;
@@ -31,16 +38,16 @@ namespace Inkomino
             float used=Mathf.Max(0,Board!=null?Board.Level.time-Remaining:0);
             int steps=Board!=null?Board.Pieces.Count:0;
             int stars=Board==null||used<=0?3:used<=Board.Level.time*.45f?3:used<=Board.Level.time*.75f?2:1;
-            var stats=Skin.Rect("Result stats",root,new Vector2(.5f,1),new Vector2(0,-900),new Vector2(920,136));
+            var stats=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-900),new Vector2(920,128));stats.name="Result stats";
             string[] statTitles={Zh.TimeStat,Zh.StepsStat,Zh.StarsStat};
             string[] statValues={FormatTime(used),steps.ToString(),stars+"/3"};
-            Color32[] statFaces={MenuUI.LilacWash,MenuUI.Sky,MenuUI.Lemon};
+            Color32[] statFaces={MenuUI.Coral,MenuUI.MintDepth,new Color32(214,140,48,255)};
             for(int i=0;i<3;i++)
             {
-                var cell=Skin.Rect("Result stat "+i,stats,Vector2.one*.5f,new Vector2((i-1)*300,0),new Vector2(276,128));
-                MenuUI.Extrude(cell,Vector2.one*.5f,Vector2.zero,cell.sizeDelta,statFaces[i],MenuUI.WarmShadow,32);
-                MenuUI.Label(statTitles[i],cell,Vector2.one*.5f,new Vector2(0,36),new Vector2(240,44),42,MenuUI.Muted,TextAnchor.MiddleCenter,true);
-                MenuUI.Label(statValues[i],cell,Vector2.one*.5f,new Vector2(0,-22),new Vector2(240,64),52,MenuUI.Ink,TextAnchor.MiddleCenter);
+                var cell=Skin.Rect("Result stat "+i,stats,Vector2.one*.5f,new Vector2((i-1)*300,0),new Vector2(276,108));
+                Skin.RoundBox(cell,new Vector2(.5f,1),new Vector2(0,-22),new Vector2(36,8),statFaces[i],4);
+                MenuUI.Label(statTitles[i],cell,Vector2.one*.5f,new Vector2(0,16),new Vector2(240,40),42,MenuUI.Muted,TextAnchor.MiddleCenter,true);
+                MenuUI.Label(statValues[i],cell,Vector2.one*.5f,new Vector2(0,-28),new Vector2(240,52),48,MenuUI.Ink,TextAnchor.MiddleCenter);
             }
 
             var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1288),new Vector2(920,buttonH));
@@ -74,7 +81,7 @@ namespace Inkomino
     {
         sealed class Letter{public RectTransform Rect;public CanvasGroup Alpha;public float Delay;}
         readonly List<Letter> letters=new List<Letter>();
-        public RectTransform Reward,Button,ConfettiParent,Coin;public CanvasGroup RewardAlpha,ButtonAlpha;public float Width;
+        public RectTransform Reward,Button,ConfettiParent,Coin,Trophy;public CanvasGroup RewardAlpha,ButtonAlpha;public float Width;
         float begin,titleDone;Vector2 buttonPosition;bool confettiStarted;
         public float Elapsed{get{return SourceClock.Now-begin;}}
         public float RewardStart{get{return titleDone;}}
@@ -107,7 +114,8 @@ namespace Inkomino
         {
             foreach(var letter in letters){float age=t-letter.Delay;letter.Alpha.alpha=age<=0?0:SourceMotion.DefaultTiming(age/.160f);letter.Rect.localScale=Vector3.one*(age<0?.2f:age>2?1:SourceMotion.Spring(age,.2f,1,180,6));}
             float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.OutCubic(rewardAge/.160f);Reward.localScale=Vector3.one*(MenuMotion.Reduced?1:rewardAge>1.05f?1:SourceMotion.Spring(rewardAge,.55f,1,240,8));
-            if(Coin)Coin.localScale=Vector3.one*(MenuMotion.Reduced||rewardAge<0?1:rewardAge>1.15f?1:SourceMotion.Spring(rewardAge,.22f,1,320,9));
+            if(Coin)Coin.localScale=Vector3.one*(MenuMotion.Reduced||rewardAge<0?1:rewardAge>1.15f?1:SourceMotion.Spring(rewardAge,.08f,1,420,8));
+            if(Trophy){float age=rewardAge-.02f;Trophy.localScale=Vector3.one*(MenuMotion.Reduced?1:age>1.2f?1:SourceMotion.Spring(Mathf.Max(0,age),.16f,1,360,7));}
             float buttonAge=t-.160f;ButtonAlpha.alpha=SourceMotion.OutCubic(buttonAge/.140f);Button.anchoredPosition=buttonPosition+Vector2.down*(MenuMotion.Reduced?0:36*(1-SourceMotion.OutCubic(buttonAge/.180f)));Button.localScale=Vector3.one*(MenuMotion.Reduced?1:buttonAge>1.05f?1:SourceMotion.Spring(Mathf.Max(0,buttonAge),.7f,1,230,8));
             ButtonAlpha.interactable=ButtonAlpha.blocksRaycasts=buttonAge>=.160f;
             if(!confettiStarted&&rewardAge>=0){confettiStarted=true;var confetti=ConfettiParent.gameObject.AddComponent<SourceResultConfetti>();confetti.Begin();MenuMotion.Celebrate(Reward);}

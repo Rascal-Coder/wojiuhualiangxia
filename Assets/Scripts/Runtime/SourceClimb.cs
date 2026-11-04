@@ -15,8 +15,8 @@ namespace Inkomino
             bool preview=!state.joined;ClearScreen("game_assets_shopbg");Wallet();int first=Content.childCount;
             var motion=Skin.Fill("Climb motion lifetime",Content).gameObject.AddComponent<ClimbPageMotion>();
             MenuUI.Title("快乐集章",null,Content);
-            ((RectTransform)Skin.IconButton("shell_src_ui_close",Content,new Vector2(1,1),new Vector2(-120,-528),Vector2.one*120,ShowHome).transform).sizeDelta=Vector2.one*150;
-            ((RectTransform)Skin.IconButton("shell_src_ui_climb_infobtn",Content,new Vector2(0,1),new Vector2(120,-528),Vector2.one*120,ClimbInfo).transform).sizeDelta=Vector2.one*150;
+            ((RectTransform)Skin.IconButton("shell_src_ui_close",Content,new Vector2(1,1),new Vector2(-120,-580),Vector2.one*120,ShowHome).transform).sizeDelta=Vector2.one*150;
+            ((RectTransform)Skin.IconButton("shell_src_ui_climb_infobtn",Content,new Vector2(0,1),new Vector2(120,-580),Vector2.one*120,ClimbInfo).transform).sizeDelta=Vector2.one*150;
 
             var clockCard=Skin.Rect("Climb countdown strip",Content,new Vector2(.5f,1),new Vector2(0,-708),new Vector2(920,78));
             clockCard.name="Climb countdown";

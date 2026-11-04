@@ -21,9 +21,8 @@ namespace Inkomino
             Playing=false;Review=false;screen="home";ClearScreen("game_assets_homebg");            Wallet();int first=Content.childCount;
             var hero=Skin.Rect("Home sticker showcase",Content,new Vector2(.5f,1),new Vector2(0,-1100),new Vector2(1000,1140));
             MenuUI.SoftDepth(hero,hero.sizeDelta,44,MenuUI.WarmShadow);
-            var rim=Skin.RoundBox(hero,Vector2.one*.5f,new Vector2(0,-12),hero.sizeDelta,new Color32(214,78,52,255),44);rim.name="Home stage rim";
-            Skin.RoundBox(hero,Vector2.one*.5f,new Vector2(0,4),hero.sizeDelta-new Vector2(72,72),new Color32(255,246,232,255),34);
-            var clip=Skin.Rect("Home hero clip",hero,Vector2.one*.5f,new Vector2(0,6),hero.sizeDelta-new Vector2(96,96));
+            var stroke=Skin.RoundBox(hero,Vector2.one*.5f,Vector2.zero,hero.sizeDelta,new Color32(255,228,206,230),44);stroke.name="Home stage stroke";
+            var clip=Skin.Rect("Home hero clip",hero,Vector2.one*.5f,Vector2.zero,hero.sizeDelta-new Vector2(18,18));
             var round=clip.gameObject.AddComponent<RoundedGraphic>();round.color=Color.white;round.Radius=28;round.raycastTarget=false;
             var mask=clip.gameObject.AddComponent<Mask>();mask.showMaskGraphic=false;
             var painting=MenuUI.Art("ink_home_hero",clip,Vector2.one*.5f,Vector2.zero,clip.sizeDelta);
@@ -45,7 +44,7 @@ namespace Inkomino
         }
         void HomeGameClub()
         {
-            var card=Skin.Rect("Home game club entry",Content,new Vector2(.5f,1),new Vector2(292,-552),new Vector2(300,108));
+            var card=Skin.Rect("Home game club entry",Content,new Vector2(.5f,1),new Vector2(292,-616),new Vector2(300,108));
             MenuUI.Extrude(card,Vector2.one*.5f,Vector2.zero,card.sizeDelta,MenuUI.MintWash,MenuUI.MintDepth,54);
             MenuUI.Art("entry_friends",card,Vector2.one*.5f,new Vector2(-92,2),Vector2.one*72);
             MenuUI.Label("游戏圈",card,Vector2.one*.5f,new Vector2(42,2),new Vector2(170,88),52,MenuUI.Ink,TextAnchor.MiddleCenter,true);
@@ -66,20 +65,20 @@ namespace Inkomino
         }
         void Wallet(){
             int first=Content.childCount;
-            var strip=At(Content,"Wallet strip",188,164,708,108);MenuUI.Extrude(strip,Vector2.one*.5f,Vector2.zero,strip.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,54);
-            var avatar=At(Content,"Profile",26.25f,150,49*D,49*D);Skin.RoundBox(avatar,new Vector2(.5f,.5f),Vector2.zero,avatar.sizeDelta,MenuUI.Coral,11*D);
+            var strip=At(Content,"Wallet strip",188,228,708,108);MenuUI.Extrude(strip,Vector2.one*.5f,Vector2.zero,strip.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,54);
+            var avatar=At(Content,"Profile",48,214,49*D,49*D);Skin.RoundBox(avatar,new Vector2(.5f,.5f),Vector2.zero,avatar.sizeDelta,MenuUI.Coral,11*D);
             var clip=Skin.Rect("Avatar clip",avatar,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*44*D);var round=clip.gameObject.AddComponent<RoundedGraphic>();round.color=Color.white;round.Radius=9*D;round.raycastTarget=false;var mask=clip.gameObject.AddComponent<Mask>();mask.showMaskGraphic=false;walletAvatar=Skin.Art("shell_src_ui_avatars_avatar_"+Store.Data.avatar,clip,new Vector2(.5f,.5f),Vector2.zero,clip.sizeDelta,false);Skin.Hit(avatar,Profile,.7f);
-            var hp=At(Content,"Lives pill",204,169,382,36*D);Pill(hp,hp.sizeDelta,2);
+            var hp=At(Content,"Lives pill",204,233,382,36*D);Pill(hp,hp.sizeDelta,2);
             lifeTimer=MenuUI.Label("",hp,Vector2.one*.5f,new Vector2(48,0),new Vector2(205,78),46,MenuUI.Ink,TextAnchor.MiddleCenter);Skin.Hit(hp,LifePopup,.8f);
-            var heart=Skin.Art("shell_src_ui_heart",Content,new Vector2(0,1),new Vector2(242,-216),Vector2.one*100);heart.name="Wallet heart";
+            var heart=Skin.Art("shell_src_ui_heart",Content,new Vector2(0,1),new Vector2(242,-280),Vector2.one*100);heart.name="Wallet heart";
             hearts=MenuUI.Label("",heart.transform,Vector2.one*.5f,new Vector2(0,-4),new Vector2(62,75),48,MenuUI.Ink,TextAnchor.MiddleCenter);hearts.name="Wallet life count";
             var heartOutline=hearts.gameObject.AddComponent<Outline>();heartOutline.effectColor=new Color32(255,255,255,210);heartOutline.effectDistance=new Vector2(1,-1);
-            Plus(new Vector2(573,-216),LifePopup);
-            var cp=At(Content,"Coin pill",638,169,258,36*D);Pill(cp,cp.sizeDelta,2);
+            Plus(new Vector2(573,-280),LifePopup);
+            var cp=At(Content,"Coin pill",638,233,258,36*D);Pill(cp,cp.sizeDelta,2);
             coins=MenuUI.Label("",cp,Vector2.one*.5f,new Vector2(14,0),new Vector2(166,75),50,MenuUI.Ink,TextAnchor.MiddleCenter);Skin.Hit(cp,ShowShop,.8f);
-            Skin.Art("shell_src_ui_coin",Content,new Vector2(0,1),new Vector2(670,-216),Vector2.one*88);Plus(new Vector2(891,-216),ShowShop);
-            var settings=Skin.IconButton("game_assets_btnsettings",Content,new Vector2(0,1),new Vector2(993.5f,-216.5f),Vector2.one*46*D,()=>Settings(false));
-            Skin.ColorBox(Content,new Vector2(0,1),new Vector2(540,-334.5f),new Vector2(1080,D),new Color32(232,160,112,150));headerLayout=settings.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,first);UpdateWallet();}
+            Skin.Art("shell_src_ui_coin",Content,new Vector2(0,1),new Vector2(670,-280),Vector2.one*88);Plus(new Vector2(891,-280),ShowShop);
+            var settings=Skin.IconButton("game_assets_btnsettings",Content,new Vector2(0,1),new Vector2(993.5f,-280.5f),Vector2.one*46*D,()=>Settings(false));
+            Skin.ColorBox(Content,new Vector2(0,1),new Vector2(540,-398.5f),new Vector2(1080,D),new Color32(232,160,112,150));headerLayout=settings.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,first);UpdateWallet();}
         void Plus(Vector2 pos,Action onPress){var r=Skin.Rect("Add",Content,new Vector2(0,1),pos,Vector2.one*68);Skin.Art("shell_src_ui_plus",r,Vector2.one*.5f,Vector2.zero,r.sizeDelta);MenuMotion.Press(Skin.Hit(r,onPress,.8f));}
         void Pill(Transform parent,Vector2 size,float strokeDp=1){MenuUI.Extrude(parent,Vector2.one*.5f,Vector2.zero,size,MenuUI.Cream,MenuUI.WarmShadow,size.y/2);}
         void UpdateWallet(){if(walletAvatar)walletAvatar.sprite=MenuUI.AvatarSprite(Store.Data.avatar);if(profileAvatar)profileAvatar.sprite=MenuUI.AvatarSprite(Store.Data.avatar);if(coins)coins.text=Store.Data.coins.ToString();if(hearts)hearts.text=Store.Data.hearts.ToString();if(lifeTimer){long sec=Math.Max(0,Store.Data.regenAt-SaveStore.Now);lifeTimer.text=Store.Data.hearts>=5?Zh.LivesFull:RewardCountdown(sec);}UpdateHomeTimers();}
@@ -104,13 +103,13 @@ namespace Inkomino
         }
         public void StartLevel(int id,bool review=false,bool resume=false){CurrentLevel=Mathf.Clamp(id,1,500);Review=review;Playing=true;Finished=false;screen="game";ClearScreen("game_assets_bg");var level=Data.levels[CurrentLevel-1];Board=new BoardState(level,Shapes);Remaining=level.time;frozen=0;continuations=0;rewardedContinues=0;lastTick=-1;
             int firstHud=Content.childCount;
-            var clock=At(Content,"Source timer",390,126,300,100);MenuUI.Extrude(clock,Vector2.one*.5f,Vector2.zero,clock.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,50);timer=MenuUI.Label("",clock,new Vector2(.5f,.5f),new Vector2(0,2),new Vector2(260,80),64,MenuUI.Ink,TextAnchor.MiddleCenter);timeFill=null;
-            var lp=At(Content,"Source level",20,126,228,100);MenuUI.Extrude(lp,Vector2.one*.5f,Vector2.zero,lp.sizeDelta,new Color32(255,122,64,255),new Color32(204,72,36,255),50);MenuUI.Label("第"+CurrentLevel+"关",lp,new Vector2(.5f,.5f),new Vector2(0,4),new Vector2(200,64),46,Color.white,TextAnchor.MiddleCenter,true);
-            var pause=Skin.Rect("Pause circle",Content,new Vector2(0,1),new Vector2(988,-176),Vector2.one*100);MenuUI.Extrude(pause,Vector2.one*.5f,Vector2.zero,pause.sizeDelta,MenuUI.Coral,MenuUI.CoralDepth,50);Skin.IconButton("game_assets_btnpause",pause,Vector2.one*.5f,Vector2.zero,Vector2.one*52,()=>Settings(true));
-            var rules=Skin.Rect("Game rules entry",Content,new Vector2(0,1),new Vector2(828,-176),new Vector2(160,100));MenuUI.Extrude(rules,Vector2.one*.5f,Vector2.zero,rules.sizeDelta,MenuUI.Mint,MenuUI.MintDepth,50);MenuUI.Label("规则",rules,Vector2.one*.5f,new Vector2(0,2),new Vector2(136,70),42,MenuUI.Ink,TextAnchor.MiddleCenter,true);MenuMotion.Press(Skin.Hit(rules,ShowGameHelp,.85f));
-            targets=At(Content,"Source targets",20,242,720,168);((RectTransform)targets).pivot=new Vector2(0,1);((RectTransform)targets).anchoredPosition=new Vector2(20,-242);
+            var clock=At(Content,"Source timer",390,190,300,100);MenuUI.Extrude(clock,Vector2.one*.5f,Vector2.zero,clock.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,50);timer=MenuUI.Label("",clock,new Vector2(.5f,.5f),new Vector2(0,2),new Vector2(260,80),64,MenuUI.Ink,TextAnchor.MiddleCenter);timeFill=null;
+            var lp=At(Content,"Source level",48,190,228,100);MenuUI.Extrude(lp,Vector2.one*.5f,Vector2.zero,lp.sizeDelta,new Color32(255,122,64,255),new Color32(204,72,36,255),50);MenuUI.Label("第"+CurrentLevel+"关",lp,new Vector2(.5f,.5f),new Vector2(0,4),new Vector2(200,64),46,Color.white,TextAnchor.MiddleCenter,true);
+            var pause=Skin.Rect("Pause circle",Content,new Vector2(0,1),new Vector2(988,-240),Vector2.one*100);MenuUI.Extrude(pause,Vector2.one*.5f,Vector2.zero,pause.sizeDelta,MenuUI.Coral,MenuUI.CoralDepth,50);Skin.IconButton("game_assets_btnpause",pause,Vector2.one*.5f,Vector2.zero,Vector2.one*52,()=>Settings(true));
+            var rules=Skin.Rect("Game rules entry",Content,new Vector2(0,1),new Vector2(828,-240),new Vector2(160,100));MenuUI.Extrude(rules,Vector2.one*.5f,Vector2.zero,rules.sizeDelta,MenuUI.Mint,MenuUI.MintDepth,50);MenuUI.Label("规则",rules,Vector2.one*.5f,new Vector2(0,2),new Vector2(136,70),42,MenuUI.Ink,TextAnchor.MiddleCenter,true);MenuMotion.Press(Skin.Hit(rules,ShowGameHelp,.85f));
+            targets=At(Content,"Source targets",48,306,720,168);((RectTransform)targets).pivot=new Vector2(0,1);((RectTransform)targets).anchoredPosition=new Vector2(48,-306);
             headerLayout=clock.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,firstHud);
-            var boardArea=At(Content,"Source board area",36,448,1008,1488);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}
+            var boardArea=At(Content,"Source board area",36,512,1008,1424);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}boardArea.gameObject.AddComponent<SourceDiskFace>().Bind(BoardView);
             message=Skin.Text("",Content,new Vector2(0,1),new Vector2(540,-1990),new Vector2(960,65),Mathf.RoundToInt(14*D),new Color32(234,72,119,255));
             BuildBoosterTray();
             bool restartIntro=id==1&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen;

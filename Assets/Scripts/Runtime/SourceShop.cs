@@ -15,10 +15,10 @@ namespace Inkomino
             ClearScreen("game_assets_shopbg");
             Wallet();
             int firstContentChild=Content.childCount;
-            var band=Skin.Rect("Shop header band",Content,new Vector2(.5f,1),new Vector2(0,-590),new Vector2(980,240));
+            var band=Skin.Rect("Shop header band",Content,new Vector2(.5f,1),new Vector2(0,-630),new Vector2(980,200));
             MenuUI.Extrude(band,Vector2.one*.5f,Vector2.zero,band.sizeDelta,new Color32(255,244,228,255),MenuUI.WarmShadow,40);
-            var title=MenuUI.Label("灵感补给站",Content,new Vector2(.5f,1),new Vector2(0,-528),new Vector2(900,100),MenuUI.TitleSize,MenuUI.Ink,TextAnchor.MiddleCenter,true);title.name="Menu page title";
-            MenuUI.Label("每种每日 3 次 · 0 点刷新",Content,new Vector2(.5f,1),new Vector2(0,-632),new Vector2(860,52),MenuUI.Small,MenuUI.Muted,TextAnchor.MiddleCenter);
+            var title=MenuUI.Label("灵感补给站",Content,new Vector2(.5f,1),new Vector2(0,-600),new Vector2(900,100),MenuUI.TitleSize,MenuUI.Ink,TextAnchor.MiddleCenter,true);title.name="Menu page title";
+            MenuUI.Label("每种每日 3 次 · 0 点刷新",Content,new Vector2(.5f,1),new Vector2(0,-684),new Vector2(860,52),MenuUI.Small,MenuUI.Muted,TextAnchor.MiddleCenter);
 
             string[] icons={"pen","freeze","lens"};
             string[] items={"hint","freeze","lens"};
@@ -27,7 +27,8 @@ namespace Inkomino
             Color32[] plates={MenuUI.PenWash,MenuUI.IceWash,MenuUI.LensWash};
             Vector2 top=new Vector2(0,1);
 
-            var supply=Skin.Rect("Shop coin supply",Content,new Vector2(.5f,1),new Vector2(0,-860),new Vector2(960,268));
+            var supply=Skin.Rect("Shop coin supply",Content,new Vector2(.5f,1),new Vector2(0,-900),new Vector2(960,268));
+            MenuUI.SoftDepth(supply,supply.sizeDelta,40,MenuUI.WarmShadow);
             MenuUI.Extrude(supply,Vector2.one*.5f,Vector2.zero,supply.sizeDelta,MenuUI.MintWash,MenuUI.MintDepth,40);
             if(RewardEntryEnabled(RewardPlacement.CoinSupply))
             {
@@ -55,8 +56,9 @@ namespace Inkomino
             for(int i=0;i<icons.Length;i++)
             {
                 int index=i;
-                float rowCenter=1166+i*312;
+                float rowCenter=1220+i*312;
                 var row=Skin.Rect("Shop row "+i,Content,new Vector2(.5f,1),new Vector2(0,-rowCenter),new Vector2(980,292));
+                MenuUI.SoftDepth(row,row.sizeDelta,36,MenuUI.WarmShadow);
                 MenuUI.Extrude(row,Vector2.one*.5f,Vector2.zero,row.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,36);
                 MenuUI.Plate(row,top,new Vector2(128,-146),Vector2.one*176,plates[i],40);
                 var tool=MenuUI.Art("menu_"+icons[i],row,top,new Vector2(128,-146),Vector2.one*148);

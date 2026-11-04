@@ -12,7 +12,7 @@ namespace Inkomino
         {
             var state=view.State;int n=state.Level.n;float cs=view.CellSize,dp=view.PixelDensity;
             float dash=Mathf.Clamp(Mathf.Floor(cs/dp*.12f+.5f),5,9)*dp,gap=Mathf.Clamp(Mathf.Floor(cs/dp*.05f+.5f),2,4)*dp;
-            Vector2 origin=view.BoardOriginLocal;Color ink=new Color32(151,125,179,150);
+            Vector2 origin=view.BoardOriginLocal;Color ink=new Color32(132,74,48,210);
             Vector2 Map(Vector2 p){return target.InverseTransformPoint(view.transform.TransformPoint(p));}
             for(int i=0;i<n*n;i++)if(state.IsActive(i))foreach(int j in state.Neighbors(i))
             {

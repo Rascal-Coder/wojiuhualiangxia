@@ -115,8 +115,8 @@ namespace Inkomino
         }
         public static void Title(string title,string subtitle,Transform parent)
         {
-            var t=Label(title,parent,new Vector2(.5f,1),new Vector2(0,-528),new Vector2(920,120),TitleSize,Ink,TextAnchor.MiddleCenter,true);t.name="Menu page title";
-            if(!string.IsNullOrEmpty(subtitle))Label(subtitle,parent,new Vector2(.5f,1),new Vector2(0,-636),new Vector2(960,58),Small,Muted,TextAnchor.MiddleCenter);
+            var t=Label(title,parent,new Vector2(.5f,1),new Vector2(0,-580),new Vector2(920,120),TitleSize,Ink,TextAnchor.MiddleCenter,true);t.name="Menu page title";
+            if(!string.IsNullOrEmpty(subtitle))Label(subtitle,parent,new Vector2(.5f,1),new Vector2(0,-688),new Vector2(960,58),Small,Muted,TextAnchor.MiddleCenter);
         }
         public static Sprite AtlasSprite(string key){LoadAtlas();Sprite value;return art.TryGetValue(key,out value)?value:null;}
         public static Sprite TipSprite(string key){if(!art.ContainsKey(key))LoadSheet("sticker_tips");Sprite value;return art.TryGetValue(key,out value)?value:null;}
@@ -148,7 +148,7 @@ namespace Inkomino
             var sheet=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.32f),size,top,rad);
             sheet.name=primary?"Primary button face":"Secondary button face";
             sheet.gameObject.AddComponent<MenuSurfaceLight>();
-            var lip=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.55f+size.y*.22f),new Vector2(size.x*.62f,Mathf.Max(18,size.y*.22f)),new Color32(255,255,255,(byte)(primary?150:110)),rad*.7f);
+            var lip=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,size.y*.28f),new Vector2(size.x*.42f,Mathf.Max(10,size.y*.08f)),new Color32(255,255,255,(byte)(primary?130:90)),rad*.5f);
             lip.name="Button gloss lip";
             Gloss(face,Vector2.one*.5f,new Vector2(-size.x*.16f,lift*.7f+size.y*.24f),new Vector2(size.x*.28f,Mathf.Max(12,size.y*.1f)),rad*.5f);
             Label(text,face,Vector2.one*.5f,new Vector2(0,lift*.2f),size-new Vector2(50,20),fontSize,primary?Color.white:Ink,TextAnchor.MiddleCenter,true);
@@ -205,7 +205,7 @@ namespace Inkomino
         public void Init(WeChatHeaderLayout value,float end){header=value;bottom=end;rect=(RectTransform)transform;}
         void LateUpdate()
         {
-            if(!rect)return;float top=Mathf.Max(480,334.5f+(header?header.Offset:0)+48);
+            if(!rect)return;float top=Mathf.Max(480,398.5f+(header?header.Offset:0)+48);
             float scale=Mathf.Clamp01((bottom-top)/(bottom-480));
             rect.localScale=Vector3.one*scale;rect.anchoredPosition=new Vector2(0,(1-scale)*1200-(top-480*scale));
         }

@@ -29,7 +29,7 @@ namespace Inkomino
         }
         public static string QAOutput(){var args=Environment.GetCommandLineArgs();int i=Array.IndexOf(args,"-qaOutput");return i>=0&&i+1<args.Length?args[i+1]:Path.Combine(Application.persistentDataPath,"QA");}
         void BuildCanvas(){var go=new GameObject("Inkomino Canvas",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));var canvas=go.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;var scale=go.GetComponent<CanvasScaler>();scale.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scale.referenceResolution=new Vector2(1080,2400);scale.matchWidthOrHeight=1;
-            var backdrop=Skin.Fill("Letterbox",go.transform);backdrop.gameObject.AddComponent<Image>().color=new Color32(239,225,255,255);
+            var backdrop=Skin.Fill("Letterbox",go.transform);backdrop.gameObject.AddComponent<Image>().color=StickerDesign.Background;
             var safe=Skin.Fill("Safe area",go.transform);safe.gameObject.AddComponent<SafeArea>();Stage=Skin.Rect("Portrait Stage",safe,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,2400));Stage.gameObject.AddComponent<PortraitFit>();
             Content=Skin.Fill("Screens",Stage);Overlays=Skin.Fill("Screen stack",Stage);var es=new GameObject("EventSystem",typeof(EventSystem),typeof(StandaloneInputModule));DontDestroyOnLoad(es);}
         
