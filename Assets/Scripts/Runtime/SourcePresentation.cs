@@ -96,16 +96,18 @@ namespace Inkomino
         void EventBadge(string art,string text,Vector2 pos,Action action){SourceEvent(art,0,pos.x,pos.y,text,action);}
         void Navigation(int active)
         {
-            var nav=At(Content,"Source navigation",28,2064,1024,188);
+            var nav=At(Content,"Source navigation",28,2088,1024,188);
             MenuUI.Extrude(nav,Vector2.one*.5f,Vector2.zero,new Vector2(1000,176),MenuUI.Cream,MenuUI.WarmShadow,48);
             string[] ids={"shop","home","rank"};Action[] actions={ShowShop,ShowHome,ShowCollection};
             for(int i=0;i<3;i++)
             {
                 var tab=At(nav,"Tab "+ids[i],i*340+12,8,320,172);bool selected=i==active;
                 if(selected)MenuUI.Extrude(tab,Vector2.one*.5f,new Vector2(0,2),new Vector2(300,156),MenuUI.Coral,MenuUI.CoralDepth,40);
-                var icon=Skin.Art("game_assets_nav_tab"+ids[i],tab,new Vector2(.5f,1),new Vector2(0,-52),Vector2.one*(selected?108:88));icon.color=Color.white;
+                float iconSize=selected?88f:80f,labelH=48f,iconGap=8f,capsuleMid=84f;
+                float group=iconSize+iconGap+labelH,groupTop=capsuleMid-group*.5f;
+                var icon=Skin.Art("game_assets_nav_tab"+ids[i],tab,new Vector2(.5f,1),new Vector2(0,-(groupTop+iconSize*.5f)),Vector2.one*iconSize);icon.color=Color.white;
                 string label=i==0?"商店":i==1?Zh.Home:Zh.Rank;
-                MenuUI.Label(label,tab,new Vector2(.5f,1),new Vector2(0,-132),new Vector2(260,48),selected?46:44,selected?Color.white:MenuUI.Muted,TextAnchor.MiddleCenter,true);
+                MenuUI.Label(label,tab,new Vector2(.5f,1),new Vector2(0,-(groupTop+iconSize+iconGap+labelH*.5f)),new Vector2(260,labelH),selected?46:44,selected?Color.white:MenuUI.Muted,TextAnchor.MiddleCenter,true);
                 MenuMotion.Press(Skin.Hit(tab,actions[i],.8f));
             }
         }
@@ -117,7 +119,7 @@ namespace Inkomino
             var rules=Skin.Rect("Game rules entry",Content,new Vector2(0,1),new Vector2(828,-240),new Vector2(160,100));MenuUI.Extrude(rules,Vector2.one*.5f,Vector2.zero,rules.sizeDelta,MenuUI.Mint,MenuUI.MintDepth,50);MenuUI.Label("规则",rules,Vector2.one*.5f,new Vector2(0,2),new Vector2(136,70),42,MenuUI.Ink,TextAnchor.MiddleCenter,true);MenuMotion.Press(Skin.Hit(rules,ShowGameHelp,.85f));
             targets=At(Content,"Source targets",48,306,720,168);((RectTransform)targets).pivot=new Vector2(0,1);((RectTransform)targets).anchoredPosition=new Vector2(48,-306);
             headerLayout=clock.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,firstHud);
-            var boardArea=At(Content,"Source board area",36,512,1008,1424);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}boardArea.gameObject.AddComponent<SourceDiskFace>().Bind(BoardView);
+            var boardArea=At(Content,"Source board area",36,442,1008,1424);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}boardArea.gameObject.AddComponent<SourceDiskFace>().Bind(BoardView);
             message=Skin.Text("",Content,new Vector2(0,1),new Vector2(540,-1990),new Vector2(960,65),Mathf.RoundToInt(14*D),new Color32(234,72,119,255));
             BuildBoosterTray();
             bool restartIntro=id==1&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen;
@@ -129,7 +131,7 @@ namespace Inkomino
         // The entire tray is anchored to the safe stage bottom; every hit area is 98dp wide.
         void BuildBoosterTray()
         {
-            var tray=Skin.Rect("Sticker booster tray",Content,new Vector2(.5f,0),new Vector2(0,186),new Vector2(980,320));
+            var tray=Skin.Rect("Sticker booster tray",Content,new Vector2(.5f,0),new Vector2(0,404),new Vector2(980,320));
             // Layout-only container. Each booster has its own glossy casual tile.
             string[] icons={"pen","freeze","lens"};Color[] colors={MenuUI.PenWash,MenuUI.IceWash,MenuUI.LensWash};
             for(int i=0;i<3;i++)
@@ -151,7 +153,7 @@ namespace Inkomino
             var layer=Skin.Fill("Booster counts",Content);int[] counts={Store.Data.hint,Store.Data.freeze,Store.Data.lens};int[] unlock={3,7,10};
             for(int i=0;i<3;i++)
             {
-                var status=Skin.Rect("Booster status "+i,layer,new Vector2(.5f,0),new Vector2((i-1)*322,104),new Vector2(220,52));
+                var status=Skin.Rect("Booster status "+i,layer,new Vector2(.5f,0),new Vector2((i-1)*322,322),new Vector2(220,52));
                 bool locked=CurrentLevel<unlock[i];
                 if(locked){Skin.RoundBox(status,Vector2.one*.5f,Vector2.zero,new Vector2(200,48),new Color32(98,52,34,230),24);Skin.Art("shell_src_ui_lock",status,Vector2.one*.5f,new Vector2(-70,0),Vector2.one*40);MenuUI.Label(Zh.UnlockBadge(unlock[i]),status,Vector2.one*.5f,new Vector2(22,0),new Vector2(160,44),42,Color.white,TextAnchor.MiddleCenter);}
                 else MenuUI.CountBubble(status,Vector2.zero,new Vector2(156,48),counts[i]>0?"×"+counts[i]:"补充",i==0?MenuUI.Coral:i==1?new Color32(48,156,214,255):new Color32(214,140,48,255),Color.white);

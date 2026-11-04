@@ -28,10 +28,10 @@ namespace Inkomino
             Color32[] crumbInk={MenuUI.Lemon,new Color32(255,255,255,230),new Color32(255,196,72,255),MenuUI.CoralChip,MenuUI.Lemon};
             for(int c=0;c<crumbAt.Length;c++)Skin.RoundBox(medal,Vector2.one*.5f,crumbAt[c],Vector2.one*crumbSize[c],crumbInk[c],crumbSize[c]*.5f);
             motion.Trophy=medal;
-            MenuUI.Label(Zh.Level(CurrentLevel),root,new Vector2(.5f,1),new Vector2(0,-520),new Vector2(860,64),46,MenuUI.Muted,TextAnchor.MiddleCenter);
+            MenuUI.Label(Zh.Level(CurrentLevel),root,new Vector2(.5f,1),new Vector2(0,-460),new Vector2(860,64),46,MenuUI.Muted,TextAnchor.MiddleCenter);
 
             float buttonH=204;
-            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-700),new Vector2(920,196));rewardRoot.name="Source reward";
+            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-661),new Vector2(920,196));rewardRoot.name="Source reward";
             MenuUI.Plate(rewardRoot,new Vector2(0,.5f),new Vector2(118,0),Vector2.one*140,MenuUI.Lemon,36);
             var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(0,.5f),new Vector2(118,0),Vector2.one*116);
             MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*104);
@@ -44,7 +44,7 @@ namespace Inkomino
             int stars=Board==null||used<=0?3:used<=Board.Level.time*.45f?3:used<=Board.Level.time*.75f?2:1;
             // One cream strip. The old 36×8 bars were pinned into the paper gloss,
             // so the coverage fringe on the side chips did not match the center chip.
-            var stats=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-934),new Vector2(920,196));stats.name="Result stats";
+            var stats=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-945),new Vector2(920,196));stats.name="Result stats";
             string[] statTitles={Zh.TimeStat,Zh.StepsStat,Zh.StarsStat};
             string[] statValues={FormatTime(used),steps.ToString(),stars+"/3"};
             Color32[] statFaces={MenuUI.Coral,MenuUI.MintDepth,new Color32(214,140,48,255)};
@@ -57,7 +57,7 @@ namespace Inkomino
                 MenuUI.Label(statValues[i],cell,Vector2.one*.5f,new Vector2(0,-64),new Vector2(240,52),48,MenuUI.Ink,TextAnchor.MiddleCenter);
             }
 
-            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1288),new Vector2(920,buttonH));
+            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1240),new Vector2(920,buttonH));
             int level=CurrentLevel;bool review=Review;
             var button=MenuUI.GameButton(Zh.NextLevel,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>{Feel.Success();AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();});},72);
             foreach(var label in button.GetComponentsInChildren<SourceTrackedText>()){label.LetterSpacing=.5f*dp;var clip=label.transform.parent as RectTransform;if(clip)clip.anchoredPosition=Vector2.zero;}
@@ -65,19 +65,21 @@ namespace Inkomino
             bool showDouble=!review&&reward>0&&RewardEntryEnabled(RewardPlacement.DoubleCoins);
             if(showDouble)
             {
-                buttonRoot.anchoredPosition+=Vector2.down*80;bool doubled=false;int baseReward=reward,epoch=presentationEpoch;Button doubleButton=null;
-                doubleButton=RewardButton(RewardPlacement.DoubleCoins,Zh.WatchAdAgain,buttonRoot,new Vector2(.5f,.5f),new Vector2(0,buttonH/2+118),new Vector2(790,168),()=>RequestReward(RewardPlacement.DoubleCoins,()=>{
+                buttonRoot.anchoredPosition+=Vector2.down*242;bool doubled=false;int baseReward=reward,epoch=presentationEpoch;Button doubleButton=null;
+                doubleButton=RewardButton(RewardPlacement.DoubleCoins,Zh.WatchAdAgain,buttonRoot,new Vector2(.5f,.5f),new Vector2(0,buttonH/2+159),new Vector2(790,168),()=>RequestReward(RewardPlacement.DoubleCoins,()=>{
                     doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra);doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");Feel.Success();
                 },()=>!doubled&&presentationEpoch==epoch&&screen=="result"&&CurrentLevel==level),true);
             }
-            MenuUI.SecondaryButton(Zh.PlayAgain,root,new Vector2(.5f,1),new Vector2(0,showDouble?-1648:-1504),new Vector2(640,104),Retry,44);
-            MenuUI.SecondaryButton(Zh.BackHome,root,new Vector2(.5f,1),new Vector2(0,showDouble?-1788:-1648),new Vector2(560,96),ShowHome,44);
+            bool showClimb=!review&&CurrentLevel>=41&&Store.Data.climb.joined&&!Store.Data.climb.isOut;
+            float homeY=showClimb?-1982f:-2156f,playY=showClimb?-1814f:-1988f;
+            MenuUI.SecondaryButton(Zh.PlayAgain,root,new Vector2(.5f,1),new Vector2(0,playY),new Vector2(640,104),Retry,44);
+            MenuUI.SecondaryButton(Zh.BackHome,root,new Vector2(.5f,1),new Vector2(0,homeY),new Vector2(560,96),ShowHome,44);
             motion.Button=buttonRoot;motion.ButtonAlpha=buttonRoot.gameObject.AddComponent<CanvasGroup>();motion.Width=width;
             motion.ConfettiParent=Skin.Fill("Source result confetti",root);motion.ConfettiParent.SetAsFirstSibling();
-            if(!review&&CurrentLevel>=41&&Store.Data.climb.joined&&!Store.Data.climb.isOut)
+            if(showClimb)
             {
                 var climb=Store.Data.climb;
-                MenuUI.SecondaryButton(ClimbActivity.AtTop(climb)?"集章完成 · 领取奖励":"快乐集章 "+climb.stage+" / 7",root,new Vector2(.5f,0),new Vector2(0,210),new Vector2(720,110),ShowClimb,46);
+                MenuUI.SecondaryButton(ClimbActivity.AtTop(climb)?"集章完成 · 领取奖励":"快乐集章 "+climb.stage+" / 7",root,new Vector2(.5f,0),new Vector2(0,248),new Vector2(720,110),ShowClimb,46);
             }
             foreach(var control in root.GetComponentsInChildren<Button>())MenuMotion.Press(control);
             motion.Begin();

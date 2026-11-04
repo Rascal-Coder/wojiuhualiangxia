@@ -148,9 +148,9 @@ namespace Inkomino
             var sheet=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.32f),size,top,rad);
             sheet.name=primary?"Primary button face":"Secondary button face";
             sheet.gameObject.AddComponent<MenuSurfaceLight>();
-            var lip=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,size.y*.28f),new Vector2(size.x*.42f,Mathf.Max(10,size.y*.08f)),new Color32(255,255,255,(byte)(primary?130:90)),rad*.5f);
-            lip.name="Button gloss lip";
-            Gloss(face,Vector2.one*.5f,new Vector2(-size.x*.16f,lift*.7f+size.y*.24f),new Vector2(size.x*.28f,Mathf.Max(12,size.y*.1f)),rad*.5f);
+            // Top 10pt sheen only. A mid-face lip sat on the label like a progress bar.
+            float sheen=30f;
+            Gloss(face,Vector2.one*.5f,new Vector2(0,size.y*.5f-sheen*.5f),new Vector2(size.x*.52f,sheen),Mathf.Min(rad*.35f,sheen*.5f));
             Label(text,face,Vector2.one*.5f,new Vector2(0,lift*.2f),size-new Vector2(50,20),fontSize,primary?Color.white:Ink,TextAnchor.MiddleCenter,true);
             var button=Skin.Hit(r,action,1);MenuMotion.Press(button);return button;
         }
@@ -171,11 +171,11 @@ namespace Inkomino
             Skin.RoundBox(r,new Vector2(.5f,.5f),Vector2.zero,size,new Color32(244,210,184,255),size.y/2);
             float width=size.x*Mathf.Clamp01(value);if(width>0){var fill=Skin.RoundBox(r,new Vector2(0,.5f),new Vector2(width/2,0),new Vector2(width,size.y),Coral,size.y/2);fill.name="Menu progress fill";fill.gameObject.AddComponent<MenuSurfaceLight>();MenuMotion.RevealProgress(fill.rectTransform,width);}
         }
-        public static void Adapt(Transform parent,WeChatHeaderLayout header,int firstContentChild,float bottom=2020)
+        public static void Adapt(Transform parent,WeChatHeaderLayout header,int firstContentChild,float bottom=2020,float contentEnd=0)
         {
             var children=new List<Transform>();for(int i=firstContentChild;i<parent.childCount;i++)children.Add(parent.GetChild(i));
             var root=Skin.Fill("Menu page layout",parent);foreach(var child in children)child.SetParent(root,false);
-            var fit=root.gameObject.AddComponent<MenuPageLayout>();fit.Init(header,bottom);
+            var fit=root.gameObject.AddComponent<MenuPageLayout>();fit.Init(header,bottom,contentEnd);
             foreach(var button in root.GetComponentsInChildren<Button>(true))MenuMotion.Press(button);
             MenuMotion.EnterPage(root);
         }
@@ -201,12 +201,12 @@ namespace Inkomino
     [UnityEngine.Scripting.Preserve]
     public sealed class MenuPageLayout:MonoBehaviour
     {
-        WeChatHeaderLayout header;RectTransform rect;float bottom;
-        public void Init(WeChatHeaderLayout value,float end){header=value;bottom=end;rect=(RectTransform)transform;}
+        WeChatHeaderLayout header;RectTransform rect;float bottom,span;
+        public void Init(WeChatHeaderLayout value,float end,float contentEnd=0){header=value;bottom=end;span=contentEnd>0?contentEnd:end;rect=(RectTransform)transform;}
         void LateUpdate()
         {
             if(!rect)return;float top=Mathf.Max(480,398.5f+(header?header.Offset:0)+48);
-            float scale=Mathf.Clamp01((bottom-top)/(bottom-480));
+            float scale=Mathf.Clamp01((bottom-top)/Mathf.Max(1f,span-480f));
             rect.localScale=Vector3.one*scale;rect.anchoredPosition=new Vector2(0,(1-scale)*1200-(top-480*scale));
         }
     }

@@ -27,7 +27,7 @@ namespace Inkomino
             Color32[] plates={MenuUI.PenWash,MenuUI.IceWash,MenuUI.LensWash};
             Vector2 top=new Vector2(0,1);
 
-            var supply=Skin.Rect("Shop coin supply",Content,new Vector2(.5f,1),new Vector2(0,-900),new Vector2(960,268));
+            var supply=Skin.Rect("Shop coin supply",Content,new Vector2(.5f,1),new Vector2(0,-954),new Vector2(960,268));
             MenuUI.SoftDepth(supply,supply.sizeDelta,40,MenuUI.WarmShadow);
             MenuUI.Extrude(supply,Vector2.one*.5f,Vector2.zero,supply.sizeDelta,MenuUI.MintWash,MenuUI.MintDepth,40);
             if(RewardEntryEnabled(RewardPlacement.CoinSupply))
@@ -56,7 +56,7 @@ namespace Inkomino
             for(int i=0;i<icons.Length;i++)
             {
                 int index=i;
-                float rowCenter=1220+i*312;
+                float rowCenter=1286+i*344;
                 var row=Skin.Rect("Shop row "+i,Content,new Vector2(.5f,1),new Vector2(0,-rowCenter),new Vector2(980,292));
                 MenuUI.SoftDepth(row,row.sizeDelta,36,MenuUI.WarmShadow);
                 MenuUI.Extrude(row,Vector2.one*.5f,Vector2.zero,row.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,36);
@@ -65,7 +65,7 @@ namespace Inkomino
                 if(tool){MenuMotion.Float(tool.rectTransform,4,1.1f);if(i==0)MenuMotion.Sparkle(tool.rectTransform,3,true);}
                 MenuUI.Label(titles[i],row,top,new Vector2(430,-78),new Vector2(340,56),48,MenuUI.Ink,TextAnchor.MiddleLeft,true);
                 MenuUI.Label(descriptions[i],row,top,new Vector2(430,-142),new Vector2(340,48),42,MenuUI.Muted);
-                ShopPurchaseControls(row,items[i],top,new Vector2(812,-176),quantity=>
+                ShopPurchaseControls(row,items[i],top,new Vector2(812,-152),quantity=>
                 {
                         ShowShop();
                         Info(Zh.PurchaseReady,"已获得 "+quantity+" 个"+titles[index]+"。");
@@ -74,7 +74,7 @@ namespace Inkomino
                 },new Vector2(860,-40));
             }
 
-            MenuUI.Adapt(Content,headerLayout,firstContentChild,2024);
+            MenuUI.Adapt(Content,headerLayout,firstContentChild,2041f,2120f);
             Navigation(0);
             FocusFirst();
         }
@@ -91,12 +91,13 @@ namespace Inkomino
                 pips[i]=Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,slot.sizeDelta,MenuUI.Coral,14);pips[i].name="Purchase pip";
                 var mark=slot.gameObject.AddComponent<Image>();mark.raycastTarget=false;mark.enabled=false;mark.color=Color.white;mark.name="Purchase stamp "+i;stamps[i]=mark;
             }
-            var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(0,50),new Vector2(64,64),46,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
+            var amount=MenuUI.Label("1",group,Vector2.one*.5f,new Vector2(0,62),new Vector2(64,64),46,MenuUI.Ink,TextAnchor.MiddleCenter);amount.name="Shop quantity "+item;
             int quantity=1;Button minus=null,plus=null,buy=null;
             void Refresh(){int left=Store.ShopRemaining(item,SaveStore.Now);for(int i=0;i<stamps.Length;i++){bool on=i<left;if(stamps[i])stamps[i].color=on?Color.white:new Color(.65f,.60f,.72f,.24f);if(pips[i])pips[i].color=on?MenuUI.Coral:new Color(.78f,.74f,.82f,.35f);}amount.text=quantity.ToString();minus.interactable=quantity>1&&left>0;plus.interactable=quantity<SaveStore.ShopQuantityLimit&&left>0;int price=SaveStore.ShopPrice(item,quantity);buy.GetComponentInChildren<Text>().text=left==0?"今日售罄":price+" 金币";buy.interactable=Store.ShopError(item,price,SaveStore.Now,quantity).Length==0;}
-            minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-86,50),new Vector2(96,92),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},48);minus.name="Shop minus "+item;
-            plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(86,50),new Vector2(96,92),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},48);plus.name="Shop plus "+item;
-            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(0,-52),new Vector2(248,100),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;
+            minus=MenuUI.SecondaryButton("-",group,Vector2.one*.5f,new Vector2(-86,62),new Vector2(96,92),()=>{quantity=Mathf.Max(1,quantity-1);Refresh();},48);minus.name="Shop minus "+item;
+            plus=MenuUI.SecondaryButton("+",group,Vector2.one*.5f,new Vector2(86,62),new Vector2(96,92),()=>{quantity=Mathf.Min(SaveStore.ShopQuantityLimit,quantity+1);Refresh();},48);plus.name="Shop plus "+item;
+            buy=MenuUI.GameButton("",group,Vector2.one*.5f,new Vector2(0,-78),new Vector2(272,100),()=>{int price=SaveStore.ShopPrice(item,quantity);if(Store.Buy(item,price,quantity)){SoundBank.Play("coin");Feel.Success();purchased(quantity);}else{Refresh();Info("暂时无法补给",Store.ShopError(item,price,SaveStore.Now,quantity));}},46);buy.name="Shop exchange "+item;
+            var priceLabel=buy.GetComponentInChildren<Text>();priceLabel.font=MenuUI.BodyFont;priceLabel.alignment=TextAnchor.MiddleCenter;priceLabel.alignByGeometry=true;priceLabel.horizontalOverflow=HorizontalWrapMode.Overflow;priceLabel.rectTransform.anchoredPosition=new Vector2(0,6);priceLabel.rectTransform.sizeDelta=new Vector2(188,72);
             Refresh();
             group.gameObject.AddComponent<ShopPurchaseRefresh>().Init(Store,Refresh);
         }
