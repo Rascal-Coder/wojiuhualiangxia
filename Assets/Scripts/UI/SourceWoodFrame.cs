@@ -159,25 +159,21 @@ namespace Inkomino
                 {
                     if(Mode==0)
                     {
-                        if(!InsideCellsOnly){Band(vh,grid,-.73f*w,.31f*w,radius,cs,origin+new Vector2(0,-7*dp),dp,new Color32(128,92,171,30),false,tw,th,anchor);Band(vh,grid,-.70f*w,.31f*w,radius,cs,origin+new Vector2(0,-3*dp),dp,new Color32(128,92,171,65),false,tw,th,anchor);}
-                        Band(vh,grid,-.70f*w,.30f*w,radius,cs,origin,dp,Co("#B69AD9"),false,tw,th,anchor);
+                        if(!InsideCellsOnly){Band(vh,grid,-.73f*w,.31f*w,radius,cs,origin+new Vector2(0,-7*dp),dp,new Color32(176,96,48,30),false,tw,th,anchor);Band(vh,grid,-.70f*w,.31f*w,radius,cs,origin+new Vector2(0,-3*dp),dp,new Color32(176,96,48,70),false,tw,th,anchor);}
+                        Band(vh,grid,-.70f*w,.30f*w,radius,cs,origin,dp,Co("#C98448"),false,tw,th,anchor);
                     }
                     if(Mode==2)
                     {
                         Band(vh,grid,-.64f*w,-.30f*w,radius,cs,origin,dp,Co("#FFFFFF"),false,tw,th,anchor);
-                        Band(vh,grid,-.30f*w,.10f*w,radius,cs,origin,dp,Co("#E8DAFB"),false,tw,th,anchor);
+                        Band(vh,grid,-.30f*w,.10f*w,radius,cs,origin,dp,Co("#FFD7B0"),false,tw,th,anchor);
                         Band(vh,grid,.10f*w,.28f*w,radius,cs,origin,dp,Co("#FFFFFF"),false,tw,th,anchor);
                     }
                 }
             }
             else if(Mode==3)
             {
-                float size=n*cs;
-                for(int i=0;i<n*n;i++)if(state.IsActive(i))
-                {
-                    Rect cell=new Rect(origin.x+i%n*cs,origin.y-(i/n+1)*cs,cs,cs);
-                    Poly(vh,Points(cell),Co("#F6F0FC"),p=>new Vector2((p.x-origin.x)/size,1-(origin.y-p.y)/size));
-                }
+                // Flat paper matched the peach ground and read as an empty plate.
+                // Active cells are candy tiles from SourceDiskFace, above this layer.
             }
             else if(Mode==4)DrawGrid(vh,cs,dp);
             else DrawBeams(vh,origin,cs,dp,wDp);

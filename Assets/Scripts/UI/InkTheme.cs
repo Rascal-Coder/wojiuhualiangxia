@@ -7,7 +7,7 @@ namespace Inkomino
     // Does not change resource IDs used by sound, saves, rewards or gameplay.
     public static class InkTheme
     {
-        public static readonly Color32 Ink=StickerDesign.Ink,Muted=StickerDesign.Muted,Paper=StickerDesign.Background,Line=new Color32(228,211,241,255),Jade=new Color32(102,69,170,255),Cinnabar=new Color32(234,72,119,255);
+        public static readonly Color32 Ink=StickerDesign.Ink,Muted=StickerDesign.Muted,Paper=StickerDesign.Background,Line=new Color32(236,176,132,255),Jade=new Color32(32,140,112,255),Cinnabar=new Color32(255,78,116,255);
         static Texture2D paper,grain,wash;
         static Sprite paperSprite;
         static Texture2D Noise(string name,Color32 basis,int variation)
@@ -21,7 +21,7 @@ namespace Inkomino
         {
             if(key=="game_assets_homebg"||key=="game_assets_bg"||key=="game_assets_shopbg"||key=="game_assets_paper"||key=="source_loading_background"||key=="shell_src_ui_gameplaysplash")
             {if(!paper)paper=Noise("Sticker cream",Paper,0);return paper;}
-            if(key=="game_assets_wood"){if(!grain)grain=Noise("Sticker rim",new Color32(226,207,247,255),0);return grain;}
+            if(key=="game_assets_wood"){if(!grain)grain=Noise("Sticker rim",new Color32(232,164,112,255),0);return grain;}
             if(key.StartsWith("game_assets_facets")){if(!wash)wash=Noise("Sticker matte",new Color32(255,255,255,255),0);return wash;}
             return null;
         }

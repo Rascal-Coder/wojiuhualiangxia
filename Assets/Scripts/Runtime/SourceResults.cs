@@ -15,46 +15,89 @@ namespace Inkomino
             var root=Skin.Fill("Source LevelCompleteScreen",Content);
             var motion=root.gameObject.AddComponent<SourceResultMotion>();
             float width=1080,dp=Skin.DP;
-            var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(920,240));
-            motion.BuildTitle(title,Zh.WellDone,118);
-            var seal=MenuUI.Art("ink_stamp",root,new Vector2(.5f,1),new Vector2(340,-550),new Vector2(170,170));MenuMotion.Celebrate(seal.rectTransform);
-            MenuUI.Label(Zh.Level(CurrentLevel)+"完成",root,new Vector2(.5f,1),new Vector2(0,-750),new Vector2(900,80),54,MenuUI.Ink,TextAnchor.MiddleCenter);
+            bool review=Review;
+            bool showDouble=!review&&reward>0&&RewardEntryEnabled(RewardPlacement.DoubleCoins);
+            bool showClimb=!review&&CurrentLevel>=41&&Store.Data.climb.joined&&!Store.Data.climb.isOut;
+            float homeY=showClimb?-1982f:-2156f,playY=showClimb?-1814f:-1988f;
+            // 254 from 再玩一次 center to 下一关 center: ~20pt of peach between the two faces. Secondaries stay on the safe-area anchor.
+            float nextFromTop=-playY-254f;
+            float down=nextFromTop-(showDouble?1482f:1240f);
+            var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-340-down),new Vector2(900,180));
+            motion.BuildTitle(title,Zh.Cleared,78);
+            var medal=Skin.Rect("Result trophy",root,new Vector2(.5f,1),new Vector2(-428,-308-down),new Vector2(216,216));
+            MenuUI.SoftDepth(medal,medal.sizeDelta,56,MenuUI.WarmShadow);
+            Skin.RoundBox(medal,Vector2.one*.5f,new Vector2(0,-8),medal.sizeDelta,new Color32(214,140,48,255),56);
+            var medalFace=Skin.RoundBox(medal,Vector2.one*.5f,new Vector2(0,8),medal.sizeDelta-new Vector2(22,22),MenuUI.Lemon,48);
+            medalFace.gameObject.AddComponent<MenuSurfaceLight>();
+            MenuUI.Art("ink_rank",medal,Vector2.one*.5f,new Vector2(0,6),Vector2.one*148);
+            Vector2[] crumbAt={new Vector2(102,92),new Vector2(-108,74),new Vector2(114,-6),new Vector2(-84,-102),new Vector2(6,118)};
+            float[] crumbSize={18,14,16,12,20};
+            Color32[] crumbInk={MenuUI.Lemon,new Color32(255,255,255,230),new Color32(255,196,72,255),MenuUI.CoralChip,MenuUI.Lemon};
+            for(int c=0;c<crumbAt.Length;c++)Skin.RoundBox(medal,Vector2.one*.5f,crumbAt[c],Vector2.one*crumbSize[c],crumbInk[c],crumbSize[c]*.5f);
+            motion.Trophy=medal;
+            MenuUI.Label(Zh.Level(CurrentLevel),root,new Vector2(.5f,1),new Vector2(0,-460-down),new Vector2(860,64),46,MenuUI.Muted,TextAnchor.MiddleCenter);
 
-            // Root title margins: top44, height100, bottom4; root gap8.
-            // The remaining flex centerZone centres reward(200 + vertical margins8), gap8,
-            // and the auto-width button(104 + top8 + bottom40).
-            float buttonH=200;
-            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-1150),new Vector2(820,660),true);rewardRoot.name="Source reward";
-            MenuUI.Label("通关奖励",rewardRoot,new Vector2(.5f,1),new Vector2(0,-75),new Vector2(700,80),54,MenuUI.Ink,TextAnchor.MiddleCenter,true);
-            var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,15),Vector2.one*380);
-            MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*380);
-            var amount=MenuUI.Label("+"+reward+" 金币",rewardRoot,new Vector2(.5f,.5f),new Vector2(0,-240),new Vector2(700,95),68,MenuUI.Ink,TextAnchor.MiddleCenter);
-            MenuUI.Label(Review||reward==0?"已完成的关卡，不重复发放金币":"奖励已加入金币余额",root,new Vector2(.5f,1),new Vector2(0,-1600),new Vector2(940,80),46,MenuUI.Muted,TextAnchor.MiddleCenter);
+            float buttonH=204;
+            var rewardRoot=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-661-down),new Vector2(920,196));rewardRoot.name="Source reward";
+            MenuUI.Plate(rewardRoot,new Vector2(0,.5f),new Vector2(118,0),Vector2.one*140,MenuUI.Lemon,36);
+            var pile=Skin.Rect("Coin reward",rewardRoot,new Vector2(0,.5f),new Vector2(118,0),Vector2.one*116);
+            MenuUI.Art("reward_coins",pile,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*104);
+            MenuUI.Label(Zh.CoinsGot,rewardRoot,new Vector2(0,.5f),new Vector2(490,34),new Vector2(540,48),44,MenuUI.Muted,TextAnchor.MiddleLeft,true);
+            var amount=MenuUI.Label("+"+reward,rewardRoot,new Vector2(0,.5f),new Vector2(490,-32),new Vector2(540,76),72,MenuUI.Coral,TextAnchor.MiddleLeft);
             motion.Reward=rewardRoot;motion.RewardAlpha=rewardRoot.gameObject.AddComponent<CanvasGroup>();
+            motion.Coin=pile;
+            float used=Mathf.Max(0,Board!=null?Board.Level.time-Remaining:0);
+            int steps=Board!=null?Board.Pieces.Count:0;
+            int stars=Board==null||used<=0?3:used<=Board.Level.time*.45f?3:used<=Board.Level.time*.75f?2:1;
+            motion.FilledStars=stars;
+            motion.Stars=new RectTransform[3];
+            for(int s=0;s<3;s++)
+            {
+                var star=Skin.Rect("Result star "+s,medal,Vector2.one*.5f,new Vector2((s-1)*58f,-92f),Vector2.one*40);
+                var glyph=star.gameObject.AddComponent<ResultStarGraphic>();
+                glyph.color=s<stars?new Color32(255,186,64,255):new Color32(255,228,196,160);
+                glyph.raycastTarget=false;
+                motion.Stars[s]=star;
+            }
+            // One cream strip. The old 36×8 bars were pinned into the paper gloss,
+            // so the coverage fringe on the side chips did not match the center chip.
+            var stats=MenuUI.Paper(root,new Vector2(.5f,1),new Vector2(0,-945-down),new Vector2(920,196));stats.name="Result stats";
+            string[] statTitles={Zh.TimeStat,Zh.StepsStat,Zh.StarsStat};
+            string[] statValues={FormatTime(used),steps.ToString(),stars+"/3"};
+            Color32[] statFaces={MenuUI.Coral,MenuUI.MintDepth,new Color32(214,140,48,255)};
+            for(int i=0;i<3;i++)
+            {
+                var cell=Skin.Rect("Result stat "+i,stats,Vector2.one*.5f,new Vector2((i-1)*300,0),new Vector2(280,176));
+                var chip=Skin.RoundBox(cell,Vector2.one*.5f,new Vector2(0,27),new Vector2(76,24),statFaces[i],12);
+                chip.name="Result stat chip";
+                MenuUI.Label(statTitles[i],cell,Vector2.one*.5f,new Vector2(0,-14),new Vector2(240,44),42,MenuUI.Muted,TextAnchor.MiddleCenter,true);
+                MenuUI.Label(statValues[i],cell,Vector2.one*.5f,new Vector2(0,-64),new Vector2(240,52),48,MenuUI.Ink,TextAnchor.MiddleCenter);
+            }
 
-            // Source no-ad branch: module2120 AutoWidthGreenButton, activeOpacity=.85.
-            int buttonFont=72;
-            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-1810),new Vector2(800,buttonH));
-            int level=CurrentLevel;bool review=Review;
-            var button=MenuUI.GameButton(Zh.Continue,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();}),buttonFont);
+            var buttonRoot=Skin.Rect("Source Continue entrance",root,new Vector2(.5f,1),new Vector2(0,-nextFromTop),new Vector2(920,buttonH));
+            int level=CurrentLevel;
+            var button=MenuUI.GameButton(Zh.NextLevel,buttonRoot,new Vector2(.5f,.5f),Vector2.zero,buttonRoot.sizeDelta,()=>{Feel.Success();AdPlacements.TryLevelEnd(Store,level,review,()=>{if(level<500){if(review)StartLevel(level+1,true);else EnterLevelWithLoading(level+1);}else ShowHome();});},72);
             foreach(var label in button.GetComponentsInChildren<SourceTrackedText>()){label.LetterSpacing=.5f*dp;var clip=label.transform.parent as RectTransform;if(clip)clip.anchoredPosition=Vector2.zero;}
             var opacity=button as SourceOpacityButton;if(opacity)opacity.ActiveOpacity=.85f;
-            if(!review&&reward>0&&RewardEntryEnabled(RewardPlacement.DoubleCoins))
+            if(showDouble)
             {
-                buttonRoot.anchoredPosition+=Vector2.down*230;bool doubled=false;int baseReward=reward,epoch=presentationEpoch;Button doubleButton=null;
-                doubleButton=RewardButton(RewardPlacement.DoubleCoins,RewardLabel(RewardPlacement.DoubleCoins),buttonRoot,new Vector2(.5f,.5f),new Vector2(0,buttonH/2+130),new Vector2(790,190),()=>RequestReward(RewardPlacement.DoubleCoins,()=>{
-                    doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra)+" 金币";doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");
+                bool doubled=false;int baseReward=reward,epoch=presentationEpoch;Button doubleButton=null;
+                doubleButton=RewardButton(RewardPlacement.DoubleCoins,Zh.WatchAdAgain,buttonRoot,new Vector2(.5f,.5f),new Vector2(0,buttonH/2+159),new Vector2(790,168),()=>RequestReward(RewardPlacement.DoubleCoins,()=>{
+                    doubled=true;int extra=baseReward*Mathf.Max(0,AdPlacements.Slot(RewardPlacement.DoubleCoins).amount-1);Store.Data.coins+=extra;amount.text="+"+(baseReward+extra);doubleButton.interactable=false;foreach(var label in doubleButton.GetComponentsInChildren<Text>())if(label.name=="Rewarded CTA label")label.text=Zh.AdDoubled;SoundBank.Play("coin");Feel.Success();
                 },()=>!doubled&&presentationEpoch==epoch&&screen=="result"&&CurrentLevel==level),true);
             }
+            MenuUI.SecondaryButton(Zh.PlayAgain,root,new Vector2(.5f,1),new Vector2(0,playY),new Vector2(640,104),Retry,44);
+            MenuUI.SecondaryButton(Zh.BackHome,root,new Vector2(.5f,1),new Vector2(0,homeY),new Vector2(560,96),ShowHome,44);
             motion.Button=buttonRoot;motion.ButtonAlpha=buttonRoot.gameObject.AddComponent<CanvasGroup>();motion.Width=width;
             motion.ConfettiParent=Skin.Fill("Source result confetti",root);motion.ConfettiParent.SetAsFirstSibling();
-            if(!review&&CurrentLevel>=41&&Store.Data.climb.joined&&!Store.Data.climb.isOut)
+            if(showClimb)
             {
                 var climb=Store.Data.climb;
-                MenuUI.SecondaryButton(ClimbActivity.AtTop(climb)?"集章完成 · 领取奖励":"快乐集章 "+climb.stage+" / 7",root,new Vector2(.5f,0),new Vector2(0,90),new Vector2(800,130),ShowClimb,49);
+                MenuUI.SecondaryButton(ClimbActivity.AtTop(climb)?"集章完成 · 领取奖励":"快乐集章 "+climb.stage+" / 7",root,new Vector2(.5f,0),new Vector2(0,248),new Vector2(720,110),ShowClimb,46);
             }
             foreach(var control in root.GetComponentsInChildren<Button>())MenuMotion.Press(control);
             motion.Begin();
+            MenuMotion.Arrive(Content);
         }
     }
 
@@ -62,7 +105,7 @@ namespace Inkomino
     {
         sealed class Letter{public RectTransform Rect;public CanvasGroup Alpha;public float Delay;}
         readonly List<Letter> letters=new List<Letter>();
-        public RectTransform Reward,Button,ConfettiParent;public CanvasGroup RewardAlpha,ButtonAlpha;public float Width;
+        public RectTransform Reward,Button,ConfettiParent,Coin,Trophy;public RectTransform[] Stars;public int FilledStars;public CanvasGroup RewardAlpha,ButtonAlpha;public float Width;
         float begin,titleDone;Vector2 buttonPosition;bool confettiStarted;
         public float Elapsed{get{return SourceClock.Now-begin;}}
         public float RewardStart{get{return titleDone;}}
@@ -88,16 +131,29 @@ namespace Inkomino
             titleDone=.100f;
         }
         static Text TitleGlyph(string ch,RectTransform parent,int size,Color color)
-        {var t=Skin.Text(ch,parent,new Vector2(.5f,.5f),Vector2.zero,new Vector2(size*2,size*1.7f),size,color);t.horizontalOverflow=HorizontalWrapMode.Overflow;t.verticalOverflow=VerticalWrapMode.Overflow;return t;}
-        public void Begin(){begin=SourceClock.Now;buttonPosition=Button.anchoredPosition;Apply(0);}
+        {var t=Skin.Text(ch,parent,new Vector2(.5f,.5f),Vector2.zero,new Vector2(size*2,size*1.7f),size,color);t.horizontalOverflow=HorizontalWrapMode.Overflow;t.verticalOverflow=VerticalWrapMode.Overflow;MenuUI.CandyType(t);return t;}
+        // One hump, then rest. An underdamped spring kept the clear screen shaking.
+        public static float Pop(float age)
+        {
+            const float dur=.34f;
+            if(age<=0f)return .2f;
+            if(age>=dur)return 1f;
+            float u=age/dur;
+            if(u<.62f)return Mathf.Lerp(.2f,1.06f,SourceMotion.OutCubic(u/.62f));
+            return Mathf.Lerp(1.06f,1f,SourceMotion.OutCubic((u-.62f)/.38f));
+        }
+        public void Begin(){begin=SourceClock.Now;buttonPosition=Button.anchoredPosition;if(Trophy&&!MenuMotion.Reduced)MenuMotion.Celebrate(Trophy);Apply(0);}
         void Update(){Apply(Elapsed);}
         void Apply(float t)
         {
-            foreach(var letter in letters){float age=t-letter.Delay;letter.Alpha.alpha=age<=0?0:SourceMotion.DefaultTiming(age/.180f);letter.Rect.localScale=Vector3.one*(age<0?.3f:age>2?1:SourceMotion.Spring(age,.3f,1,140,6));}
-            float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.OutCubic(rewardAge/.180f);Reward.localScale=Vector3.one*(MenuMotion.Reduced?1:Mathf.Lerp(.92f,1,SourceMotion.OutCubic(rewardAge/.240f)));
-            float buttonAge=t-.200f;ButtonAlpha.alpha=SourceMotion.OutCubic(buttonAge/.180f);Button.anchoredPosition=buttonPosition+Vector2.down*(MenuMotion.Reduced?0:36*(1-SourceMotion.OutCubic(buttonAge/.220f)));
-            ButtonAlpha.interactable=ButtonAlpha.blocksRaycasts=buttonAge>=.180f;
-            if(!confettiStarted&&rewardAge>=0){confettiStarted=true;var confetti=ConfettiParent.gameObject.AddComponent<SourceResultConfetti>();confetti.Begin();}
+            foreach(var letter in letters){float age=t-letter.Delay;letter.Alpha.alpha=age<=0?0:SourceMotion.DefaultTiming(age/.160f);letter.Rect.localScale=Vector3.one*(MenuMotion.Reduced||age>=.34f?1:Pop(age));}
+            float rewardAge=t-titleDone;RewardAlpha.alpha=SourceMotion.OutCubic(rewardAge/.160f);Reward.localScale=Vector3.one*(MenuMotion.Reduced||rewardAge>=.34f?1:Pop(rewardAge));
+            if(Coin)Coin.localScale=Vector3.one*(MenuMotion.Reduced||rewardAge>=.40f?1:Pop(rewardAge-.06f));
+            if(Trophy){float age=rewardAge-.02f;Trophy.localScale=Vector3.one*(MenuMotion.Reduced||age>=.34f?1:Pop(age));}
+            if(Stars!=null)for(int i=0;i<Stars.Length;i++)if(Stars[i]){float age=rewardAge-.08f-i*.05f;float empty=i<FilledStars?1f:.82f;Stars[i].localScale=Vector3.one*(MenuMotion.Reduced?empty:i<FilledStars?Pop(age):age<=0?.2f:Mathf.Lerp(.2f,empty,SourceMotion.OutCubic(Mathf.Clamp01(age/.22f))));}
+            float buttonAge=t-.160f;ButtonAlpha.alpha=SourceMotion.OutCubic(buttonAge/.140f);Button.anchoredPosition=buttonPosition+Vector2.down*(MenuMotion.Reduced?0:18*(1-SourceMotion.OutCubic(buttonAge/.180f)));Button.localScale=Vector3.one*(MenuMotion.Reduced||buttonAge>=.34f?1:Pop(buttonAge));
+            ButtonAlpha.interactable=ButtonAlpha.blocksRaycasts=buttonAge>=.160f;
+            if(!confettiStarted&&rewardAge>=0){confettiStarted=true;var confetti=ConfettiParent.gameObject.AddComponent<SourceResultConfetti>();confetti.Begin();MenuMotion.Celebrate(Reward);}
         }
     }
 
@@ -108,12 +164,23 @@ namespace Inkomino
         public void Begin()
         {
             begin=SourceClock.Now;string[] colors={"#FF638B","#75DABA","#FFE36B","#B6A0F5","#FFA8D2","#8DCFFC","#6645AA","#D6EA81"};var random=new System.Random();Func<float> rand=()=> (float)random.NextDouble();float dp=Skin.DP;
-            for(int i=0;i<24;i++){float size=(7+rand()*7)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.6f+rand()*.8f)),color,2*dp);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.180f,Rise=(350+rand()*350)*dp,RiseDuration=(400+rand()*200)/1000,FallDuration=(900+rand()*500)/1000,Spin=540+rand()*540,X=(.1f+rand()*.8f)*1080};bits.Add(bit);}Apply();
+            for(int i=0;i<14;i++){float size=(10+rand()*8)*dp;Color color;ColorUtility.TryParseHtmlString(colors[i%colors.Length],out color);var g=Skin.RoundBox(transform,new Vector2(0,0),Vector2.zero,new Vector2(size,size*(.7f+rand()*.4f)),color,size*.5f);var r=g.rectTransform;var bit=new Bit{Rect=r,Alpha=r.gameObject.AddComponent<CanvasGroup>(),Delay=rand()*.120f,Rise=(280+rand()*260)*dp,RiseDuration=(280+rand()*140)/1000,FallDuration=(700+rand()*400)/1000,Spin=180+rand()*220,X=(.12f+rand()*.76f)*1080};bits.Add(bit);}Apply();
         }
         void Update(){Apply();}
         void Apply()
         {
             float dp=Skin.DP;foreach(var bit in bits){float t=SourceClock.Now-begin-bit.Delay,phase=bit.RiseDuration+bit.FallDuration,y=t<=phase?bit.Rise*SourceMotion.OutQuad(t/bit.RiseDuration):Mathf.Lerp(bit.Rise,-800*dp,Mathf.Pow(Mathf.Clamp01((t-phase)/bit.FallDuration),2));bit.Rect.anchoredPosition=new Vector2(bit.X,y);bit.Rect.localRotation=Quaternion.Euler(0,0,-bit.Spin*SourceMotion.DefaultTiming(t/phase));bit.Alpha.alpha=t<0?0:t<phase?SourceMotion.DefaultTiming(t/.080f):1-SourceMotion.DefaultTiming((t-phase-bit.FallDuration+.500f)/.500f);}
+        }
+    }
+
+    public sealed class ResultStarGraphic:MaskableGraphic
+    {
+        protected override void OnPopulateMesh(VertexHelper vh)
+        {
+            vh.Clear();var rect=rectTransform.rect;float radius=Mathf.Min(rect.width,rect.height)*.5f;if(radius<=0)return;
+            Vector2 center=rect.center;int start=vh.currentVertCount;vh.AddVert(center,color,Vector2.zero);
+            for(int i=0;i<10;i++){float angle=-Mathf.PI*.5f+i*Mathf.PI/5f,length=radius*(i%2==0?1f:.46f);vh.AddVert(center+new Vector2(Mathf.Cos(angle),Mathf.Sin(angle))*length,color,Vector2.zero);}
+            for(int i=0;i<10;i++)vh.AddTriangle(start,start+1+i,start+1+(i+1)%10);
         }
     }
 }

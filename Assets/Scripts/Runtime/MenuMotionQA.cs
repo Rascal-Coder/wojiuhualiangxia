@@ -114,7 +114,7 @@ namespace Inkomino
             Check(sparkles.Length>0&&sparkles.Any(m=>m.PeakParticles>0),"ordinary climb actually emits decorative sparkle particles");
             Check(sparkles.All(m=>m.PeakParticles<=12&&m.ActiveParticles<=m.ParticleCapacity),"decorative sparkle bursts remain within their bounded particle capacity");
             var floats=app.Content.GetComponentsInChildren<MenuFloatMotion>();
-            Check(floats.Any(m=>m.IsAnimating&&m.VisualTarget&&Vector2.Distance(m.VisualTarget.anchoredPosition,m.OriginalPosition)>.1f),"ordinary climb actually advances a small visual float");
+            Check(floats.All(m=>!m.IsAnimating),"ordinary climb keeps artwork planted instead of bobbing");
             yield return TestDynamicPreference();
             yield return TestReduced();
             yield return TestPageLifetime();
@@ -396,7 +396,7 @@ namespace Inkomino
             Check(oneShot.Length>0&&oneShot.Any(m=>m.PeakParticles>0),"dynamic preference test starts with an existing one-shot celebration");
             app.Store.Data.reducedMenuMotion=true;yield return null;
             Check(effects.All(m=>m.Completed&&!m.IsAnimating&&m.ActiveParticles==0),"turning reduced motion on stops already-created particle effects on the next frame");
-            Check(floats.All(m=>m.Completed&&!m.IsAnimating&&m.VisualTarget&&Vector2.Distance(m.VisualTarget.anchoredPosition,m.OriginalPosition)<.01f),"turning reduced motion on restores existing floated artwork");
+            Check(floats.All(m=>!m.IsAnimating),"turning reduced motion on leaves no idle artwork bobbing");
             Check(app.Content.GetComponentsInChildren<MenuPageEntrance>().All(m=>m.Completed&&!m.IsAnimating),"turning reduced motion on finishes an entry already in progress");
             Check(MenuMotion.ActiveCount==0,"dynamic reduced preference leaves no active menu playback");
             SaveFrame("09-live-motion-preference",0,Time.unscaledTime);
@@ -413,7 +413,7 @@ namespace Inkomino
             }
             Check(sawRepeatedBurst,"existing ambient sparkle loops emit again within their 3.7-second maximum interval");
             Check(!sawOneShotReplay,"existing one-shot rewards never replay during ambient-loop resumption");
-            Check(floats.Any(m=>m.IsAnimating&&m.VisualTarget&&Vector2.Distance(m.VisualTarget.anchoredPosition,m.OriginalPosition)>.1f),"existing artwork float resumes after restoring full motion");
+            Check(floats.All(m=>!m.IsAnimating),"restoring full motion does not resume idle artwork bobbing");
             SaveFrame("09-live-motion-preference",1,start);
         }
         IEnumerator TestReduced()

@@ -55,7 +55,12 @@ namespace Inkomino
         void Dirty(){foreach(var m in meshes)if(m)m.SetVerticesDirty();}
         void EnsureLayout()
         {
-            if(rt==null)rt=transform as RectTransform;if(rt==null||State==null)return;Rect r=rt.rect;lastSize=r.size;int n=State.Level.n;
+            if(rt==null)rt=transform as RectTransform;if(rt==null||State==null)return;Rect r=rt.rect;
+            // A point-anchored board can report an empty rect before the canvas
+            // has a size. sizeDelta is already the playfield, so use it rather
+            // than submitting an empty mesh that never gets a second build.
+            if((r.width<8f||r.height<8f)&&rt.sizeDelta.x>=8f&&rt.sizeDelta.y>=8f)r=new Rect(-rt.sizeDelta.x*.5f,-rt.sizeDelta.y*.5f,rt.sizeDelta.x,rt.sizeDelta.y);
+            lastSize=r.size;int n=State.Level.n;
             int r0=n,c0=n,r1=-1,c1=-1;for(int i=0;i<n*n;i++)if(State.IsActive(i)){r0=Mathf.Min(r0,i/n);c0=Mathf.Min(c0,i%n);r1=Mathf.Max(r1,i/n);c1=Mathf.Max(c1,i%n);}
             if(r1<r0){r0=c0=0;r1=c1=n-1;}
             if(!FitActiveBounds){cellSize=Mathf.Min(r.width,r.height)/n;origin=new Vector2(r.center.x-cellSize*n/2,r.center.y+cellSize*n/2);boardSize=cellSize*n;visibleBounds=new Rect(origin.x,origin.y-boardSize,boardSize,boardSize);return;}
@@ -161,10 +166,6 @@ namespace Inkomino
             for(int i=0;i<n*n;i++)
             {
                 if(!b.IsActive(i))continue;Rect cell=View.CellRect(i);var piece=b.At(i);bool trail=View.Trail.Contains(i);
-                if(Layer==0)
-                {
-                    Quad(vh,cell,Co("#FFF9EE"));
-                }
                 if(Layer==1&&(piece!=null||trail))
                 {
                     var style=piece!=null?View.Style(piece):View.TrailStyle;if(style==null||style.TextureIndex!=FacetIndex)continue;
@@ -311,6 +312,40 @@ namespace Inkomino
             Vector2 center=o+new Vector2(Mathf.Lerp(-size,2*size,u)+width/2,-size/2);float angle=22*Mathf.Deg2Rad;Vector2 across=new Vector2(Mathf.Cos(angle),Mathf.Sin(angle)),along=new Vector2(-Mathf.Sin(angle),Mathf.Cos(angle));
             Vector2[] band={center-across*width/2-along*height/2,center-across*width/2+along*height/2,center+across*width/2+along*height/2,center+across*width/2-along*height/2};
             int n=View.State.Level.n;foreach(var piece in View.State.Pieces)foreach(int cell in piece.cells){Func<int,bool> same=j=>Array.IndexOf(piece.cells,j)>=0;bool top=cell/n>0&&same(cell-n),bottom=cell/n<n-1&&same(cell+n),left=cell%n>0&&same(cell-1),right=cell%n<n-1&&same(cell+1);var boundary=SourceBoardGeometry.CellPolygon(View.CellRect(cell),4.5f*View.PixelDensity,!top&&!left,!top&&!right,!bottom&&!right,!bottom&&!left);var clip=SourceBoardGeometry.ClipConvex(band,boundary);if(clip.Count<3)continue;Polygon(vh,clip,Color.white,p=>new Vector2(Vector2.Dot(p-center,across)/width+.5f,Vector2.Dot(p-center,along)/height+.5f));}
+        }
+    }
+    // Candy tiles for every open cell. RoundedGraphic is the same path as the
+    // booster plates, so the disk stays visible even when the board mesh is a
+    // flat wash. Placement, walls and hits still use the board geometry.
+    public sealed class SourceDiskFace:MonoBehaviour
+    {
+        PuzzleBoardView view;RectTransform root;float built=-1;
+        public void Bind(PuzzleBoardView board)
+        {
+            view=board;if(!view)return;
+            root=Skin.Rect("Source disk face",view.transform,Vector2.one*.5f,Vector2.zero,Vector2.zero);
+            int index=view.transform.childCount;
+            var hint=view.transform.Find("Source idle hint (under pieces and symbols)");
+            if(hint)index=hint.GetSiblingIndex();
+            else for(int i=0;i<view.transform.childCount;i++){var mesh=view.transform.GetChild(i).GetComponent<BoardMesh>();if(mesh&&mesh.Layer>=1){index=i;break;}}
+            root.SetSiblingIndex(index);
+        }
+        void LateUpdate()
+        {
+            if(!view||view.State==null||!root)return;float cs=view.CellSize;if(cs<8f)return;if(Mathf.Abs(built-cs)<.75f&&root.childCount>0)return;Rebuild(cs);
+        }
+        void Rebuild(float cs)
+        {
+            for(int i=root.childCount-1;i>=0;i--)Destroy(root.GetChild(i).gameObject);
+            built=cs;int n=view.State.Level.n;float gap=Mathf.Min(cs*.2f,Mathf.Clamp(cs*.075f,10f,18f)),tile=Mathf.Max(8f,cs-gap),radius=Mathf.Clamp(tile*.22f,8f,36f);
+            for(int i=0;i<n*n;i++)
+            {
+                if(!view.State.IsActive(i))continue;
+                var host=Skin.Rect("Disk tile",root,Vector2.one*.5f,view.CellCenterLocal(i),Vector2.one*tile);
+                Skin.RoundBox(host,Vector2.one*.5f,new Vector2(0,-tile*.045f),Vector2.one*(tile*.98f),new Color32(186,104,58,255),radius);
+                var face=Skin.RoundBox(host,Vector2.one*.5f,new Vector2(0,tile*.025f),Vector2.one*(tile*.88f),new Color32(255,252,246,255),radius*.88f);
+                face.gameObject.AddComponent<MenuSurfaceLight>();
+            }
         }
     }
 }

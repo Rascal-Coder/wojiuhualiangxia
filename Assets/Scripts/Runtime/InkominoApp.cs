@@ -29,7 +29,7 @@ namespace Inkomino
         }
         public static string QAOutput(){var args=Environment.GetCommandLineArgs();int i=Array.IndexOf(args,"-qaOutput");return i>=0&&i+1<args.Length?args[i+1]:Path.Combine(Application.persistentDataPath,"QA");}
         void BuildCanvas(){var go=new GameObject("Inkomino Canvas",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));var canvas=go.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;var scale=go.GetComponent<CanvasScaler>();scale.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scale.referenceResolution=new Vector2(1080,2400);scale.matchWidthOrHeight=1;
-            var backdrop=Skin.Fill("Letterbox",go.transform);backdrop.gameObject.AddComponent<Image>().color=new Color32(239,225,255,255);
+            var backdrop=Skin.Fill("Letterbox",go.transform);backdrop.gameObject.AddComponent<Image>().color=StickerDesign.Background;
             var safe=Skin.Fill("Safe area",go.transform);safe.gameObject.AddComponent<SafeArea>();Stage=Skin.Rect("Portrait Stage",safe,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,2400));Stage.gameObject.AddComponent<PortraitFit>();
             Content=Skin.Fill("Screens",Stage);Overlays=Skin.Fill("Screen stack",Stage);var es=new GameObject("EventSystem",typeof(EventSystem),typeof(StandaloneInputModule));DontDestroyOnLoad(es);}
         
@@ -92,7 +92,7 @@ namespace Inkomino
             var panel=Popup(Zh.ChangeAvatar,900,900);
             var borders=new RoundedGraphic[MenuUI.AvatarCount];
             var faces=new RoundedGraphic[MenuUI.AvatarCount];
-            void Refresh(){for(int j=0;j<borders.Length;j++){bool selected=MenuUI.AvatarId(Store.Data.avatar)==j+1;borders[j].color=selected?MenuUI.Ink:InkTheme.Line;faces[j].color=selected?new Color32(211,248,231,255):new Color32(249,241,255,255);}}
+            void Refresh(){for(int j=0;j<borders.Length;j++){bool selected=MenuUI.AvatarId(Store.Data.avatar)==j+1;borders[j].color=selected?MenuUI.Coral:new Color32(236,196,160,255);faces[j].color=selected?new Color32(214,248,230,255):new Color32(255,244,228,255);}}
             for(int i=0;i<MenuUI.AvatarCount;i++)
             {
                 int id=i+1;

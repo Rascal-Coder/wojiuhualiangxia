@@ -26,15 +26,15 @@ namespace Inkomino
         {
             public string Id; public int Need,Remaining;
             public RectTransform Root,CountRoot,TickRoot;
+            public float Width,Height;
             public CanvasGroup Group; public Text Label;
             public float Begin,AlphaFrom,AlphaTo;
             public bool Animate;
         }
         readonly List<Card> cards=new List<Card>();
-        static readonly Color Ink=new Color32(102,69,170,255),Paper=new Color32(255,249,238,255);
-        static readonly Color Orange=new Color32(102,69,170,255),Green=new Color32(102,69,170,255);
+        static readonly Color Orange=new Color32(98,52,34,255),Green=new Color32(36,156,122,255);
         BoardState board; RectTransform holder,generated; float d,lastWidth=-1;
-        const float WidthDp=68,HeightDp=86,GapDp=8;
+        const float Gap=16f;
 
         public void Init(BoardState value,float density)
         {
@@ -52,30 +52,37 @@ namespace Inkomino
             float cell=Mathf.Min(19,61/(maxW+(maxW-1)*.12f),47/(maxH+(maxH-1)*.12f))*d;
             foreach(string id in board.Level.targets)
             {
-                var card=new Card{Id=id,Need=Mathf.Max(1,board.Level.solution==null?0:board.Level.solution.Count(x=>x.shape==id))};
-                card.Root=Skin.Rect("Target "+id,generated,new Vector2(0,1),Vector2.zero,new Vector2(WidthDp,HeightDp)*d);
+                ShapeData shape;
+                if(!board.Library.Shapes.TryGetValue(id,out shape)||shape.cells==null||shape.cells.Length==0)continue;
+                float gap=cell*.12f,step=cell+gap;
+                int minC=shape.cells.Min(x=>x.c),minR=shape.cells.Min(x=>x.r);
+                int columns=shape.cells.Max(x=>x.c)-minC+1,rows=shape.cells.Max(x=>x.r)-minR+1;
+                float gw=columns*cell+(columns-1)*gap,gh=rows*cell+(rows-1)*gap;
+                float pad=14f,badge=76f;
+                var card=new Card{Id=id,Need=Mathf.Max(1,board.Level.solution==null?0:board.Level.solution.Count(x=>x.shape==id)),Width=gw+pad*2+badge,Height=Mathf.Max(gh+pad*2,96f)};
+                card.Root=Skin.Rect("Target "+id,generated,new Vector2(0,1),Vector2.zero,new Vector2(card.Width,card.Height));
                 card.Root.pivot=new Vector2(0,1);card.Group=card.Root.gameObject.AddComponent<CanvasGroup>();
                 card.Group.interactable=false;card.Group.blocksRaycasts=false;
-                MenuUI.Paper(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta);
-                Skin.RoundBox(card.Root,new Vector2(0,1),new Vector2(8,-8),new Vector2(10,28)*d,MenuUI.CoralChip,5*d);
-                ShapeData shape;
-                if(board.Library.Shapes.TryGetValue(id,out shape)&&shape.cells!=null&&shape.cells.Length>0)
+                Color candy;if(!ColorUtility.TryParseHtmlString(string.IsNullOrEmpty(shape.color)?"#B689EE":shape.color,out candy))candy=new Color32(182,137,238,255);
+                Color wash=Color.Lerp(Color.white,candy,.16f);
+                MenuUI.Extrude(card.Root,Vector2.one*.5f,Vector2.zero,card.Root.sizeDelta,wash,MenuUI.WarmShadow,28);
+                var glyph=Skin.Rect("ShapeGlyph "+id,card.Root,new Vector2(0,.5f),new Vector2(pad+gw/2,0),new Vector2(gw,gh));
+                foreach(var c in shape.cells)
                 {
-                    float gap=cell*.12f,step=cell+gap;
-                    int minC=shape.cells.Min(x=>x.c),minR=shape.cells.Min(x=>x.r);
-                    int columns=shape.cells.Max(x=>x.c)-minC+1,rows=shape.cells.Max(x=>x.r)-minR+1;
-                    float gw=columns*cell+(columns-1)*gap,gh=rows*cell+(rows-1)*gap;
-                    var glyph=Skin.Rect("ShapeGlyph "+id,card.Root,new Vector2(.5f,1),new Vector2(0,-32*d),new Vector2(gw,gh));
-                    foreach(var c in shape.cells){var tile=Skin.Rect("Preview sticker cell",glyph,new Vector2(0,1),new Vector2((c.c-minC)*step+cell/2,-(c.r-minR)*step-cell/2),Vector2.one*cell);var face=tile.gameObject.AddComponent<StickerPreviewTile>();face.color=new Color32(176,137,238,255);face.Variant=cards.Count%3;face.raycastTarget=false;}
+                    var pos=new Vector2((c.c-minC)*step+cell/2-gw/2,gh/2-((c.r-minR)*step+cell/2));
+                    var tile=Skin.Rect("Preview sticker cell",glyph,new Vector2(.5f,.5f),pos,Vector2.one*cell);
+                    var sticker=tile.gameObject.AddComponent<StickerPreviewTile>();sticker.color=candy;sticker.Variant=cards.Count%3;sticker.raycastTarget=false;
+                    var shown=Skin.RoundBox(glyph,new Vector2(.5f,.5f),pos,Vector2.one*(cell*.86f),candy,cell*.28f);shown.name="Target cell";shown.raycastTarget=false;
                 }
-                Skin.RoundBox(card.Root,new Vector2(.5f,1),new Vector2(0,-72*d),new Vector2(54,22)*d,MenuUI.CoralChip,11*d);
-                card.CountRoot=Skin.Rect("CountSlot",card.Root,new Vector2(.5f,1),new Vector2(0,-71*d),new Vector2(64,22)*d);
-                var tr=Skin.Rect("Remaining count",card.CountRoot,new Vector2(.5f,.5f),Vector2.zero,new Vector2(64,22)*d);
+                card.CountRoot=Skin.Rect("CountSlot",card.Root,new Vector2(1,.5f),new Vector2(-(pad+badge)/2f,0),new Vector2(badge-8,48));
+                Skin.RoundBox(card.CountRoot,Vector2.one*.5f,new Vector2(0,-3),card.CountRoot.sizeDelta,MenuUI.CoralDepth,22);
+                Skin.RoundBox(card.CountRoot,Vector2.one*.5f,Vector2.zero,card.CountRoot.sizeDelta,MenuUI.CoralChip,22);
+                var tr=Skin.Rect("Remaining count",card.CountRoot,new Vector2(.5f,.5f),Vector2.zero,new Vector2(80,44));
                 var text=tr.gameObject.AddComponent<Text>();text.font=MenuUI.BodyFont;text.fontSize=42;
                 text.color=Orange;text.alignment=TextAnchor.MiddleCenter;text.horizontalOverflow=HorizontalWrapMode.Overflow;
-                text.verticalOverflow=VerticalWrapMode.Overflow;text.supportRichText=false;text.raycastTarget=false;card.Label=text;
-                card.TickRoot=Skin.Rect("Completed CountSlot",card.Root,new Vector2(.5f,1),new Vector2(0,-71*d),Vector2.one*(19*d));
-                Skin.RoundBox(card.TickRoot,new Vector2(.5f,.5f),Vector2.zero,card.TickRoot.sizeDelta,Green,9.5f*d);
+                text.verticalOverflow=VerticalWrapMode.Overflow;text.supportRichText=false;text.raycastTarget=false;MenuUI.CandyType(text);card.Label=text;
+                card.TickRoot=Skin.Rect("Completed CountSlot",card.Root,new Vector2(1,.5f),new Vector2(-(pad+badge)/2f,0),Vector2.one*48);
+                Skin.RoundBox(card.TickRoot,new Vector2(.5f,.5f),Vector2.zero,card.TickRoot.sizeDelta,Green,24);
                 var check=Skin.Fill("White check M5.4 10.4 L8.6 13.5 L14.8 6.8",card.TickRoot).gameObject.AddComponent<SourceTargetCheck>();check.color=Color.white;check.raycastTarget=false;
                 card.Remaining=Remaining(card);card.AlphaFrom=card.AlphaTo=card.Remaining==0?.45f:1;
                 card.Group.alpha=card.AlphaTo;SetCounter(card);cards.Add(card);
@@ -88,16 +95,16 @@ namespace Inkomino
         void Layout()
         {
             if(!holder||!generated)return;float width=holder.rect.width;if(width<=0)width=holder.sizeDelta.x;if(width<=0)width=1016;
-            if(Mathf.Abs(width-lastWidth)<.1f)return;lastWidth=width;float x=0,y=0;
-            foreach(var c in cards){if(x>0&&x+WidthDp*d>width+.1f){x=0;y+=(HeightDp+GapDp)*d;}c.Root.anchoredPosition=new Vector2(x,-y);x+=(WidthDp+GapDp)*d;}
+            if(Mathf.Abs(width-lastWidth)<.1f)return;lastWidth=width;float x=0,y=0,row=0;
+            foreach(var c in cards){if(x>0&&x+c.Width>width+.1f){x=0;y+=row+Gap;row=0;}c.Root.anchoredPosition=new Vector2(x,-y);x+=c.Width+Gap;row=Mathf.Max(row,c.Height);}
         }
         void Update()
         {
             Layout();foreach(var c in cards){if(!c.Animate)continue;float t=Mathf.Max(0,SourceClock.Now-c.Begin);
                 c.Group.alpha=Mathf.Lerp(c.AlphaFrom,c.AlphaTo,SourceMotion.OutQuad(t/.240f));
-                if(c.Remaining==0)c.TickRoot.localScale=Vector3.one*(t>2?1:SourceMotion.Spring(t,0,1,120,5));
-                else c.CountRoot.localScale=Vector3.one*(t<.110f?Mathf.Lerp(1,1.4f,SourceMotion.OutQuad(t/.110f)):t>2?1:SourceMotion.Spring(t-.110f,1.4f,1,140,6));
-                if(t>2){c.Animate=false;c.Group.alpha=c.AlphaTo;c.CountRoot.localScale=c.TickRoot.localScale=Vector3.one;}}
+                if(c.Remaining==0)c.TickRoot.localScale=Vector3.one*(t>.34f?1:SourceResultMotion.Pop(t));
+                else c.CountRoot.localScale=Vector3.one*(t<.12f?Mathf.Lerp(1f,1.12f,SourceMotion.OutCubic(t/.12f)):t>.34f?1:Mathf.Lerp(1.12f,1f,SourceMotion.OutCubic((t-.12f)/.22f)));
+                if(t>.36f){c.Animate=false;c.Group.alpha=c.AlphaTo;c.CountRoot.localScale=c.TickRoot.localScale=Vector3.one;}}
         }
         void OnDestroy(){if(board!=null)board.Changed-=Refresh;}
     }

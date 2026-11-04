@@ -19,13 +19,13 @@ namespace Inkomino
             bool showAd=!full&&RewardEntryEnabled(RewardPlacement.Life);float adSpace=showAd?90:0;
             var panel=Popup(Zh.Lives,943.2f,82*D+areaH+(full?26:16+115+26+adSpace)*D);float width=panel.sizeDelta.x-36*D;
             var area=Skin.Rect("Source lives heart area",panel,new Vector2(.5f,1),new Vector2(0,-82*D-areaH/2),new Vector2(width,areaH));
-            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta,new Color32(204,181,232,255),16*D);
+            Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta,new Color32(255,214,180,255),16*D);
             Skin.RoundBox(area,new Vector2(.5f,.5f),Vector2.zero,area.sizeDelta-Vector2.one*4*D,new Color32(244,232,255,255),14*D);
             var heart=Skin.Rect("Pulsing life",area,new Vector2(.5f,1),new Vector2(0,-79*D),new Vector2(120,110)*D);
             Skin.Art("shell_src_ui_heart",heart,new Vector2(.5f,.5f),Vector2.zero,Vector2.one*96*D);
             var count=Skin.Text(Store.Data.hearts.ToString(),heart,new Vector2(.5f,.5f),new Vector2(0,-2*D),Vector2.one*90*D,Mathf.RoundToInt(44*D),Color.white);
             var label=Skin.Text(full?Zh.LivesFullTitle:Zh.NextLife,area,new Vector2(.5f,1),new Vector2(0,-(full?158:151)*D),new Vector2(width-20*D,28*D),Mathf.RoundToInt((full?20:14)*D),full?MenuUI.Green:MenuUI.Muted);
-            var clock=Skin.Rect("Next life countdown",area,new Vector2(.5f,1),new Vector2(0,-180*D),new Vector2(180,40)*D);Skin.RoundBox(clock,new Vector2(.5f,.5f),Vector2.zero,clock.sizeDelta,new Color32(204,181,232,255),18*D);
+            var clock=Skin.Rect("Next life countdown",area,new Vector2(.5f,1),new Vector2(0,-180*D),new Vector2(180,40)*D);Skin.RoundBox(clock,new Vector2(.5f,.5f),Vector2.zero,clock.sizeDelta,new Color32(255,196,150,255),18*D);
             var dot=Skin.Rect("Rotating clock dot",clock,new Vector2(0,.5f),new Vector2(22*D,0),Vector2.one*28*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta,new Color32(155,120,207,255),14*D);Skin.RoundBox(dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta-Vector2.one*6*D,new Color32(155,120,207,255),11*D);
             // timerDotText is an em dash (fn12514 @03b5, literal47093).
             Skin.Text("—",dot,new Vector2(.5f,.5f),Vector2.zero,dot.sizeDelta,Mathf.RoundToInt(14*D),Color.white);
@@ -82,7 +82,7 @@ namespace Inkomino
             MenuUI.Label("再给灵感一点时间",offer,Vector2.one*.5f,new Vector2(120,-58),new Vector2(405,64),42,MenuUI.Muted,TextAnchor.MiddleCenter);
             var description=MenuUI.Label("继续完成这一张拼图",panel,new Vector2(.5f,1),new Vector2(0,-550),new Vector2(width-100,70),48,MenuUI.Ink,TextAnchor.MiddleCenter);
             var wallet=Skin.Rect("Continuation wallet",panel,new Vector2(.5f,1),new Vector2(0,-645),new Vector2(500,84));
-            Skin.RoundBox(wallet,Vector2.one*.5f,Vector2.zero,wallet.sizeDelta,new Color32(255,243,209,255),42);
+            MenuUI.Extrude(wallet,Vector2.one*.5f,Vector2.zero,wallet.sizeDelta,MenuUI.Lemon,new Color32(232,176,72,200),42);
             Skin.Art("shell_src_ui_coin",wallet,Vector2.one*.5f,new Vector2(-135,0),Vector2.one*66);
             MenuUI.Label("现有金币 "+Store.Data.coins,wallet,Vector2.one*.5f,new Vector2(35,0),new Vector2(340,70),42,MenuUI.Ink,TextAnchor.MiddleCenter);
             var loss=Skin.Rect("Loss warning phase",panel,new Vector2(.5f,1),new Vector2(0,-347),new Vector2(width-100,310));

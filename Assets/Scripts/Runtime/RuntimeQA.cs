@@ -65,7 +65,7 @@ namespace Inkomino
             var levelLabel=homeLabels.First(t=>t.name=="Home current level");
             var play=app.Content.GetComponentsInChildren<Button>().First(b=>b.GetComponentsInChildren<Text>().Any(t=>t.text==Zh.Play));
             var playText=play.GetComponentsInChildren<Text>().First(t=>t.text==Zh.Play);var slogan=homeLabels.First(t=>t.text=="随手划两下，快乐贴满格");
-            Check(levelLabel.text=="Lv 23"&&levelLabel.transform.IsChildOf(play.transform)&&levelLabel.transform.position.x<playText.transform.position.x,"home level sits inside the left side of Play");
+            Check(levelLabel.text=="第23关"&&levelLabel.transform.IsChildOf(play.transform)&&levelLabel.transform.position.x<playText.transform.position.x,"home level sits inside the left side of Play");
             Check(levelLabel.font==playText.font&&slogan.font==playText.font,"home level, Play and slogan share one font");
             Check(!app.Content.GetComponentsInChildren<Image>().Any(i=>i.sprite==MenuUI.BrandSprite("brand_logo")),"home has no title logo");
             var life=homeLabels.First(t=>t.name=="Wallet life count");

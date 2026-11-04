@@ -74,6 +74,7 @@ namespace Inkomino
         public RectTransform Title { get; private set; }
         public CanvasGroup Group { get; private set; }
         CanvasGroup iconAlpha,titleAlpha,labelAlpha;
+        RectTransform progressFill;
         float begin;
         bool exiting;
 
@@ -125,8 +126,13 @@ namespace Inkomino
             var illustration=view.Icon.gameObject.AddComponent<Image>();illustration.sprite=MenuUI.TipSprite(icons[view.TipIndex]);illustration.preserveAspect=true;illustration.raycastTarget=false;
             var loading=Skin.Rect("Source gameplay loading label",root,new Vector2(.5f,0),new Vector2(0,288+18*dp),new Vector2(940,36*dp));
             view.labelAlpha=loading.gameObject.AddComponent<CanvasGroup>();
-            view.Label=Skin.Text("加载中……",loading,new Vector2(.5f,.5f),Vector2.zero,loading.sizeDelta,Mathf.RoundToInt(24*dp),InkTheme.Muted,0);
-            view.Label.font=Skin.ChineseFont;
+            view.Label=Skin.Text("加载中",loading,new Vector2(.5f,.5f),Vector2.zero,loading.sizeDelta,Mathf.RoundToInt(24*dp),InkTheme.Muted,0);
+            view.Label.font=Skin.ChineseFont;MenuUI.CandyType(view.Label);MenuUI.CandyType(view.Description);
+            var track=Skin.Rect("Source loading progress",root,new Vector2(.5f,0),new Vector2(0,188),new Vector2(460,28));
+            Skin.RoundBox(track,Vector2.one*.5f,Vector2.zero,track.sizeDelta,new Color32(255,236,220,255),14);
+            var fill=Skin.RoundBox(track,new Vector2(0,.5f),new Vector2(8,0),new Vector2(28,18),MenuUI.Coral,9);
+            fill.name="Source loading progress fill";fill.rectTransform.pivot=new Vector2(0,.5f);
+            view.progressFill=fill.rectTransform;
 
             view.ApplyAtElapsed(0);
             return view;
@@ -148,12 +154,11 @@ namespace Inkomino
             Group.alpha=SourceMotion.DefaultTiming(elapsed/.2f);
             Icon.localScale=Vector3.one*Mathf.Lerp(.9f,1,SourceMotion.OutCubic(elapsed/.28f));
             iconAlpha.alpha=SourceMotion.DefaultTiming(elapsed/.25f);
-            float titleAge=elapsed-.15f;
-            Title.localScale=Vector3.one*(titleAge<=0?0:SourceMotion.Spring(titleAge,0,1,100,6));
+            float titleAge=elapsed-.08f;
+            Title.localScale=Vector3.one*Mathf.Lerp(.92f,1f,SourceMotion.OutCubic(Mathf.Clamp01(titleAge/.24f)));
             titleAlpha.alpha=SourceMotion.DefaultTiming(titleAge/.2f);
-            float pulse=Mathf.Repeat(elapsed,1.4f);
-            float blink=pulse<.7f?Mathf.Lerp(1,.4f,SourceMotion.DefaultTiming(pulse/.7f)):Mathf.Lerp(.4f,1,SourceMotion.DefaultTiming((pulse-.7f)/.7f));
-            labelAlpha.alpha=SourceMotion.DefaultTiming((elapsed-.35f)/.25f)*blink;
+            labelAlpha.alpha=SourceMotion.DefaultTiming((elapsed-.2f)/.25f);
+            if(progressFill)progressFill.sizeDelta=new Vector2(Mathf.Lerp(28f,444f,SourceMotion.OutCubic(Mathf.Clamp01(elapsed/DisplaySeconds))),18f);
         }
 
         public IEnumerator FadeOut()

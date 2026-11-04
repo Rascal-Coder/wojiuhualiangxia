@@ -38,6 +38,15 @@ namespace Inkomino
             if(!motion)motion=page.gameObject.AddComponent<MenuPageEntrance>();
             motion.Play(page);
         }
+        // Whole-screen arrive. Background stays put. Foreground fades in place.
+        // No position offset, so the board and HUD cannot jitter on entry.
+        public static void Arrive(RectTransform page)
+        {
+            if(!page)return;
+            var motion=page.GetComponent<MenuScreenFade>();
+            if(!motion)motion=page.gameObject.AddComponent<MenuScreenFade>();
+            motion.Play(page);
+        }
         public static void Press(Button button)
         {
             if(!button)return;
@@ -131,9 +140,8 @@ namespace Inkomino
                 var group=rect.GetComponent<CanvasGroup>();if(!group)group=rect.gameObject.AddComponent<CanvasGroup>();
                 // Visible controls remain visibly actionable throughout entry.
                 // Preserve CanvasGroup input flags and its original alpha.
-                bool textOnly=rect.GetComponent<Text>()!=null&&rect.childCount==0;
                 items[next]=new Item{rect=rect,group=group,position=rect.anchoredPosition,alpha=group.alpha,
-                    delay=count>1?MaximumStagger*next/(count-1):0,initialAlpha=textOnly?0:.18f};
+                    delay=count>1?MaximumStagger*next/(count-1):0,initialAlpha=0};
                 next++;
             }
             elapsed=0;Progress01=0;Completed=false;enabled=true;
@@ -181,15 +189,64 @@ namespace Inkomino
         protected override void OnDisable(){Finish();base.OnDisable();}
     }
 
+    // One-shot fade of a screen's foreground. The peach background is excluded
+    // so the camera clear color never flashes between pages.
+    [UnityEngine.Scripting.Preserve]
+    public sealed class MenuScreenFade:MenuMotionProbe
+    {
+        struct Item{public CanvasGroup group;public float alpha;}
+        Item[] items;
+        float elapsed;
+        public const float Duration=.26f;
+        public void Play(RectTransform page)
+        {
+            Restore();
+            if(!page){Completed=true;return;}
+            var list=new System.Collections.Generic.List<Item>();
+            for(int i=0;i<page.childCount;i++)
+            {
+                var rect=page.GetChild(i) as RectTransform;
+                if(!rect||!rect.gameObject.activeSelf)continue;
+                if(rect.name=="Source background viewport"||rect.name=="Menu gold sparkle layer")continue;
+                var group=rect.GetComponent<CanvasGroup>();if(!group)group=rect.gameObject.AddComponent<CanvasGroup>();
+                list.Add(new Item{group=group,alpha=group.alpha});
+            }
+            items=list.ToArray();elapsed=0;Completed=false;enabled=true;
+            if(MenuMotion.Reduced||!gameObject.activeInHierarchy||items.Length==0){Finish();return;}
+            Apply();Playback(true);
+        }
+        void Update()
+        {
+            if(!IsAnimating)return;
+            if(MenuMotion.Reduced){Finish();return;}
+            elapsed+=Time.unscaledDeltaTime;Apply();
+            if(elapsed>=Duration)Finish();
+        }
+        void Apply()
+        {
+            if(items==null)return;
+            float t=MenuMotion.EaseOut(Mathf.Clamp01(elapsed/Duration));
+            for(int i=0;i<items.Length;i++)if(items[i].group)items[i].group.alpha=Mathf.Lerp(0,items[i].alpha,t);
+        }
+        void Restore()
+        {
+            if(items==null)return;
+            for(int i=0;i<items.Length;i++)if(items[i].group)items[i].group.alpha=items[i].alpha;
+        }
+        void Finish(){Restore();Completed=true;Playback(false);}
+        protected override void OnDisable(){Finish();base.OnDisable();}
+    }
+
     [UnityEngine.Scripting.Preserve]
     public sealed class MenuPressFeedback:MenuMotionProbe,IPointerDownHandler,IPointerUpHandler,IPointerExitHandler,ICancelHandler
     {
         Button button;
         RectTransform visual;
+        RoundedGraphic highlight;
         Vector3 originalScale=Vector3.one;
         int pointerId=int.MinValue;
         float from=1,to=1,current=1,elapsed,duration;Vector2 originalVisualPosition;
-        bool attempted;
+        bool attempted,spring;
         public Button Button { get { return button; } }
         public RectTransform VisualTarget { get { return visual; } }
         public Vector3 OriginalVisualScale { get { return originalScale; } }
@@ -207,7 +264,7 @@ namespace Inkomino
             if(visual)return true;if(attempted||!button)return false;attempted=true;
             var root=button.transform as RectTransform;if(!root)return false;
             var existing=root.Find("Menu press visuals") as RectTransform;
-            if(existing){visual=existing;originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;return true;}
+            if(existing){visual=existing;originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;BindHighlight();return true;}
             var graphic=root.GetComponent<Graphic>();
             // Never scale the hit rectangle as a fallback. Root graphics or a
             // layout controller cannot safely be relocated by this helper.
@@ -221,7 +278,8 @@ namespace Inkomino
             // Equal-sized stretch root preserves the children's anchors, clips,
             // SourceOpacityButton artwork groups, and existing sibling ordering.
             for(int i=0;i<childCount;i++)root.GetChild(0).SetParent(visual,false);
-            originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;return true;
+            originalScale=visual.localScale;originalVisualPosition=visual.anchoredPosition;UsesVisualWrapper=true;
+            BindHighlight();return true;
         }
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -230,7 +288,7 @@ namespace Inkomino
             Feel.Tap();
             if(MenuMotion.Reduced){Restore();return;}
             if(!EnsureVisual())return;
-            pointerId=eventData.pointerId;IsPressed=true;Tween(.94f,.07f);
+            pointerId=eventData.pointerId;IsPressed=true;Tween(.92f,.06f);
         }
         public void OnPointerUp(PointerEventData eventData)
         {
@@ -248,15 +306,26 @@ namespace Inkomino
         {
             pointerId=int.MinValue;IsPressed=false;
             if(!Ready()||MenuMotion.Reduced){Restore();return;}
-            Tween(1,.14f);
+            SpringTo(1,.15f);
         }
         void Tween(float value,float seconds)
         {
-            to=value;elapsed=0;duration=seconds;Completed=false;Playback(true);
+            spring=false;to=value;elapsed=0;duration=seconds;Completed=false;Playback(true);
             // Acknowledge the pointer in the event frame without waiting for an
             // animation tick; the remainder of the press settles over 80ms.
             if(value<current){current=Mathf.Lerp(current,value,.28f);Apply();}
             from=current;
+        }
+        void SpringTo(float value,float seconds)
+        {
+            spring=true;to=value;elapsed=0;duration=seconds;Completed=false;Playback(true);from=current;
+        }
+        static float SpringEase(float a,float b,float t)
+        {
+            if(t>=1f)return b;
+            float peak=b+(b-a)*.55f;
+            if(t<.4f){float u=t/.4f;return Mathf.Lerp(a,peak,1f-(1f-u)*(1f-u));}
+            float v=(t-.4f)/.6f;return Mathf.Lerp(peak,b,1f-(1f-v)*(1f-v)*(1f-v));
         }
         void Update()
         {
@@ -264,15 +333,31 @@ namespace Inkomino
             if(!attempted)EnsureVisual();
             if(!Ready()||MenuMotion.Reduced){if(IsPressed||IsAnimating||current!=1)Restore();return;}
             if(!IsAnimating)return;
-            elapsed+=Time.unscaledDeltaTime;float t=MenuMotion.EaseOut(elapsed/Mathf.Max(.001f,duration));
-            current=Mathf.Lerp(from,to,t);Apply();
+            elapsed+=Time.unscaledDeltaTime;float u=elapsed/Mathf.Max(.001f,duration);
+            current=spring?SpringEase(from,to,u):Mathf.Lerp(from,to,MenuMotion.EaseOut(Mathf.Clamp01(u)));Apply();
             if(elapsed>=duration){current=to;Apply();Completed=true;Playback(false);}
         }
-        void Apply(){if(visual){visual.localScale=originalScale*current;visual.anchoredPosition=originalVisualPosition+Vector2.down*(1-current)*260;}}
+        void BindHighlight()
+        {
+            if(!visual||highlight)return;
+            var existing=visual.Find("Press highlight") as RectTransform;
+            if(existing){highlight=existing.GetComponent<RoundedGraphic>();return;}
+            var cover=Skin.Fill("Press highlight",visual);
+            highlight=cover.gameObject.AddComponent<RoundedGraphic>();
+            highlight.color=new Color32(255,255,255,0);highlight.Radius=36;highlight.raycastTarget=false;
+            cover.SetAsLastSibling();
+        }
+        void Apply()
+        {
+            // Scale only. A position punch and a white flash read as shake and gloss.
+            if(visual){visual.localScale=Vector3.Scale(originalScale,Vector3.one*current);visual.anchoredPosition=originalVisualPosition;}
+            if(highlight){var c=highlight.color;c.a=0;highlight.color=c;}
+        }
         void Restore()
         {
-            pointerId=int.MinValue;IsPressed=false;current=from=to=1;
+            pointerId=int.MinValue;IsPressed=false;spring=false;current=from=to=1;
             if(visual){visual.localScale=originalScale;visual.anchoredPosition=originalVisualPosition;}
+            if(highlight){var c=highlight.color;c.a=0;highlight.color=c;}
             Completed=true;Playback(false);
         }
         void OnApplicationFocus(bool focused){if(!focused)Restore();}
