@@ -27,7 +27,7 @@ namespace Inkomino
             Color32[] plates={MenuUI.PenWash,MenuUI.IceWash,MenuUI.LensWash};
             Vector2 top=new Vector2(0,1);
 
-            var supply=Skin.Rect("Shop coin supply",Content,new Vector2(.5f,1),new Vector2(0,-954),new Vector2(960,268));
+            var supply=Skin.Rect("Shop coin supply",Content,new Vector2(.5f,1),new Vector2(0,-976),new Vector2(960,268));
             MenuUI.SoftDepth(supply,supply.sizeDelta,40,MenuUI.WarmShadow);
             MenuUI.Extrude(supply,Vector2.one*.5f,Vector2.zero,supply.sizeDelta,MenuUI.MintWash,MenuUI.MintDepth,40);
             if(RewardEntryEnabled(RewardPlacement.CoinSupply))
@@ -56,7 +56,7 @@ namespace Inkomino
             for(int i=0;i<icons.Length;i++)
             {
                 int index=i;
-                float rowCenter=1286+i*344;
+                float rowCenter=1345+i*381;
                 var row=Skin.Rect("Shop row "+i,Content,new Vector2(.5f,1),new Vector2(0,-rowCenter),new Vector2(980,292));
                 MenuUI.SoftDepth(row,row.sizeDelta,36,MenuUI.WarmShadow);
                 MenuUI.Extrude(row,Vector2.one*.5f,Vector2.zero,row.sizeDelta,MenuUI.Cream,MenuUI.WarmShadow,36);
@@ -74,7 +74,7 @@ namespace Inkomino
                 },new Vector2(860,-40));
             }
 
-            MenuUI.Adapt(Content,headerLayout,firstContentChild,2041f,2120f);
+            MenuUI.Adapt(Content,headerLayout,firstContentChild,2041f,2253f);
             Navigation(0);
             FocusFirst();
         }

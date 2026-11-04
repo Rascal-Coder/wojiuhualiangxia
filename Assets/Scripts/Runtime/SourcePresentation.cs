@@ -34,7 +34,7 @@ namespace Inkomino
                 MenuMotion.Float(painting.rectTransform,6,.7f);
             }
             HomeGameClub();
-            homePlayButton=MenuUI.GameButton(Zh.Play,Content,new Vector2(.5f,1),new Vector2(0,-1710),new Vector2(960,208),()=>{Feel.Success();PlayCurrent();},72);
+            homePlayButton=MenuUI.GameButton(Zh.Play,Content,new Vector2(.5f,1),new Vector2(0,-1694),new Vector2(960,208),()=>{Feel.Success();PlayCurrent();},72);
             var playLabel=homePlayButton.GetComponentInChildren<Text>();playLabel.rectTransform.anchoredPosition=new Vector2(96,8);playLabel.rectTransform.sizeDelta=new Vector2(460,150);
             MenuUI.Extrude(playLabel.transform.parent,Vector2.one*.5f,new Vector2(-310,8),new Vector2(210,76),MenuUI.Lemon,new Color32(214,140,48,230),38);
             var level=MenuUI.Label("第"+Store.Data.level+"关",playLabel.transform.parent,Vector2.one*.5f,new Vector2(-310,8),new Vector2(196,68),46,MenuUI.Ink,TextAnchor.MiddleCenter,true);level.name="Home current level";
@@ -105,6 +105,8 @@ namespace Inkomino
                 if(selected)MenuUI.Extrude(tab,Vector2.one*.5f,new Vector2(0,2),new Vector2(300,156),MenuUI.Coral,MenuUI.CoralDepth,40);
                 float iconSize=selected?88f:80f,labelH=48f,iconGap=8f,capsuleMid=84f;
                 float group=iconSize+iconGap+labelH,groupTop=capsuleMid-group*.5f;
+                // Home candy is pink; on the coral capsule it reads faint. A cream disc stays inside the icon box.
+                if(selected){var plate=Skin.RoundBox(tab,new Vector2(.5f,1),new Vector2(0,-(groupTop+iconSize*.5f)),Vector2.one*iconSize,MenuUI.SoftWhite,iconSize*.5f);plate.name="Tab icon plate";}
                 var icon=Skin.Art("game_assets_nav_tab"+ids[i],tab,new Vector2(.5f,1),new Vector2(0,-(groupTop+iconSize*.5f)),Vector2.one*iconSize);icon.color=Color.white;
                 string label=i==0?"商店":i==1?Zh.Home:Zh.Rank;
                 MenuUI.Label(label,tab,new Vector2(.5f,1),new Vector2(0,-(groupTop+iconSize+iconGap+labelH*.5f)),new Vector2(260,labelH),selected?46:44,selected?Color.white:MenuUI.Muted,TextAnchor.MiddleCenter,true);
@@ -119,7 +121,7 @@ namespace Inkomino
             var rules=Skin.Rect("Game rules entry",Content,new Vector2(0,1),new Vector2(828,-240),new Vector2(160,100));MenuUI.Extrude(rules,Vector2.one*.5f,Vector2.zero,rules.sizeDelta,MenuUI.Mint,MenuUI.MintDepth,50);MenuUI.Label("规则",rules,Vector2.one*.5f,new Vector2(0,2),new Vector2(136,70),42,MenuUI.Ink,TextAnchor.MiddleCenter,true);MenuMotion.Press(Skin.Hit(rules,ShowGameHelp,.85f));
             targets=At(Content,"Source targets",48,306,720,168);((RectTransform)targets).pivot=new Vector2(0,1);((RectTransform)targets).anchoredPosition=new Vector2(48,-306);
             headerLayout=clock.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,firstHud);
-            var boardArea=At(Content,"Source board area",36,442,1008,1424);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}boardArea.gameObject.AddComponent<SourceDiskFace>().Bind(BoardView);
+            var boardArea=At(Content,"Source board area",36,422,1008,1424);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}boardArea.gameObject.AddComponent<SourceDiskFace>().Bind(BoardView);
             message=Skin.Text("",Content,new Vector2(0,1),new Vector2(540,-1990),new Vector2(960,65),Mathf.RoundToInt(14*D),new Color32(234,72,119,255));
             BuildBoosterTray();
             bool restartIntro=id==1&&SourceTutorialEnabled&&!Store.Data.drawIntroSeen;
