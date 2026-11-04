@@ -148,7 +148,7 @@ namespace Inkomino
             var sheet=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.32f),size,top,rad);
             sheet.name=primary?"Primary button face":"Secondary button face";
             sheet.gameObject.AddComponent<MenuSurfaceLight>();
-            var lip=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.55f+size.y*.22f),new Vector2(size.x*.62f,Mathf.Max(18,size.y*.22f)),new Color32(255,255,255,primary?150:110),rad*.7f);
+            var lip=Skin.RoundBox(face,Vector2.one*.5f,new Vector2(0,lift*.55f+size.y*.22f),new Vector2(size.x*.62f,Mathf.Max(18,size.y*.22f)),new Color32(255,255,255,(byte)(primary?150:110)),rad*.7f);
             lip.name="Button gloss lip";
             Gloss(face,Vector2.one*.5f,new Vector2(-size.x*.16f,lift*.7f+size.y*.24f),new Vector2(size.x*.28f,Mathf.Max(12,size.y*.1f)),rad*.5f);
             Label(text,face,Vector2.one*.5f,new Vector2(0,lift*.2f),size-new Vector2(50,20),fontSize,primary?Color.white:Ink,TextAnchor.MiddleCenter,true);
