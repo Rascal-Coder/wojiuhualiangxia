@@ -232,7 +232,7 @@ namespace Inkomino
             Feel.Tap();
             if(MenuMotion.Reduced){Restore();return;}
             if(!EnsureVisual())return;
-            pointerId=eventData.pointerId;IsPressed=true;Tween(.94f,.06f);
+            pointerId=eventData.pointerId;IsPressed=true;Tween(.92f,.06f);
         }
         public void OnPointerUp(PointerEventData eventData)
         {
@@ -296,7 +296,7 @@ namespace Inkomino
             if(visual){float squash=Mathf.Min(current,1f);visual.localScale=Vector3.Scale(originalScale,new Vector3(current,squash*(2f-squash),1));visual.anchoredPosition=originalVisualPosition+Vector2.down*Mathf.Max(0f,1f-current)*420f;}
             if(highlight)
             {
-                float flash=current>=.995f?0:Mathf.Lerp(.32f,0,Mathf.Clamp01(Mathf.InverseLerp(.94f,1f,current)));
+                float flash=current>=.995f?0:Mathf.Lerp(.32f,0,Mathf.Clamp01(Mathf.InverseLerp(.92f,1f,current)));
                 var c=highlight.color;c.a=flash;highlight.color=c;
             }
         }

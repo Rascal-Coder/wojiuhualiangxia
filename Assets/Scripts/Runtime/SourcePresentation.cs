@@ -79,7 +79,15 @@ namespace Inkomino
             Skin.Art("shell_src_ui_coin",Content,new Vector2(0,1),new Vector2(670,-280),Vector2.one*88);Plus(new Vector2(891,-280),ShowShop);
             var settings=Skin.IconButton("game_assets_btnsettings",Content,new Vector2(0,1),new Vector2(993.5f,-280.5f),Vector2.one*46*D,()=>Settings(false));
             Skin.ColorBox(Content,new Vector2(0,1),new Vector2(540,-398.5f),new Vector2(1080,D),new Color32(232,160,112,150));headerLayout=settings.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,first);UpdateWallet();}
-        void Plus(Vector2 pos,Action onPress){var r=Skin.Rect("Add",Content,new Vector2(0,1),pos,Vector2.one*68);Skin.Art("shell_src_ui_plus",r,Vector2.one*.5f,Vector2.zero,r.sizeDelta);MenuMotion.Press(Skin.Hit(r,onPress,.8f));}
+        void Plus(Vector2 pos,Action onPress)
+        {
+            var r=Skin.Rect("Add",Content,new Vector2(0,1),pos,Vector2.one*68);
+            MenuUI.Extrude(r,Vector2.one*.5f,Vector2.zero,r.sizeDelta,MenuUI.Coral,MenuUI.CoralDepth,34);
+            var mark=new Vector2(0,2);
+            Skin.RoundBox(r,Vector2.one*.5f,mark,new Vector2(26,14),Color.white,7);
+            Skin.RoundBox(r,Vector2.one*.5f,mark,new Vector2(14,26),Color.white,7);
+            MenuMotion.Press(Skin.Hit(r,onPress,.8f));
+        }
         void Pill(Transform parent,Vector2 size,float strokeDp=1){MenuUI.Extrude(parent,Vector2.one*.5f,Vector2.zero,size,MenuUI.Cream,MenuUI.WarmShadow,size.y/2);}
         void UpdateWallet(){if(walletAvatar)walletAvatar.sprite=MenuUI.AvatarSprite(Store.Data.avatar);if(profileAvatar)profileAvatar.sprite=MenuUI.AvatarSprite(Store.Data.avatar);if(coins)coins.text=Store.Data.coins.ToString();if(hearts)hearts.text=Store.Data.hearts.ToString();if(lifeTimer){long sec=Math.Max(0,Store.Data.regenAt-SaveStore.Now);lifeTimer.text=Store.Data.hearts>=5?Zh.LivesFull:RewardCountdown(sec);}UpdateHomeTimers();}
         void SourceEvent(string art,int index,float x,float y,string text,Action action,bool locked=false){var r=At(Content,"Source event "+index,x,y,86*D,84*D);Skin.Art("game_assets_event_frame",r,new Vector2(.5f,.5f),Vector2.zero,r.sizeDelta,false);float icon=index==2?Mathf.Round(86*.8301f*.8f)*D:Mathf.Round(Mathf.Round(86*.8301f))*D;var img=Skin.Art(art,r,new Vector2(.5f,.5f),new Vector2(0,4*D),Vector2.one*icon);if(locked)img.color=new Color(1,1,1,.35f);
