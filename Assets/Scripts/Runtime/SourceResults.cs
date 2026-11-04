@@ -17,7 +17,6 @@ namespace Inkomino
             float width=1080,dp=Skin.DP;
             var title=Skin.Rect("Arc title",root,new Vector2(.5f,1),new Vector2(0,-420),new Vector2(920,240));
             motion.BuildTitle(title,Zh.Cleared,128);
-            var seal=MenuUI.Art("ink_stamp",root,new Vector2(.5f,1),new Vector2(360,-400),new Vector2(150,150));MenuMotion.Celebrate(seal.rectTransform);
             MenuUI.Label(Zh.Level(CurrentLevel),root,new Vector2(.5f,1),new Vector2(0,-620),new Vector2(900,70),54,MenuUI.Muted,TextAnchor.MiddleCenter);
 
             // Root title margins: top44, height100, bottom4; root gap8.

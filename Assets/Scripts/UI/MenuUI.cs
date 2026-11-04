@@ -11,7 +11,7 @@ namespace Inkomino
     {
         public const int TitleSize=72,Body=48,Small=42;
         public static readonly Color Ink=InkTheme.Ink,Muted=InkTheme.Muted,Gold=InkTheme.Line,Green=InkTheme.Jade,Purple=InkTheme.Cinnabar;
-        public static readonly Color32 Coral=new Color32(255,99,139,255),CoralChip=new Color32(255,168,190,255),CoralDepth=new Color32(214,72,118,255),Grape=new Color32(102,69,170,255),Cream=new Color32(255,252,255,255),Lemon=new Color32(255,243,209,255),Mint=new Color32(117,218,186,255),MintWash=new Color32(221,248,237,255),MintDepth=new Color32(72,176,148,255),Blush=new Color32(255,228,238,255),LilacWash=new Color32(239,228,255,255),Sky=new Color32(232,244,255,255),SoftWhite=new Color32(255,255,255,255);
+        public static readonly Color32 Coral=new Color32(255,99,139,255),CoralChip=new Color32(255,168,190,255),CoralDepth=new Color32(214,72,118,255),Grape=new Color32(102,69,170,255),Cream=new Color32(255,252,255,255),Lemon=new Color32(255,243,209,255),Mint=new Color32(117,218,186,255),MintWash=new Color32(221,248,237,255),MintDepth=new Color32(72,176,148,255),Blush=new Color32(255,228,238,255),LilacWash=new Color32(239,228,255,255),Sky=new Color32(232,244,255,255),SoftWhite=new Color32(255,255,255,255),PenWash=new Color32(255,206,224,255),IceWash=new Color32(196,230,255,255),LensWash=new Color32(224,208,255,255);
         static Font bodyFont,numberFont;
         static readonly Dictionary<string,Sprite> art=new Dictionary<string,Sprite>();
         [Serializable] public sealed class AtlasRegion{public string key;public int x,y,width,height,border,borderX,borderY;}
@@ -83,7 +83,7 @@ namespace Inkomino
         public static RectTransform Paper(Transform parent,Vector2 anchor,Vector2 pos,Vector2 size,bool accent=false)
         {
             var r=Skin.Rect("Menu paper",parent,anchor,pos,size);
-            float radius=Mathf.Min(56,Mathf.Min(size.x,size.y)*.2f);
+            float radius=Mathf.Min(72,Mathf.Min(size.x,size.y)*.22f);
             SoftDepth(r,size,radius);
             var rim=Skin.RoundBox(r,Vector2.one*.5f,Vector2.zero,size,Color.white,radius);
             rim.name="Soft card rim";
@@ -99,14 +99,14 @@ namespace Inkomino
             Extrude(r,Vector2.one*.5f,Vector2.zero,size,fill,new Color32(145,110,196,90),size.y*.5f);
             return r;
         }
-        public static RectTransform CountBubble(Transform parent,Vector2 pos,Vector2 size,string text,Color32? fill=null)
+        public static RectTransform CountBubble(Transform parent,Vector2 pos,Vector2 size,string text,Color32? fill=null,Color? ink=null)
         {
             var r=Skin.Rect("Count bubble",parent,new Vector2(.5f,.5f),pos,size);
             float rad=size.y*.5f;
-            SoftDepth(r,size,rad,new Color32(214,72,118,70));
+            SoftDepth(r,size,rad,new Color32(145,110,196,70));
             var face=Skin.RoundBox(r,Vector2.one*.5f,Vector2.zero,size,fill??CoralChip,rad);
             face.name="Count bubble face";
-            Label(text,r,Vector2.one*.5f,Vector2.zero,size-new Vector2(8,4),Mathf.Max(42,Mathf.RoundToInt(size.y*.55f)),Grape,TextAnchor.MiddleCenter);
+            Label(text,r,Vector2.one*.5f,Vector2.zero,size-new Vector2(8,4),Mathf.Max(42,Mathf.RoundToInt(size.y*.55f)),ink??Grape,TextAnchor.MiddleCenter);
             return r;
         }
         public static void Title(string title,string subtitle,Transform parent)

@@ -19,14 +19,21 @@ namespace Inkomino
         public void ShowHome()
         {
             Playing=false;Review=false;screen="home";ClearScreen("game_assets_homebg");Wallet();int first=Content.childCount;
-            var hero=Skin.Rect("Home sticker showcase",Content,new Vector2(.5f,1),new Vector2(0,-1076),new Vector2(900,820));
+            var hero=Skin.Rect("Home sticker showcase",Content,new Vector2(.5f,1),new Vector2(0,-940),new Vector2(960,820));
             MenuUI.Paper(hero,Vector2.one*.5f,Vector2.zero,hero.sizeDelta);
-            var painting=MenuUI.Art("ink_home_hero",hero,Vector2.one*.5f,new Vector2(0,8),new Vector2(820,740));
-            if(painting)MenuMotion.Float(painting.rectTransform,4,.8f);
+            var clip=Skin.Rect("Home hero clip",hero,Vector2.one*.5f,new Vector2(0,2),hero.sizeDelta-new Vector2(44,44));
+            var round=clip.gameObject.AddComponent<RoundedGraphic>();round.color=Color.white;round.Radius=52;round.raycastTarget=false;
+            var mask=clip.gameObject.AddComponent<Mask>();mask.showMaskGraphic=false;
+            var painting=MenuUI.Art("ink_home_hero",clip,Vector2.one*.5f,Vector2.zero,clip.sizeDelta);
+            if(painting&&painting.sprite)
+            {
+                var spriteRect=painting.sprite.rect;float aspect=spriteRect.width/Mathf.Max(1f,spriteRect.height);var box=clip.sizeDelta;
+                bool wide=box.x/Mathf.Max(1f,box.y)>aspect;
+                painting.preserveAspect=true;painting.rectTransform.sizeDelta=new Vector2(wide?box.x:box.y*aspect,wide?box.x/aspect:box.y)+new Vector2(48,48);
+                MenuMotion.Float(painting.rectTransform,5,.8f);
+            }
             HomeGameClub();
-
-            MenuUI.Label("随手划两下，快乐贴满格",Content,new Vector2(.5f,1),new Vector2(0,-1548),new Vector2(900,80),52,MenuUI.Muted,TextAnchor.MiddleCenter,true);
-            homePlayButton=MenuUI.GameButton(Zh.Play,Content,new Vector2(.5f,1),new Vector2(0,-1740),new Vector2(980,252),()=>{Feel.Success();PlayCurrent();},84);
+            homePlayButton=MenuUI.GameButton(Zh.Play,Content,new Vector2(.5f,1),new Vector2(0,-1508),new Vector2(980,236),()=>{Feel.Success();PlayCurrent();},84);
             var playLabel=homePlayButton.GetComponentInChildren<Text>();playLabel.rectTransform.anchoredPosition=new Vector2(118,8);playLabel.rectTransform.sizeDelta=new Vector2(560,200);
             MenuUI.Extrude(playLabel.transform.parent,Vector2.one*.5f,new Vector2(-318,8),new Vector2(208,92),MenuUI.Lemon,new Color32(232,176,72,220),46);
             var level=MenuUI.Label("第"+Store.Data.level+"关",playLabel.transform.parent,Vector2.one*.5f,new Vector2(-318,8),new Vector2(230,110),46,MenuUI.Ink,TextAnchor.MiddleCenter,true);level.name="Home current level";
@@ -36,7 +43,7 @@ namespace Inkomino
         }
         void HomeGameClub()
         {
-            var card=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(350,-575),new Vector2(330,150));card.name="Home game club entry";
+            var card=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(300,-448),new Vector2(340,132));card.name="Home game club entry";
             MenuUI.Art("entry_friends",card,Vector2.one*.5f,new Vector2(-108,0),Vector2.one*100);
             MenuUI.Label("游戏圈",card,Vector2.one*.5f,new Vector2(46,0),new Vector2(205,110),52,MenuUI.Ink,TextAnchor.MiddleCenter,true);
             var entry=card.gameObject.AddComponent<GameClubEntry>();homeGameClubEntry=entry;
@@ -45,8 +52,8 @@ namespace Inkomino
         }
         void HomeEvent(int index,string title,string icon,float x,Action action)
         {
-            var card=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(x,-1990),new Vector2(472,216));card.name="Source event "+index;
-            MenuUI.Plate(card,new Vector2(0,.5f),new Vector2(92,0),Vector2.one*148,index==3?MenuUI.LilacWash:MenuUI.MintWash,42);
+            var card=MenuUI.Paper(Content,new Vector2(.5f,1),new Vector2(x,-1768),new Vector2(472,216));card.name="Source event "+index;
+            MenuUI.Plate(card,new Vector2(0,.5f),new Vector2(92,0),Vector2.one*148,index==3?MenuUI.LensWash:MenuUI.PenWash,42);
             if(index==3)MenuUI.Art("entry_album",card,new Vector2(0,.5f),new Vector2(92,0),Vector2.one*128);else Skin.Art(icon,card,new Vector2(0,.5f),new Vector2(92,0),Vector2.one*128);
             MenuUI.Label(title,card,new Vector2(0,.5f),new Vector2(314,40),new Vector2(270,64),50,MenuUI.Ink,TextAnchor.MiddleLeft,true);
             sourceEventLabels[index]=MenuUI.Label("",card,new Vector2(0,.5f),new Vector2(314,-40),new Vector2(270,64),42,MenuUI.Muted);
@@ -61,8 +68,8 @@ namespace Inkomino
             var hp=At(Content,"Lives pill",204,169,382,36*D);Pill(hp,hp.sizeDelta,2);
             lifeTimer=MenuUI.Label("",hp,Vector2.one*.5f,new Vector2(48,0),new Vector2(205,78),46,MenuUI.Ink,TextAnchor.MiddleCenter);Skin.Hit(hp,LifePopup,.8f);
             var heart=Skin.Art("shell_src_ui_heart",Content,new Vector2(0,1),new Vector2(242,-216),Vector2.one*128);heart.name="Wallet heart";
-            hearts=MenuUI.Label("",heart.transform,Vector2.one*.5f,new Vector2(0,-4),new Vector2(62,75),48,Color.white,TextAnchor.MiddleCenter);hearts.name="Wallet life count";
-            var heartOutline=hearts.gameObject.AddComponent<Outline>();heartOutline.effectColor=MenuUI.Ink;heartOutline.effectDistance=new Vector2(1,-1);
+            hearts=MenuUI.Label("",heart.transform,Vector2.one*.5f,new Vector2(0,-4),new Vector2(62,75),48,MenuUI.Ink,TextAnchor.MiddleCenter);hearts.name="Wallet life count";
+            var heartOutline=hearts.gameObject.AddComponent<Outline>();heartOutline.effectColor=new Color32(255,255,255,210);heartOutline.effectDistance=new Vector2(1,-1);
             Plus(new Vector2(573,-216),LifePopup);
             var cp=At(Content,"Coin pill",638,169,258,36*D);Pill(cp,cp.sizeDelta,2);
             coins=MenuUI.Label("",cp,Vector2.one*.5f,new Vector2(14,0),new Vector2(166,75),50,MenuUI.Ink,TextAnchor.MiddleCenter);Skin.Hit(cp,ShowShop,.8f);
@@ -85,7 +92,7 @@ namespace Inkomino
             {
                 var tab=At(nav,"Tab "+ids[i],i*360+16,13,328,232);bool selected=i==active;
                 if(selected)MenuUI.Extrude(tab,Vector2.one*.5f,new Vector2(0,6),new Vector2(300,218),MenuUI.CoralChip,MenuUI.CoralDepth,54);
-                var icon=Skin.Art("game_assets_nav_tab"+ids[i],tab,new Vector2(.5f,1),new Vector2(0,-78),Vector2.one*(selected?142:108));icon.color=new Color(1,1,1,selected?1:.58f);
+                var icon=Skin.Art("game_assets_nav_tab"+ids[i],tab,new Vector2(.5f,1),new Vector2(0,-78),Vector2.one*(selected?150:118));icon.color=Color.white;
                 string label=i==0?"商店":i==1?Zh.Home:Zh.Rank;
                 MenuUI.Label(label,tab,new Vector2(.5f,1),new Vector2(0,-184),new Vector2(285,68),selected?52:48,selected?MenuUI.Grape:MenuUI.Muted,TextAnchor.MiddleCenter,true);
                 MenuMotion.Press(Skin.Hit(tab,actions[i],.8f));
@@ -94,9 +101,10 @@ namespace Inkomino
         public void StartLevel(int id,bool review=false,bool resume=false){CurrentLevel=Mathf.Clamp(id,1,500);Review=review;Playing=true;Finished=false;screen="game";ClearScreen("game_assets_bg");var level=Data.levels[CurrentLevel-1];Board=new BoardState(level,Shapes);Remaining=level.time;frozen=0;continuations=0;rewardedContinues=0;lastTick=-1;
             int firstHud=Content.childCount;
             var clock=At(Content,"Source timer",360,118,360,148);MenuUI.Extrude(clock,Vector2.one*.5f,Vector2.zero,clock.sizeDelta,Color.white,new Color32(145,110,196,80),74);timer=MenuUI.Label("",clock,new Vector2(.5f,.5f),new Vector2(0,6),new Vector2(320,120),84,MenuUI.Ink,TextAnchor.MiddleCenter);timeFill=null;
-            var lp=At(Content,"Source level",28,138,250,112);MenuUI.Extrude(lp,Vector2.one*.5f,Vector2.zero,lp.sizeDelta,new Color32(255,176,96,255),new Color32(232,120,56,255),56);MenuUI.Label("第"+CurrentLevel+"关",lp,new Vector2(.5f,.5f),new Vector2(0,4),new Vector2(220,96),50,Color.white,TextAnchor.MiddleCenter,true);
-            var pause=Skin.Rect("Pause circle",Content,new Vector2(0,1),new Vector2(991,-207),Vector2.one*118);MenuUI.Extrude(pause,Vector2.one*.5f,Vector2.zero,pause.sizeDelta,MenuUI.LilacWash,MenuUI.Grape,59);Skin.IconButton("game_assets_btnpause",pause,Vector2.one*.5f,Vector2.zero,Vector2.one*72,()=>Settings(true));
-            var rules=MenuUI.SecondaryButton("规则",Content,new Vector2(0,1),new Vector2(800,-207),new Vector2(160,100),ShowGameHelp,42);rules.name="Game rules entry";
+            var lp=At(Content,"Source level",28,138,250,112);MenuUI.Extrude(lp,Vector2.one*.5f,Vector2.zero,lp.sizeDelta,new Color32(255,176,96,255),new Color32(232,120,56,255),56);MenuUI.Label("第"+CurrentLevel+"关",lp,new Vector2(.5f,.5f),new Vector2(0,8),new Vector2(220,78),48,Color.white,TextAnchor.MiddleCenter,true);
+            int marks=level.targets==null?0:level.targets.Length;if(marks>0){var badge=Skin.Rect("Level mark",lp,new Vector2(.5f,0),new Vector2(0,-10),new Vector2(112,48));Skin.RoundBox(badge,Vector2.one*.5f,new Vector2(0,-3),badge.sizeDelta,MenuUI.CoralDepth,24);Skin.RoundBox(badge,Vector2.one*.5f,Vector2.zero,badge.sizeDelta,MenuUI.CoralChip,24);MenuUI.Label("×"+marks,badge,Vector2.one*.5f,Vector2.zero,badge.sizeDelta,42,Color.white,TextAnchor.MiddleCenter);}
+            var pause=Skin.Rect("Pause circle",Content,new Vector2(0,1),new Vector2(1004,-207),Vector2.one*104);MenuUI.Extrude(pause,Vector2.one*.5f,Vector2.zero,pause.sizeDelta,MenuUI.LensWash,MenuUI.Grape,52);Skin.IconButton("game_assets_btnpause",pause,Vector2.one*.5f,Vector2.zero,Vector2.one*64,()=>Settings(true));
+            var rules=Skin.Rect("Game rules entry",Content,new Vector2(0,1),new Vector2(790,-207),new Vector2(196,104));MenuUI.Extrude(rules,Vector2.one*.5f,Vector2.zero,rules.sizeDelta,MenuUI.Mint,MenuUI.MintDepth,52);MenuUI.Label("规则",rules,Vector2.one*.5f,new Vector2(0,2),new Vector2(160,80),42,MenuUI.Ink,TextAnchor.MiddleCenter,true);MenuMotion.Press(Skin.Hit(rules,ShowGameHelp,.85f));
             targets=At(Content,"Source targets",31.5f,273,1017,225);((RectTransform)targets).pivot=new Vector2(0,1);((RectTransform)targets).anchoredPosition=new Vector2(31.5f,-273);
             headerLayout=clock.gameObject.AddComponent<WeChatHeaderLayout>();headerLayout.TrackChildren(Content,firstHud);
             var boardArea=At(Content,"Source board area",38,540,1004,1395);headerLayout.SetBoard(boardArea);BoardView=boardArea.gameObject.AddComponent<PuzzleBoardView>();BoardView.TutorialReservedDp=id==1?SourceTutorialReserveDp:0;BoardView.CanInput=()=>InputEnabled;BoardView.Message=SetMessage;BoardView.Init(Board);SourceWoodFrame.Build((RectTransform)boardArea.parent,BoardView);if(id<=10){var idle=boardArea.gameObject.AddComponent<SourceIdleHint>();idle.Init(this,BoardView);}
@@ -113,7 +121,7 @@ namespace Inkomino
         {
             var tray=Skin.Rect("Sticker booster tray",Content,new Vector2(.5f,0),new Vector2(0,218),new Vector2(1010,392));
             // Layout-only container. Each booster has its own glossy casual tile.
-            string[] icons={"pen","freeze","lens"};Color[] colors={MenuUI.Blush,MenuUI.MintWash,MenuUI.LilacWash};
+            string[] icons={"pen","freeze","lens"};Color[] colors={MenuUI.PenWash,MenuUI.IceWash,MenuUI.LensWash};
             for(int i=0;i<3;i++)
             {
                 int k=i;var slot=Skin.Rect("Source booster "+i,tray,new Vector2(.5f,.5f),new Vector2((i-1)*322,8),new Vector2(292,334));
@@ -121,8 +129,8 @@ namespace Inkomino
                 var rim=Skin.RoundBox(slot,Vector2.one*.5f,Vector2.zero,new Vector2(286,326),Color.white,50);rim.gameObject.AddComponent<MenuSurfaceLight>();
                 Skin.RoundBox(slot,Vector2.one*.5f,new Vector2(0,6),new Vector2(268,306),colors[i],42);
                 MenuUI.Gloss(slot,Vector2.one*.5f,new Vector2(0,90),new Vector2(200,70),36);
-                var icon=MenuUI.Art("menu_"+icons[i],slot,Vector2.one*.5f,new Vector2(0,65),Vector2.one*156);
-                bool locked=CurrentLevel<(i==0?3:i==1?7:10);icon.color=new Color(1,1,1,locked?.64f:1);
+                var icon=MenuUI.Art("menu_"+icons[i],slot,Vector2.one*.5f,new Vector2(0,62),Vector2.one*188);
+                bool locked=CurrentLevel<(i==0?3:i==1?7:10);if(icon)icon.color=new Color(1,1,1,locked?.64f:1);
                 MenuUI.Label(i==0?Zh.MagicPen:i==1?Zh.FreezeTime:Zh.Lens,slot,Vector2.one*.5f,new Vector2(0,-43),new Vector2(250,62),44,MenuUI.Ink,TextAnchor.MiddleCenter,true);
                 MenuMotion.Press(Skin.Hit(slot,()=>UseBooster(k),.8f));
             }
@@ -136,7 +144,7 @@ namespace Inkomino
                 var status=Skin.Rect("Booster status "+i,layer,new Vector2(.5f,0),new Vector2((i-1)*322,113),new Vector2(244,58));
                 bool locked=CurrentLevel<unlock[i];
                 if(locked){Skin.RoundBox(status,Vector2.one*.5f,Vector2.zero,new Vector2(210,54),new Color32(255,255,255,235),27);Skin.Art("shell_src_ui_lock",status,Vector2.one*.5f,new Vector2(-77,0),Vector2.one*44);MenuUI.Label(Zh.UnlockBadge(unlock[i]),status,Vector2.one*.5f,new Vector2(24,0),new Vector2(188,58),42,MenuUI.Muted,TextAnchor.MiddleCenter);}
-                else MenuUI.CountBubble(status,Vector2.zero,new Vector2(168,54),counts[i]>0?"×"+counts[i]:"补充");
+                else MenuUI.CountBubble(status,Vector2.zero,new Vector2(168,54),counts[i]>0?"×"+counts[i]:"补充",i==0?MenuUI.Coral:i==1?new Color32(86,168,232,255):new Color32(168,132,224,255),Color.white);
             }
         }
         public RectTransform Popup(string title,float width=920,float height=1200){if(BoardView)BoardView.Cancel();var shade=Skin.Fill(title+" overlay",Overlays);shade.gameObject.AddComponent<Image>().color=new Color(46/255f,29/255f,67/255f,.48f);shade.gameObject.AddComponent<CanvasGroup>();var motion=Skin.Rect("Source popup motion",shade,new Vector2(.5f,.5f),Vector2.zero,new Vector2(1080,2400));float w=Mathf.Min(width,1080*.99f-48*D);var panel=Skin.Rect(title+" panel",motion,new Vector2(.5f,.5f),new Vector2(0,-70.875f),new Vector2(w,height));MenuUI.Paper(panel,new Vector2(.5f,.5f),Vector2.zero,panel.sizeDelta);MenuUI.Label(title,panel,new Vector2(.5f,1),new Vector2(0,-88),new Vector2(w-175,118),72,MenuUI.Grape,TextAnchor.MiddleCenter,true);Skin.RoundBox(panel,new Vector2(.5f,1),new Vector2(0,-168),new Vector2(w-140,8),MenuUI.Coral,4);

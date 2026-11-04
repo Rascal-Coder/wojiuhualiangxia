@@ -21,7 +21,7 @@ namespace Inkomino
             string[] items={"hint","freeze","lens"};
             string[] titles={Zh.MagicPen,Zh.FreezeTime,Zh.Lens};
             string[] descriptions={"自动完成一块图形","暂停倒计时 10 秒","查看两块图形的提示"};
-            Color32[] plates={MenuUI.Blush,MenuUI.MintWash,MenuUI.LilacWash};
+            Color32[] plates={MenuUI.PenWash,MenuUI.IceWash,MenuUI.LensWash};
             Vector2 top=new Vector2(0,1);
 
             for(int i=0;i<icons.Length;i++)
